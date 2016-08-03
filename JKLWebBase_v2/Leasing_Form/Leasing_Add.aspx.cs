@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using JKLWebBase_v2.Managers;
+using JKLWebBase_v2.Class_Models;
 
 namespace JKLWebBase_v2.Leasing_Form
 {
@@ -11,6 +13,13 @@ namespace JKLWebBase_v2.Leasing_Form
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Car_Brand_Manager cbm = new Car_Brand_Manager();
+            List<Car_Brands> car_brand = cbm.getCarBrands();
+            for (int i = 0; i < car_brand.Count; i++)
+            {
+                Car_Brands cb = car_brand[i];
+                Car_Brand_DDL.Items.Add(new ListItem(cb.car_brand_name_eng.ToString() + " ( " + cb.car_brand_name_th.ToString() + " ) ", cb.car_brand_id.ToString()));
+            }
 
         }
 
