@@ -29,11 +29,11 @@
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Car_brand_Lbl" runat="server" >ยี่ห้อรถ</asp:Label>
-                            <asp:DropDownList ID="Car_Brand_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
+                            <asp:DropDownList ID="Car_Brand_DDL" runat="server" CssClass="form-control" OnSelectedIndexChanged="Car_Brand_DDL_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Car_Model_Lbl" runat="server" >รุ่นรถ</asp:Label>
-                            <asp:TextBox ID="Car_Model_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:DropDownList ID="Car_Model_DDL" runat="server" CssClass="form-control" ></asp:DropDownList>
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Car_Color_Lbl" runat="server" >สีรถ</asp:Label>
@@ -1004,7 +1004,7 @@
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Spouse_province_Lbl" runat="server" >จังหวัด</asp:Label>
-                                        <asp:DropDownList ID="Spouse_province_TBx" runat="server" CssClass="form-control"></asp:DropDownList>
+                                        <asp:DropDownList ID="Spouse_province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Spouse_country_Lbl" runat="server" >ประเทศ</asp:Label>

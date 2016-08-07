@@ -6,30 +6,31 @@ using JKLWebBase_v2.Class_Models;
 
 namespace JKLWebBase_v2.Managers
 {
-    public class Car_Brand_Manager
+    public class TH_Provinces_Manager
     {
         private string error;
-        private List<Car_Brands> lcb = new List<Car_Brands>();
+        private List<TH_Provinces> lth_pv = new List<TH_Provinces>();
 
-        public List<Car_Brands> getCarBrands()
+        public List<TH_Provinces> getProvinces()
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM base_car_brands";
+                string sql = "SELECT * FROM th_provinces";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Car_Brands cb = new Car_Brands();
-                    cb.car_brand_id = int.Parse(reader[0].ToString());
-                    cb.car_brand_name_eng = reader[1].ToString();
-                    cb.car_brand_name_th = reader[2].ToString();
-                    lcb.Add(cb);
+                    TH_Provinces th_pv = new TH_Provinces();
+                    th_pv.Province_id = int.Parse(reader["Province_id"].ToString());
+                    th_pv.Province_code = reader["Province_code"].ToString();
+                    th_pv.Province_name = reader["Province_name"].ToString();
+                    th_pv.Geo_id = int.Parse(reader["Geo_id"].ToString());
+                    lth_pv.Add(th_pv);
                 }
 
-                return lcb;
+                return lth_pv;
             }
             catch (MySqlException ex)
             {

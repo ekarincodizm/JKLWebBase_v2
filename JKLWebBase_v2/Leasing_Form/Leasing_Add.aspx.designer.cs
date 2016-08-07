@@ -112,13 +112,13 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.Label Car_Model_Lbl;
         
         /// <summary>
-        /// Car_Model_TBx control.
+        /// Car_Model_DDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Car_Model_TBx;
+        protected global::System.Web.UI.WebControls.DropDownList Car_Model_DDL;
         
         /// <summary>
         /// Car_Color_Lbl control.
@@ -3145,13 +3145,13 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.Label Spouse_province_Lbl;
         
         /// <summary>
-        /// Spouse_province_TBx control.
+        /// Spouse_province_DDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Spouse_province_TBx;
+        protected global::System.Web.UI.WebControls.DropDownList Spouse_province_DDL;
         
         /// <summary>
         /// Spouse_country_Lbl control.

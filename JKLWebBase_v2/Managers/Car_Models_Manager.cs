@@ -1,35 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using MySql.Data.MySqlClient;
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Models;
+using System.Configuration;
 
 namespace JKLWebBase_v2.Managers
 {
-    public class Car_Brand_Manager
+    public class Car_Models_Manager
     {
         private string error;
-        private List<Car_Brands> lcb = new List<Car_Brands>();
+        private List<Car_Models> lcm = new List<Car_Models>();
 
-        public List<Car_Brands> getCarBrands()
+        public List<Car_Models> getCarBrands(int car_brand_id)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM base_car_brands";
+                string sql = "SELECT * FROM base_car_models WHERE Car_brand_id = " + car_brand_id;
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Car_Brands cb = new Car_Brands();
-                    cb.car_brand_id = int.Parse(reader[0].ToString());
-                    cb.car_brand_name_eng = reader[1].ToString();
-                    cb.car_brand_name_th = reader[2].ToString();
-                    lcb.Add(cb);
+                    Car_Models cm = new Car_Models();
+                    cm.car_model_id = int.Parse(reader[0].ToString());
+                    cm.car_brand_id = int.Parse(reader[1].ToString());
+                    cm.car_model_name = reader[2].ToString();
+                    lcm.Add(cm);
                 }
 
-                return lcb;
+                return lcm;
             }
             catch (MySqlException ex)
             {

@@ -303,6 +303,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Class_Models\Car_Models.cs" />
     <Compile Include="Class_Models\Car_Types.cs" />
+    <Compile Include="Class_Models\TH_Provinces.cs" />
     <Compile Include="Global_Class\DateTimeUtility.cs" />
     <Compile Include="Global_Class\Log_Error.cs" />
     <Compile Include="Global_Class\MSSQLConnection.cs" />
@@ -354,6 +355,9 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Managers\Car_Brand_Manager.cs" />
+    <Compile Include="Managers\Car_Models_Manager.cs" />
+    <Compile Include="Managers\Car_Types_Manager.cs" />
+    <Compile Include="Managers\TH_Provinces_Manager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
