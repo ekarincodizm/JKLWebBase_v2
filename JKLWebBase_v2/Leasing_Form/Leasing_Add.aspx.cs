@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using JKLWebBase_v2.Managers;
 using JKLWebBase_v2.Class_Models;
@@ -11,9 +8,10 @@ namespace JKLWebBase_v2.Leasing_Form
 {
     public partial class Leasing_Add : System.Web.UI.Page
     {
+        private Car_Brand_Manager cbm = new Car_Brand_Manager();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            Car_Brand_Manager cbm = new Car_Brand_Manager();
             List<Car_Brands> car_brand = cbm.getCarBrands();
             for (int i = 0; i < car_brand.Count; i++)
             {
