@@ -12,9 +12,9 @@ namespace JKLWebBase_v2.Managers
     public class Car_Types_Manager
     {
         private string error;
-        private List<Car_Types> lctp = new List<Car_Types>();
+        private List<Base_Car_Types> lctp = new List<Base_Car_Types>();
 
-        public List<Car_Types> getCarBrands()
+        public List<Base_Car_Types> getCarBrands()
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
@@ -25,7 +25,7 @@ namespace JKLWebBase_v2.Managers
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Car_Types ctp = new Car_Types();
+                    Base_Car_Types ctp = new Base_Car_Types();
                     ctp.car_type_id = int.Parse(reader[0].ToString());
                     ctp.car_type_name = reader[1].ToString();
                     lctp.Add(ctp);

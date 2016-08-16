@@ -301,14 +301,23 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Class_Models\Car_Models.cs" />
-    <Compile Include="Class_Models\Car_Types.cs" />
+    <Compile Include="Class_Models\Base_Address_Types.cs" />
+    <Compile Include="Class_Models\Base_Zone_Service.cs" />
+    <Compile Include="Class_Models\Base_Branchs.cs" />
+    <Compile Include="Class_Models\Base_Car_Models.cs" />
+    <Compile Include="Class_Models\Base_Car_Types.cs" />
+    <Compile Include="Class_Models\Base_Courts.cs" />
+    <Compile Include="Class_Models\Base_Home_Status.cs" />
+    <Compile Include="Class_Models\Base_Leasing_Code.cs" />
+    <Compile Include="Class_Models\Base_Nationalitys.cs" />
+    <Compile Include="Class_Models\Base_Origins.cs" />
+    <Compile Include="Class_Models\Base_Tents_Car.cs" />
     <Compile Include="Class_Models\TH_Provinces.cs" />
     <Compile Include="Global_Class\DateTimeUtility.cs" />
     <Compile Include="Global_Class\Log_Error.cs" />
     <Compile Include="Global_Class\MSSQLConnection.cs" />
     <Compile Include="Global_Class\MySQLConnection.cs" />
-    <Compile Include="Class_Models\Car_Brands.cs" />
+    <Compile Include="Class_Models\Base_Car_Brands.cs" />
     <Compile Include="Leasing_Form\Leasing_Add_Bondsman.aspx.cs">
       <DependentUpon>Leasing_Add_Bondsman.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

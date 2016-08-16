@@ -262,7 +262,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-xs-2">
-                            <asp:Label ID="TotalPaymentTime_Lbl" runat="server" >ระยะเวลาชำระะเงิน</asp:Label>
+                            <asp:Label ID="TotalPaymentTime_Lbl" runat="server" >ระยะเวลาชำระเงิน</asp:Label>
                             <asp:DropDownList ID="TotalPaymentTime_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-xs-2">
@@ -943,6 +943,7 @@
                         </div>
                     </div>
 
+                    <asp:Panel ID="Spouse_Panel" runat="server">
                     <div class="row col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -1105,6 +1106,7 @@
                             </div>
                         </div>
                     </div>
+                    </asp:Panel>
 
                 </div>
                 <!-- /.ข้อมูลผู้ทำสัญญา -->

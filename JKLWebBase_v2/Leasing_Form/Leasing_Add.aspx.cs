@@ -19,6 +19,8 @@ namespace JKLWebBase_v2.Leasing_Form
             {
                 _loadCarType();
                 _loadCarBrand();
+                _loadCarYear();
+                _loadCarUsed();
                 _loadThaiProvinces();
             }
         }
@@ -69,16 +71,6 @@ namespace JKLWebBase_v2.Leasing_Form
         }
 
 
-
-
-
-
-
-
-
-
-
-
         /*******************************************************************************************************************************************************************************
         ****************************************************                   Load Default Data to Form                        ********************************************************
         ****************************************************                                                                    ********************************************************
@@ -87,11 +79,11 @@ namespace JKLWebBase_v2.Leasing_Form
         // ดึงข้อมูลประเภทรภ
         private void _loadCarType()
         {
-            List<Car_Types> lct = ctm.getCarBrands();
+            List<Base_Car_Types> lct = ctm.getCarBrands();
             Car_Type_DDL.Items.Add(new ListItem("--------กรุณาเลือก--------", "0"));
             for (int i = 0; i < lct.Count; i++)
             {
-                Car_Types ct = lct[i];
+                Base_Car_Types ct = lct[i];
                 Car_Type_DDL.Items.Add(new ListItem(ct.car_type_name.ToString(), ct.car_type_id.ToString()));
             }
         }
@@ -99,11 +91,11 @@ namespace JKLWebBase_v2.Leasing_Form
         // ดึงข้อมูลยี่ห้อรถ
         private void _loadCarBrand()
         {
-            List<Car_Brands> lcb = cbm.getCarBrands();
+            List<Base_Car_Brands> lcb = cbm.getCarBrands();
             Car_Brand_DDL.Items.Add(new ListItem("--------กรุณาเลือก--------", "0"));
             for (int i = 0; i < lcb.Count; i++)
             {
-                Car_Brands cb = lcb[i];
+                Base_Car_Brands cb = lcb[i];
                 Car_Brand_DDL.Items.Add(new ListItem(cb.car_brand_name_eng.ToString() + " ( " + cb.car_brand_name_th.ToString() + " ) ", cb.car_brand_id.ToString()));
             }
         }
@@ -111,13 +103,13 @@ namespace JKLWebBase_v2.Leasing_Form
         // ดึงข้อมูลรุ่นรถ
         private void _loadCarModels(int index)
         {
-            List<Car_Models> lcm = cmm.getCarBrands(index);
+            List<Base_Car_Models> lcm = cmm.getCarBrands(index);
             if (lcm.Count > 0)
             {
                 Car_Model_DDL.Items.Add(new ListItem("--------กรุณาเลือก--------", "0"));
                 for (int i = 0; i < lcm.Count; i++)
                 {
-                    Car_Models cm = lcm[i];
+                    Base_Car_Models cm = lcm[i];
                     Car_Model_DDL.Items.Add(new ListItem(cm.car_model_name.ToString(), cm.car_model_id.ToString()));
                 }
             }
@@ -125,6 +117,91 @@ namespace JKLWebBase_v2.Leasing_Form
             {
                 Car_Model_DDL.Items.Clear();
             }
+        }
+
+        // ปีรถ
+        private void _loadCarYear()
+        {
+            int year_list = DateTime.Now.Year;
+            while (year_list >= 1957)
+            {
+                int year_th = year_list + 543;
+                Car_Year_DDL.Items.Add(new ListItem(year_th.ToString(), year_list.ToString()));
+                year_list--;
+            }
+        }
+
+        // สภาพรถ
+        private void _loadCarUsed()
+        {
+            Car_Year_DDL.Items.Add(new ListItem("รถใหม่", "0"));
+            Car_Year_DDL.Items.Add(new ListItem("ใช้แล้ว", "1"));
+        }
+
+        // รหัสสัญญา
+        private void _loadLeasingCode()
+        {
+            
+        }
+
+        // สาขา
+        private void _loadBrands()
+        {
+
+        }
+
+        // เขตบริการ
+        private void _loadZoneService()
+        {
+
+        }
+
+        // ระยะเวลาชำระเงิน
+        private void _loadTotalPaymentTime()
+        {
+
+        }
+
+        // ศาล
+        private void _loadCourt()
+        {
+
+        }
+
+        // กำหนดชำระทุกวันที่
+        private void _loadPaymentSchedule()
+        {
+
+        }
+
+        // เชื้อชาติ
+        private void _loadOrigin()
+        {
+
+        }
+
+        // สัญชาติ
+        private void _loadNationality()
+        {
+
+        }
+
+        // สถานะภาพการสมรส
+        private void _loadPersonStatus()
+        {
+
+        }
+
+        // ชื่อเต้นท์รถ
+        private void _loadTentsCar()
+        {
+
+        }
+
+        // สถานะภาพของผู้อาศัย
+        private void _loadHomeStatus()
+        {
+
         }
 
         // ดึงข้อมูลจังหวัดในประเทศไทย

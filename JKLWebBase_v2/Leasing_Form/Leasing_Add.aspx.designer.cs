@@ -2920,6 +2920,15 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.TextBox Cust_job_email_TBx;
         
         /// <summary>
+        /// Spouse_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Spouse_Panel;
+        
+        /// <summary>
         /// Spouse_idcard_Lbl control.
         /// </summary>
         /// <remarks>
