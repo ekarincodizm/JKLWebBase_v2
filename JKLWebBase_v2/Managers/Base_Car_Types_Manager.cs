@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace JKLWebBase_v2.Managers
 {
-    public class Car_Types_Manager
+    public class Base_Car_Types_Manager
     {
         private string error;
         private List<Base_Car_Types> lctp = new List<Base_Car_Types>();

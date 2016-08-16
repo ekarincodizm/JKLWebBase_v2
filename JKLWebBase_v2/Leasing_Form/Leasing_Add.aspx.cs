@@ -8,9 +8,9 @@ namespace JKLWebBase_v2.Leasing_Form
 {
     public partial class Leasing_Add : System.Web.UI.Page
     {
-        private Car_Types_Manager ctm = new Car_Types_Manager();
-        private Car_Brand_Manager cbm = new Car_Brand_Manager();
-        private Car_Models_Manager cmm = new Car_Models_Manager();
+        private Base_Car_Types_Manager ctm = new Base_Car_Types_Manager();
+        private Base_Car_Brand_Manager cbm = new Base_Car_Brand_Manager();
+        private Base_Car_Models_Manager cmm = new Base_Car_Models_Manager();
         private TH_Provinces_Manager thpvm = new TH_Provinces_Manager();
 
         protected void Page_Load(object sender, EventArgs e)
