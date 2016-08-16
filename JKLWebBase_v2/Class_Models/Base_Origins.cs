@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace JKLWebBase_v2.Class_Models
+﻿namespace JKLWebBase_v2.Class_Models
 {
     public class Base_Origins
     {
+        public int Origin_id { get; set; }
+        public string Origin_name_ENG { get; set; }
+        public string Origin_name_TH { get; set; }
     }
 }

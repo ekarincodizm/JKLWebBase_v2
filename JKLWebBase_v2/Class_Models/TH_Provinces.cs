@@ -6,10 +6,5 @@
         public string Province_code { get; set; }
         public string Province_name { get; set; }
         public int Geo_id { get; set; }
-
-        public TH_Provinces()
-        {
-
-        }
     }
 }
