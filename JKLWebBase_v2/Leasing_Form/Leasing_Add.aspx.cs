@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
-using JKLWebBase_v2.Managers;
-using JKLWebBase_v2.Class_Models;
+using JKLWebBase_v2.Managers_Base;
+using JKLWebBase_v2.Class_Base;
 
 namespace JKLWebBase_v2.Leasing_Form
 {

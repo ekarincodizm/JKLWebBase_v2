@@ -1,4 +1,4 @@
-﻿namespace JKLWebBase_v2.Class_Models
+﻿namespace JKLWebBase_v2.Class_Base
 {
     public class TH_Provinces
     {

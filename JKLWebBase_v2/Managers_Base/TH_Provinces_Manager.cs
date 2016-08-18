@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using JKLWebBase_v2.Global_Class;
-using JKLWebBase_v2.Class_Models;
+using JKLWebBase_v2.Class_Base;
 
-namespace JKLWebBase_v2.Managers
+namespace JKLWebBase_v2.Managers_Base
 {
     public class TH_Provinces_Manager
     {
@@ -34,14 +34,14 @@ namespace JKLWebBase_v2.Managers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException Form Car_Brand_Manager at getCarBrands : " + ex.Message.ToString();
-                //Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Base --> Car_Brand_Manager --> getCarBrands : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception Form Car_Brand_Manager at getCarBrands : " + ex.Message.ToString();
-                //Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Base --> Car_Brand_Manager --> getCarBrands : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
                 return null;
             }
             finally

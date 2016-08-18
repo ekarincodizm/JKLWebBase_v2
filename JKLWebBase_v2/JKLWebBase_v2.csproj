@@ -301,23 +301,23 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Class_Models\Base_Address_Types.cs" />
-    <Compile Include="Class_Models\Base_Zone_Service.cs" />
-    <Compile Include="Class_Models\Base_Branchs.cs" />
-    <Compile Include="Class_Models\Base_Car_Models.cs" />
-    <Compile Include="Class_Models\Base_Car_Types.cs" />
-    <Compile Include="Class_Models\Base_Courts.cs" />
-    <Compile Include="Class_Models\Base_Home_Status.cs" />
-    <Compile Include="Class_Models\Base_Leasing_Code.cs" />
-    <Compile Include="Class_Models\Base_Nationalitys.cs" />
-    <Compile Include="Class_Models\Base_Origins.cs" />
-    <Compile Include="Class_Models\Base_Tents_Car.cs" />
-    <Compile Include="Class_Models\TH_Provinces.cs" />
+    <Compile Include="Class_Base\Base_Address_Types.cs" />
+    <Compile Include="Class_Base\Base_Zone_Service.cs" />
+    <Compile Include="Class_Base\Base_Branchs.cs" />
+    <Compile Include="Class_Base\Base_Car_Models.cs" />
+    <Compile Include="Class_Base\Base_Car_Types.cs" />
+    <Compile Include="Class_Base\Base_Courts.cs" />
+    <Compile Include="Class_Base\Base_Home_Status.cs" />
+    <Compile Include="Class_Base\Base_Leasing_Code.cs" />
+    <Compile Include="Class_Base\Base_Nationalitys.cs" />
+    <Compile Include="Class_Base\Base_Origins.cs" />
+    <Compile Include="Class_Base\Base_Tents_Car.cs" />
+    <Compile Include="Class_Base\TH_Provinces.cs" />
     <Compile Include="Global_Class\DateTimeUtility.cs" />
     <Compile Include="Global_Class\Log_Error.cs" />
     <Compile Include="Global_Class\MSSQLConnection.cs" />
     <Compile Include="Global_Class\MySQLConnection.cs" />
-    <Compile Include="Class_Models\Base_Car_Brands.cs" />
+    <Compile Include="Class_Base\Base_Car_Brands.cs" />
     <Compile Include="Leasing_Form\Leasing_Add_Bondsman.aspx.cs">
       <DependentUpon>Leasing_Add_Bondsman.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -363,19 +363,19 @@
     <Compile Include="Authorization\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Managers\Base_Address_Types_Manager.cs" />
-    <Compile Include="Managers\Base_Branchs_Manager.cs" />
-    <Compile Include="Managers\Base_Car_Brand_Manager.cs" />
-    <Compile Include="Managers\Base_Car_Models_Manager.cs" />
-    <Compile Include="Managers\Base_Car_Types_Manager.cs" />
-    <Compile Include="Managers\Base_Courts_Manager.cs" />
-    <Compile Include="Managers\Base_Home_Status_Manager.cs" />
-    <Compile Include="Managers\Base_Leasing_Code_Manager.cs" />
-    <Compile Include="Managers\Base_Nationalitys_Manager.cs" />
-    <Compile Include="Managers\Base_Origins_Manager.cs" />
-    <Compile Include="Managers\Base_Tents_Car_Manager.cs" />
-    <Compile Include="Managers\Base_Zone_Service_Manager.cs" />
-    <Compile Include="Managers\TH_Provinces_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Address_Types_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Branchs_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Car_Brand_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Car_Models_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Car_Types_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Courts_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Home_Status_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Leasing_Code_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Nationalitys_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Origins_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Tents_Car_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Zone_Service_Manager.cs" />
+    <Compile Include="Managers_Base\TH_Provinces_Manager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -404,6 +404,7 @@
   <ItemGroup>
     <Folder Include="Account\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Logs_Error\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using MySql.Data.MySqlClient;
 using JKLWebBase_v2.Global_Class;
-using JKLWebBase_v2.Class_Models;
-using System.Configuration;
+using JKLWebBase_v2.Class_Base;
 
-namespace JKLWebBase_v2.Managers
+namespace JKLWebBase_v2.Managers_Base
 {
     public class Base_Car_Models_Manager
     {
@@ -36,14 +33,14 @@ namespace JKLWebBase_v2.Managers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException Form Car_Brand_Manager at getCarBrands : " + ex.Message.ToString();
-                //Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Base --> Car_Brand_Manager --> getCarBrands(int car_brand_id) : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception Form Car_Brand_Manager at getCarBrands : " + ex.Message.ToString();
-                //Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Base --> Car_Brand_Manager --> getCarBrands(int car_brand_id) : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
                 return null;
             }
             finally
