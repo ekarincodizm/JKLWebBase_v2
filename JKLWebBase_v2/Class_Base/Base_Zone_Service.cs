@@ -3,6 +3,7 @@
     public class Base_Zone_Service
     {
         public int Zone_id { get; set; }
+        public string Zone_code { get; set; }
         public string Zone_name { get; set; }
     }
 }

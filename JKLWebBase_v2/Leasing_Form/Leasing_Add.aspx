@@ -237,7 +237,7 @@
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Leasing_Code_Lbl" runat="server" >รหัสสัญญา</asp:Label>
-                            <asp:DropDownList ID="Leasing_Code_Tbx" runat="server" CssClass="form-control"></asp:DropDownList>
+                            <asp:DropDownList ID="Leasing_Code_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Leasing_No_Lbl" runat="server" >เลขที่สัญญา</asp:Label>
@@ -309,15 +309,22 @@
                                             <span class="input-group-addon">บาท</span>
                                         </div>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-1">
                                         <asp:Label ID="Interest_Rate_Lbl" runat="server" >อัตราดอกเบี้ย</asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Interest_Rate_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="Interest_Rate_TBx" runat="server" CssClass="form-control" TextMode="Number" ></asp:TextBox>
+                                            <span class="input-group-addon"> % </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-1">
+                                        <asp:Label ID="Vat_Lbl" runat="server" > ภาษีมูลค่าเพิ่ม </asp:Label>
+                                        <div class="form-group input-group">
+                                            <asp:TextBox ID="Vat_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                             <span class="input-group-addon"> % </span>
                                         </div>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Total_Period_Lbl" runat="server" > จำนวนงวดทั้งหมด </asp:Label>
+                                        <asp:Label ID="Total_Period_Lbl" runat="server" > ระยะเวลา </asp:Label>
                                         <div class="form-group input-group">
                                             <asp:TextBox ID="Total_Period_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                             <span class="input-group-addon"> งวด </span>
@@ -327,7 +334,7 @@
                                         <asp:Label ID="Calculate_Lbl" runat="server" > คำนวน </asp:Label>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"> <i class="fa fa-gears fa-fw"></i> </span>
-                                            <asp:LinkButton ID="Calculate_Btn" runat="server" CssClass="btn btn-xs btn-success"> คำนวน </asp:LinkButton>
+                                            <asp:LinkButton ID="Calculate_Btn" runat="server" CssClass="btn btn-xs btn-success" OnClick="Calculate_Btn_Click"> คำนวน </asp:LinkButton>
                                         </div>
                                         
                                     </div>
@@ -346,28 +353,28 @@
                                     <div class="col-xs-2">
                                         <asp:Label ID="Total_Sum_Lbl" runat="server" >ยอดรวม</asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Total_Sum_Tbx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="Total_Sum_Tbx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                             <span class="input-group-addon">บาท</span>
                                         </div>
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Total_Interest_Lbl" runat="server" >ดอกเบี้ย</asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Total_Interest_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="Total_Interest_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                             <span class="input-group-addon">บาท</span>
                                         </div>
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Total_Tax_Lbl" runat="server" >ภาษี</asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Total_Tax_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="Total_Tax_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                             <span class="input-group-addon">บาท</span>
                                         </div>
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Total_Leasing_Lbl" runat="server" >ยอดเช่า-ซื้อ</asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Total_Leasing_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="Total_Leasing_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                             <span class="input-group-addon">บาท</span>
                                         </div>
                                     </div>
@@ -386,28 +393,28 @@
                                     <div class="col-xs-2">
                                         <asp:Label ID="Period_Cal_Lbl" runat="server" >ค่างวด</asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Period_Cal_Tbx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="Period_Cal_Tbx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                             <span class="input-group-addon">บาท / งวด</span>
                                         </div>
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Tax_per_m_Lbl" runat="server" >ภาษี / งวด</asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Tax_per_m_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="Tax_per_m_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                             <span class="input-group-addon">บาท / งวด</span>
                                         </div>
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Period_pure_Lbl" runat="server" >ค่างวดสุดธิ</asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Period_pure_Tbx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="Period_pure_Tbx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                             <span class="input-group-addon">บาท / งวด</span>
                                         </div>
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Period_Payment_Lbl" runat="server" >ค่างวดจ่ายจริง</asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Period_Payment_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="Period_Payment_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                             <span class="input-group-addon">บาท / งวด</span>
                                         </div>
                                     </div>
@@ -563,7 +570,7 @@
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Cust_status_Lbl" runat="server" >สถานะภาพการสมรส</asp:Label>
-                                        <asp:DropDownList ID="Cust_status_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
+                                        <asp:DropDownList ID="Cust_status_DDL" runat="server" CssClass="form-control" OnSelectedIndexChanged="Cust_status_DDL_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                     </div>
                                 </div>
 
@@ -666,7 +673,7 @@
                     <div class="row col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                ที่อยู่ตามทะเบียนบ้าน <asp:LinkButton ID="Home_Copy_Idcard_btn" runat="server" CssClass="btn btn-sm btn-success"><i class="fa fa-copy fa-fw"></i> ตามบัตรประชาชน </asp:LinkButton>
+                                ที่อยู่ตามทะเบียนบ้าน <asp:LinkButton ID="Home_Copy_Idcard_btn" runat="server" CssClass="btn btn-sm btn-success" OnClick="Home_Copy_Idcard_btn_Click"><i class="fa fa-copy fa-fw"></i> ตามบัตรประชาชน </asp:LinkButton>
                             </div>
                             <div class="panel-body">
                                 <div class="row">
@@ -790,8 +797,8 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 ที่อยู่ปัจจุบัน 
-                                <asp:LinkButton ID="Current_Copy_Idcard_btn" runat="server" CssClass="btn btn-sm btn-success"><i class="fa fa-copy fa-fw"></i> ตามบัตรประชาชน </asp:LinkButton>
-                                <asp:LinkButton ID="Current_Copy_Home_btn" runat="server" CssClass="btn btn-sm btn-info"><i class="fa fa-copy fa-fw"></i> ตามทะเบียนบ้าน </asp:LinkButton>
+                                <asp:LinkButton ID="Current_Copy_Idcard_btn" runat="server" CssClass="btn btn-sm btn-success" OnClick="Current_Copy_Idcard_btn_Click"><i class="fa fa-copy fa-fw"></i> ตามบัตรประชาชน </asp:LinkButton>
+                                <asp:LinkButton ID="Current_Copy_Home_btn" runat="server" CssClass="btn btn-sm btn-info" OnClick="Current_Copy_Home_btn_Click"><i class="fa fa-copy fa-fw"></i> ตามทะเบียนบ้าน </asp:LinkButton>
                             </div>
                             <div class="panel-body">
                                 <div class="row">

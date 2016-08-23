@@ -302,6 +302,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Class_Base\Base_Address_Types.cs" />
+    <Compile Include="Class_Base\Base_Person_Status.cs" />
+    <Compile Include="Class_Base\Base_Total_Payment.cs" />
     <Compile Include="Class_Base\Base_Zone_Service.cs" />
     <Compile Include="Class_Base\Base_Branchs.cs" />
     <Compile Include="Class_Base\Base_Car_Models.cs" />
@@ -373,7 +375,9 @@
     <Compile Include="Managers_Base\Base_Leasing_Code_Manager.cs" />
     <Compile Include="Managers_Base\Base_Nationalitys_Manager.cs" />
     <Compile Include="Managers_Base\Base_Origins_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Person_Status_Manager.cs" />
     <Compile Include="Managers_Base\Base_Tents_Car_Manager.cs" />
+    <Compile Include="Managers_Base\Base_Total_Payment_Manager.cs" />
     <Compile Include="Managers_Base\Base_Zone_Service_Manager.cs" />
     <Compile Include="Managers_Base\TH_Provinces_Manager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -402,9 +406,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\" />
+    <Folder Include="Account_Form\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Logs_Error\" />
+    <Folder Include="Class_Account\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

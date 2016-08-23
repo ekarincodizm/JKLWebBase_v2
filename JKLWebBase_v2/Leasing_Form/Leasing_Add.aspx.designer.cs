@@ -796,13 +796,13 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.Label Leasing_Code_Lbl;
         
         /// <summary>
-        /// Leasing_Code_Tbx control.
+        /// Leasing_Code_DDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Leasing_Code_Tbx;
+        protected global::System.Web.UI.WebControls.DropDownList Leasing_Code_DDL;
         
         /// <summary>
         /// Leasing_No_Lbl control.
@@ -1001,6 +1001,24 @@ namespace JKLWebBase_v2.Leasing_Form {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Interest_Rate_TBx;
+        
+        /// <summary>
+        /// Vat_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Vat_Lbl;
+        
+        /// <summary>
+        /// Vat_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Vat_TBx;
         
         /// <summary>
         /// Total_Period_Lbl control.

@@ -11,7 +11,7 @@ namespace JKLWebBase_v2.Managers_Base
         private string error;
         private List<Base_Car_Models> lcm = new List<Base_Car_Models>();
 
-        public List<Base_Car_Models> getCarBrands(int car_brand_id)
+        public List<Base_Car_Models> getCarModels(int car_brand_id)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try

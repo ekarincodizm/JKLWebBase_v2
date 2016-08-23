@@ -17,7 +17,7 @@ namespace JKLWebBase_v2.Managers_Base
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM base_address_types";
+                string sql = "SELECT * FROM base_branchs";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -36,7 +36,7 @@ namespace JKLWebBase_v2.Managers_Base
                     bbrn.Branch_subdistrict = reader[10].ToString();
                     bbrn.Branch_district = reader[11].ToString();
                     bbrn.Branch_province = reader[12].ToString();
-                    bbrn.Branch_country = reader[13.ToString();
+                    bbrn.Branch_country = reader[13].ToString();
                     bbrn.Branch_zipcode = reader[14].ToString();
                     bbrn.Branch_tel = reader[15].ToString();
                     lbbrn.Add(bbrn);
