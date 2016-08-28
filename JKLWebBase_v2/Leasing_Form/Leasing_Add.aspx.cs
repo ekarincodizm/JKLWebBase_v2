@@ -92,7 +92,7 @@ namespace JKLWebBase_v2.Leasing_Form
                 Spouse_Panel.Visible = false;
             }
 
-            Cust_status_DDL.Focus();
+            Tent_car_DDL.Focus();
         }
 
         protected void Calculate_Btn_Click(object sender, EventArgs e)
@@ -102,17 +102,17 @@ namespace JKLWebBase_v2.Leasing_Form
 
         protected void Home_Copy_Idcard_btn_Click(object sender, EventArgs e)
         {
-
+            _CopyBaseDataAddress(1);
         }
 
         protected void Current_Copy_Idcard_btn_Click(object sender, EventArgs e)
         {
-
+            _CopyBaseDataAddress(2);
         }
 
         protected void Current_Copy_Home_btn_Click(object sender, EventArgs e)
         {
-
+            _CopyBaseDataAddress(3);
         }
 
         /*******************************************************************************************************************************************************************************
@@ -128,7 +128,7 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Car_Types data = list_data[i];
-                Car_Type_DDL.Items.Add(new ListItem(data.car_type_name.ToString(), data.car_type_id.ToString()));
+                Car_Type_DDL.Items.Add(new ListItem(data.car_type_name, data.car_type_id.ToString()));
             }
         }
 
@@ -140,7 +140,7 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Car_Brands data = list_data[i];
-                Car_Brand_DDL.Items.Add(new ListItem(data.car_brand_name_eng.ToString() + " ( " + data.car_brand_name_th.ToString() + " ) ", data.car_brand_id.ToString()));
+                Car_Brand_DDL.Items.Add(new ListItem(data.car_brand_name_eng + " ( " + data.car_brand_name_th + " ) ", data.car_brand_id.ToString()));
             }
         }
 
@@ -154,7 +154,7 @@ namespace JKLWebBase_v2.Leasing_Form
                 for (int i = 0; i < list_data.Count; i++)
                 {
                     Base_Car_Models data = list_data[i];
-                    Car_Model_DDL.Items.Add(new ListItem(data.car_model_name.ToString(), data.car_model_id.ToString()));
+                    Car_Model_DDL.Items.Add(new ListItem(data.car_model_name, data.car_model_id.ToString()));
                 }
             }
             else
@@ -192,7 +192,15 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Leasing_Code data = list_data[i];
-                Leasing_Code_DDL.Items.Add(new ListItem(data.Leasing_code_name.ToString() + " ( " + data.Leasing_code_S_Name.ToString() + " ) ", data.Leasing_code_id.ToString()));
+                if (String.IsNullOrEmpty(data.Leasing_code_S_Name))
+                {
+                    Leasing_Code_DDL.Items.Add(new ListItem(data.Leasing_code_name, data.Leasing_code_id.ToString()));
+                }
+                else
+                {
+                    Leasing_Code_DDL.Items.Add(new ListItem(data.Leasing_code_name + " ( " + data.Leasing_code_S_Name + " ) ", data.Leasing_code_id.ToString()));
+                }
+                
             }
         }
 
@@ -204,7 +212,7 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Branchs data = list_data[i];
-                Branch_DDL.Items.Add(new ListItem(data.Branch_code.ToString() + " ( " + data.Branch_N_name.ToString() + " ) ", data.Branch_id.ToString()));
+                Branch_DDL.Items.Add(new ListItem(data.Branch_code + " ( " + data.Branch_N_name + " ) ", data.Branch_id.ToString()));
             }
         }
 
@@ -216,7 +224,7 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Zone_Service data = list_data[i];
-                Zone_DDL.Items.Add(new ListItem(data.Zone_code.ToString() + " " + data.Zone_name.ToString(), data.Zone_id.ToString()));
+                Zone_DDL.Items.Add(new ListItem(data.Zone_code + " " + data.Zone_name, data.Zone_id.ToString()));
             }
         }
 
@@ -228,7 +236,7 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Total_Payment data = list_data[i];
-                TotalPaymentTime_DDL.Items.Add(new ListItem(data.Total_payment_name.ToString(), data.Total_payment_id.ToString()));
+                TotalPaymentTime_DDL.Items.Add(new ListItem(data.Total_payment_name, data.Total_payment_id.ToString()));
             }
         }
 
@@ -240,7 +248,7 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Courts data = list_data[i];
-                Court_DDL.Items.Add(new ListItem(data.Court_name.ToString(), data.Court_id.ToString()));
+                Court_DDL.Items.Add(new ListItem(data.Court_name, data.Court_id.ToString()));
             }
         }
 
@@ -265,8 +273,8 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Origins data = list_data[i];
-                Cust_Origin_DDL.Items.Add(new ListItem(data.Origin_name_TH.ToString() + " ( " + data.Origin_name_ENG.ToString() + " ) ", data.Origin_id.ToString()));
-                Spouse_Origin_DDL.Items.Add(new ListItem(data.Origin_name_TH.ToString() + " ( " + data.Origin_name_ENG.ToString() + " ) ", data.Origin_id.ToString()));
+                Cust_Origin_DDL.Items.Add(new ListItem(data.Origin_name_TH + " ( " + data.Origin_name_ENG + " ) ", data.Origin_id.ToString()));
+                Spouse_Origin_DDL.Items.Add(new ListItem(data.Origin_name_TH + " ( " + data.Origin_name_ENG + " ) ", data.Origin_id.ToString()));
             }
         }
 
@@ -279,8 +287,8 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Nationalitys data = list_data[i];
-                Cust_Nationality_DDL.Items.Add(new ListItem(data.Nationality_name_TH.ToString() + " ( " + data.Nationality_name_ENG.ToString() + " ) ", data.Nationality_id.ToString()));
-                Spouse_Nationality_DDL.Items.Add(new ListItem(data.Nationality_name_TH.ToString() + " ( " + data.Nationality_name_ENG.ToString() + " ) ", data.Nationality_id.ToString()));
+                Cust_Nationality_DDL.Items.Add(new ListItem(data.Nationality_name_TH + " ( " + data.Nationality_name_ENG + " ) ", data.Nationality_id.ToString()));
+                Spouse_Nationality_DDL.Items.Add(new ListItem(data.Nationality_name_TH + " ( " + data.Nationality_name_ENG + " ) ", data.Nationality_id.ToString()));
             }
         }
 
@@ -292,7 +300,7 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Person_Status data = list_data[i];
-                Cust_status_DDL.Items.Add(new ListItem(data.person_status_name.ToString(), data.person_status_id.ToString()));
+                Cust_status_DDL.Items.Add(new ListItem(data.person_status_name, data.person_status_id.ToString()));
             }
         }
 
@@ -304,7 +312,7 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Tents_Car data = list_data[i];
-                Tent_car_DDL.Items.Add(new ListItem(data.Tent_name.ToString(), data.Tent_car_id.ToString()));
+                Tent_car_DDL.Items.Add(new ListItem(data.Tent_name, data.Tent_car_id.ToString()));
             }
         }
 
@@ -318,9 +326,9 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Home_Status data = list_data[i];
-                Current_Cust_Home_status_id_DDL.Items.Add(new ListItem(data.Home_status_name.ToString(), data.Home_status_id.ToString()));
-                Home_Cust_Home_status_id_DDL.Items.Add(new ListItem(data.Home_status_name.ToString(), data.Home_status_id.ToString()));
-                Idcard_Cust_Home_status_DDL.Items.Add(new ListItem(data.Home_status_name.ToString(), data.Home_status_id.ToString()));
+                Current_Cust_Home_status_id_DDL.Items.Add(new ListItem(data.Home_status_name, data.Home_status_id.ToString()));
+                Home_Cust_Home_status_id_DDL.Items.Add(new ListItem(data.Home_status_name, data.Home_status_id.ToString()));
+                Idcard_Cust_Home_status_DDL.Items.Add(new ListItem(data.Home_status_name, data.Home_status_id.ToString()));
             }
         }
 
@@ -339,20 +347,26 @@ namespace JKLWebBase_v2.Leasing_Form
             for (int i = 0; i < list_data.Count; i++)
             {
                 TH_Provinces data = list_data[i];
-                Car_Old_Owner_Province_DDL.Items.Add(new ListItem(data.Province_name.ToString(), data.Province_id.ToString()));
-                Current_Cust_Province_DDL.Items.Add(new ListItem(data.Province_name.ToString(), data.Province_id.ToString()));
-                Cust_job_province_DDL.Items.Add(new ListItem(data.Province_name.ToString(), data.Province_id.ToString()));
-                Dealer_province_DDL.Items.Add(new ListItem(data.Province_name.ToString(), data.Province_id.ToString()));
-                Home_Cust_Province_DDL.Items.Add(new ListItem(data.Province_name.ToString(), data.Province_id.ToString()));
-                Idcard_Cust_Province_DDL.Items.Add(new ListItem(data.Province_name.ToString(), data.Province_id.ToString()));
-                Spouse_province_DDL.Items.Add(new ListItem(data.Province_name.ToString(), data.Province_id.ToString()));
-                Spouse_job_province_DDL.Items.Add(new ListItem(data.Province_name.ToString(), data.Province_id.ToString()));
+                Car_Old_Owner_Province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
+                Current_Cust_Province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
+                Cust_job_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
+                Dealer_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
+                Home_Cust_Province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
+                Idcard_Cust_Province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
+                Spouse_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
+                Spouse_job_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
             }
         }
 
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                        Calculate   Leasing                         ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        // คำนวนข้อมูลประเมินการเช่า-ซื้อ
         private void _Calculated()
         {
-            if (!String.IsNullOrEmpty(Total_Require_TBx.Text) && !String.IsNullOrEmpty(Interest_Rate_TBx.Text) && !String.IsNullOrEmpty(Total_Period_TBx.Text) && !String.IsNullOrEmpty(Vat_TBx.Text))
+            if (!string.IsNullOrEmpty(Total_Require_TBx.Text) && !string.IsNullOrEmpty(Interest_Rate_TBx.Text) && !string.IsNullOrEmpty(Total_Period_TBx.Text) && !string.IsNullOrEmpty(Vat_TBx.Text))
             {
                 
                 double require = Convert.ToDouble(Total_Require_TBx.Text); // ยอดจัด
@@ -402,6 +416,67 @@ namespace JKLWebBase_v2.Leasing_Form
                 /* Text Style Font Bold and Font Color Red */
 
                 Period_Payment_TBx.Focus();
+            }
+        }
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                               Copy Data                            ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        // copy ข้อมูลที่อยู่แยกตามประเภท
+        private void _CopyBaseDataAddress(int type)
+        {
+            if (type == 1) // copy ที่อยู่ตามบัตรประชาชน to ที่ตามทะเบียนบ้าน
+            {
+                Home_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
+                Home_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
+                Home_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
+                Home_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
+                Home_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
+                Home_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
+                Home_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
+                Home_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
+                Home_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
+                Home_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
+                Home_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
+                Home_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
+
+                img_Home_1.Focus();
+            }
+            else if (type == 2) // copy ที่อยู่ตามบัตรประชาชน to ที่อยู่ปัจจุบัน
+            {
+                Current_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
+                Current_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
+                Current_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
+                Current_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
+                Current_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
+                Current_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
+                Current_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
+                Current_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
+                Current_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
+                Current_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
+                Current_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
+                Current_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
+
+                Cust_job_TBx.Focus();
+            }
+            else if (type == 3) // copy ที่อยู่ตามทะเบียนบ้าน to ที่อยู่ปัจจุบัน
+            {
+                Current_Cust_Address_no_TBx.Text = Home_Cust_Address_no_TBx.Text;
+                Current_Cust_Vilage_TBx.Text = Home_Cust_Vilage_TBx.Text;
+                Current_Cust_Vilage_no_TBx.Text = Home_Cust_Vilage_no_TBx.Text;
+                Current_Cust_Alley_TBx.Text = Home_Cust_Alley_TBx.Text;
+                Current_Cust_Road_TBx.Text = Home_Cust_Road_TBx.Text;
+                Current_Cust_Subdistrict_TBx.Text = Home_Cust_Subdistrict_TBx.Text;
+                Current_Cust_District_TBx.Text = Home_Cust_District_TBx.Text;
+                Current_Cust_Province_DDL.SelectedIndex = Home_Cust_Province_DDL.SelectedIndex;
+                Current_Cust_Country_TBx.Text = Home_Cust_Country_TBx.Text;
+                Current_Cust_Zipcode_TBx.Text = Home_Cust_Zipcode_TBx.Text;
+                Current_Cust_Tel_TBx.Text = Home_Cust_Tel_TBx.Text;
+                Current_Cust_Home_status_id_DDL.SelectedIndex = Home_Cust_Home_status_id_DDL.SelectedIndex;
+
+                Cust_job_TBx.Focus();
             }
         }
     }

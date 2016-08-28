@@ -291,7 +291,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-2">
+                                    <div class="form-group col-xs-2">
                                         <asp:Label ID="Payment_Schedule_Lbl" runat="server" >กำหนดชำระทุกวันที่</asp:Label>
                                         <asp:DropDownList ID="Payment_Schedule_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
@@ -336,7 +336,6 @@
                                             <span class="input-group-addon"> <i class="fa fa-gears fa-fw"></i> </span>
                                             <asp:LinkButton ID="Calculate_Btn" runat="server" CssClass="btn btn-xs btn-success" OnClick="Calculate_Btn_Click"> คำนวน </asp:LinkButton>
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -350,7 +349,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-2">
+                                    <div class="form-group col-xs-2">
                                         <asp:Label ID="Total_Sum_Lbl" runat="server" >ยอดรวม</asp:Label>
                                         <div class="form-group input-group">
                                             <asp:TextBox ID="Total_Sum_Tbx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -390,7 +389,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-xs-2">
+                                    <div class="form-group col-xs-2">
                                         <asp:Label ID="Period_Cal_Lbl" runat="server" >ค่างวด</asp:Label>
                                         <div class="form-group input-group">
                                             <asp:TextBox ID="Period_Cal_Tbx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -706,7 +705,7 @@
                                         <asp:TextBox ID="Home_Cust_District_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Home_Cust_Province" runat="server" >จังหวัด</asp:Label>
+                                        <asp:Label ID="Home_Cust_Province_Lbl" runat="server" >จังหวัด</asp:Label>
                                         <asp:DropDownList ID="Home_Cust_Province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                 </div>
@@ -842,11 +841,11 @@
                                         <asp:TextBox ID="Current_Cust_Country_TBx" runat="server" CssClass="form-control" Text="ประเทศไทย"></asp:TextBox>
                                     </div>
                                     <div class="col-xs-1">
-                                        <asp:Label ID="Current_Cust_Zipcode" runat="server" >รหัสไปรษณีย์</asp:Label>
+                                        <asp:Label ID="Current_Cust_Zipcode_Lbl" runat="server" >รหัสไปรษณีย์</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Zipcode_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Current_Cust_Tel" runat="server" >เบอร์ติดต่อ</asp:Label>
+                                        <asp:Label ID="Current_Cust_Tel_Lbl" runat="server" >เบอร์ติดต่อ</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Tel_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
@@ -869,11 +868,11 @@
                                         <asp:Label ID="Cust_job_Lbl" runat="server" >อาชีพ</asp:Label>
                                         <asp:TextBox ID="Cust_job_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Cust_job_position_Lbl" runat="server" >ตำแหน่ง</asp:Label>
                                         <asp:TextBox ID="Cust_job_position_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-1">
                                         <asp:Label ID="Cust_job_long_Lbl" runat="server" >อายุงาน</asp:Label>
                                         <div class="form-group input-group">
                                             <asp:TextBox ID="Cust_job_long_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>

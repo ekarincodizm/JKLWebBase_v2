@@ -2092,13 +2092,13 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.TextBox Home_Cust_District_TBx;
         
         /// <summary>
-        /// Home_Cust_Province control.
+        /// Home_Cust_Province_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Province;
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Province_Lbl;
         
         /// <summary>
         /// Home_Cust_Province_DDL control.
@@ -2578,13 +2578,13 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.TextBox Current_Cust_Country_TBx;
         
         /// <summary>
-        /// Current_Cust_Zipcode control.
+        /// Current_Cust_Zipcode_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Zipcode;
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Zipcode_Lbl;
         
         /// <summary>
         /// Current_Cust_Zipcode_TBx control.
@@ -2596,13 +2596,13 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.TextBox Current_Cust_Zipcode_TBx;
         
         /// <summary>
-        /// Current_Cust_Tel control.
+        /// Current_Cust_Tel_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Tel;
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Tel_Lbl;
         
         /// <summary>
         /// Current_Cust_Tel_TBx control.
