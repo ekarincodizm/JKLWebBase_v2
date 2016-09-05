@@ -84,6 +84,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -212,6 +213,8 @@
     <Content Include="Content\sb-admin-2\css\bootstrap-datetimepicker.css" />
     <Content Include="Content\sb-admin-2\js\bootstrap-datetimepicker.js" />
     <Content Include="Content\sb-admin-2\js\bootstrap-datetimepicker.th.js" />
+    <Content Include="Leasing_Form\Leasing_Car_Img.aspx" />
+    <Content Include="Leasing_Form\Leasing_Home_Img.aspx" />
     <Content Include="Scripts\jquery.datetimepicker.js" />
     <Content Include="Content\sb-admin-2\css\sb-admin-2.css" />
     <Content Include="Content\sb-admin-2\css\timeline.css" />
@@ -315,6 +318,10 @@
     <Compile Include="Class_Base\Base_Origins.cs" />
     <Compile Include="Class_Base\Base_Tents_Car.cs" />
     <Compile Include="Class_Base\TH_Provinces.cs" />
+    <Compile Include="Class_Customers\Customers.cs" />
+    <Compile Include="Class_Customers\Customers_Address.cs" />
+    <Compile Include="Class_Leasings\Car_Dealers.cs" />
+    <Compile Include="Class_Leasings\Car_Leasings.cs" />
     <Compile Include="Global_Class\DateTimeUtility.cs" />
     <Compile Include="Global_Class\Log_Error.cs" />
     <Compile Include="Global_Class\MSSQLConnection.cs" />
@@ -326,6 +333,13 @@
     </Compile>
     <Compile Include="Leasing_Form\Leasing_Add_Bondsman.aspx.designer.cs">
       <DependentUpon>Leasing_Add_Bondsman.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Leasing_Form\Leasing_Car_Img.aspx.cs">
+      <DependentUpon>Leasing_Car_Img.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Leasing_Form\Leasing_Car_Img.aspx.designer.cs">
+      <DependentUpon>Leasing_Car_Img.aspx</DependentUpon>
     </Compile>
     <Compile Include="Leasing_Form\Leasing_Edit.aspx.cs">
       <DependentUpon>Leasing_Edit.aspx</DependentUpon>
@@ -340,6 +354,13 @@
     </Compile>
     <Compile Include="Leasing_Form\Leasing_Edit_Bondsman.aspx.designer.cs">
       <DependentUpon>Leasing_Edit_Bondsman.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Leasing_Form\Leasing_Home_Img.aspx.cs">
+      <DependentUpon>Leasing_Home_Img.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Leasing_Form\Leasing_Home_Img.aspx.designer.cs">
+      <DependentUpon>Leasing_Home_Img.aspx</DependentUpon>
     </Compile>
     <Compile Include="Leasing_Form\Leasing_Search.aspx.cs">
       <DependentUpon>Leasing_Search.aspx</DependentUpon>
@@ -380,6 +401,9 @@
     <Compile Include="Managers_Base\Base_Total_Payment_Manager.cs" />
     <Compile Include="Managers_Base\Base_Zone_Service_Manager.cs" />
     <Compile Include="Managers_Base\TH_Provinces_Manager.cs" />
+    <Compile Include="Managers_Customers\Customers_Address_Manager.cs" />
+    <Compile Include="Managers_Customers\Customers_Manager.cs" />
+    <Compile Include="Managers_Leasings\Car_Dealers_Manager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

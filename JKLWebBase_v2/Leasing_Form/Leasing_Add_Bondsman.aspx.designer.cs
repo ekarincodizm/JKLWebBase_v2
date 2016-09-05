@@ -67,6 +67,24 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_5;
         
         /// <summary>
+        /// Link_Add_Car_Img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Link_Add_Car_Img;
+        
+        /// <summary>
+        /// Link_Add_Home_Img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Link_Add_Home_Img;
+        
+        /// <summary>
         /// Cust_idcard_Lbl control.
         /// </summary>
         /// <remarks>

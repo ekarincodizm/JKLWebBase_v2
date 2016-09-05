@@ -11,7 +11,7 @@ namespace JKLWebBase_v2.Managers_Base
         private string error;
         private List<Base_Car_Types> lctp = new List<Base_Car_Types>();
 
-        public List<Base_Car_Types> getCarBrands()
+        public List<Base_Car_Types> getCarTypes()
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
@@ -32,13 +32,13 @@ namespace JKLWebBase_v2.Managers_Base
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Base --> Car_Brand_Manager --> getCarBrands() : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Base --> Base_Car_Types_Manager --> getCarTypes() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Base --> Car_Brand_Manager --> getCarBrands() : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Base --> Base_Car_Types_Manager --> getCarTypes() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }

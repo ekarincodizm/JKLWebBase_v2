@@ -67,6 +67,24 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_5;
         
         /// <summary>
+        /// Link_Add_Car_Img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Link_Add_Car_Img;
+        
+        /// <summary>
+        /// Link_Add_Home_Img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Link_Add_Home_Img;
+        
+        /// <summary>
         /// Car_Type_Lbl control.
         /// </summary>
         /// <remarks>
@@ -418,13 +436,13 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.Label Car_Old_Owner_Address_No_Lbl;
         
         /// <summary>
-        /// txt_17_Tbx control.
+        /// Car_Old_Owner_Address_No_Tbx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_17_Tbx;
+        protected global::System.Web.UI.WebControls.TextBox Car_Old_Owner_Address_No_Tbx;
         
         /// <summary>
         /// Car_Old_Owner_Vilage_Lbl control.
@@ -587,186 +605,6 @@ namespace JKLWebBase_v2.Leasing_Form {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Car_Old_Owner_Zipcode_Tbx;
-        
-        /// <summary>
-        /// Car_img_1_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Car_img_1_Lbl;
-        
-        /// <summary>
-        /// Car_img_1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Car_img_1;
-        
-        /// <summary>
-        /// Car_img_6_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Car_img_6_Lbl;
-        
-        /// <summary>
-        /// Car_img_6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Car_img_6;
-        
-        /// <summary>
-        /// Car_img_2_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Car_img_2_Lbl;
-        
-        /// <summary>
-        /// Car_img_2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Car_img_2;
-        
-        /// <summary>
-        /// Car_img_7_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Car_img_7_Lbl;
-        
-        /// <summary>
-        /// Car_img_7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Car_img_7;
-        
-        /// <summary>
-        /// Car_img_3_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Car_img_3_Lbl;
-        
-        /// <summary>
-        /// Car_img_3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Car_img_3;
-        
-        /// <summary>
-        /// Car_img_8_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Car_img_8_Lbl;
-        
-        /// <summary>
-        /// Car_img_8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Car_img_8;
-        
-        /// <summary>
-        /// Car_img_4_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Car_img_4_Lbl;
-        
-        /// <summary>
-        /// Car_img_4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Car_img_4;
-        
-        /// <summary>
-        /// Car_img_9_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Car_img_9_Lbl;
-        
-        /// <summary>
-        /// Car_img_9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Car_img_9;
-        
-        /// <summary>
-        /// Car_img_5_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Car_img_5_Lbl;
-        
-        /// <summary>
-        /// Car_img_5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Car_img_5;
-        
-        /// <summary>
-        /// Car_img_10_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Car_img_10_Lbl;
-        
-        /// <summary>
-        /// Car_img_10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Car_img_10;
         
         /// <summary>
         /// Deps_No_Lbl control.
@@ -2216,186 +2054,6 @@ namespace JKLWebBase_v2.Leasing_Form {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Home_Cust_Gps_Longitude_TBx;
-        
-        /// <summary>
-        /// img_Home_1_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_Home_1_Lbl;
-        
-        /// <summary>
-        /// img_Home_1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_Home_1;
-        
-        /// <summary>
-        /// img_Home_6_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_Home_6_Lbl;
-        
-        /// <summary>
-        /// img_Home_6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_Home_6;
-        
-        /// <summary>
-        /// img_Home_2_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_Home_2_Lbl;
-        
-        /// <summary>
-        /// img_Home_2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_Home_2;
-        
-        /// <summary>
-        /// img_Home_7_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_Home_7_Lbl;
-        
-        /// <summary>
-        /// img_Home_7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_Home_7;
-        
-        /// <summary>
-        /// img_Home_3_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_Home_3_Lbl;
-        
-        /// <summary>
-        /// img_Home_3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_Home_3;
-        
-        /// <summary>
-        /// img_Home_8_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_Home_8_Lbl;
-        
-        /// <summary>
-        /// img_Home_8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_Home_8;
-        
-        /// <summary>
-        /// img_Home_4_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_Home_4_Lbl;
-        
-        /// <summary>
-        /// img_Home_4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_Home_4;
-        
-        /// <summary>
-        /// img_Home_9_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_Home_9_Lbl;
-        
-        /// <summary>
-        /// img_Home_9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_Home_9;
-        
-        /// <summary>
-        /// img_Home_5_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_Home_5_Lbl;
-        
-        /// <summary>
-        /// img_Home_5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_Home_5;
-        
-        /// <summary>
-        /// img_Home_10_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label img_Home_10_Lbl;
-        
-        /// <summary>
-        /// img_Home_10 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload img_Home_10;
         
         /// <summary>
         /// Current_Copy_Idcard_btn control.

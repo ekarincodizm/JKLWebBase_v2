@@ -11,6 +11,8 @@
       <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" OnClick="link_Add_Bondsman_3_Click" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3</asp:LinkButton></li>
       <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" OnClick="link_Add_Bondsman_4_Click" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4</asp:LinkButton></li>
       <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" OnClick="link_Add_Bondsman_5_Click" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5</asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="Link_Add_Car_Img" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i>รูปรถ</asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="Link_Add_Home_Img" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> รูปบ้าน</asp:LinkButton></li>
     </ul>
     <div class="row">
         <div class="col-lg-12">

@@ -5,12 +5,14 @@
         <h1 class="page-header"> เพิ่มข้อมูลสัญญาเช่า-ซื้อ </h1>
     </div>
     <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><asp:LinkButton ID="link_Leasing_Add" runat="server" OnClick="link_Leasing_Add_Click" ><i class="fa fa-book fa-fw"></i> ข้อมูลสัญญา </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_1" runat="server" Enabled="false" OnClick="link_Add_Bondsman_1_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 1</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_2" runat="server" Enabled="false" OnClick="link_Add_Bondsman_2_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 2</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" Enabled="false" OnClick="link_Add_Bondsman_3_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" Enabled="false" OnClick="link_Add_Bondsman_4_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" Enabled="false" OnClick="link_Add_Bondsman_5_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5</asp:LinkButton></li>
+      <li role="presentation" class="active"><asp:LinkButton ID="link_Leasing_Add" runat="server" ><i class="fa fa-book fa-fw"></i> ข้อมูลสัญญา </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_1" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 1</asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_2" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 2</asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3</asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4</asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5</asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="Link_Add_Car_Img" runat="server" Enabled="false" ><i class="fa fa-car fa-fw"></i>รูปรถ</asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="Link_Add_Home_Img" runat="server" Enabled="false" ><i class="fa fa-home fa-fw"></i> รูปบ้าน</asp:LinkButton></li>
     </ul>
     <div class="row">
         <div class="col-lg-12">
@@ -72,7 +74,7 @@
                         <div class="col-xs-2">
                             <asp:Label ID="Car_Register_Date_Lbl" runat="server" >วันที่จดทะเบียน</asp:Label>
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Car_Register_Date_TBx" runat="server" CssClass="form-control" TextMode="Date" data-date-inline-picker="true"></asp:TextBox>
+                                <asp:TextBox ID="Car_Register_Date_TBx" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
                                 <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
                             </div>
                         </div>
@@ -128,7 +130,7 @@
                     <div class="row">
                         <div class="form-group col-xs-1">
                             <asp:Label ID="Car_Old_Owner_Address_No_Lbl" runat="server" >ที่อยู่ เลขที่</asp:Label>
-                            <asp:TextBox ID="txt_17_Tbx" runat="server" CssClass="form-control" ></asp:TextBox>
+                            <asp:TextBox ID="Car_Old_Owner_Address_No_Tbx" runat="server" CssClass="form-control" ></asp:TextBox>
                         </div>
                         <div class="col-xs-1">
                             <asp:Label ID="Car_Old_Owner_Vilage_Lbl" runat="server" >หมู่บ้าน</asp:Label>
@@ -171,57 +173,6 @@
                         </div>
                     </div>
 
-                    <div class="row col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                รูปรถ
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="form-group col-xs-6">
-                                        <asp:Label ID="Car_img_1_Lbl" runat="server" >รูปที่ 1 </asp:Label>
-                                        <asp:FileUpload ID="Car_img_1" runat="server" CssClass="form-control"/>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                        <asp:Label ID="Car_img_6_Lbl" runat="server" >รูปที่ 6 </asp:Label>
-                                         <asp:FileUpload ID="Car_img_6" runat="server" CssClass="form-control"/>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                        <asp:Label ID="Car_img_2_Lbl" runat="server" >รูปที่ 2 </asp:Label>
-                                        <asp:FileUpload ID="Car_img_2" runat="server" CssClass="form-control"/>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                        <asp:Label ID="Car_img_7_Lbl" runat="server" >รูปที่ 7 </asp:Label>
-                                        <asp:FileUpload ID="Car_img_7" runat="server" CssClass="form-control"/>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                        <asp:Label ID="Car_img_3_Lbl" runat="server" >รูปที่ 3 </asp:Label>
-                                        <asp:FileUpload ID="Car_img_3" runat="server" CssClass="form-control"/>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                        <asp:Label ID="Car_img_8_Lbl" runat="server" >รูปที่ 8 </asp:Label>
-                                        <asp:FileUpload ID="Car_img_8" runat="server" CssClass="form-control"/>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                        <asp:Label ID="Car_img_4_Lbl" runat="server" >รูปที่ 4 </asp:Label>
-                                        <asp:FileUpload ID="Car_img_4" runat="server" CssClass="form-control"/>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                        <asp:Label ID="Car_img_9_Lbl" runat="server" >รูปที่ 9 </asp:Label>
-                                        <asp:FileUpload ID="Car_img_9" runat="server" CssClass="form-control"/>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                        <asp:Label ID="Car_img_5_Lbl" runat="server" >รูปที่ 5 </asp:Label>
-                                        <asp:FileUpload ID="Car_img_5" runat="server" CssClass="form-control"/>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                        <asp:Label ID="Car_img_10_Lbl" runat="server" >รูปที่ 10 </asp:Label>
-                                        <asp:FileUpload ID="Car_img_10" runat="server" CssClass="form-control"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.ข้อมูลรถ -->
 
@@ -233,7 +184,7 @@
                     <div class="row">
                         <div class="form-group col-xs-2">
                             <asp:Label ID="Deps_No_Lbl" runat="server" >เลขที่รับฝาก</asp:Label>
-                            <asp:TextBox ID="Deps_No_Tbx" runat="server" CssClass="form-control"></asp:TextBox>
+                            <asp:TextBox ID="Deps_No_Tbx" runat="server" CssClass="form-control" OnTextChanged="Deps_No_Tbx_TextChanged" AutoPostBack="true"></asp:TextBox>
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Leasing_Code_Lbl" runat="server" >รหัสสัญญา</asp:Label>
@@ -434,7 +385,7 @@
                         <div class="form-group col-xs-2">
                             <asp:Label ID="Dealer_idcard_Lbl" runat="server" >เลขบัตรประชาชน</asp:Label>
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Dealer_idcard_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox ID="Dealer_idcard_TBx" runat="server" CssClass="form-control" OnTextChanged="Dealer_idcard_TBx_TextChanged" AutoPostBack="true"></asp:TextBox>
                                 <asp:LinkButton ID="LinkButton3" runat="server" CssClass="input-group-addon"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
                             </div>
                         </div>
@@ -519,7 +470,7 @@
                                     <div class="form-group col-xs-2">
                                         <asp:Label ID="Cust_idcard_Lbl" runat="server" >เลขบัตรประชาชน</asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Cust_idcard_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                            <asp:TextBox ID="Cust_idcard_TBx" runat="server" CssClass="form-control" OnTextChanged="Cust_idcard_TBx_TextChanged" AutoPostBack="true"></asp:TextBox>
                                             <asp:LinkButton ID="LinkButton2" runat="server" CssClass="input-group-addon"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
                                         </div>
                                     </div>
@@ -737,57 +688,6 @@
                                     </div>
                                 </div>
 
-                                <div class="row col-lg-12">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            รูปบ้าน
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="form-group col-xs-6">
-                                                    <asp:Label ID="img_Home_1_Lbl" runat="server" >รูปที่ 1 </asp:Label>
-                                                    <asp:FileUpload ID="img_Home_1" runat="server" CssClass="form-control"/>
-                                                </div>
-                                                <div class="form-group col-xs-6">
-                                                    <asp:Label ID="img_Home_6_Lbl" runat="server" >รูปที่ 6 </asp:Label>
-                                                     <asp:FileUpload ID="img_Home_6" runat="server" CssClass="form-control"/>
-                                                </div>
-                                                <div class="form-group col-xs-6">
-                                                    <asp:Label ID="img_Home_2_Lbl" runat="server" >รูปที่ 2 </asp:Label>
-                                                    <asp:FileUpload ID="img_Home_2" runat="server" CssClass="form-control"/>
-                                                </div>
-                                                <div class="form-group col-xs-6">
-                                                    <asp:Label ID="img_Home_7_Lbl" runat="server" >รูปที่ 7 </asp:Label>
-                                                    <asp:FileUpload ID="img_Home_7" runat="server" CssClass="form-control"/>
-                                                </div>
-                                                <div class="form-group col-xs-6">
-                                                    <asp:Label ID="img_Home_3_Lbl" runat="server" >รูปที่ 3 </asp:Label>
-                                                    <asp:FileUpload ID="img_Home_3" runat="server" CssClass="form-control"/>
-                                                </div>
-                                                <div class="form-group col-xs-6">
-                                                    <asp:Label ID="img_Home_8_Lbl" runat="server" >รูปที่ 8 </asp:Label>
-                                                    <asp:FileUpload ID="img_Home_8" runat="server" CssClass="form-control"/>
-                                                </div>
-                                                <div class="form-group col-xs-6">
-                                                    <asp:Label ID="img_Home_4_Lbl" runat="server" >รูปที่ 4 </asp:Label>
-                                                    <asp:FileUpload ID="img_Home_4" runat="server" CssClass="form-control"/>
-                                                </div>
-                                                <div class="form-group col-xs-6">
-                                                    <asp:Label ID="img_Home_9_Lbl" runat="server" >รูปที่ 9 </asp:Label>
-                                                    <asp:FileUpload ID="img_Home_9" runat="server" CssClass="form-control"/>
-                                                </div>
-                                                <div class="form-group col-xs-6">
-                                                    <asp:Label ID="img_Home_5_Lbl" runat="server" >รูปที่ 5 </asp:Label>
-                                                    <asp:FileUpload ID="img_Home_5" runat="server" CssClass="form-control"/>
-                                                </div>
-                                                <div class="form-group col-xs-6">
-                                                    <asp:Label ID="img_Home_10_Lbl" runat="server" >รูปที่ 10 </asp:Label>
-                                                    <asp:FileUpload ID="img_Home_10" runat="server" CssClass="form-control"/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -853,6 +753,7 @@
                                         <asp:DropDownList ID="Current_Cust_Home_status_id_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

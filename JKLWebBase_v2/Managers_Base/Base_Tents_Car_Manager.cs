@@ -33,13 +33,13 @@ namespace JKLWebBase_v2.Managers_Base
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Base --> Base_Courts_Manager --> getCourts() : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Base --> Base_Tents_Car_Manager --> getTents() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Base --> Base_Courts_Manager --> getCourts() : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Base --> Base_Tents_Car_Manager --> getTents() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }

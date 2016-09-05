@@ -51,5 +51,10 @@ namespace JKLWebBase_v2.Global_Class
                 return datetime;
             }
         }
+
+        public static string getDateTimeToUnixForm()
+        {
+            return new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString();
+        }
     }
 }

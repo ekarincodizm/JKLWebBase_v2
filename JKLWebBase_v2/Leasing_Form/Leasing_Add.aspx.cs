@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
-using JKLWebBase_v2.Managers_Base;
-using JKLWebBase_v2.Class_Base;
 using System.Drawing;
+using System.Text;
+
+using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Class_Customers;
+using JKLWebBase_v2.Class_Leasings;
+using JKLWebBase_v2.Managers_Base;
+using JKLWebBase_v2.Managers_Customers;
+using JKLWebBase_v2.Managers_Leasings;
 
 namespace JKLWebBase_v2.Leasing_Form
 {
@@ -36,36 +43,6 @@ namespace JKLWebBase_v2.Leasing_Form
         }
 
         protected void btn_Save_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
-        }
-
-        protected void link_Leasing_Add_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Leasing_Form/Leasing_Add");
-        }
-
-        protected void link_Add_Bondsman_1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
-        }
-
-        protected void link_Add_Bondsman_2_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
-        }
-
-        protected void link_Add_Bondsman_3_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
-        }
-
-        protected void link_Add_Bondsman_4_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
-        }
-
-        protected void link_Add_Bondsman_5_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
         }
@@ -115,6 +92,37 @@ namespace JKLWebBase_v2.Leasing_Form
             _CopyBaseDataAddress(3);
         }
 
+        // Code Example
+        protected void Deps_No_Tbx_TextChanged(object sender, EventArgs e)
+        {
+            /*if (!string.IsNullOrEmpty(Deps_No_Tbx.Text))
+            {
+                string message = "Hello! Mudassar.";
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<script type = 'text/javascript'>");
+                sb.Append("window.onload=function(){");
+                sb.Append("alert('");
+                sb.Append(message);
+                sb.Append("')};");
+                sb.Append("</script>");
+                ClientScript.RegisterClientScriptBlock(GetType(), "alert", sb.ToString());
+            }
+            else
+            {
+
+            }*/
+        }
+
+        protected void Dealer_idcard_TBx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Cust_idcard_TBx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         /*******************************************************************************************************************************************************************************
         ****************************************************                   Load Default Data to Form                        ********************************************************
         ****************************************************                                                                    ********************************************************
@@ -123,7 +131,7 @@ namespace JKLWebBase_v2.Leasing_Form
         // ดึงข้อมูลประเภทรภ
         private void _loadCarType()
         {
-            List  <Base_Car_Types> list_data = new Base_Car_Types_Manager().getCarBrands();
+            List  <Base_Car_Types> list_data = new Base_Car_Types_Manager().getCarTypes();
             Car_Type_DDL.Items.Add(new ListItem("--------กรุณาเลือก--------", "0"));
             for (int i = 0; i < list_data.Count; i++)
             {
@@ -442,7 +450,7 @@ namespace JKLWebBase_v2.Leasing_Form
                 Home_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
                 Home_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
 
-                img_Home_1.Focus();
+                Home_Cust_Gps_Latitude_TBx.Focus();
             }
             else if (type == 2) // copy ที่อยู่ตามบัตรประชาชน to ที่อยู่ปัจจุบัน
             {
@@ -479,6 +487,174 @@ namespace JKLWebBase_v2.Leasing_Form
                 Cust_job_TBx.Focus();
             }
         }
+
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                               Check Data                             ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        private void _CheckCustomer()
+        {
+            Customers cust = new Customers_Manager().getCustomersByIdCard(Cust_idcard_TBx.Text);
+            if (!cust.Equals(null) && cust != null)
+            {
+
+            } else
+            {
+                string message = "ไม่พบหมายเลขบัตรประชาชน "+ Cust_idcard_TBx.Text + " ขอลูกค้าในระบบ";
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<script type = 'text/javascript'>");
+                sb.Append("window.onload=function(){");
+                sb.Append("alert('");
+                sb.Append(message);
+                sb.Append("')};");
+                sb.Append("</script>");
+                ClientScript.RegisterClientScriptBlock(GetType(), "alert", sb.ToString());
+
+                Cust_idcard_TBx.Focus();
+            }
+
+        }
+
+        private void _CheckDealer()
+        {
+            Car_Dealers cdler = new Car_Dealers_Manager().getDealerByIdCard(Dealer_idcard_TBx.Text);
+            if (!cdler.Equals(null) && cdler != null)
+            {
+
+            }
+            else
+            {
+                string message = "ไม่พบหมายเลขบัตรประชาชน " + Dealer_idcard_TBx.Text + " ของนายหน้าในระบบ";
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<script type = 'text/javascript'>");
+                sb.Append("window.onload=function(){");
+                sb.Append("alert('");
+                sb.Append(message);
+                sb.Append("')};");
+                sb.Append("</script>");
+                ClientScript.RegisterClientScriptBlock(GetType(), "alert", sb.ToString());
+
+                Dealer_idcard_TBx.Focus();
+            }
+        }
+
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                               Add Data                             ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        private void _AddCustomer()
+        {
+            Customers ctm = new Customers();
+
+        }
+
+        private void _AddCustomerAddress()
+        {
+            Customers_Address ctmadd = new Customers_Address();
+
+        }
+
+        private void _AddCustomerSpouse()
+        {
+            Customers ctm = new Customers();
+
+        }
+
+        private void _AddDealer()
+        {
+            Car_Dealers cdlr = new Car_Dealers();
+
+            cdlr.Dealer_id = DateTimeUtility.getDateTimeToUnixForm();
+            cdlr.Dealer_receive = Convert.ToDouble(Dealer_receive_TBx.Text);
+            cdlr.Dealer_fname = Dealer_fname_TBx.Text;
+            cdlr.Dealer_lname = Dealer_lname_TBx.Text;
+            cdlr.Dealer_idcard = Dealer_idcard_TBx.Text;
+            cdlr.Dealer_address_no = Dealer_address_no_TBx.Text;
+            cdlr.Dealer_vilage = Dealer_vilage_TBx.Text;
+            cdlr.Dealer_vilage_no = Dealer_vilage_no_TBx.Text;
+            cdlr.Dealer_alley = Dealer_alley_TBx.Text;
+            cdlr.Dealer_road = Dealer_road_TBx.Text;
+            cdlr.Dealer_subdistrict = Dealer_subdistrict_TBx.Text;
+            cdlr.Dealer_district = Dealer_district_TBx.Text;
+            cdlr.Dealer_province = Convert.ToInt32(Dealer_province_DDL.SelectedValue);
+            cdlr.Dealer_country = Dealer_country_TBx.Text;
+            cdlr.Dealer_zipcode = Dealer_zipcode_TBx.Text;
+
+        }
+
+        private void _AddLeasings()
+        {
+            Car_Leasings cl = new Car_Leasings();
+
+            cl.Leasing_id = DateTimeUtility.getDateTimeToUnixForm();
+            cl.Deps_no = string.IsNullOrEmpty(Deps_No_Tbx.Text)? "" : Deps_No_Tbx.Text;
+            cl.Leasing_no = Leasing_No_Tbx.Text;
+            cl.Leasing_code_id = Convert.ToInt32(Leasing_Code_DDL.SelectedValue);
+            cl.Leasing_date = Leasing_Date_TBx.Text;
+            cl.Branch_id = Convert.ToInt32(Branch_DDL.SelectedValue);
+            cl.Zone_id = Convert.ToInt32(Zone_DDL.SelectedValue);
+            cl.Court_id = Convert.ToInt32(Court_DDL.SelectedValue);
+            cl.PeReT = Person_Receive_Trasfer_TBx.Text;
+            cl.TotalPaymentTime = Convert.ToInt32(TotalPaymentTime_DDL.SelectedValue);
+            cl.Total_require = Convert.ToDouble(Total_Require_TBx.Text);
+            cl.Interest_rate = Convert.ToDouble(Interest_Rate_TBx.Text);
+            cl.Total_period = Convert.ToInt32(Total_Period_TBx.Text);
+            cl.Total_sum = Convert.ToDouble(Total_Sum_Tbx.Text);
+            cl.Total_Interest = Convert.ToDouble(Total_Interest_TBx.Text);
+            cl.Total_Tax = Convert.ToDouble(Total_Tax_TBx.Text);
+            cl.Total_leasing = Convert.ToDouble(Total_Leasing_TBx.Text);
+            cl.Period_cal = Convert.ToDouble(Period_Cal_Tbx.Text);
+            cl.Tax_per_m = Convert.ToDouble(Tax_per_m_TBx.Text);
+            cl.Period_pure = Convert.ToDouble(Period_pure_Tbx.Text);
+            cl.Period_payment = Convert.ToDouble(Period_Payment_TBx.Text);
+            cl.Payment_schedule = Convert.ToInt32(Payment_Schedule_DDL.Text);
+            cl.First_payment_date = First_Payment_Date_Tbx.Text;
+            cl.Car_type = Convert.ToInt32(Car_Type_DDL.SelectedValue);
+            cl.Car_brand = Convert.ToInt32(Car_Brand_DDL.SelectedValue);
+            cl.Car_model = Convert.ToInt32(Car_Model_DDL.SelectedValue);
+            cl.Car_color = Car_Color_TBx.Text;
+            cl.Car_license_plate = Car_Plate_TBx.Text;
+            cl.Car_engine_no = Engine_No_TBx.Text;
+            cl.Car_chassis_no = Chassis_No_TBx.Text;
+            cl.Car_year = Car_Year_DDL.SelectedValue;
+            cl.Car_used_id = Convert.ToInt32(Car_Used_DDL.SelectedValue);
+            cl.Car_distance = Convert.ToInt32(Car_Distance_TBx.Text);
+            cl.Car_register_date = Car_Register_Date_TBx.Text;
+            cl.Car_next_register_date = Car_Next_Register_Date_TBx.Text;
+            cl.Car_tax_value = Convert.ToDouble(Car_Tax_Value_Lbl.Text);
+            cl.Car_credits = Car_Credits_Tbx.Text;
+            cl.Car_dealer = Car_Dealer_Tbx.Text;
+            cl.Car_old_owner = Car_Old_Owner_Tbx.Text;
+            cl.Car_old_owner_idcard = Car_Old_Owner_Idcard_Tbx.Text;
+            cl.Car_old_owner_idcard_str = Car_Old_Owner_Idcard_Str_Tbx.Text;
+            cl.Car_old_owner_idcard_exp = Car_Old_Owner_Idcard_Exp_Tbx.Text;
+            cl.Car_old_owner_address_no = Car_Old_Owner_Address_No_Tbx.Text;
+            cl.Car_old_owner_vilage = Car_Old_Owner_Vilage_Tbx.Text;
+            cl.Car_old_owner_vilage_no = Car_Old_Owner_Vilage_No_Tbx.Text;
+            cl.Car_old_owner_alley = Car_Old_Owner_alley_Tbx.Text;
+            cl.Car_old_owner_road = Car_Old_Owner_Road_Tbx.Text;
+            cl.Car_old_owner_subdistrict = Car_Old_Owner_Subdistrict_Tbx.Text;
+            cl.Car_old_owner_district = Car_Old_Owner_District_Tbx.Text;
+            cl.Car_old_owner_province = Convert.ToInt32(Car_Old_Owner_Province_DDL.SelectedValue);
+            cl.Car_old_owner_contry = Car_Old_Owner_Contry_Tbx.Text;
+            cl.Car_old_owner_zipcode = Car_Old_Owner_Zipcode_Tbx.Text;
+            cl.Cust_idcard = Cust_idcard_TBx.Text;
+            cl.Dealer_id = Convert.ToInt32(Dealer_idcard_TBx.Text);
+            cl.Tent_car_id = Convert.ToInt32(Tent_car_DDL.SelectedValue);
+            cl.Check_receive_person = Check_receive_person_TBx.Text;
+            cl.Check_number = Check_number_TBx.Text;
+            cl.Check_payment = Convert.ToDouble(Check_payment_TBx.Text);
+            cl.Check_receive_date = Check_receive_date_TBx.Text;
+            cl.Contract_status = "1";
+
+
+
+        }
+
     }
 }
  
