@@ -367,7 +367,7 @@ namespace JKLWebBase_v2.Leasing_Form
         }
 
         /*******************************************************************************************************************************************************************************
-        ****************************************************                        Calculate   Leasing                         ********************************************************
+        ****************************************************                        Calculate   Function                        ********************************************************
         ****************************************************                                                                    ********************************************************
         *******************************************************************************************************************************************************************************/
 
@@ -426,9 +426,8 @@ namespace JKLWebBase_v2.Leasing_Form
                 Period_Payment_TBx.Focus();
             }
         }
-
         /*******************************************************************************************************************************************************************************
-        ****************************************************                               Copy Data                            ********************************************************
+        ****************************************************                               Copy Data Function                   ********************************************************
         ****************************************************                                                                    ********************************************************
         *******************************************************************************************************************************************************************************/
 
@@ -490,7 +489,7 @@ namespace JKLWebBase_v2.Leasing_Form
 
 
         /*******************************************************************************************************************************************************************************
-        ****************************************************                               Check Data                             ********************************************************
+        ****************************************************                               Check Data Function                  ********************************************************
         ****************************************************                                                                    ********************************************************
         *******************************************************************************************************************************************************************************/
 
@@ -542,7 +541,7 @@ namespace JKLWebBase_v2.Leasing_Form
 
 
         /*******************************************************************************************************************************************************************************
-        ****************************************************                               Add Data                             ********************************************************
+        ****************************************************                               Add Data Function                    ********************************************************
         ****************************************************                                                                    ********************************************************
         *******************************************************************************************************************************************************************************/
 
@@ -550,25 +549,60 @@ namespace JKLWebBase_v2.Leasing_Form
         {
             Customers ctm = new Customers();
 
+            ctm.Cust_id = new Customers_Manager().generateCustomerID();
+            ctm.Cust_idcard = string.IsNullOrEmpty(Cust_idcard_TBx.Text)? "-" : Cust_idcard_TBx.Text;
+            ctm.Cust_Fname = string.IsNullOrEmpty(Cust_Fname_TBx.Text) ? "-" : Cust_Fname_TBx.Text;
+            ctm.Cust_LName = string.IsNullOrEmpty(Cust_LName_TBx.Text) ? "-" : Cust_LName_TBx.Text;
+            ctm.Cust_B_date = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? "-" : Cust_B_date_TBx.Text;
+            ctm.Cust_age = string.IsNullOrEmpty(Cust_B_date_TBx.Text)? 0 : DateTime.Now.Year - Convert.ToInt32(Cust_B_date_TBx.Text.Split('-')[0].ToString());
+            ctm.Cust_Idcard_without = string.IsNullOrEmpty(Dealer_fname_TBx.Text) ? "-" : Dealer_fname_TBx.Text;
+            ctm.Cust_Idcard_start = string.IsNullOrEmpty(Cust_Idcard_start_TBx.Text) ? "-" : Cust_Idcard_start_TBx.Text;
+            ctm.Cust_Idcard_expire = string.IsNullOrEmpty(Cust_Idcard_expire_TBx.Text) ? "-" : Cust_Idcard_expire_TBx.Text;
+            ctm.Cust_Nationality = Convert.ToInt32(Cust_Nationality_DDL.SelectedValue);
+            ctm.Cust_Origin = Convert.ToInt32(Cust_Origin_DDL.SelectedValue);
+            ctm.Cust_job = string.IsNullOrEmpty(Cust_job_TBx.Text) ? "-" : Cust_job_TBx.Text;
+            ctm.Cust_job_position = string.IsNullOrEmpty(Cust_job_position_TBx.Text) ? "-" : Cust_job_position_TBx.Text;
+            ctm.Cust_job_long =  string.IsNullOrEmpty(Cust_job_long_TBx.Text) ? 0 : Convert.ToInt32(Cust_job_long_TBx.Text);
+            ctm.Cust_job_local_name = string.IsNullOrEmpty(Cust_job_local_name_TBx.Text) ? "-" : Cust_job_local_name_TBx.Text; 
+            ctm.Cust_job_address_no = string.IsNullOrEmpty(Cust_job_address_no_TBx.Text) ? "-" : Cust_job_address_no_TBx.Text;
+            ctm.Cust_job_vilage = string.IsNullOrEmpty(Cust_job_vilage_TBx.Text) ? "-" : Cust_job_vilage_TBx.Text;
+            ctm.Cust_job_vilage_no = string.IsNullOrEmpty(Cust_job_vilage_no_TBx.Text) ? "-" : Cust_job_vilage_no_TBx.Text;
+            ctm.Cust_job_alley = string.IsNullOrEmpty(Cust_job_alley_TBx.Text) ? "-" : Cust_job_alley_TBx.Text;
+            ctm.Cust_job_road = string.IsNullOrEmpty(Cust_job_road_TBx.Text) ? "-" : Cust_job_road_TBx.Text;
+            ctm.Cust_job_subdistrict = string.IsNullOrEmpty(Cust_job_subdistrict_TBx.Text) ? "-" : Cust_job_subdistrict_TBx.Text;
+            ctm.Cust_job_district = string.IsNullOrEmpty(Cust_job_district_TBx.Text) ? "-" : Cust_job_district_TBx.Text;
+            ctm.Cust_job_province = Convert.ToInt32(Cust_job_province_DDL.SelectedValue); 
+            ctm.Cust_job_contry = string.IsNullOrEmpty(Cust_job_contry_TBx.Text) ? "-" : Cust_job_contry_TBx.Text;
+            ctm.Cust_job_zipcode = string.IsNullOrEmpty(Cust_job_zipcode_TBx.Text) ? "-" : Cust_job_zipcode_TBx.Text;
+            ctm.Cust_job_tel = string.IsNullOrEmpty(Cust_job_tel_TBx.Text) ? "-" : Cust_job_tel_TBx.Text;
+            ctm.Cust_job_email = string.IsNullOrEmpty(Cust_job_email_TBx.Text) ? "-" : Cust_job_email_TBx.Text;
+            ctm.Cust_job_salary = string.IsNullOrEmpty(Cust_job_salary_TBx.Text) ? 0 : Convert.ToDouble(Cust_job_salary_TBx.Text);
+            ctm.Cust_status_id = Convert.ToInt32(Cust_status_DDL.SelectedValue);
+
+            _AddCustomerAddress(ctm.Cust_id);
+
+            if (ctm.Cust_status_id == 2) { _AddCustomerSpouse(ctm.Cust_id); }
+
         }
 
-        private void _AddCustomerAddress()
+        private void _AddCustomerAddress(string custId)
         {
             Customers_Address ctmadd = new Customers_Address();
 
         }
 
-        private void _AddCustomerSpouse()
+        private void _AddCustomerSpouse(string custId)
         {
-            Customers ctm = new Customers();
+            Customers_Spouse cmarry = new Customers_Spouse();
 
         }
 
         private void _AddDealer()
         {
+
             Car_Dealers cdlr = new Car_Dealers();
 
-            cdlr.Dealer_id = DateTimeUtility.getDateTimeToUnixForm();
+            cdlr.Dealer_id = new Car_Dealers_Manager().generateDealerID();
             cdlr.Dealer_receive = Convert.ToDouble(Dealer_receive_TBx.Text);
             cdlr.Dealer_fname = Dealer_fname_TBx.Text;
             cdlr.Dealer_lname = Dealer_lname_TBx.Text;
@@ -590,7 +624,7 @@ namespace JKLWebBase_v2.Leasing_Form
         {
             Car_Leasings cl = new Car_Leasings();
 
-            cl.Leasing_id = DateTimeUtility.getDateTimeToUnixForm();
+            cl.Leasing_id = "";
             cl.Deps_no = string.IsNullOrEmpty(Deps_No_Tbx.Text)? "" : Deps_No_Tbx.Text;
             cl.Leasing_no = Leasing_No_Tbx.Text;
             cl.Leasing_code_id = Convert.ToInt32(Leasing_Code_DDL.SelectedValue);

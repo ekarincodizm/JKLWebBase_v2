@@ -10,13 +10,13 @@ namespace JKLWebBase_v2.Managers_Customers
     {
         private string error;
 
-        public Customers_Address getCustomersAddressById(string id, int type)
+        public Customers_Address getCustomersAddressByCustomerId(string id, int type)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM customers_address Where Cust_id = '" + id + "' AND Cust_Address_type_id = " + type;
+                string sql = "SELECT * FROM customers_address WHERE Cust_id = '" + id + "' AND Cust_Address_type_id = " + type;
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 Customers_Address cadd = new Customers_Address();
@@ -45,15 +45,41 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Base --> Base_Branchs_Manager --> getBranchs() : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Customers --> Customers_Address_Manager --> getCustomersAddressByCustomerId() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Base --> Base_Branchs_Manager --> getBranchs() : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Customers --> Customers_Address_Manager --> getCustomersAddressByCustomerId() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool addCustomersAddress(Customers_Address cadd)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Customers --> Customers_Address_Manager --> getCustomersAddressByCustomerId() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Customers --> Customers_Address_Manager --> getCustomersAddressByCustomerId() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
             }
             finally
             {

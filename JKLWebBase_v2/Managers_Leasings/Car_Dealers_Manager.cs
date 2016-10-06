@@ -10,6 +10,42 @@ namespace JKLWebBase_v2.Managers_Leasings
     {
         private string error;
 
+        public string generateDealerID()
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                con.Open();
+                string sql = "SELECT * FROM v_getdealerid ";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                string id = "";
+                if (reader.Read())
+                {
+                    id = reader[0].ToString();
+                }
+
+                return id;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Dealers_Manager --> generateDealerID() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Dealers_Manager --> generateDealerID() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
         public Car_Dealers getDealerByIdCard(string idcard)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();

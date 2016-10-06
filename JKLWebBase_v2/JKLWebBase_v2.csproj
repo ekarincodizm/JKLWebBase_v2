@@ -320,6 +320,7 @@
     <Compile Include="Class_Base\TH_Provinces.cs" />
     <Compile Include="Class_Customers\Customers.cs" />
     <Compile Include="Class_Customers\Customers_Address.cs" />
+    <Compile Include="Class_Customers\Customers_Spouse.cs" />
     <Compile Include="Class_Leasings\Car_Dealers.cs" />
     <Compile Include="Class_Leasings\Car_Leasings.cs" />
     <Compile Include="Global_Class\DateTimeUtility.cs" />
@@ -403,6 +404,7 @@
     <Compile Include="Managers_Base\TH_Provinces_Manager.cs" />
     <Compile Include="Managers_Customers\Customers_Address_Manager.cs" />
     <Compile Include="Managers_Customers\Customers_Manager.cs" />
+    <Compile Include="Managers_Customers\Customers_Spouse_Manager.cs" />
     <Compile Include="Managers_Leasings\Car_Dealers_Manager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
