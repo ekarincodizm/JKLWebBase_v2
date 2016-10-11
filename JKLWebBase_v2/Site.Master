@@ -53,11 +53,11 @@
                         <i class="fa fa-book fa-fw"></i> สัญญาเช่า-ซื้อ  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="~/"><i class="fa fa-search fa-fw"></i> ค้นหาสัญญาฝาก </a></li>
-                        <li><a href="~/"><i class="fa fa-tag fa-fw"></i><i class="fa fa-plus-circle fa-fw"></i> เพิ่มสัญญาฝาก </a></li>
+                        <li><a href="Car_Dealer_Add"><i class="fa fa-search fa-fw"></i> ค้นหาสัญญาฝาก </a></li>
+                        <li><a href="Leasing_Add"><i class="fa fa-tag fa-fw"></i><i class="fa fa-plus-circle fa-fw"></i> เพิ่มสัญญาฝาก </a></li>
                         <li class="divider"></li>
                         <li><a href="Leasing_Search"><i class="fa fa-search fa-fw"></i> ค้นหาสัญญาเช่า-ซื้อ </a></li>
-                        <li><a href="Leasing_Add"><i class="fa fa-car fa-fw"></i><i class="fa fa-plus-circle fa-fw"></i> เพิ่มสัญญาเช่า-ซื้อ </a></li>
+                        <li><a href="Customer_Add"><i class="fa fa-car fa-fw"></i><i class="fa fa-plus-circle fa-fw"></i> เพิ่มสัญญาเช่า-ซื้อ </a></li>
                     </ul>
                 </li>
             </ul>
@@ -86,6 +86,7 @@
                 </li>
             </ul>
         </nav>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>

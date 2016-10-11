@@ -1,8 +1,8 @@
-﻿<%@ Page Title="เพิ่มรูปบ้าน" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="Leasing_Home_Img.aspx.cs" Inherits="JKLWebBase_v2.Leasing_Form.Leasing_Home_Img" %>
+﻿<%@ Page Title="เพิ่มข้อมูลนายหน้า" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Car_Dealer_Add.aspx.cs" Inherits="JKLWebBase_v2.Leasing_Form.Car_Dealer_Add" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-lg-12">
-        <h1 class="page-header"> เพิ่มรูปบ้าน </h1>
+        <h1 class="page-header"> เพิ่มข้อมูลนายหน้า </h1>
     </div>
     <ul class="nav nav-tabs">
       <li role="presentation" ><asp:LinkButton ID="link_Customer_Add" runat="server"  ><i class="fa fa-male fa-fw"></i> ผู้ทำสัญญา </asp:LinkButton></li>
@@ -119,12 +119,19 @@
 
                     <div class="row">
                         <div class="form-group col-xs-2">
-                            <asp:Label ID="Label4" runat="server" >เล่มที่</asp:Label>
-                            <asp:TextBox ID="TextBox4" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                            <asp:Label ID="Dealer_bookcode_Lbl" runat="server" >เล่มที่</asp:Label>
+                            <asp:TextBox ID="Dealer_bookcode_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-2">
-                            <asp:Label ID="Label5" runat="server" >เลขใบหักภาษี ณ ที่จ่าย</asp:Label>
-                            <asp:TextBox ID="TextBox5" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                            <asp:Label ID="Dealer_com_code_Lbl" runat="server" >เลขใบหักภาษี ณ ที่จ่าย</asp:Label>
+                            <asp:TextBox ID="Dealer_com_code_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-xs-2">
+                            <asp:Label ID="Dealer_date_print__Lbl" runat="server" >วันที่หมดอายุ</asp:Label>
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Dealer_date_print_TBx" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                                <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                            </div>
                         </div>
                     </div>
 

@@ -1,0 +1,116 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Text;
+
+using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Class_Customers;
+using JKLWebBase_v2.Class_Leasings;
+using JKLWebBase_v2.Managers_Base;
+using JKLWebBase_v2.Managers_Customers;
+using JKLWebBase_v2.Managers_Leasings;
+
+
+namespace JKLWebBase_v2.Leasing_Form
+{
+    public partial class Car_Dealer_Add : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                _loadThaiProvinces();
+            }
+        }
+
+        protected void Dealer_Add_Save_Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                   Load Default Data to Form                        ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        // ดึงข้อมูลจังหวัดในประเทศไทย
+        private void _loadThaiProvinces()
+        {
+            List<TH_Provinces> list_data = new TH_Provinces_Manager().getProvinces();
+            Dealer_province_DDL.Items.Add(new ListItem("--------กรุณาเลือก--------", "0"));
+            for (int i = 0; i < list_data.Count; i++)
+            {
+                TH_Provinces data = list_data[i];
+                Dealer_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
+            }
+        }
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                        Calculate   Function                        ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                               Check Data Function                  ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        private void _CheckDealer()
+        {
+            Car_Dealers cdler = new Car_Dealers_Manager().getDealerByIdCard(Dealer_idcard_TBx.Text);
+            if (!cdler.Equals(null) && cdler != null)
+            {
+
+            }
+            else
+            {
+                string message = "ไม่พบหมายเลขบัตรประชาชน " + Dealer_idcard_TBx.Text + " ของนายหน้าในระบบ";
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<script type = 'text/javascript'>");
+                sb.Append("window.onload=function(){");
+                sb.Append("alert('");
+                sb.Append(message);
+                sb.Append("')};");
+                sb.Append("</script>");
+                ClientScript.RegisterClientScriptBlock(GetType(), "alert", sb.ToString());
+
+                Dealer_idcard_TBx.Focus();
+            }
+        }
+
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                               Add Data Function                    ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        private void _AddDealer()
+        {
+
+            Car_Dealers cdlr = new Car_Dealers();
+
+            cdlr.Dealer_id = new Car_Dealers_Manager().generateDealerID();
+            cdlr.Dealer_fname = Dealer_fname_TBx.Text;
+            cdlr.Dealer_lname = Dealer_lname_TBx.Text;
+            cdlr.Dealer_idcard = Dealer_idcard_TBx.Text;
+            cdlr.Dealer_address_no = Dealer_address_no_TBx.Text;
+            cdlr.Dealer_vilage = Dealer_vilage_TBx.Text;
+            cdlr.Dealer_vilage_no = Dealer_vilage_no_TBx.Text;
+            cdlr.Dealer_alley = Dealer_alley_TBx.Text;
+            cdlr.Dealer_road = Dealer_road_TBx.Text;
+            cdlr.Dealer_subdistrict = Dealer_subdistrict_TBx.Text;
+            cdlr.Dealer_district = Dealer_district_TBx.Text;
+            cdlr.Dealer_province = Convert.ToInt32(Dealer_province_DDL.SelectedValue);
+            cdlr.Dealer_country = Dealer_country_TBx.Text;
+            cdlr.Dealer_zipcode = Dealer_zipcode_TBx.Text;
+
+        }
+
+
+    }
+}

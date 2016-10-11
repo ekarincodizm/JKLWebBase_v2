@@ -55,7 +55,6 @@
         public string Car_old_owner_contry { get; set; } //ประเทศ
         public string Car_old_owner_zipcode { get; set; } //รหัสไปรษณีย์
         public string Cust_idcard { get; set; } //ผู้ทำสัญญา
-        public int Dealer_id { get; set; } //นายหน้า
         public int Tent_car_id { get; set; } //รหัสเต็นท์รถ
         public string Check_receive_person { get; set; } //ชื่อผู้รับเช็ค
         public string Check_number { get; set; } //หมายเลขเช็ค

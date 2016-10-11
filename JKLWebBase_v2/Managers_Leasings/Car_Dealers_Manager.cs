@@ -59,7 +59,6 @@ namespace JKLWebBase_v2.Managers_Leasings
                 if (reader.Read())
                 {
                     cdler.Dealer_id = reader[0].ToString();
-                    cdler.Dealer_receive = Convert.ToDouble(reader[0].ToString());
                     cdler.Dealer_fname = reader[0].ToString();
                     cdler.Dealer_lname = reader[0].ToString();
                     cdler.Dealer_idcard = reader[0].ToString();

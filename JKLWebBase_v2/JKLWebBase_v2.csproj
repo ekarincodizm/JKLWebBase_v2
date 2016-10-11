@@ -213,6 +213,8 @@
     <Content Include="Content\sb-admin-2\css\bootstrap-datetimepicker.css" />
     <Content Include="Content\sb-admin-2\js\bootstrap-datetimepicker.js" />
     <Content Include="Content\sb-admin-2\js\bootstrap-datetimepicker.th.js" />
+    <Content Include="Leasing_Form\Car_Dealer_Add.aspx" />
+    <Content Include="Leasing_Form\Customer_Add.aspx" />
     <Content Include="Leasing_Form\Leasing_Car_Img.aspx" />
     <Content Include="Leasing_Form\Leasing_Home_Img.aspx" />
     <Content Include="Scripts\jquery.datetimepicker.js" />
@@ -322,12 +324,27 @@
     <Compile Include="Class_Customers\Customers_Address.cs" />
     <Compile Include="Class_Customers\Customers_Spouse.cs" />
     <Compile Include="Class_Leasings\Car_Dealers.cs" />
+    <Compile Include="Class_Leasings\Car_Dealers_Values.cs" />
     <Compile Include="Class_Leasings\Car_Leasings.cs" />
     <Compile Include="Global_Class\DateTimeUtility.cs" />
     <Compile Include="Global_Class\Log_Error.cs" />
     <Compile Include="Global_Class\MSSQLConnection.cs" />
     <Compile Include="Global_Class\MySQLConnection.cs" />
     <Compile Include="Class_Base\Base_Car_Brands.cs" />
+    <Compile Include="Leasing_Form\Car_Dealer_Add.aspx.cs">
+      <DependentUpon>Car_Dealer_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Leasing_Form\Car_Dealer_Add.aspx.designer.cs">
+      <DependentUpon>Car_Dealer_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Leasing_Form\Customer_Add.aspx.cs">
+      <DependentUpon>Customer_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Leasing_Form\Customer_Add.aspx.designer.cs">
+      <DependentUpon>Customer_Add.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Leasing_Form\Leasing_Add_Bondsman.aspx.cs">
       <DependentUpon>Leasing_Add_Bondsman.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

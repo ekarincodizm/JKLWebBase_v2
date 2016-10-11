@@ -3,7 +3,6 @@
     public class Car_Dealers
     {
         public string Dealer_id { get; set; } //รหัสนายหน้า
-        public double Dealer_receive { get; set; } //ค่านายหน้า
         public string Dealer_fname { get; set; } //ชื่อ
         public string Dealer_lname { get; set; } //นามสกุล
         public string Dealer_idcard { get; set; } //รหัสบัตรประชาชน
