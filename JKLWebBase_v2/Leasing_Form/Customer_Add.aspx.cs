@@ -37,6 +37,11 @@ namespace JKLWebBase_v2.Leasing_Form
 
         }
 
+        protected void Cust_Search_Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         protected void Cust_status_DDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Cust_status_DDL.SelectedIndex == 2)
@@ -304,5 +309,9 @@ namespace JKLWebBase_v2.Leasing_Form
 
         }
 
+        protected void Open_Search_Modal_Box_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -10,7 +10,7 @@
 namespace JKLWebBase_v2.Leasing_Form {
     
     
-    public partial class Leasing_Add_Bondsman_1 {
+    public partial class Customer_Add {
         
         /// <summary>
         /// Alert_Warning_Panel control.
@@ -29,15 +29,6 @@ namespace JKLWebBase_v2.Leasing_Form {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
-        
-        /// <summary>
-        /// Number_Of_Bondsman control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Number_Of_Bondsman;
         
         /// <summary>
         /// link_Customer_Add control.
@@ -758,6 +749,42 @@ namespace JKLWebBase_v2.Leasing_Form {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Home_Cust_Home_status_id_DDL;
+        
+        /// <summary>
+        /// Home_Cust_Gps_Latitude_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Gps_Latitude_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Gps_Latitude_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Gps_Latitude_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Gps_Longitudee_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Gps_Longitudee_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Gps_Longitude_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Gps_Longitude_TBx;
         
         /// <summary>
         /// Current_Copy_Idcard_btn control.

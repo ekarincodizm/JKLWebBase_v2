@@ -16,5 +16,6 @@
         public int Dealer_province { get; set; } //จังหวัด
         public string Dealer_country { get; set; } //ประเทศ
         public string Dealer_zipcode { get; set; } //รหัสไปรษณีย์
+        public int Dealer_status { get; set; } //รหัสไปรษณีย์
     }
 }

@@ -21,21 +21,21 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3> <span class="fa fa-sign-in fa-fw"></span> เข้าสู่ระบบ JKL Web App </h3>
+                        <h3> <strong> <span class="fa fa-sign-in fa-fw"></span> เข้าสู่ระบบ JKL Web App </strong> </h3> 
                     </div>
                     <div class="panel-body">
                         <fieldset>
                                 <div class="form-group">
-                                    <asp:Label runat="server" AssociatedControlID="Username" CssClass="col-md-2 control-label"><h5>Username</h5></asp:Label>
+                                    <asp:Label runat="server" AssociatedControlID="Username" CssClass="col-md-2 control-label"><h5> <strong> Username </strong> </h5></asp:Label>
                                     <asp:TextBox runat="server" ID="Username" CssClass="form-control" ></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label"><h5>Password</h5></asp:Label>
+                                    <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label"><h5> <strong> Password </strong> </h5></asp:Label>
                                     <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control"></asp:TextBox>
                                 </div>
 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <div class="col-xs-4 col-md-offset-4">
+                                <div class="col-xs-6 col-md-offset-3">
                                     <asp:Button runat="server" ID="btn_Login" Text="Log in" CssClass="btn btn-lg btn-success btn-block" OnClick="btn_Login_Click" />
                                 </div>
                         </fieldset>

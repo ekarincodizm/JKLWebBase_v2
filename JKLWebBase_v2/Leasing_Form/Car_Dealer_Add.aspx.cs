@@ -24,12 +24,71 @@ namespace JKLWebBase_v2.Leasing_Form
             if (!IsPostBack)
             {
                 _loadThaiProvinces();
+                _loadDealerStatus();
+            }
+        }
+
+        protected void Dealer_idcard_TBx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Dealer_search_Btn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Dealer_idcard_TBx.Text))
+            {
+                Alert_Warning_Panel.Visible = true;
+                Alert_Id_Card_Lbl.Text = "ไม่พบเลขบัตรประชาชน " + Dealer_idcard_TBx.Text + " นี้ในระบบ";
+            }
+            else
+            {
+
             }
         }
 
         protected void Dealer_Add_Save_Btn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void link_Add_Bondsman_1_Click(object sender, EventArgs e)
+        {
+            Session["Number_Of_Bondsman"] = "1";
+            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+        }
+
+        protected void link_Add_Bondsman_2_Click(object sender, EventArgs e)
+        {
+            Session["Number_Of_Bondsman"] = "2";
+            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+        }
+
+        protected void link_Add_Bondsman_3_Click(object sender, EventArgs e)
+        {
+            Session["Number_Of_Bondsman"] = "3";
+            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+        }
+
+        protected void link_Add_Bondsman_4_Click(object sender, EventArgs e)
+        {
+            Session["Number_Of_Bondsman"] = "4";
+            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+        }
+
+        protected void link_Add_Bondsman_5_Click(object sender, EventArgs e)
+        {
+            Session["Number_Of_Bondsman"] = "5";
+            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+        }
+
+        protected void link_Add_Car_Img_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Leasing_Form/Leasing_Car_Img");
+        }
+
+        protected void link_Add_Home_Img_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Leasing_Form/Leasing_Home_Img");
         }
 
         /*******************************************************************************************************************************************************************************
@@ -47,6 +106,13 @@ namespace JKLWebBase_v2.Leasing_Form
                 TH_Provinces data = list_data[i];
                 Dealer_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
             }
+        }
+
+        // ดึงข้อมูลจังหวัดในประเทศไทย
+        private void _loadDealerStatus()
+        {
+            Dealer_status_DDL.Items.Add(new ListItem("บุคคลธรรมดา", "0"));
+            Dealer_status_DDL.Items.Add(new ListItem("นิติบุคคล", "1"));
         }
 
         /*******************************************************************************************************************************************************************************
@@ -110,7 +176,5 @@ namespace JKLWebBase_v2.Leasing_Form
             cdlr.Dealer_zipcode = Dealer_zipcode_TBx.Text;
 
         }
-
-
     }
 }

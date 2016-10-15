@@ -2,19 +2,19 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-lg-12">
-        <h1 class="page-header"> เพิ่มข้อมูลสัญญาเช่า-ซื้อ </h1>
+        <h4 class="page-header"> เพิ่มข้อมูลสัญญาเช่า-ซื้อ </h4>
     </div>
     <ul class="nav nav-tabs">
       <li role="presentation" ><asp:LinkButton ID="link_Customer_Add" runat="server"  ><i class="fa fa-male fa-fw"></i> ผู้ทำสัญญา </asp:LinkButton></li>
       <li role="presentation" class="active"><asp:LinkButton ID="link_Leasing_Add" runat="server" Enabled="false" ><i class="fa fa-book fa-fw"></i> สัญญาเช่า - ซื้อ </asp:LinkButton></li>
       <li role="presentation" ><asp:LinkButton ID="link_Dealers_Add" runat="server" Enabled="false" ><i class="fa fa-male fa-fw"></i> นายหน้า </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_1" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 1</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_2" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 2</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Car_Img" runat="server" Enabled="false" ><i class="fa fa-car fa-fw"></i>รูปรถ</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Home_Img" runat="server" Enabled="false" ><i class="fa fa-home fa-fw"></i> รูปบ้าน</asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_1" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 1 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_2" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 2 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Car_Img" runat="server" Enabled="false" ><i class="fa fa-car fa-fw"></i> รูปรถ </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Home_Img" runat="server" Enabled="false" ><i class="fa fa-home fa-fw"></i> รูปบ้าน </asp:LinkButton></li>
     </ul>
     <div class="row">
         <div class="col-lg-12">
@@ -75,17 +75,91 @@
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Car_Register_Date_Lbl" runat="server" >วันที่จดทะเบียน</asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Car_Register_Date_TBx" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                                <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                            <div class="form-group input-group" id="Car_Register_Date">
+                                <asp:TextBox ID="Car_Register_Date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>
                             </div>
+                            <script type="text/javascript">   
+                                $(function(){
+	
+                                    $.datetimepicker.setLocale('th'); // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+
+	                                // กรณีใช้แบบ input
+                                    $("#Car_Register_Date").datetimepicker({
+                                        timepicker:false,
+                                        format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                        lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+		                                onSelectDate:function(dp,$input){
+			                                var yearT=new Date(dp).getFullYear()-0;  
+			                                var yearTH=yearT+543;
+			                                var fulldate=$input.val();
+			                                var fulldateTH=fulldate.replace(yearT,yearTH);
+			                                $("<%= "#" + Car_Register_Date_TBx.ClientID %>").val(fulldateTH);
+		                                },
+                                    });       
+	                                // กรณีใช้กับ input ต้องกำหนดส่วนนี้ด้วยเสมอ เพื่อปรับปีให้เป็น ค.ศ. ก่อนแสดงปฏิทิน
+	                                $("<%= "#" + Car_Register_Date_TBx.ClientID %>").on("mouseenter mouseleave",function(e){
+		                                var dateValue=$(this).val();
+		                                if(dateValue!=""){
+				                                var arr_date=dateValue.split("-"); // ถ้าใช้ตัวแบ่งรูปแบบอื่น ให้เปลี่ยนเป็นตามรูปแบบนั้น
+				                                // ในที่นี้อยู่ในรูปแบบ 00-00-0000 เป็น d-m-Y  แบ่งด่วย - ดังนั้น ตัวแปรที่เป็นปี จะอยู่ใน array
+				                                //  ตัวที่สอง arr_date[2] โดยเริ่มนับจาก 0 
+				                                if(e.type=="mouseenter"){
+					                                var yearT=arr_date[2]-543;
+				                                }		
+				                                if(e.type=="mouseleave"){
+					                                var yearT=parseInt(arr_date[2])+543;
+				                                }	
+				                                dateValue=dateValue.replace(arr_date[2],yearT);
+				                                $(this).val(dateValue);													
+		                                }		
+	                                });
+                                });
+                            </script>   
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Car_Next_Register_Date_Lbl" runat="server" >วันที่ต่อทะเบียน</asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Car_Next_Register_Date_TBx" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                                <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                            <div class="form-group input-group" id="Car_Next_Register_Date">
+                                <asp:TextBox ID="Car_Next_Register_Date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>
                             </div>
+                            <script type="text/javascript">   
+                                    $(function(){
+	
+                                        $.datetimepicker.setLocale('th'); // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+
+	                                    // กรณีใช้แบบ input
+                                        $("#Car_Next_Register_Date").datetimepicker({
+                                            timepicker:false,
+                                            format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                            lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+		                                    onSelectDate:function(dp,$input){
+			                                    var yearT=new Date(dp).getFullYear()-0;  
+			                                    var yearTH=yearT+543;
+			                                    var fulldate=$input.val();
+			                                    var fulldateTH=fulldate.replace(yearT,yearTH);
+			                                    $("<%= "#" + Car_Next_Register_Date_TBx.ClientID %>").val(fulldateTH);
+		                                    },
+                                        });       
+	                                    // กรณีใช้กับ input ต้องกำหนดส่วนนี้ด้วยเสมอ เพื่อปรับปีให้เป็น ค.ศ. ก่อนแสดงปฏิทิน
+	                                    $("<%= "#" + Car_Next_Register_Date_TBx.ClientID %>").on("mouseenter mouseleave",function(e){
+		                                    var dateValue=$(this).val();
+		                                    if(dateValue!=""){
+				                                    var arr_date=dateValue.split("-"); // ถ้าใช้ตัวแบ่งรูปแบบอื่น ให้เปลี่ยนเป็นตามรูปแบบนั้น
+				                                    // ในที่นี้อยู่ในรูปแบบ 00-00-0000 เป็น d-m-Y  แบ่งด่วย - ดังนั้น ตัวแปรที่เป็นปี จะอยู่ใน array
+				                                    //  ตัวที่สอง arr_date[2] โดยเริ่มนับจาก 0 
+				                                    if(e.type=="mouseenter"){
+					                                    var yearT=arr_date[2]-543;
+				                                    }		
+				                                    if(e.type=="mouseleave"){
+					                                    var yearT=parseInt(arr_date[2])+543;
+				                                    }	
+				                                    dateValue=dateValue.replace(arr_date[2],yearT);
+				                                    $(this).val(dateValue);													
+		                                    }		
+	                                    });
+                                    });
+                            </script>   
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Car_Tax_Value_Lbl" runat="server" >ค่าต่อภาษี</asp:Label>
@@ -115,17 +189,91 @@
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Car_Old_Owner_Idcard_Str_Lbl" runat="server" >วันที่ออกบัตร</asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Car_Old_Owner_Idcard_Str_TBx" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                                <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                            <div class="form-group input-group" id="Car_Old_Owner_Idcard_Str">
+                                <asp:TextBox ID="Car_Old_Owner_Idcard_Str_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>
                             </div>
+                            <script type="text/javascript">   
+                                    $(function(){
+	
+                                        $.datetimepicker.setLocale('th'); // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+
+	                                    // กรณีใช้แบบ input
+                                        $("#Car_Old_Owner_Idcard_Str").datetimepicker({
+                                            timepicker:false,
+                                            format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                            lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+		                                    onSelectDate:function(dp,$input){
+			                                    var yearT=new Date(dp).getFullYear()-0;  
+			                                    var yearTH=yearT+543;
+			                                    var fulldate=$input.val();
+			                                    var fulldateTH=fulldate.replace(yearT,yearTH);
+			                                    $("<%= "#" + Car_Old_Owner_Idcard_Str_TBx.ClientID %>").val(fulldateTH);
+		                                    },
+                                        });       
+	                                    // กรณีใช้กับ input ต้องกำหนดส่วนนี้ด้วยเสมอ เพื่อปรับปีให้เป็น ค.ศ. ก่อนแสดงปฏิทิน
+	                                    $("<%= "#" + Car_Old_Owner_Idcard_Str_TBx.ClientID %>").on("mouseenter mouseleave",function(e){
+		                                    var dateValue=$(this).val();
+		                                    if(dateValue!=""){
+				                                    var arr_date=dateValue.split("-"); // ถ้าใช้ตัวแบ่งรูปแบบอื่น ให้เปลี่ยนเป็นตามรูปแบบนั้น
+				                                    // ในที่นี้อยู่ในรูปแบบ 00-00-0000 เป็น d-m-Y  แบ่งด่วย - ดังนั้น ตัวแปรที่เป็นปี จะอยู่ใน array
+				                                    //  ตัวที่สอง arr_date[2] โดยเริ่มนับจาก 0 
+				                                    if(e.type=="mouseenter"){
+					                                    var yearT=arr_date[2]-543;
+				                                    }		
+				                                    if(e.type=="mouseleave"){
+					                                    var yearT=parseInt(arr_date[2])+543;
+				                                    }	
+				                                    dateValue=dateValue.replace(arr_date[2],yearT);
+				                                    $(this).val(dateValue);													
+		                                    }		
+	                                    });
+                                    });
+                            </script> 
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Car_Old_Owner_Idcard_Exp_Lbl" runat="server" >วันที่หมดอายุ</asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Car_Old_Owner_Idcard_Exp_TBx" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                                <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                            <div class="form-group input-group" id="Car_Old_Owner_Idcard_Exp">
+                                <asp:TextBox ID="Car_Old_Owner_Idcard_Exp_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>
                             </div>
+                            <script type="text/javascript">   
+                                    $(function(){
+	
+                                        $.datetimepicker.setLocale('th'); // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+
+	                                    // กรณีใช้แบบ input
+                                        $("#Car_Old_Owner_Idcard_Exp").datetimepicker({
+                                            timepicker:false,
+                                            format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                            lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+		                                    onSelectDate:function(dp,$input){
+			                                    var yearT=new Date(dp).getFullYear()-0;  
+			                                    var yearTH=yearT+543;
+			                                    var fulldate=$input.val();
+			                                    var fulldateTH=fulldate.replace(yearT,yearTH);
+			                                    $("<%= "#" + Car_Old_Owner_Idcard_Exp_TBx.ClientID %>").val(fulldateTH);
+		                                    },
+                                        });       
+	                                    // กรณีใช้กับ input ต้องกำหนดส่วนนี้ด้วยเสมอ เพื่อปรับปีให้เป็น ค.ศ. ก่อนแสดงปฏิทิน
+	                                    $("<%= "#" + Car_Old_Owner_Idcard_Exp_TBx.ClientID %>").on("mouseenter mouseleave",function(e){
+		                                    var dateValue=$(this).val();
+		                                    if(dateValue!=""){
+				                                    var arr_date=dateValue.split("-"); // ถ้าใช้ตัวแบ่งรูปแบบอื่น ให้เปลี่ยนเป็นตามรูปแบบนั้น
+				                                    // ในที่นี้อยู่ในรูปแบบ 00-00-0000 เป็น d-m-Y  แบ่งด่วย - ดังนั้น ตัวแปรที่เป็นปี จะอยู่ใน array
+				                                    //  ตัวที่สอง arr_date[2] โดยเริ่มนับจาก 0 
+				                                    if(e.type=="mouseenter"){
+					                                    var yearT=arr_date[2]-543;
+				                                    }		
+				                                    if(e.type=="mouseleave"){
+					                                    var yearT=parseInt(arr_date[2])+543;
+				                                    }	
+				                                    dateValue=dateValue.replace(arr_date[2],yearT);
+				                                    $(this).val(dateValue);													
+		                                    }		
+	                                    });
+                                    });
+                            </script> 
                         </div>
                     </div>
 
@@ -176,34 +324,70 @@
                     </div>
 
                      <div class="row">
-                                    <div class="form-group col-xs-2">
-                                        <asp:Label ID="Tent_car_Lbl" runat="server" >ชื่อเต้นท์รถ</asp:Label>
-                                        <asp:DropDownList ID="Tent_car_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <asp:Label ID="Check_receive_person_Lbl" runat="server" >ชื่อผู้รับเช็ค</asp:Label>
-                                        <asp:TextBox ID="Check_receive_person_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
-                                    </div>
-                                    <div class="col-xs-2">
-                                        <asp:Label ID="Check_number_Lbl" runat="server" >หมายเลขเช็ค</asp:Label>
-                                        <asp:TextBox ID="Check_number_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
-                                    </div>
-                                    <div class="col-xs-2">
-                                        <asp:Label ID="Check_payment_Lbl" runat="server" >ยอดจ่ายเช็ค</asp:Label>
-                                        <div class="form-group input-group">
-                                            <asp:TextBox ID="Check_payment_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
-                                            <span class="input-group-addon">บาท</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-2">
-                                        <asp:Label ID="Check_receive_date_Lbl" runat="server" >วันที่รับเช็ค</asp:Label>
-                                        <div class="form-group input-group">
-                                            <asp:TextBox ID="Check_receive_date_TBx" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                                            <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="form-group col-xs-2">
+                            <asp:Label ID="Tent_car_Lbl" runat="server" >ชื่อเต้นท์รถ</asp:Label>
+                            <asp:DropDownList ID="Tent_car_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
+                        </div>
+                        <div class="col-xs-4">
+                            <asp:Label ID="Check_receive_person_Lbl" runat="server" >ชื่อผู้รับเช็ค</asp:Label>
+                            <asp:TextBox ID="Check_receive_person_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
+                        </div>
+                        <div class="col-xs-2">
+                            <asp:Label ID="Check_number_Lbl" runat="server" >หมายเลขเช็ค</asp:Label>
+                            <asp:TextBox ID="Check_number_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
+                        </div>
+                        <div class="col-xs-2">
+                            <asp:Label ID="Check_payment_Lbl" runat="server" >ยอดจ่ายเช็ค</asp:Label>
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Check_payment_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <asp:Label ID="Check_receive_date_Lbl" runat="server" >วันที่รับเช็ค</asp:Label>
+                            <div class="form-group input-group" id="Check_receive_date">
+                                <asp:TextBox ID="Check_receive_date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>
+                            </div>
+                            <script type="text/javascript">   
+                                    $(function(){
+	
+                                        $.datetimepicker.setLocale('th'); // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
 
+	                                    // กรณีใช้แบบ input
+                                        $("#Check_receive_date").datetimepicker({
+                                            timepicker:false,
+                                            format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                            lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+		                                    onSelectDate:function(dp,$input){
+			                                    var yearT=new Date(dp).getFullYear()-0;  
+			                                    var yearTH=yearT+543;
+			                                    var fulldate=$input.val();
+			                                    var fulldateTH=fulldate.replace(yearT,yearTH);
+			                                    $("<%= "#" + Check_receive_date_TBx.ClientID %>").val(fulldateTH);
+		                                    },
+                                        });       
+	                                    // กรณีใช้กับ input ต้องกำหนดส่วนนี้ด้วยเสมอ เพื่อปรับปีให้เป็น ค.ศ. ก่อนแสดงปฏิทิน
+	                                    $("<%= "#" + Check_receive_date_TBx.ClientID %>").on("mouseenter mouseleave",function(e){
+		                                    var dateValue=$(this).val();
+		                                    if(dateValue!=""){
+				                                    var arr_date=dateValue.split("-"); // ถ้าใช้ตัวแบ่งรูปแบบอื่น ให้เปลี่ยนเป็นตามรูปแบบนั้น
+				                                    // ในที่นี้อยู่ในรูปแบบ 00-00-0000 เป็น d-m-Y  แบ่งด่วย - ดังนั้น ตัวแปรที่เป็นปี จะอยู่ใน array
+				                                    //  ตัวที่สอง arr_date[2] โดยเริ่มนับจาก 0 
+				                                    if(e.type=="mouseenter"){
+					                                    var yearT=arr_date[2]-543;
+				                                    }		
+				                                    if(e.type=="mouseleave"){
+					                                    var yearT=parseInt(arr_date[2])+543;
+				                                    }	
+				                                    dateValue=dateValue.replace(arr_date[2],yearT);
+				                                    $(this).val(dateValue);													
+		                                    }		
+	                                    });
+                                    });
+                            </script> 
+                        </div>
+                    </div>
                 </div>
                 <!-- /.ข้อมูลรถ -->
 
@@ -235,10 +419,47 @@
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Leasing_Date_Lbl" runat="server" >วันที่ทำสัญญา</asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Leasing_Date_TBx" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                                <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                            <div class="form-group input-group" id="Leasing_Date">
+                                <asp:TextBox ID="Leasing_Date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>
                             </div>
+                            <script type="text/javascript">   
+                                    $(function(){
+	
+                                        $.datetimepicker.setLocale('th'); // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+
+	                                    // กรณีใช้แบบ input
+                                        $("#Leasing_Date").datetimepicker({
+                                            timepicker:false,
+                                            format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                            lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+		                                    onSelectDate:function(dp,$input){
+			                                    var yearT=new Date(dp).getFullYear()-0;  
+			                                    var yearTH=yearT+543;
+			                                    var fulldate=$input.val();
+			                                    var fulldateTH=fulldate.replace(yearT,yearTH);
+			                                    $("<%= "#" + Leasing_Date_TBx.ClientID %>").val(fulldateTH);
+		                                    },
+                                        });       
+	                                    // กรณีใช้กับ input ต้องกำหนดส่วนนี้ด้วยเสมอ เพื่อปรับปีให้เป็น ค.ศ. ก่อนแสดงปฏิทิน
+	                                    $("<%= "#" + Leasing_Date_TBx.ClientID %>").on("mouseenter mouseleave",function(e){
+		                                    var dateValue=$(this).val();
+		                                    if(dateValue!=""){
+				                                    var arr_date=dateValue.split("-"); // ถ้าใช้ตัวแบ่งรูปแบบอื่น ให้เปลี่ยนเป็นตามรูปแบบนั้น
+				                                    // ในที่นี้อยู่ในรูปแบบ 00-00-0000 เป็น d-m-Y  แบ่งด่วย - ดังนั้น ตัวแปรที่เป็นปี จะอยู่ใน array
+				                                    //  ตัวที่สอง arr_date[2] โดยเริ่มนับจาก 0 
+				                                    if(e.type=="mouseenter"){
+					                                    var yearT=arr_date[2]-543;
+				                                    }		
+				                                    if(e.type=="mouseleave"){
+					                                    var yearT=parseInt(arr_date[2])+543;
+				                                    }	
+				                                    dateValue=dateValue.replace(arr_date[2],yearT);
+				                                    $(this).val(dateValue);													
+		                                    }		
+	                                    });
+                                    });
+                            </script> 
                         </div>
 
                     </div>
@@ -251,7 +472,7 @@
                             <asp:Label ID="Court_Lbl" runat="server" >ศาล</asp:Label>
                             <asp:DropDownList ID="Court_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
-                        <div class="col-xs-2">
+                        <div class="col-xs-6">
                             <asp:Label ID="Person_Receive_Trasfer_Lbl" runat="server" >ผู้รับโอน</asp:Label>
                             <asp:TextBox ID="Person_Receive_Trasfer_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
@@ -279,10 +500,47 @@
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="First_Payment_Date_Lbl" runat="server" >วันที่เริ่มชำระ</asp:Label>
-                                        <div class="form-group input-group">
-                                            <asp:TextBox ID="First_Payment_Date_TBx" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                                            <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                                        <div class="form-group input-group" id="First_Payment_Date">
+                                            <asp:TextBox ID="First_Payment_Date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>
                                         </div>
+                                        <script type="text/javascript">   
+                                            $(function(){
+	
+                                                $.datetimepicker.setLocale('th'); // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+
+	                                            // กรณีใช้แบบ input
+                                                $("#First_Payment_Date").datetimepicker({
+                                                    timepicker:false,
+                                                    format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                                    lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+		                                            onSelectDate:function(dp,$input){
+			                                            var yearT=new Date(dp).getFullYear()-0;  
+			                                            var yearTH=yearT+543;
+			                                            var fulldate=$input.val();
+			                                            var fulldateTH=fulldate.replace(yearT,yearTH);
+			                                            $("<%= "#" + First_Payment_Date_TBx.ClientID %>").val(fulldateTH);
+		                                            },
+                                                });       
+	                                            // กรณีใช้กับ input ต้องกำหนดส่วนนี้ด้วยเสมอ เพื่อปรับปีให้เป็น ค.ศ. ก่อนแสดงปฏิทิน
+	                                            $("<%= "#" + First_Payment_Date_TBx.ClientID %>").on("mouseenter mouseleave",function(e){
+		                                            var dateValue=$(this).val();
+		                                            if(dateValue!=""){
+				                                            var arr_date=dateValue.split("-"); // ถ้าใช้ตัวแบ่งรูปแบบอื่น ให้เปลี่ยนเป็นตามรูปแบบนั้น
+				                                            // ในที่นี้อยู่ในรูปแบบ 00-00-0000 เป็น d-m-Y  แบ่งด่วย - ดังนั้น ตัวแปรที่เป็นปี จะอยู่ใน array
+				                                            //  ตัวที่สอง arr_date[2] โดยเริ่มนับจาก 0 
+				                                            if(e.type=="mouseenter"){
+					                                            var yearT=arr_date[2]-543;
+				                                            }		
+				                                            if(e.type=="mouseleave"){
+					                                            var yearT=parseInt(arr_date[2])+543;
+				                                            }	
+				                                            dateValue=dateValue.replace(arr_date[2],yearT);
+				                                            $(this).val(dateValue);													
+		                                            }		
+	                                            });
+                                            });
+                                      </script> 
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Total_Require_Lbl" runat="server" > ยอดจัด </asp:Label>
@@ -314,10 +572,7 @@
                                     </div>
                                     <div class="col-xs-1">
                                         <asp:Label ID="Calculate_Lbl" runat="server" > คำนวน </asp:Label>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon"> <i class="fa fa-gears fa-fw"></i> </span>
-                                            <asp:LinkButton ID="Calculate_Btn" runat="server" CssClass="btn btn-xs btn-success" OnClick="Calculate_Btn_Click"> คำนวน </asp:LinkButton>
-                                        </div>
+                                        <asp:LinkButton ID="Calculate_Btn" runat="server" CssClass="btn btn-sm btn-success" OnClick="Calculate_Btn_Click"> <i class="fa fa-gears fa-fw"></i> คำนวน </asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -410,7 +665,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-1">
-                            <asp:LinkButton ID="Leasing_Add_Save_Btn" runat="server" CssClass="btn btn-default btn-primary btn_block" OnClick="Leasing_Add_Save_Btn_Click" ><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
+                            <asp:LinkButton ID="Leasing_Add_Save_Btn" runat="server" CssClass="btn btn-md btn-primary btn-block" OnClick="Leasing_Add_Save_Btn_Click" ><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,24 @@ namespace JKLWebBase_v2.Leasing_Form {
     public partial class Car_Dealer_Add {
         
         /// <summary>
+        /// Alert_Warning_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Alert_Warning_Panel;
+        
+        /// <summary>
+        /// Alert_Id_Card_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
+        
+        /// <summary>
         /// link_Customer_Add control.
         /// </summary>
         /// <remarks>
@@ -344,6 +362,24 @@ namespace JKLWebBase_v2.Leasing_Form {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Dealer_zipcode_TBx;
+        
+        /// <summary>
+        /// Dealer_status_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Dealer_status_Lbl;
+        
+        /// <summary>
+        /// Dealer_status_DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Dealer_status_DDL;
         
         /// <summary>
         /// Dealer_receive_Lbl control.

@@ -30,7 +30,7 @@ body {
 .navbar-top-links {
     /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
     font-family: 'TH SarabunPSK';
-    font-size: 16pt;
+    font-size: 18pt;
     font-weight: bold;
     margin-right: 0;
 }
@@ -361,4 +361,8 @@ table.dataTable thead .sorting:after {
 
 .panel-yellow a:hover {
     color: #df8a13;
+}
+
+.date {
+    cursor: pointer;
 }

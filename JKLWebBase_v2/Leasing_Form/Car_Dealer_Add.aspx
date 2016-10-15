@@ -1,36 +1,74 @@
 ﻿<%@ Page Title="เพิ่มข้อมูลนายหน้า" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Car_Dealer_Add.aspx.cs" Inherits="JKLWebBase_v2.Leasing_Form.Car_Dealer_Add" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- Alert MessagesBox -->
+    <asp:Panel ID="Alert_Warning_Panel" runat="server" Visible="false">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="alert alert-warning" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+              <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i> !! แจ้งเตือน !! </h6>
+            </div>
+            <div class="modal-body">
+              <p> <asp:Label ID="Alert_Id_Card_Lbl" runat="server" > ไม่พบเลขบัตรประชาชน . . . นี้ในระบบ </asp:Label> </p>
+            </div>
+        </div>
+    </div>
+    </asp:Panel>
+    <!-- Alert MessagesBox -->
+
     <div class="col-lg-12">
-        <h1 class="page-header"> เพิ่มข้อมูลนายหน้า </h1>
+        <h4 class="page-header"> เพิ่มข้อมูลนายหน้า </h4>
     </div>
     <ul class="nav nav-tabs">
       <li role="presentation" ><asp:LinkButton ID="link_Customer_Add" runat="server"  ><i class="fa fa-male fa-fw"></i> ผู้ทำสัญญา </asp:LinkButton></li>
       <li role="presentation" ><asp:LinkButton ID="link_Leasing_Add" runat="server" ><i class="fa fa-book fa-fw"></i> สัญญาเช่า - ซื้อ </asp:LinkButton></li>
       <li role="presentation" class="active"><asp:LinkButton ID="link_Dealers_Add" runat="server" ><i class="fa fa-male fa-fw"></i> นายหน้า </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_1" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 1</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_2" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 2</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Car_Img" runat="server" ><i class="fa fa-car fa-fw"></i>รูปรถ</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Home_Img" runat="server" ><i class="fa fa-home fa-fw"></i> รูปบ้าน</asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_1" runat="server" OnClick="link_Add_Bondsman_1_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 1 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_2" runat="server" OnClick="link_Add_Bondsman_2_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 2 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" OnClick="link_Add_Bondsman_3_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" OnClick="link_Add_Bondsman_4_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" OnClick="link_Add_Bondsman_5_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Car_Img" runat="server" OnClick="link_Add_Car_Img_Click"><i class="fa fa-car fa-fw"></i> รูปรถ </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Home_Img" runat="server" OnClick="link_Add_Home_Img_Click"><i class="fa fa-home fa-fw"></i> รูปบ้าน </asp:LinkButton></li>
     </ul>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal -->
                
                 <!-- ข้อมูลนายหน้า -->
                 <div class="panel-heading">
-                    ข้อมูลนายหน้า
+                    ข้อมูลนายหน้า <button  type="button" Class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal"><i class="fa fa-search fa-fw"></i> ค้นหา </button>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="form-group col-xs-2">
                             <asp:Label ID="Dealer_idcard_Lbl" runat="server" >เลขบัตรประชาชน</asp:Label>
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Dealer_idcard_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
-                                <asp:LinkButton ID="Dealer_search_Btn" runat="server" CssClass="input-group-addon"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
+                                <asp:TextBox ID="Dealer_idcard_TBx" runat="server" CssClass="form-control" OnTextChanged="Dealer_idcard_TBx_TextChanged" AutoPostBack="true"></asp:TextBox>
+                                <asp:LinkButton ID="Dealer_search_Btn" runat="server" CssClass="input-group-addon search" OnClick="Dealer_search_Btn_Click" ><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
                             </div>
                         </div>
                         <div class="col-xs-2">
@@ -88,6 +126,10 @@
 
                     <div class="row">
                         <div class="form-group col-xs-2">
+                            <asp:Label ID="Dealer_status_Lbl" runat="server" >ประเภทนายหน้า</asp:Label>
+                            <asp:DropDownList ID="Dealer_status_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
+                        </div>
+                        <div class="col-xs-2">
                             <asp:Label ID="Dealer_receive_Lbl" runat="server" >ค่านายหน้า</asp:Label>
                             <div class="form-group input-group">
                                 <asp:TextBox ID="Dealer_receive_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
@@ -127,11 +169,48 @@
                             <asp:TextBox ID="Dealer_com_code_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-2">
-                            <asp:Label ID="Dealer_date_print__Lbl" runat="server" >วันที่หมดอายุ</asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Dealer_date_print_TBx" runat="server" CssClass="form-control" TextMode="Date"></asp:TextBox>
-                                <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                            <asp:Label ID="Dealer_date_print__Lbl" runat="server" >ลงวันที่</asp:Label>
+                            <div class="form-group input-group" id="Dealer_date_print">
+                                <asp:TextBox ID="Dealer_date_print_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>
                             </div>
+                            <script type="text/javascript">   
+                                $(function(){
+	
+                                    $.datetimepicker.setLocale('th'); // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+
+	                                // กรณีใช้แบบ input
+                                    $("#Dealer_date_print").datetimepicker({
+                                        timepicker:false,
+                                        format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                        lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
+		                                onSelectDate:function(dp,$input){
+			                                var yearT=new Date(dp).getFullYear()-0;  
+			                                var yearTH=yearT+543;
+			                                var fulldate=$input.val();
+			                                var fulldateTH=fulldate.replace(yearT,yearTH);
+			                                $("<%= "#" + Dealer_date_print_TBx.ClientID %>").val(fulldateTH);
+		                                },
+                                    });       
+	                                // กรณีใช้กับ input ต้องกำหนดส่วนนี้ด้วยเสมอ เพื่อปรับปีให้เป็น ค.ศ. ก่อนแสดงปฏิทิน
+	                                $("<%= "#" + Dealer_date_print_TBx.ClientID %>").on("mouseenter mouseleave",function(e){
+		                                var dateValue=$(this).val();
+		                                if(dateValue!=""){
+				                                var arr_date=dateValue.split("-"); // ถ้าใช้ตัวแบ่งรูปแบบอื่น ให้เปลี่ยนเป็นตามรูปแบบนั้น
+				                                // ในที่นี้อยู่ในรูปแบบ 00-00-0000 เป็น d-m-Y  แบ่งด่วย - ดังนั้น ตัวแปรที่เป็นปี จะอยู่ใน array
+				                                //  ตัวที่สอง arr_date[2] โดยเริ่มนับจาก 0 
+				                                if(e.type=="mouseenter"){
+					                                var yearT=arr_date[2]-543;
+				                                }		
+				                                if(e.type=="mouseleave"){
+					                                var yearT=parseInt(arr_date[2])+543;
+				                                }	
+				                                dateValue=dateValue.replace(arr_date[2],yearT);
+				                                $(this).val(dateValue);													
+		                                }		
+	                                });
+                                });
+                            </script>
                         </div>
                     </div>
 
@@ -141,7 +220,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-1">
-                            <asp:LinkButton ID="Dealer_Add_Save_Btn" runat="server" CssClass="btn btn-default btn-primary btn_block" OnClick="Dealer_Add_Save_Btn_Click" ><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
+                            <asp:LinkButton ID="Dealer_Add_Save_Btn" runat="server" CssClass="btn btn-md btn-primary btn-block" OnClick="Dealer_Add_Save_Btn_Click" ><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
                         </div>
                     </div>
                 </div>
