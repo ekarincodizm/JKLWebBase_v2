@@ -17,13 +17,13 @@ namespace JKLWebBase_v2.Managers_Customers
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM v_getcustomerid ";
+                string sql = "SELECT * FROM v_getdealerid ";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 string id = "";
                 if (reader.Read())
                 {
-                    id = reader[0].ToString();
+                    id = reader.GetString(0);
                 }
 
                 return id;
@@ -52,43 +52,56 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
+                /* 
+                 * :: THE StoredProcedure :: [ g_customersbyidcard ] :: 
+                 * g_customersbyidcard (in i_Cust_idcard varchar(13))
+                 * 
+                 */
+
                 con.Open();
-                string sql = "SELECT * FROM customers WHERE Cust_idcard = '" + idcard + "' ";
-                MySqlCommand cmd = new MySqlCommand(sql, con);
+                MySqlCommand cmd = new MySqlCommand("g_customersbyidcard", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Cust_idcard", idcard);
+
                 MySqlDataReader reader = cmd.ExecuteReader();
+
                 Customers cust = new Customers();
+
                 if (reader.Read())
                 {
-                    cust.Cust_id = reader[0].ToString();
-                    cust.Cust_idcard = reader[1].ToString();
-                    cust.Cust_Fname = reader[2].ToString();
-                    cust.Cust_LName = reader[3].ToString();
-                    cust.Cust_B_date = reader[4].ToString();
-                    cust.Cust_age = Convert.ToInt32(reader[5].ToString());
-                    cust.Cust_Idcard_without = reader[6].ToString();
-                    cust.Cust_Idcard_start = reader[7].ToString();
-                    cust.Cust_Idcard_expire = reader[8].ToString();
-                    cust.Cust_Nationality = Convert.ToInt32(reader[9].ToString());
-                    cust.Cust_Origin = Convert.ToInt32(reader[10].ToString());
-                    cust.Cust_job = reader[11].ToString();
-                    cust.Cust_job_position = reader[12].ToString();
-                    cust.Cust_job_long = Convert.ToInt32(reader[13].ToString());
-                    cust.Cust_job_local_name = reader[14].ToString();
-                    cust.Cust_job_address_no = reader[15].ToString();
-                    cust.Cust_job_vilage = reader[16].ToString();
-                    cust.Cust_job_vilage_no = reader[17].ToString();
-                    cust.Cust_job_alley = reader[18].ToString();
-                    cust.Cust_job_road = reader[19].ToString();
-                    cust.Cust_job_subdistrict = reader[20].ToString();
-                    cust.Cust_job_district = reader[21].ToString();
-                    cust.Cust_job_province = Convert.ToInt32(reader[22].ToString());
-                    cust.Cust_job_contry = reader[23].ToString();
-                    cust.Cust_job_zipcode = reader[24].ToString();
-                    cust.Cust_job_tel = reader[25].ToString();
-                    cust.Cust_job_email = reader[26].ToString();
-                    cust.Cust_job_salary = Convert.ToDouble(reader[27].ToString());
-                    cust.Cust_status_id = Convert.ToInt32(reader[28].ToString());
-                   }
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    cust.Cust_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    cust.Cust_idcard = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    cust.Cust_Fname = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    cust.Cust_LName = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    cust.Cust_B_date = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    cust.Cust_age = reader.IsDBNull(5) ? defaultNum : reader.GetInt32(5);
+                    cust.Cust_Idcard_without = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+                    cust.Cust_Idcard_start = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
+                    cust.Cust_Idcard_expire = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
+                    cust.Cust_Nationality = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
+                    cust.Cust_Origin = reader.IsDBNull(10) ? defaultNum : reader.GetInt32(10);
+                    cust.Cust_job = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
+                    cust.Cust_job_position = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+                    cust.Cust_job_long = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
+                    cust.Cust_job_local_name = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+                    cust.Cust_job_address_no = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    cust.Cust_job_vilage = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+                    cust.Cust_job_vilage_no = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    cust.Cust_job_alley = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
+                    cust.Cust_job_road = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    cust.Cust_job_subdistrict = reader.IsDBNull(20) ? defaultString : reader.GetString(20);
+                    cust.Cust_job_district = reader.IsDBNull(21) ? defaultString : reader.GetString(21);
+                    cust.Cust_job_province = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
+                    cust.Cust_job_country = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
+                    cust.Cust_job_zipcode = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
+                    cust.Cust_job_tel = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
+                    cust.Cust_job_email = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
+                    cust.Cust_job_salary = reader.IsDBNull(27) ? defaultNum : reader.GetDouble(27);
+                    cust.Cust_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
+                }
 
                 return cust;
             }
@@ -107,7 +120,6 @@ namespace JKLWebBase_v2.Managers_Customers
             finally
             {
                 con.Close();
-                con.Dispose();
             }
         }
 
@@ -116,95 +128,50 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                MySqlCommand cmd = new MySqlCommand("customers_add", con);
+                /* 
+                 * :: THE StoredProcedure :: [ i_customers ] :: 
+                 * i_customers (in i_Cust_id varchar(50)                , in i_Cust_idcard varchar(255)         , in i_Cust_Fname varchar(255)      , in i_Cust_LName varchar(255)          , in i_Cust_B_date date, in i_Cust_age int(11),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                utf8                  utf8_general_ci       utf8_general_ci   
+                 *     		    in i_Cust_Idcard_without  varchar(255)  , in i_Cust_Idcard_start date           , in i_Cust_Idcard_expire date      , in i_Cust_Nationality int(11)         , in i_Cust_Origin int(11),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                 *      		in i_Cust_job varchar(50)               , in i_Cust_job_position varchar(255)   , in i_Cust_job_long int(11)        , in i_Cust_job_local_name varchar(255) , in i_Cust_job_address_no varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                 *      		in i_Cust_job_vilage varchar(255)       , in i_Cust_job_vilage_no varchar(255)  , in i_Cust_job_alley varchar(255)  , in i_Cust_job_road varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                 *      		in i_Cust_job_subdistrict varchar(255)  , in i_Cust_job_district varchar(255)   , in i_Cust_job_province int(11)    , in i_Cust_job_contry varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                 *      		in i_Cust_job_zipcode varchar(255)      , in i_Cust_job_tel varchar(255)        , in i_Cust_job_email varchar(255)  , in i_Cust_job_salary double(10,2), in i_Cust_status_id int(11))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_customers", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_id", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_id"].Value = cust.Cust_id;
 
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_idcard", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_idcard"].Value = cust.Cust_idcard;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_Fname", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_Fname"].Value = cust.Cust_Fname;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_LName", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_LName"].Value = cust.Cust_LName;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_B_date", MySqlDbType.Date));
-                cmd.Parameters["?i_Cust_B_date"].Value = cust.Cust_B_date;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_age", MySqlDbType.Int32));
-                cmd.Parameters["?i_Cust_age"].Value = cust.Cust_age;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_Idcard_without", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_Idcard_without"].Value = cust.Cust_Idcard_without;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_Idcard_start", MySqlDbType.Date));
-                cmd.Parameters["?i_Cust_Idcard_start"].Value = cust.Cust_Idcard_start;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_Idcard_expire", MySqlDbType.Date));
-                cmd.Parameters["?i_Cust_Idcard_expire"].Value = cust.Cust_Idcard_expire;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_Nationality", MySqlDbType.Int32));
-                cmd.Parameters["?i_Cust_Nationality"].Value = cust.Cust_Nationality;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_Origin", MySqlDbType.Int32));
-                cmd.Parameters["?i_Cust_Origin"].Value = cust.Cust_Origin;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job"].Value = cust.Cust_job;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_position", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_position"].Value = cust.Cust_job_position;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_long", MySqlDbType.Int32));
-                cmd.Parameters["?i_Cust_job_long"].Value = cust.Cust_job_long;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_local_name", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_local_name"].Value = cust.Cust_job_local_name;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_address_no", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_address_no"].Value = cust.Cust_job_address_no;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_vilage", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_vilage"].Value = cust.Cust_job_vilage;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_vilage_no", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_vilage_no"].Value = cust.Cust_job_vilage_no;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_alley", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_alley"].Value = cust.Cust_job_alley;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_road", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_road"].Value = cust.Cust_job_road;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_subdistrict", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_subdistrict"].Value = cust.Cust_job_subdistrict;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_district", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_district"].Value = cust.Cust_job_district;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_province", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_province"].Value = cust.Cust_job_province;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_contry", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_contry"].Value = cust.Cust_job_contry;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_zipcode", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_zipcode"].Value = cust.Cust_job_zipcode;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_tel", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_tel"].Value = cust.Cust_job_tel;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_email", MySqlDbType.VarChar));
-                cmd.Parameters["?i_Cust_job_email"].Value = cust.Cust_job_email;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_job_salary", MySqlDbType.Double));
-                cmd.Parameters["?i_Cust_job_salary"].Value = cust.Cust_job_salary;
-
-                cmd.Parameters.Add(new MySqlParameter("?i_Cust_status_id", MySqlDbType.Int32));
-                cmd.Parameters["?i_Cust_status_id"].Value = cust.Cust_status_id;
+                cmd.Parameters.AddWithValue("@i_Cust_id", cust.Cust_id);
+                cmd.Parameters.AddWithValue("@i_Cust_idcard", cust.Cust_idcard);
+                cmd.Parameters.AddWithValue("@i_Cust_Fname", cust.Cust_Fname);
+                cmd.Parameters.AddWithValue("@i_Cust_LName", cust.Cust_LName);
+                cmd.Parameters.AddWithValue("@i_Cust_B_date", cust.Cust_B_date);
+                cmd.Parameters.AddWithValue("@i_Cust_age", cust.Cust_age);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_without", cust.Cust_Idcard_without);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_start", cust.Cust_Idcard_start);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_expire", cust.Cust_Idcard_expire);
+                cmd.Parameters.AddWithValue("@i_Cust_Nationality", cust.Cust_Nationality);
+                cmd.Parameters.AddWithValue("@i_Cust_Origin", cust.Cust_Origin);
+                cmd.Parameters.AddWithValue("@i_Cust_job", cust.Cust_job);
+                cmd.Parameters.AddWithValue("@i_Cust_job_position", cust.Cust_job_position);
+                cmd.Parameters.AddWithValue("@i_Cust_job_long", cust.Cust_job_long);
+                cmd.Parameters.AddWithValue("@i_Cust_job_local_name", cust.Cust_job_local_name);
+                cmd.Parameters.AddWithValue("@i_Cust_job_address_no", cust.Cust_job_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_job_vilage", cust.Cust_job_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_job_vilage_no", cust.Cust_job_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_job_alley", cust.Cust_job_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_job_road", cust.Cust_job_road);
+                cmd.Parameters.AddWithValue("@i_Cust_job_subdistrict", cust.Cust_job_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_job_district", cust.Cust_job_district);
+                cmd.Parameters.AddWithValue("@i_Cust_job_province", cust.Cust_job_province);
+                cmd.Parameters.AddWithValue("@i_Cust_job_contry", cust.Cust_job_country);
+                cmd.Parameters.AddWithValue("@i_Cust_job_zipcode", cust.Cust_job_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_job_tel", cust.Cust_job_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_job_email", cust.Cust_job_email);
+                cmd.Parameters.AddWithValue("@i_Cust_job_salary", cust.Cust_job_salary);
+                cmd.Parameters.AddWithValue("@i_Cust_status_id", cust.Cust_status_id);
 
                 cmd.ExecuteNonQuery();
 
@@ -225,7 +192,6 @@ namespace JKLWebBase_v2.Managers_Customers
             finally
             {
                 con.Close();
-                con.Dispose();
             }
         }
     }

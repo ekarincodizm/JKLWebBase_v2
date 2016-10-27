@@ -7,28 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Leasing_Form {
+namespace JKLWebBase_v2.Form_Leasings {
     
     
-    public partial class Car_Dealer_Add {
-        
-        /// <summary>
-        /// Alert_Warning_Panel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Alert_Warning_Panel;
-        
-        /// <summary>
-        /// Alert_Id_Card_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
+    public partial class Leasing_Home_Img {
         
         /// <summary>
         /// link_Customer_Add control.
@@ -130,22 +112,13 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.Label Dealer_idcard_Lbl;
         
         /// <summary>
-        /// Dealer_idcard_TBx control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_idcard_TBx;
-        
-        /// <summary>
-        /// Dealer_search_Btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Dealer_search_Btn;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
         /// Dealer_fname_Lbl control.
@@ -364,24 +337,6 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.TextBox Dealer_zipcode_TBx;
         
         /// <summary>
-        /// Dealer_status_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_status_Lbl;
-        
-        /// <summary>
-        /// Dealer_status_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Dealer_status_DDL;
-        
-        /// <summary>
         /// Dealer_receive_Lbl control.
         /// </summary>
         /// <remarks>
@@ -454,66 +409,48 @@ namespace JKLWebBase_v2.Leasing_Form {
         protected global::System.Web.UI.WebControls.TextBox TextBox3;
         
         /// <summary>
-        /// Dealer_bookcode_Lbl control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_bookcode_Lbl;
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// Dealer_bookcode_TBx control.
+        /// TextBox4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_bookcode_TBx;
+        protected global::System.Web.UI.WebControls.TextBox TextBox4;
         
         /// <summary>
-        /// Dealer_com_code_Lbl control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_com_code_Lbl;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Dealer_com_code_TBx control.
+        /// TextBox5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_com_code_TBx;
+        protected global::System.Web.UI.WebControls.TextBox TextBox5;
         
         /// <summary>
-        /// Dealer_date_print__Lbl control.
+        /// Home_Img_Save_Btn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_date_print__Lbl;
-        
-        /// <summary>
-        /// Dealer_date_print_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_date_print_TBx;
-        
-        /// <summary>
-        /// Dealer_Add_Save_Btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Dealer_Add_Save_Btn;
+        protected global::System.Web.UI.WebControls.LinkButton Home_Img_Save_Btn;
     }
 }

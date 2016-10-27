@@ -193,10 +193,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\sb-admin-2\css\jquery.datetimepicker.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Leasing_Form\Car_Dealer_Add.aspx" />
-    <Content Include="Leasing_Form\Customer_Add.aspx" />
-    <Content Include="Leasing_Form\Leasing_Car_Img.aspx" />
-    <Content Include="Leasing_Form\Leasing_Home_Img.aspx" />
+    <Content Include="Form_Leasings\Car_Dealer_Add.aspx" />
+    <Content Include="Form_Leasings\Customer_Add.aspx" />
+    <Content Include="Form_Leasings\Customer_Edit.aspx" />
+    <Content Include="Form_Leasings\Leasing_Car_Img.aspx" />
+    <Content Include="Form_Leasings\Leasing_Home_Img.aspx" />
     <Content Include="Content\sb-admin-2\css\sb-admin-2.css" />
     <Content Include="Content\sb-admin-2\css\timeline.css" />
     <Content Include="Content\sb-admin-2\js\sb-admin-2.js" />
@@ -210,11 +211,12 @@
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="Leasing_Form\Leasing_Add.aspx" />
+    <Content Include="Form_Leasings\Leasing_Add.aspx" />
     <Content Include="Authorization\Login.aspx" />
-    <Content Include="Leasing_Form\Leasing_Add_Bondsman.aspx" />
-    <Content Include="Leasing_Form\Leasing_Edit.aspx" />
-    <Content Include="Leasing_Form\Leasing_Edit_Bondsman.aspx" />
+    <Content Include="Form_Leasings\Leasing_Add_Bondsman.aspx" />
+    <Content Include="Form_Leasings\Leasing_Edit.aspx" />
+    <Content Include="Form_Leasings\Leasing_Edit_Bondsman.aspx" />
+    <Content Include="Form_Main\Main_JKL_Form.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -261,12 +263,14 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Leasing_Form\Leasing_Search.aspx" />
+    <Content Include="Form_Leasings\Leasing_Search.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -310,70 +314,77 @@
     <Compile Include="Global_Class\MSSQLConnection.cs" />
     <Compile Include="Global_Class\MySQLConnection.cs" />
     <Compile Include="Class_Base\Base_Car_Brands.cs" />
-    <Compile Include="Leasing_Form\Car_Dealer_Add.aspx.cs">
+    <Compile Include="Form_Leasings\Car_Dealer_Add.aspx.cs">
       <DependentUpon>Car_Dealer_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Leasing_Form\Car_Dealer_Add.aspx.designer.cs">
+    <Compile Include="Form_Leasings\Car_Dealer_Add.aspx.designer.cs">
       <DependentUpon>Car_Dealer_Add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Leasing_Form\Customer_Add.aspx.cs">
+    <Compile Include="Form_Leasings\Customer_Add.aspx.cs">
       <DependentUpon>Customer_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Leasing_Form\Customer_Add.aspx.designer.cs">
+    <Compile Include="Form_Leasings\Customer_Add.aspx.designer.cs">
       <DependentUpon>Customer_Add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Add_Bondsman.aspx.cs">
+    <Compile Include="Form_Leasings\Customer_Edit.aspx.cs">
+      <DependentUpon>Customer_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Leasings\Customer_Edit.aspx.designer.cs">
+      <DependentUpon>Customer_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Add_Bondsman.aspx.cs">
       <DependentUpon>Leasing_Add_Bondsman.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Add_Bondsman.aspx.designer.cs">
+    <Compile Include="Form_Leasings\Leasing_Add_Bondsman.aspx.designer.cs">
       <DependentUpon>Leasing_Add_Bondsman.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Car_Img.aspx.cs">
+    <Compile Include="Form_Leasings\Leasing_Car_Img.aspx.cs">
       <DependentUpon>Leasing_Car_Img.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Car_Img.aspx.designer.cs">
+    <Compile Include="Form_Leasings\Leasing_Car_Img.aspx.designer.cs">
       <DependentUpon>Leasing_Car_Img.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Edit.aspx.cs">
+    <Compile Include="Form_Leasings\Leasing_Edit.aspx.cs">
       <DependentUpon>Leasing_Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Edit.aspx.designer.cs">
+    <Compile Include="Form_Leasings\Leasing_Edit.aspx.designer.cs">
       <DependentUpon>Leasing_Edit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Edit_Bondsman.aspx.cs">
+    <Compile Include="Form_Leasings\Leasing_Edit_Bondsman.aspx.cs">
       <DependentUpon>Leasing_Edit_Bondsman.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Edit_Bondsman.aspx.designer.cs">
+    <Compile Include="Form_Leasings\Leasing_Edit_Bondsman.aspx.designer.cs">
       <DependentUpon>Leasing_Edit_Bondsman.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Home_Img.aspx.cs">
+    <Compile Include="Form_Leasings\Leasing_Home_Img.aspx.cs">
       <DependentUpon>Leasing_Home_Img.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Home_Img.aspx.designer.cs">
+    <Compile Include="Form_Leasings\Leasing_Home_Img.aspx.designer.cs">
       <DependentUpon>Leasing_Home_Img.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Search.aspx.cs">
+    <Compile Include="Form_Leasings\Leasing_Search.aspx.cs">
       <DependentUpon>Leasing_Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Search.aspx.designer.cs">
+    <Compile Include="Form_Leasings\Leasing_Search.aspx.designer.cs">
       <DependentUpon>Leasing_Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Add.aspx.cs">
+    <Compile Include="Form_Leasings\Leasing_Add.aspx.cs">
       <DependentUpon>Leasing_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Leasing_Form\Leasing_Add.aspx.designer.cs">
+    <Compile Include="Form_Leasings\Leasing_Add.aspx.designer.cs">
       <DependentUpon>Leasing_Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Authorization\Login.aspx.cs">
@@ -382,6 +393,13 @@
     </Compile>
     <Compile Include="Authorization\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Main\Main_JKL_Form.aspx.cs">
+      <DependentUpon>Main_JKL_Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Main\Main_JKL_Form.aspx.designer.cs">
+      <DependentUpon>Main_JKL_Form.aspx</DependentUpon>
     </Compile>
     <Compile Include="Managers_Base\Base_Address_Types_Manager.cs" />
     <Compile Include="Managers_Base\Base_Branchs_Manager.cs" />

@@ -23,8 +23,8 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Person_Status bps = new Base_Person_Status();
-                    bps.person_status_id = int.Parse(reader[0].ToString());
-                    bps.person_status_name = reader[1].ToString();
+                    bps.person_status_id = reader.GetInt32(0);
+                    bps.person_status_name = reader.GetString(1);
                     lbps.Add(bps);
                 }
 

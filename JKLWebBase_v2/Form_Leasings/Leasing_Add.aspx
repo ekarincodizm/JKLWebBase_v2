@@ -1,20 +1,20 @@
-﻿<%@ Page Page Title="แก้ไขสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="Leasing_Edit.aspx.cs" Inherits="JKLWebBase_v2.Leasing_Form.Leasing_Edit" %>
+﻿<%@ Page Title="เพิ่มสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Add" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-lg-12">
         <h4 class="page-header"> เพิ่มข้อมูลสัญญาเช่า-ซื้อ </h4>
     </div>
     <ul class="nav nav-tabs">
-      <li role="presentation" ><asp:LinkButton ID="link_Customer_Add" runat="server" ><i class="fa fa-male fa-fw"></i> ผู้ทำสัญญา </asp:LinkButton></li>
-      <li role="presentation" class="active"><asp:LinkButton ID="link_Leasing_Add" runat="server" ><i class="fa fa-book fa-fw"></i> สัญญาเช่า - ซื้อ </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Dealers_Add" runat="server" ><i class="fa fa-male fa-fw"></i> นายหน้า </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_1" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 1 </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_2" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 2 </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3 </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4 </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5 </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Car_Img" runat="server" ><i class="fa fa-car fa-fw"></i> รูปรถ </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Home_Img" runat="server" ><i class="fa fa-home fa-fw"></i> รูปบ้าน </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Customer_Add" runat="server" OnClick="link_Customer_Add_Click"><i class="fa fa-male fa-fw"></i> ผู้ทำสัญญา </asp:LinkButton></li>
+      <li role="presentation" class="active"><asp:LinkButton ID="link_Leasing_Add" runat="server" Enabled="false" ><i class="fa fa-book fa-fw"></i> สัญญาเช่า - ซื้อ </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Dealers_Add" runat="server" Enabled="false" ><i class="fa fa-male fa-fw"></i> นายหน้า </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_1" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 1 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_2" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 2 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" Enabled="false" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5 </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Car_Img" runat="server" Enabled="false" ><i class="fa fa-car fa-fw"></i> รูปรถ </asp:LinkButton></li>
+      <li role="presentation" ><asp:LinkButton ID="link_Add_Home_Img" runat="server" Enabled="false" ><i class="fa fa-home fa-fw"></i> รูปบ้าน </asp:LinkButton></li>
     </ul>
     <div class="row">
         <div class="col-lg-12">
@@ -87,7 +87,7 @@
 	                                // กรณีใช้แบบ input
                                     $("#Car_Register_Date").datetimepicker({
                                         timepicker:false,
-                                        format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                        format:'d/m/Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
                                         lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
 		                                onSelectDate:function(dp,$input){
 			                                var yearT=new Date(dp).getFullYear()-0;  
@@ -131,7 +131,7 @@
 	                                    // กรณีใช้แบบ input
                                         $("#Car_Next_Register_Date").datetimepicker({
                                             timepicker:false,
-                                            format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                            format:'d/m/Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
                                             lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
 		                                    onSelectDate:function(dp,$input){
 			                                    var yearT=new Date(dp).getFullYear()-0;  
@@ -201,7 +201,7 @@
 	                                    // กรณีใช้แบบ input
                                         $("#Car_Old_Owner_Idcard_Str").datetimepicker({
                                             timepicker:false,
-                                            format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                            format:'d/m/Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
                                             lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
 		                                    onSelectDate:function(dp,$input){
 			                                    var yearT=new Date(dp).getFullYear()-0;  
@@ -245,7 +245,7 @@
 	                                    // กรณีใช้แบบ input
                                         $("#Car_Old_Owner_Idcard_Exp").datetimepicker({
                                             timepicker:false,
-                                            format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                            format:'d/m/Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
                                             lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
 		                                    onSelectDate:function(dp,$input){
 			                                    var yearT=new Date(dp).getFullYear()-0;  
@@ -357,7 +357,7 @@
 	                                    // กรณีใช้แบบ input
                                         $("#Check_receive_date").datetimepicker({
                                             timepicker:false,
-                                            format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                            format:'d/m/Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
                                             lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
 		                                    onSelectDate:function(dp,$input){
 			                                    var yearT=new Date(dp).getFullYear()-0;  
@@ -431,7 +431,7 @@
 	                                    // กรณีใช้แบบ input
                                         $("#Leasing_Date").datetimepicker({
                                             timepicker:false,
-                                            format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                            format:'d/m/Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
                                             lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
 		                                    onSelectDate:function(dp,$input){
 			                                    var yearT=new Date(dp).getFullYear()-0;  
@@ -512,7 +512,7 @@
 	                                            // กรณีใช้แบบ input
                                                 $("#First_Payment_Date").datetimepicker({
                                                     timepicker:false,
-                                                    format:'d-m-Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
+                                                    format:'d/m/Y',  // กำหนดรูปแบบวันที่ ที่ใช้ เป็น 00-00-0000			
                                                     lang:'th',  // ต้องกำหนดเสมอถ้าใช้ภาษาไทย และ เป็นปี พ.ศ.
 		                                            onSelectDate:function(dp,$input){
 			                                            var yearT=new Date(dp).getFullYear()-0;  
@@ -674,3 +674,4 @@
         </div>
     </div>
 </asp:Content>
+

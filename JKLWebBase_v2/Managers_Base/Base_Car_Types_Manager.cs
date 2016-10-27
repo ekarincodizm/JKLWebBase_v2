@@ -23,8 +23,8 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Car_Types ctp = new Base_Car_Types();
-                    ctp.car_type_id = int.Parse(reader[0].ToString());
-                    ctp.car_type_name = reader[1].ToString();
+                    ctp.car_type_id = reader.GetInt32(0);
+                    ctp.car_type_name = reader.GetString(1);
                     lctp.Add(ctp);
                 }
 

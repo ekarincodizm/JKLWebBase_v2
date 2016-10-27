@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Leasing_Form {
+namespace JKLWebBase_v2.Form_Leasings {
     
     
     public partial class Leasing_Edit {

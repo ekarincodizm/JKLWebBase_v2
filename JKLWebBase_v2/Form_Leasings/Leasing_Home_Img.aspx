@@ -1,8 +1,8 @@
-﻿<%@ Page Title="เพิ่มรูปบ้าน" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="Leasing_Home_Img.aspx.cs" Inherits="JKLWebBase_v2.Leasing_Form.Leasing_Home_Img" %>
+﻿<%@ Page Title="เพิ่มรูปบ้าน" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="Leasing_Home_Img.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Home_Img" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-lg-12">
-        <h1 class="page-header"> เพิ่มรูปบ้าน </h1>
+        <h4 class="page-header"> เพิ่มรูปบ้าน </h4>
     </div>
     <ul class="nav nav-tabs">
       <li role="presentation" ><asp:LinkButton ID="link_Customer_Add" runat="server"  ><i class="fa fa-male fa-fw"></i> ผู้ทำสัญญา </asp:LinkButton></li>
@@ -22,16 +22,13 @@
                
                 <!-- ข้อมูลนายหน้า -->
                 <div class="panel-heading">
-                    ข้อมูลนายหน้า
+                    รูปบ้าน
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="form-group col-xs-2">
-                            <asp:Label ID="Dealer_idcard_Lbl" runat="server" >เลขบัตรประชาชน</asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Dealer_idcard_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
-                                <asp:LinkButton ID="Dealer_search_Btn" runat="server" CssClass="input-group-addon"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
-                            </div>
+                            <asp:Label ID="Dealer_idcard_Lbl" runat="server" >รูปที่ 1 </asp:Label>
+                            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="form-control" />
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Dealer_fname_Lbl" runat="server" >ชื่อ</asp:Label>
@@ -134,7 +131,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-1">
-                            <asp:LinkButton ID="Dealer_Add_Save_Btn" runat="server" CssClass="btn btn-default btn-primary btn_block" OnClick="Dealer_Add_Save_Btn_Click" ><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
+                            <asp:LinkButton ID="Home_Img_Save_Btn" runat="server" CssClass="btn btn-default btn-primary btn_block"><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
                         </div>
                     </div>
                 </div>

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Leasing_Form {
+namespace JKLWebBase_v2.Form_Leasings {
     
     
-    public partial class Leasing_Home_Img {
+    public partial class Leasing_Add_Car_Img {
         
         /// <summary>
         /// link_Customer_Add control.

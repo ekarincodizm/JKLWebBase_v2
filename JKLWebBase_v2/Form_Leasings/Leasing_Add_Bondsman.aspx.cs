@@ -14,7 +14,7 @@ using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
 using JKLWebBase_v2.Managers_Leasings;
 
-namespace JKLWebBase_v2.Leasing_Form
+namespace JKLWebBase_v2.Form_Leasings
 {
     public partial class Leasing_Add_Bondsman_1 : System.Web.UI.Page
     {
@@ -40,52 +40,52 @@ namespace JKLWebBase_v2.Leasing_Form
 
         protected void link_Leasing_Add_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Leasing_Form/Leasing_Edit");
+            Response.Redirect("/Form_Leasings/Leasing_Edit");
         }
 
         protected void link_Customer_Add_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Leasing_Form/Customer_Add");
+            Response.Redirect("/Form_Leasings/Customer_Add");
         }
 
         protected void link_Add_Bondsman_1_Click(object sender, EventArgs e)
         {
             Session["Number_Of_Bondsman"] = "1";
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         protected void link_Add_Bondsman_2_Click(object sender, EventArgs e)
         {
             Session["Number_Of_Bondsman"] = "2";
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         protected void link_Add_Bondsman_3_Click(object sender, EventArgs e)
         {
             Session["Number_Of_Bondsman"] = "3";
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         protected void link_Add_Bondsman_4_Click(object sender, EventArgs e)
         {
             Session["Number_Of_Bondsman"] = "4";
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         protected void link_Add_Bondsman_5_Click(object sender, EventArgs e)
         {
             Session["Number_Of_Bondsman"] = "5";
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         protected void link_Add_Car_Img_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Leasing_Form/Leasing_Car_Img");
+            Response.Redirect("/Form_Leasings/Leasing_Car_Img");
         }
 
         protected void link_Add_Home_Img_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Leasing_Form/Leasing_Home_Img");
+            Response.Redirect("/Form_Leasings/Leasing_Home_Img");
         }
 
         protected void Cust_idcard_TBx_TextChanged(object sender, EventArgs e)
@@ -250,7 +250,7 @@ namespace JKLWebBase_v2.Leasing_Form
             ctm.Cust_job_subdistrict = string.IsNullOrEmpty(Cust_job_subdistrict_TBx.Text) ? "-" : Cust_job_subdistrict_TBx.Text;
             ctm.Cust_job_district = string.IsNullOrEmpty(Cust_job_district_TBx.Text) ? "-" : Cust_job_district_TBx.Text;
             ctm.Cust_job_province = Convert.ToInt32(Cust_job_province_DDL.SelectedValue);
-            ctm.Cust_job_contry = string.IsNullOrEmpty(Cust_job_contry_TBx.Text) ? "-" : Cust_job_contry_TBx.Text;
+            ctm.Cust_job_country = string.IsNullOrEmpty(Cust_job_contry_TBx.Text) ? "-" : Cust_job_contry_TBx.Text;
             ctm.Cust_job_zipcode = string.IsNullOrEmpty(Cust_job_zipcode_TBx.Text) ? "-" : Cust_job_zipcode_TBx.Text;
             ctm.Cust_job_tel = string.IsNullOrEmpty(Cust_job_tel_TBx.Text) ? "-" : Cust_job_tel_TBx.Text;
             ctm.Cust_job_email = string.IsNullOrEmpty(Cust_job_email_TBx.Text) ? "-" : Cust_job_email_TBx.Text;
@@ -259,7 +259,10 @@ namespace JKLWebBase_v2.Leasing_Form
 
             _AddCustomerAddress(ctm.Cust_id);
 
-            if (ctm.Cust_status_id == 2) { _AddCustomerSpouse(ctm.Cust_id); }
+            if (ctm.Cust_status_id == 2)
+            {
+                _AddCustomerSpouse(ctm.Cust_id);
+            }
 
         }
 

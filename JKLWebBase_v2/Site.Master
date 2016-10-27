@@ -50,7 +50,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" runat="server" href="/Leasing_Form/Leasing_Search"> JKL Web App 2.0 <i class="fa fa-car fa-fw"></i> </a>
+                <a class="navbar-brand" runat="server" href="/Form_Main/Main_JKL_Form"> <i class="fa fa-bank fa-fw"></i> JKL Web App 2.0 <i class="fa fa-car fa-fw"></i> </a>
             </div>
             <ul class="nav navbar-top-links navbar-left">
                 <li class="dropdown">
@@ -58,11 +58,13 @@
                         <i class="fa fa-book fa-fw"></i> สัญญาเช่า-ซื้อ  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="Car_Dealer_Add"><i class="fa fa-search fa-fw"></i> ค้นหาสัญญาฝาก </a></li>
-                        <li><a href="Leasing_Add"><i class="fa fa-tag fa-fw"></i> เพิ่มสัญญาฝาก </a></li>
+                        <li><a href="~/"><i class="fa fa-money fa-fw"></i> ชำระค่างวดเช่า - ซื้อ </a></li>
                         <li class="divider"></li>
-                        <li><a href="Leasing_Search"><i class="fa fa-search fa-fw"></i> ค้นหาสัญญาเช่า-ซื้อ </a></li>
-                        <li><a href="Customer_Add"><i class="fa fa-book fa-fw"></i> เพิ่มสัญญาเช่า-ซื้อ </a></li>
+                        <li><a href="/Form_Leasings/Car_Dealer_Add"><i class="fa fa-search fa-fw"></i> ค้นหาสัญญาฝาก </a></li>
+                        <li><a href="/Form_Leasings/Leasing_Add"><i class="fa fa-tag fa-fw"></i> เพิ่มสัญญาฝาก </a></li>
+                        <li class="divider"></li>
+                        <li><a href="/Form_Leasings/Leasing_Search"><i class="fa fa-search fa-fw"></i> ค้นหาสัญญาเช่า-ซื้อ </a></li>
+                        <li><a href="/Form_Leasings/Customer_Add"><i class="fa fa-book fa-fw"></i> เพิ่มสัญญาเช่า-ซื้อ </a></li>
                     </ul>
                 </li>
             </ul>
@@ -78,17 +80,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="~/">
-                        <i class="fa fa-user fa-fw"></i> ผู้ใช้งาน <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="~/"><i class="fa fa-user fa-fw"></i> ค้นหาสัญญา</a></li>
-                        <li><a href="~/"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
-                        <li class="divider"></li>
-                        <li><a href="~/"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
-                    </ul>
-                </li>
+                <li><a href="../Authorization/Login" class="logout"> <i class="fa fa-sign-out fa-fw"></i> Logout </a></li>
             </ul>
         </nav>
 

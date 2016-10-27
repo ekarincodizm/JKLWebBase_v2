@@ -25,7 +25,7 @@
         public string Cust_job_subdistrict { get; set; } //ตำบล / แขวง
         public string Cust_job_district { get; set; } //อำเภอ / เขต
         public int Cust_job_province { get; set; } //จังหวัด
-        public string Cust_job_contry { get; set; } //ประเทศ
+        public string Cust_job_country { get; set; } //ประเทศ
         public string Cust_job_zipcode { get; set; } //รหัสไปรษณีย์
         public string Cust_job_tel { get; set; } //เบอร์โทรศัพท์
         public string Cust_job_email { get; set; } //อีเมล์

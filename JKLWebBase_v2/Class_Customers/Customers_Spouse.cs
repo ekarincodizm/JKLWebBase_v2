@@ -2,12 +2,12 @@
 {
     public class Customers_Spouse
     {
-        public string Cust_idcard { get; set; } //รหัสบัตรประชาชนลูกค้า
+        public string Cust_id { get; set; } //รหัสบัตรประชาชนลูกค้า
         public string Spouse_idcard { get; set; } //รหัสบัตรประชาชนคู่สมรส
         public string Spouse_Fname { get; set; } //ชื่อคู่สมรส
         public string Spouse_Lname { get; set; } //นามสกุลคู่สมรส
-        public string Spouse_Nationality { get; set; } //เชื้อชาติ
-        public string Spouse_Origin { get; set; } //สัญชาติ
+        public int Spouse_Nationality { get; set; } //เชื้อชาติ
+        public int Spouse_Origin { get; set; } //สัญชาติ
         public string Spouse_address_no { get; set; } //ที่อยู่ เลขที่
         public string Spouse_vilage { get; set; } //หมู่บ้าน
         public string Spouse_vilage_no { get; set; } //หมู่ที่

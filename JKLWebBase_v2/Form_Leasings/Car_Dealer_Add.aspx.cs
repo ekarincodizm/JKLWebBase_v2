@@ -15,7 +15,7 @@ using JKLWebBase_v2.Managers_Customers;
 using JKLWebBase_v2.Managers_Leasings;
 
 
-namespace JKLWebBase_v2.Leasing_Form
+namespace JKLWebBase_v2.Form_Leasings
 {
     public partial class Car_Dealer_Add : System.Web.UI.Page
     {
@@ -30,20 +30,15 @@ namespace JKLWebBase_v2.Leasing_Form
 
         protected void Dealer_idcard_TBx_TextChanged(object sender, EventArgs e)
         {
-
+            if(Dealer_idcard_TBx.Text.Length == 13)
+            {
+                _CheckDealer();
+            }
         }
 
         protected void Dealer_search_Btn_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Dealer_idcard_TBx.Text))
-            {
-                Alert_Warning_Panel.Visible = true;
-                Alert_Id_Card_Lbl.Text = "ไม่พบเลขบัตรประชาชน " + Dealer_idcard_TBx.Text + " นี้ในระบบ";
-            }
-            else
-            {
-
-            }
+            _CheckDealer();
         }
 
         protected void Dealer_Add_Save_Btn_Click(object sender, EventArgs e)
@@ -54,41 +49,41 @@ namespace JKLWebBase_v2.Leasing_Form
         protected void link_Add_Bondsman_1_Click(object sender, EventArgs e)
         {
             Session["Number_Of_Bondsman"] = "1";
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         protected void link_Add_Bondsman_2_Click(object sender, EventArgs e)
         {
             Session["Number_Of_Bondsman"] = "2";
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         protected void link_Add_Bondsman_3_Click(object sender, EventArgs e)
         {
             Session["Number_Of_Bondsman"] = "3";
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         protected void link_Add_Bondsman_4_Click(object sender, EventArgs e)
         {
             Session["Number_Of_Bondsman"] = "4";
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         protected void link_Add_Bondsman_5_Click(object sender, EventArgs e)
         {
             Session["Number_Of_Bondsman"] = "5";
-            Response.Redirect("/Leasing_Form/Leasing_Add_Bondsman");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         protected void link_Add_Car_Img_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Leasing_Form/Leasing_Car_Img");
+            Response.Redirect("/Form_Leasings/Leasing_Car_Img");
         }
 
         protected void link_Add_Home_Img_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Leasing_Form/Leasing_Home_Img");
+            Response.Redirect("/Form_Leasings/Leasing_Home_Img");
         }
 
         /*******************************************************************************************************************************************************************************
@@ -135,15 +130,8 @@ namespace JKLWebBase_v2.Leasing_Form
             }
             else
             {
-                string message = "ไม่พบหมายเลขบัตรประชาชน " + Dealer_idcard_TBx.Text + " ของนายหน้าในระบบ";
-                StringBuilder sb = new StringBuilder();
-                sb.Append("<script type = 'text/javascript'>");
-                sb.Append("window.onload=function(){");
-                sb.Append("alert('");
-                sb.Append(message);
-                sb.Append("')};");
-                sb.Append("</script>");
-                ClientScript.RegisterClientScriptBlock(GetType(), "alert", sb.ToString());
+                Alert_Warning_Panel.Visible = true;
+                Alert_Id_Card_Lbl.Text = "ไม่พบเลขบัตรประชาชน " + Dealer_idcard_TBx.Text + " นี้ในระบบ";
 
                 Dealer_idcard_TBx.Focus();
             }

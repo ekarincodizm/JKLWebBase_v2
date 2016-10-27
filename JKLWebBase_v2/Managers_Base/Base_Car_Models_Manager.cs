@@ -23,9 +23,9 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Car_Models cm = new Base_Car_Models();
-                    cm.car_model_id = int.Parse(reader[0].ToString());
-                    cm.car_brand_id = int.Parse(reader[1].ToString());
-                    cm.car_model_name = reader[2].ToString();
+                    cm.car_model_id = reader.GetInt32(0);
+                    cm.car_brand_id = reader.GetInt32(1);
+                    cm.car_model_name = reader.GetString(2);
                     lcm.Add(cm);
                 }
 

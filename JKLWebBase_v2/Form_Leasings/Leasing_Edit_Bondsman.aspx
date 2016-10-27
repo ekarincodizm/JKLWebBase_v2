@@ -1,4 +1,4 @@
-﻿<%@ Page Title="ผู้ค้ำประกัน" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Edit_Bondsman.aspx.cs" Inherits="JKLWebBase_v2.Leasing_Form.Leasing_Edit_Bondsman" %>
+﻿<%@ Page Title="ผู้ค้ำประกัน" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Edit_Bondsman.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Edit_Bondsman" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-lg-12">

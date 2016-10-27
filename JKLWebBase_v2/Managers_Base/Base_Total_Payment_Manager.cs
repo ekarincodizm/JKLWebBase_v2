@@ -23,8 +23,8 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Total_Payment btp = new Base_Total_Payment();
-                    btp.Total_payment_id = int.Parse(reader[0].ToString());
-                    btp.Total_payment_name = reader[1].ToString();
+                    btp.Total_payment_id = reader.GetInt32(0);
+                    btp.Total_payment_name = reader.GetString(1);
                     lbtp.Add(btp);
                 }
 

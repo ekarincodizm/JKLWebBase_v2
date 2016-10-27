@@ -23,9 +23,9 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Nationalitys bnnt = new Base_Nationalitys();
-                    bnnt.Nationality_id = int.Parse(reader[0].ToString());
-                    bnnt.Nationality_name_ENG = reader[1].ToString();
-                    bnnt.Nationality_name_TH = reader[2].ToString();
+                    bnnt.Nationality_id = reader.GetInt32(0);
+                    bnnt.Nationality_name_ENG = reader.GetString(1);
+                    bnnt.Nationality_name_TH = reader.GetString(2);
                     lbnnt.Add(bnnt);
                 }
 

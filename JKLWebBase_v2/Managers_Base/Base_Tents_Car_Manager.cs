@@ -23,9 +23,9 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Tents_Car btc = new Base_Tents_Car();
-                    btc.Tent_car_id = int.Parse(reader[0].ToString());
-                    btc.Tent_name = reader[1].ToString();
-                    btc.Tent_local = reader[1].ToString();
+                    btc.Tent_car_id = reader.GetInt32(0);
+                    btc.Tent_name = reader.GetString(1);
+                    btc.Tent_local = reader.GetString(2);
                     lbtc.Add(btc);
                 }
 

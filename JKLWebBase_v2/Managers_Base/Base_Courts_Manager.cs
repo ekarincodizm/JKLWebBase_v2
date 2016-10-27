@@ -23,8 +23,8 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Courts bct = new Base_Courts();
-                    bct.Court_id = int.Parse(reader[0].ToString());
-                    bct.Court_name = reader[1].ToString();
+                    bct.Court_id = reader.GetInt32(0);
+                    bct.Court_name = reader.GetString(1);
                     lbct.Add(bct);
                 }
 

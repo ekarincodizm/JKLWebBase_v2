@@ -2530,6 +2530,8 @@ input[type="checkbox"] {
   line-height: normal;
 }
 input[type="file"] {
+  font-family: Tahoma;
+  font-size: 10pt;
   display: block;
 }
 input[type="range"] {
@@ -5942,6 +5944,7 @@ button.close {
   width: auto;
   margin: 10px;
 }
+
 .modal-content {
   position: relative;
   background-color: #fff;
@@ -6019,13 +6022,22 @@ button.close {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
             box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
   }
-  .modal-sm {
+  .modal-ss {
     width: 300px;
   }
 }
 @media (min-width: 992px) {
   .modal-lg {
+    width: 1800px;
+  }
+  .modal-md {
+    width: 1300px;
+  }
+  .modal-sm {
     width: 900px;
+  }
+  .modal-xs {
+    width: 500px;
   }
 }
 .tooltip {
@@ -6796,5 +6808,9 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+.logout,
+.logout:hover {
+    color: #fa2214;
 }
 /*# sourceMappingURL=bootstrap.css.map */

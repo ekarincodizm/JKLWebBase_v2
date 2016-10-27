@@ -23,8 +23,8 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Home_Status bhs = new Base_Home_Status();
-                    bhs.Home_status_id = int.Parse(reader[0].ToString());
-                    bhs.Home_status_name = reader[1].ToString();
+                    bhs.Home_status_id = reader.GetInt32(0);
+                    bhs.Home_status_name = reader.GetString(1);
                     lbhs.Add(bhs);
                 }
 

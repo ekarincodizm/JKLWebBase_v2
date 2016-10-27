@@ -23,22 +23,22 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Leasing_Code blsc = new Base_Leasing_Code();
-                    blsc.Leasing_code_id = int.Parse(reader[0].ToString());
-                    blsc.Leasing_code_name = reader[1].ToString();
-                    blsc.Leasing_code_S_Name = reader[2].ToString();
-                    blsc.Leasing_code_F_Name = reader[3].ToString();
-                    blsc.Leasing_code_Tax_id = reader[4].ToString();
-                    blsc.Leasing_code_address_no = reader[5].ToString();
-                    blsc.Leasing_code_vilage = reader[6].ToString();
-                    blsc.Leasing_code_vilage_no = reader[7].ToString();
-                    blsc.Leasing_code_alley = reader[8].ToString();
-                    blsc.Leasing_code_road = reader[9].ToString();
-                    blsc.Leasing_code_subdistrict = reader[10].ToString();
-                    blsc.Leasing_code_district = reader[11].ToString();
-                    blsc.Leasing_code_province = reader[12].ToString();
-                    blsc.Leasing_code_country = reader[13].ToString();
-                    blsc.Leasing_code_zipcode = reader[14].ToString();
-                    blsc.Leasing_code_tel = reader[15].ToString();
+                    blsc.Leasing_code_id = reader.GetInt32(0);
+                    blsc.Leasing_code_name = reader.GetString(1);
+                    blsc.Leasing_code_S_Name = reader.GetString(2);
+                    blsc.Leasing_code_F_Name = reader.GetString(3);
+                    blsc.Leasing_code_Tax_id = reader.GetString(4);
+                    blsc.Leasing_code_address_no = reader.GetString(5);
+                    blsc.Leasing_code_vilage = reader.GetString(6);
+                    blsc.Leasing_code_vilage_no = reader.GetString(7);
+                    blsc.Leasing_code_alley = reader.GetString(8);
+                    blsc.Leasing_code_road = reader.GetString(9);
+                    blsc.Leasing_code_subdistrict = reader.GetString(10);
+                    blsc.Leasing_code_district = reader.GetString(11);
+                    blsc.Leasing_code_province = reader.GetString(12);
+                    blsc.Leasing_code_country = reader.GetString(13);
+                    blsc.Leasing_code_zipcode = reader.GetString(14);
+                    blsc.Leasing_code_tel = reader.GetString(15);
                     lblsc.Add(blsc);
                 }
 

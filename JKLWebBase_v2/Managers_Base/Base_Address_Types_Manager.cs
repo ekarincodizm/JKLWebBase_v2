@@ -23,8 +23,8 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Address_Types bats = new Base_Address_Types();
-                    bats.Address_type_id = int.Parse(reader[0].ToString());
-                    bats.Address_type_name = reader[1].ToString();
+                    bats.Address_type_id = reader.GetInt32(0);
+                    bats.Address_type_name = reader.GetString(1);
                     lbat.Add(bats);
                 }
 

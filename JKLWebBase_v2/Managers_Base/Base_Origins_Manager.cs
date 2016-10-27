@@ -23,9 +23,9 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Origins bog = new Base_Origins();
-                    bog.Origin_id = int.Parse(reader[0].ToString());
-                    bog.Origin_name_ENG = reader[1].ToString();
-                    bog.Origin_name_TH = reader[2].ToString();
+                    bog.Origin_id = reader.GetInt32(0);
+                    bog.Origin_name_ENG = reader.GetString(1);
+                    bog.Origin_name_TH = reader.GetString(2);
                     lbog.Add(bog);
                 }
 

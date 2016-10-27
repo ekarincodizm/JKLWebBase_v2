@@ -3,7 +3,6 @@
     public class Customers_Address
     {
         public string Cust_id { get; set; } //รหัสลูกค้า
-        public string Cust_idcard { get; set; } //รหัสบัตรประชาชน
         public int Cust_Address_type_id { get; set; } //ประเภทที่อยู่
         public string Cust_Address_no { get; set; } //ที่อยู่ เลขที่
         public string Cust_Vilage { get; set; } //หมู่บ้าน

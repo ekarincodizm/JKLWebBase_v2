@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Leasing_Form {
+namespace JKLWebBase_v2.Form_Leasings {
     
     
-    public partial class Leasing_Add_Bondsman_1 {
+    public partial class Customer_Add {
         
         /// <summary>
         /// Alert_Warning_Panel control.
@@ -29,15 +29,6 @@ namespace JKLWebBase_v2.Leasing_Form {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
-        
-        /// <summary>
-        /// Number_Of_Bondsman control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Number_Of_Bondsman;
         
         /// <summary>
         /// link_Customer_Add control.
@@ -317,987 +308,6 @@ namespace JKLWebBase_v2.Leasing_Form {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Cust_status_DDL;
-        
-        /// <summary>
-        /// Idcard_Cust_Address_no_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Address_no_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Address_no_Tbx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Address_no_Tbx;
-        
-        /// <summary>
-        /// Idcard_Cust_Vilage_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Vilage_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Vilage_Tbx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Vilage_Tbx;
-        
-        /// <summary>
-        /// Idcard_Cust_Vilage_no_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Vilage_no_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Vilage_no_Tbx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Vilage_no_Tbx;
-        
-        /// <summary>
-        /// Idcard_Cust_Alley_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Alley_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Alley_Tbx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Alley_Tbx;
-        
-        /// <summary>
-        /// Idcard_Cust_Road_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Road_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Road_Tbx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Road_Tbx;
-        
-        /// <summary>
-        /// Idcard_Cust_Subdistrict_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Subdistrict_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Subdistrict_Tbx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Subdistrict_Tbx;
-        
-        /// <summary>
-        /// Idcard_Cust_District_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_District_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_District_Tbx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_District_Tbx;
-        
-        /// <summary>
-        /// Idcard_Cust_Province_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Province_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Province_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Idcard_Cust_Province_DDL;
-        
-        /// <summary>
-        /// Idcard_Cust_Country_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Country_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Country_Tbx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Country_Tbx;
-        
-        /// <summary>
-        /// Idcard_Cust_Zipcode_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Zipcode_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Zipcode_Tbx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Zipcode_Tbx;
-        
-        /// <summary>
-        /// Idcard_Cust_Tel_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Tel_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Tel_Tbx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Tel_Tbx;
-        
-        /// <summary>
-        /// Idcard_Cust_Home_status_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Home_status_Lbl;
-        
-        /// <summary>
-        /// Idcard_Cust_Home_status_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Idcard_Cust_Home_status_DDL;
-        
-        /// <summary>
-        /// Home_Copy_Idcard_btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Home_Copy_Idcard_btn;
-        
-        /// <summary>
-        /// Home_Cust_Address_no_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Address_no_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Address_no_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Address_no_TBx;
-        
-        /// <summary>
-        /// Home_Cust_Vilage_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Vilage_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Vilage_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Vilage_TBx;
-        
-        /// <summary>
-        /// Home_Cust_Vilage_no_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Vilage_no_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Vilage_no_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Vilage_no_TBx;
-        
-        /// <summary>
-        /// Home_Cust_Alley_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Alley_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Alley_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Alley_TBx;
-        
-        /// <summary>
-        /// Home_Cust_Road_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Road_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Road_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Road_TBx;
-        
-        /// <summary>
-        /// Home_Cust_Subdistrict_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Subdistrict_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Subdistrict_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Subdistrict_TBx;
-        
-        /// <summary>
-        /// Home_Cust_District_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_District_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_District_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Home_Cust_District_TBx;
-        
-        /// <summary>
-        /// Home_Cust_Province_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Province_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Province_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Home_Cust_Province_DDL;
-        
-        /// <summary>
-        /// Home_Cust_Country_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Country_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Country_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Country_TBx;
-        
-        /// <summary>
-        /// Home_Cust_Zipcode_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Zipcode_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Zipcode_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Zipcode_TBx;
-        
-        /// <summary>
-        /// Home_Cust_Tel_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Tel_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Tel_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Tel_TBx;
-        
-        /// <summary>
-        /// Home_Cust_Home_status_id_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Home_Cust_Home_status_id_Lbl;
-        
-        /// <summary>
-        /// Home_Cust_Home_status_id_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Home_Cust_Home_status_id_DDL;
-        
-        /// <summary>
-        /// Current_Copy_Idcard_btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Current_Copy_Idcard_btn;
-        
-        /// <summary>
-        /// Current_Copy_Home_btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Current_Copy_Home_btn;
-        
-        /// <summary>
-        /// Current_Cust_Address_no_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Address_no_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Address_no_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Address_no_TBx;
-        
-        /// <summary>
-        /// Current_Cust_Vilage_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Vilage_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Vilage_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Vilage_TBx;
-        
-        /// <summary>
-        /// Current_Cust_Vilage_no_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Vilage_no_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Vilage_no_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Vilage_no_TBx;
-        
-        /// <summary>
-        /// Current_Cust_Alley_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Alley_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Alley_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Alley_TBx;
-        
-        /// <summary>
-        /// Current_Cust_Road_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Road_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Road_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Road_TBx;
-        
-        /// <summary>
-        /// Current_Cust_Subdistrict_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Subdistrict_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Subdistrict_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Subdistrict_TBx;
-        
-        /// <summary>
-        /// Current_Cust_District_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_District_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_District_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Current_Cust_District_TBx;
-        
-        /// <summary>
-        /// Current_Cust_Province_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Province_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Province_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Current_Cust_Province_DDL;
-        
-        /// <summary>
-        /// Current_Cust_Country_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Country_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Country_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Country_TBx;
-        
-        /// <summary>
-        /// Current_Cust_Zipcode_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Zipcode_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Zipcode_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Zipcode_TBx;
-        
-        /// <summary>
-        /// Current_Cust_Tel_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Tel_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Tel_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Tel_TBx;
-        
-        /// <summary>
-        /// Current_Cust_Home_status_id_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Current_Cust_Home_status_id_Lbl;
-        
-        /// <summary>
-        /// Current_Cust_Home_status_id_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Current_Cust_Home_status_id_DDL;
-        
-        /// <summary>
-        /// Cust_job_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_Lbl;
-        
-        /// <summary>
-        /// Cust_job_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_TBx;
-        
-        /// <summary>
-        /// Cust_job_position_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_position_Lbl;
-        
-        /// <summary>
-        /// Cust_job_position_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_position_TBx;
-        
-        /// <summary>
-        /// Cust_job_long_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_long_Lbl;
-        
-        /// <summary>
-        /// Cust_job_long_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_long_TBx;
-        
-        /// <summary>
-        /// Cust_job_salary_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_salary_Lbl;
-        
-        /// <summary>
-        /// Cust_job_salary_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_salary_TBx;
-        
-        /// <summary>
-        /// Cust_job_local_name_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_local_name_Lbl;
-        
-        /// <summary>
-        /// Cust_job_local_name_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_local_name_TBx;
-        
-        /// <summary>
-        /// Cust_job_address_no_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_address_no_Lbl;
-        
-        /// <summary>
-        /// Cust_job_address_no_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_address_no_TBx;
-        
-        /// <summary>
-        /// Cust_job_vilage_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_vilage_Lbl;
-        
-        /// <summary>
-        /// Cust_job_vilage_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_vilage_TBx;
-        
-        /// <summary>
-        /// Cust_job_vilage_no_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_vilage_no_Lbl;
-        
-        /// <summary>
-        /// Cust_job_vilage_no_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_vilage_no_TBx;
-        
-        /// <summary>
-        /// Cust_job_alley_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_alley_Lbl;
-        
-        /// <summary>
-        /// Cust_job_alley_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_alley_TBx;
-        
-        /// <summary>
-        /// Cust_job_road_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_road_Lbl;
-        
-        /// <summary>
-        /// Cust_job_road_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_road_TBx;
-        
-        /// <summary>
-        /// Cust_job_subdistrict_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_subdistrict_Lbl;
-        
-        /// <summary>
-        /// Cust_job_subdistrict_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_subdistrict_TBx;
-        
-        /// <summary>
-        /// Cust_job_district_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_district_Lbl;
-        
-        /// <summary>
-        /// Cust_job_district_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_district_TBx;
-        
-        /// <summary>
-        /// Cust_job_province_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_province_Lbl;
-        
-        /// <summary>
-        /// Cust_job_province_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Cust_job_province_DDL;
-        
-        /// <summary>
-        /// Cust_job_contry_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_contry_Lbl;
-        
-        /// <summary>
-        /// Cust_job_contry_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_contry_TBx;
-        
-        /// <summary>
-        /// Cust_job_zipcode_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_zipcode_Lbl;
-        
-        /// <summary>
-        /// Cust_job_zipcode_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_zipcode_TBx;
-        
-        /// <summary>
-        /// Cust_job_tel_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_tel_Lbl;
-        
-        /// <summary>
-        /// Cust_job_tel_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_tel_TBx;
-        
-        /// <summary>
-        /// Cust_job_email_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Cust_job_email_Lbl;
-        
-        /// <summary>
-        /// Cust_job_email_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_job_email_TBx;
         
         /// <summary>
         /// Spouse_Panel control.
@@ -1901,6 +911,1023 @@ namespace JKLWebBase_v2.Leasing_Form {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Spouse_email_TBx;
+        
+        /// <summary>
+        /// Idcard_Cust_Address_no_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Address_no_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Address_no_Tbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Address_no_Tbx;
+        
+        /// <summary>
+        /// Idcard_Cust_Vilage_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Vilage_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Vilage_Tbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Vilage_Tbx;
+        
+        /// <summary>
+        /// Idcard_Cust_Vilage_no_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Vilage_no_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Vilage_no_Tbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Vilage_no_Tbx;
+        
+        /// <summary>
+        /// Idcard_Cust_Alley_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Alley_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Alley_Tbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Alley_Tbx;
+        
+        /// <summary>
+        /// Idcard_Cust_Road_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Road_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Road_Tbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Road_Tbx;
+        
+        /// <summary>
+        /// Idcard_Cust_Subdistrict_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Subdistrict_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Subdistrict_Tbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Subdistrict_Tbx;
+        
+        /// <summary>
+        /// Idcard_Cust_District_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_District_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_District_Tbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_District_Tbx;
+        
+        /// <summary>
+        /// Idcard_Cust_Province_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Province_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Province_DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Idcard_Cust_Province_DDL;
+        
+        /// <summary>
+        /// Idcard_Cust_Country_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Country_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Country_Tbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Country_Tbx;
+        
+        /// <summary>
+        /// Idcard_Cust_Zipcode_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Zipcode_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Zipcode_Tbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Zipcode_Tbx;
+        
+        /// <summary>
+        /// Idcard_Cust_Tel_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Tel_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Tel_Tbx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Idcard_Cust_Tel_Tbx;
+        
+        /// <summary>
+        /// Idcard_Cust_Home_status_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Idcard_Cust_Home_status_Lbl;
+        
+        /// <summary>
+        /// Idcard_Cust_Home_status_DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Idcard_Cust_Home_status_DDL;
+        
+        /// <summary>
+        /// Home_Copy_Idcard_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Home_Copy_Idcard_btn;
+        
+        /// <summary>
+        /// Home_Cust_Address_no_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Address_no_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Address_no_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Address_no_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Vilage_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Vilage_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Vilage_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Vilage_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Vilage_no_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Vilage_no_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Vilage_no_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Vilage_no_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Alley_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Alley_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Alley_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Alley_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Road_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Road_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Road_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Road_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Subdistrict_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Subdistrict_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Subdistrict_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Subdistrict_TBx;
+        
+        /// <summary>
+        /// Home_Cust_District_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_District_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_District_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_District_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Province_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Province_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Province_DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Home_Cust_Province_DDL;
+        
+        /// <summary>
+        /// Home_Cust_Country_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Country_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Country_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Country_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Zipcode_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Zipcode_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Zipcode_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Zipcode_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Tel_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Tel_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Tel_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Tel_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Home_status_id_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Home_status_id_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Home_status_id_DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Home_Cust_Home_status_id_DDL;
+        
+        /// <summary>
+        /// Home_Cust_Gps_Latitude_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Gps_Latitude_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Gps_Latitude_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Gps_Latitude_TBx;
+        
+        /// <summary>
+        /// Home_Cust_Gps_Longitudee_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Home_Cust_Gps_Longitudee_Lbl;
+        
+        /// <summary>
+        /// Home_Cust_Gps_Longitude_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Home_Cust_Gps_Longitude_TBx;
+        
+        /// <summary>
+        /// Current_Copy_Idcard_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Current_Copy_Idcard_btn;
+        
+        /// <summary>
+        /// Current_Copy_Home_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Current_Copy_Home_btn;
+        
+        /// <summary>
+        /// Current_Cust_Address_no_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Address_no_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Address_no_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Address_no_TBx;
+        
+        /// <summary>
+        /// Current_Cust_Vilage_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Vilage_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Vilage_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Vilage_TBx;
+        
+        /// <summary>
+        /// Current_Cust_Vilage_no_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Vilage_no_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Vilage_no_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Vilage_no_TBx;
+        
+        /// <summary>
+        /// Current_Cust_Alley_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Alley_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Alley_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Alley_TBx;
+        
+        /// <summary>
+        /// Current_Cust_Road_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Road_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Road_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Road_TBx;
+        
+        /// <summary>
+        /// Current_Cust_Subdistrict_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Subdistrict_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Subdistrict_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Subdistrict_TBx;
+        
+        /// <summary>
+        /// Current_Cust_District_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_District_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_District_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Current_Cust_District_TBx;
+        
+        /// <summary>
+        /// Current_Cust_Province_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Province_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Province_DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Current_Cust_Province_DDL;
+        
+        /// <summary>
+        /// Current_Cust_Country_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Country_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Country_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Country_TBx;
+        
+        /// <summary>
+        /// Current_Cust_Zipcode_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Zipcode_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Zipcode_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Zipcode_TBx;
+        
+        /// <summary>
+        /// Current_Cust_Tel_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Tel_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Tel_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Current_Cust_Tel_TBx;
+        
+        /// <summary>
+        /// Current_Cust_Home_status_id_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Current_Cust_Home_status_id_Lbl;
+        
+        /// <summary>
+        /// Current_Cust_Home_status_id_DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Current_Cust_Home_status_id_DDL;
+        
+        /// <summary>
+        /// Cust_job_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_Lbl;
+        
+        /// <summary>
+        /// Cust_job_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_TBx;
+        
+        /// <summary>
+        /// Cust_job_position_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_position_Lbl;
+        
+        /// <summary>
+        /// Cust_job_position_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_position_TBx;
+        
+        /// <summary>
+        /// Cust_job_long_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_long_Lbl;
+        
+        /// <summary>
+        /// Cust_job_long_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_long_TBx;
+        
+        /// <summary>
+        /// Cust_job_salary_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_salary_Lbl;
+        
+        /// <summary>
+        /// Cust_job_salary_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_salary_TBx;
+        
+        /// <summary>
+        /// Cust_job_local_name_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_local_name_Lbl;
+        
+        /// <summary>
+        /// Cust_job_local_name_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_local_name_TBx;
+        
+        /// <summary>
+        /// Cust_job_address_no_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_address_no_Lbl;
+        
+        /// <summary>
+        /// Cust_job_address_no_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_address_no_TBx;
+        
+        /// <summary>
+        /// Cust_job_vilage_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_vilage_Lbl;
+        
+        /// <summary>
+        /// Cust_job_vilage_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_vilage_TBx;
+        
+        /// <summary>
+        /// Cust_job_vilage_no_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_vilage_no_Lbl;
+        
+        /// <summary>
+        /// Cust_job_vilage_no_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_vilage_no_TBx;
+        
+        /// <summary>
+        /// Cust_job_alley_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_alley_Lbl;
+        
+        /// <summary>
+        /// Cust_job_alley_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_alley_TBx;
+        
+        /// <summary>
+        /// Cust_job_road_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_road_Lbl;
+        
+        /// <summary>
+        /// Cust_job_road_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_road_TBx;
+        
+        /// <summary>
+        /// Cust_job_subdistrict_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_subdistrict_Lbl;
+        
+        /// <summary>
+        /// Cust_job_subdistrict_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_subdistrict_TBx;
+        
+        /// <summary>
+        /// Cust_job_district_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_district_Lbl;
+        
+        /// <summary>
+        /// Cust_job_district_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_district_TBx;
+        
+        /// <summary>
+        /// Cust_job_province_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_province_Lbl;
+        
+        /// <summary>
+        /// Cust_job_province_DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Cust_job_province_DDL;
+        
+        /// <summary>
+        /// Cust_job_contry_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_contry_Lbl;
+        
+        /// <summary>
+        /// Cust_job_contry_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_contry_TBx;
+        
+        /// <summary>
+        /// Cust_job_zipcode_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_zipcode_Lbl;
+        
+        /// <summary>
+        /// Cust_job_zipcode_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_zipcode_TBx;
+        
+        /// <summary>
+        /// Cust_job_tel_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_tel_Lbl;
+        
+        /// <summary>
+        /// Cust_job_tel_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_tel_TBx;
+        
+        /// <summary>
+        /// Cust_job_email_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_job_email_Lbl;
+        
+        /// <summary>
+        /// Cust_job_email_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_job_email_TBx;
         
         /// <summary>
         /// Customer_Add_Save_Btn control.

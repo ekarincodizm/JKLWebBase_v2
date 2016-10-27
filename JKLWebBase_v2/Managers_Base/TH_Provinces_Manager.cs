@@ -23,10 +23,10 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     TH_Provinces th_pv = new TH_Provinces();
-                    th_pv.Province_id = int.Parse(reader["Province_id"].ToString());
-                    th_pv.Province_code = reader["Province_code"].ToString();
-                    th_pv.Province_name = reader["Province_name"].ToString();
-                    th_pv.Geo_id = int.Parse(reader["Geo_id"].ToString());
+                    th_pv.Province_id = reader.GetInt32(0);
+                    th_pv.Province_code = reader.GetString(1);
+                    th_pv.Province_name = reader.GetString(2);
+                    th_pv.Geo_id = reader.GetInt32(3);
                     lth_pv.Add(th_pv);
                 }
 

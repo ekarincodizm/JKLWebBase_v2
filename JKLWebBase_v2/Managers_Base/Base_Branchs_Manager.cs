@@ -23,22 +23,22 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Branchs bbrn = new Base_Branchs();
-                    bbrn.Branch_id = int.Parse(reader[0].ToString());
-                    bbrn.Branch_code = reader[1].ToString();
-                    bbrn.Branch_N_name = reader[2].ToString();
-                    bbrn.Branch_F_name = reader[3].ToString();
-                    bbrn.Branch_tax_id = reader[4].ToString();
-                    bbrn.Branch_address_no = reader[5].ToString();
-                    bbrn.Branch_vilage = reader[6].ToString();
-                    bbrn.Branch_vilage_no = reader[7].ToString();
-                    bbrn.Branch_alley = reader[8].ToString();
-                    bbrn.Branch_road = reader[9].ToString();
-                    bbrn.Branch_subdistrict = reader[10].ToString();
-                    bbrn.Branch_district = reader[11].ToString();
-                    bbrn.Branch_province = reader[12].ToString();
-                    bbrn.Branch_country = reader[13].ToString();
-                    bbrn.Branch_zipcode = reader[14].ToString();
-                    bbrn.Branch_tel = reader[15].ToString();
+                    bbrn.Branch_id = reader.GetInt32(0);
+                    bbrn.Branch_code = reader.GetString(1);
+                    bbrn.Branch_N_name = reader.GetString(2); ;
+                    bbrn.Branch_F_name = reader.GetString(3);
+                    bbrn.Branch_tax_id = reader.GetString(4);
+                    bbrn.Branch_address_no = reader.GetString(5);
+                    bbrn.Branch_vilage = reader.GetString(6);
+                    bbrn.Branch_vilage_no = reader.GetString(7);
+                    bbrn.Branch_alley = reader.GetString(8);
+                    bbrn.Branch_road = reader.GetString(9);
+                    bbrn.Branch_subdistrict = reader.GetString(10);
+                    bbrn.Branch_district = reader.GetString(11);
+                    bbrn.Branch_province = reader.GetString(12);
+                    bbrn.Branch_country = reader.GetString(13);
+                    bbrn.Branch_zipcode = reader.GetString(14);
+                    bbrn.Branch_tel = reader.GetString(15);
                     lbbrn.Add(bbrn);
                 }
 

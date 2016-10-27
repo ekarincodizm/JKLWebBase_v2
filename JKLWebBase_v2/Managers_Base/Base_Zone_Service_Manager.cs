@@ -23,9 +23,9 @@ namespace JKLWebBase_v2.Managers_Base
                 while (reader.Read())
                 {
                     Base_Zone_Service bzs = new Base_Zone_Service();
-                    bzs.Zone_id = int.Parse(reader[0].ToString());
-                    bzs.Zone_code = reader[1].ToString();
-                    bzs.Zone_name = reader[2].ToString();
+                    bzs.Zone_id = reader.GetInt32(0);
+                    bzs.Zone_code = reader.GetString(1);
+                    bzs.Zone_name = reader.GetString(2);
                     lbzs.Add(bzs);
                 }
 

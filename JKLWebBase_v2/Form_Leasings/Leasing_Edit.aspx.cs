@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Drawing;
 using System.Text;
@@ -12,9 +15,10 @@ using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
 using JKLWebBase_v2.Managers_Leasings;
 
-namespace JKLWebBase_v2.Leasing_Form
+
+namespace JKLWebBase_v2.Form_Leasings
 {
-    public partial class Leasing_Add : System.Web.UI.Page
+    public partial class Leasing_Edit : System.Web.UI.Page
     {
 
         protected void Page_Load(object sender, EventArgs e)
@@ -76,7 +80,7 @@ namespace JKLWebBase_v2.Leasing_Form
 
         protected void Leasing_Add_Save_Btn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Leasing_Form/Car_Dealer_Add");
+            Response.Redirect("/Form_Leasings/Car_Dealer_Add");
         }
 
 
@@ -88,7 +92,7 @@ namespace JKLWebBase_v2.Leasing_Form
         // ดึงข้อมูลประเภทรภ
         private void _loadCarType()
         {
-            List  <Base_Car_Types> list_data = new Base_Car_Types_Manager().getCarTypes();
+            List<Base_Car_Types> list_data = new Base_Car_Types_Manager().getCarTypes();
             Car_Type_DDL.Items.Add(new ListItem("--------กรุณาเลือก--------", "0"));
             for (int i = 0; i < list_data.Count; i++)
             {
@@ -165,7 +169,7 @@ namespace JKLWebBase_v2.Leasing_Form
                 {
                     Leasing_Code_DDL.Items.Add(new ListItem(data.Leasing_code_name + " ( " + data.Leasing_code_S_Name + " ) ", data.Leasing_code_id.ToString()));
                 }
-                
+
             }
         }
 
@@ -263,13 +267,13 @@ namespace JKLWebBase_v2.Leasing_Form
         {
             if (!string.IsNullOrEmpty(Total_Require_TBx.Text) && !string.IsNullOrEmpty(Interest_Rate_TBx.Text) && !string.IsNullOrEmpty(Total_Period_TBx.Text) && !string.IsNullOrEmpty(Vat_TBx.Text))
             {
-                
+
                 double require = Convert.ToDouble(Total_Require_TBx.Text); // ยอดจัด
                 double interest_rate = Convert.ToDouble(Interest_Rate_TBx.Text); // อัตราดอกเบี้ย
                 double period = Convert.ToDouble(Total_Period_TBx.Text); // ระยะเวลา
                 double vat_rate = Convert.ToDouble(Vat_TBx.Text); // อัตราภาษีมูลค่าเพิ่ม
 
-               
+
                 double interate = require * ((interest_rate / 100) * (period / 12));  /* ยอดดอกเบี้ย = ยอดจัด * (อัตราดอกเบี้ย  * ระยะเวลา) */
                 double vat = (require + interate) * (vat_rate / 100); /* ภาษี = (ยอดจัด + ดอกเบี้ย ) * อัตราภาษีมูลค่าเพิ่ม */
                 double finance = require + interate; /* ยอดรวม = ยอดจัด + ดอกเบี้ย */
@@ -290,7 +294,7 @@ namespace JKLWebBase_v2.Leasing_Form
                 Period_pure_TBx.Text = payPerTimeTotal.ToString("#,##0.00"); // ค่างวดสุทธิ
                 Period_Payment_TBx.Text = periodPayment.ToString("#,##0.00"); // ค่างวดจ่ายจริง
 
-                
+
                 /********** Text Style Font Bold and Font Color Red **********/
 
                 Total_Sum_TBx.Font.Bold = true;
@@ -314,80 +318,5 @@ namespace JKLWebBase_v2.Leasing_Form
                 /********** Text Style Font Bold and Font Color Red **********/
             }
         }
-
-        /*******************************************************************************************************************************************************************************
-        ****************************************************                               Add Data Function                    ********************************************************
-        ****************************************************                                                                    ********************************************************
-        *******************************************************************************************************************************************************************************/
-
-
-        private void _AddLeasings()
-        {
-            Car_Leasings cl = new Car_Leasings();
-
-            cl.Leasing_id = "";
-            cl.Deps_no = string.IsNullOrEmpty(Deps_No_TBx.Text)? "" : Deps_No_TBx.Text;
-            cl.Leasing_no = Leasing_No_TBx.Text;
-            cl.Leasing_code_id = Convert.ToInt32(Leasing_Code_DDL.SelectedValue);
-            cl.Leasing_date = Leasing_Date_TBx.Text;
-            cl.Branch_id = Convert.ToInt32(Branch_DDL.SelectedValue);
-            cl.Zone_id = Convert.ToInt32(Zone_DDL.SelectedValue);
-            cl.Court_id = Convert.ToInt32(Court_DDL.SelectedValue);
-            cl.PeReT = Person_Receive_Trasfer_TBx.Text;
-            cl.TotalPaymentTime = Convert.ToInt32(TotalPaymentTime_DDL.SelectedValue);
-            cl.Total_require = Convert.ToDouble(Total_Require_TBx.Text);
-            cl.Interest_rate = Convert.ToDouble(Interest_Rate_TBx.Text);
-            cl.Total_period = Convert.ToInt32(Total_Period_TBx.Text);
-            cl.Total_sum = Convert.ToDouble(Total_Sum_TBx.Text);
-            cl.Total_Interest = Convert.ToDouble(Total_Interest_TBx.Text);
-            cl.Total_Tax = Convert.ToDouble(Total_Tax_TBx.Text);
-            cl.Total_leasing = Convert.ToDouble(Total_Leasing_TBx.Text);
-            cl.Period_cal = Convert.ToDouble(Period_Cal_TBx.Text);
-            cl.Tax_per_m = Convert.ToDouble(Tax_per_m_TBx.Text);
-            cl.Period_pure = Convert.ToDouble(Period_pure_TBx.Text);
-            cl.Period_payment = Convert.ToDouble(Period_Payment_TBx.Text);
-            cl.Payment_schedule = Convert.ToInt32(Payment_Schedule_DDL.Text);
-            cl.First_payment_date = First_Payment_Date_TBx.Text;
-            cl.Car_type = Convert.ToInt32(Car_Type_DDL.SelectedValue);
-            cl.Car_brand = Convert.ToInt32(Car_Brand_DDL.SelectedValue);
-            cl.Car_model = Convert.ToInt32(Car_Model_DDL.SelectedValue);
-            cl.Car_color = Car_Color_TBx.Text;
-            cl.Car_license_plate = Car_Plate_TBx.Text;
-            cl.Car_engine_no = Engine_No_TBx.Text;
-            cl.Car_chassis_no = Chassis_No_TBx.Text;
-            cl.Car_year = Car_Year_DDL.SelectedValue;
-            cl.Car_used_id = Convert.ToInt32(Car_Used_DDL.SelectedValue);
-            cl.Car_distance = Convert.ToInt32(Car_Distance_TBx.Text);
-            cl.Car_register_date = Car_Register_Date_TBx.Text;
-            cl.Car_next_register_date = Car_Next_Register_Date_TBx.Text;
-            cl.Car_tax_value = Convert.ToDouble(Car_Tax_Value_Lbl.Text);
-            cl.Car_credits = Car_Credits_TBx.Text;
-            cl.Car_dealer = Car_Dealer_TBx.Text;
-            cl.Car_old_owner = Car_Old_Owner_TBx.Text;
-            cl.Car_old_owner_idcard = Car_Old_Owner_Idcard_TBx.Text;
-            cl.Car_old_owner_idcard_str = Car_Old_Owner_Idcard_Str_TBx.Text;
-            cl.Car_old_owner_idcard_exp = Car_Old_Owner_Idcard_Exp_TBx.Text;
-            cl.Car_old_owner_address_no = Car_Old_Owner_Address_No_TBx.Text;
-            cl.Car_old_owner_vilage = Car_Old_Owner_Vilage_TBx.Text;
-            cl.Car_old_owner_vilage_no = Car_Old_Owner_Vilage_No_TBx.Text;
-            cl.Car_old_owner_alley = Car_Old_Owner_alley_TBx.Text;
-            cl.Car_old_owner_road = Car_Old_Owner_Road_TBx.Text;
-            cl.Car_old_owner_subdistrict = Car_Old_Owner_Subdistrict_TBx.Text;
-            cl.Car_old_owner_district = Car_Old_Owner_District_TBx.Text;
-            cl.Car_old_owner_province = Convert.ToInt32(Car_Old_Owner_Province_DDL.SelectedValue);
-            cl.Car_old_owner_contry = Car_Old_Owner_Contry_TBx.Text;
-            cl.Car_old_owner_zipcode = Car_Old_Owner_Zipcode_TBx.Text;
-            cl.Cust_idcard = "";
-            cl.Tent_car_id = Convert.ToInt32(Tent_car_DDL.SelectedValue);
-            cl.Check_receive_person = Check_receive_person_TBx.Text;
-            cl.Check_number = Check_number_TBx.Text;
-            cl.Check_payment = Convert.ToDouble(Check_payment_TBx.Text);
-            cl.Check_receive_date = Check_receive_date_TBx.Text;
-            cl.Contract_status = "1";
-
-        }
-
     }
 }
- 
- 
