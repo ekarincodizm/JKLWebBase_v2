@@ -52,9 +52,19 @@ namespace JKLWebBase_v2.Global_Class
             }
         }
 
-        public static string getDateTimeToUnixForm()
+        public static string convertDateToMYSQL(string datetime)
         {
-            return new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString();
+            if (!datetime.Equals(""))
+            {
+                string[] dt = datetime.Split(' ');
+                string[] date = dt[0].Split('/');
+
+                return (int.Parse(date[2]) - 543) + "-" + date[1] + "-" + date[0];
+            }
+            else
+            {
+                return datetime;
+            }
         }
     }
 }

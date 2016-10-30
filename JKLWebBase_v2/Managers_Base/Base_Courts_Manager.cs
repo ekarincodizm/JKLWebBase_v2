@@ -20,11 +20,13 @@ namespace JKLWebBase_v2.Managers_Base
                 string sql = "SELECT * FROM base_courts";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
+                int defaultNum = 0;
+                string defaultString = "";
                 while (reader.Read())
                 {
                     Base_Courts bct = new Base_Courts();
-                    bct.Court_id = reader.GetInt32(0);
-                    bct.Court_name = reader.GetString(1);
+                    bct.Court_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
+                    bct.Court_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
                     lbct.Add(bct);
                 }
 

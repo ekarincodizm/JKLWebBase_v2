@@ -17,7 +17,7 @@ namespace JKLWebBase_v2.Managers_Customers
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM v_getdealerid ";
+                string sql = "SELECT * FROM v_getcustomerid ";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 string id = "";

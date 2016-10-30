@@ -20,13 +20,15 @@ namespace JKLWebBase_v2.Managers_Base
                 string sql = "SELECT * FROM th_provinces";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
+                int defaultNum = 0;
+                string defaultString = "";
                 while (reader.Read())
                 {
                     TH_Provinces th_pv = new TH_Provinces();
-                    th_pv.Province_id = reader.GetInt32(0);
-                    th_pv.Province_code = reader.GetString(1);
-                    th_pv.Province_name = reader.GetString(2);
-                    th_pv.Geo_id = reader.GetInt32(3);
+                    th_pv.Province_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
+                    th_pv.Province_code = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    th_pv.Province_name = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    th_pv.Geo_id = reader.IsDBNull(3) ? defaultNum : reader.GetInt32(3);
                     lth_pv.Add(th_pv);
                 }
 

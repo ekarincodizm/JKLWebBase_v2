@@ -29,6 +29,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 _loadThaiProvinces();
 
                 Number_Of_Bondsman.Text = Session["Number_Of_Bondsman"].ToString();
+                Page.Title = "ผู้ค้ำประกันคนที่ " + Session["Number_Of_Bondsman"].ToString();
             }
         }
 

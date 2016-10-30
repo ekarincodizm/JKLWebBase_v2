@@ -130,6 +130,15 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Cust_idcard_Lbl;
         
         /// <summary>
+        /// RFV_Cust_idcard_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Cust_idcard_TBx;
+        
+        /// <summary>
         /// Cust_idcard_TBx control.
         /// </summary>
         /// <remarks>
@@ -157,6 +166,15 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Cust_Fname_Lbl;
         
         /// <summary>
+        /// RFV_Cust_Fname_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Cust_Fname_TBx;
+        
+        /// <summary>
         /// Cust_Fname_TBx control.
         /// </summary>
         /// <remarks>
@@ -173,6 +191,15 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Cust_LName_Lbl;
+        
+        /// <summary>
+        /// RFV_Cust_LName_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Cust_LName_TBx;
         
         /// <summary>
         /// Cust_LName_TBx control.
@@ -263,6 +290,15 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Cust_B_date_Lbl;
+        
+        /// <summary>
+        /// RFV_Cust_B_date_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Cust_B_date_TBx;
         
         /// <summary>
         /// Cust_B_date_TBx control.

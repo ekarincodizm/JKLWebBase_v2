@@ -20,12 +20,14 @@ namespace JKLWebBase_v2.Managers_Base
                 string sql = "SELECT * FROM base_nationalitys";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
+                int defaultNum = 0;
+                string defaultString = "";
                 while (reader.Read())
                 {
                     Base_Nationalitys bnnt = new Base_Nationalitys();
-                    bnnt.Nationality_id = reader.GetInt32(0);
-                    bnnt.Nationality_name_ENG = reader.GetString(1);
-                    bnnt.Nationality_name_TH = reader.GetString(2);
+                    bnnt.Nationality_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
+                    bnnt.Nationality_name_ENG = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    bnnt.Nationality_name_TH = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
                     lbnnt.Add(bnnt);
                 }
 

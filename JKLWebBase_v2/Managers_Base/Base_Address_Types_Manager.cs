@@ -20,11 +20,13 @@ namespace JKLWebBase_v2.Managers_Base
                 string sql = "SELECT * FROM base_address_types";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
+                int defaultNum = 0;
+                string defaultString = "";
                 while (reader.Read())
                 {
                     Base_Address_Types bats = new Base_Address_Types();
-                    bats.Address_type_id = reader.GetInt32(0);
-                    bats.Address_type_name = reader.GetString(1);
+                    bats.Address_type_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
+                    bats.Address_type_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
                     lbat.Add(bats);
                 }
 

@@ -20,11 +20,13 @@ namespace JKLWebBase_v2.Managers_Base
                 string sql = "SELECT * FROM base_total_payment";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
+                int defaultNum = 0;
+                string defaultString = "";
                 while (reader.Read())
                 {
                     Base_Total_Payment btp = new Base_Total_Payment();
-                    btp.Total_payment_id = reader.GetInt32(0);
-                    btp.Total_payment_name = reader.GetString(1);
+                    btp.Total_payment_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
+                    btp.Total_payment_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
                     lbtp.Add(btp);
                 }
 

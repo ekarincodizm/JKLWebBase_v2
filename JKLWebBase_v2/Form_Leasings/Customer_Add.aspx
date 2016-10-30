@@ -51,18 +51,19 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="form-group col-xs-2">
-                                        <asp:Label ID="Cust_idcard_Lbl" runat="server" >เลขบัตรประชาชน</asp:Label>
+                                        <asp:Label ID="Cust_idcard_Lbl" runat="server" > เลขบัตรประชาชน <asp:RequiredFieldValidator ID="RFV_Cust_idcard_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Cust_idcard_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator> </asp:Label>
                                         <div class="form-group input-group">
                                             <asp:TextBox ID="Cust_idcard_TBx" runat="server" CssClass="form-control" OnTextChanged="Cust_idcard_TBx_TextChanged" AutoPostBack="true"></asp:TextBox>
                                             <asp:LinkButton ID="Cust_Search_Btn" runat="server" CssClass="input-group-addon search" OnClick="Cust_Search_Btn_Click"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
                                         </div>
+                                        
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Cust_Fname_Lbl" runat="server" >ชื่อ</asp:Label>
+                                        <asp:Label ID="Cust_Fname_Lbl" runat="server" > ชื่อ <asp:RequiredFieldValidator ID="RFV_Cust_Fname_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Cust_Fname_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator> </asp:Label>
                                         <asp:TextBox ID="Cust_Fname_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Cust_LName_Lbl" runat="server" >นามสกุล</asp:Label>
+                                        <asp:Label ID="Cust_LName_Lbl" runat="server" > นามสกุล <asp:RequiredFieldValidator ID="RFV_Cust_LName_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Cust_LName_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator> </asp:Label>
                                         <asp:TextBox ID="Cust_LName_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-1">
@@ -74,7 +75,7 @@
                                         <asp:DropDownList ID="Cust_Nationality_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Cust_Idcard_start_Lbl" runat="server" >วันที่ออกบัตร</asp:Label>
+                                        <asp:Label ID="Cust_Idcard_start_Lbl" runat="server" >วันที่ออกบัตร </asp:Label>
                                         <div class="form-group input-group" id="Cust_Idcard_start">
                                             <asp:TextBox ID="Cust_Idcard_start_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                             <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>
@@ -167,7 +168,7 @@
 
                                 <div class="row">
                                     <div class="form-group col-xs-2">
-                                        <asp:Label ID="Cust_B_date_Lbl" runat="server" >วันเกิด</asp:Label>
+                                        <asp:Label ID="Cust_B_date_Lbl" runat="server" >วันเกิด <asp:RequiredFieldValidator ID="RFV_Cust_B_date_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Cust_B_date_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator> </asp:Label>
                                         <div class="form-group input-group date" id="Cust_B_date">
                                             <asp:TextBox ID="Cust_B_date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                             <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>
@@ -286,7 +287,7 @@
                                         <asp:TextBox ID="Spouse_district_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Spouse_province_Lbl" runat="server" >จังหวัด</asp:Label>
+                                        <asp:Label ID="Spouse_province_Lbl" runat="server" >จังหวัด </asp:Label>
                                         <asp:DropDownList ID="Spouse_province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                     <div class="col-xs-2">
@@ -358,7 +359,7 @@
                                         <asp:TextBox ID="Spouse_job_district_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Spouse_job_province_Lbl" runat="server" >จังหวัด</asp:Label>
+                                        <asp:Label ID="Spouse_job_province_Lbl" runat="server" >จังหวัด </asp:Label>
                                         <asp:DropDownList ID="Spouse_job_province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                 </div>
@@ -398,7 +399,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="form-group col-xs-1">
-                                        <asp:Label ID="Idcard_Cust_Address_no_Lbl" runat="server" >ที่อยู่ เลขที่</asp:Label>
+                                        <asp:Label ID="Idcard_Cust_Address_no_Lbl" runat="server" >ที่อยู่ เลขที่ </asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_Address_no_Tbx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-1">
@@ -688,7 +689,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-1">
-                            <asp:LinkButton ID="Customer_Add_Save_Btn" runat="server" CssClass="btn btn-md btn-primary btn-block" OnClick="Customer_Add_Save_Btn_Click"><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
+                            <asp:LinkButton ID="Customer_Add_Save_Btn" runat="server" CssClass="btn btn-md btn-primary btn-block" OnClick="Customer_Add_Save_Btn_Click" ValidationGroup="Save_Validation" CausesValidation="true"><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
                         </div>
                     </div>
                 </div>

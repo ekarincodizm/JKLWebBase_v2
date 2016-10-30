@@ -366,3 +366,11 @@ table.dataTable thead .sorting:after {
 .date {
     cursor: pointer;
 }
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}

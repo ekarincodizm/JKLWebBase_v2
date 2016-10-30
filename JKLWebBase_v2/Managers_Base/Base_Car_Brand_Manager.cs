@@ -20,12 +20,14 @@ namespace JKLWebBase_v2.Managers_Base
                 string sql = "SELECT * FROM base_car_brands";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
+                int defaultNum = 0;
+                string defaultString = "";
                 while (reader.Read())
                 {
                     Base_Car_Brands cb = new Base_Car_Brands();
-                    cb.car_brand_id = reader.GetInt32(0);
-                    cb.car_brand_name_eng = reader.GetString(0);
-                    cb.car_brand_name_th = reader.GetString(0);
+                    cb.car_brand_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
+                    cb.car_brand_name_eng = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    cb.car_brand_name_th = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
                     lcb.Add(cb);
                 }
 

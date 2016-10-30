@@ -20,11 +20,13 @@ namespace JKLWebBase_v2.Managers_Base
                 string sql = "SELECT * FROM base_person_status";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
+                int defaultNum = 0;
+                string defaultString = "";
                 while (reader.Read())
                 {
                     Base_Person_Status bps = new Base_Person_Status();
-                    bps.person_status_id = reader.GetInt32(0);
-                    bps.person_status_name = reader.GetString(1);
+                    bps.person_status_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
+                    bps.person_status_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
                     lbps.Add(bps);
                 }
 

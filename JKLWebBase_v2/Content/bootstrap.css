@@ -84,6 +84,8 @@ sub {
   bottom: -.25em;
 }
 img {
+  padding: 5px;
+  border-radius: 10px;
   border: 0;
 }
 svg:not(:root) {
@@ -5957,6 +5959,7 @@ button.close {
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
           box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
 }
+
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -5975,7 +5978,8 @@ button.close {
   opacity: .5;
 }
 .modal-header {
-  
+  background-color: #70b8fc;
+  color: #fff;
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
 }

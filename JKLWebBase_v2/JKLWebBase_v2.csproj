@@ -217,6 +217,7 @@
     <Content Include="Form_Leasings\Leasing_Edit.aspx" />
     <Content Include="Form_Leasings\Leasing_Edit_Bondsman.aspx" />
     <Content Include="Form_Main\Main_JKL_Form.aspx" />
+    <Content Include="Images_web\default-img.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
