@@ -4,7 +4,7 @@ using MySql.Data.MySqlClient;
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Leasings;
 
-namespace JKLWebBase_v2.Managers_Leasings
+namespace JKLWebBase_v2.Managers_Dealers
 {
     public class Car_Dealers_Manager
     {
@@ -29,13 +29,13 @@ namespace JKLWebBase_v2.Managers_Leasings
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Leasings --> Car_Dealers_Manager --> generateDealerID() : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> generateDealerID() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Leasings --> Car_Dealers_Manager --> generateDealerID() : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> generateDealerID() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }
@@ -78,13 +78,13 @@ namespace JKLWebBase_v2.Managers_Leasings
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Leasings --> Car_Dealers_Manager --> getDealerByIdCard() : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> getDealerByIdCard() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Leasings --> Car_Dealers_Manager --> getDealerByIdCard() : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> getDealerByIdCard() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }

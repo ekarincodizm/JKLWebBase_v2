@@ -193,9 +193,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\sb-admin-2\css\jquery.datetimepicker.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Form_Leasings\Car_Dealer_Add.aspx" />
-    <Content Include="Form_Leasings\Customer_Add.aspx" />
-    <Content Include="Form_Leasings\Customer_Edit.aspx" />
+    <Content Include="Form_Dealer\Car_Dealer_Add.aspx" />
+    <Content Include="Form_Customer\Customer_Add.aspx" />
+    <Content Include="Form_Customer\Customer_Edit.aspx" />
     <Content Include="Form_Leasings\Leasing_Car_Img.aspx" />
     <Content Include="Form_Leasings\Leasing_Home_Img.aspx" />
     <Content Include="Content\sb-admin-2\css\sb-admin-2.css" />
@@ -315,25 +315,25 @@
     <Compile Include="Global_Class\MSSQLConnection.cs" />
     <Compile Include="Global_Class\MySQLConnection.cs" />
     <Compile Include="Class_Base\Base_Car_Brands.cs" />
-    <Compile Include="Form_Leasings\Car_Dealer_Add.aspx.cs">
+    <Compile Include="Form_Dealer\Car_Dealer_Add.aspx.cs">
       <DependentUpon>Car_Dealer_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Leasings\Car_Dealer_Add.aspx.designer.cs">
+    <Compile Include="Form_Dealer\Car_Dealer_Add.aspx.designer.cs">
       <DependentUpon>Car_Dealer_Add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Leasings\Customer_Add.aspx.cs">
+    <Compile Include="Form_Customer\Customer_Add.aspx.cs">
       <DependentUpon>Customer_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Leasings\Customer_Add.aspx.designer.cs">
+    <Compile Include="Form_Customer\Customer_Add.aspx.designer.cs">
       <DependentUpon>Customer_Add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Leasings\Customer_Edit.aspx.cs">
+    <Compile Include="Form_Customer\Customer_Edit.aspx.cs">
       <DependentUpon>Customer_Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Leasings\Customer_Edit.aspx.designer.cs">
+    <Compile Include="Form_Customer\Customer_Edit.aspx.designer.cs">
       <DependentUpon>Customer_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Leasings\Leasing_Add_Bondsman.aspx.cs">
@@ -420,7 +420,8 @@
     <Compile Include="Managers_Customers\Customers_Address_Manager.cs" />
     <Compile Include="Managers_Customers\Customers_Manager.cs" />
     <Compile Include="Managers_Customers\Customers_Spouse_Manager.cs" />
-    <Compile Include="Managers_Leasings\Car_Dealers_Manager.cs" />
+    <Compile Include="Managers_Dealers\Car_Dealers_Manager.cs" />
+    <Compile Include="Managers_Leasings\Car_Leasings_Manager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

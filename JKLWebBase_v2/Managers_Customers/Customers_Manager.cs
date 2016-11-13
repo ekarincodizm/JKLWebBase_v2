@@ -179,13 +179,13 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> addCustomers() : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> addCustomers(Customers cust) : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> addCustomers() : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> addCustomers(Customers cust) : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }

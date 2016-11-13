@@ -26,8 +26,7 @@ namespace JKLWebBase_v2.Managers_Base
                 {
                     Base_Car_Models cm = new Base_Car_Models();
                     cm.car_model_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
-                    cm.car_brand_id = reader.IsDBNull(1) ? defaultNum : reader.GetInt32(1);
-                    cm.car_model_name = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    cm.car_model_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
                     lcm.Add(cm);
                 }
 

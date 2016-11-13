@@ -11,6 +11,7 @@ html {
 }
 body {
   margin: 0;
+  background-color: #e6f2ff;
 }
 article,
 aside,
@@ -5978,12 +5979,19 @@ button.close {
   opacity: .5;
 }
 .modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.modal-header .close {
+  margin-top: -2px;
+}
+.modal-header-popup {
   background-color: #70b8fc;
   color: #fff;
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
 }
-.modal-header .close {
+.modal-header-popup .close {
   margin-top: -2px;
 }
 .modal-title {
@@ -6547,6 +6555,8 @@ button.close {
 .panel-body:after,
 .modal-header:before,
 .modal-header:after,
+.modal-header-popup:before,
+.modal-header-popup:after,
 .modal-footer:before,
 .modal-footer:after {
   display: table;
@@ -6567,6 +6577,7 @@ button.close {
 .pager:after,
 .panel-body:after,
 .modal-header:after,
+.modal-header-popup:after,
 .modal-footer:after {
   clear: both;
 }

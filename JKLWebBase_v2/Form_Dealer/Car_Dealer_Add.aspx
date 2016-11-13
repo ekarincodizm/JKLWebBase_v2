@@ -36,7 +36,7 @@
     </ul>
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                
                 <!-- ข้อมูลนายหน้า -->
                 <div class="panel-heading">

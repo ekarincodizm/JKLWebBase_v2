@@ -60,11 +60,11 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="~/"><i class="fa fa-money fa-fw"></i> ชำระค่างวดเช่า - ซื้อ </a></li>
                         <li class="divider"></li>
-                        <li><a href="/Form_Leasings/Car_Dealer_Add"><i class="fa fa-search fa-fw"></i> ค้นหาสัญญาฝาก </a></li>
+                        <li><a href="/Form_Dealer/Car_Dealer_Add"><i class="fa fa-search fa-fw"></i> ค้นหาสัญญาฝาก </a></li>
                         <li><a href="/Form_Leasings/Leasing_Add"><i class="fa fa-tag fa-fw"></i> เพิ่มสัญญาฝาก </a></li>
                         <li class="divider"></li>
                         <li><a href="/Form_Leasings/Leasing_Search"><i class="fa fa-search fa-fw"></i> ค้นหาสัญญาเช่า-ซื้อ </a></li>
-                        <li><a href="/Form_Leasings/Customer_Add"><i class="fa fa-book fa-fw"></i> เพิ่มสัญญาเช่า-ซื้อ </a></li>
+                        <li><a href="/Form_Customer/Customer_Add"><i class="fa fa-book fa-fw"></i> เพิ่มสัญญาเช่า-ซื้อ </a></li>
                     </ul>
                 </li>
             </ul>

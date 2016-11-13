@@ -24,7 +24,7 @@
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-md" role="document">
                     <div class="modal-content">
-                      <div class="modal-header">
+                      <div class="modal-header-popup">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-remove fa-fw"></i></button>
                         <h4 class="modal-title" id="myModalLabel"> เพิ่มรูปรถ </h4>
                       </div>

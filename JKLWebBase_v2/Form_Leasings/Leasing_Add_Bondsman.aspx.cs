@@ -101,7 +101,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
         protected void Cust_status_DDL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Cust_status_DDL.SelectedIndex == 2)
+            if (Cust_status_DDL.SelectedIndex == 2 || Cust_status_DDL.SelectedIndex == 3)
             {
                 Spouse_Panel.Visible = true;
             }
@@ -212,6 +212,13 @@ namespace JKLWebBase_v2.Form_Leasings
                 Spouse_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
                 Spouse_job_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
             }
+
+            Current_Cust_Province_DDL.SelectedValue = "39";
+            Cust_job_province_DDL.SelectedValue = "39";
+            Home_Cust_Province_DDL.SelectedValue = "39";
+            Idcard_Cust_Province_DDL.SelectedValue = "39";
+            Spouse_province_DDL.SelectedValue = "39";
+            Spouse_job_province_DDL.SelectedValue = "39";
         }
 
         /*******************************************************************************************************************************************************************************
@@ -260,7 +267,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             _AddCustomerAddress(ctm.Cust_id);
 
-            if (ctm.Cust_status_id == 2)
+            if (ctm.Cust_status_id == 2 || ctm.Cust_status_id == 3)
             {
                 _AddCustomerSpouse(ctm.Cust_id);
             }

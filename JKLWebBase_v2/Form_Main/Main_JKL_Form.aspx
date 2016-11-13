@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1> <strong> Main Menu </strong> </h1>
+        <h1> <strong> หน้าหลัก </strong> </h1>
         <div class="row">
             <div class="col-lg-4">
                 <asp:LinkButton ID="link_1" runat="server">

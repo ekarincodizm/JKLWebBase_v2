@@ -16,10 +16,10 @@ using JKLWebBase_v2.Managers_Leasings;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
-    public partial class Customer_Add : System.Web.UI.Page
+    public partial class Customer_Edit : System.Web.UI.Page
     {
         bool find_customer = false;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -47,9 +47,19 @@ namespace JKLWebBase_v2.Form_Leasings
             _CheckCustomer();
         }
 
+        protected void Customer_Add_Save_Btn_Click(object sender, EventArgs e)
+        {
+            if (!find_customer)
+            {
+                _EditCustomer();
+            }
+
+            Response.Redirect("/Form_Leasings/Leasing_Add");
+        }
+
         protected void Cust_status_DDL_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Cust_status_DDL.SelectedIndex == 2)
+            if (Cust_status_DDL.SelectedIndex == 2 || Cust_status_DDL.SelectedIndex == 3)
             {
                 Spouse_Panel.Visible = true;
             }
@@ -72,17 +82,6 @@ namespace JKLWebBase_v2.Form_Leasings
         protected void Current_Copy_Home_btn_Click(object sender, EventArgs e)
         {
             _CopyBaseDataAddress(3);
-        }
-
-        protected void Customer_Add_Save_Btn_Click(object sender, EventArgs e)
-        {
-
-            if (!find_customer)
-            {
-                _AddCustomer();
-            }
-
-            Response.Redirect("/Form_Leasings/Leasing_Add");
         }
 
         /*******************************************************************************************************************************************************************************
@@ -166,8 +165,75 @@ namespace JKLWebBase_v2.Form_Leasings
                 Spouse_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
                 Spouse_job_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
             }
+
+            Current_Cust_Province_DDL.SelectedValue = "39";
+            Cust_job_province_DDL.SelectedValue = "39";
+            Home_Cust_Province_DDL.SelectedValue = "39";
+            Idcard_Cust_Province_DDL.SelectedValue = "39";
+            Spouse_province_DDL.SelectedValue = "39";
+            Spouse_job_province_DDL.SelectedValue = "39";
         }
 
+        /*******************************************************************************************************************************************************************************
+       ****************************************************                               Copy Data Function                   ********************************************************
+       ****************************************************                                                                    ********************************************************
+       *******************************************************************************************************************************************************************************/
+
+        // copy ข้อมูลที่อยู่แยกตามประเภท
+        private void _CopyBaseDataAddress(int type)
+        {
+            if (type == 1) // copy ที่อยู่ตามบัตรประชาชน to ที่ตามทะเบียนบ้าน
+            {
+                Home_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
+                Home_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
+                Home_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
+                Home_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
+                Home_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
+                Home_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
+                Home_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
+                Home_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
+                Home_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
+                Home_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
+                Home_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
+                Home_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
+
+                Home_Cust_Gps_Latitude_TBx.Focus();
+            }
+            else if (type == 2) // copy ที่อยู่ตามบัตรประชาชน to ที่อยู่ปัจจุบัน
+            {
+                Current_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
+                Current_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
+                Current_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
+                Current_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
+                Current_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
+                Current_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
+                Current_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
+                Current_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
+                Current_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
+                Current_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
+                Current_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
+                Current_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
+
+                Cust_job_TBx.Focus();
+            }
+            else if (type == 3) // copy ที่อยู่ตามทะเบียนบ้าน to ที่อยู่ปัจจุบัน
+            {
+                Current_Cust_Address_no_TBx.Text = Home_Cust_Address_no_TBx.Text;
+                Current_Cust_Vilage_TBx.Text = Home_Cust_Vilage_TBx.Text;
+                Current_Cust_Vilage_no_TBx.Text = Home_Cust_Vilage_no_TBx.Text;
+                Current_Cust_Alley_TBx.Text = Home_Cust_Alley_TBx.Text;
+                Current_Cust_Road_TBx.Text = Home_Cust_Road_TBx.Text;
+                Current_Cust_Subdistrict_TBx.Text = Home_Cust_Subdistrict_TBx.Text;
+                Current_Cust_District_TBx.Text = Home_Cust_District_TBx.Text;
+                Current_Cust_Province_DDL.SelectedIndex = Home_Cust_Province_DDL.SelectedIndex;
+                Current_Cust_Country_TBx.Text = Home_Cust_Country_TBx.Text;
+                Current_Cust_Zipcode_TBx.Text = Home_Cust_Zipcode_TBx.Text;
+                Current_Cust_Tel_TBx.Text = Home_Cust_Tel_TBx.Text;
+                Current_Cust_Home_status_id_DDL.SelectedIndex = Home_Cust_Home_status_id_DDL.SelectedIndex;
+
+                Cust_job_TBx.Focus();
+            }
+        }
 
         /*******************************************************************************************************************************************************************************
         ****************************************************                               Check Data Function                  ********************************************************
@@ -198,7 +264,7 @@ namespace JKLWebBase_v2.Form_Leasings
         ****************************************************              Get Data And Replace To Form Function                 ********************************************************
         ****************************************************                                                                    ********************************************************
         *******************************************************************************************************************************************************************************/
-        
+
         private void _GetCustomer(Customers ctm)
         {
             Cust_idcard_TBx.Text = ctm.Cust_idcard;
@@ -233,7 +299,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             Session["Customer"] = ctm;
 
-            if (ctm.Cust_status_id == 2)
+            if (ctm.Cust_status_id == 2 || ctm.Cust_status_id == 3)
             {
                 _GetCustomerSpouse(ctm.Cust_id);
             }
@@ -336,17 +402,17 @@ namespace JKLWebBase_v2.Form_Leasings
             Session["Cust_Marry"] = cmarry;
         }
 
-
         /*******************************************************************************************************************************************************************************
         ****************************************************                               Add Data Function                    ********************************************************
         ****************************************************                                                                    ********************************************************
         *******************************************************************************************************************************************************************************/
 
-        private void _AddCustomer()
+        private void _EditCustomer()
         {
+            Customers_Manager ctm_mng = new Customers_Manager();
             Customers ctm = new Customers();
 
-            ctm.Cust_id = new Customers_Manager().generateCustomerID();
+            ctm.Cust_id = ctm_mng.generateCustomerID();
             ctm.Cust_idcard = string.IsNullOrEmpty(Cust_idcard_TBx.Text) ? "" : Cust_idcard_TBx.Text;
             ctm.Cust_Fname = string.IsNullOrEmpty(Cust_Fname_TBx.Text) ? "" : Cust_Fname_TBx.Text;
             ctm.Cust_LName = string.IsNullOrEmpty(Cust_LName_TBx.Text) ? "" : Cust_LName_TBx.Text;
@@ -376,13 +442,13 @@ namespace JKLWebBase_v2.Form_Leasings
             ctm.Cust_job_salary = string.IsNullOrEmpty(Cust_job_salary_TBx.Text) ? 0 : Convert.ToDouble(Cust_job_salary_TBx.Text);
             ctm.Cust_status_id = Cust_status_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_status_DDL.SelectedValue);
 
-            new Customers_Manager().addCustomers(ctm);
+            ctm_mng.addCustomers(ctm);
 
             _AddCustomerAddress(ctm.Cust_id);
 
             Session["Customer"] = ctm;
 
-            if (ctm.Cust_status_id == 2)
+            if (ctm.Cust_status_id == 2 || ctm.Cust_status_id == 3)
             {
                 _AddCustomerSpouse(ctm.Cust_id);
             }
@@ -399,15 +465,15 @@ namespace JKLWebBase_v2.Form_Leasings
             ctmadd_idcard.Cust_Address_no = string.IsNullOrEmpty(Idcard_Cust_Address_no_Tbx.Text) ? "" : Idcard_Cust_Address_no_Tbx.Text;
             ctmadd_idcard.Cust_Vilage = string.IsNullOrEmpty(Idcard_Cust_Vilage_Tbx.Text) ? "" : Idcard_Cust_Vilage_Tbx.Text;
             ctmadd_idcard.Cust_Vilage_no = string.IsNullOrEmpty(Idcard_Cust_Vilage_no_Tbx.Text) ? "" : Idcard_Cust_Vilage_no_Tbx.Text;
-            ctmadd_idcard.Cust_Alley= string.IsNullOrEmpty(Idcard_Cust_Alley_Tbx.Text) ? "" : Idcard_Cust_Alley_Tbx.Text;
+            ctmadd_idcard.Cust_Alley = string.IsNullOrEmpty(Idcard_Cust_Alley_Tbx.Text) ? "" : Idcard_Cust_Alley_Tbx.Text;
             ctmadd_idcard.Cust_Road = string.IsNullOrEmpty(Idcard_Cust_Road_Tbx.Text) ? "" : Idcard_Cust_Road_Tbx.Text;
             ctmadd_idcard.Cust_Subdistrict = string.IsNullOrEmpty(Idcard_Cust_Subdistrict_Tbx.Text) ? "" : Idcard_Cust_Subdistrict_Tbx.Text;
             ctmadd_idcard.Cust_District = string.IsNullOrEmpty(Idcard_Cust_District_Tbx.Text) ? "" : Idcard_Cust_District_Tbx.Text;
-            ctmadd_idcard.Cust_Province = Idcard_Cust_Province_DDL.SelectedIndex <= 0?  39  : Convert.ToInt32(Idcard_Cust_Province_DDL.SelectedValue);
+            ctmadd_idcard.Cust_Province = Idcard_Cust_Province_DDL.SelectedIndex <= 0 ? 39 : Convert.ToInt32(Idcard_Cust_Province_DDL.SelectedValue);
             ctmadd_idcard.Cust_Country = string.IsNullOrEmpty(Idcard_Cust_Country_Tbx.Text) ? "" : Idcard_Cust_Country_Tbx.Text;
             ctmadd_idcard.Cust_Zipcode = string.IsNullOrEmpty(Idcard_Cust_Zipcode_Tbx.Text) ? "" : Idcard_Cust_Zipcode_Tbx.Text;
-            ctmadd_idcard.Cust_Tel= string.IsNullOrEmpty(Idcard_Cust_Tel_Tbx.Text) ? "" : Idcard_Cust_Tel_Tbx.Text;
-            ctmadd_idcard.Cust_Home_status_id = Idcard_Cust_Home_status_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Idcard_Cust_Home_status_DDL.SelectedValue); 
+            ctmadd_idcard.Cust_Tel = string.IsNullOrEmpty(Idcard_Cust_Tel_Tbx.Text) ? "" : Idcard_Cust_Tel_Tbx.Text;
+            ctmadd_idcard.Cust_Home_status_id = Idcard_Cust_Home_status_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Idcard_Cust_Home_status_DDL.SelectedValue);
             ctmadd_idcard.Cust_Gps_Latitude = "";
             ctmadd_idcard.Cust_Gps_Longitude = "";
 
@@ -451,9 +517,11 @@ namespace JKLWebBase_v2.Form_Leasings
             ctmadd_current.Cust_Gps_Latitude = "";
             ctmadd_current.Cust_Gps_Longitude = "";
 
-            new Customers_Address_Manager().addCustomersAddress(ctmadd_idcard);
-            new Customers_Address_Manager().addCustomersAddress(ctmadd_home);
-            new Customers_Address_Manager().addCustomersAddress(ctmadd_current);
+            Customers_Address_Manager ctm_add_mng = new Customers_Address_Manager();
+
+            ctm_add_mng.addCustomersAddress(ctmadd_idcard);
+            ctm_add_mng.addCustomersAddress(ctmadd_home);
+            ctm_add_mng.addCustomersAddress(ctmadd_current);
 
             Session["Address_Idcard"] = ctmadd_idcard;
             Session["Address_Home"] = ctmadd_home;
@@ -500,71 +568,11 @@ namespace JKLWebBase_v2.Form_Leasings
             cmarry.Spouse_tel = string.IsNullOrEmpty(Spouse_tel_TBx.Text) ? "" : Spouse_tel_TBx.Text;
             cmarry.Spouse_email = string.IsNullOrEmpty(Spouse_email_TBx.Text) ? "" : Spouse_email_TBx.Text;
 
-            new Customers_Spouse_Manager().addCustomersSpouse(cmarry);
+            Customers_Spouse_Manager ctm_sp_mng = new Customers_Spouse_Manager();
 
+            ctm_sp_mng.addCustomersSpouse(cmarry);
 
             Session["Cust_Marry"] = cmarry;
-        }
-
-        /*******************************************************************************************************************************************************************************
-        ****************************************************                               Copy Data Function                   ********************************************************
-        ****************************************************                                                                    ********************************************************
-        *******************************************************************************************************************************************************************************/
-
-        // copy ข้อมูลที่อยู่แยกตามประเภท
-        private void _CopyBaseDataAddress(int type)
-        {
-            if (type == 1) // copy ที่อยู่ตามบัตรประชาชน to ที่ตามทะเบียนบ้าน
-            {
-                Home_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
-                Home_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
-                Home_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
-                Home_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
-                Home_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
-                Home_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
-                Home_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
-                Home_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
-                Home_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
-                Home_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
-                Home_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
-                Home_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
-
-                Home_Cust_Gps_Latitude_TBx.Focus();
-            }
-            else if (type == 2) // copy ที่อยู่ตามบัตรประชาชน to ที่อยู่ปัจจุบัน
-            {
-                Current_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
-                Current_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
-                Current_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
-                Current_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
-                Current_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
-                Current_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
-                Current_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
-                Current_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
-                Current_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
-                Current_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
-                Current_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
-                Current_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
-
-                Cust_job_TBx.Focus();
-            }
-            else if (type == 3) // copy ที่อยู่ตามทะเบียนบ้าน to ที่อยู่ปัจจุบัน
-            {
-                Current_Cust_Address_no_TBx.Text = Home_Cust_Address_no_TBx.Text;
-                Current_Cust_Vilage_TBx.Text = Home_Cust_Vilage_TBx.Text;
-                Current_Cust_Vilage_no_TBx.Text = Home_Cust_Vilage_no_TBx.Text;
-                Current_Cust_Alley_TBx.Text = Home_Cust_Alley_TBx.Text;
-                Current_Cust_Road_TBx.Text = Home_Cust_Road_TBx.Text;
-                Current_Cust_Subdistrict_TBx.Text = Home_Cust_Subdistrict_TBx.Text;
-                Current_Cust_District_TBx.Text = Home_Cust_District_TBx.Text;
-                Current_Cust_Province_DDL.SelectedIndex = Home_Cust_Province_DDL.SelectedIndex;
-                Current_Cust_Country_TBx.Text = Home_Cust_Country_TBx.Text;
-                Current_Cust_Zipcode_TBx.Text = Home_Cust_Zipcode_TBx.Text;
-                Current_Cust_Tel_TBx.Text = Home_Cust_Tel_TBx.Text;
-                Current_Cust_Home_status_id_DDL.SelectedIndex = Home_Cust_Home_status_id_DDL.SelectedIndex;
-
-                Cust_job_TBx.Focus();
-            }
         }
     }
 }

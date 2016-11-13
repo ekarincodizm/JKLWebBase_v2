@@ -10,7 +10,7 @@
 namespace JKLWebBase_v2.Form_Leasings {
     
     
-    public partial class Customer_Add {
+    public partial class Customer_Edit {
         
         /// <summary>
         /// Alert_Warning_Panel control.
@@ -1183,6 +1183,15 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Home_Cust_Address_no_Lbl;
         
         /// <summary>
+        /// RFV_Home_Cust_Address_no_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Home_Cust_Address_no_TBx;
+        
+        /// <summary>
         /// Home_Cust_Address_no_TBx control.
         /// </summary>
         /// <remarks>
@@ -1273,6 +1282,15 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Home_Cust_Subdistrict_Lbl;
         
         /// <summary>
+        /// RFV_Home_Cust_Subdistrict_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Home_Cust_Subdistrict_TBx;
+        
+        /// <summary>
         /// Home_Cust_Subdistrict_TBx control.
         /// </summary>
         /// <remarks>
@@ -1291,6 +1309,15 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Home_Cust_District_Lbl;
         
         /// <summary>
+        /// RFV_Home_Cust_District_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Home_Cust_District_TBx;
+        
+        /// <summary>
         /// Home_Cust_District_TBx control.
         /// </summary>
         /// <remarks>
@@ -1307,6 +1334,15 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Home_Cust_Province_Lbl;
+        
+        /// <summary>
+        /// RFV_Home_Cust_Province_DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Home_Cust_Province_DDL;
         
         /// <summary>
         /// Home_Cust_Province_DDL control.
@@ -1345,6 +1381,15 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Home_Cust_Zipcode_Lbl;
         
         /// <summary>
+        /// RFV_Home_Cust_Zipcode_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Home_Cust_Zipcode_TBx;
+        
+        /// <summary>
         /// Home_Cust_Zipcode_TBx control.
         /// </summary>
         /// <remarks>
@@ -1379,6 +1424,15 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Home_Cust_Home_status_id_Lbl;
+        
+        /// <summary>
+        /// RFV_Home_Cust_Home_status_id_DDL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Home_Cust_Home_status_id_DDL;
         
         /// <summary>
         /// Home_Cust_Home_status_id_DDL control.

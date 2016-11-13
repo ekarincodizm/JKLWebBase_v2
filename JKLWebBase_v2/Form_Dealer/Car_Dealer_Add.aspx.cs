@@ -8,11 +8,9 @@ using System.Text;
 
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;
-using JKLWebBase_v2.Class_Customers;
 using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Managers_Base;
-using JKLWebBase_v2.Managers_Customers;
-using JKLWebBase_v2.Managers_Leasings;
+using JKLWebBase_v2.Managers_Dealers;
 
 
 namespace JKLWebBase_v2.Form_Leasings
@@ -101,6 +99,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 TH_Provinces data = list_data[i];
                 Dealer_province_DDL.Items.Add(new ListItem(data.Province_name, data.Province_id.ToString()));
             }
+            Dealer_province_DDL.SelectedValue = "39";
         }
 
         // ดึงข้อมูลจังหวัดในประเทศไทย
@@ -145,10 +144,10 @@ namespace JKLWebBase_v2.Form_Leasings
 
         private void _AddDealer()
         {
-
+            Car_Dealers_Manager cdl_mng = new Car_Dealers_Manager();
             Car_Dealers cdlr = new Car_Dealers();
 
-            cdlr.Dealer_id = new Car_Dealers_Manager().generateDealerID();
+            cdlr.Dealer_id = cdl_mng.generateDealerID();
             cdlr.Dealer_fname = Dealer_fname_TBx.Text;
             cdlr.Dealer_lname = Dealer_lname_TBx.Text;
             cdlr.Dealer_idcard = Dealer_idcard_TBx.Text;

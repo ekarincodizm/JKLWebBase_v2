@@ -1,4 +1,4 @@
-﻿<%@ Page Title="เพิ่มผู้ทำสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Customer_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Customer_Add" %>
+﻿<%@ Page Title="แก้ไขผู้ทำสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Customer_Edit.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Customer_Edit" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Alert MessagesBox -->
@@ -20,7 +20,7 @@
     <!-- Alert MessagesBox -->
 
     <div class="col-lg-12">
-        <h4 class="page-header"> เพิ่มข้อมูลผู้ทำสัญญาสัญญาเช่า-ซื้อ </h4>
+        <h4 class="page-header"> แก้ไขข้อมูลผู้ทำสัญญาเช่า-ซื้อ </h4>
     </div>
     <ul class="nav nav-tabs">
       <li role="presentation" class="active"><asp:LinkButton ID="link_Customer_Add" runat="server" ><i class="fa fa-male fa-fw"></i> ผู้ทำสัญญา </asp:LinkButton></li>
@@ -36,7 +36,7 @@
     </ul>
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
 
                 <!-- ข้อมูลผู้ทำสัญญา -->
                 <div class="panel-heading">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 ข้อมูลทั่วไป 
                             </div>
@@ -228,7 +228,7 @@
 
                     <asp:Panel ID="Spouse_Panel" runat="server" Visible="false">
                     <div class="row col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 ข้อมูลคู่สมรส
                             </div>
@@ -392,7 +392,7 @@
                     </asp:Panel>
 
                     <div class="row col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 ที่อยู่ตามบัตรประชาชน
                             </div>
@@ -455,14 +455,14 @@
                     </div>
 
                     <div class="row col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 ที่อยู่ตามทะเบียนบ้าน <asp:LinkButton ID="Home_Copy_Idcard_btn" runat="server" CssClass="btn btn-sm btn-success" OnClick="Home_Copy_Idcard_btn_Click"><i class="fa fa-copy fa-fw"></i> ตามบัตรประชาชน </asp:LinkButton>
                             </div>
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="form-group col-xs-1">
-                                        <asp:Label ID="Home_Cust_Address_no_Lbl" runat="server" >ที่อยู่ เลขที่</asp:Label>
+                                        <asp:Label ID="Home_Cust_Address_no_Lbl" runat="server" >ที่อยู่ เลขที่ <asp:RequiredFieldValidator ID="RFV_Home_Cust_Address_no_TBx" runat="server" ErrorMessage=" * " CssClass="text-danger" ControlToValidate="Home_Cust_Address_no_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator> </asp:Label>
                                         <asp:TextBox ID="Home_Cust_Address_no_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-1">
@@ -482,15 +482,15 @@
                                         <asp:TextBox ID="Home_Cust_Road_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Home_Cust_Subdistrict_Lbl" runat="server" >ตำบล / แขวง</asp:Label>
+                                        <asp:Label ID="Home_Cust_Subdistrict_Lbl" runat="server" >ตำบล / แขวง <asp:RequiredFieldValidator ID="RFV_Home_Cust_Subdistrict_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Home_Cust_Subdistrict_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator> </asp:Label>
                                         <asp:TextBox ID="Home_Cust_Subdistrict_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Home_Cust_District_Lbl" runat="server" >อำเภอ / เขต</asp:Label>
+                                        <asp:Label ID="Home_Cust_District_Lbl" runat="server" >อำเภอ / เขต <asp:RequiredFieldValidator ID="RFV_Home_Cust_District_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Home_Cust_District_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator> </asp:Label>
                                         <asp:TextBox ID="Home_Cust_District_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Home_Cust_Province_Lbl" runat="server" >จังหวัด</asp:Label>
+                                        <asp:Label ID="Home_Cust_Province_Lbl" runat="server" >จังหวัด <asp:RequiredFieldValidator ID="RFV_Home_Cust_Province_DDL" runat="server" ErrorMessage=" กรุณาเลือก " CssClass="text-danger" ControlToValidate="Home_Cust_Province_DDL" SetFocusOnError="true" ValidationGroup="Save_Validation" InitialValue="0"></asp:RequiredFieldValidator> </asp:Label>
                                         <asp:DropDownList ID="Home_Cust_Province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                 </div>
@@ -501,7 +501,7 @@
                                         <asp:TextBox ID="Home_Cust_Country_TBx" runat="server" CssClass="form-control" Text="ประเทศไทย"></asp:TextBox>
                                     </div>
                                     <div class="col-xs-1">
-                                        <asp:Label ID="Home_Cust_Zipcode_Lbl" runat="server" >รหัสไปรษณีย์</asp:Label>
+                                        <asp:Label ID="Home_Cust_Zipcode_Lbl" runat="server" >รหัสไปรษณีย์ <asp:RequiredFieldValidator ID="RFV_Home_Cust_Zipcode_TBx" runat="server" ErrorMessage=" * " CssClass="text-danger" ControlToValidate="Home_Cust_Zipcode_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator> </asp:Label>
                                         <asp:TextBox ID="Home_Cust_Zipcode_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
@@ -509,7 +509,7 @@
                                         <asp:TextBox ID="Home_Cust_Tel_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Home_Cust_Home_status_id_Lbl" runat="server" >สถานะภาพ</asp:Label>
+                                        <asp:Label ID="Home_Cust_Home_status_id_Lbl" runat="server" >สถานะภาพ <asp:RequiredFieldValidator ID="RFV_Home_Cust_Home_status_id_DDL" runat="server" ErrorMessage=" กรุณาเลือก " CssClass="text-danger" ControlToValidate="Home_Cust_Home_status_id_DDL" SetFocusOnError="true" ValidationGroup="Save_Validation" InitialValue="0"></asp:RequiredFieldValidator> </asp:Label>
                                         <asp:DropDownList ID="Home_Cust_Home_status_id_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                     <div class="col-xs-2">
@@ -527,11 +527,11 @@
                     </div>
 
                     <div class="row col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 ที่อยู่ปัจจุบัน 
                                 <asp:LinkButton ID="Current_Copy_Idcard_btn" runat="server" CssClass="btn btn-sm btn-success" OnClick="Current_Copy_Idcard_btn_Click"><i class="fa fa-copy fa-fw"></i> ตามบัตรประชาชน </asp:LinkButton>
-                                <asp:LinkButton ID="Current_Copy_Home_btn" runat="server" CssClass="btn btn-sm btn-info" OnClick="Current_Copy_Home_btn_Click"><i class="fa fa-copy fa-fw"></i> ตามทะเบียนบ้าน </asp:LinkButton>
+                                <asp:LinkButton ID="Current_Copy_Home_btn" runat="server" CssClass="btn btn-sm btn-warning" OnClick="Current_Copy_Home_btn_Click"><i class="fa fa-copy fa-fw"></i> ตามทะเบียนบ้าน </asp:LinkButton>
                             </div>
                             <div class="panel-body">
                                 <div class="row">
@@ -593,7 +593,7 @@
                     </div>
 
                     <div class="row col-lg-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 ข้อมูลการทำงาน
                             </div>
@@ -689,7 +689,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-1">
-                            <asp:LinkButton ID="Customer_Add_Save_Btn" runat="server" CssClass="btn btn-md btn-primary btn-block" OnClick="Customer_Add_Save_Btn_Click" ValidationGroup="Save_Validation" CausesValidation="true"><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
+                            <asp:LinkButton ID="Customer_Add_Save_Btn" runat="server" CssClass="btn btn-primary btn-md btn-block" OnClick="Customer_Add_Save_Btn_Click" ValidationGroup="Save_Validation" CausesValidation="true"><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
                         </div>
                     </div>
                 </div>
@@ -698,5 +698,3 @@
         </div>
     </div>
 </asp:Content>
-
-
