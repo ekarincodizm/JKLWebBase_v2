@@ -13,94 +13,13 @@ namespace JKLWebBase_v2.Form_Leasings {
     public partial class Leasing_Home_Img {
         
         /// <summary>
-        /// link_Customer_Add control.
+        /// nav_tabs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Customer_Add;
-        
-        /// <summary>
-        /// link_Leasing_Add control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Leasing_Add;
-        
-        /// <summary>
-        /// link_Dealers_Add control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Dealers_Add;
-        
-        /// <summary>
-        /// link_Add_Bondsman_1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_1;
-        
-        /// <summary>
-        /// link_Add_Bondsman_2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_2;
-        
-        /// <summary>
-        /// link_Add_Bondsman_3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_3;
-        
-        /// <summary>
-        /// link_Add_Bondsman_4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_4;
-        
-        /// <summary>
-        /// link_Add_Bondsman_5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_5;
-        
-        /// <summary>
-        /// link_Add_Car_Img control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Car_Img;
-        
-        /// <summary>
-        /// link_Add_Home_Img control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Home_Img;
+        protected global::JKLWebBase_v2.Form_Main.Tabs_Menu_Leasings nav_tabs;
         
         /// <summary>
         /// Photo_Home_1 control.
@@ -434,14 +353,5 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image8;
-        
-        /// <summary>
-        /// Home_Img_Save_Btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Home_Img_Save_Btn;
     }
 }

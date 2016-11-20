@@ -1,18 +1,20 @@
 ﻿<%@ Page Title="เพิ่มข้อมูลนายหน้า" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Car_Dealer_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Car_Dealer_Add" %>
 
+<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Main/Tabs_Menu_Leasings.ascx" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Alert MessagesBox -->
     <asp:Panel ID="Alert_Warning_Panel" runat="server" Visible="false">
     <div class="col-md-6 col-md-offset-3">
         <div class="alert alert-warning" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
+               <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
             </button>
             <div class="modal-header">
               <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i> !! แจ้งเตือน !! </h6>
             </div>
             <div class="modal-body">
-              <p> <asp:Label ID="Alert_Id_Card_Lbl" runat="server" > ไม่พบเลขบัตรประชาชน . . . นี้ในระบบ </asp:Label> </p>
+              <p> <asp:Label ID="Alert_Id_Card_Lbl" runat="server" > ไม่พบเลขบัตรประชาชน . . . นี้ในระบบข้อมูลนายหน้า </asp:Label> </p>
             </div>
         </div>
     </div>
@@ -22,18 +24,12 @@
     <div class="col-lg-12">
         <h4 class="page-header"> เพิ่มข้อมูลนายหน้า </h4>
     </div>
-    <ul class="nav nav-tabs">
-      <li role="presentation" ><asp:LinkButton ID="link_Customer_Add" runat="server"  ><i class="fa fa-male fa-fw"></i> ผู้ทำสัญญา </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Leasing_Add" runat="server" ><i class="fa fa-book fa-fw"></i> สัญญาเช่า - ซื้อ </asp:LinkButton></li>
-      <li role="presentation" class="active"><asp:LinkButton ID="link_Dealers_Add" runat="server" ><i class="fa fa-male fa-fw"></i> นายหน้า </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_1" runat="server" OnClick="link_Add_Bondsman_1_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 1 </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_2" runat="server" OnClick="link_Add_Bondsman_2_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 2 </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" OnClick="link_Add_Bondsman_3_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3 </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" OnClick="link_Add_Bondsman_4_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4 </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" OnClick="link_Add_Bondsman_5_Click"><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5 </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Car_Img" runat="server" OnClick="link_Add_Car_Img_Click"><i class="fa fa-car fa-fw"></i> รูปรถ </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Home_Img" runat="server" OnClick="link_Add_Home_Img_Click"><i class="fa fa-home fa-fw"></i> รูปบ้าน </asp:LinkButton></li>
-    </ul>
+
+    <!-- Tab MenuBar -->
+    <nav_menu:Tab_Menu id="nav_tabs" runat="server" />
+
+    <!-- ./Tab MenuBar -->
+
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-primary">
@@ -110,30 +106,30 @@
                             <asp:DropDownList ID="Dealer_status_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-xs-2">
-                            <asp:Label ID="Dealer_receive_Lbl" runat="server" >ค่านายหน้า</asp:Label>
+                            <asp:Label ID="Dealer_commission_Lbl" runat="server" >ค่านายหน้า</asp:Label>
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Dealer_receive_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox ID="Dealer_commission_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
                         <div class="col-xs-2">
-                            <asp:Label ID="Label1" runat="server" >หัก ณ ที่จ่าย</asp:Label>
+                            <asp:Label ID="Dealer_percen_Lbl" runat="server" > % หัก ณ ที่จ่าย</asp:Label>
                             <div class="form-group input-group">
-                                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox ID="Dealer_percen_TBx" runat="server" CssClass="form-control" TextMode="Number" OnTextChanged="Dealer_percen_TBx_TextChanged" AutoPostBack="true"></asp:TextBox>
                                 <span class="input-group-addon">%</span>
                             </div>
                         </div>
                         <div class="col-xs-2">
-                            <asp:Label ID="Label2" runat="server" >ค่าหัก ณ ที่จ่าย</asp:Label>
+                            <asp:Label ID="Dealer_cash_Lbl" runat="server" >ค่าหัก ณ ที่จ่าย</asp:Label>
                             <div class="form-group input-group">
-                                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox ID="Dealer_cash_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
                         <div class="col-xs-2">
-                            <asp:Label ID="Label3" runat="server" >ค่านายหน้าสุทธิ</asp:Label>
+                            <asp:Label ID="Dealer_net_com_Lbl" runat="server" >ค่านายหน้าสุทธิ</asp:Label>
                             <div class="form-group input-group">
-                                <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox ID="Dealer_net_com_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -149,7 +145,7 @@
                             <asp:TextBox ID="Dealer_com_code_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-2">
-                            <asp:Label ID="Dealer_date_print__Lbl" runat="server" >ลงวันที่</asp:Label>
+                            <asp:Label ID="Dealer_date_print_Lbl" runat="server" >ลงวันที่</asp:Label>
                             <div class="form-group input-group" id="Dealer_date_print">
                                 <asp:TextBox ID="Dealer_date_print_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                 <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>

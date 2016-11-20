@@ -1,21 +1,17 @@
 ﻿<%@ Page Title="เพิ่มรูปรถ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="Leasing_Car_Img.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Add_Car_Img" %>
 
+<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Main/Tabs_Menu_Leasings.ascx" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-lg-12">
-        <h1 class="page-header"> เพิ่มรูปรถ </h1>
+        <h4 class="page-header"> เพิ่มรูปรถ </h4>
     </div>
-    <ul class="nav nav-tabs">
-      <li role="presentation" ><asp:LinkButton ID="link_Customer_Add" runat="server"  ><i class="fa fa-male fa-fw"></i> ผู้ทำสัญญา </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Leasing_Add" runat="server" ><i class="fa fa-book fa-fw"></i> สัญญาเช่า - ซื้อ </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Dealers_Add" runat="server" ><i class="fa fa-male fa-fw"></i> นายหน้า </asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_1" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 1</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_2" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 2</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_3" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 3</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_4" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 4</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Bondsman_5" runat="server" ><i class="fa fa-group fa-fw"></i> ผู้ค้ำประกัน 5</asp:LinkButton></li>
-      <li role="presentation" class="active"><asp:LinkButton ID="link_Add_Car_Img" runat="server" ><i class="fa fa-car fa-fw"></i>รูปรถ</asp:LinkButton></li>
-      <li role="presentation" ><asp:LinkButton ID="link_Add_Home_Img" runat="server" ><i class="fa fa-home fa-fw"></i> รูปบ้าน</asp:LinkButton></li>
-    </ul>
+
+    <!-- Tab MenuBar -->
+    <nav_menu:Tab_Menu id="nav_tabs" runat="server" />
+
+    <!-- ./Tab MenuBar -->
+
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -141,16 +137,6 @@
                 </div>
                 <!-- /.รูปรถ -->
 
-                <hr />
-
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-1">
-                            <asp:LinkButton ID="Save_Btn" runat="server" CssClass="btn btn-md btn-primary btn_block"><i class="fa fa-save fa-fw"></i> บันทึก </asp:LinkButton>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
         </div>
     </div>

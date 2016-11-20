@@ -48,11 +48,10 @@ namespace JKLWebBase_v2.Form_Leasings
         }
 
 
-        protected void link_Customer_Add_Click(object sender, EventArgs e)
+       /* protected void link_Customer_Add_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("/Form_Customer/Customer_Edit");
-        }
+        }*/
 
         protected void Total_Period_TBx_TextChanged(object sender, EventArgs e)
         {
@@ -320,92 +319,92 @@ namespace JKLWebBase_v2.Form_Leasings
 
         private bool _AddLeasings()
         {
-            Car_Leasings_Manager cl_mng = new Car_Leasings_Manager();
-            Car_Leasings cl = new Car_Leasings();
+            Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
+            Car_Leasings cls = new Car_Leasings();
 
             // ข้อมูลสัญญา
-            cl.Leasing_id = cl_mng.generateLeasingID();
-            cl.Deps_no = string.IsNullOrEmpty(Deps_No_TBx.Text)? "" : Deps_No_TBx.Text;
-            cl.Leasing_no = string.IsNullOrEmpty(Leasing_No_TBx.Text) ? "" : Leasing_No_TBx.Text;
-            cl.Leasing_code_id = Leasing_Code_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Leasing_Code_DDL.SelectedValue);
-            cl.Leasing_date = string.IsNullOrEmpty(Leasing_Date_TBx.Text) ? "" : Leasing_Date_TBx.Text;
-            cl.Branch_id = Branch_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Branch_DDL.SelectedValue);
-            cl.Zone_id = Zone_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Zone_DDL.SelectedValue);
-            cl.Court_id = Court_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Court_DDL.SelectedValue);
-            cl.PeReT = string.IsNullOrEmpty(Person_Receive_Trasfer_TBx.Text) ? "" : Person_Receive_Trasfer_TBx.Text;
+            cls.Leasing_id = cls_mng.generateLeasingID();
+            cls.Deps_no = string.IsNullOrEmpty(Deps_No_TBx.Text)? "" : Deps_No_TBx.Text;
+            cls.Leasing_no = string.IsNullOrEmpty(Leasing_No_TBx.Text) ? "" : Leasing_No_TBx.Text;
+            cls.Leasing_code_id = Leasing_Code_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Leasing_Code_DDL.SelectedValue);
+            cls.Leasing_date = string.IsNullOrEmpty(Leasing_Date_TBx.Text) ? "" : Leasing_Date_TBx.Text;
+            cls.Branch_id = Branch_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Branch_DDL.SelectedValue);
+            cls.Zone_id = Zone_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Zone_DDL.SelectedValue);
+            cls.Court_id = Court_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Court_DDL.SelectedValue);
+            cls.PeReT = string.IsNullOrEmpty(Person_Receive_Trasfer_TBx.Text) ? "" : Person_Receive_Trasfer_TBx.Text;
 
             // ข้อมูลการประเมิน
-            cl.TotalPaymentTime = TotalPaymentTime_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(TotalPaymentTime_DDL.SelectedValue);
-            cl.Total_require = string.IsNullOrEmpty(Total_Require_TBx.Text) ? 0 : Convert.ToDouble(Total_Require_TBx.Text);
-            cl.Interest_rate = string.IsNullOrEmpty(Interest_Rate_TBx.Text) ? 0 : Convert.ToDouble(Interest_Rate_TBx.Text);
-            cl.Total_period = string.IsNullOrEmpty(Total_Period_TBx.Text) ? 0 : Convert.ToInt32(Total_Period_TBx.Text);
-            cl.Total_sum = string.IsNullOrEmpty(Total_Sum_TBx.Text) ? 0 : Convert.ToDouble(Total_Sum_TBx.Text);
-            cl.Total_Interest = string.IsNullOrEmpty(Total_Interest_TBx.Text) ? 0 : Convert.ToDouble(Total_Interest_TBx.Text);
-            cl.Total_Tax = string.IsNullOrEmpty(Total_Tax_TBx.Text) ? 0 : Convert.ToDouble(Total_Tax_TBx.Text);
-            cl.Total_leasing = string.IsNullOrEmpty(Total_Leasing_TBx.Text) ? 0 : Convert.ToDouble(Total_Leasing_TBx.Text);
-            cl.Total_Net_leasing = string.IsNullOrEmpty(Total_Net_Leasing_TBx.Text) ? 0 : Convert.ToDouble(Total_Net_Leasing_TBx.Text);
-            cl.Period_cal = string.IsNullOrEmpty(Period_Cal_TBx.Text) ? 0 : Convert.ToDouble(Period_Cal_TBx.Text);
-            cl.Period_interst = string.IsNullOrEmpty(Period_interst_TBx.Text) ? 0 : Convert.ToDouble(Period_interst_TBx.Text);
-            cl.Period_tax = string.IsNullOrEmpty(Period_tax_TBx.Text) ? 0 : Convert.ToDouble(Period_tax_TBx.Text);
-            cl.Period_pure = string.IsNullOrEmpty(Period_pure_TBx.Text) ? 0 : Convert.ToDouble(Period_pure_TBx.Text);
-            cl.Period_payment = string.IsNullOrEmpty(Period_Payment_TBx.Text) ? 0 : Convert.ToDouble(Period_Payment_TBx.Text);
-            cl.Period_require = string.IsNullOrEmpty(Period_require_TBx.Text) ? 0 : Convert.ToDouble(Period_require_TBx.Text);
-            cl.Payment_schedule = Payment_Schedule_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Payment_Schedule_DDL.SelectedValue);
-            cl.First_payment_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(First_Payment_Date_TBx.Text);
+            cls.TotalPaymentTime = TotalPaymentTime_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(TotalPaymentTime_DDL.SelectedValue);
+            cls.Total_require = string.IsNullOrEmpty(Total_Require_TBx.Text) ? 0 : Convert.ToDouble(Total_Require_TBx.Text);
+            cls.Interest_rate = string.IsNullOrEmpty(Interest_Rate_TBx.Text) ? 0 : Convert.ToDouble(Interest_Rate_TBx.Text);
+            cls.Total_period = string.IsNullOrEmpty(Total_Period_TBx.Text) ? 0 : Convert.ToInt32(Total_Period_TBx.Text);
+            cls.Total_sum = string.IsNullOrEmpty(Total_Sum_TBx.Text) ? 0 : Convert.ToDouble(Total_Sum_TBx.Text);
+            cls.Total_Interest = string.IsNullOrEmpty(Total_Interest_TBx.Text) ? 0 : Convert.ToDouble(Total_Interest_TBx.Text);
+            cls.Total_Tax = string.IsNullOrEmpty(Total_Tax_TBx.Text) ? 0 : Convert.ToDouble(Total_Tax_TBx.Text);
+            cls.Total_leasing = string.IsNullOrEmpty(Total_Leasing_TBx.Text) ? 0 : Convert.ToDouble(Total_Leasing_TBx.Text);
+            cls.Total_Net_leasing = string.IsNullOrEmpty(Total_Net_Leasing_TBx.Text) ? 0 : Convert.ToDouble(Total_Net_Leasing_TBx.Text);
+            cls.Period_cal = string.IsNullOrEmpty(Period_Cal_TBx.Text) ? 0 : Convert.ToDouble(Period_Cal_TBx.Text);
+            cls.Period_interst = string.IsNullOrEmpty(Period_interst_TBx.Text) ? 0 : Convert.ToDouble(Period_interst_TBx.Text);
+            cls.Period_tax = string.IsNullOrEmpty(Period_tax_TBx.Text) ? 0 : Convert.ToDouble(Period_tax_TBx.Text);
+            cls.Period_pure = string.IsNullOrEmpty(Period_pure_TBx.Text) ? 0 : Convert.ToDouble(Period_pure_TBx.Text);
+            cls.Period_payment = string.IsNullOrEmpty(Period_Payment_TBx.Text) ? 0 : Convert.ToDouble(Period_Payment_TBx.Text);
+            cls.Period_require = string.IsNullOrEmpty(Period_require_TBx.Text) ? 0 : Convert.ToDouble(Period_require_TBx.Text);
+            cls.Payment_schedule = Payment_Schedule_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Payment_Schedule_DDL.SelectedValue);
+            cls.First_payment_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(First_Payment_Date_TBx.Text);
 
             // ข้อมูลรถ
-            cl.Car_register_date = string.IsNullOrEmpty(Car_Register_Date_TBx.Text) ? "" : Car_Register_Date_TBx.Text;
-            cl.Car_license_plate = string.IsNullOrEmpty(Car_Plate_TBx.Text) ? "" : Car_Plate_TBx.Text;
-            cl.Car_plate_province = Car_Plate_Province_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Plate_Province_DDL.SelectedValue);
-            cl.Car_type = string.IsNullOrEmpty(Car_Type_TBx.Text) ? "" : Car_Type_TBx.Text;
-            cl.Car_feature = string.IsNullOrEmpty(Car_Feature_TBx.Text) ? "" : Car_Feature_TBx.Text;
-            cl.Car_brand = Car_Brand_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Brand_DDL.SelectedValue);
-            cl.Car_model = string.IsNullOrEmpty(Car_Model_TBx.Text) ? "" : Car_Model_TBx.Text;
-            cl.Car_year = Car_Plate_Province_DDL.SelectedIndex <= 0 ? "" : Car_Year_DDL.SelectedValue;
-            cl.Car_color = string.IsNullOrEmpty(Car_Color_TBx.Text) ? "" : Car_Color_TBx.Text;
-            cl.Car_engine_no = string.IsNullOrEmpty(Engine_No_TBx.Text) ? "" : Engine_No_TBx.Text;
-            cl.Car_engine_no_at = string.IsNullOrEmpty(Engine_No_At_TBx.Text) ? "" : Engine_No_At_TBx.Text;
-            cl.Car_engine_brand= string.IsNullOrEmpty(Engine_Brand_TBx.Text) ? "" : Engine_Brand_TBx.Text;
-            cl.Car_chassis_no = string.IsNullOrEmpty(Chassis_No_TBx.Text) ? "" : Chassis_No_TBx.Text;
-            cl.Car_chassis_no_at = string.IsNullOrEmpty(Chassis_No_At_TBx.Text) ? "" : Chassis_No_At_TBx.Text;
-            cl.Car_fual_type = string.IsNullOrEmpty(Car_Fuel_Type_TBx.Text) ? "" : Car_Fuel_Type_TBx.Text;
-            cl.Car_gas_No = string.IsNullOrEmpty(Car_Gas_No_TBx.Text) ? "" : Car_Gas_No_TBx.Text;
-            cl.Car_used_id = Car_Used_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Used_DDL.SelectedValue);
-            cl.Car_distance = string.IsNullOrEmpty(Car_Distance_TBx.Text) ? 0 : Convert.ToInt32(Car_Distance_TBx.Text);
-            cl.Car_next_register_date = string.IsNullOrEmpty(Car_Next_Register_Date_TBx.Text) ? "" : Car_Next_Register_Date_TBx.Text;
-            cl.Car_tax_value = string.IsNullOrEmpty(Car_Tax_Value_Lbl.Text) ? 0 : Convert.ToDouble(Car_Tax_Value_Lbl.Text);
-            cl.Car_credits = string.IsNullOrEmpty(Car_Credits_TBx.Text) ? "" : Car_Credits_TBx.Text;
-            cl.Car_agent = string.IsNullOrEmpty(Car_agent_TBx.Text) ? "" : Car_agent_TBx.Text;
+            cls.Car_register_date = string.IsNullOrEmpty(Car_Register_Date_TBx.Text) ? "" : Car_Register_Date_TBx.Text;
+            cls.Car_license_plate = string.IsNullOrEmpty(Car_Plate_TBx.Text) ? "" : Car_Plate_TBx.Text;
+            cls.Car_plate_province = Car_Plate_Province_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Plate_Province_DDL.SelectedValue);
+            cls.Car_type = string.IsNullOrEmpty(Car_Type_TBx.Text) ? "" : Car_Type_TBx.Text;
+            cls.Car_feature = string.IsNullOrEmpty(Car_Feature_TBx.Text) ? "" : Car_Feature_TBx.Text;
+            cls.Car_brand = Car_Brand_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Brand_DDL.SelectedValue);
+            cls.Car_model = string.IsNullOrEmpty(Car_Model_TBx.Text) ? "" : Car_Model_TBx.Text;
+            cls.Car_year = Car_Plate_Province_DDL.SelectedIndex <= 0 ? "" : Car_Year_DDL.SelectedValue;
+            cls.Car_color = string.IsNullOrEmpty(Car_Color_TBx.Text) ? "" : Car_Color_TBx.Text;
+            cls.Car_engine_no = string.IsNullOrEmpty(Engine_No_TBx.Text) ? "" : Engine_No_TBx.Text;
+            cls.Car_engine_no_at = string.IsNullOrEmpty(Engine_No_At_TBx.Text) ? "" : Engine_No_At_TBx.Text;
+            cls.Car_engine_brand= string.IsNullOrEmpty(Engine_Brand_TBx.Text) ? "" : Engine_Brand_TBx.Text;
+            cls.Car_chassis_no = string.IsNullOrEmpty(Chassis_No_TBx.Text) ? "" : Chassis_No_TBx.Text;
+            cls.Car_chassis_no_at = string.IsNullOrEmpty(Chassis_No_At_TBx.Text) ? "" : Chassis_No_At_TBx.Text;
+            cls.Car_fual_type = string.IsNullOrEmpty(Car_Fuel_Type_TBx.Text) ? "" : Car_Fuel_Type_TBx.Text;
+            cls.Car_gas_No = string.IsNullOrEmpty(Car_Gas_No_TBx.Text) ? "" : Car_Gas_No_TBx.Text;
+            cls.Car_used_id = Car_Used_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Used_DDL.SelectedValue);
+            cls.Car_distance = string.IsNullOrEmpty(Car_Distance_TBx.Text) ? 0 : Convert.ToInt32(Car_Distance_TBx.Text);
+            cls.Car_next_register_date = string.IsNullOrEmpty(Car_Next_Register_Date_TBx.Text) ? "" : Car_Next_Register_Date_TBx.Text;
+            cls.Car_tax_value = string.IsNullOrEmpty(Car_Tax_Value_Lbl.Text) ? 0 : Convert.ToDouble(Car_Tax_Value_Lbl.Text);
+            cls.Car_credits = string.IsNullOrEmpty(Car_Credits_TBx.Text) ? "" : Car_Credits_TBx.Text;
+            cls.Car_agent = string.IsNullOrEmpty(Car_agent_TBx.Text) ? "" : Car_agent_TBx.Text;
 
             // ข้อมูลเจ้าของรถเดิม
-            cl.Car_old_owner = string.IsNullOrEmpty(Car_Old_Owner_TBx.Text) ? "" : Car_Old_Owner_TBx.Text;
-            cl.Car_old_owner_idcard = string.IsNullOrEmpty(Car_Old_Owner_Idcard_TBx.Text) ? "" : Car_Old_Owner_Idcard_TBx.Text;
-            cl.Car_old_owner_b_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Car_old_owner_b_date_TBx.Text);
-            cl.Car_old_owner_address_no = string.IsNullOrEmpty(Car_Old_Owner_Address_No_TBx.Text) ? "" : Car_Old_Owner_Address_No_TBx.Text;
-            cl.Car_old_owner_vilage = string.IsNullOrEmpty(Car_Old_Owner_Vilage_TBx.Text) ? "" : Car_Old_Owner_Vilage_TBx.Text;
-            cl.Car_old_owner_vilage_no = string.IsNullOrEmpty(Car_Old_Owner_Vilage_No_TBx.Text) ? "" : Car_Old_Owner_Vilage_No_TBx.Text;
-            cl.Car_old_owner_alley = string.IsNullOrEmpty(Car_Old_Owner_alley_TBx.Text) ? "" : Car_Old_Owner_alley_TBx.Text;
-            cl.Car_old_owner_road = string.IsNullOrEmpty(Car_Old_Owner_Road_TBx.Text) ? "" : Car_Old_Owner_Road_TBx.Text;
-            cl.Car_old_owner_subdistrict = string.IsNullOrEmpty(Car_Old_Owner_Subdistrict_TBx.Text) ? "" : Car_Old_Owner_Subdistrict_TBx.Text;
-            cl.Car_old_owner_district = string.IsNullOrEmpty(Car_Old_Owner_District_TBx.Text) ? "" : Car_Old_Owner_District_TBx.Text;
-            cl.Car_old_owner_province = Car_Old_Owner_Province_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Old_Owner_Province_DDL.SelectedValue);
-            cl.Car_old_owner_contry = string.IsNullOrEmpty(Car_Old_Owner_Contry_TBx.Text) ? "" : Car_Old_Owner_Contry_TBx.Text;
-            cl.Car_old_owner_zipcode = string.IsNullOrEmpty(Car_Old_Owner_Zipcode_TBx.Text) ? "" : Car_Old_Owner_Zipcode_TBx.Text;
+            cls.Car_old_owner = string.IsNullOrEmpty(Car_Old_Owner_TBx.Text) ? "" : Car_Old_Owner_TBx.Text;
+            cls.Car_old_owner_idcard = string.IsNullOrEmpty(Car_Old_Owner_Idcard_TBx.Text) ? "" : Car_Old_Owner_Idcard_TBx.Text;
+            cls.Car_old_owner_b_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Car_old_owner_b_date_TBx.Text);
+            cls.Car_old_owner_address_no = string.IsNullOrEmpty(Car_Old_Owner_Address_No_TBx.Text) ? "" : Car_Old_Owner_Address_No_TBx.Text;
+            cls.Car_old_owner_vilage = string.IsNullOrEmpty(Car_Old_Owner_Vilage_TBx.Text) ? "" : Car_Old_Owner_Vilage_TBx.Text;
+            cls.Car_old_owner_vilage_no = string.IsNullOrEmpty(Car_Old_Owner_Vilage_No_TBx.Text) ? "" : Car_Old_Owner_Vilage_No_TBx.Text;
+            cls.Car_old_owner_alley = string.IsNullOrEmpty(Car_Old_Owner_alley_TBx.Text) ? "" : Car_Old_Owner_alley_TBx.Text;
+            cls.Car_old_owner_road = string.IsNullOrEmpty(Car_Old_Owner_Road_TBx.Text) ? "" : Car_Old_Owner_Road_TBx.Text;
+            cls.Car_old_owner_subdistrict = string.IsNullOrEmpty(Car_Old_Owner_Subdistrict_TBx.Text) ? "" : Car_Old_Owner_Subdistrict_TBx.Text;
+            cls.Car_old_owner_district = string.IsNullOrEmpty(Car_Old_Owner_District_TBx.Text) ? "" : Car_Old_Owner_District_TBx.Text;
+            cls.Car_old_owner_province = Car_Old_Owner_Province_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Old_Owner_Province_DDL.SelectedValue);
+            cls.Car_old_owner_contry = string.IsNullOrEmpty(Car_Old_Owner_Contry_TBx.Text) ? "" : Car_Old_Owner_Contry_TBx.Text;
+            cls.Car_old_owner_zipcode = string.IsNullOrEmpty(Car_Old_Owner_Zipcode_TBx.Text) ? "" : Car_Old_Owner_Zipcode_TBx.Text;
 
-            cl.Cust_id = ctm.Cust_id;
-            cl.Tent_car_id = Tent_car_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Tent_car_DDL.SelectedValue);
+            cls.Cust_id = ctm.Cust_id;
+            cls.Tent_car_id = Tent_car_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Tent_car_DDL.SelectedValue);
 
             // ข้อมูลเช็คและการโอน
-            cl.Cheque_receiver = string.IsNullOrEmpty(Cheque_receiver_TBx.Text) ? "" : Cheque_receiver_TBx.Text;
-            cl.Cheque_bank = string.IsNullOrEmpty(Cheque_bank_TBx.Text) ? "" : Cheque_bank_TBx.Text;
-            cl.Cheque_bank_branch = string.IsNullOrEmpty(Cheque_bank_branch_TBx.Text) ? "" : Cheque_bank_branch_TBx.Text;
-            cl.Cheque_number = string.IsNullOrEmpty(Cheque_number_TBx.Text) ? "" : Cheque_number_TBx.Text;
-            cl.Cheque_sum = string.IsNullOrEmpty(Cheque_sum_TBx.Text) ? 0 : Convert.ToDouble(Cheque_sum_TBx.Text);
-            cl.Cheque_receive_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);
+            cls.Cheque_receiver = string.IsNullOrEmpty(Cheque_receiver_TBx.Text) ? "" : Cheque_receiver_TBx.Text;
+            cls.Cheque_bank = string.IsNullOrEmpty(Cheque_bank_TBx.Text) ? "" : Cheque_bank_TBx.Text;
+            cls.Cheque_bank_branch = string.IsNullOrEmpty(Cheque_bank_branch_TBx.Text) ? "" : Cheque_bank_branch_TBx.Text;
+            cls.Cheque_number = string.IsNullOrEmpty(Cheque_number_TBx.Text) ? "" : Cheque_number_TBx.Text;
+            cls.Cheque_sum = string.IsNullOrEmpty(Cheque_sum_TBx.Text) ? 0 : Convert.ToDouble(Cheque_sum_TBx.Text);
+            cls.Cheque_receive_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);
 
-            cl.Contract_status = "1";
+            cls.Contract_status = "1";
 
-            return cl_mng.addCarLeasings(cl);
+            return cls_mng.addCarLeasings(cls);
 
         }
     }

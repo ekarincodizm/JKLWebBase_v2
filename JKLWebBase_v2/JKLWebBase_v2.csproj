@@ -196,6 +196,7 @@
     <Content Include="Form_Dealer\Car_Dealer_Add.aspx" />
     <Content Include="Form_Customer\Customer_Add.aspx" />
     <Content Include="Form_Customer\Customer_Edit.aspx" />
+    <Content Include="Form_Dealer\Car_Dealer_Edit.aspx" />
     <Content Include="Form_Leasings\Leasing_Car_Img.aspx" />
     <Content Include="Form_Leasings\Leasing_Home_Img.aspx" />
     <Content Include="Content\sb-admin-2\css\sb-admin-2.css" />
@@ -217,6 +218,7 @@
     <Content Include="Form_Leasings\Leasing_Edit.aspx" />
     <Content Include="Form_Leasings\Leasing_Edit_Bondsman.aspx" />
     <Content Include="Form_Main\Main_JKL_Form.aspx" />
+    <Content Include="Form_Main\Tabs_Menu_Leasings.ascx" />
     <Content Include="Images_web\default-img.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -310,6 +312,20 @@
     <Compile Include="Class_Leasings\Car_Dealers.cs" />
     <Compile Include="Class_Leasings\Car_Dealers_Values.cs" />
     <Compile Include="Class_Leasings\Car_Leasings.cs" />
+    <Compile Include="Form_Dealer\Car_Dealer_Edit.aspx.cs">
+      <DependentUpon>Car_Dealer_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Dealer\Car_Dealer_Edit.aspx.designer.cs">
+      <DependentUpon>Car_Dealer_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Main\Tabs_Menu_Leasings.ascx.cs">
+      <DependentUpon>Tabs_Menu_Leasings.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Main\Tabs_Menu_Leasings.ascx.designer.cs">
+      <DependentUpon>Tabs_Menu_Leasings.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Global_Class\DateTimeUtility.cs" />
     <Compile Include="Global_Class\Log_Error.cs" />
     <Compile Include="Global_Class\MSSQLConnection.cs" />
@@ -421,6 +437,7 @@
     <Compile Include="Managers_Customers\Customers_Manager.cs" />
     <Compile Include="Managers_Customers\Customers_Spouse_Manager.cs" />
     <Compile Include="Managers_Dealers\Car_Dealers_Manager.cs" />
+    <Compile Include="Managers_Leasings\Car_Leasings_Bondsman_Manager.cs" />
     <Compile Include="Managers_Leasings\Car_Leasings_Manager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -448,9 +465,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account_Form\" />
     <Folder Include="App_Data\" />
     <Folder Include="Class_Account\" />
+    <Folder Include="Form_Account\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

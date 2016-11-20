@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Text;
 
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Customers;
-using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
-using JKLWebBase_v2.Managers_Leasings;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
@@ -71,19 +65,12 @@ namespace JKLWebBase_v2.Form_Leasings
             _CopyBaseDataAddress(3);
         }
 
-        protected void link_Leasing_Add_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Form_Leasings/Leasing_Add");
-        }
-
         protected void Customer_Add_Save_Btn_Click(object sender, EventArgs e)
         {
-
             if (!find_customer)
             {
                 _AddCustomer();
             }
-
             Response.Redirect("/Form_Leasings/Leasing_Add");
         }
 
@@ -189,18 +176,21 @@ namespace JKLWebBase_v2.Form_Leasings
             if (cust.Cust_idcard != null)
             {
                 _GetCustomer(cust);
+
                 find_customer = true;
-                link_Leasing_Add.Enabled = true;
+                Alert_Warning_Panel.Visible = false;
 
             }
             else
             {
                 Alert_Warning_Panel.Visible = true;
-                Alert_Id_Card_Lbl.Text = "ไม่พบเลขบัตรประชาชน " + Cust_idcard_TBx.Text + " นี้ในระบบ";
+                Alert_Id_Card_Lbl.Text = "ไม่พบเลขบัตรประชาชน " + Cust_idcard_TBx.Text + " นี้ในระบบข้อมูลลูกค้า";
 
                 find_customer = false;
 
                 Cust_idcard_TBx.Focus();
+
+                _ClearCustomer();
             }
 
         }
@@ -300,10 +290,6 @@ namespace JKLWebBase_v2.Form_Leasings
             Current_Cust_Zipcode_TBx.Text = ctmadd_current.Cust_Zipcode;
             Current_Cust_Tel_TBx.Text = ctmadd_current.Cust_Tel;
             Current_Cust_Home_status_id_DDL.SelectedValue = ctmadd_current.Cust_Home_status_id.ToString();
-
-            Session["Address_Idcard"] = ctmadd_idcard;
-            Session["Address_Home"] = ctmadd_home;
-            Session["Address_Current"] = ctmadd_current;
         }
 
         private void _GetCustomerSpouse(string Cust_id)
@@ -343,10 +329,191 @@ namespace JKLWebBase_v2.Form_Leasings
             Spouse_job_tel_TBx.Text = cmarry.Spouse_job_tel;
             Spouse_tel_TBx.Text = cmarry.Spouse_tel;
             Spouse_email_TBx.Text = cmarry.Spouse_email;
-
-            Session["Cust_Marry"] = cmarry;
         }
 
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                               Copy Data Function                   ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        // copy ข้อมูลที่อยู่แยกตามประเภท
+        private void _CopyBaseDataAddress(int type)
+        {
+            if (type == 1) // copy ที่อยู่ตามบัตรประชาชน to ที่ตามทะเบียนบ้าน
+            {
+                Home_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
+                Home_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
+                Home_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
+                Home_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
+                Home_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
+                Home_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
+                Home_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
+                Home_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
+                Home_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
+                Home_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
+                Home_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
+                Home_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
+
+                Home_Cust_Gps_Latitude_TBx.Focus();
+            }
+            else if (type == 2) // copy ที่อยู่ตามบัตรประชาชน to ที่อยู่ปัจจุบัน
+            {
+                Current_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
+                Current_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
+                Current_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
+                Current_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
+                Current_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
+                Current_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
+                Current_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
+                Current_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
+                Current_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
+                Current_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
+                Current_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
+                Current_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
+
+                Cust_job_TBx.Focus();
+            }
+            else if (type == 3) // copy ที่อยู่ตามทะเบียนบ้าน to ที่อยู่ปัจจุบัน
+            {
+                Current_Cust_Address_no_TBx.Text = Home_Cust_Address_no_TBx.Text;
+                Current_Cust_Vilage_TBx.Text = Home_Cust_Vilage_TBx.Text;
+                Current_Cust_Vilage_no_TBx.Text = Home_Cust_Vilage_no_TBx.Text;
+                Current_Cust_Alley_TBx.Text = Home_Cust_Alley_TBx.Text;
+                Current_Cust_Road_TBx.Text = Home_Cust_Road_TBx.Text;
+                Current_Cust_Subdistrict_TBx.Text = Home_Cust_Subdistrict_TBx.Text;
+                Current_Cust_District_TBx.Text = Home_Cust_District_TBx.Text;
+                Current_Cust_Province_DDL.SelectedIndex = Home_Cust_Province_DDL.SelectedIndex;
+                Current_Cust_Country_TBx.Text = Home_Cust_Country_TBx.Text;
+                Current_Cust_Zipcode_TBx.Text = Home_Cust_Zipcode_TBx.Text;
+                Current_Cust_Tel_TBx.Text = Home_Cust_Tel_TBx.Text;
+                Current_Cust_Home_status_id_DDL.SelectedIndex = Home_Cust_Home_status_id_DDL.SelectedIndex;
+
+                Cust_job_TBx.Focus();
+            }
+        }
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                        Clear Data Function                         ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        private void _ClearCustomer()
+        {
+            Cust_Fname_TBx.Text = "";
+            Cust_LName_TBx.Text = "";
+            Cust_B_date_TBx.Text = "";
+            Cust_Idcard_without_TBx.Text = "";
+            Cust_Idcard_start_TBx.Text = "";
+            Cust_Idcard_expire_TBx.Text = "";
+            Cust_Nationality_DDL.SelectedIndex = 0;
+            Cust_Origin_DDL.SelectedIndex = 0;
+            Cust_job_TBx.Text = "";
+            Cust_job_position_TBx.Text = "";
+            Cust_job_long_TBx.Text = "";
+            Cust_job_local_name_TBx.Text = "";
+            Cust_job_address_no_TBx.Text = "";
+            Cust_job_vilage_TBx.Text = "";
+            Cust_job_vilage_no_TBx.Text = "";
+            Cust_job_alley_TBx.Text = "";
+            Cust_job_road_TBx.Text = "";
+            Cust_job_subdistrict_TBx.Text = "";
+            Cust_job_district_TBx.Text = "";
+            Cust_job_province_DDL.SelectedValue = "39";
+            Cust_job_contry_TBx.Text = "ประเทศไทย";
+            Cust_job_zipcode_TBx.Text = "";
+            Cust_job_tel_TBx.Text = "";
+            Cust_job_email_TBx.Text = "";
+            Cust_job_salary_TBx.Text = "";
+            Cust_status_DDL.SelectedIndex = 0;
+
+            _ClearCustomerAddress();
+
+            _ClearCustomerSpouse();
+
+        }
+
+        private void _ClearCustomerAddress()
+        {
+            // ที่อยู่ตามบัตรประชาชน
+            Idcard_Cust_Address_no_Tbx.Text = "";
+            Idcard_Cust_Vilage_Tbx.Text = "";
+            Idcard_Cust_Vilage_no_Tbx.Text = "";
+            Idcard_Cust_Alley_Tbx.Text = "";
+            Idcard_Cust_Road_Tbx.Text = "";
+            Idcard_Cust_Subdistrict_Tbx.Text = "";
+            Idcard_Cust_District_Tbx.Text = "";
+            Idcard_Cust_Province_DDL.SelectedValue = "39";
+            Idcard_Cust_Country_Tbx.Text = "ประเทศไทย";
+            Idcard_Cust_Zipcode_Tbx.Text = "";
+            Idcard_Cust_Tel_Tbx.Text = "";
+            Idcard_Cust_Home_status_DDL.SelectedIndex = 0;
+
+            // ที่อยู่ตามทะเบียนบ้าน
+            Home_Cust_Address_no_TBx.Text = "";
+            Home_Cust_Vilage_TBx.Text = "";
+            Home_Cust_Vilage_no_TBx.Text = "";
+            Home_Cust_Alley_TBx.Text = "";
+            Home_Cust_Road_TBx.Text = "";
+            Home_Cust_Subdistrict_TBx.Text = "";
+            Home_Cust_District_TBx.Text = "";
+            Home_Cust_Province_DDL.SelectedValue = "39";
+            Home_Cust_Country_TBx.Text = "ประเทศไทย";
+            Home_Cust_Zipcode_TBx.Text = "";
+            Home_Cust_Tel_TBx.Text = "";
+            Home_Cust_Home_status_id_DDL.SelectedIndex = 0;
+            Home_Cust_Gps_Latitude_TBx.Text = "";
+            Home_Cust_Gps_Longitude_TBx.Text = "";
+
+            // ที่อยู่ปัจจุบัน
+            Current_Cust_Address_no_TBx.Text = "";
+            Current_Cust_Vilage_TBx.Text = "";
+            Current_Cust_Vilage_no_TBx.Text = "";
+            Current_Cust_Road_TBx.Text = "";
+            Current_Cust_Subdistrict_TBx.Text = "";
+            Current_Cust_District_TBx.Text = "";
+            Current_Cust_Province_DDL.SelectedValue = "39";
+            Current_Cust_Country_TBx.Text = "ประเทศไทย";
+            Current_Cust_Zipcode_TBx.Text = "";
+            Current_Cust_Tel_TBx.Text = "";
+            Current_Cust_Home_status_id_DDL.SelectedIndex = 0;
+        }
+
+        private void _ClearCustomerSpouse()
+        {
+            Spouse_idcard_TBx.Text = "";
+            Spouse_Fname_TBx.Text = "";
+            Spouse_Lname_TBx.Text = "";
+            Spouse_Nationality_DDL.SelectedIndex = 0;
+            Spouse_Origin_DDL.SelectedIndex = 0;
+            Spouse_address_no_TBx.Text = "";
+            Spouse_vilage_TBx.Text = "";
+            Spouse_vilage_no_TBx.Text = "";
+            Spouse_alley_TBx.Text = "";
+            Spouse_road_TBx.Text = "";
+            Spouse_subdistrict_TBx.Text = "";
+            Spouse_district_TBx.Text = "";
+            Spouse_province_DDL.SelectedValue = "39";
+            Spouse_country_TBx.Text = "ประเทศไทย";
+            Spouse_zipcode_TBx.Text = "";
+            Spouse_job_TBx.Text = "";
+            Spouse_job_position_TBx.Text = "";
+            Spouse_job_long_TBx.Text = "";
+            Spouse_job_salary_TBx.Text = "";
+            Spouse_job_local_name_TBx.Text = "";
+            Spouse_job_address_no_TBx.Text = "";
+            Spouse_job_vilage_TBx.Text = "";
+            Spouse_job_vilage_no_TBx.Text = "";
+            Spouse_job_alley_TBx.Text = "";
+            Spouse_job_road_TBx.Text = "";
+            Spouse_job_subdistrict_TBx.Text = "";
+            Spouse_job_district_TBx.Text = "";
+            Spouse_job_province_DDL.SelectedValue = "39";
+            Spouse_job_country_TBx.Text = "ประเทศไทย";
+            Spouse_job_zipcode_TBx.Text = "";
+            Spouse_job_tel_TBx.Text = "";
+            Spouse_tel_TBx.Text = "";
+            Spouse_email_TBx.Text = "";
+        }
 
         /*******************************************************************************************************************************************************************************
         ****************************************************                               Add Data Function                    ********************************************************
@@ -469,10 +636,6 @@ namespace JKLWebBase_v2.Form_Leasings
             ctm_add_mng.addCustomersAddress(ctmadd_home);
             ctm_add_mng.addCustomersAddress(ctmadd_current);
 
-            Session["Address_Idcard"] = ctmadd_idcard;
-            Session["Address_Home"] = ctmadd_home;
-            Session["Address_Current"] = ctmadd_current;
-
         }
 
         private void _AddCustomerSpouse(string custId)
@@ -517,69 +680,6 @@ namespace JKLWebBase_v2.Form_Leasings
             Customers_Spouse_Manager ctm_sp_mng = new Customers_Spouse_Manager();
 
             ctm_sp_mng.addCustomersSpouse(cmarry);
-
-            Session["Cust_Marry"] = cmarry;
-        }
-
-        /*******************************************************************************************************************************************************************************
-        ****************************************************                               Copy Data Function                   ********************************************************
-        ****************************************************                                                                    ********************************************************
-        *******************************************************************************************************************************************************************************/
-
-        // copy ข้อมูลที่อยู่แยกตามประเภท
-        private void _CopyBaseDataAddress(int type)
-        {
-            if (type == 1) // copy ที่อยู่ตามบัตรประชาชน to ที่ตามทะเบียนบ้าน
-            {
-                Home_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
-                Home_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
-                Home_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
-                Home_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
-                Home_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
-                Home_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
-                Home_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
-                Home_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
-                Home_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
-                Home_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
-                Home_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
-                Home_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
-
-                Home_Cust_Gps_Latitude_TBx.Focus();
-            }
-            else if (type == 2) // copy ที่อยู่ตามบัตรประชาชน to ที่อยู่ปัจจุบัน
-            {
-                Current_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
-                Current_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
-                Current_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
-                Current_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
-                Current_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
-                Current_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
-                Current_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
-                Current_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
-                Current_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
-                Current_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
-                Current_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
-                Current_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
-
-                Cust_job_TBx.Focus();
-            }
-            else if (type == 3) // copy ที่อยู่ตามทะเบียนบ้าน to ที่อยู่ปัจจุบัน
-            {
-                Current_Cust_Address_no_TBx.Text = Home_Cust_Address_no_TBx.Text;
-                Current_Cust_Vilage_TBx.Text = Home_Cust_Vilage_TBx.Text;
-                Current_Cust_Vilage_no_TBx.Text = Home_Cust_Vilage_no_TBx.Text;
-                Current_Cust_Alley_TBx.Text = Home_Cust_Alley_TBx.Text;
-                Current_Cust_Road_TBx.Text = Home_Cust_Road_TBx.Text;
-                Current_Cust_Subdistrict_TBx.Text = Home_Cust_Subdistrict_TBx.Text;
-                Current_Cust_District_TBx.Text = Home_Cust_District_TBx.Text;
-                Current_Cust_Province_DDL.SelectedIndex = Home_Cust_Province_DDL.SelectedIndex;
-                Current_Cust_Country_TBx.Text = Home_Cust_Country_TBx.Text;
-                Current_Cust_Zipcode_TBx.Text = Home_Cust_Zipcode_TBx.Text;
-                Current_Cust_Tel_TBx.Text = Home_Cust_Tel_TBx.Text;
-                Current_Cust_Home_status_id_DDL.SelectedIndex = Home_Cust_Home_status_id_DDL.SelectedIndex;
-
-                Cust_job_TBx.Focus();
-            }
         }
     }
 }
