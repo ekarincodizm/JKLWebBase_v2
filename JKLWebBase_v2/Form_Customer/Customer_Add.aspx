@@ -1,4 +1,4 @@
-﻿<%@ Page Title="เพิ่มผู้ทำสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Customer_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Customer_Add" %>
+﻿<%@ Page Title="เพิ่มข้อมูลผู้ทำสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Customer_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Customer_Add" %>
 
 <%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Main/Tabs_Menu_Leasings.ascx" %>
 

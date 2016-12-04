@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Web.UI.WebControls;
 using System.Drawing;
-using System.Text;
 
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Customers;
 using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Managers_Base;
-using JKLWebBase_v2.Managers_Customers;
 using JKLWebBase_v2.Managers_Leasings;
 
 namespace JKLWebBase_v2.Form_Leasings
@@ -44,14 +42,7 @@ namespace JKLWebBase_v2.Form_Leasings
             {
                 //Response.Redirect("/Form_Customer/Customer_Add");
             }
-
         }
-
-
-       /* protected void link_Customer_Add_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Form_Customer/Customer_Edit");
-        }*/
 
         protected void Total_Period_TBx_TextChanged(object sender, EventArgs e)
         {
@@ -403,6 +394,8 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Cheque_receive_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);
 
             cls.Contract_status = "1";
+
+            Session["Leasings"] = cls;
 
             return cls_mng.addCarLeasings(cls);
 

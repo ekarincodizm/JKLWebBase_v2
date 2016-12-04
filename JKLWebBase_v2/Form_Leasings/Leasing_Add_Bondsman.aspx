@@ -2,6 +2,8 @@
 
 <%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Main/Tabs_Menu_Leasings.ascx" %>
 
+<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="~/Form_Main/Print_Menu_Leasing.ascx" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Alert MessagesBox -->
     <asp:Panel ID="Alert_Warning_Panel" runat="server" Visible="false">
@@ -20,6 +22,11 @@
     </div>
     </asp:Panel>
     <!-- Alert MessagesBox -->
+
+    <!-- Print Menu Button -->
+    <print_menu_leasing:Print_Menu id="Print_Menu1" runat="server" />
+
+    <!-- ./Print Menu Button -->
 
     <div class="col-lg-12">
         <h4 class="page-header"> เพิ่มข้อมูลผู้ค้ำประกันคนที่ <asp:Label ID="Number_Of_Bondsman" runat="server"></asp:Label> </h4>

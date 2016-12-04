@@ -13,6 +13,15 @@ namespace JKLWebBase_v2.Form_Leasings {
     public partial class Leasing_Add_Car_Img {
         
         /// <summary>
+        /// Print_Menu1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JKLWebBase_v2.Form_Main.Print_Menu_Leasing Print_Menu1;
+        
+        /// <summary>
         /// nav_tabs control.
         /// </summary>
         /// <remarks>
@@ -22,184 +31,283 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::JKLWebBase_v2.Form_Main.Tabs_Menu_Leasings nav_tabs;
         
         /// <summary>
-        /// Photo_Home_1 control.
+        /// Car_img_1_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Photo_Home_1;
+        protected global::System.Web.UI.WebControls.Label Car_img_1_Lbl;
         
         /// <summary>
-        /// FileUpload1 control.
+        /// Car_img_1_REV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Car_img_1_REV;
         
         /// <summary>
-        /// Label1 control.
+        /// Car_img_1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.FileUpload Car_img_1;
         
         /// <summary>
-        /// FileUpload2 control.
+        /// Car_img_2_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
+        protected global::System.Web.UI.WebControls.Label Car_img_2_Lbl;
         
         /// <summary>
-        /// Label2 control.
+        /// Car_img_2_REV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Car_img_2_REV;
         
         /// <summary>
-        /// FileUpload3 control.
+        /// Car_img_2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload3;
+        protected global::System.Web.UI.WebControls.FileUpload Car_img_2;
         
         /// <summary>
-        /// Label3 control.
+        /// Car_img_3_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label Car_img_3_Lbl;
         
         /// <summary>
-        /// FileUpload4 control.
+        /// Car_img_3_REV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload4;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Car_img_3_REV;
         
         /// <summary>
-        /// Label4 control.
+        /// Car_img_3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.FileUpload Car_img_3;
         
         /// <summary>
-        /// FileUpload5 control.
+        /// Car_img_4_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload5;
+        protected global::System.Web.UI.WebControls.Label Car_img_4_Lbl;
         
         /// <summary>
-        /// Label5 control.
+        /// Car_img_4_REV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Car_img_4_REV;
         
         /// <summary>
-        /// FileUpload6 control.
+        /// Car_img_4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload6;
+        protected global::System.Web.UI.WebControls.FileUpload Car_img_4;
         
         /// <summary>
-        /// Label6 control.
+        /// Car_img_5_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label Car_img_5_Lbl;
         
         /// <summary>
-        /// FileUpload7 control.
+        /// Car_img_5_REV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload7;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Car_img_5_REV;
         
         /// <summary>
-        /// Label7 control.
+        /// Car_img_5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.FileUpload Car_img_5;
         
         /// <summary>
-        /// FileUpload8 control.
+        /// Car_img_6_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload8;
+        protected global::System.Web.UI.WebControls.Label Car_img_6_Lbl;
         
         /// <summary>
-        /// Label8 control.
+        /// Car_img_6_REV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Car_img_6_REV;
         
         /// <summary>
-        /// FileUpload9 control.
+        /// Car_img_6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload9;
+        protected global::System.Web.UI.WebControls.FileUpload Car_img_6;
         
         /// <summary>
-        /// Label9 control.
+        /// Car_img_7_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
+        protected global::System.Web.UI.WebControls.Label Car_img_7_Lbl;
         
         /// <summary>
-        /// FileUpload10 control.
+        /// Car_img_7_REV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload10;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Car_img_7_REV;
+        
+        /// <summary>
+        /// Car_img_7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload Car_img_7;
+        
+        /// <summary>
+        /// Car_img_8_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Car_img_8_Lbl;
+        
+        /// <summary>
+        /// Car_img_8_REV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Car_img_8_REV;
+        
+        /// <summary>
+        /// Car_img_8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload Car_img_8;
+        
+        /// <summary>
+        /// Car_img_9_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Car_img_9_Lbl;
+        
+        /// <summary>
+        /// Car_img_9_REV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Car_img_9_REV;
+        
+        /// <summary>
+        /// Car_img_9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload Car_img_9;
+        
+        /// <summary>
+        /// Car_img_10_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Car_img_10_Lbl;
+        
+        /// <summary>
+        /// Car_img_10_REV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator Car_img_10_REV;
+        
+        /// <summary>
+        /// Car_img_10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload Car_img_10;
+        
+        /// <summary>
+        /// Upload_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Upload_Btn;
         
         /// <summary>
         /// LinkButton9 control.
