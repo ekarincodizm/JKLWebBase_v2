@@ -1,27 +1,10 @@
 ﻿<%@ Page Title="แก้ไขข้อมูลผู้ทำสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Customer_Edit.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Customer_Edit" %>
 
-<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Main/Tabs_Menu_Leasings.ascx" %>
+<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Leasings/Tabs_Menu_Leasings.ascx" %>
 
-<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="~/Form_Main/Print_Menu_Leasing.ascx" %>
+<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="~/Form_Leasings/Print_Menu_Leasing.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <!-- Alert MessagesBox -->
-    <asp:Panel ID="Alert_Warning_Panel" runat="server" Visible="false">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="alert alert-warning" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-               <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
-            </button>
-            <div class="modal-header">
-              <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i> !! แจ้งเตือน !! </h6>
-            </div>
-            <div class="modal-body">
-              <p> <asp:Label ID="Alert_Id_Card_Lbl" runat="server" > ไม่พบเลขบัตรประชาชน . . . นี้ในระบบ </asp:Label> </p>
-            </div>
-        </div>
-    </div>
-    </asp:Panel>
-    <!-- Alert MessagesBox -->
 
     <!-- Print Menu Button -->
     <print_menu_leasing:Print_Menu id="Print_Menu1" runat="server" />
@@ -54,12 +37,8 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="form-group col-xs-2">
-                                        <asp:Label ID="Cust_idcard_Lbl" runat="server" > เลขบัตรประชาชน <asp:RequiredFieldValidator ID="RFV_Cust_idcard_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Cust_idcard_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator> </asp:Label>
-                                        <div class="form-group input-group">
-                                            <asp:TextBox ID="Cust_idcard_TBx" runat="server" CssClass="form-control" OnTextChanged="Cust_idcard_TBx_TextChanged" AutoPostBack="true"></asp:TextBox>
-                                            <asp:LinkButton ID="Cust_Search_Btn" runat="server" CssClass="input-group-addon search" OnClick="Cust_Search_Btn_Click"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
-                                        </div>
-                                        
+                                        <asp:Label ID="Cust_idcard_Lbl" runat="server" > เลขบัตรประชาชน </asp:Label>
+                                        <asp:TextBox ID="Cust_idcard_TBx" runat="server" CssClass="form-control" Enabled="false"></asp:TextBox>
                                     </div>
                                     <div class="col-xs-2">
                                         <asp:Label ID="Cust_Fname_Lbl" runat="server" > ชื่อ <asp:RequiredFieldValidator ID="RFV_Cust_Fname_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Cust_Fname_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator> </asp:Label>

@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="แก้ไขข้อมูลนายหน้า" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Car_Dealer_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Car_Dealer_Add" %>
 
-<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Main/Tabs_Menu_Leasings.ascx" %>
+<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Leasings/Tabs_Menu_Leasings.ascx" %>
 
-<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="~/Form_Main/Print_Menu_Leasing.ascx" %>
+<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="~/Form_Leasings/Print_Menu_Leasing.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Alert MessagesBox -->

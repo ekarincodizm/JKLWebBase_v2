@@ -11,7 +11,14 @@ namespace JKLWebBase_v2.Form_Main
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Customer"] != null && Session["Leasings"] != null)
+            {
+                Print_Menu_panel.Visible = true;
+            }
+            else
+            {
+                Print_Menu_panel.Visible = false;
+            }
         }
     }
 }

@@ -47,7 +47,7 @@ namespace JKLWebBase_v2.Managers_Leasings
             }
         }
 
-        public bool addCarLeasings(Car_Leasings cl)
+        public bool addCarLeasings(Car_Leasings cls)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
@@ -80,80 +80,80 @@ namespace JKLWebBase_v2.Managers_Leasings
                 MySqlCommand cmd = new MySqlCommand("i_car_leasings", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@i_Leasing_id", cl.Leasing_id);
-                cmd.Parameters.AddWithValue("@i_Deps_no", cl.Deps_no);
-                cmd.Parameters.AddWithValue("@i_Leasing_no", cl.Leasing_no);
-                cmd.Parameters.AddWithValue("@i_Leasing_code_id", cl.Leasing_code_id);
-                cmd.Parameters.AddWithValue("@i_Leasing_date", cl.Leasing_date);
-                cmd.Parameters.AddWithValue("@i_Branch_id", cl.Branch_id);
-                cmd.Parameters.AddWithValue("@i_Zone_id", cl.Zone_id);
-                cmd.Parameters.AddWithValue("@i_Court_id", cl.Court_id);
-                cmd.Parameters.AddWithValue("@i_PeReT", cl.PeReT);
-                cmd.Parameters.AddWithValue("@i_TotalPaymentTime", cl.TotalPaymentTime);
-                cmd.Parameters.AddWithValue("@i_Total_require", cl.Total_require);
-                cmd.Parameters.AddWithValue("@i_Interest_rate", cl.Interest_rate);
-                cmd.Parameters.AddWithValue("@i_Total_period", cl.Total_period);
-                cmd.Parameters.AddWithValue("@i_Total_sum", cl.Total_sum);
-                cmd.Parameters.AddWithValue("@i_Total_Interest", cl.Total_Interest);
-                cmd.Parameters.AddWithValue("@i_Total_Tax", cl.Total_Tax);
-                cmd.Parameters.AddWithValue("@i_Total_leasing", cl.Total_leasing);
-                cmd.Parameters.AddWithValue("@i_Total_Net_leasing", cl.Total_Net_leasing);
-                cmd.Parameters.AddWithValue("@i_Period_cal", cl.Period_cal);
-                cmd.Parameters.AddWithValue("@i_Period_interst", cl.Period_interst);
-                cmd.Parameters.AddWithValue("@i_Period_tax", cl.Period_tax);
-                cmd.Parameters.AddWithValue("@i_Period_pure", cl.Period_pure);
-                cmd.Parameters.AddWithValue("@i_Period_payment", cl.Period_payment);
-                cmd.Parameters.AddWithValue("@i_Period_require", cl.Period_require);
-                cmd.Parameters.AddWithValue("@i_Total_period_length", cl.Total_period_length);
-                cmd.Parameters.AddWithValue("@i_Total_period_lose", cl.Total_period_lose);
-                cmd.Parameters.AddWithValue("@i_Total_period_left", cl.Total_period_left);
-                cmd.Parameters.AddWithValue("@i_Total_payment_left", cl.Total_payment_left);
-                cmd.Parameters.AddWithValue("@i_Payment_schedule", cl.Payment_schedule);
-                cmd.Parameters.AddWithValue("@i_First_payment_date", cl.First_payment_date);
-                cmd.Parameters.AddWithValue("@i_Car_register_date", cl.Car_register_date);
-                cmd.Parameters.AddWithValue("@i_Car_license_plate", cl.Car_license_plate);
-                cmd.Parameters.AddWithValue("@i_Car_plate_province", cl.Car_plate_province);
-                cmd.Parameters.AddWithValue("@i_Car_type", cl.Car_type);
-                cmd.Parameters.AddWithValue("@i_Car_feature", cl.Car_feature);
-                cmd.Parameters.AddWithValue("@i_Car_brand", cl.Car_brand);
-                cmd.Parameters.AddWithValue("@i_Car_model", cl.Car_model);
-                cmd.Parameters.AddWithValue("@i_Car_year", cl.Car_year);
-                cmd.Parameters.AddWithValue("@i_Car_color", cl.Car_color);
-                cmd.Parameters.AddWithValue("@i_Car_engine_no", cl.Car_engine_no);
-                cmd.Parameters.AddWithValue("@i_Car_engine_no_at", cl.Car_engine_no_at);
-                cmd.Parameters.AddWithValue("@i_Car_engine_brand", cl.Car_engine_brand);
-                cmd.Parameters.AddWithValue("@i_Car_chassis_no", cl.Car_chassis_no);
-                cmd.Parameters.AddWithValue("@i_Car_chassis_no_at", cl.Car_chassis_no_at);
-                cmd.Parameters.AddWithValue("@i_Car_fual_type", cl.Car_fual_type);
-                cmd.Parameters.AddWithValue("@i_Car_gas_No", cl.Car_gas_No);
-                cmd.Parameters.AddWithValue("@i_Car_used_id", cl.Car_used_id);
-                cmd.Parameters.AddWithValue("@i_Car_distance", cl.Car_distance);
-                cmd.Parameters.AddWithValue("@i_Car_next_register_date", cl.Car_next_register_date);
-                cmd.Parameters.AddWithValue("@i_Car_tax_value", cl.Car_tax_value);
-                cmd.Parameters.AddWithValue("@i_Car_credits", cl.Car_credits);
-                cmd.Parameters.AddWithValue("@i_Car_agent", cl.Car_agent);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner", cl.Car_old_owner);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_idcard", cl.Car_old_owner_idcard);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_b_date", cl.Car_old_owner_b_date);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_address_no", cl.Car_old_owner_address_no);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_vilage", cl.Car_old_owner_vilage);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_vilage_no", cl.Car_old_owner_vilage_no);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_alley", cl.Car_old_owner_alley);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_road", cl.Car_old_owner_road);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_subdistrict", cl.Car_old_owner_subdistrict);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_district", cl.Car_old_owner_district);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_province", cl.Car_old_owner_province);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_contry", cl.Car_old_owner_contry);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_zipcode", cl.Car_old_owner_zipcode);
-                cmd.Parameters.AddWithValue("@i_Cust_id", cl.Cust_id);
-                cmd.Parameters.AddWithValue("@i_Tent_car_id", cl.Tent_car_id);
-                cmd.Parameters.AddWithValue("@i_Cheque_receiver", cl.Cheque_receiver);
-                cmd.Parameters.AddWithValue("@i_Cheque_bank", cl.Cheque_bank);
-                cmd.Parameters.AddWithValue("@i_Cheque_bank_branch", cl.Cheque_bank_branch);
-                cmd.Parameters.AddWithValue("@i_Cheque_number", cl.Cheque_number);
-                cmd.Parameters.AddWithValue("@i_Cheque_sum", cl.Cheque_sum);
-                cmd.Parameters.AddWithValue("@i_Cheque_receive_date", cl.Cheque_receive_date);
-                cmd.Parameters.AddWithValue("@i_Contract_status", cl.Contract_status);
+                cmd.Parameters.AddWithValue("@i_Leasing_id", cls.Leasing_id);
+                cmd.Parameters.AddWithValue("@i_Deps_no", cls.Deps_no);
+                cmd.Parameters.AddWithValue("@i_Leasing_no", cls.Leasing_no);
+                cmd.Parameters.AddWithValue("@i_Leasing_code_id", cls.Leasing_code_id);
+                cmd.Parameters.AddWithValue("@i_Leasing_date", cls.Leasing_date);
+                cmd.Parameters.AddWithValue("@i_Branch_id", cls.Branch_id);
+                cmd.Parameters.AddWithValue("@i_Zone_id", cls.Zone_id);
+                cmd.Parameters.AddWithValue("@i_Court_id", cls.Court_id);
+                cmd.Parameters.AddWithValue("@i_PeReT", cls.PeReT);
+                cmd.Parameters.AddWithValue("@i_TotalPaymentTime", cls.TotalPaymentTime);
+                cmd.Parameters.AddWithValue("@i_Total_require", cls.Total_require);
+                cmd.Parameters.AddWithValue("@i_Interest_rate", cls.Interest_rate);
+                cmd.Parameters.AddWithValue("@i_Total_period", cls.Total_period);
+                cmd.Parameters.AddWithValue("@i_Total_sum", cls.Total_sum);
+                cmd.Parameters.AddWithValue("@i_Total_Interest", cls.Total_Interest);
+                cmd.Parameters.AddWithValue("@i_Total_Tax", cls.Total_Tax);
+                cmd.Parameters.AddWithValue("@i_Total_leasing", cls.Total_leasing);
+                cmd.Parameters.AddWithValue("@i_Total_Net_leasing", cls.Total_Net_leasing);
+                cmd.Parameters.AddWithValue("@i_Period_cal", cls.Period_cal);
+                cmd.Parameters.AddWithValue("@i_Period_interst", cls.Period_interst);
+                cmd.Parameters.AddWithValue("@i_Period_tax", cls.Period_tax);
+                cmd.Parameters.AddWithValue("@i_Period_pure", cls.Period_pure);
+                cmd.Parameters.AddWithValue("@i_Period_payment", cls.Period_payment);
+                cmd.Parameters.AddWithValue("@i_Period_require", cls.Period_require);
+                cmd.Parameters.AddWithValue("@i_Total_period_length", cls.Total_period_length);
+                cmd.Parameters.AddWithValue("@i_Total_period_lose", cls.Total_period_lose);
+                cmd.Parameters.AddWithValue("@i_Total_period_left", cls.Total_period_left);
+                cmd.Parameters.AddWithValue("@i_Total_payment_left", cls.Total_payment_left);
+                cmd.Parameters.AddWithValue("@i_Payment_schedule", cls.Payment_schedule);
+                cmd.Parameters.AddWithValue("@i_First_payment_date", cls.First_payment_date);
+                cmd.Parameters.AddWithValue("@i_Car_register_date", cls.Car_register_date);
+                cmd.Parameters.AddWithValue("@i_Car_license_plate", cls.Car_license_plate);
+                cmd.Parameters.AddWithValue("@i_Car_plate_province", cls.Car_plate_province);
+                cmd.Parameters.AddWithValue("@i_Car_type", cls.Car_type);
+                cmd.Parameters.AddWithValue("@i_Car_feature", cls.Car_feature);
+                cmd.Parameters.AddWithValue("@i_Car_brand", cls.Car_brand);
+                cmd.Parameters.AddWithValue("@i_Car_model", cls.Car_model);
+                cmd.Parameters.AddWithValue("@i_Car_year", cls.Car_year);
+                cmd.Parameters.AddWithValue("@i_Car_color", cls.Car_color);
+                cmd.Parameters.AddWithValue("@i_Car_engine_no", cls.Car_engine_no);
+                cmd.Parameters.AddWithValue("@i_Car_engine_no_at", cls.Car_engine_no_at);
+                cmd.Parameters.AddWithValue("@i_Car_engine_brand", cls.Car_engine_brand);
+                cmd.Parameters.AddWithValue("@i_Car_chassis_no", cls.Car_chassis_no);
+                cmd.Parameters.AddWithValue("@i_Car_chassis_no_at", cls.Car_chassis_no_at);
+                cmd.Parameters.AddWithValue("@i_Car_fual_type", cls.Car_fual_type);
+                cmd.Parameters.AddWithValue("@i_Car_gas_No", cls.Car_gas_No);
+                cmd.Parameters.AddWithValue("@i_Car_used_id", cls.Car_used_id);
+                cmd.Parameters.AddWithValue("@i_Car_distance", cls.Car_distance);
+                cmd.Parameters.AddWithValue("@i_Car_next_register_date", cls.Car_next_register_date);
+                cmd.Parameters.AddWithValue("@i_Car_tax_value", cls.Car_tax_value);
+                cmd.Parameters.AddWithValue("@i_Car_credits", cls.Car_credits);
+                cmd.Parameters.AddWithValue("@i_Car_agent", cls.Car_agent);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner", cls.Car_old_owner);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_idcard", cls.Car_old_owner_idcard);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_b_date", cls.Car_old_owner_b_date);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_address_no", cls.Car_old_owner_address_no);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_vilage", cls.Car_old_owner_vilage);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_vilage_no", cls.Car_old_owner_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_alley", cls.Car_old_owner_alley);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_road", cls.Car_old_owner_road);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_subdistrict", cls.Car_old_owner_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_district", cls.Car_old_owner_district);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_province", cls.Car_old_owner_province);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_contry", cls.Car_old_owner_contry);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_zipcode", cls.Car_old_owner_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_id", cls.Cust_id);
+                cmd.Parameters.AddWithValue("@i_Tent_car_id", cls.Tent_car_id);
+                cmd.Parameters.AddWithValue("@i_Cheque_receiver", cls.Cheque_receiver);
+                cmd.Parameters.AddWithValue("@i_Cheque_bank", cls.Cheque_bank);
+                cmd.Parameters.AddWithValue("@i_Cheque_bank_branch", cls.Cheque_bank_branch);
+                cmd.Parameters.AddWithValue("@i_Cheque_number", cls.Cheque_number);
+                cmd.Parameters.AddWithValue("@i_Cheque_sum", cls.Cheque_sum);
+                cmd.Parameters.AddWithValue("@i_Cheque_receive_date", cls.Cheque_receive_date);
+                cmd.Parameters.AddWithValue("@i_Contract_status", cls.Contract_status);
 
                 cmd.ExecuteNonQuery();
 
@@ -161,13 +161,13 @@ namespace JKLWebBase_v2.Managers_Leasings
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> addCarLeasings(Car_Leasings cl) : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> addCarLeasings() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> addCarLeasings(Car_Leasings cl) : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> addCarLeasings() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }

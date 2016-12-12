@@ -1,8 +1,8 @@
 ﻿<%@ Page Page Title="แก้ไขสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"  CodeBehind="Leasing_Edit.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Edit" %>
 
-<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Main/Tabs_Menu_Leasings.ascx" %>
+<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="Tabs_Menu_Leasings.ascx" %>
 
-<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="~/Form_Main/Print_Menu_Leasing.ascx" %>
+<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="Print_Menu_Leasing.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

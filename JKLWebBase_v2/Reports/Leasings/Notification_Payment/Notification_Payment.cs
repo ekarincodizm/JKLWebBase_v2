@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
+namespace JKLWebBase_v2.Reports.Leasings.Notification_Payment {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Certified_Leasing_Full : ReportClass {
+    public class Notification_Payment : ReportClass {
         
-        public Certified_Leasing_Full() {
+        public Notification_Payment() {
         }
         
         public override string ResourceName {
             get {
-                return "Certified_Leasing_Full.rpt";
+                return "Notification_Payment.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         public override string FullResourceName {
             get {
-                return "JKLWebBase_v2.Reports.Leasings.Certified_Leasing.Certified_Leasing_Full.rpt";
+                return "JKLWebBase_v2.Reports.Leasings.Notification_Payment.Notification_Payment.rpt";
             }
             set {
                 // Do nothing
@@ -74,7 +74,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection5 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection6 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection2 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,7 +90,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection7 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[5];
             }
@@ -98,25 +98,17 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[7];
+                return this.ReportDefinition.Sections[6];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCertified_Leasing_Full : Component, ICachedReport {
+    public class CachedNotification_Payment : Component, ICachedReport {
         
-        public CachedCertified_Leasing_Full() {
+        public CachedNotification_Payment() {
         }
         
         [Browsable(false)]
@@ -153,7 +145,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Certified_Leasing_Full rpt = new Certified_Leasing_Full();
+            Notification_Payment rpt = new Notification_Payment();
             rpt.Site = this.Site;
             return rpt;
         }

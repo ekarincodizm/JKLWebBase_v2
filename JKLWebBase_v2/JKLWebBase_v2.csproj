@@ -58,6 +58,7 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -91,6 +92,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MySql.Web, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -222,9 +224,11 @@
     <Content Include="Form_Leasings\Leasing_Edit_Bondsman.aspx" />
     <Content Include="Form_Leasings\Leasing_Payment_Schedule.aspx" />
     <Content Include="Form_Main\Main_JKL_Form.aspx" />
-    <Content Include="Form_Main\Print_Menu_Leasing.ascx" />
-    <Content Include="Form_Main\Tabs_Menu_Leasings.ascx" />
+    <Content Include="Form_Leasings\Print_Menu_Leasing.ascx" />
+    <Content Include="Form_Leasings\Tabs_Menu_Leasings.ascx" />
     <Content Include="Images_web\default-img.jpg" />
+    <Content Include="Reports\Leasings\Front_Card\Front_Card_Prv.aspx" />
+    <Content Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -235,6 +239,28 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Reports\Leasings\Front_Card\Front_Card_Ds.xsc">
+      <DependentUpon>Front_Card_Ds.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\Leasings\Front_Card\Front_Card_Ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Front_Card_Ds.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\Leasings\Front_Card\Front_Card_Ds.xss">
+      <DependentUpon>Front_Card_Ds.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Ds.xsc">
+      <DependentUpon>Payment_Schedule_Ds.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Payment_Schedule_Ds.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Ds.xss">
+      <DependentUpon>Payment_Schedule_Ds.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -317,6 +343,7 @@
     <Compile Include="Class_Leasings\Car_Dealers.cs" />
     <Compile Include="Class_Leasings\Car_Dealers_Values.cs" />
     <Compile Include="Class_Leasings\Car_Leasings.cs" />
+    <Compile Include="Class_Leasings\Car_Leasings_Payment.cs" />
     <Compile Include="Form_Dealer\Car_Dealer_Edit.aspx.cs">
       <DependentUpon>Car_Dealer_Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -331,18 +358,18 @@
     <Compile Include="Form_Leasings\Leasing_Payment_Schedule.aspx.designer.cs">
       <DependentUpon>Leasing_Payment_Schedule.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Main\Print_Menu_Leasing.ascx.cs">
+    <Compile Include="Form_Leasings\Print_Menu_Leasing.ascx.cs">
       <DependentUpon>Print_Menu_Leasing.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Main\Print_Menu_Leasing.ascx.designer.cs">
+    <Compile Include="Form_Leasings\Print_Menu_Leasing.ascx.designer.cs">
       <DependentUpon>Print_Menu_Leasing.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Main\Tabs_Menu_Leasings.ascx.cs">
+    <Compile Include="Form_Leasings\Tabs_Menu_Leasings.ascx.cs">
       <DependentUpon>Tabs_Menu_Leasings.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Main\Tabs_Menu_Leasings.ascx.designer.cs">
+    <Compile Include="Form_Leasings\Tabs_Menu_Leasings.ascx.designer.cs">
       <DependentUpon>Tabs_Menu_Leasings.ascx</DependentUpon>
     </Compile>
     <Compile Include="Global_Class\DateTimeUtility.cs" />
@@ -478,11 +505,29 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\Leasings\Notification_Payment\Notification_Payment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Notification_Payment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\Leasings\Front_Card\Front_Card.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Front_Card.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Front_Card\Front_Card_Ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Front_Card_Ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Leasings\Front_Card\Front_Card_Prv.aspx.cs">
+      <DependentUpon>Front_Card_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Front_Card\Front_Card_Prv.aspx.designer.cs">
+      <DependentUpon>Front_Card_Prv.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reports\Leasings\KH1\Car_Leasing_KH1_P1.cs">
       <DependentUpon>Car_Leasing_KH1_P1.rpt</DependentUpon>
@@ -544,6 +589,11 @@
       <DependentUpon>Payment_Schedule.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payment_Schedule_Ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Full.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -555,6 +605,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Payment_Schedule_Half.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx.cs">
+      <DependentUpon>Payment_Schedule_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx.designer.cs">
+      <DependentUpon>Payment_Schedule_Prv.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reports\Leasings\SH1\Car_Leasing_SH1_P3.cs">
       <DependentUpon>Car_Leasing_SH1_P3.rpt</DependentUpon>
@@ -609,12 +666,11 @@
     <Folder Include="Form_Account\" />
     <Folder Include="Reports\Leasings\Lost_Payment\" />
     <Folder Include="Reports\Leasings\Lost_Payment_Hurry\" />
+    <Folder Include="Reports\Leasings\Notification_Payment_Bondsman\" />
     <Folder Include="Reports\Leasings\Payment_Summary_Daily\" />
     <Folder Include="Reports\Leasings\Payment_Summary_Leagth\" />
     <Folder Include="Reports\Leasings\Payment_Summary_Monthly\" />
     <Folder Include="Reports\Leasings\Payment_Summary_Year\" />
-    <Folder Include="Reports\Leasings\Warning_Payment\" />
-    <Folder Include="Reports\Leasings\Warning_Payment_Bondsman\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\Leasings\Certified_Leasing\Certified_Leasing_Half.rpt">
@@ -628,6 +684,10 @@
     <EmbeddedResource Include="Reports\Leasings\Confirm_Payment\Confirm_Payment_Full.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Confirm_Payment_Full.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Leasings\Notification_Payment\Notification_Payment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Notification_Payment.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Leasings\Front_Card\Front_Card.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -239,10 +239,10 @@ namespace JKLWebBase_v2.Form_Leasings
             Cust_idcard_TBx.Text = ctm.Cust_idcard;
             Cust_Fname_TBx.Text = ctm.Cust_Fname;
             Cust_LName_TBx.Text = ctm.Cust_LName;
-            Cust_B_date_TBx.Text = ctm.Cust_B_date.Split(' ')[0];
+            Cust_B_date_TBx.Text = DateTimeUtility.convertDateToPage(ctm.Cust_B_date.Split(' ')[0]);
             Cust_Idcard_without_TBx.Text = ctm.Cust_Idcard_without;
-            Cust_Idcard_start_TBx.Text = ctm.Cust_Idcard_start.Split(' ')[0];
-            Cust_Idcard_expire_TBx.Text = ctm.Cust_Idcard_expire.Split(' ')[0];
+            Cust_Idcard_start_TBx.Text = DateTimeUtility.convertDateToPage(ctm.Cust_Idcard_start.Split(' ')[0]);
+            Cust_Idcard_expire_TBx.Text = DateTimeUtility.convertDateToPage(ctm.Cust_Idcard_expire.Split(' ')[0]);
             Cust_Nationality_DDL.SelectedValue = ctm.Cust_Nationality.ToString();
             Cust_Origin_DDL.SelectedValue = ctm.Cust_Origin.ToString();
             Cust_job_TBx.Text = ctm.Cust_job;
@@ -561,11 +561,11 @@ namespace JKLWebBase_v2.Form_Leasings
             ctm.Cust_idcard = string.IsNullOrEmpty(Cust_idcard_TBx.Text) ? "" : Cust_idcard_TBx.Text;
             ctm.Cust_Fname = string.IsNullOrEmpty(Cust_Fname_TBx.Text) ? "" : Cust_Fname_TBx.Text;
             ctm.Cust_LName = string.IsNullOrEmpty(Cust_LName_TBx.Text) ? "" : Cust_LName_TBx.Text;
-            ctm.Cust_B_date = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Cust_B_date_TBx.Text);
+            ctm.Cust_B_date = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_B_date_TBx.Text);
             ctm.Cust_age = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? 0 : DateTime.Now.Year - (Convert.ToInt32(Cust_B_date_TBx.Text.Split('/')[2].ToString()) - 543);
             ctm.Cust_Idcard_without = string.IsNullOrEmpty(Cust_Idcard_without_TBx.Text) ? "" : Cust_Idcard_without_TBx.Text;
-            ctm.Cust_Idcard_start = string.IsNullOrEmpty(Cust_Idcard_start_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_start_TBx.Text);
-            ctm.Cust_Idcard_expire = string.IsNullOrEmpty(Cust_Idcard_expire_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_expire_TBx.Text);
+            ctm.Cust_Idcard_start = string.IsNullOrEmpty(Cust_Idcard_start_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_start_TBx.Text);
+            ctm.Cust_Idcard_expire = string.IsNullOrEmpty(Cust_Idcard_expire_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_expire_TBx.Text);
             ctm.Cust_Nationality = Cust_Nationality_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_Nationality_DDL.SelectedValue);
             ctm.Cust_Origin = Cust_Origin_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_Origin_DDL.SelectedValue);
             ctm.Cust_job = string.IsNullOrEmpty(Cust_job_TBx.Text) ? "" : Cust_job_TBx.Text;

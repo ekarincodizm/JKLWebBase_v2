@@ -11,7 +11,7 @@ namespace JKLWebBase_v2.Form_Main
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Session["Customer"] != null && Session["Leasings"] == null)
+           /* if (Session["Customer"] != null && Session["Leasings"] == null)
             {
                 link_Customer_Add.Enabled = true;
                 link_Leasing_Add.Enabled = true;

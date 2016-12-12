@@ -120,13 +120,71 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Address_Manager --> getCustomersAddressByCustomerId() : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Customers --> Customers_Address_Manager --> addCustomersAddress() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Address_Manager --> getCustomersAddressByCustomerId() : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Customers --> Customers_Address_Manager --> addCustomersAddress() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool editCustomersAddress(Customers_Address cadd)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ u_customers_address ] :: 
+                 * u_customers_address (in i_Cust_id varchar(50)        , in i_Cust_Address_type_id int(11) , in i_Cust_Address_no varchar(255)     , in i_Cust_Vilage varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       utf8                  utf8_general_ci       utf8_general_ci   
+                 *                      in i_Cust_Vilage_no varchar(255), in i_Cust_Alley varchar(255)      , in i_Cust_Road varchar(255)           , in i_Cust_Subdistrict varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                 *              		in i_Cust_District varchar(255) , in i_Cust_Province int(11)        , in i_Cust_Country varchar(255)        , in i_Cust_Zipcode varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+                 *             			in i_Cust_Tel varchar(255)      , in i_Cust_Home_status_id int(11)  , in i_Cust_Gps_Latitude varchar(255)   , i_Cust_Gps_Longitude varchar(255))  
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("u_customers_address", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Cust_id", cadd.Cust_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Address_type_id", cadd.Cust_Address_type_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Address_no", cadd.Cust_Address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Vilage", cadd.Cust_Vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Vilage_no", cadd.Cust_Vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Alley", cadd.Cust_Alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Road", cadd.Cust_Road);
+                cmd.Parameters.AddWithValue("@i_Cust_Subdistrict", cadd.Cust_Subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_District", cadd.Cust_District);
+                cmd.Parameters.AddWithValue("@i_Cust_Province", cadd.Cust_Province);
+                cmd.Parameters.AddWithValue("@i_Cust_Country", cadd.Cust_Country);
+                cmd.Parameters.AddWithValue("@i_Cust_Zipcode", cadd.Cust_Zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Tel", cadd.Cust_Tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_status_id", cadd.Cust_Home_status_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Gps_Latitude", cadd.Cust_Gps_Latitude);
+                cmd.Parameters.AddWithValue("@i_Cust_Gps_Longitude", cadd.Cust_Gps_Longitude);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Customers --> Customers_Address_Manager --> editCustomersAddress() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Customers --> Customers_Address_Manager --> editCustomersAddress() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }

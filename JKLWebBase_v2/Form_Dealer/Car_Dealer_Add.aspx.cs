@@ -18,8 +18,6 @@ namespace JKLWebBase_v2.Form_Leasings
 
         Car_Dealers_Manager cdl_mng = new Car_Dealers_Manager();
         
-        bool find_dealer = false; // สถานะการค้นหาข้อมูลนายหน้า
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,6 +29,11 @@ namespace JKLWebBase_v2.Form_Leasings
             if (Session["Leasings"] != null)
             {
                 cls = (Car_Leasings)Session["Leasings"];
+            }
+            else
+            {
+                Session["Class_Active"] = 2;
+                Response.Redirect("/Form_Leasings/Leasing_Add");
             }
         }
 
@@ -51,16 +54,16 @@ namespace JKLWebBase_v2.Form_Leasings
 
         protected void Dealer_Add_Save_Btn_Click(object sender, EventArgs e)
         {
-            if (!find_dealer)
-            {
-                _AddDealer();
-            }
-            else
-            {
-                _AddDealer_Value(cdl.Dealer_id, cls.Leasing_id);
-            }
+
+            _AddDealer();
+
+            _AddDealer_Value(cdl.Dealer_id, cls.Leasing_id);
+
+
+            Session["Class_Active"] = 4;
 
             Session["Number_Of_Bondsman"] = "1";
+
             Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
@@ -121,7 +124,8 @@ namespace JKLWebBase_v2.Form_Leasings
             {
                 _GetDealer(cdl);
 
-                find_dealer = true;
+                Session["chk_Dealser"] = cdl;
+
                 Alert_Warning_Panel.Visible = false;
             }
             else
@@ -129,7 +133,6 @@ namespace JKLWebBase_v2.Form_Leasings
                 Alert_Warning_Panel.Visible = true;
                 Alert_Id_Card_Lbl.Text = "ไม่พบเลขบัตรประชาชน " + Dealer_idcard_TBx.Text + " นี้ในระบบข้อมูลนายหน้า";
 
-                find_dealer = false;
                 Dealer_idcard_TBx.Focus();
 
                 _ClearDealer();
@@ -225,7 +228,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cdlval.Dealer_net_com = string.IsNullOrEmpty(Dealer_net_com_TBx.Text) ? 0 : Convert.ToDouble(Dealer_net_com_TBx.Text);
             cdlval.Dealer_com_code = string.IsNullOrEmpty(Dealer_com_code_TBx.Text) ? "" : Dealer_com_code_TBx.Text;
             cdlval.Dealer_bookcode = string.IsNullOrEmpty(Dealer_bookcode_TBx.Text) ? "" : Dealer_bookcode_TBx.Text;
-            cdlval.Dealer_date_print = string.IsNullOrEmpty(Dealer_date_print_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Dealer_date_print_TBx.Text);
+            cdlval.Dealer_date_print = string.IsNullOrEmpty(Dealer_date_print_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Dealer_date_print_TBx.Text);
             cdlval.Leasing_id = Leasing_id;
 
             cdl_mng.addDealerValues(cdlval);

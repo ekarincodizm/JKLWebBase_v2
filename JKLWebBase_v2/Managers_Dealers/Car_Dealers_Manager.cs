@@ -152,13 +152,13 @@ namespace JKLWebBase_v2.Managers_Dealers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> getDealerValues(string Dealer_id, string Leasing_id) : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> getDealerValues() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> getDealerValues(string Dealer_id, string Leasing_id) : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> getDealerValues() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }
@@ -209,13 +209,13 @@ namespace JKLWebBase_v2.Managers_Dealers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> addCustomers(Customers cust) : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> addDealer() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> addCustomers(Customers cust) : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> addDealer() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }
@@ -258,13 +258,13 @@ namespace JKLWebBase_v2.Managers_Dealers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> addCustomers(Customers cust) : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> addDealerValues() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> addCustomers(Customers cust) : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> addDealerValues() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }

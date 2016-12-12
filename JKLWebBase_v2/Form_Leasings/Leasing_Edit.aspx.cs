@@ -15,10 +15,16 @@ namespace JKLWebBase_v2.Form_Leasings
 {
     public partial class Leasing_Edit : System.Web.UI.Page
     {
-        Customers ctm = new Customers();
+        Car_Leasings cls = new Car_Leasings();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Leasings"] == null)
+            {
+                Session["Class_Active"] = 2;
+                Response.Redirect("/Form_Leasings/Leasing_Add");
+            }
+
             if (!IsPostBack)
             {
                 _loadCarType();
@@ -33,15 +39,8 @@ namespace JKLWebBase_v2.Form_Leasings
                 _loadZoneService();
                 _loadTotalPaymentTime();
                 _loadThaiProvinces();
-            }
 
-            if (Session["Customer"] != null)
-            {
-                ctm = (Customers)Session["Customer"];
-            }
-            else
-            {
-                Response.Redirect("/Form_Customer/Customer_Add");
+                cls = (Car_Leasings)Session["Leasings"];
             }
         }
 
@@ -60,7 +59,18 @@ namespace JKLWebBase_v2.Form_Leasings
         }
         protected void Save_Btn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Form_Leasings/Car_Dealer_Add");
+
+
+            Session["Class_Active"] = 3;
+
+            if (Session["Dealers"] == null)
+            {
+                Response.Redirect("/Form_Dealer/Car_Dealer_Add");
+            }
+            else
+            {
+                Response.Redirect("/Form_Dealer/Car_Dealer_Edit");
+            }
         }
 
 
@@ -219,6 +229,17 @@ namespace JKLWebBase_v2.Form_Leasings
         }
 
         /*******************************************************************************************************************************************************************************
+        ****************************************************              Get Data And Replace To Form Function                 ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        private void _GetLeasing()
+        {
+
+        }
+
+
+        /*******************************************************************************************************************************************************************************
         ****************************************************                        Calculate   Function                        ********************************************************
         ****************************************************                                                                    ********************************************************
         *******************************************************************************************************************************************************************************/
@@ -360,7 +381,7 @@ namespace JKLWebBase_v2.Form_Leasings
             // ข้อมูลเจ้าของรถเดิม
             cls.Car_old_owner = string.IsNullOrEmpty(Car_Old_Owner_TBx.Text) ? "" : Car_Old_Owner_TBx.Text;
             cls.Car_old_owner_idcard = string.IsNullOrEmpty(Car_Old_Owner_Idcard_TBx.Text) ? "" : Car_Old_Owner_Idcard_TBx.Text;
-            cls.Car_old_owner_b_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Car_old_owner_b_date_TBx.Text);
+            cls.Car_old_owner_b_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Car_old_owner_b_date_TBx.Text);
             cls.Car_old_owner_address_no = string.IsNullOrEmpty(Car_Old_Owner_Address_No_TBx.Text) ? "" : Car_Old_Owner_Address_No_TBx.Text;
             cls.Car_old_owner_vilage = string.IsNullOrEmpty(Car_Old_Owner_Vilage_TBx.Text) ? "" : Car_Old_Owner_Vilage_TBx.Text;
             cls.Car_old_owner_vilage_no = string.IsNullOrEmpty(Car_Old_Owner_Vilage_No_TBx.Text) ? "" : Car_Old_Owner_Vilage_No_TBx.Text;
@@ -372,7 +393,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Car_old_owner_contry = string.IsNullOrEmpty(Car_Old_Owner_Contry_TBx.Text) ? "" : Car_Old_Owner_Contry_TBx.Text;
             cls.Car_old_owner_zipcode = string.IsNullOrEmpty(Car_Old_Owner_Zipcode_TBx.Text) ? "" : Car_Old_Owner_Zipcode_TBx.Text;
 
-            cls.Cust_id = ctm.Cust_id;
+            //cls.Cust_id = ctm.Cust_id;
             cls.Tent_car_id = Tent_car_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Tent_car_DDL.SelectedValue);
 
             // ข้อมูลเช็คและการโอน
@@ -381,7 +402,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Cheque_bank_branch = string.IsNullOrEmpty(Cheque_bank_branch_TBx.Text) ? "" : Cheque_bank_branch_TBx.Text;
             cls.Cheque_number = string.IsNullOrEmpty(Cheque_number_TBx.Text) ? "" : Cheque_number_TBx.Text;
             cls.Cheque_sum = string.IsNullOrEmpty(Cheque_sum_TBx.Text) ? 0 : Convert.ToDouble(Cheque_sum_TBx.Text);
-            cls.Cheque_receive_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);
+            cls.Cheque_receive_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);
 
             cls.Contract_status = "1";
 

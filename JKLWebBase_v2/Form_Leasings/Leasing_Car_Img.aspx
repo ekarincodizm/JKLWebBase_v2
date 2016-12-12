@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="เพิ่มรูปรถ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Car_Img.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Add_Car_Img" %>
 
-<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Main/Tabs_Menu_Leasings.ascx" %>
+<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="Tabs_Menu_Leasings.ascx" %>
 
-<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="~/Form_Main/Print_Menu_Leasing.ascx" %>
+<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="Print_Menu_Leasing.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

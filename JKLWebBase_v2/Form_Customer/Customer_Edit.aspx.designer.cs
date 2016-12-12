@@ -13,24 +13,6 @@ namespace JKLWebBase_v2.Form_Leasings {
     public partial class Customer_Edit {
         
         /// <summary>
-        /// Alert_Warning_Panel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Alert_Warning_Panel;
-        
-        /// <summary>
-        /// Alert_Id_Card_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
-        
-        /// <summary>
         /// Print_Menu1 control.
         /// </summary>
         /// <remarks>
@@ -58,15 +40,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Cust_idcard_Lbl;
         
         /// <summary>
-        /// RFV_Cust_idcard_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Cust_idcard_TBx;
-        
-        /// <summary>
         /// Cust_idcard_TBx control.
         /// </summary>
         /// <remarks>
@@ -74,15 +47,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Cust_idcard_TBx;
-        
-        /// <summary>
-        /// Cust_Search_Btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Cust_Search_Btn;
         
         /// <summary>
         /// Cust_Fname_Lbl control.

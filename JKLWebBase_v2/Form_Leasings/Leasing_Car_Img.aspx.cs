@@ -77,8 +77,10 @@ namespace JKLWebBase_v2.Form_Leasings
 
                     }
                 }
-                catch (Exception Ex)
+                catch (Exception ex)
                 {
+                    string error = "ไม่สามารถ Upload รูปภาพรถยนต์ได้ : " + ex.Message.ToString();
+                    Log_Error._writeErrorFile(error);
                 }
             }
 
