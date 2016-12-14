@@ -55,6 +55,7 @@ namespace JKLWebBase_v2.Managers_Customers
                     cadd.Cust_Home_status_id = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
                     cadd.Cust_Gps_Latitude = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
                     cadd.Cust_Gps_Longitude = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    cadd.Cust_Address_Save_date = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
 
                 }
 

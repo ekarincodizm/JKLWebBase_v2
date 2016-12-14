@@ -54,13 +54,13 @@ namespace JKLWebBase_v2.Managers_Customers
             try
             {
                 /* 
-                 * :: StoredProcedure :: [ g_customersbyidcard ] :: 
-                 * g_customersbyidcard (in i_Cust_idcard varchar(13))
+                 * :: StoredProcedure :: [ g_customers_by_idcard ] :: 
+                 * g_customers_by_idcard (in i_Cust_idcard varchar(13))
                  * 
                  */
 
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("g_customersbyidcard", con);
+                MySqlCommand cmd = new MySqlCommand("g_customers_by_idcard", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@i_Cust_idcard", idcard);
 
@@ -102,6 +102,8 @@ namespace JKLWebBase_v2.Managers_Customers
                     cust.Cust_job_email = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
                     cust.Cust_job_salary = reader.IsDBNull(27) ? defaultNum : reader.GetDouble(27);
                     cust.Cust_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
+                    cust.Cust_save_date = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+
                 }
 
                 return cust;

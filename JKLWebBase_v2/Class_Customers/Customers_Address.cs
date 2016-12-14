@@ -18,6 +18,7 @@
         public int Cust_Home_status_id { get; set; } //รหัสสถานะภาพอยู่อาศัย
         public string Cust_Gps_Latitude { get; set; } //ตำแหน่งละติจูดจากดาวเทียม
         public string Cust_Gps_Longitude { get; set; } //ตำแหน่งลองติจูดจากดาวเทียม
+        public string Cust_Address_Save_date { get; set; }
 
     }
 }

@@ -31,5 +31,6 @@
         public string Cust_job_email { get; set; } //อีเมล์
         public double Cust_job_salary { get; set; } //เงินเดือน
         public int Cust_status_id { get; set; } //รหัสสถานะภาพการสมรส
+        public string Cust_save_date { get; set; }
     }
 }

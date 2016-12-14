@@ -222,6 +222,7 @@
     <Content Include="Form_Leasings\Leasing_Add_Bondsman.aspx" />
     <Content Include="Form_Leasings\Leasing_Edit.aspx" />
     <Content Include="Form_Leasings\Leasing_Edit_Bondsman.aspx" />
+    <Content Include="Form_Leasings\Leasing_Payment.aspx" />
     <Content Include="Form_Leasings\Leasing_Payment_Schedule.aspx" />
     <Content Include="Form_Main\Main_JKL_Form.aspx" />
     <Content Include="Form_Leasings\Print_Menu_Leasing.ascx" />
@@ -339,9 +340,10 @@
     <Compile Include="Class_Base\TH_Provinces.cs" />
     <Compile Include="Class_Customers\Customers.cs" />
     <Compile Include="Class_Customers\Customers_Address.cs" />
+    <Compile Include="Class_Customers\Customers_Homeaddress_Photo.cs" />
     <Compile Include="Class_Customers\Customers_Spouse.cs" />
-    <Compile Include="Class_Leasings\Car_Dealers.cs" />
-    <Compile Include="Class_Leasings\Car_Dealers_Values.cs" />
+    <Compile Include="Class_Dealers\Car_Dealers.cs" />
+    <Compile Include="Class_Dealers\Car_Dealers_Values.cs" />
     <Compile Include="Class_Leasings\Car_Leasings.cs" />
     <Compile Include="Class_Leasings\Car_Leasings_Payment.cs" />
     <Compile Include="Form_Dealer\Car_Dealer_Edit.aspx.cs">
@@ -350,6 +352,13 @@
     </Compile>
     <Compile Include="Form_Dealer\Car_Dealer_Edit.aspx.designer.cs">
       <DependentUpon>Car_Dealer_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Payment.aspx.cs">
+      <DependentUpon>Leasing_Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Payment.aspx.designer.cs">
+      <DependentUpon>Leasing_Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Leasings\Leasing_Payment_Schedule.aspx.cs">
       <DependentUpon>Leasing_Payment_Schedule.aspx</DependentUpon>

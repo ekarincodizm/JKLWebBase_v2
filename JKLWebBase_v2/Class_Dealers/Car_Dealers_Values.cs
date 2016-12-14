@@ -1,4 +1,4 @@
-﻿namespace JKLWebBase_v2.Class_Leasings
+﻿namespace JKLWebBase_v2.Class_Dealers
 {
     public class Car_Dealers_Values
     {

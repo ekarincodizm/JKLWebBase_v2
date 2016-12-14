@@ -1,4 +1,4 @@
-﻿namespace JKLWebBase_v2.Class_Leasings
+﻿namespace JKLWebBase_v2.Class_Dealers
 {
     public class Car_Dealers
     {
@@ -17,5 +17,7 @@
         public string Dealer_country { get; set; } //ประเทศ
         public string Dealer_zipcode { get; set; } //รหัสไปรษณีย์
         public int Dealer_status { get; set; } //รหัสไปรษณีย์
+        public string Dealer_save_date { get; set; }
+
     }
 }

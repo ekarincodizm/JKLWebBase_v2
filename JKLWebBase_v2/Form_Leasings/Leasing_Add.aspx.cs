@@ -40,8 +40,8 @@ namespace JKLWebBase_v2.Form_Leasings
             }
             else
             {
-                /*Session["Class_Active"] = 1;
-                Response.Redirect("/Form_Customer/Customer_Add");*/
+                Session["Class_Active"] = 1;
+                Response.Redirect("/Form_Customer/Customer_Add");
             }
         }
 
