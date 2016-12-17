@@ -14,17 +14,18 @@ using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
 using JKLWebBase_v2.Managers_Leasings;
 
-namespace JKLWebBase_v2.Form_Customer
+namespace JKLWebBase_v2.Form_Leasings
 {
-    public partial class Customer_Edit : Page
+    public partial class Leasing_Edit_Customer : Page
     {
         Customers ctm = new Customers();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["Customer"] == null)
+            if (Session["Customer"] == null)
             {
-                Response.Redirect("/Form_Customer/Customer_Add");
+                Session["Class_Active"] = 1;
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Customer");
             }
 
             if (!IsPostBack)
@@ -41,8 +42,6 @@ namespace JKLWebBase_v2.Form_Customer
 
                 _GetCustomer(ctm);
             }
-
-            Alert_Success_Panel.Visible = false;
         }
 
         protected void Save_Btn_Click(object sender, EventArgs e)
@@ -51,6 +50,17 @@ namespace JKLWebBase_v2.Form_Customer
 
             Session.Remove("chk_customer");
             Session.Remove("chk_customer_spouse");
+
+            Session["Class_Active"] = 2;
+
+            if (Session["Leasings"] == null)
+            {
+                Response.Redirect("/Form_Leasings/Leasing_Add");
+            }
+            else
+            {
+                Response.Redirect("/Form_Leasings/Leasing_Edit");
+            }
         }
 
         protected void Cust_status_DDL_SelectedIndexChanged(object sender, EventArgs e)
@@ -417,12 +427,13 @@ namespace JKLWebBase_v2.Form_Customer
 
             _EditCustomerAddress(ctm.Cust_id);
 
+            Session["Customer"] = ctm;
+
             if (ctm.Cust_status_id == 2 || ctm.Cust_status_id == 3)
             {
                 _EditCustomerSpouse(ctm.Cust_id);
             }
 
-            Alert_Success_Panel.Visible = true;
         }
 
         private void _EditCustomerAddress(string custId)

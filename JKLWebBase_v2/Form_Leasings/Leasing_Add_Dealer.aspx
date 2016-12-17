@@ -1,8 +1,8 @@
-﻿<%@ Page Title="แก้ไขข้อมูลนายหน้า" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Car_Dealer_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Car_Dealer_Add" %>
+﻿<%@ Page Title="เพิ่มข้อมูลนายหน้า" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Add_Dealer.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Add_Dealer" %>
 
-<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Leasings/Tabs_Menu_Leasings.ascx" %>
+<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="Tabs_Menu_Leasings.ascx" %>
 
-<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="~/Form_Leasings/Print_Menu_Leasing.ascx" %>
+<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="Print_Menu_Leasing.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Alert MessagesBox -->
@@ -29,7 +29,7 @@
     <!-- ./Print Menu Button -->
 
     <div class="col-lg-12">
-        <h4 class="page-header"> แก้ไขข้อมูลนายหน้า </h4>
+        <h4 class="page-header"> เพิ่มข้อมูลนายหน้า </h4>
     </div>
 
     <!-- Tab MenuBar -->
@@ -214,3 +214,4 @@
         </div>
     </div>
 </asp:Content>
+

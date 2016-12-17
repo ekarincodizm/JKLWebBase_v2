@@ -74,7 +74,6 @@ namespace JKLWebBase_v2.Managers_Customers
                     cmarry.Spouse_email = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
                     cmarry.Spouse_save_date = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
 
-
                 }
 
                 return cmarry;
@@ -156,7 +155,6 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Spouse_tel", cmarry.Spouse_tel);
                 cmd.Parameters.AddWithValue("@i_Spouse_email", cmarry.Spouse_email);
 
-
                 cmd.ExecuteNonQuery();
 
                 return true;
@@ -237,7 +235,6 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Spouse_job_tel", cmarry.Spouse_job_tel);
                 cmd.Parameters.AddWithValue("@i_Spouse_tel", cmarry.Spouse_tel);
                 cmd.Parameters.AddWithValue("@i_Spouse_email", cmarry.Spouse_email);
-
 
                 cmd.ExecuteNonQuery();
 

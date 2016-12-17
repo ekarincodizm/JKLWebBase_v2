@@ -1,32 +1,35 @@
-﻿<%@ Page Title="แก้ไขข้อมูลผู้ทำสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Customer_Edit.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Customer_Edit" %>
-
-<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Leasings/Tabs_Menu_Leasings.ascx" %>
-
-<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="~/Form_Leasings/Print_Menu_Leasing.ascx" %>
+﻿<%@ Page Title="แก้ไขข้อมูลลูกค้า" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Customer_Edit.aspx.cs" Inherits="JKLWebBase_v2.Form_Customer.Customer_Edit" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <!-- Print Menu Button -->
-    <print_menu_leasing:Print_Menu id="Print_Menu1" runat="server" />
-
-    <!-- ./Print Menu Button -->
+    <!-- Alert MessagesBox -->
+    <asp:Panel ID="Alert_Success_Panel" runat="server" Visible="false">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+            </button>
+            <div class="modal-header">
+              <h6 class="modal-title"><i class="fa fa-thumbs-o-up fa-fw"></i> ++ เพิ่มข้อมูลสำเร็จ ++ </h6>
+            </div>
+            <div class="modal-body">
+              <p> <asp:Label ID="Alert_Success_Lbl" runat="server" > ระบบได้เพิ่มข้อมูลลูกค้าเป็นที่เรียบร้อยแล้ว </asp:Label> </p>
+            </div>
+        </div>
+    </div>
+    </asp:Panel>
+    <!-- Alert MessagesBox -->
 
     <div class="col-lg-12">
-        <h4 class="page-header"> แก้ไขข้อมูลผู้ทำสัญญาเช่า-ซื้อ </h4>
+        <h4 class="page-header"> แก้ไขข้อมูลลูกค้า </h4>
     </div>
-
-    <!-- Tab MenuBar -->
-    <nav_menu:Tab_Menu id="nav_tabs" runat="server" />
-
-    <!-- ./Tab MenuBar -->
 
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-primary">
 
-                <!-- ข้อมูลผู้ทำสัญญา -->
+                <!-- ข้อมูลลูกค้า -->
                 <div class="panel-heading">
-                    ข้อมูลผู้ทำสัญญา
+                    ข้อมูลลูกค้า
                 </div>
                 <div class="panel-body">
                     <div class="row col-lg-12">
@@ -666,7 +669,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.ข้อมูลผู้ทำสัญญา -->
+                <!-- /.ข้อมูลลูกค้า -->
 
                 <div class="panel-body">
                     <div class="row">

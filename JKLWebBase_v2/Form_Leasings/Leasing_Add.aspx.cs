@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Drawing;
 
@@ -12,12 +13,16 @@ using JKLWebBase_v2.Managers_Leasings;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
-    public partial class Leasing_Add : System.Web.UI.Page
+    public partial class Leasing_Add : Page
     {
-        Customers ctm = new Customers();
-        
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Customer"] == null)
+            {
+                Session["Class_Active"] = 1;
+                Response.Redirect("/Form_Leasings/Leasing_Add_Customer");
+            }
+
             if (!IsPostBack)
             {
                 _loadCarType();
@@ -32,16 +37,6 @@ namespace JKLWebBase_v2.Form_Leasings
                 _loadZoneService();
                 _loadTotalPaymentTime();
                 _loadThaiProvinces();
-            }
-
-            if (Session["Customer"] != null)
-            { 
-                ctm = (Customers)Session["Customer"];
-            }
-            else
-            {
-                Session["Class_Active"] = 1;
-                Response.Redirect("/Form_Customer/Customer_Add");
             }
         }
 
@@ -65,7 +60,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             Session["Class_Active"] = 3;
 
-            Response.Redirect("/Form_Dealer/Car_Dealer_Add");
+            Response.Redirect("/Form_Leasings/Leasing_Add_Dealer");
 
         }
 
@@ -129,7 +124,7 @@ namespace JKLWebBase_v2.Form_Leasings
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Leasing_Code data = list_data[i];
-                if (String.IsNullOrEmpty(data.Leasing_code_S_Name))
+                if (string.IsNullOrEmpty(data.Leasing_code_S_Name))
                 {
                     Leasing_Code_DDL.Items.Add(new ListItem(data.Leasing_code_name, data.Leasing_code_id.ToString()));
                 }
@@ -329,6 +324,7 @@ namespace JKLWebBase_v2.Form_Leasings
             // ข้อมูลการประเมิน
             cls.TotalPaymentTime = TotalPaymentTime_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(TotalPaymentTime_DDL.SelectedValue);
             cls.Total_require = string.IsNullOrEmpty(Total_Require_TBx.Text) ? 0 : Convert.ToDouble(Total_Require_TBx.Text);
+            cls.Vat_rate = string.IsNullOrEmpty(Vat_TBx.Text) ? 0 : Convert.ToDouble(Vat_TBx.Text);
             cls.Interest_rate = string.IsNullOrEmpty(Interest_Rate_TBx.Text) ? 0 : Convert.ToDouble(Interest_Rate_TBx.Text);
             cls.Total_period = string.IsNullOrEmpty(Total_Period_TBx.Text) ? 0 : Convert.ToInt32(Total_Period_TBx.Text);
             cls.Total_sum = string.IsNullOrEmpty(Total_Sum_TBx.Text) ? 0 : Convert.ToDouble(Total_Sum_TBx.Text);
@@ -353,7 +349,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Car_feature = string.IsNullOrEmpty(Car_Feature_TBx.Text) ? "" : Car_Feature_TBx.Text;
             cls.Car_brand = Car_Brand_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Brand_DDL.SelectedValue);
             cls.Car_model = string.IsNullOrEmpty(Car_Model_TBx.Text) ? "" : Car_Model_TBx.Text;
-            cls.Car_year = Car_Plate_Province_DDL.SelectedIndex <= 0 ? "" : Car_Year_DDL.SelectedValue;
+            cls.Car_year = Car_Year_DDL.SelectedIndex <= 0 ? "" : Car_Year_DDL.SelectedValue;
             cls.Car_color = string.IsNullOrEmpty(Car_Color_TBx.Text) ? "" : Car_Color_TBx.Text;
             cls.Car_engine_no = string.IsNullOrEmpty(Engine_No_TBx.Text) ? "" : Engine_No_TBx.Text;
             cls.Car_engine_no_at = string.IsNullOrEmpty(Engine_No_At_TBx.Text) ? "" : Engine_No_At_TBx.Text;
@@ -384,7 +380,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Car_old_owner_contry = string.IsNullOrEmpty(Car_Old_Owner_Contry_TBx.Text) ? "" : Car_Old_Owner_Contry_TBx.Text;
             cls.Car_old_owner_zipcode = string.IsNullOrEmpty(Car_Old_Owner_Zipcode_TBx.Text) ? "" : Car_Old_Owner_Zipcode_TBx.Text;
 
-            ctm = (Customers)Session["Customer"];
+            Customers ctm = (Customers)Session["Customer"];
 
             cls.Cust_id = ctm.Cust_id;
             cls.Tent_car_id = Tent_car_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Tent_car_DDL.SelectedValue);

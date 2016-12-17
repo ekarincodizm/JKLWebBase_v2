@@ -71,21 +71,6 @@
                         </table>
                     </div>
 
-                    <div class="table-responsive">
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-hover" PageSize="20">
-                            <Columns>
-                                <asp:BoundField HeaderText="งวดที่" />
-                                <asp:BoundField HeaderText="วันที่กำหนดชำระ" />
-                                <asp:BoundField HeaderText="ค่างวดที่ต้องชำระ (บาท)" />
-                                <asp:BoundField HeaderText="ค่างวด (บาท)" />
-                                <asp:BoundField HeaderText="มูลค่าต่องวด (บาท)" />
-                                <asp:BoundField HeaderText="เงินต้นต่องวด (บาท)" />
-                                <asp:BoundField HeaderText="ดอกเบี้ยต่องวด (บาท)" />
-                                <asp:BoundField HeaderText="ภาษีต่องวด (บาท)" />
-                            </Columns>
-
-                        </asp:GridView>
-                    </div>
                 </div>
                 <!-- ./ข้อมูลการผ่อนชำระ -->
 

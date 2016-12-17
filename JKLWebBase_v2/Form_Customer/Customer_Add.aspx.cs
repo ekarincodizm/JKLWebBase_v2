@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using JKLWebBase_v2.Global_Class;
@@ -8,9 +9,9 @@ using JKLWebBase_v2.Class_Customers;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
 
-namespace JKLWebBase_v2.Form_Leasings
+namespace JKLWebBase_v2.Form_Customer
 {
-    public partial class Customer_Add : System.Web.UI.Page
+    public partial class Customer_Add : Page
     {
         Customers ctm = new Customers();
 
@@ -28,6 +29,7 @@ namespace JKLWebBase_v2.Form_Leasings
             }
 
             Alert_Warning_Panel.Visible = false;
+            Alert_Success_Panel.Visible = false;
         }
 
         protected void Cust_idcard_TBx_TextChanged(object sender, EventArgs e)
@@ -76,8 +78,6 @@ namespace JKLWebBase_v2.Form_Leasings
             Session.Remove("chk_customer");
             Session.Remove("chk_customer_spouse");
 
-            Session["Class_Active"] = 2;
-            Response.Redirect("/Form_Leasings/Leasing_Add");
         }
 
         /*******************************************************************************************************************************************************************************
@@ -178,15 +178,14 @@ namespace JKLWebBase_v2.Form_Leasings
 
         private void _CheckCustomer()
         {
-            ctm = new Customers_Manager().getCustomersByIdCard(Cust_idcard_TBx.Text);
-            if (ctm.Cust_idcard != null)
+            Customers ctm_tmp = new Customers_Manager().getCustomersByIdCard(Cust_idcard_TBx.Text);
+            if (ctm_tmp.Cust_idcard != null)
             {
-                _GetCustomer(ctm);
+                _GetCustomer(ctm_tmp);
 
-                Session["chk_customer"] = ctm;
+                Session["chk_customer"] = ctm_tmp;
 
                 Alert_Warning_Panel.Visible = false;
-
             }
             else
             {
@@ -536,8 +535,10 @@ namespace JKLWebBase_v2.Form_Leasings
 
             if (Session["chk_customer"] != null)
             {
-                ctm = (Customers)Session["chk_customer"];
+                Customers ctm_tmp = (Customers)Session["chk_customer"];
 
+                ctm.Cust_id = ctm_tmp.Cust_id;
+                ctm.Cust_idcard = ctm_tmp.Cust_idcard;
                 ctm.Cust_Fname = string.IsNullOrEmpty(Cust_Fname_TBx.Text) ? "" : Cust_Fname_TBx.Text;
                 ctm.Cust_LName = string.IsNullOrEmpty(Cust_LName_TBx.Text) ? "" : Cust_LName_TBx.Text;
                 ctm.Cust_B_date = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_B_date_TBx.Text);
@@ -605,13 +606,12 @@ namespace JKLWebBase_v2.Form_Leasings
             
             _AddCustomerAddress(ctm.Cust_id);
 
-            Session["Customer"] = ctm;
-
             if (ctm.Cust_status_id == 2 || ctm.Cust_status_id == 3)
             {
                 _AddCustomerSpouse(ctm.Cust_id);
             }
 
+            Alert_Success_Panel.Visible = true;
         }
 
         private void _AddCustomerAddress(string custId)
@@ -677,6 +677,7 @@ namespace JKLWebBase_v2.Form_Leasings
             ctmadd_current.Cust_Gps_Longitude = "";
 
             Customers_Address_Manager ctm_add_mng = new Customers_Address_Manager();
+
             if (Session["chk_customer"] != null)
             {
                 ctm_add_mng.editCustomersAddress(ctmadd_idcard);
@@ -697,8 +698,10 @@ namespace JKLWebBase_v2.Form_Leasings
 
             if (Session["chk_customer_spouse"] != null)
             {
-                Customers_Spouse cmarry = (Customers_Spouse)Session["chk_customer_spouse"];
+                Customers_Spouse cmarry_tmp = (Customers_Spouse)Session["chk_customer_spouse"];
+                Customers_Spouse cmarry = new Customers_Spouse();
 
+                cmarry.Cust_id = cmarry_tmp.Cust_id;
                 cmarry.Spouse_idcard = string.IsNullOrEmpty(Spouse_idcard_TBx.Text) ? "" : Spouse_idcard_TBx.Text;
                 cmarry.Spouse_Fname = string.IsNullOrEmpty(Spouse_Fname_TBx.Text) ? "" : Spouse_Fname_TBx.Text;
                 cmarry.Spouse_Lname = string.IsNullOrEmpty(Spouse_Lname_TBx.Text) ? "" : Spouse_Lname_TBx.Text;

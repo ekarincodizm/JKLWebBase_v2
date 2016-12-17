@@ -18,10 +18,10 @@
     <form id="form1" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
+            <div class="col-md-5 col-md-offset-3">
                 <div class="login-panel panel panel-primary">
                     <div class="panel-heading">
-                        <h3> <strong> <span class="fa fa-sign-in fa-fw"> </span> เข้าสู่ระบบ JKL Web App 2.0 <span class="fa fa-car fa-fw"></span> </strong>  </h3> 
+                        <h3> <strong> <span class="fa fa-sign-in fa-fw"> </span> เข้าสู่ระบบ JaiKwang Financial Management System </strong>  </h3> 
                     </div>
                     <div class="panel-body">
                         <fieldset>

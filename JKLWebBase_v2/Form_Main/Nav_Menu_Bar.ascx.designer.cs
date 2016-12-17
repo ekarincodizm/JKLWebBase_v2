@@ -7,207 +7,234 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2 {
+namespace JKLWebBase_v2.Form_Main {
     
     
-    public partial class Leasing_Search {
+    public partial class Nav_Menu_Bar {
         
         /// <summary>
-        /// Deps_No_Lbl control.
+        /// link_Menu_Home control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Deps_No_Lbl;
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Home;
         
         /// <summary>
-        /// Deps_No_TBx control.
+        /// link_Menu_Search_Customer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Deps_No_TBx;
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Search_Customer;
         
         /// <summary>
-        /// Leasing_No_Lbl control.
+        /// link_Menu_Add_Customer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Leasing_No_Lbl;
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Add_Customer;
         
         /// <summary>
-        /// Leasing_No_TBx control.
+        /// link_Menu_Pyament_Leasing control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Leasing_No_TBx;
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Pyament_Leasing;
         
         /// <summary>
-        /// Label3 control.
+        /// link_Menu_Deposit_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Deposit_Search;
         
         /// <summary>
-        /// TextBox3 control.
+        /// link_Menu_Deposit_Add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Deposit_Add;
         
         /// <summary>
-        /// Label4 control.
+        /// link_Menu_Leasing_Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Leasing_Search;
         
         /// <summary>
-        /// TextBox1 control.
+        /// link_Menu_Leasing_Add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Leasing_Add;
         
         /// <summary>
-        /// Leasing_Date_Lbl control.
+        /// LinkButton9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Leasing_Date_Lbl;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton9;
         
         /// <summary>
-        /// Leasing_Date_str_TBx control.
+        /// LinkButton10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Leasing_Date_str_TBx;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton10;
         
         /// <summary>
-        /// Leasing_Date_end_Lbl control.
+        /// LinkButton11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Leasing_Date_end_Lbl;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton11;
         
         /// <summary>
-        /// Leasing_Date_end_TBx control.
+        /// LinkButton12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Leasing_Date_end_TBx;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton12;
         
         /// <summary>
-        /// Label6 control.
+        /// LinkButton13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton13;
         
         /// <summary>
-        /// Leasing_Code_ChkBx_All control.
+        /// LinkButton14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Leasing_Code_ChkBx_All;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton14;
         
         /// <summary>
-        /// Leasing_Code_ChkBxL control.
+        /// LinkButton15 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList Leasing_Code_ChkBxL;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton15;
         
         /// <summary>
-        /// Label1 control.
+        /// LinkButton16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton16;
         
         /// <summary>
-        /// Branch_ChkBx_All control.
+        /// LinkButton8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Branch_ChkBx_All;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton8;
         
         /// <summary>
-        /// Branch_ChkBxL control.
+        /// LinkButton17 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList Branch_ChkBxL;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton17;
         
         /// <summary>
-        /// Label2 control.
+        /// LinkButton18 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton18;
         
         /// <summary>
-        /// Zone_ChkBx_All control.
+        /// LinkButton19 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Zone_ChkBx_All;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton19;
         
         /// <summary>
-        /// Zone_ChkBxL control.
+        /// LinkButton20 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList Zone_ChkBxL;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton20;
         
         /// <summary>
-        /// Search_Btn control.
+        /// LinkButton21 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Search_Btn;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton21;
+        
+        /// <summary>
+        /// LinkButton22 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton22;
+        
+        /// <summary>
+        /// LinkButton23 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton23;
+        
+        /// <summary>
+        /// link_Logout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton link_Logout;
     }
 }

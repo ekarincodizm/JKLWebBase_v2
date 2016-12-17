@@ -13,5 +13,20 @@ namespace JKLWebBase_v2.Form_Main
         {
 
         }
+
+        protected void link_Payment_Leasings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void link_Search_Customers_Leasings_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Form_Customer/Customer_Search");
+        }
+
+        protected void link_Search_Leasings_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Form_Leasings/Leasing_Search");
+        }
     }
 }

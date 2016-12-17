@@ -198,11 +198,18 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\sb-admin-2\css\jquery.datetimepicker.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Form_Dealer\Car_Dealer_Add.aspx" />
+    <Content Include="Form_Customer\Customer_Home_Photo.aspx" />
+    <Content Include="Form_Customer\Customer_Search.aspx" />
+    <Content Include="Form_Dealer\Dealer_Add.aspx" />
     <Content Include="Form_Customer\Customer_Add.aspx" />
     <Content Include="Form_Customer\Customer_Edit.aspx" />
-    <Content Include="Form_Dealer\Car_Dealer_Edit.aspx" />
+    <Content Include="Form_Dealer\Dealer_Edit.aspx" />
+    <Content Include="Form_Dealer\Dealer_Search.aspx" />
+    <Content Include="Form_Leasings\Leasing_Add_Customer.aspx" />
+    <Content Include="Form_Leasings\Leasing_Add_Dealer.aspx" />
     <Content Include="Form_Leasings\Leasing_Car_Img.aspx" />
+    <Content Include="Form_Leasings\Leasing_Edit_Customer.aspx" />
+    <Content Include="Form_Leasings\Leasing_Edit_Dealer.aspx" />
     <Content Include="Form_Leasings\Leasing_Home_Img.aspx" />
     <Content Include="Content\sb-admin-2\css\sb-admin-2.css" />
     <Content Include="Content\sb-admin-2\css\timeline.css" />
@@ -227,7 +234,9 @@
     <Content Include="Form_Main\Main_JKL_Form.aspx" />
     <Content Include="Form_Leasings\Print_Menu_Leasing.ascx" />
     <Content Include="Form_Leasings\Tabs_Menu_Leasings.ascx" />
+    <Content Include="Form_Main\Nav_Menu_Bar.ascx" />
     <Content Include="Images_web\default-img.jpg" />
+    <Content Include="Images_web\Logo_JKL.png" />
     <Content Include="Reports\Leasings\Front_Card\Front_Card_Prv.aspx" />
     <Content Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
@@ -346,12 +355,61 @@
     <Compile Include="Class_Dealers\Car_Dealers_Values.cs" />
     <Compile Include="Class_Leasings\Car_Leasings.cs" />
     <Compile Include="Class_Leasings\Car_Leasings_Payment.cs" />
-    <Compile Include="Form_Dealer\Car_Dealer_Edit.aspx.cs">
-      <DependentUpon>Car_Dealer_Edit.aspx</DependentUpon>
+    <Compile Include="Form_Customer\Customer_Home_Photo.aspx.cs">
+      <DependentUpon>Customer_Home_Photo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Dealer\Car_Dealer_Edit.aspx.designer.cs">
-      <DependentUpon>Car_Dealer_Edit.aspx</DependentUpon>
+    <Compile Include="Form_Customer\Customer_Home_Photo.aspx.designer.cs">
+      <DependentUpon>Customer_Home_Photo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Customer\Customer_Search.aspx.cs">
+      <DependentUpon>Customer_Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Customer\Customer_Search.aspx.designer.cs">
+      <DependentUpon>Customer_Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Dealer\Dealer_Edit.aspx.cs">
+      <DependentUpon>Dealer_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Dealer\Dealer_Edit.aspx.designer.cs">
+      <DependentUpon>Dealer_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Dealer\Dealer_Search.aspx.cs">
+      <DependentUpon>Dealer_Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Dealer\Dealer_Search.aspx.designer.cs">
+      <DependentUpon>Dealer_Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Add_Customer.aspx.cs">
+      <DependentUpon>Leasing_Add_Customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Add_Customer.aspx.designer.cs">
+      <DependentUpon>Leasing_Add_Customer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Add_Dealer.aspx.cs">
+      <DependentUpon>Leasing_Add_Dealer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Add_Dealer.aspx.designer.cs">
+      <DependentUpon>Leasing_Add_Dealer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Edit_Customer.aspx.cs">
+      <DependentUpon>Leasing_Edit_Customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Edit_Customer.aspx.designer.cs">
+      <DependentUpon>Leasing_Edit_Customer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Edit_Dealer.aspx.cs">
+      <DependentUpon>Leasing_Edit_Dealer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Edit_Dealer.aspx.designer.cs">
+      <DependentUpon>Leasing_Edit_Dealer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Leasings\Leasing_Payment.aspx.cs">
       <DependentUpon>Leasing_Payment.aspx</DependentUpon>
@@ -381,17 +439,24 @@
     <Compile Include="Form_Leasings\Tabs_Menu_Leasings.ascx.designer.cs">
       <DependentUpon>Tabs_Menu_Leasings.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Form_Main\Nav_Menu_Bar.ascx.cs">
+      <DependentUpon>Nav_Menu_Bar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Main\Nav_Menu_Bar.ascx.designer.cs">
+      <DependentUpon>Nav_Menu_Bar.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Global_Class\DateTimeUtility.cs" />
     <Compile Include="Global_Class\Log_Error.cs" />
     <Compile Include="Global_Class\MSSQLConnection.cs" />
     <Compile Include="Global_Class\MySQLConnection.cs" />
     <Compile Include="Class_Base\Base_Car_Brands.cs" />
-    <Compile Include="Form_Dealer\Car_Dealer_Add.aspx.cs">
-      <DependentUpon>Car_Dealer_Add.aspx</DependentUpon>
+    <Compile Include="Form_Dealer\Dealer_Add.aspx.cs">
+      <DependentUpon>Dealer_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Dealer\Car_Dealer_Add.aspx.designer.cs">
-      <DependentUpon>Car_Dealer_Add.aspx</DependentUpon>
+    <Compile Include="Form_Dealer\Dealer_Add.aspx.designer.cs">
+      <DependentUpon>Dealer_Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Customer\Customer_Add.aspx.cs">
       <DependentUpon>Customer_Add.aspx</DependentUpon>

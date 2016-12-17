@@ -7,46 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Form_Customer {
+namespace JKLWebBase_v2.Form_Leasings {
     
     
-    public partial class Customer_Add {
+    public partial class Leasing_Edit_Customer {
         
         /// <summary>
-        /// Alert_Warning_Panel control.
+        /// Print_Menu1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Alert_Warning_Panel;
+        protected global::JKLWebBase_v2.Form_Main.Print_Menu_Leasing Print_Menu1;
         
         /// <summary>
-        /// Alert_Id_Card_Lbl control.
+        /// nav_tabs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
-        
-        /// <summary>
-        /// Alert_Success_Panel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Alert_Success_Panel;
-        
-        /// <summary>
-        /// Alert_Success_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Alert_Success_Lbl;
+        protected global::JKLWebBase_v2.Form_Main.Tabs_Menu_Leasings nav_tabs;
         
         /// <summary>
         /// Cust_idcard_Lbl control.
@@ -58,15 +40,6 @@ namespace JKLWebBase_v2.Form_Customer {
         protected global::System.Web.UI.WebControls.Label Cust_idcard_Lbl;
         
         /// <summary>
-        /// RFV_Cust_idcard_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Cust_idcard_TBx;
-        
-        /// <summary>
         /// Cust_idcard_TBx control.
         /// </summary>
         /// <remarks>
@@ -74,15 +47,6 @@ namespace JKLWebBase_v2.Form_Customer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Cust_idcard_TBx;
-        
-        /// <summary>
-        /// Cust_Search_Btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Cust_Search_Btn;
         
         /// <summary>
         /// Cust_Fname_Lbl control.
@@ -1948,12 +1912,12 @@ namespace JKLWebBase_v2.Form_Customer {
         protected global::System.Web.UI.WebControls.TextBox Cust_job_email_TBx;
         
         /// <summary>
-        /// Customer_Add_Save_Btn control.
+        /// Save_Btn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Customer_Add_Save_Btn;
+        protected global::System.Web.UI.WebControls.LinkButton Save_Btn;
     }
 }

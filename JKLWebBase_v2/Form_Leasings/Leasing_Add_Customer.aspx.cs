@@ -1,32 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Text;
 
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Customers;
-using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
-using JKLWebBase_v2.Managers_Leasings;
 
-namespace JKLWebBase_v2.Form_Customer
+namespace JKLWebBase_v2.Form_Leasings
 {
-    public partial class Customer_Edit : Page
+    public partial class Leasing_Add_Customer : Page
     {
         Customers ctm = new Customers();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["Customer"] == null)
-            {
-                Response.Redirect("/Form_Customer/Customer_Add");
-            }
-
             if (!IsPostBack)
             {
                 _loadHomeStatus();
@@ -36,25 +26,25 @@ namespace JKLWebBase_v2.Form_Customer
                 _loadThaiProvinces();
 
                 Spouse_Panel.Visible = false;
-
-                ctm = (Customers)Session["Customer"];
-
-                _GetCustomer(ctm);
             }
 
-            Alert_Success_Panel.Visible = false;
+            Alert_Warning_Panel.Visible = false;
         }
 
-        protected void Save_Btn_Click(object sender, EventArgs e)
+        protected void Cust_idcard_TBx_TextChanged(object sender, EventArgs e)
         {
-            _EditCustomer();
+            _CheckCustomer();
+        }
 
-            Session.Remove("chk_customer");
-            Session.Remove("chk_customer_spouse");
+        protected void Cust_Search_Btn_Click(object sender, EventArgs e)
+        {
+            _CheckCustomer();
         }
 
         protected void Cust_status_DDL_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Alert_Warning_Panel.Visible = false;
+
             if (Cust_status_DDL.SelectedIndex == 2 || Cust_status_DDL.SelectedIndex == 3)
             {
                 Spouse_Panel.Visible = true;
@@ -78,6 +68,17 @@ namespace JKLWebBase_v2.Form_Customer
         protected void Current_Copy_Home_btn_Click(object sender, EventArgs e)
         {
             _CopyBaseDataAddress(3);
+        }
+
+        protected void Customer_Add_Save_Btn_Click(object sender, EventArgs e)
+        {
+            _AddCustomer();
+
+            Session.Remove("chk_customer");
+            Session.Remove("chk_customer_spouse");
+
+            Session["Class_Active"] = 2;
+            Response.Redirect("/Form_Leasings/Leasing_Add");
         }
 
         /*******************************************************************************************************************************************************************************
@@ -170,65 +171,33 @@ namespace JKLWebBase_v2.Form_Customer
             Spouse_job_province_DDL.SelectedValue = "39";
         }
 
+
         /*******************************************************************************************************************************************************************************
-       ****************************************************                               Copy Data Function                   ********************************************************
-       ****************************************************                                                                    ********************************************************
-       *******************************************************************************************************************************************************************************/
+        ****************************************************                               Check Data Function                  ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
 
-        // copy ข้อมูลที่อยู่แยกตามประเภท
-        private void _CopyBaseDataAddress(int type)
+        private void _CheckCustomer()
         {
-            if (type == 1) // copy ที่อยู่ตามบัตรประชาชน to ที่ตามทะเบียนบ้าน
+            Customers ctm_tmp = new Customers_Manager().getCustomersByIdCard(Cust_idcard_TBx.Text);
+            if (ctm_tmp.Cust_idcard != null)
             {
-                Home_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
-                Home_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
-                Home_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
-                Home_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
-                Home_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
-                Home_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
-                Home_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
-                Home_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
-                Home_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
-                Home_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
-                Home_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
-                Home_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
+                _GetCustomer(ctm_tmp);
 
-                Home_Cust_Gps_Latitude_TBx.Focus();
+                Session["chk_customer"] = ctm_tmp;
+
+                Alert_Warning_Panel.Visible = false;
             }
-            else if (type == 2) // copy ที่อยู่ตามบัตรประชาชน to ที่อยู่ปัจจุบัน
+            else
             {
-                Current_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
-                Current_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
-                Current_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
-                Current_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
-                Current_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
-                Current_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
-                Current_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
-                Current_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
-                Current_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
-                Current_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
-                Current_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
-                Current_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
+                Alert_Warning_Panel.Visible = true;
+                Alert_Id_Card_Lbl.Text = "ไม่พบเลขบัตรประชาชน " + Cust_idcard_TBx.Text + " นี้ในระบบข้อมูลลูกค้า";
 
-                Cust_job_TBx.Focus();
-            }
-            else if (type == 3) // copy ที่อยู่ตามทะเบียนบ้าน to ที่อยู่ปัจจุบัน
-            {
-                Current_Cust_Address_no_TBx.Text = Home_Cust_Address_no_TBx.Text;
-                Current_Cust_Vilage_TBx.Text = Home_Cust_Vilage_TBx.Text;
-                Current_Cust_Vilage_no_TBx.Text = Home_Cust_Vilage_no_TBx.Text;
-                Current_Cust_Alley_TBx.Text = Home_Cust_Alley_TBx.Text;
-                Current_Cust_Road_TBx.Text = Home_Cust_Road_TBx.Text;
-                Current_Cust_Subdistrict_TBx.Text = Home_Cust_Subdistrict_TBx.Text;
-                Current_Cust_District_TBx.Text = Home_Cust_District_TBx.Text;
-                Current_Cust_Province_DDL.SelectedIndex = Home_Cust_Province_DDL.SelectedIndex;
-                Current_Cust_Country_TBx.Text = Home_Cust_Country_TBx.Text;
-                Current_Cust_Zipcode_TBx.Text = Home_Cust_Zipcode_TBx.Text;
-                Current_Cust_Tel_TBx.Text = Home_Cust_Tel_TBx.Text;
-                Current_Cust_Home_status_id_DDL.SelectedIndex = Home_Cust_Home_status_id_DDL.SelectedIndex;
+                Cust_idcard_TBx.Focus();
 
-                Cust_job_TBx.Focus();
+                _ClearCustomer();
             }
+
         }
 
         /*******************************************************************************************************************************************************************************
@@ -326,7 +295,6 @@ namespace JKLWebBase_v2.Form_Customer
             Current_Cust_Zipcode_TBx.Text = ctmadd_current.Cust_Zipcode;
             Current_Cust_Tel_TBx.Text = ctmadd_current.Cust_Tel;
             Current_Cust_Home_status_id_DDL.SelectedValue = ctmadd_current.Cust_Home_status_id.ToString();
-
         }
 
         private void _GetCustomerSpouse(string Cust_id)
@@ -374,58 +342,281 @@ namespace JKLWebBase_v2.Form_Customer
         }
 
         /*******************************************************************************************************************************************************************************
-        ****************************************************                               Edit Data Function                    ********************************************************
+        ****************************************************                               Copy Data Function                   ********************************************************
         ****************************************************                                                                    ********************************************************
         *******************************************************************************************************************************************************************************/
 
-        private void _EditCustomer()
+        // copy ข้อมูลที่อยู่แยกตามประเภท
+        private void _CopyBaseDataAddress(int type)
         {
-            ctm = (Customers)Session["Customer"];
+            if (type == 1) // copy ที่อยู่ตามบัตรประชาชน to ที่อยู่ตามทะเบียนบ้าน
+            {
+                Home_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
+                Home_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
+                Home_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
+                Home_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
+                Home_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
+                Home_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
+                Home_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
+                Home_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
+                Home_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
+                Home_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
+                Home_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
+                Home_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
 
-            ctm.Cust_idcard = string.IsNullOrEmpty(Cust_idcard_TBx.Text) ? "" : Cust_idcard_TBx.Text;
-            ctm.Cust_Fname = string.IsNullOrEmpty(Cust_Fname_TBx.Text) ? "" : Cust_Fname_TBx.Text;
-            ctm.Cust_LName = string.IsNullOrEmpty(Cust_LName_TBx.Text) ? "" : Cust_LName_TBx.Text;
-            ctm.Cust_B_date = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_B_date_TBx.Text);
-            ctm.Cust_age = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? 0 : DateTime.Now.Year - (Convert.ToInt32(Cust_B_date_TBx.Text.Split('/')[2].ToString()) - 543);
-            ctm.Cust_Idcard_without = string.IsNullOrEmpty(Cust_Idcard_without_TBx.Text) ? "" : Cust_Idcard_without_TBx.Text;
-            ctm.Cust_Idcard_start = string.IsNullOrEmpty(Cust_Idcard_start_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_start_TBx.Text);
-            ctm.Cust_Idcard_expire = string.IsNullOrEmpty(Cust_Idcard_expire_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_expire_TBx.Text);
-            ctm.Cust_Nationality = Cust_Nationality_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_Nationality_DDL.SelectedValue);
-            ctm.Cust_Origin = Cust_Origin_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_Origin_DDL.SelectedValue);
-            ctm.Cust_job = string.IsNullOrEmpty(Cust_job_TBx.Text) ? "" : Cust_job_TBx.Text;
-            ctm.Cust_job_position = string.IsNullOrEmpty(Cust_job_position_TBx.Text) ? "" : Cust_job_position_TBx.Text;
-            ctm.Cust_job_long = string.IsNullOrEmpty(Cust_job_long_TBx.Text) ? 0 : Convert.ToInt32(Cust_job_long_TBx.Text);
-            ctm.Cust_job_local_name = string.IsNullOrEmpty(Cust_job_local_name_TBx.Text) ? "" : Cust_job_local_name_TBx.Text;
-            ctm.Cust_job_address_no = string.IsNullOrEmpty(Cust_job_address_no_TBx.Text) ? "" : Cust_job_address_no_TBx.Text;
-            ctm.Cust_job_vilage = string.IsNullOrEmpty(Cust_job_vilage_TBx.Text) ? "" : Cust_job_vilage_TBx.Text;
-            ctm.Cust_job_vilage_no = string.IsNullOrEmpty(Cust_job_vilage_no_TBx.Text) ? "" : Cust_job_vilage_no_TBx.Text;
-            ctm.Cust_job_alley = string.IsNullOrEmpty(Cust_job_alley_TBx.Text) ? "" : Cust_job_alley_TBx.Text;
-            ctm.Cust_job_road = string.IsNullOrEmpty(Cust_job_road_TBx.Text) ? "" : Cust_job_road_TBx.Text;
-            ctm.Cust_job_subdistrict = string.IsNullOrEmpty(Cust_job_subdistrict_TBx.Text) ? "" : Cust_job_subdistrict_TBx.Text;
-            ctm.Cust_job_district = string.IsNullOrEmpty(Cust_job_district_TBx.Text) ? "" : Cust_job_district_TBx.Text;
-            ctm.Cust_job_province = Cust_job_province_DDL.SelectedIndex <= 0 ? 39 : Convert.ToInt32(Cust_job_province_DDL.SelectedValue);
-            ctm.Cust_job_country = string.IsNullOrEmpty(Cust_job_contry_TBx.Text) ? "" : Cust_job_contry_TBx.Text;
-            ctm.Cust_job_zipcode = string.IsNullOrEmpty(Cust_job_zipcode_TBx.Text) ? "" : Cust_job_zipcode_TBx.Text;
-            ctm.Cust_job_tel = string.IsNullOrEmpty(Cust_job_tel_TBx.Text) ? "" : Cust_job_tel_TBx.Text;
-            ctm.Cust_job_email = string.IsNullOrEmpty(Cust_job_email_TBx.Text) ? "" : Cust_job_email_TBx.Text;
-            ctm.Cust_job_salary = string.IsNullOrEmpty(Cust_job_salary_TBx.Text) ? 0 : Convert.ToDouble(Cust_job_salary_TBx.Text);
-            ctm.Cust_status_id = Cust_status_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_status_DDL.SelectedValue);
+                Home_Cust_Gps_Latitude_TBx.Focus();
+            }
+            else if (type == 2) // copy ที่อยู่ตามบัตรประชาชน to ที่อยู่ปัจจุบัน
+            {
+                Current_Cust_Address_no_TBx.Text = Idcard_Cust_Address_no_Tbx.Text;
+                Current_Cust_Vilage_TBx.Text = Idcard_Cust_Vilage_Tbx.Text;
+                Current_Cust_Vilage_no_TBx.Text = Idcard_Cust_Vilage_no_Tbx.Text;
+                Current_Cust_Alley_TBx.Text = Idcard_Cust_Alley_Tbx.Text;
+                Current_Cust_Road_TBx.Text = Idcard_Cust_Road_Tbx.Text;
+                Current_Cust_Subdistrict_TBx.Text = Idcard_Cust_Subdistrict_Tbx.Text;
+                Current_Cust_District_TBx.Text = Idcard_Cust_District_Tbx.Text;
+                Current_Cust_Province_DDL.SelectedIndex = Idcard_Cust_Province_DDL.SelectedIndex;
+                Current_Cust_Country_TBx.Text = Idcard_Cust_Country_Tbx.Text;
+                Current_Cust_Zipcode_TBx.Text = Idcard_Cust_Zipcode_Tbx.Text;
+                Current_Cust_Tel_TBx.Text = Idcard_Cust_Tel_Tbx.Text;
+                Current_Cust_Home_status_id_DDL.SelectedIndex = Idcard_Cust_Home_status_DDL.SelectedIndex;
 
+                Cust_job_TBx.Focus();
+            }
+            else if (type == 3) // copy ที่อยู่ตามทะเบียนบ้าน to ที่อยู่ปัจจุบัน
+            {
+                Current_Cust_Address_no_TBx.Text = Home_Cust_Address_no_TBx.Text;
+                Current_Cust_Vilage_TBx.Text = Home_Cust_Vilage_TBx.Text;
+                Current_Cust_Vilage_no_TBx.Text = Home_Cust_Vilage_no_TBx.Text;
+                Current_Cust_Alley_TBx.Text = Home_Cust_Alley_TBx.Text;
+                Current_Cust_Road_TBx.Text = Home_Cust_Road_TBx.Text;
+                Current_Cust_Subdistrict_TBx.Text = Home_Cust_Subdistrict_TBx.Text;
+                Current_Cust_District_TBx.Text = Home_Cust_District_TBx.Text;
+                Current_Cust_Province_DDL.SelectedIndex = Home_Cust_Province_DDL.SelectedIndex;
+                Current_Cust_Country_TBx.Text = Home_Cust_Country_TBx.Text;
+                Current_Cust_Zipcode_TBx.Text = Home_Cust_Zipcode_TBx.Text;
+                Current_Cust_Tel_TBx.Text = Home_Cust_Tel_TBx.Text;
+                Current_Cust_Home_status_id_DDL.SelectedIndex = Home_Cust_Home_status_id_DDL.SelectedIndex;
+
+                Cust_job_TBx.Focus();
+            }
+        }
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                        Clear Data Function                         ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        private void _ClearCustomer()
+        {
+            Cust_Fname_TBx.Text = "";
+            Cust_LName_TBx.Text = "";
+            Cust_B_date_TBx.Text = "";
+            Cust_Idcard_without_TBx.Text = "";
+            Cust_Idcard_start_TBx.Text = "";
+            Cust_Idcard_expire_TBx.Text = "";
+            Cust_Nationality_DDL.SelectedIndex = 0;
+            Cust_Origin_DDL.SelectedIndex = 0;
+            Cust_job_TBx.Text = "";
+            Cust_job_position_TBx.Text = "";
+            Cust_job_long_TBx.Text = "";
+            Cust_job_local_name_TBx.Text = "";
+            Cust_job_address_no_TBx.Text = "";
+            Cust_job_vilage_TBx.Text = "";
+            Cust_job_vilage_no_TBx.Text = "";
+            Cust_job_alley_TBx.Text = "";
+            Cust_job_road_TBx.Text = "";
+            Cust_job_subdistrict_TBx.Text = "";
+            Cust_job_district_TBx.Text = "";
+            Cust_job_province_DDL.SelectedValue = "39";
+            Cust_job_contry_TBx.Text = "ประเทศไทย";
+            Cust_job_zipcode_TBx.Text = "";
+            Cust_job_tel_TBx.Text = "";
+            Cust_job_email_TBx.Text = "";
+            Cust_job_salary_TBx.Text = "";
+            Cust_status_DDL.SelectedIndex = 0;
+
+            _ClearCustomerAddress();
+
+            _ClearCustomerSpouse();
+
+        }
+
+        private void _ClearCustomerAddress()
+        {
+            // ที่อยู่ตามบัตรประชาชน
+            Idcard_Cust_Address_no_Tbx.Text = "";
+            Idcard_Cust_Vilage_Tbx.Text = "";
+            Idcard_Cust_Vilage_no_Tbx.Text = "";
+            Idcard_Cust_Alley_Tbx.Text = "";
+            Idcard_Cust_Road_Tbx.Text = "";
+            Idcard_Cust_Subdistrict_Tbx.Text = "";
+            Idcard_Cust_District_Tbx.Text = "";
+            Idcard_Cust_Province_DDL.SelectedValue = "39";
+            Idcard_Cust_Country_Tbx.Text = "ประเทศไทย";
+            Idcard_Cust_Zipcode_Tbx.Text = "";
+            Idcard_Cust_Tel_Tbx.Text = "";
+            Idcard_Cust_Home_status_DDL.SelectedIndex = 0;
+
+            // ที่อยู่ตามทะเบียนบ้าน
+            Home_Cust_Address_no_TBx.Text = "";
+            Home_Cust_Vilage_TBx.Text = "";
+            Home_Cust_Vilage_no_TBx.Text = "";
+            Home_Cust_Alley_TBx.Text = "";
+            Home_Cust_Road_TBx.Text = "";
+            Home_Cust_Subdistrict_TBx.Text = "";
+            Home_Cust_District_TBx.Text = "";
+            Home_Cust_Province_DDL.SelectedValue = "39";
+            Home_Cust_Country_TBx.Text = "ประเทศไทย";
+            Home_Cust_Zipcode_TBx.Text = "";
+            Home_Cust_Tel_TBx.Text = "";
+            Home_Cust_Home_status_id_DDL.SelectedIndex = 0;
+            Home_Cust_Gps_Latitude_TBx.Text = "";
+            Home_Cust_Gps_Longitude_TBx.Text = "";
+
+            // ที่อยู่ปัจจุบัน
+            Current_Cust_Address_no_TBx.Text = "";
+            Current_Cust_Vilage_TBx.Text = "";
+            Current_Cust_Vilage_no_TBx.Text = "";
+            Current_Cust_Road_TBx.Text = "";
+            Current_Cust_Subdistrict_TBx.Text = "";
+            Current_Cust_District_TBx.Text = "";
+            Current_Cust_Province_DDL.SelectedValue = "39";
+            Current_Cust_Country_TBx.Text = "ประเทศไทย";
+            Current_Cust_Zipcode_TBx.Text = "";
+            Current_Cust_Tel_TBx.Text = "";
+            Current_Cust_Home_status_id_DDL.SelectedIndex = 0;
+        }
+
+        private void _ClearCustomerSpouse()
+        {
+            Spouse_idcard_TBx.Text = "";
+            Spouse_Fname_TBx.Text = "";
+            Spouse_Lname_TBx.Text = "";
+            Spouse_Nationality_DDL.SelectedIndex = 0;
+            Spouse_Origin_DDL.SelectedIndex = 0;
+            Spouse_address_no_TBx.Text = "";
+            Spouse_vilage_TBx.Text = "";
+            Spouse_vilage_no_TBx.Text = "";
+            Spouse_alley_TBx.Text = "";
+            Spouse_road_TBx.Text = "";
+            Spouse_subdistrict_TBx.Text = "";
+            Spouse_district_TBx.Text = "";
+            Spouse_province_DDL.SelectedValue = "39";
+            Spouse_country_TBx.Text = "ประเทศไทย";
+            Spouse_zipcode_TBx.Text = "";
+            Spouse_job_TBx.Text = "";
+            Spouse_job_position_TBx.Text = "";
+            Spouse_job_long_TBx.Text = "";
+            Spouse_job_salary_TBx.Text = "";
+            Spouse_job_local_name_TBx.Text = "";
+            Spouse_job_address_no_TBx.Text = "";
+            Spouse_job_vilage_TBx.Text = "";
+            Spouse_job_vilage_no_TBx.Text = "";
+            Spouse_job_alley_TBx.Text = "";
+            Spouse_job_road_TBx.Text = "";
+            Spouse_job_subdistrict_TBx.Text = "";
+            Spouse_job_district_TBx.Text = "";
+            Spouse_job_province_DDL.SelectedValue = "39";
+            Spouse_job_country_TBx.Text = "ประเทศไทย";
+            Spouse_job_zipcode_TBx.Text = "";
+            Spouse_job_tel_TBx.Text = "";
+            Spouse_tel_TBx.Text = "";
+            Spouse_email_TBx.Text = "";
+        }
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                               Add Data Function                    ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        private void _AddCustomer()
+        {
             Customers_Manager ctm_mng = new Customers_Manager();
 
-            ctm_mng.editCustomers(ctm);
+            if (Session["chk_customer"] != null)
+            {
+                Customers ctm_tmp = (Customers)Session["chk_customer"];
 
-            _EditCustomerAddress(ctm.Cust_id);
+                ctm.Cust_id = ctm_tmp.Cust_id;
+                ctm.Cust_idcard = ctm_tmp.Cust_idcard;
+                ctm.Cust_Fname = string.IsNullOrEmpty(Cust_Fname_TBx.Text) ? "" : Cust_Fname_TBx.Text;
+                ctm.Cust_LName = string.IsNullOrEmpty(Cust_LName_TBx.Text) ? "" : Cust_LName_TBx.Text;
+                ctm.Cust_B_date = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_B_date_TBx.Text);
+                ctm.Cust_age = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? 0 : DateTime.Now.Year - (Convert.ToInt32(Cust_B_date_TBx.Text.Split('/')[2].ToString()) - 543);
+                ctm.Cust_Idcard_without = string.IsNullOrEmpty(Cust_Idcard_without_TBx.Text) ? "" : Cust_Idcard_without_TBx.Text;
+                ctm.Cust_Idcard_start = string.IsNullOrEmpty(Cust_Idcard_start_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_start_TBx.Text);
+                ctm.Cust_Idcard_expire = string.IsNullOrEmpty(Cust_Idcard_expire_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_expire_TBx.Text);
+                ctm.Cust_Nationality = Cust_Nationality_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_Nationality_DDL.SelectedValue);
+                ctm.Cust_Origin = Cust_Origin_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_Origin_DDL.SelectedValue);
+                ctm.Cust_job = string.IsNullOrEmpty(Cust_job_TBx.Text) ? "" : Cust_job_TBx.Text;
+                ctm.Cust_job_position = string.IsNullOrEmpty(Cust_job_position_TBx.Text) ? "" : Cust_job_position_TBx.Text;
+                ctm.Cust_job_long = string.IsNullOrEmpty(Cust_job_long_TBx.Text) ? 0 : Convert.ToInt32(Cust_job_long_TBx.Text);
+                ctm.Cust_job_local_name = string.IsNullOrEmpty(Cust_job_local_name_TBx.Text) ? "" : Cust_job_local_name_TBx.Text;
+                ctm.Cust_job_address_no = string.IsNullOrEmpty(Cust_job_address_no_TBx.Text) ? "" : Cust_job_address_no_TBx.Text;
+                ctm.Cust_job_vilage = string.IsNullOrEmpty(Cust_job_vilage_TBx.Text) ? "" : Cust_job_vilage_TBx.Text;
+                ctm.Cust_job_vilage_no = string.IsNullOrEmpty(Cust_job_vilage_no_TBx.Text) ? "" : Cust_job_vilage_no_TBx.Text;
+                ctm.Cust_job_alley = string.IsNullOrEmpty(Cust_job_alley_TBx.Text) ? "" : Cust_job_alley_TBx.Text;
+                ctm.Cust_job_road = string.IsNullOrEmpty(Cust_job_road_TBx.Text) ? "" : Cust_job_road_TBx.Text;
+                ctm.Cust_job_subdistrict = string.IsNullOrEmpty(Cust_job_subdistrict_TBx.Text) ? "" : Cust_job_subdistrict_TBx.Text;
+                ctm.Cust_job_district = string.IsNullOrEmpty(Cust_job_district_TBx.Text) ? "" : Cust_job_district_TBx.Text;
+                ctm.Cust_job_province = Cust_job_province_DDL.SelectedIndex <= 0 ? 39 : Convert.ToInt32(Cust_job_province_DDL.SelectedValue);
+                ctm.Cust_job_country = string.IsNullOrEmpty(Cust_job_contry_TBx.Text) ? "" : Cust_job_contry_TBx.Text;
+                ctm.Cust_job_zipcode = string.IsNullOrEmpty(Cust_job_zipcode_TBx.Text) ? "" : Cust_job_zipcode_TBx.Text;
+                ctm.Cust_job_tel = string.IsNullOrEmpty(Cust_job_tel_TBx.Text) ? "" : Cust_job_tel_TBx.Text;
+                ctm.Cust_job_email = string.IsNullOrEmpty(Cust_job_email_TBx.Text) ? "" : Cust_job_email_TBx.Text;
+                ctm.Cust_job_salary = string.IsNullOrEmpty(Cust_job_salary_TBx.Text) ? 0 : Convert.ToDouble(Cust_job_salary_TBx.Text);
+                ctm.Cust_status_id = Cust_status_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_status_DDL.SelectedValue);
+
+                ctm_mng.editCustomers(ctm);
+            }
+            else
+            {
+                ctm.Cust_id = ctm_mng.generateCustomerID();
+                ctm.Cust_idcard = string.IsNullOrEmpty(Cust_idcard_TBx.Text) ? "" : Cust_idcard_TBx.Text;
+                ctm.Cust_Fname = string.IsNullOrEmpty(Cust_Fname_TBx.Text) ? "" : Cust_Fname_TBx.Text;
+                ctm.Cust_LName = string.IsNullOrEmpty(Cust_LName_TBx.Text) ? "" : Cust_LName_TBx.Text;
+                ctm.Cust_B_date = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_B_date_TBx.Text);
+                ctm.Cust_age = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? 0 : DateTime.Now.Year - (Convert.ToInt32(Cust_B_date_TBx.Text.Split('/')[2].ToString()) - 543);
+                ctm.Cust_Idcard_without = string.IsNullOrEmpty(Cust_Idcard_without_TBx.Text) ? "" : Cust_Idcard_without_TBx.Text;
+                ctm.Cust_Idcard_start = string.IsNullOrEmpty(Cust_Idcard_start_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_start_TBx.Text);
+                ctm.Cust_Idcard_expire = string.IsNullOrEmpty(Cust_Idcard_expire_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_expire_TBx.Text);
+                ctm.Cust_Nationality = Cust_Nationality_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_Nationality_DDL.SelectedValue);
+                ctm.Cust_Origin = Cust_Origin_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_Origin_DDL.SelectedValue);
+                ctm.Cust_job = string.IsNullOrEmpty(Cust_job_TBx.Text) ? "" : Cust_job_TBx.Text;
+                ctm.Cust_job_position = string.IsNullOrEmpty(Cust_job_position_TBx.Text) ? "" : Cust_job_position_TBx.Text;
+                ctm.Cust_job_long = string.IsNullOrEmpty(Cust_job_long_TBx.Text) ? 0 : Convert.ToInt32(Cust_job_long_TBx.Text);
+                ctm.Cust_job_local_name = string.IsNullOrEmpty(Cust_job_local_name_TBx.Text) ? "" : Cust_job_local_name_TBx.Text;
+                ctm.Cust_job_address_no = string.IsNullOrEmpty(Cust_job_address_no_TBx.Text) ? "" : Cust_job_address_no_TBx.Text;
+                ctm.Cust_job_vilage = string.IsNullOrEmpty(Cust_job_vilage_TBx.Text) ? "" : Cust_job_vilage_TBx.Text;
+                ctm.Cust_job_vilage_no = string.IsNullOrEmpty(Cust_job_vilage_no_TBx.Text) ? "" : Cust_job_vilage_no_TBx.Text;
+                ctm.Cust_job_alley = string.IsNullOrEmpty(Cust_job_alley_TBx.Text) ? "" : Cust_job_alley_TBx.Text;
+                ctm.Cust_job_road = string.IsNullOrEmpty(Cust_job_road_TBx.Text) ? "" : Cust_job_road_TBx.Text;
+                ctm.Cust_job_subdistrict = string.IsNullOrEmpty(Cust_job_subdistrict_TBx.Text) ? "" : Cust_job_subdistrict_TBx.Text;
+                ctm.Cust_job_district = string.IsNullOrEmpty(Cust_job_district_TBx.Text) ? "" : Cust_job_district_TBx.Text;
+                ctm.Cust_job_province = Cust_job_province_DDL.SelectedIndex <= 0 ? 39 : Convert.ToInt32(Cust_job_province_DDL.SelectedValue);
+                ctm.Cust_job_country = string.IsNullOrEmpty(Cust_job_contry_TBx.Text) ? "" : Cust_job_contry_TBx.Text;
+                ctm.Cust_job_zipcode = string.IsNullOrEmpty(Cust_job_zipcode_TBx.Text) ? "" : Cust_job_zipcode_TBx.Text;
+                ctm.Cust_job_tel = string.IsNullOrEmpty(Cust_job_tel_TBx.Text) ? "" : Cust_job_tel_TBx.Text;
+                ctm.Cust_job_email = string.IsNullOrEmpty(Cust_job_email_TBx.Text) ? "" : Cust_job_email_TBx.Text;
+                ctm.Cust_job_salary = string.IsNullOrEmpty(Cust_job_salary_TBx.Text) ? 0 : Convert.ToDouble(Cust_job_salary_TBx.Text);
+                ctm.Cust_status_id = Cust_status_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_status_DDL.SelectedValue);
+
+                ctm_mng.addCustomers(ctm);
+            }
+
+            _AddCustomerAddress(ctm.Cust_id);
+
+            Session["Customer"] = ctm;
 
             if (ctm.Cust_status_id == 2 || ctm.Cust_status_id == 3)
             {
-                _EditCustomerSpouse(ctm.Cust_id);
+                _AddCustomerSpouse(ctm.Cust_id);
             }
 
-            Alert_Success_Panel.Visible = true;
         }
 
-        private void _EditCustomerAddress(string custId)
+        private void _AddCustomerAddress(string custId)
         {
             // ที่อยู่ตามบัตรประชาชน
             Customers_Address ctmadd_idcard = new Customers_Address();
@@ -489,19 +680,30 @@ namespace JKLWebBase_v2.Form_Customer
 
             Customers_Address_Manager ctm_add_mng = new Customers_Address_Manager();
 
-            ctm_add_mng.editCustomersAddress(ctmadd_idcard);
-            ctm_add_mng.editCustomersAddress(ctmadd_home);
-            ctm_add_mng.editCustomersAddress(ctmadd_current);
+            if (Session["chk_customer"] != null)
+            {
+                ctm_add_mng.editCustomersAddress(ctmadd_idcard);
+                ctm_add_mng.editCustomersAddress(ctmadd_home);
+                ctm_add_mng.editCustomersAddress(ctmadd_current);
+            }
+            else
+            {
+                ctm_add_mng.addCustomersAddress(ctmadd_idcard);
+                ctm_add_mng.addCustomersAddress(ctmadd_home);
+                ctm_add_mng.addCustomersAddress(ctmadd_current);
+            }
         }
 
-        private void _EditCustomerSpouse(string custId)
+        private void _AddCustomerSpouse(string custId)
         {
             Customers_Spouse_Manager ctm_sp_mng = new Customers_Spouse_Manager();
 
             if (Session["chk_customer_spouse"] != null)
             {
-                Customers_Spouse cmarry = (Customers_Spouse)Session["chk_customer_spouse"];
+                Customers_Spouse cmarry_tmp = (Customers_Spouse)Session["chk_customer_spouse"];
+                Customers_Spouse cmarry = new Customers_Spouse();
 
+                cmarry.Cust_id = cmarry_tmp.Cust_id;
                 cmarry.Spouse_idcard = string.IsNullOrEmpty(Spouse_idcard_TBx.Text) ? "" : Spouse_idcard_TBx.Text;
                 cmarry.Spouse_Fname = string.IsNullOrEmpty(Spouse_Fname_TBx.Text) ? "" : Spouse_Fname_TBx.Text;
                 cmarry.Spouse_Lname = string.IsNullOrEmpty(Spouse_Lname_TBx.Text) ? "" : Spouse_Lname_TBx.Text;

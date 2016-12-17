@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Form_Customer {
+namespace JKLWebBase_v2.Form_Leasings {
     
     
-    public partial class Customer_Add {
+    public partial class Leasing_Add_Customer {
         
         /// <summary>
         /// Alert_Warning_Panel control.
@@ -31,22 +31,13 @@ namespace JKLWebBase_v2.Form_Customer {
         protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
         
         /// <summary>
-        /// Alert_Success_Panel control.
+        /// nav_tabs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Alert_Success_Panel;
-        
-        /// <summary>
-        /// Alert_Success_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Alert_Success_Lbl;
+        protected global::JKLWebBase_v2.Form_Main.Tabs_Menu_Leasings nav_tabs;
         
         /// <summary>
         /// Cust_idcard_Lbl control.

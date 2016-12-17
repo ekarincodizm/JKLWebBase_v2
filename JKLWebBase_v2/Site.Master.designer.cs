@@ -13,6 +13,42 @@ namespace JKLWebBase_v2 {
     public partial class SiteMaster {
         
         /// <summary>
+        /// Username_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Username_Lbl;
+        
+        /// <summary>
+        /// Job_Position_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Job_Position_Lbl;
+        
+        /// <summary>
+        /// Level_Access_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Level_Access_Lbl;
+        
+        /// <summary>
+        /// nav_menu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JKLWebBase_v2.Form_Main.Nav_Menu_Bar nav_menu;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

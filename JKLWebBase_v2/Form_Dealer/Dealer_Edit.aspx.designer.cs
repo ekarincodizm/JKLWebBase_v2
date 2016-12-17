@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Form_Leasings {
+namespace JKLWebBase_v2.Form_Dealer {
     
     
-    public partial class Car_Dealer_Add {
+    public partial class Dealer_Edit {
         
         /// <summary>
         /// Alert_Warning_Panel control.

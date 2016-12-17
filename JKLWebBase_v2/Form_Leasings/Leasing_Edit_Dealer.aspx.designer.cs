@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Form_Dealer {
+namespace JKLWebBase_v2.Form_Leasings {
     
     
-    public partial class Car_Dealer_Edit {
+    public partial class Leasing_Edit_Dealer {
         
         /// <summary>
         /// Alert_Warning_Panel control.
@@ -29,6 +29,15 @@ namespace JKLWebBase_v2.Form_Dealer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
+        
+        /// <summary>
+        /// Print_Menu1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JKLWebBase_v2.Form_Main.Print_Menu_Leasing Print_Menu1;
         
         /// <summary>
         /// nav_tabs control.

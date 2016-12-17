@@ -1,4 +1,4 @@
-﻿<%@ Page Title="เพิ่มข้อมูลนายหน้า" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Car_Dealer_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Car_Dealer_Add" %>
+﻿<%@ Page Title="เพิ่มข้อมูลนายหน้า" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Dealer_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Dealer.Dealer_Add" %>
 
 <%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="~/Form_Leasings/Tabs_Menu_Leasings.ascx" %>
 

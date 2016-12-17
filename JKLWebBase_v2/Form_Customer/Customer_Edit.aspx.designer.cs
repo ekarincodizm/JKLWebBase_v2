@@ -7,28 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Form_Leasings {
+namespace JKLWebBase_v2.Form_Customer {
     
     
     public partial class Customer_Edit {
         
         /// <summary>
-        /// Print_Menu1 control.
+        /// Alert_Success_Panel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JKLWebBase_v2.Form_Main.Print_Menu_Leasing Print_Menu1;
+        protected global::System.Web.UI.WebControls.Panel Alert_Success_Panel;
         
         /// <summary>
-        /// nav_tabs control.
+        /// Alert_Success_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JKLWebBase_v2.Form_Main.Tabs_Menu_Leasings nav_tabs;
+        protected global::System.Web.UI.WebControls.Label Alert_Success_Lbl;
         
         /// <summary>
         /// Cust_idcard_Lbl control.

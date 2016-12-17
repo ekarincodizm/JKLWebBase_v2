@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using JKLWebBase_v2.Global_Class;
@@ -10,15 +11,10 @@ using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Dealers;
 
 
-namespace JKLWebBase_v2.Form_Leasings
+namespace JKLWebBase_v2.Form_Dealer
 {
-    public partial class Car_Dealer_Add : System.Web.UI.Page
+    public partial class Dealer_Add : Page
     {
-        Car_Dealers cdl = new Car_Dealers();
-        Car_Leasings cls = new Car_Leasings();
-
-        Car_Dealers_Manager cdl_mng = new Car_Dealers_Manager();
-        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -27,11 +23,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 _loadDealerStatus();
             }
 
-            if (Session["Leasings"] != null)
-            {
-                cls = (Car_Leasings)Session["Leasings"];
-            }
-            else
+            if (Session["Leasings"] == null)
             {
                 Session["Class_Active"] = 2;
                 Response.Redirect("/Form_Leasings/Leasing_Add");
@@ -55,11 +47,17 @@ namespace JKLWebBase_v2.Form_Leasings
 
         protected void Dealer_Add_Save_Btn_Click(object sender, EventArgs e)
         {
+            if (Session["chk_Dealser"] == null)
+            {
+                _AddDealer();
+            }
+            else
+            {
+                Car_Leasings cls_tmp = (Car_Leasings)Session["Leasings"];
+                Car_Dealers cdl_tmp = (Car_Dealers)Session["chk_Dealser"];
 
-            _AddDealer();
-
-            _AddDealer_Value(cdl.Dealer_id, cls.Leasing_id);
-
+                _AddDealer_Value(cdl_tmp.Dealer_id, cls_tmp.Leasing_id);
+            }
 
             Session["Class_Active"] = 4;
 
@@ -120,7 +118,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
         private void _CheckDealer()
         {
-            cdl = new Car_Dealers_Manager().getDealerByIdCard(Dealer_idcard_TBx.Text);
+            Car_Dealers cdl = new Car_Dealers_Manager().getDealerByIdCard(Dealer_idcard_TBx.Text);
             if (cdl.Dealer_id != null)
             {
                 _GetDealer(cdl);
@@ -198,6 +196,9 @@ namespace JKLWebBase_v2.Form_Leasings
 
         private void _AddDealer()
         {
+            Car_Dealers_Manager cdl_mng = new Car_Dealers_Manager();
+            Car_Dealers cdl = new Car_Dealers();
+
             cdl.Dealer_id = cdl_mng.generateDealerID();
             cdl.Dealer_fname = string.IsNullOrEmpty(Dealer_fname_TBx.Text) ? "" : Dealer_fname_TBx.Text;
             cdl.Dealer_lname = string.IsNullOrEmpty(Dealer_lname_TBx.Text) ? "" : Dealer_lname_TBx.Text;
@@ -215,11 +216,14 @@ namespace JKLWebBase_v2.Form_Leasings
 
             cdl_mng.addDealer(cdl);
 
-            _AddDealer_Value(cdl.Dealer_id, cls.Leasing_id);
+            Car_Leasings cls_tmp = (Car_Leasings)Session["Leasings"];
+
+            _AddDealer_Value(cdl.Dealer_id, cls_tmp.Leasing_id);
         }
 
         private void _AddDealer_Value(string Dealer_id, string Leasing_id)
         {
+            Car_Dealers_Manager cdl_mng = new Car_Dealers_Manager();
             Car_Dealers_Values cdlval = new Car_Dealers_Values();
 
             cdlval.Dealer_id = Dealer_id;

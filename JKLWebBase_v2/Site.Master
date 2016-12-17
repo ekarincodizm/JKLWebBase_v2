@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="JKLWebBase_v2.SiteMaster" %>
 
+<%@ Register TagPrefix="nav_menu_bar" TagName="nav_Menu_bar" Src="Form_Main/Nav_Menu_Bar.ascx" %>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -16,8 +18,16 @@
 
 </head>
 <body>
-    <div style="background-color: #00e0ff; width: 100%; height: 150px;">
-        Logo
+    <div style="background-color: #004d00; width: 100%; height: 100px; color: #fff; padding: 10px;">
+        <div class="col-lg-6">
+            <i class="fa fa-bank fa-3x"></i>
+            <span style="font-size: 40pt;"> JaiKwang Financial Management System </span>
+        </div>
+        <div class="col-lg-6">
+            <p style="font-size: 12pt; text-align: right;"> ผู้ใช้งาน : <asp:Label ID="Username_Lbl" runat="server" ForeColor="Red" Enabled="false" Text="Test"> </asp:Label> </p>
+            <p style="font-size: 12pt; text-align: right;"> ตำแหน่ง : <asp:Label ID="Job_Position_Lbl" runat="server" ForeColor="Red" Enabled="false" Text="Test"> </asp:Label> </p>
+            <p style="font-size: 12pt; text-align: right;"> ระดับ : <asp:Label ID="Level_Access_Lbl" runat="server" ForeColor="Red" Enabled="false" Text="Test"> </asp:Label> </p>
+        </div>
     </div>
     <form runat="server">
         <asp:ScriptManager runat="server">
@@ -43,91 +53,17 @@
 
         <script type='text/javascript' src='../Scripts/jquery.datetimepicker.full.js'></script>
 
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" runat="server" href="/Form_Main/Main_JKL_Form"><i class="fa fa-bank fa-fw"></i>JKL Web App 2.0 <i class="fa fa-car fa-fw"></i></a>
-            </div>
-            <ul class="nav navbar-top-links navbar-left">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="~/">
-                        <i class="fa fa-book fa-fw"></i>สัญญาเช่า-ซื้อ  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="~/"><i class="fa fa-money fa-fw"></i>ชำระค่างวดเช่า - ซื้อ </a></li>
-                        <li class="divider"></li>
-                        <li><a href="/Form_Dealer/Car_Dealer_Add"><i class="fa fa-search fa-fw"></i>ค้นหาสัญญาฝาก </a></li>
-                        <li><a href="/Form_Leasings/Leasing_Add"><i class="fa fa-tag fa-fw"></i>เพิ่มสัญญาฝาก </a></li>
-                        <li class="divider"></li>
-                        <li><a href="/Form_Leasings/Leasing_Search"><i class="fa fa-search fa-fw"></i>ค้นหาสัญญาเช่า-ซื้อ </a></li>
-                        <li><a href="/Form_Customer/Customer_Add"><i class="fa fa-book fa-fw"></i>เพิ่มสัญญาเช่า-ซื้อ </a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-top-links navbar-left">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="~/">
-                        <i class="fa fa-file-text fa-fw"></i>รายงานลิสซิ่ง  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="~/"><i class="fa fa-file-pdf-o fa-fw"></i>รายงานสรุปชำระเงินประจำวัน  </a></li>
-                        <li><a href="~/"><i class="fa fa-file-pdf-o fa-fw"></i>รายงานสรุปชำระเงินประจำเดือน  </a></li>
-                        <li><a href="~/"><i class="fa fa-file-pdf-o fa-fw"></i>รายงานสรุปชำระเงินประจำปี  </a></li>
-                        <li class="divider"></li>
-                        <li><a href="~/"><i class="fa fa-file-text-o fa-fw"></i>รายงานแจ้งเตือนชำระค่างวด  </a></li>
-                        <li><a href="~/"><i class="fa fa-file-text-o fa-fw"></i>รายงานแจ้งเตือนชำระค่างวด (ผู้ค้ำ)  </a></li>
-                        <li><a href="~/"><i class="fa fa-file-text-o fa-fw"></i>รายงานค้างชำระ </a></li>
-                        <li><a href="~/"><i class="fa fa-file-text-o fa-fw"></i>รายงานขาดชำระ </a></li>
-                        <li><a href="~/"><i class="fa fa-file-text-o fa-fw"></i>รายงานเร่งรัด  </a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-top-links navbar-left">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="~/">
-                        <i class="fa fa-credit-card fa-fw"></i>สัญญาเงินกู้  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="~/"><i class="fa fa-search fa-fw"></i>ค้นหาสัญญาเงินกู้  </a></li>
-                        <li><a href="~/"><i class="fa fa-credit-card fa-fw"></i>เพิ่มสัญญาเงินกู้  </a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-top-links navbar-left">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="~/">
-                        <i class="fa fa-file-text fa-fw"></i>รายงานเงินกู้  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="~/"><i class="fa fa-file-pdf-o fa-fw"></i>รายงานสรุปชำระเงินประจำวัน  </a></li>
-                        <li><a href="~/"><i class="fa fa-file-pdf-o fa-fw"></i>รายงานสรุปชำระเงินประจำเดือน  </a></li>
-                        <li><a href="~/"><i class="fa fa-file-pdf-o fa-fw"></i>รายงานสรุปชำระเงินประจำปี  </a></li>
-                        <li class="divider"></li>
-                        <li><a href="~/"><i class="fa fa-file-text-o fa-fw"></i>รายงานแจ้งเตือนชำระเงิน  </a></li>
-                        <li><a href="~/"><i class="fa fa-file-text-o fa-fw"></i>รายงานแจ้งเตือนชำระเงิน (ผู้ค้ำ)  </a></li>
-                        <li><a href="~/"><i class="fa fa-file-text-o fa-fw"></i>รายงานค้างชำระ </a></li>
-                        <li><a href="~/"><i class="fa fa-file-text-o fa-fw"></i>รายงานขาดชำระ </a></li>
-                        <li><a href="~/"><i class="fa fa-file-text-o fa-fw"></i>รายงานเร่งรัด  </a></li>
-                    </ul>
-                </li>
-            </ul>
+        <!-- Tab MenuBar -->
+        <nav_menu_bar:nav_Menu_bar id="nav_menu" runat="server" />
 
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li><a href="../Authorization/Login" class="logout"><i class="fa fa-sign-out fa-fw"></i>Logout </a></li>
-            </ul>
-        </nav>
+        <!-- ./Tab MenuBar -->
 
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p style="text-align: center;"><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i>Develop By pap-syn_it@hotmail.com &copy; <%: DateTime.Now.Year %> - Thank ASP.NET Application <i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i></p>
+                <p style="text-align: center;"><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i> Develop By pap-syn_it@hotmail.com, &copy; <%: DateTime.Now.Year %> - Present, Thank for Microsoft .NET Application <i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i><i class="fa fa-fighter-jet fa-fw"></i></p>
             </footer>
         </div>
     </form>

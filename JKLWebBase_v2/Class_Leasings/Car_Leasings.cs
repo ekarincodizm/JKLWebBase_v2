@@ -2,7 +2,7 @@
 {
     public class Car_Leasings
     {
-        public string Leasing_id { get; set; } //ลำดับเลขสัญญาณา
+        public string Leasing_id { get; set; } //ลำดับเลขสัญญา
         public string Deps_no { get; set; } //เลขที่รับฝาก
         public string Leasing_no { get; set; } //เลขที่สัญญา
         public int Leasing_code_id { get; set; } //รหัสสัญญา
@@ -13,6 +13,7 @@
         public string PeReT { get; set; } //ผู้รับโอน (Person Receive Transfer)
         public int TotalPaymentTime { get; set; } //ระยะเวลาชำระเงิน
         public double Total_require { get; set; } //ยอดจัด / เงินต้น
+        public double Vat_rate { get; set; } //อัตราภาษี
         public double Interest_rate { get; set; } //อัตราดอกเบี้ย
         public int Total_period { get; set; } //ระยะเวลา / จำนวนงวด
         public double Total_sum { get; set; } //ยอดรวม / มูลค่า
@@ -56,7 +57,7 @@
         public string Car_agent { get; set; } //ตัวแทนรถ
         public string Car_old_owner { get; set; } //เจ้าของรถเดิม
         public string Car_old_owner_idcard { get; set; } //เลขบัตรประชาชนเจ้าของรถเดิม
-        public string Car_old_owner_b_date { get; set; } //วันที่ออกบัตรเจ้าของรถเดิม
+        public string Car_old_owner_b_date { get; set; } //วันเกิดเจ้าของรถเดิม
         public string Car_old_owner_address_no { get; set; } //บ้านเลขที่เจ้าของรถเดิม
         public string Car_old_owner_vilage { get; set; } //หมู่บ้าน
         public string Car_old_owner_vilage_no { get; set; } //หมู่ที่
@@ -77,6 +78,7 @@
         public string Cheque_receive_date { get; set; } //วันที่รับเช็ค / โอน
         public string Contract_status { get; set; } //สถานะสัญญา
         public string Leasings_save_date { get; set; } //วันที่บันทึกข้อมูล
+
 
     }
 }

@@ -11,7 +11,7 @@ namespace JKLWebBase_v2.Form_Main
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           /* if (Session["Customer"] != null && Session["Leasings"] == null)
+            if (Session["Customer"] != null && Session["Leasings"] == null)
             {
                 link_Customer_Add.Enabled = true;
                 link_Leasing_Add.Enabled = true;
@@ -52,7 +52,7 @@ namespace JKLWebBase_v2.Form_Main
                 link_Add_Car_Img.Enabled = false;
                 link_Add_Home_Img.Enabled = false;
                 link_List_Payment_Schedule.Enabled = false;
-            }*/
+            }
         }
 
         protected void link_Customer_Add_Click(object sender, EventArgs e)
@@ -61,11 +61,11 @@ namespace JKLWebBase_v2.Form_Main
 
             if (Session["Customer"] == null)
             {
-                Response.Redirect("/Form_Customer/Customer_Add");
+                Response.Redirect("/Form_Leasings/Leasing_Add_Customer");
             }
             else
             {
-                Response.Redirect("/Form_Customer/Customer_Edit");
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Customer");
             }
         }
 
@@ -90,11 +90,11 @@ namespace JKLWebBase_v2.Form_Main
 
             if (Session["Dealers"] == null)
             {
-                Response.Redirect("/Form_Dealer/Car_Dealer_Add");
+                Response.Redirect("/Form_Leasings/Leasing_Add_Dealer");
             }
             else
             {
-                Response.Redirect("/Form_Dealer/Car_Dealer_Edit");
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Dealer");
             }
         }
 
