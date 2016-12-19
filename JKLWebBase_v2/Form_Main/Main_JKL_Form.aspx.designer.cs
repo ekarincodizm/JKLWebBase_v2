@@ -31,22 +31,31 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_Search_Leasings;
         
         /// <summary>
-        /// LinkButton3 control.
+        /// link_Report_Payment_Daily_Leasings control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
+        protected global::System.Web.UI.WebControls.LinkButton link_Report_Payment_Daily_Leasings;
         
         /// <summary>
-        /// link_Search_Customers_Leasings control.
+        /// link_Search_Customers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Search_Customers_Leasings;
+        protected global::System.Web.UI.WebControls.LinkButton link_Search_Customers;
+        
+        /// <summary>
+        /// link_Search_Dealers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton link_Search_Dealers;
         
         /// <summary>
         /// LinkButton5 control.

@@ -31,22 +31,13 @@ namespace JKLWebBase_v2.Form_Customer {
         protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
         
         /// <summary>
-        /// Alert_Success_Panel control.
+        /// nav_tabs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Alert_Success_Panel;
-        
-        /// <summary>
-        /// Alert_Success_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Alert_Success_Lbl;
+        protected global::JKLWebBase_v2.Form_Customer.Tab_Menu_Customer nav_tabs;
         
         /// <summary>
         /// Cust_idcard_Lbl control.

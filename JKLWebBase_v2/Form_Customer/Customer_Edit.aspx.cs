@@ -22,13 +22,10 @@ namespace JKLWebBase_v2.Form_Customer
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["Customer"] == null)
-            {
-                Response.Redirect("/Form_Customer/Customer_Add");
-            }
-
             if (!IsPostBack)
             {
+                Session.Remove("List_Customers");
+
                 _loadHomeStatus();
                 _loadNationality();
                 _loadOrigin();
@@ -37,12 +34,29 @@ namespace JKLWebBase_v2.Form_Customer
 
                 Spouse_Panel.Visible = false;
 
-                ctm = (Customers)Session["Customer"];
+                if (Request.Params["code"] == null && Session["Customer"] == null)
+                {
+                    Response.Redirect("/Form_Customer/Customer_Add");
 
-                _GetCustomer(ctm);
+                }
+                else if (Request.Params["code"] != null)
+                {
+                    string[] code = Request.Params["code"].Split('U');
+                    string idcard = code[1];
+
+                    ctm = new Customers_Manager().getCustomersByIdCard(idcard);
+
+                    Session["Customer"] = ctm;
+
+                    _GetCustomer(ctm);
+                }
+                else
+                {
+                    ctm = (Customers)Session["Customer"];
+
+                    _GetCustomer(ctm);
+                }
             }
-
-            Alert_Success_Panel.Visible = false;
         }
 
         protected void Save_Btn_Click(object sender, EventArgs e)
@@ -417,12 +431,12 @@ namespace JKLWebBase_v2.Form_Customer
 
             _EditCustomerAddress(ctm.Cust_id);
 
+            Session["Customer"] = ctm;
+
             if (ctm.Cust_status_id == 2 || ctm.Cust_status_id == 3)
             {
                 _EditCustomerSpouse(ctm.Cust_id);
             }
-
-            Alert_Success_Panel.Visible = true;
         }
 
         private void _EditCustomerAddress(string custId)

@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <asp:LinkButton ID="LinkButton3" runat="server">
+                    <asp:LinkButton ID="link_Report_Payment_Daily_Leasings" runat="server" OnClick="link_Report_Payment_Daily_Leasings_Click">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -61,13 +61,12 @@
         </div>
 
         <div class="panel-heading">
-            ลูกค้า ( CUSTOMERS )
+            ผู้ติดต่อ ( CONTACT PERSON )
         </div>
         <div class="panel-body">
-
             <div class="row">
                 <div class="col-lg-4">
-                    <asp:LinkButton ID="link_Search_Customers_Leasings" runat="server" OnClick="link_Search_Customers_Leasings_Click">
+                    <asp:LinkButton ID="link_Search_Customers" runat="server" OnClick="link_Search_Customers_Click">
                     <div class="panel panel-warning">
                         <div class="panel-heading">
                             <div class="row">
@@ -75,7 +74,23 @@
                                     <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <h3> <strong> ค้นหาข้อมูลลูกค้า </strong> </h3>
+                                    <h3> <strong> ค้นหาข้อมูลผู้ติดต่อ </strong> </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </asp:LinkButton>
+                </div>
+                <div class="col-lg-4">
+                    <asp:LinkButton ID="link_Search_Dealers" runat="server" OnClick="link_Search_Dealers_Click">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-user fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <h3> <strong> ค้นหาข้อมูลนายหน้า </strong> </h3>
                                 </div>
                             </div>
                         </div>

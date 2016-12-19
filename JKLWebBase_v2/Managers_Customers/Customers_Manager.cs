@@ -48,6 +48,92 @@ namespace JKLWebBase_v2.Managers_Customers
             }
         }
 
+        public List<Customers> getCustomers(string idcard, string fname, string lname)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_customers ] :: 
+                 * g_customers (in i_Cust_idcard varchar(13), in i_Cust_Fname varchar(255), in i_Cust_LName varchar(255))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_customers", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Cust_idcard", idcard);
+                cmd.Parameters.AddWithValue("@i_Cust_Fname", fname);
+                cmd.Parameters.AddWithValue("@i_Cust_LName", lname);
+
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Customers> list_cust = new List<Customers>();
+
+                while (reader.Read())
+                {
+                    Customers cust = new Customers();
+
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    cust.Cust_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    cust.Cust_idcard = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    cust.Cust_Fname = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    cust.Cust_LName = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    cust.Cust_B_date = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    cust.Cust_age = reader.IsDBNull(5) ? defaultNum : reader.GetInt32(5);
+                    cust.Cust_Idcard_without = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+                    cust.Cust_Idcard_start = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
+                    cust.Cust_Idcard_expire = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
+                    cust.Cust_Nationality = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
+                    cust.Cust_Origin = reader.IsDBNull(10) ? defaultNum : reader.GetInt32(10);
+                    cust.Cust_job = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
+                    cust.Cust_job_position = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+                    cust.Cust_job_long = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
+                    cust.Cust_job_local_name = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+                    cust.Cust_job_address_no = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    cust.Cust_job_vilage = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+                    cust.Cust_job_vilage_no = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    cust.Cust_job_alley = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
+                    cust.Cust_job_road = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    cust.Cust_job_subdistrict = reader.IsDBNull(20) ? defaultString : reader.GetString(20);
+                    cust.Cust_job_district = reader.IsDBNull(21) ? defaultString : reader.GetString(21);
+                    cust.Cust_job_province = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
+                    cust.Cust_job_country = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
+                    cust.Cust_job_zipcode = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
+                    cust.Cust_job_tel = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
+                    cust.Cust_job_email = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
+                    cust.Cust_job_salary = reader.IsDBNull(27) ? defaultNum : reader.GetDouble(27);
+                    cust.Cust_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
+                    cust.Cust_save_date = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+
+                    list_cust.Add(cust);
+
+                }
+
+                return list_cust;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomers() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomers() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
         public Customers getCustomersByIdCard(string idcard)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();

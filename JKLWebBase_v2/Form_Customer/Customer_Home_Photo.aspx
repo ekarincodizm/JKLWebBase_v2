@@ -1,10 +1,17 @@
 ﻿<%@ Page Title="เพิ่มรูปบ้าน" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Customer_Home_Photo.aspx.cs" Inherits="JKLWebBase_v2.Form_Customer.Customer_Home_Photo" %>
 
+<%@ Register TagPrefix="nav_menu_cust" TagName="Tab_Menu_Cust" Src="Tab_Menu_Customer.ascx" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="col-lg-12">
-        <h4 class="page-header">เพิ่มรูปบ้าน </h4>
+        <h4 class="page-header"> เพิ่มรูปบ้าน </h4>
     </div>
+
+    <!-- Tab MenuBar -->
+    <nav_menu_cust:Tab_Menu_Cust id="nav_tabs" runat="server" />
+
+    <!-- ./Tab MenuBar -->
 
     <div class="row">
         <div class="col-lg-12">

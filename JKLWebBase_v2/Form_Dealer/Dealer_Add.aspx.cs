@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Dealers;
-using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Dealers;
 
@@ -23,11 +21,9 @@ namespace JKLWebBase_v2.Form_Dealer
                 _loadDealerStatus();
             }
 
-            if (Session["Leasings"] == null)
-            {
-                Session["Class_Active"] = 2;
-                Response.Redirect("/Form_Leasings/Leasing_Add");
-            }
+            Alert_Warning_Panel.Visible = false;
+            Alert_Success_Panel.Visible = false;
+            Alert_Danger_Panel.Visible = false;
         }
 
         protected void Dealer_idcard_TBx_TextChanged(object sender, EventArgs e)
@@ -40,30 +36,19 @@ namespace JKLWebBase_v2.Form_Dealer
             _CheckDealer();
         }
 
-        protected void Dealer_percen_TBx_TextChanged(object sender, EventArgs e)
-        {
-            _CalculatedCommission();
-        }
-
         protected void Dealer_Add_Save_Btn_Click(object sender, EventArgs e)
         {
             if (Session["chk_Dealser"] == null)
             {
                 _AddDealer();
+
+                Alert_Success_Panel.Visible = true;
             }
             else
             {
-                Car_Leasings cls_tmp = (Car_Leasings)Session["Leasings"];
-                Car_Dealers cdl_tmp = (Car_Dealers)Session["chk_Dealser"];
-
-                _AddDealer_Value(cdl_tmp.Dealer_id, cls_tmp.Leasing_id);
+                Alert_Danger_Panel.Visible = true;
+                Alert_Success_Panel.Visible = false;
             }
-
-            Session["Class_Active"] = 4;
-
-            Session["Number_Of_Bondsman"] = "1";
-
-            Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
         }
 
         /*******************************************************************************************************************************************************************************
@@ -84,32 +69,12 @@ namespace JKLWebBase_v2.Form_Dealer
             Dealer_province_DDL.SelectedValue = "39";
         }
 
-        // ดึงข้อมูลจังหวัดในประเทศไทย
+        // ประเภทนายหน้า
         private void _loadDealerStatus()
         {
             Dealer_status_DDL.Items.Add(new ListItem("บุคคลธรรมดา", "0"));
             Dealer_status_DDL.Items.Add(new ListItem("นิติบุคคล", "1"));
         }
-
-        /*******************************************************************************************************************************************************************************
-        ****************************************************                        Calculate   Function                        ********************************************************
-        ****************************************************                                                                    ********************************************************
-        *******************************************************************************************************************************************************************************/
-
-        // คำนวนค่านายหน้า
-        private void _CalculatedCommission()
-        {
-            if (!String.IsNullOrEmpty(Dealer_commission_TBx.Text) && !String.IsNullOrEmpty(Dealer_percen_TBx.Text))
-            {
-                double commission = Convert.ToDouble(Dealer_commission_TBx.Text); // ค่านายหน้า
-                double percen = Convert.ToDouble(Dealer_percen_TBx.Text) / 100; // % หัก ณ ที่จ่าย
-                double loss_com = commission * percen; // ค่าหัก ณ ที่จ่าย
-    
-                Dealer_cash_TBx.Text = loss_com.ToString("#,##0.00"); // ค่าหัก ณ ที่จ่าย
-                Dealer_net_com_TBx.Text = (commission - loss_com).ToString("#,##0.00"); // ค่านายหน้าสุทธิ
-            }
-        }
-
 
         /*******************************************************************************************************************************************************************************
         ****************************************************                               Check Data Function                  ********************************************************
@@ -126,10 +91,12 @@ namespace JKLWebBase_v2.Form_Dealer
                 Session["chk_Dealser"] = cdl;
 
                 Alert_Warning_Panel.Visible = false;
+                Alert_Success_Panel.Visible = false;
             }
             else
             {
                 Alert_Warning_Panel.Visible = true;
+                Alert_Success_Panel.Visible = false;
                 Alert_Id_Card_Lbl.Text = "ไม่พบเลขบัตรประชาชน " + Dealer_idcard_TBx.Text + " นี้ในระบบข้อมูลนายหน้า";
 
                 Dealer_idcard_TBx.Focus();
@@ -180,13 +147,6 @@ namespace JKLWebBase_v2.Form_Dealer
             Dealer_province_DDL.SelectedValue = "39";
             Dealer_country_TBx.Text = "ประเทศไทย";
             Dealer_zipcode_TBx.Text = "";
-            Dealer_commission_TBx.Text = "";
-            Dealer_percen_TBx.Text = "";
-            Dealer_cash_TBx.Text = "";
-            Dealer_net_com_TBx.Text = "";
-            Dealer_com_code_TBx.Text = "";
-            Dealer_bookcode_TBx.Text = "";
-            Dealer_date_print_TBx.Text = "";
         }
 
         /*******************************************************************************************************************************************************************************
@@ -215,28 +175,6 @@ namespace JKLWebBase_v2.Form_Dealer
             cdl.Dealer_zipcode = string.IsNullOrEmpty(Dealer_zipcode_TBx.Text) ? "" : Dealer_zipcode_TBx.Text;
 
             cdl_mng.addDealer(cdl);
-
-            Car_Leasings cls_tmp = (Car_Leasings)Session["Leasings"];
-
-            _AddDealer_Value(cdl.Dealer_id, cls_tmp.Leasing_id);
-        }
-
-        private void _AddDealer_Value(string Dealer_id, string Leasing_id)
-        {
-            Car_Dealers_Manager cdl_mng = new Car_Dealers_Manager();
-            Car_Dealers_Values cdlval = new Car_Dealers_Values();
-
-            cdlval.Dealer_id = Dealer_id;
-            cdlval.Dealer_commission = string.IsNullOrEmpty(Dealer_commission_TBx.Text) ? 0 : Convert.ToDouble(Dealer_commission_TBx.Text);
-            cdlval.Dealer_percen = string.IsNullOrEmpty(Dealer_percen_TBx.Text) ? 0 : Convert.ToDouble(Dealer_percen_TBx.Text);
-            cdlval.Dealer_cash = string.IsNullOrEmpty(Dealer_cash_TBx.Text) ? 0 : Convert.ToDouble(Dealer_cash_TBx.Text);
-            cdlval.Dealer_net_com = string.IsNullOrEmpty(Dealer_net_com_TBx.Text) ? 0 : Convert.ToDouble(Dealer_net_com_TBx.Text);
-            cdlval.Dealer_com_code = string.IsNullOrEmpty(Dealer_com_code_TBx.Text) ? "" : Dealer_com_code_TBx.Text;
-            cdlval.Dealer_bookcode = string.IsNullOrEmpty(Dealer_bookcode_TBx.Text) ? "" : Dealer_bookcode_TBx.Text;
-            cdlval.Dealer_date_print = string.IsNullOrEmpty(Dealer_date_print_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Dealer_date_print_TBx.Text);
-            cdlval.Leasing_id = Leasing_id;
-
-            cdl_mng.addDealerValues(cdlval);
         }
     }
 }

@@ -83,7 +83,7 @@ namespace JKLWebBase_v2.Form_Leasings
             Dealer_province_DDL.SelectedValue = "39";
         }
 
-        // ดึงข้อมูลจังหวัดในประเทศไทย
+        // ประเภทนายหน้า
         private void _loadDealerStatus()
         {
             Dealer_status_DDL.Items.Add(new ListItem("บุคคลธรรมดา", "0"));

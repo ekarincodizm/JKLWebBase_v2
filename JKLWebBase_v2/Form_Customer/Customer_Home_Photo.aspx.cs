@@ -13,5 +13,10 @@ namespace JKLWebBase_v2.Form_Customer
         {
 
         }
+
+        protected void Upload_Btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

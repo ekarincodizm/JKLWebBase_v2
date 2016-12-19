@@ -200,6 +200,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Form_Customer\Customer_Home_Photo.aspx" />
     <Content Include="Form_Customer\Customer_Search.aspx" />
+    <Content Include="Form_Customer\Tab_Menu_Customer.ascx" />
     <Content Include="Form_Dealer\Dealer_Add.aspx" />
     <Content Include="Form_Customer\Customer_Add.aspx" />
     <Content Include="Form_Customer\Customer_Edit.aspx" />
@@ -369,6 +370,13 @@
     <Compile Include="Form_Customer\Customer_Search.aspx.designer.cs">
       <DependentUpon>Customer_Search.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form_Customer\Tab_Menu_Customer.ascx.cs">
+      <DependentUpon>Tab_Menu_Customer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Customer\Tab_Menu_Customer.ascx.designer.cs">
+      <DependentUpon>Tab_Menu_Customer.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Form_Dealer\Dealer_Edit.aspx.cs">
       <DependentUpon>Dealer_Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -446,6 +454,7 @@
     <Compile Include="Form_Main\Nav_Menu_Bar.ascx.designer.cs">
       <DependentUpon>Nav_Menu_Bar.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Global_Class\CryptographyCode.cs" />
     <Compile Include="Global_Class\DateTimeUtility.cs" />
     <Compile Include="Global_Class\Log_Error.cs" />
     <Compile Include="Global_Class\MSSQLConnection.cs" />
@@ -538,6 +547,7 @@
     <Compile Include="Form_Main\Main_JKL_Form.aspx.designer.cs">
       <DependentUpon>Main_JKL_Form.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global_Class\RijndaelEnhanced.cs" />
     <Compile Include="Managers_Base\Base_Address_Types_Manager.cs" />
     <Compile Include="Managers_Base\Base_Branchs_Manager.cs" />
     <Compile Include="Managers_Base\Base_Car_Brand_Manager.cs" />

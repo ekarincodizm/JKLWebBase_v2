@@ -11,7 +11,7 @@ namespace JKLWebBase_v2.Form_Main
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Customer"] != null && Session["Leasings"] == null)
+            if (Session["Customer_Leasing"] != null && Session["Leasings"] == null)
             {
                 link_Customer_Add.Enabled = true;
                 link_Leasing_Add.Enabled = true;
@@ -25,7 +25,7 @@ namespace JKLWebBase_v2.Form_Main
                 link_Add_Home_Img.Enabled = false;
                 link_List_Payment_Schedule.Enabled = false;
             }
-            else if (Session["Customer"] != null && Session["Leasings"] != null)
+            else if (Session["Customer_Leasing"] != null && Session["Leasings"] != null)
             {
                 link_Customer_Add.Enabled = true;
                 link_Leasing_Add.Enabled = true;
@@ -59,7 +59,7 @@ namespace JKLWebBase_v2.Form_Main
         {
             Session["Class_Active"] = 1;
 
-            if (Session["Customer"] == null)
+            if (Session["Customer_Leasing"] == null)
             {
                 Response.Redirect("/Form_Leasings/Leasing_Add_Customer");
             }

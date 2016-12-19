@@ -11,7 +11,7 @@ namespace JKLWebBase_v2.Form_Main
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Remove("Customer");
         }
 
         protected void link_Payment_Leasings_Click(object sender, EventArgs e)
@@ -19,14 +19,25 @@ namespace JKLWebBase_v2.Form_Main
 
         }
 
-        protected void link_Search_Customers_Leasings_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Form_Customer/Customer_Search");
-        }
-
         protected void link_Search_Leasings_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Form_Leasings/Leasing_Search");
         }
+
+        protected void link_Report_Payment_Daily_Leasings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void link_Search_Customers_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Form_Customer/Customer_Search");
+        }
+
+        protected void link_Search_Dealers_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Form_Dealer/Dealer_Search");
+        }
+        
     }
 }

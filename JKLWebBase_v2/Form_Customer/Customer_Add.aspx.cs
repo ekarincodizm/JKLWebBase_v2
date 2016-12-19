@@ -29,7 +29,6 @@ namespace JKLWebBase_v2.Form_Customer
             }
 
             Alert_Warning_Panel.Visible = false;
-            Alert_Success_Panel.Visible = false;
         }
 
         protected void Cust_idcard_TBx_TextChanged(object sender, EventArgs e)
@@ -78,6 +77,8 @@ namespace JKLWebBase_v2.Form_Customer
             Session.Remove("chk_customer");
             Session.Remove("chk_customer_spouse");
 
+            Session["Class_Active_Customer"] = 2;
+            Response.Redirect("/Form_Customer/Customer_Home_Photo");
         }
 
         /*******************************************************************************************************************************************************************************
@@ -603,15 +604,15 @@ namespace JKLWebBase_v2.Form_Customer
 
                 ctm_mng.addCustomers(ctm);
             }
-            
+
+            Session["Customer"] = ctm;
+
             _AddCustomerAddress(ctm.Cust_id);
 
             if (ctm.Cust_status_id == 2 || ctm.Cust_status_id == 3)
             {
                 _AddCustomerSpouse(ctm.Cust_id);
             }
-
-            Alert_Success_Panel.Visible = true;
         }
 
         private void _AddCustomerAddress(string custId)

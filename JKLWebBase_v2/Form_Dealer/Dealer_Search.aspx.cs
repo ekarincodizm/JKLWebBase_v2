@@ -13,5 +13,10 @@ namespace JKLWebBase_v2.Form_Dealer
         {
 
         }
+
+        protected void Search_Btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

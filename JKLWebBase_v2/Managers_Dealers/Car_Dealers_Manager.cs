@@ -273,5 +273,61 @@ namespace JKLWebBase_v2.Managers_Dealers
                 con.Close();
             }
         }
+
+        public bool editDealer(Car_Dealers cdl)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ u_car_dealers ] :: 
+                 * u_car_dealers (in i_Dealer_id varchar(50),            in i_Dealer_fname varchar(255),         in i_Dealer_lname varchar(255),     in i_Dealer_idcard varchar(13), 
+				 *	              in i_Dealer_address_no varchar(255),   in i_Dealer_vilage varchar(255),        in i_Dealer_vilage_no varchar(255), in i_Dealer_alley varchar(255), 
+				 *	              in i_Dealer_road varchar(255),         in i_Dealer_subdistrict varchar(255),   in i_Dealer_district varchar(255),  in i_Dealer_province int(11), 
+				 *	              in i_Dealer_country varchar(255),      in i_Dealer_zipcode varchar(255),       in i_Dealer_status int(11))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("u_car_dealers", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Dealer_id", cdl.Dealer_id);
+                cmd.Parameters.AddWithValue("@i_Dealer_fname", cdl.Dealer_fname);
+                cmd.Parameters.AddWithValue("@i_Dealer_lname", cdl.Dealer_lname);
+                cmd.Parameters.AddWithValue("@i_Dealer_idcard", cdl.Dealer_idcard);
+                cmd.Parameters.AddWithValue("@i_Dealer_address_no", cdl.Dealer_address_no);
+                cmd.Parameters.AddWithValue("@i_Dealer_vilage", cdl.Dealer_vilage);
+                cmd.Parameters.AddWithValue("@i_Dealer_vilage_no", cdl.Dealer_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Dealer_alley", cdl.Dealer_alley);
+                cmd.Parameters.AddWithValue("@i_Dealer_road", cdl.Dealer_road);
+                cmd.Parameters.AddWithValue("@i_Dealer_subdistrict", cdl.Dealer_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Dealer_district", cdl.Dealer_district);
+                cmd.Parameters.AddWithValue("@i_Dealer_province", cdl.Dealer_province);
+                cmd.Parameters.AddWithValue("@i_Dealer_country", cdl.Dealer_country);
+                cmd.Parameters.AddWithValue("@i_Dealer_zipcode", cdl.Dealer_zipcode);
+                cmd.Parameters.AddWithValue("@i_Dealer_status", cdl.Dealer_status);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> editDealer() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> editDealer() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

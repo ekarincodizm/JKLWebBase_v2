@@ -17,7 +17,7 @@ namespace JKLWebBase_v2.Form_Leasings
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Customer"] == null)
+            if (Session["Customer_Leasing"] == null)
             {
                 Session["Class_Active"] = 1;
                 Response.Redirect("/Form_Leasings/Leasing_Add_Customer");
@@ -380,7 +380,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Car_old_owner_contry = string.IsNullOrEmpty(Car_Old_Owner_Contry_TBx.Text) ? "" : Car_Old_Owner_Contry_TBx.Text;
             cls.Car_old_owner_zipcode = string.IsNullOrEmpty(Car_Old_Owner_Zipcode_TBx.Text) ? "" : Car_Old_Owner_Zipcode_TBx.Text;
 
-            Customers ctm = (Customers)Session["Customer"];
+            Customers ctm = (Customers)Session["Customer_Leasing"];
 
             cls.Cust_id = ctm.Cust_id;
             cls.Tent_car_id = Tent_car_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Tent_car_DDL.SelectedValue);

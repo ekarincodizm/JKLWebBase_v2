@@ -26,7 +26,19 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Menu_Add_Customer_Click(object sender, EventArgs e)
         {
+            Session["Class_Active_Customer"] = 1;
+
             Response.Redirect("/Form_Customer/Customer_Add");
+        }
+
+        protected void link_Menu_Search_Dealer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Form_Dealer/Dealer_Search");
+        }
+
+        protected void link_Menu_Add_Dealer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Form_Dealer/Dealer_Add");
         }
 
         protected void link_Menu_Pyament_Leasing_Click(object sender, EventArgs e)
@@ -58,5 +70,7 @@ namespace JKLWebBase_v2.Form_Main
         {
             Response.Redirect("/Authorization/Login");
         }
+
+
     }
 }

@@ -22,7 +22,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Customer"] == null)
+            if (Session["Customer_Leasing"] == null)
             {
                 Session["Class_Active"] = 1;
                 Response.Redirect("/Form_Leasings/Leasing_Edit_Customer");
@@ -38,7 +38,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
                 Spouse_Panel.Visible = false;
 
-                ctm = (Customers)Session["Customer"];
+                ctm = (Customers)Session["Customer_Leasing"];
 
                 _GetCustomer(ctm);
             }
@@ -390,7 +390,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
         private void _EditCustomer()
         {
-            ctm = (Customers)Session["Customer"];
+            ctm = (Customers)Session["Customer_Leasing"];
 
             ctm.Cust_idcard = string.IsNullOrEmpty(Cust_idcard_TBx.Text) ? "" : Cust_idcard_TBx.Text;
             ctm.Cust_Fname = string.IsNullOrEmpty(Cust_Fname_TBx.Text) ? "" : Cust_Fname_TBx.Text;
@@ -427,7 +427,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             _EditCustomerAddress(ctm.Cust_id);
 
-            Session["Customer"] = ctm;
+            Session["Customer_Leasing"] = ctm;
 
             if (ctm.Cust_status_id == 2 || ctm.Cust_status_id == 3)
             {

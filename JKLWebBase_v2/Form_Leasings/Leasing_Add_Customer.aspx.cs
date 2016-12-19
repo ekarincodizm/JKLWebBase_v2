@@ -607,7 +607,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             _AddCustomerAddress(ctm.Cust_id);
 
-            Session["Customer"] = ctm;
+            Session["Customer_Leasing"] = ctm;
 
             if (ctm.Cust_status_id == 2 || ctm.Cust_status_id == 3)
             {

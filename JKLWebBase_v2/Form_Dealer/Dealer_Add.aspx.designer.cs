@@ -31,22 +31,40 @@ namespace JKLWebBase_v2.Form_Dealer {
         protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
         
         /// <summary>
-        /// Print_Menu1 control.
+        /// Alert_Success_Panel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JKLWebBase_v2.Form_Main.Print_Menu_Leasing Print_Menu1;
+        protected global::System.Web.UI.WebControls.Panel Alert_Success_Panel;
         
         /// <summary>
-        /// nav_tabs control.
+        /// alert_success_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JKLWebBase_v2.Form_Main.Tabs_Menu_Leasings nav_tabs;
+        protected global::System.Web.UI.WebControls.Label alert_success_Lbl;
+        
+        /// <summary>
+        /// Alert_Danger_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Alert_Danger_Panel;
+        
+        /// <summary>
+        /// alert_danger_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label alert_danger_Lbl;
         
         /// <summary>
         /// Dealer_idcard_Lbl control.
@@ -56,6 +74,15 @@ namespace JKLWebBase_v2.Form_Dealer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Dealer_idcard_Lbl;
+        
+        /// <summary>
+        /// RFV_Cust_idcard_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Cust_idcard_TBx;
         
         /// <summary>
         /// Dealer_idcard_TBx control.
@@ -85,6 +112,15 @@ namespace JKLWebBase_v2.Form_Dealer {
         protected global::System.Web.UI.WebControls.Label Dealer_fname_Lbl;
         
         /// <summary>
+        /// RFV_Dealer_fname_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Dealer_fname_TBx;
+        
+        /// <summary>
         /// Dealer_fname_TBx control.
         /// </summary>
         /// <remarks>
@@ -101,6 +137,15 @@ namespace JKLWebBase_v2.Form_Dealer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Dealer_lname_Lbl;
+        
+        /// <summary>
+        /// RFV_Dealer_lname_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Dealer_lname_TBx;
         
         /// <summary>
         /// Dealer_lname_TBx control.
@@ -308,132 +353,6 @@ namespace JKLWebBase_v2.Form_Dealer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Dealer_status_DDL;
-        
-        /// <summary>
-        /// Dealer_commission_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_commission_Lbl;
-        
-        /// <summary>
-        /// Dealer_commission_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_commission_TBx;
-        
-        /// <summary>
-        /// Dealer_percen_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_percen_Lbl;
-        
-        /// <summary>
-        /// Dealer_percen_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_percen_TBx;
-        
-        /// <summary>
-        /// Dealer_cash_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_cash_Lbl;
-        
-        /// <summary>
-        /// Dealer_cash_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_cash_TBx;
-        
-        /// <summary>
-        /// Dealer_net_com_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_net_com_Lbl;
-        
-        /// <summary>
-        /// Dealer_net_com_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_net_com_TBx;
-        
-        /// <summary>
-        /// Dealer_bookcode_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_bookcode_Lbl;
-        
-        /// <summary>
-        /// Dealer_bookcode_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_bookcode_TBx;
-        
-        /// <summary>
-        /// Dealer_com_code_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_com_code_Lbl;
-        
-        /// <summary>
-        /// Dealer_com_code_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_com_code_TBx;
-        
-        /// <summary>
-        /// Dealer_date_print_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Dealer_date_print_Lbl;
-        
-        /// <summary>
-        /// Dealer_date_print_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Dealer_date_print_TBx;
         
         /// <summary>
         /// Dealer_Add_Save_Btn control.

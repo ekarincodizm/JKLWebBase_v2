@@ -12,14 +12,21 @@
     <ul class="nav navbar-top-links navbar-left">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="~/">
-                <i class="fa fa-group fa-fw"></i>ลูกค้า - ลูกหนี้ <i class="fa fa-caret-down"></i>
+                <i class="fa fa-group fa-fw"></i> ผู้ติดต่อ <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li>
-                    <asp:LinkButton ID="link_Menu_Search_Customer" runat="server" OnClick="link_Menu_Search_Customer_Click"> <i class="fa fa-search fa-fw"></i> ค้นหาข้อมูลลูกค้า </asp:LinkButton>
+                    <asp:LinkButton ID="link_Menu_Search_Customer" runat="server" OnClick="link_Menu_Search_Customer_Click"> <i class="fa fa-search fa-fw"></i> ค้นหาข้อมูลผู้ติดต่อ </asp:LinkButton>
                 </li>
                 <li>
-                    <asp:LinkButton ID="link_Menu_Add_Customer" runat="server" OnClick="link_Menu_Add_Customer_Click"> <i class="fa fa-user fa-fw"></i> เพิ่มข้อมูลลูกค้า </asp:LinkButton>
+                    <asp:LinkButton ID="link_Menu_Add_Customer" runat="server" OnClick="link_Menu_Add_Customer_Click"> <i class="fa fa-user fa-fw"></i> เพิ่มข้อมูลผู้ติดต่อ </asp:LinkButton>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <asp:LinkButton ID="link_Menu_Search_Dealer" runat="server" OnClick="link_Menu_Search_Dealer_Click"> <i class="fa fa-search fa-fw"></i> ค้นหาข้อมูลนายหน้า </asp:LinkButton>
+                </li>
+                <li>
+                    <asp:LinkButton ID="link_Menu_Add_Dealer" runat="server" OnClick="link_Menu_Add_Dealer_Click"> <i class="fa fa-user fa-fw"></i> เพิ่มข้อมูลนายหน้า </asp:LinkButton>
                 </li>
             </ul>
         </li>
@@ -56,6 +63,9 @@
                 <i class="fa fa-file-text fa-fw"></i>รายงานลิสซิ่ง  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
+                <li>
+                    <asp:LinkButton ID="LinkButton1" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำวัน </asp:LinkButton>
+                </li>
                 <li>
                     <asp:LinkButton ID="LinkButton9" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำเดือน </asp:LinkButton>
                 </li>
@@ -102,6 +112,9 @@
                 <i class="fa fa-file-text fa-fw"></i>รายงานเงินกู้  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
+                <li>
+                    <asp:LinkButton ID="LinkButton2" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำวัน </asp:LinkButton>
+                </li>
                 <li>
                     <asp:LinkButton ID="LinkButton17" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำเดือน </asp:LinkButton>
                 </li>

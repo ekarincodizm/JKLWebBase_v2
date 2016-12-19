@@ -40,6 +40,24 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_Menu_Add_Customer;
         
         /// <summary>
+        /// link_Menu_Search_Dealer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Search_Dealer;
+        
+        /// <summary>
+        /// link_Menu_Add_Dealer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Add_Dealer;
+        
+        /// <summary>
         /// link_Menu_Pyament_Leasing control.
         /// </summary>
         /// <remarks>
@@ -83,6 +101,15 @@ namespace JKLWebBase_v2.Form_Main {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton link_Menu_Leasing_Add;
+        
+        /// <summary>
+        /// LinkButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
         
         /// <summary>
         /// LinkButton9 control.
@@ -164,6 +191,15 @@ namespace JKLWebBase_v2.Form_Main {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton8;
+        
+        /// <summary>
+        /// LinkButton2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
         
         /// <summary>
         /// LinkButton17 control.

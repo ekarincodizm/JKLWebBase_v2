@@ -21,7 +21,7 @@
                     <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-xs-2">
-                    <asp:Label ID="Label4" runat="server"> ชื่อ-นามสกุลลูกค้า </asp:Label>
+                    <asp:Label ID="Label4" runat="server"> ชื่อ-นามสกุล </asp:Label>
                     <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-xs-2">
