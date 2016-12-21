@@ -34,11 +34,11 @@ namespace JKLWebBase_v2.Global_Class
             return result.ToString();
         }
 
-        public static string EncodeTOAddressBar(string inputcode, string value)
+        public static string EncodeTOAddressBar(string inputcode, string value1, string value2)
         {
             string f_code = inputcode.Substring(0, 64);
             string l_code = inputcode.Substring(64);
-            string code = f_code + "U" + value + "U" + l_code;
+            string code = f_code + "U" + value1 + "U" + value2 + "U" + l_code;
             return code;
         }
     }

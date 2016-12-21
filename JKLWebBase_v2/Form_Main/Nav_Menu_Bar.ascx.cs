@@ -21,11 +21,15 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Menu_Search_Customer_Click(object sender, EventArgs e)
         {
+            Session["Class_Active_Customer"] = 1;
+
             Response.Redirect("/Form_Customer/Customer_Search");
         }
 
         protected void link_Menu_Add_Customer_Click(object sender, EventArgs e)
         {
+            Session.Remove("Customer");
+
             Session["Class_Active_Customer"] = 1;
 
             Response.Redirect("/Form_Customer/Customer_Add");

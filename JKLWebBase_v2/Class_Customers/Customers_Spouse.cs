@@ -37,7 +37,9 @@
         public string Spouse_tel { get; set; } //มือถือ
         public string Spouse_email { get; set; } //อีเมล์
         public string Spouse_save_date { get; set; }
-
-
+        public string Spouse_Nationality_name { get; set; }
+        public string Spouse_Origin_name { get; set; }
+        public string Spouse_province_name { get; set; }
+        public string Spouse_job_province_name { get; set; }
     }
 }

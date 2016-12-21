@@ -32,6 +32,10 @@
         public double Cust_job_salary { get; set; } //เงินเดือน
         public int Cust_status_id { get; set; } //รหัสสถานะภาพการสมรส
         public string Cust_save_date { get; set; }
+        public string Cust_Nationality_name { get; set; }
+        public string Cust_Origin_name { get; set; }
+        public string Cust_job_province_name { get; set; }
+        public string Cust_status_name { get; set; }
 
     }
 }

@@ -192,6 +192,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Form_Customer\Customer_Home_Photo_Remove.aspx" />
+    <Content Include="Index.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -253,6 +255,7 @@
     <Content Include="Reports\Leasings\Front_Card\Front_Card_Ds.xsc">
       <DependentUpon>Front_Card_Ds.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\JKLWebBase.pubxml" />
     <None Include="Reports\Leasings\Front_Card\Front_Card_Ds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -362,6 +365,13 @@
     </Compile>
     <Compile Include="Form_Customer\Customer_Home_Photo.aspx.designer.cs">
       <DependentUpon>Customer_Home_Photo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Customer\Customer_Home_Photo_Remove.aspx.cs">
+      <DependentUpon>Customer_Home_Photo_Remove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Customer\Customer_Home_Photo_Remove.aspx.designer.cs">
+      <DependentUpon>Customer_Home_Photo_Remove.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Customer\Customer_Search.aspx.cs">
       <DependentUpon>Customer_Search.aspx</DependentUpon>

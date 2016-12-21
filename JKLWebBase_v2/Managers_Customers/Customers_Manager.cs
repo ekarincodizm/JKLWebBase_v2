@@ -24,7 +24,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 string id = "";
                 if (reader.Read())
                 {
-                    id = reader.GetString(0);
+                    id = reader.IsDBNull(0) ? "" : reader.GetString(0);
                 }
 
                 return id;
@@ -108,6 +108,10 @@ namespace JKLWebBase_v2.Managers_Customers
                     cust.Cust_job_salary = reader.IsDBNull(27) ? defaultNum : reader.GetDouble(27);
                     cust.Cust_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
                     cust.Cust_save_date = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    cust.Cust_Nationality_name = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    cust.Cust_Origin_name = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
+                    cust.Cust_job_province_name = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    cust.Cust_status_name = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
 
                     list_cust.Add(cust);
 
@@ -132,7 +136,6 @@ namespace JKLWebBase_v2.Managers_Customers
                 con.Close();
             }
         }
-
 
         public Customers getCustomersByIdCard(string idcard)
         {
@@ -189,6 +192,10 @@ namespace JKLWebBase_v2.Managers_Customers
                     cust.Cust_job_salary = reader.IsDBNull(27) ? defaultNum : reader.GetDouble(27);
                     cust.Cust_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
                     cust.Cust_save_date = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    cust.Cust_Nationality_name = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    cust.Cust_Origin_name = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
+                    cust.Cust_job_province_name = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    cust.Cust_status_name = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
 
                 }
 
@@ -268,13 +275,13 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> addCustomers(Customers cust) : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> addCustomers() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> addCustomers(Customers cust) : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> addCustomers() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }
@@ -340,13 +347,293 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> editCustomers(Customers cust) : " + ex.Message.ToString();
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> editCustomers() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> editCustomers(Customers cust) : " + ex.Message.ToString();
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> editCustomers( : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public string generateDigitID()
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                con.Open();
+                string sql = "SELECT * FROM v_getdigit ";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                string id = "";
+                if (reader.Read())
+                {
+                    id = reader.IsDBNull(0) ? "" : reader.GetString(0);
+                }
+
+                return id;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> generateDigitID() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> generateDigitID() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public string getLastNumberPhotoId(string Cust_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_last_customers_homeaddress_photo_by_id ] :: 
+                 * g_last_customers_homeaddress_photo_by_id (IN i_Cust_id varchar(50), IN i_Address_type_id int(11))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_last_customers_homeaddress_photo_by_id", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                string digit = "";
+
+                if (reader.Read())
+                {
+                    digit = reader.IsDBNull(0) ? "" : reader.GetString(0);
+                }
+
+                return digit;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getLastNumberPhotoId() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> getLastNumberPhotoId() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<Customers_Homeaddress_Photo> getCustomersHomePhoto(string Cust_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_customers_homeaddress_photo ] :: 
+                 * g_customers_homeaddress_photo (IN i_Cust_id varchar(50))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_customers_homeaddress_photo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Customers_Homeaddress_Photo> list_ctm_photo = new List<Customers_Homeaddress_Photo>();
+
+                while (reader.Read())
+                {
+                    Customers_Homeaddress_Photo ctm_photo = new Customers_Homeaddress_Photo();
+
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    ctm_photo.Cust_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    ctm_photo.Home_img_num = reader.IsDBNull(1) ? defaultNum : reader.GetInt32(1);
+                    ctm_photo.Home_img_old_name = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    ctm_photo.Home_img_path = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    ctm_photo.Home_img_full_path = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    ctm_photo.Home_img_local_path = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
+                    ctm_photo.Home_img_save_date = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+
+                    list_ctm_photo.Add(ctm_photo);
+
+                }
+
+                return list_ctm_photo;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhoto() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhoto() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public Customers_Homeaddress_Photo getCustomersHomePhotoSelected(string Cust_id, string Home_img_num)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_customers_home_photo_for_remove ] :: 
+                 * g_customers_home_photo_for_remove (IN i_Cust_id varchar(50), IN i_Home_img_num INT(11))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_customers_home_photo_for_remove", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
+                cmd.Parameters.AddWithValue("@i_Home_img_num", Home_img_num);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Customers_Homeaddress_Photo ctm_photo = new Customers_Homeaddress_Photo();
+
+                if (reader.Read())
+                {
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    ctm_photo.Cust_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    ctm_photo.Home_img_num = reader.IsDBNull(1) ? defaultNum : reader.GetInt32(1);
+                    ctm_photo.Home_img_old_name = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    ctm_photo.Home_img_path = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    ctm_photo.Home_img_full_path = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    ctm_photo.Home_img_local_path = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
+                    ctm_photo.Home_img_save_date = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+
+                }
+
+                return ctm_photo;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhotoSelected) : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhotoSelected() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool addCustomersHomePhoto(Customers_Homeaddress_Photo ctm_photo)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ i_customers_homeaddress_photo ] :: 
+                 * i_customers_homeaddress_photo   (in i_Cust_id varchar(50),       in i_Home_img_num int(11),      in i_Home_img_old_name text,    in i_Home_img_path text, 
+				 *					                in i_Home_img_full_path text,   in i_Home_img_local_path text)
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_customers_homeaddress_photo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Cust_id", ctm_photo.Cust_id);
+                cmd.Parameters.AddWithValue("@i_Home_img_num", ctm_photo.Home_img_num);
+                cmd.Parameters.AddWithValue("@i_Home_img_old_name", ctm_photo.Home_img_old_name);
+                cmd.Parameters.AddWithValue("@i_Home_img_path", ctm_photo.Home_img_path);
+                cmd.Parameters.AddWithValue("@i_Home_img_full_path", ctm_photo.Home_img_full_path);
+                cmd.Parameters.AddWithValue("@i_Home_img_local_path", ctm_photo.Home_img_local_path);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> addCustomersHomePhoto() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> addCustomersHomePhoto() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool removeCustomersHomePhoto(string Cust_id, int Home_img_num)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ d_customers_homeaddress_photo ] :: 
+                 * d_customers_homeaddress_photo (IN i_Cust_id varchar(50), IN i_Home_img_num INT(11))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("d_customers_homeaddress_photo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
+                cmd.Parameters.AddWithValue("@i_Home_img_num", Home_img_num);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> removeCustomersHomePhoto() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> removeCustomersHomePhoto() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }

@@ -19,6 +19,10 @@
         public string Cust_Gps_Latitude { get; set; } //ตำแหน่งละติจูดจากดาวเทียม
         public string Cust_Gps_Longitude { get; set; } //ตำแหน่งลองติจูดจากดาวเทียม
         public string Cust_Address_Save_date { get; set; }
+        public string Cust_Address_type_name { get; set; }
+        public string Cust_Province_name { get; set; }
+        public string Cust_Home_status_name { get; set; }
+        public string Address_inline { get; set; }
 
     }
 }

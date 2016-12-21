@@ -41,32 +41,22 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th style="text-align: center; width: 5%;"># </th>
+                            <th style="text-align: center; width: 2%;"># </th>
                             <th style="text-align: center; width: 10%;">รหัสบัตรประชาชน </th>
                             <th style="text-align: center; width: 20%;">ชื่อ - นามสกุล </th>
                             <th style="text-align: center; width: 55%;">ที่อยู่ตามทะเบียนบ้าน </th>
+                            <th style="text-align: center; width: 8%;">โทรศัพท์ </th>
                             <th style="text-align: center; width: 5%;"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <% 
                             List<Customers> list_cust = (List<Customers>)Session["List_Customers"];
-                            RijndaelEnhanced encode = new RijndaelEnhanced("jkl");
 
                             for (int i = 0; i < list_cust.Count; i++)
                             {
                                 Customers ctm = list_cust[i];
                                 Customers_Address ctm_add = new Customers_Address_Manager().getCustomersAddressByCustomerId(ctm.Cust_id, 2);
-                                string address = "";
-                                address += string.IsNullOrEmpty(ctm_add.Cust_Address_no) ? "" : ctm_add.Cust_Address_no;
-                                address += string.IsNullOrEmpty(ctm_add.Cust_Vilage) ? "" : " บ." + ctm_add.Cust_Vilage;
-                                address += string.IsNullOrEmpty(ctm_add.Cust_Vilage_no) ? "" : " ม." + ctm_add.Cust_Vilage_no;
-                                address += string.IsNullOrEmpty(ctm_add.Cust_Alley) ? "" : " ซ." + ctm_add.Cust_Alley;
-                                address += string.IsNullOrEmpty(ctm_add.Cust_Road) ? "" : " ถ." + ctm_add.Cust_Road;
-                                address += string.IsNullOrEmpty(ctm_add.Cust_Subdistrict) ? "" : " ต." + ctm_add.Cust_Subdistrict;
-                                address += string.IsNullOrEmpty(ctm_add.Cust_District) ? "" : " อ." + ctm_add.Cust_District;
-                                address += ctm_add.Cust_Province == 0 ? "" : " จ." + ctm_add.Cust_Province;
-                                address += string.IsNullOrEmpty(ctm_add.Cust_Zipcode) ? "" : " " + ctm_add.Cust_Zipcode;
 
                                 string ogn_code = CryptographyCode.GenerateSHA512String(ctm.Cust_idcard);
                         %>
@@ -74,9 +64,10 @@
                             <td style="text-align: center;"><%= i + 1 %></td>
                             <td style="text-align: center;"><%= ctm.Cust_idcard %></td>
                             <td><%= ctm.Cust_Fname + " " + ctm.Cust_LName %></td>
-                            <td><%= address %></td>
+                            <td><%= ctm_add.Address_inline %></td>
+                            <td><%= ctm_add.Cust_Tel %></td>
                             <td>
-                                <a class="btn btn-xs btn-warning btn-block" href="Customer_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm.Cust_idcard) %>"><i class="fa fa-edit"></i>แก้ไข </a>
+                                <a class="btn btn-xs btn-warning btn-block" href="Customer_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm.Cust_idcard, "") %>"><i class="fa fa-edit"></i>แก้ไข </a>
                             </td>
                         </tr>
                         <% } %>

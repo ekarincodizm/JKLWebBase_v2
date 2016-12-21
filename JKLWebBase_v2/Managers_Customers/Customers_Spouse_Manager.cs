@@ -73,6 +73,10 @@ namespace JKLWebBase_v2.Managers_Customers
                     cmarry.Spouse_tel = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
                     cmarry.Spouse_email = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
                     cmarry.Spouse_save_date = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+                    cmarry.Spouse_Nationality_name = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
+                    cmarry.Spouse_Origin_name = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+                    cmarry.Spouse_province_name = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
+                    cmarry.Spouse_job_province_name = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
 
                 }
 

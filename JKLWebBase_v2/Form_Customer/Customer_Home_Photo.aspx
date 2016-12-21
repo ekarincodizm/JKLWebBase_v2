@@ -2,7 +2,48 @@
 
 <%@ Register TagPrefix="nav_menu_cust" TagName="Tab_Menu_Cust" Src="Tab_Menu_Customer.ascx" %>
 
+<%@ Import Namespace="JKLWebBase_v2.Class_Customers" %>
+<%@ Import Namespace="JKLWebBase_v2.Managers_Customers" %>
+<%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- Alert MessagesBox -->
+    <asp:Panel ID="Alert_Danger_Panel" runat="server" Visible="false">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="alert alert-warning" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                </button>
+                <div class="modal-header">
+                    <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i> <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label> </h6>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <asp:Label ID="alert_danger_Lbl" runat="server"> </asp:Label>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </asp:Panel>
+
+    <asp:Panel ID="Alert_Success_Panel" runat="server" Visible="false">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                </button>
+                <div class="modal-header">
+                    <h6 class="modal-title"><i class="fa fa-thumbs-o-up fa-fw"></i> <asp:Label ID="alert_header_success_Lbl" runat="server"> </asp:Label> </h6>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <asp:Label ID="alert_success_Lbl" runat="server"> </asp:Label>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </asp:Panel>
+    <!-- Alert MessagesBox -->
 
     <div class="col-lg-12">
         <h4 class="page-header"> เพิ่มรูปบ้าน </h4>
@@ -121,43 +162,29 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="form-group col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image2" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image3" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image4" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                    </div>
+                <%
+                    if (Session["list_ctm_photo"] != null)
+                    {
+                        List<Customers_Homeaddress_Photo> list_ctm_photo = (List<Customers_Homeaddress_Photo>)Session["list_ctm_photo"];
+                        int col = 1;
+                        for(int i = 0; i < list_ctm_photo.Count; i++)
+                        {
+                            Customers_Homeaddress_Photo ctm_photo = list_ctm_photo[i];
 
-                    <div class="row">
+                            string ogn_code = CryptographyCode.GenerateSHA512String(ctm_photo.Cust_id);
+                        
+                %>
+                        <%= (i % 4) == 0 ? "<div class='row'>" : "" %>
                         <div class="form-group col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton5" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image5" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
+                            <a class="btn btn-danger right" href="Customer_Home_Photo_Remove?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm_photo.Cust_id, ctm_photo.Home_img_num.ToString()) %>"> <i class="fa fa-trash-o fa-fw"></i> </a>
+                            <img alt="<%=ctm_photo.Home_img_old_name %>" src="<%= string.IsNullOrEmpty(ctm_photo.Home_img_path)? "../Images_web/default-img.jpg" : ctm_photo.Home_img_path %>" width="100%" height="250px"  />
                         </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton6" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image6" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton7" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image7" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton8" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image8" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                    </div>
+                        <%= col == 4? "</div>" : "" %>
+                <%
+                            if (col == 4) { col = 1; } else { col++; }
+                        }
+                    }
+                %>
                 </div>
                 <!-- /.รูปบ้าน -->
 
