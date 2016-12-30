@@ -176,7 +176,7 @@
                 %>
                         <%= (i % 4) == 0 ? "<div class='row'>" : "" %>
                         <div class="form-group col-xs-6 col-sm-3">
-                            <a class="btn btn-danger right" href="Customer_Home_Photo_Remove?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm_photo.Cust_id, ctm_photo.Home_img_num.ToString()) %>"> <i class="fa fa-trash-o fa-fw"></i> </a>
+                            <a class="btn btn-danger right" href="Customer_Home_Photo_Remove?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm_photo.Cust_id, ctm_photo.Home_img_num.ToString()) %>" data-toggle="tooltip" data-placement="left" title="ลบ"> <i class="fa fa-trash-o"></i> </a>
                             <img alt="<%=ctm_photo.Home_img_old_name %>" src="<%= string.IsNullOrEmpty(ctm_photo.Home_img_path)? "../Images_web/default-img.jpg" : ctm_photo.Home_img_path %>" width="100%" height="250px"  />
                         </div>
                         <%= col == 4? "</div>" : "" %>

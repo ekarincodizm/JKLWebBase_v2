@@ -41,17 +41,18 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th style="text-align: center; width: 2%;"># </th>
+                            <th style="text-align: center; width: 3%;"># </th>
                             <th style="text-align: center; width: 10%;">รหัสบัตรประชาชน </th>
                             <th style="text-align: center; width: 20%;">ชื่อ - นามสกุล </th>
-                            <th style="text-align: center; width: 55%;">ที่อยู่ตามทะเบียนบ้าน </th>
+                            <th style="text-align: center; width: 57%;">ที่อยู่ตามทะเบียนบ้าน </th>
                             <th style="text-align: center; width: 8%;">โทรศัพท์ </th>
-                            <th style="text-align: center; width: 5%;"></th>
+                            <th style="text-align: center; width: 2%;"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <% 
                             List<Customers> list_cust = (List<Customers>)Session["List_Customers"];
+                            int row_str = (int)Session["row_str"];
 
                             for (int i = 0; i < list_cust.Count; i++)
                             {
@@ -61,13 +62,13 @@
                                 string ogn_code = CryptographyCode.GenerateSHA512String(ctm.Cust_idcard);
                         %>
                         <tr>
-                            <td style="text-align: center;"><%= i + 1 %></td>
+                            <td style="text-align: center;"><%= row_str + i + 1 %></td>
                             <td style="text-align: center;"><%= ctm.Cust_idcard %></td>
                             <td><%= ctm.Cust_Fname + " " + ctm.Cust_LName %></td>
                             <td><%= ctm_add.Address_inline %></td>
                             <td><%= ctm_add.Cust_Tel %></td>
                             <td>
-                                <a class="btn btn-xs btn-warning btn-block" href="Customer_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm.Cust_idcard, "") %>"><i class="fa fa-edit"></i>แก้ไข </a>
+                                <a class="btn btn-xs btn-warning btn-block" href="Customer_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm.Cust_idcard, "") %>" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit"></i> </a>
                             </td>
                         </tr>
                         <% } %>
@@ -78,20 +79,14 @@
             <nav aria-label="...">
                 <ul class="pager">
                     <li>
-                        <asp:LinkButton ID="link_Previous" runat="server"> <i class="fa fa-arrow-left fa-fw"></i> ก่อนหน้า </asp:LinkButton>
+                        <asp:LinkButton ID="link_Previous" runat="server" OnClick="link_Previous_Click"> <i class="fa fa-arrow-left fa-fw"></i> ก่อนหน้า </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:DropDownList ID="DropDownList1" runat="server" CssClass="pagination" ForeColor="#cc0000" Font-Bold="true" >
-                            <asp:ListItem>หน้า</asp:ListItem>
-                            <asp:ListItem>1</asp:ListItem>
-                            <asp:ListItem>2</asp:ListItem>
-                            <asp:ListItem>3</asp:ListItem>
-                            <asp:ListItem>4</asp:ListItem>
-                            <asp:ListItem>5</asp:ListItem>
+                        <asp:DropDownList ID="Paging_DDL" runat="server" CssClass="pagination" ForeColor="#cc0000" Font-Bold="true" OnSelectedIndexChanged="Paging_DDL_SelectedIndexChanged" AutoPostBack="true">
                         </asp:DropDownList>
                     </li>
                     <li>
-                        <asp:LinkButton ID="link_Next" runat="server"> ต่อไป <i class="fa fa-arrow-right fa-fw"></i> </asp:LinkButton>
+                        <asp:LinkButton ID="link_Next" runat="server" OnClick="link_Next_Click"> ต่อไป <i class="fa fa-arrow-right fa-fw"></i> </asp:LinkButton>
                     </li>
                 </ul>
             </nav>

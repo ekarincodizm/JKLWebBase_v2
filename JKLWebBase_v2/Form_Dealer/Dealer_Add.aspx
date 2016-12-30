@@ -137,7 +137,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-1">
-                            <asp:LinkButton ID="Dealer_Add_Save_Btn" runat="server" CssClass="btn btn-md btn-primary btn-block" OnClick="Dealer_Add_Save_Btn_Click" ValidationGroup="Save_Validation" CausesValidation="true">><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
+                            <asp:LinkButton ID="Dealer_Add_Save_Btn" runat="server" CssClass="btn btn-md btn-primary btn-block" OnClick="Dealer_Add_Save_Btn_Click" ValidationGroup="Save_Validation" CausesValidation="true"><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
                         </div>
                     </div>
                 </div>

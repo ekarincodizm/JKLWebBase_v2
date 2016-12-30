@@ -1,4 +1,6 @@
-﻿namespace JKLWebBase_v2.Class_Customers
+﻿using JKLWebBase_v2.Class_Base;
+
+namespace JKLWebBase_v2.Class_Customers
 {
     public class Customers_Address
     {
@@ -18,10 +20,10 @@
         public int Cust_Home_status_id { get; set; } //รหัสสถานะภาพอยู่อาศัย
         public string Cust_Gps_Latitude { get; set; } //ตำแหน่งละติจูดจากดาวเทียม
         public string Cust_Gps_Longitude { get; set; } //ตำแหน่งลองติจูดจากดาวเทียม
-        public string Cust_Address_Save_date { get; set; }
-        public string Cust_Address_type_name { get; set; }
-        public string Cust_Province_name { get; set; }
-        public string Cust_Home_status_name { get; set; }
+        public string Cust_Address_Save_date { get; set; }    
+        public Base_Address_Types bs_add_t { get; set; }
+        public TH_Provinces cust_pv { get; set; }
+        public Base_Home_Status cust_home_st { get; set; }
         public string Address_inline { get; set; }
 
     }

@@ -1,4 +1,7 @@
-﻿namespace JKLWebBase_v2.Class_Leasings
+﻿using JKLWebBase_v2.Class_Customers;
+using JKLWebBase_v2.Class_Base;
+
+namespace JKLWebBase_v2.Class_Leasings
 {
     public class Car_Leasings
     {
@@ -76,9 +79,18 @@
         public string Cheque_number { get; set; } //หมายเลขเช็ค / เลขบัญชีธนาคาร
         public double Cheque_sum { get; set; } //ยอดจ่ายเช็ค / โอน
         public string Cheque_receive_date { get; set; } //วันที่รับเช็ค / โอน
-        public string Contract_status { get; set; } //สถานะสัญญา
+        public int Contract_status { get; set; } //สถานะสัญญา
         public string Leasings_save_date { get; set; } //วันที่บันทึกข้อมูล
-
+        public Base_Leasing_Code bs_lsc { get; set; }
+        public Base_Branchs bs_brh { get; set; }
+        public Base_Zone_Service bs_znsv { get; set; }
+        public Base_Courts bs_ct { get; set; }
+        public Base_Car_Brands bs_cbn { get; set; }
+        public Customers ctm { get; set; }
+        public Base_Tents_Car bs_tnc { get; set; }
+        public Base_Leasing_Status bs_ls_st { get; set; }
+        public TH_Provinces th_pv_cplt { get; set; }
+        public TH_Provinces th_pv_own { get; set; }
 
     }
 }

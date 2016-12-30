@@ -2,12 +2,15 @@
 using System.Data;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Dealers;
+using JKLWebBase_v2.Class_Base;
+
 
 namespace JKLWebBase_v2.Managers_Dealers
 {
-    public class Car_Dealers_Manager
+    public class Dealers_Manager
     {
         private string error;
 
@@ -23,7 +26,7 @@ namespace JKLWebBase_v2.Managers_Dealers
                 string id = "";
                 if (reader.Read())
                 {
-                    id = reader.GetString(0);
+                    id = reader.IsDBNull(0) ? "" : reader.GetString(0);
                 }
 
                 return id;
@@ -47,25 +50,102 @@ namespace JKLWebBase_v2.Managers_Dealers
             }
         }
 
-        public Car_Dealers getDealerByIdCard(string Dealer_idcard)
+        public List<Dealers> getDealers(string idcard, string fname, string lname, int i_row_str, int i_row_limit)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 /* 
-                 * :: StoredProcedure :: [ g_car_dealers_values ] :: 
-                 * g_car_dealers_values(in i_Dealer_idcard varchar(50))
+                 * :: StoredProcedure :: [ g_car_dealers ] :: 
+                 * g_car_dealers (in i_Dealer_idcard varchar(13), in i_Dealer_fname varchar(255), in i_Dealer_lname varchar(255), IN i_row_str INT(11), IN i_row_limit INT(11))
                  * 
                  */
 
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_car_dealers", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Dealer_idcard", idcard);
+                cmd.Parameters.AddWithValue("@i_Dealer_fname", fname);
+                cmd.Parameters.AddWithValue("@i_Dealer_lname", lname);
+                cmd.Parameters.AddWithValue("@i_row_str", i_row_str);
+                cmd.Parameters.AddWithValue("@i_row_limit", i_row_limit);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Dealers> list_dlr = new List<Dealers>();
+
+                while (reader.Read())
+                {
+                    Dealers cdl = new Dealers();
+
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    cdl.Dealer_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    cdl.Dealer_fname = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    cdl.Dealer_lname = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    cdl.Dealer_idcard = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    cdl.Dealer_address_no = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    cdl.Dealer_vilage = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
+                    cdl.Dealer_vilage_no = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+                    cdl.Dealer_alley = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
+                    cdl.Dealer_road = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
+                    cdl.Dealer_subdistrict = reader.IsDBNull(9) ? defaultString : reader.GetString(9);
+                    cdl.Dealer_district = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
+                    cdl.Dealer_province = reader.IsDBNull(11) ? defaultNum : reader.GetInt32(11);
+                    cdl.Dealer_country = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+                    cdl.Dealer_zipcode = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    cdl.Dealer_status = reader.IsDBNull(14) ? defaultNum : reader.GetInt32(14);
+                    cdl.Dealer_status_name = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    cdl.Dealer_save_date = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+
+                    cdl.cdl_pv = new TH_Provinces();
+                    cdl.cdl_pv.Province_id = reader.IsDBNull(11) ? defaultNum : reader.GetInt32(11);
+                    cdl.cdl_pv.Province_name = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+
+                    list_dlr.Add(cdl);
+                }
+
+                return list_dlr;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> getDealers() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> getDealers() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public Dealers getDealerByIdCard(string Dealer_idcard)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_car_dealers_by_idcard ] :: 
+                 * g_car_dealers_by_idcard (in i_Dealer_idcard varchar(50))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_car_dealers_by_idcard", con);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@i_Dealer_idcard", Dealer_idcard);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                Car_Dealers cdl = new Car_Dealers();
+                Dealers cdl = new Dealers();
 
                 if (reader.Read())
                 {
@@ -87,6 +167,12 @@ namespace JKLWebBase_v2.Managers_Dealers
                     cdl.Dealer_country = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
                     cdl.Dealer_zipcode = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
                     cdl.Dealer_status = reader.IsDBNull(14) ? defaultNum : reader.GetInt32(14);
+                    cdl.Dealer_status_name = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    cdl.Dealer_save_date = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+
+                    cdl.cdl_pv = new TH_Provinces();
+                    cdl.cdl_pv.Province_id = reader.IsDBNull(11) ? defaultNum : reader.GetInt32(11);
+                    cdl.cdl_pv.Province_name = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
                 }
 
                 return cdl;
@@ -110,7 +196,7 @@ namespace JKLWebBase_v2.Managers_Dealers
             }
         }
 
-        public Car_Dealers_Values getDealerValues(string Dealer_id, string Leasing_id)
+        public Dealers_Values getDealerValues(string Dealer_id, string Leasing_id)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
@@ -129,7 +215,7 @@ namespace JKLWebBase_v2.Managers_Dealers
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                Car_Dealers_Values cdlval = new Car_Dealers_Values();
+                Dealers_Values cdlval = new Dealers_Values();
 
                 if (reader.Read())
                 {
@@ -169,7 +255,7 @@ namespace JKLWebBase_v2.Managers_Dealers
             }
         }
 
-        public bool addDealer(Car_Dealers cdl)
+        public bool addDealer(Dealers cdl)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
@@ -225,7 +311,7 @@ namespace JKLWebBase_v2.Managers_Dealers
             }
         }
 
-        public bool addDealerValues(Car_Dealers_Values cdlval)
+        public bool addDealerValues(Dealers_Values cdlval)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
@@ -274,7 +360,7 @@ namespace JKLWebBase_v2.Managers_Dealers
             }
         }
 
-        public bool editDealer(Car_Dealers cdl)
+        public bool editDealer(Dealers cdl)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try

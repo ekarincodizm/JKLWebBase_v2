@@ -85,13 +85,13 @@ namespace JKLWebBase_v2.Form_Customer {
         protected global::System.Web.UI.WebControls.LinkButton link_Previous;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// Paging_DDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList Paging_DDL;
         
         /// <summary>
         /// link_Next control.

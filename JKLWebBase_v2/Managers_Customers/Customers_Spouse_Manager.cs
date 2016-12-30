@@ -5,7 +5,7 @@ using System.Data;
 
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Customers;
-
+using JKLWebBase_v2.Class_Base;
 
 namespace JKLWebBase_v2.Managers_Customers
 {
@@ -73,11 +73,24 @@ namespace JKLWebBase_v2.Managers_Customers
                     cmarry.Spouse_tel = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
                     cmarry.Spouse_email = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
                     cmarry.Spouse_save_date = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
-                    cmarry.Spouse_Nationality_name = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
-                    cmarry.Spouse_Origin_name = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
-                    cmarry.Spouse_province_name = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
-                    cmarry.Spouse_job_province_name = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
 
+                    cmarry.bs_ntn = new Base_Nationalitys();
+                    cmarry.bs_ntn.Nationality_id = reader.IsDBNull(4) ? defaultNum : reader.GetInt32(4);
+                    cmarry.bs_ntn.Nationality_name_ENG = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
+                    cmarry.bs_ntn.Nationality_name_TH = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+
+                    cmarry.bs_org = new Base_Origins();
+                    cmarry.bs_org.Origin_id = reader.IsDBNull(5) ? defaultNum : reader.GetInt32(5);
+                    cmarry.bs_org.Origin_name_ENG = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
+                    cmarry.bs_org.Origin_name_TH = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
+
+                    cmarry.sp_pv = new TH_Provinces();
+                    cmarry.sp_pv.Province_id = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
+                    cmarry.sp_pv.Province_name = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
+
+                    cmarry.sp_job_pv = new TH_Provinces();
+                    cmarry.sp_job_pv.Province_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
+                    cmarry.sp_job_pv.Province_name = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
                 }
 
                 return cmarry;

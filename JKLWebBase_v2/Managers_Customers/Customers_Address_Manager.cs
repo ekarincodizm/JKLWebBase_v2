@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using System.Data;
 
 using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Customers;
 
 
@@ -56,9 +56,19 @@ namespace JKLWebBase_v2.Managers_Customers
                     cadd.Cust_Gps_Latitude = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
                     cadd.Cust_Gps_Longitude = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
                     cadd.Cust_Address_Save_date = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    cadd.Cust_Address_type_name = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
-                    cadd.Cust_Province_name = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
-                    cadd.Cust_Home_status_name = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+
+                    cadd.bs_add_t = new Base_Address_Types();
+                    cadd.bs_add_t.Address_type_id = reader.IsDBNull(1) ? defaultNum : reader.GetInt32(1);
+                    cadd.bs_add_t.Address_type_name = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+
+                    cadd.cust_pv = new TH_Provinces();
+                    cadd.cust_pv.Province_id = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
+                    cadd.cust_pv.Province_name = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
+
+                    cadd.cust_home_st = new Base_Home_Status();
+                    cadd.cust_home_st.Home_status_id = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
+                    cadd.cust_home_st.Home_status_name = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+
                     cadd.Address_inline = reader.IsDBNull(20) ? defaultString : reader.GetString(20);
 
                 }

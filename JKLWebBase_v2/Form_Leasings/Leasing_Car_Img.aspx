@@ -11,6 +11,44 @@
 
     <!-- ./Print Menu Button -->
 
+    <!-- Alert MessagesBox -->
+    <asp:Panel ID="Alert_Danger_Panel" runat="server" Visible="false">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="alert alert-warning" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                </button>
+                <div class="modal-header">
+                    <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i> <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label> </h6>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <asp:Label ID="alert_danger_Lbl" runat="server"> </asp:Label>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </asp:Panel>
+
+    <asp:Panel ID="Alert_Success_Panel" runat="server" Visible="false">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                </button>
+                <div class="modal-header">
+                    <h6 class="modal-title"><i class="fa fa-thumbs-o-up fa-fw"></i> <asp:Label ID="alert_header_success_Lbl" runat="server"> </asp:Label> </h6>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <asp:Label ID="alert_success_Lbl" runat="server"> </asp:Label>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </asp:Panel>
+    <!-- Alert MessagesBox -->
+
     <div class="col-lg-12">
         <h4 class="page-header">เพิ่มรูปรถ </h4>
     </div>

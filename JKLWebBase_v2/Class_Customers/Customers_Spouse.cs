@@ -1,4 +1,8 @@
-﻿namespace JKLWebBase_v2.Class_Customers
+﻿using System.Collections.Generic;
+
+using JKLWebBase_v2.Class_Base;
+
+namespace JKLWebBase_v2.Class_Customers
 {
     public class Customers_Spouse
     {
@@ -37,9 +41,10 @@
         public string Spouse_tel { get; set; } //มือถือ
         public string Spouse_email { get; set; } //อีเมล์
         public string Spouse_save_date { get; set; }
-        public string Spouse_Nationality_name { get; set; }
-        public string Spouse_Origin_name { get; set; }
-        public string Spouse_province_name { get; set; }
-        public string Spouse_job_province_name { get; set; }
+        public Base_Nationalitys bs_ntn { get; set; }
+        public Base_Origins bs_org { get; set; }
+        public TH_Provinces sp_pv { get; set; }
+        public TH_Provinces sp_job_pv { get; set; }
+
     }
 }

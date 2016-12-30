@@ -21,6 +21,8 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Menu_Search_Customer_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Customers");
+
             Session["Class_Active_Customer"] = 1;
 
             Response.Redirect("/Form_Customer/Customer_Search");
@@ -37,6 +39,8 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Menu_Search_Dealer_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Dealers");
+
             Response.Redirect("/Form_Dealer/Dealer_Search");
         }
 
@@ -62,6 +66,8 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Menu_Leasing_Search_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Leasings");
+
             Response.Redirect("/Form_Leasings/Leasing_Search");
         }
 

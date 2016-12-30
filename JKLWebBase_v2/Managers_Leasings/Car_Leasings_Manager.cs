@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using MySql.Data.MySqlClient;
-using JKLWebBase_v2.Global_Class;
-using JKLWebBase_v2.Class_Leasings;
 using System.Data;
+using MySql.Data.MySqlClient;
+
+using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Class_Customers;
+using JKLWebBase_v2.Class_Leasings;
+
 
 namespace JKLWebBase_v2.Managers_Leasings
 {
@@ -23,7 +27,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 string id = "";
                 if (reader.Read())
                 {
-                    id = reader[0].ToString();
+                    id = reader.IsDBNull(0) ? "" : reader.GetString(0);
                 }
 
                 return id;
@@ -146,12 +150,198 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls.Cheque_number = reader.IsDBNull(71) ? defaultString : reader.GetString(71);
                     cls.Cheque_sum = reader.IsDBNull(72) ? defaultNum : reader.GetDouble(72);
                     cls.Cheque_receive_date = reader.IsDBNull(73) ? defaultString : reader.GetString(73);
-                    cls.Contract_status = reader.IsDBNull(74) ? defaultString : reader.GetString(74);
+                    cls.Contract_status = reader.IsDBNull(74) ? defaultNum : reader.GetInt32(74);
                     cls.Leasings_save_date = reader.IsDBNull(75) ? defaultString : reader.GetString(75);
 
                 }
 
                 return cls;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> getCarLeasingById() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> getCarLeasingById() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<Car_Leasings> getCarLeasing(string i_Deps_no , string i_Leasing_no, string i_Cust_idcard, string i_Cust_Fname , string i_Cust_LName, string i_Leasing_date_str, string i_Leasing_date_end, string i_Leasing_code_id,  string i_Branch_id, string i_Zone_id, int i_row_str, int i_row_limit)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_car_leasings ] :: 
+                 * g_car_leasings  (IN i_Deps_no varchar(50),       IN i_Leasing_no varchar(50),    IN i_Cust_idcard varchar(13),
+				 *                  IN i_Cust_Fname varchar(255),   IN i_Cust_LName varchar(255),   IN i_Leasing_date_str VARCHAR(20), IN i_Leasing_date_end VARCHAR(20), 
+				 *		            IN i_Leasing_code_id VARCHAR(255),  IN i_Branch_id VARCHAR(255), IN i_Zone_id VARCHAR(255), IN i_row_str INT(11), IN i_row_limit INT(11))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_car_leasings", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Deps_no", i_Deps_no);
+                cmd.Parameters.AddWithValue("@i_Leasing_no", i_Leasing_no);
+                cmd.Parameters.AddWithValue("@i_Cust_idcard", i_Cust_idcard);
+                cmd.Parameters.AddWithValue("@i_Cust_Fname", i_Cust_Fname);
+                cmd.Parameters.AddWithValue("@i_Cust_LName", i_Cust_LName);
+                cmd.Parameters.AddWithValue("@i_Leasing_date_str", i_Leasing_date_str);
+                cmd.Parameters.AddWithValue("@i_Leasing_date_end", i_Leasing_date_end);
+                cmd.Parameters.AddWithValue("@i_Leasing_code_id", i_Leasing_code_id);
+                cmd.Parameters.AddWithValue("@i_Branch_id", i_Branch_id);
+                cmd.Parameters.AddWithValue("@i_Zone_id", i_Zone_id);
+                cmd.Parameters.AddWithValue("@i_row_str", i_row_str);
+                cmd.Parameters.AddWithValue("@i_row_limit", i_row_limit);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Car_Leasings> list_cls = new List<Car_Leasings>();
+
+                while (reader.Read())
+                {
+                    Car_Leasings cls = new Car_Leasings();
+
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    cls.Leasing_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    cls.Deps_no = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    cls.Leasing_no = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    cls.Leasing_code_id = reader.IsDBNull(3) ? defaultNum : reader.GetInt32(3);
+                    cls.Leasing_date = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    cls.Branch_id = reader.IsDBNull(5) ? defaultNum : reader.GetInt32(5);
+                    cls.Zone_id = reader.IsDBNull(6) ? defaultNum : reader.GetInt32(6);
+                    cls.Court_id = reader.IsDBNull(7) ? defaultNum : reader.GetInt32(7);
+                    cls.PeReT = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
+                    cls.TotalPaymentTime = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
+                    cls.Total_require = reader.IsDBNull(10) ? defaultNum : reader.GetDouble(10);
+                    cls.Vat_rate = reader.IsDBNull(11) ? defaultNum : reader.GetDouble(11);
+                    cls.Interest_rate = reader.IsDBNull(12) ? defaultNum : reader.GetDouble(12);
+                    cls.Total_period = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
+                    cls.Total_sum = reader.IsDBNull(14) ? defaultNum : reader.GetDouble(14);
+                    cls.Total_Interest = reader.IsDBNull(15) ? defaultNum : reader.GetDouble(15);
+                    cls.Total_Tax = reader.IsDBNull(16) ? defaultNum : reader.GetDouble(16);
+                    cls.Total_leasing = reader.IsDBNull(17) ? defaultNum : reader.GetDouble(17);
+                    cls.Total_Net_leasing = reader.IsDBNull(18) ? defaultNum : reader.GetDouble(18);
+                    cls.Period_cal = reader.IsDBNull(19) ? defaultNum : reader.GetDouble(19);
+                    cls.Period_interst = reader.IsDBNull(20) ? defaultNum : reader.GetDouble(20);
+                    cls.Period_tax = reader.IsDBNull(21) ? defaultNum : reader.GetDouble(21);
+                    cls.Period_pure = reader.IsDBNull(22) ? defaultNum : reader.GetDouble(22);
+                    cls.Period_payment = reader.IsDBNull(23) ? defaultNum : reader.GetDouble(23);
+                    cls.Period_require = reader.IsDBNull(24) ? defaultNum : reader.GetDouble(24);
+                    cls.Total_period_length = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
+                    cls.Total_period_lose = reader.IsDBNull(26) ? defaultNum : reader.GetInt32(26);
+                    cls.Total_period_left = reader.IsDBNull(27) ? defaultNum : reader.GetInt32(27);
+                    cls.Total_payment_left = reader.IsDBNull(28) ? defaultNum : reader.GetDouble(28);
+                    cls.Payment_schedule = reader.IsDBNull(29) ? defaultNum : reader.GetInt32(29);
+                    cls.First_payment_date = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    cls.Car_register_date = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
+                    cls.Car_license_plate = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    cls.Car_plate_province = reader.IsDBNull(33) ? defaultNum : reader.GetInt32(33);
+                    cls.Car_type = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+                    cls.Car_feature = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
+                    cls.Car_brand = reader.IsDBNull(36) ? defaultNum : reader.GetInt32(36);
+                    cls.Car_model = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
+                    cls.Car_year = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
+                    cls.Car_color = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
+                    cls.Car_engine_no = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
+                    cls.Car_engine_no_at = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
+                    cls.Car_engine_brand = reader.IsDBNull(42) ? defaultString : reader.GetString(42);
+                    cls.Car_chassis_no = reader.IsDBNull(43) ? defaultString : reader.GetString(43);
+                    cls.Car_chassis_no_at = reader.IsDBNull(44) ? defaultString : reader.GetString(44);
+                    cls.Car_fual_type = reader.IsDBNull(45) ? defaultString : reader.GetString(45);
+                    cls.Car_gas_No = reader.IsDBNull(46) ? defaultString : reader.GetString(46);
+                    cls.Car_used_id = reader.IsDBNull(47) ? defaultNum : reader.GetInt32(47);
+                    cls.Car_distance = reader.IsDBNull(48) ? defaultNum : reader.GetInt32(48);
+                    cls.Car_next_register_date = reader.IsDBNull(49) ? defaultString : reader.GetString(49);
+                    cls.Car_tax_value = reader.IsDBNull(50) ? defaultNum : reader.GetDouble(50);
+                    cls.Car_credits = reader.IsDBNull(51) ? defaultString : reader.GetString(51);
+                    cls.Car_agent = reader.IsDBNull(52) ? defaultString : reader.GetString(52);
+                    cls.Car_old_owner = reader.IsDBNull(53) ? defaultString : reader.GetString(53);
+                    cls.Car_old_owner_idcard = reader.IsDBNull(54) ? defaultString : reader.GetString(54);
+                    cls.Car_old_owner_b_date = reader.IsDBNull(55) ? defaultString : reader.GetString(55);
+                    cls.Car_old_owner_address_no = reader.IsDBNull(56) ? defaultString : reader.GetString(56);
+                    cls.Car_old_owner_vilage = reader.IsDBNull(57) ? defaultString : reader.GetString(57);
+                    cls.Car_old_owner_vilage_no = reader.IsDBNull(58) ? defaultString : reader.GetString(58);
+                    cls.Car_old_owner_alley = reader.IsDBNull(59) ? defaultString : reader.GetString(59);
+                    cls.Car_old_owner_road = reader.IsDBNull(60) ? defaultString : reader.GetString(60);
+                    cls.Car_old_owner_subdistrict = reader.IsDBNull(61) ? defaultString : reader.GetString(61);
+                    cls.Car_old_owner_district = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
+                    cls.Car_old_owner_province = reader.IsDBNull(63) ? defaultNum : reader.GetInt32(63);
+                    cls.Car_old_owner_contry = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
+                    cls.Car_old_owner_zipcode = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
+                    cls.Cust_id = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
+                    cls.Tent_car_id = reader.IsDBNull(67) ? defaultNum : reader.GetInt32(67);
+                    cls.Cheque_receiver = reader.IsDBNull(68) ? defaultString : reader.GetString(68);
+                    cls.Cheque_bank = reader.IsDBNull(69) ? defaultString : reader.GetString(69);
+                    cls.Cheque_bank_branch = reader.IsDBNull(70) ? defaultString : reader.GetString(70);
+                    cls.Cheque_number = reader.IsDBNull(71) ? defaultString : reader.GetString(71);
+                    cls.Cheque_sum = reader.IsDBNull(72) ? defaultNum : reader.GetDouble(72);
+                    cls.Cheque_receive_date = reader.IsDBNull(73) ? defaultString : reader.GetString(73);
+                    cls.Contract_status = reader.IsDBNull(74) ? defaultNum : reader.GetInt32(74);
+                    cls.Leasings_save_date = reader.IsDBNull(75) ? defaultString : reader.GetString(75);
+
+                    cls.bs_lsc = new Base_Leasing_Code();
+                    cls.bs_lsc.Leasing_code_id = reader.IsDBNull(3) ? defaultNum : reader.GetInt32(3);
+                    cls.bs_lsc.Leasing_code_name = reader.IsDBNull(76) ? defaultString : reader.GetString(76);
+
+                    cls.bs_brh = new Base_Branchs();
+                    cls.bs_brh.Branch_id = reader.IsDBNull(5) ? defaultNum : reader.GetInt32(5);
+                    cls.bs_brh.Branch_code = reader.IsDBNull(77) ? defaultString : reader.GetString(77);
+                    cls.bs_brh.Branch_N_name = reader.IsDBNull(78) ? defaultString : reader.GetString(78);
+
+                    cls.bs_znsv = new Base_Zone_Service();
+                    cls.bs_znsv.Zone_id = reader.IsDBNull(6) ? defaultNum : reader.GetInt32(6);
+                    cls.bs_znsv.Zone_code = reader.IsDBNull(79) ? defaultString : reader.GetString(79);
+                    cls.bs_znsv.Zone_name = reader.IsDBNull(80) ? defaultString : reader.GetString(80);
+
+                    cls.bs_ct = new Base_Courts();
+                    cls.bs_ct.Court_id = reader.IsDBNull(7) ? defaultNum : reader.GetInt32(7);
+                    cls.bs_ct.Court_name = reader.IsDBNull(81) ? defaultString : reader.GetString(81);
+
+                    cls.bs_cbn = new Base_Car_Brands();
+                    cls.bs_cbn.car_brand_id = reader.IsDBNull(36) ? defaultNum : reader.GetInt32(36);
+                    cls.bs_cbn.car_brand_name_th = reader.IsDBNull(82) ? defaultString : reader.GetString(82);
+                    cls.bs_cbn.car_brand_name_eng = reader.IsDBNull(83) ? defaultString : reader.GetString(83);
+
+                    cls.bs_tnc = new Base_Tents_Car();
+                    cls.bs_tnc.Tent_car_id = reader.IsDBNull(67) ? defaultNum : reader.GetInt32(67);
+                    cls.bs_tnc.Tent_name = reader.IsDBNull(84) ? defaultString : reader.GetString(84);
+
+                    cls.th_pv_cplt = new TH_Provinces();
+                    cls.th_pv_cplt.Province_id = reader.IsDBNull(33) ? defaultNum : reader.GetInt32(33);
+                    cls.th_pv_cplt.Province_name = reader.IsDBNull(85) ? defaultString : reader.GetString(85);
+
+                    cls.th_pv_own = new TH_Provinces();
+                    cls.th_pv_own.Province_id = reader.IsDBNull(63) ? defaultNum : reader.GetInt32(63);
+                    cls.th_pv_own.Province_name = reader.IsDBNull(86) ? defaultString : reader.GetString(86);
+
+                    cls.bs_ls_st = new Base_Leasing_Status();
+                    cls.bs_ls_st.Contract_Status_id = reader.IsDBNull(74) ? defaultNum : reader.GetInt32(74);
+                    cls.bs_ls_st.Contract_Status_name = reader.IsDBNull(87) ? defaultString : reader.GetString(87);
+
+                    cls.ctm = new Customers();
+                    cls.ctm.Cust_id = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
+                    cls.ctm.Cust_idcard = reader.IsDBNull(88) ? defaultString : reader.GetString(88);
+                    cls.ctm.Cust_Fname = reader.IsDBNull(89) ? defaultString : reader.GetString(89);
+                    cls.ctm.Cust_LName = reader.IsDBNull(90) ? defaultString : reader.GetString(90);
+
+                    list_cls.Add(cls);
+
+                }
+
+                return list_cls;
             }
             catch (MySqlException ex)
             {

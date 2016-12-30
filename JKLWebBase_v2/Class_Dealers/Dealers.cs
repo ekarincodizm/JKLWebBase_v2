@@ -1,6 +1,8 @@
-﻿namespace JKLWebBase_v2.Class_Dealers
+﻿using JKLWebBase_v2.Class_Base;
+
+namespace JKLWebBase_v2.Class_Dealers
 {
-    public class Car_Dealers
+    public class Dealers
     {
         public string Dealer_id { get; set; } //รหัสนายหน้า
         public string Dealer_fname { get; set; } //ชื่อ
@@ -16,8 +18,10 @@
         public int Dealer_province { get; set; } //จังหวัด
         public string Dealer_country { get; set; } //ประเทศ
         public string Dealer_zipcode { get; set; } //รหัสไปรษณีย์
-        public int Dealer_status { get; set; } //รหัสไปรษณีย์
+        public int Dealer_status { get; set; } //ประเภทนายหน้า 0 = บุคคลธรรมดา, 1 = นิติบุคคล
+        public string Dealer_status_name { get; set; } //ประเภทนายหน้า บุคคลธรรมดา, นิติบุคคล
         public string Dealer_save_date { get; set; }
+        public TH_Provinces cdl_pv { get; set; }
 
     }
 }

@@ -22,7 +22,6 @@ namespace JKLWebBase_v2.Form_Main
                 link_Add_Bondsman_4.Enabled = false;
                 link_Add_Bondsman_5.Enabled = false;
                 link_Add_Car_Img.Enabled = false;
-                link_Add_Home_Img.Enabled = false;
                 link_List_Payment_Schedule.Enabled = false;
             }
             else if (Session["Customer_Leasing"] != null && Session["Leasings"] != null)
@@ -36,7 +35,6 @@ namespace JKLWebBase_v2.Form_Main
                 link_Add_Bondsman_4.Enabled = true;
                 link_Add_Bondsman_5.Enabled = true;
                 link_Add_Car_Img.Enabled = true;
-                link_Add_Home_Img.Enabled = true;
                 link_List_Payment_Schedule.Enabled = true;
             }
             else
@@ -50,7 +48,6 @@ namespace JKLWebBase_v2.Form_Main
                 link_Add_Bondsman_4.Enabled = false;
                 link_Add_Bondsman_5.Enabled = false;
                 link_Add_Car_Img.Enabled = false;
-                link_Add_Home_Img.Enabled = false;
                 link_List_Payment_Schedule.Enabled = false;
             }
         }
@@ -185,16 +182,9 @@ namespace JKLWebBase_v2.Form_Main
             Response.Redirect("/Form_Leasings/Leasing_Car_Img");
         }
 
-        protected void link_Add_Home_Img_Click(object sender, EventArgs e)
-        {
-            Session["Class_Active"] = 10;
-
-            Response.Redirect("/Form_Leasings/Leasing_Home_Img");
-        }
-
         protected void link_List_Payment_Schedule_Click(object sender, EventArgs e)
         {
-            Session["Class_Active"] = 11;
+            Session["Class_Active"] = 10;
 
             Response.Redirect("/Form_Leasings/Leasing_Payment_Schedule");
         }

@@ -94,15 +94,6 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_Add_Car_Img;
         
         /// <summary>
-        /// link_Add_Home_Img control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Home_Img;
-        
-        /// <summary>
         /// link_List_Payment_Schedule control.
         /// </summary>
         /// <remarks>

@@ -1,4 +1,8 @@
-﻿namespace JKLWebBase_v2.Class_Customers
+﻿using System.Collections.Generic;
+
+using JKLWebBase_v2.Class_Base;
+
+namespace JKLWebBase_v2.Class_Customers
 {
     public class Customers
     {
@@ -32,10 +36,12 @@
         public double Cust_job_salary { get; set; } //เงินเดือน
         public int Cust_status_id { get; set; } //รหัสสถานะภาพการสมรส
         public string Cust_save_date { get; set; }
-        public string Cust_Nationality_name { get; set; }
-        public string Cust_Origin_name { get; set; }
-        public string Cust_job_province_name { get; set; }
-        public string Cust_status_name { get; set; }
-
+        public Base_Nationalitys bs_ntn { get; set; }
+        public Base_Origins bs_org { get; set; }
+        public TH_Provinces th_pv_job_ctm { get; set; }
+        public Base_Person_Status bs_ps_st { get; set; }
+        public List<Customers_Address> list_add { get; set; }
+        public List<Customers_Homeaddress_Photo> list_photo { get; set; }
+        public Customers_Spouse ctm_marry { get; set; }
     }
 }

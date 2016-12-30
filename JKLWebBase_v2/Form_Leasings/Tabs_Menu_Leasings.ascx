@@ -37,9 +37,6 @@
         <asp:LinkButton ID="link_Add_Car_Img" runat="server" OnClick="link_Add_Car_Img_Click"> <i class="fa fa-car fa-fw"></i>รูปรถ </asp:LinkButton>
     </li>
     <li role="presentation" <%= act == 10 ? "class='active'" : "" %>>
-        <asp:LinkButton ID="link_Add_Home_Img" runat="server" OnClick="link_Add_Home_Img_Click"> <i class="fa fa-home fa-fw"></i> รูปบ้าน </asp:LinkButton>
-    </li>
-    <li role="presentation" <%= act == 11 ? "class='active'" : "" %>>
         <asp:LinkButton ID="link_List_Payment_Schedule" runat="server" OnClick="link_List_Payment_Schedule_Click"> <i class="fa fa-table fa-fw"></i> ตารางการผ่อนชำระ </asp:LinkButton>
     </li>
 </ul>

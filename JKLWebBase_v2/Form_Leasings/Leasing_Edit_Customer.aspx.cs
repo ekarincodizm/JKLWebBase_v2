@@ -22,12 +22,6 @@ namespace JKLWebBase_v2.Form_Leasings
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Customer_Leasing"] == null)
-            {
-                Session["Class_Active"] = 1;
-                Response.Redirect("/Form_Leasings/Leasing_Edit_Customer");
-            }
-
             if (!IsPostBack)
             {
                 _loadHomeStatus();
@@ -38,9 +32,33 @@ namespace JKLWebBase_v2.Form_Leasings
 
                 Spouse_Panel.Visible = false;
 
-                ctm = (Customers)Session["Customer_Leasing"];
+                if (Request.Params["code"] == null && Session["Customer_Leasing"] == null)
+                {
+                    Session["Class_Active"] = 1;
+                    Response.Redirect("/Form_Leasings/Leasing_Edit_Customer");
+                }
+                else if (Request.Params["code"] != null)
+                {
+                    string[] code = Request.Params["code"].Split('U');
+                    string leasing_id = code[1];
+                    string idcard = code[2];
 
-                _GetCustomer(ctm);
+                    ctm = new Customers_Manager().getCustomersByIdCard(idcard);
+
+                    Session["Customer_Leasing"] = ctm;
+
+                    Car_Leasings cls = new Car_Leasings_Manager().getCarLeasingById(leasing_id);
+
+                    Session["Leasings"] = cls;
+
+                    _GetCustomer(ctm);
+                }
+                else
+                {
+                    ctm = (Customers)Session["Customer_Leasing"];
+
+                    _GetCustomer(ctm);
+                }
             }
         }
 

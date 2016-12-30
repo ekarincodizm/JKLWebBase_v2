@@ -2,7 +2,9 @@
 using System.Data;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+
 using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Customers;
 
 
@@ -48,14 +50,14 @@ namespace JKLWebBase_v2.Managers_Customers
             }
         }
 
-        public List<Customers> getCustomers(string idcard, string fname, string lname)
+        public List<Customers> getCustomers(string idcard, string fname, string lname, int i_row_str, int i_row_limit)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 /* 
                  * :: StoredProcedure :: [ g_customers ] :: 
-                 * g_customers (in i_Cust_idcard varchar(13), in i_Cust_Fname varchar(255), in i_Cust_LName varchar(255))
+                 * g_customers (in i_Cust_idcard varchar(13), in i_Cust_Fname varchar(255), in i_Cust_LName varchar(255), IN i_row_str INT(11), IN i_row_limit INT(11))
                  * 
                  */
 
@@ -65,6 +67,8 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_idcard", idcard);
                 cmd.Parameters.AddWithValue("@i_Cust_Fname", fname);
                 cmd.Parameters.AddWithValue("@i_Cust_LName", lname);
+                cmd.Parameters.AddWithValue("@i_row_str", i_row_str);
+                cmd.Parameters.AddWithValue("@i_row_limit", i_row_limit);
 
 
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -108,10 +112,24 @@ namespace JKLWebBase_v2.Managers_Customers
                     cust.Cust_job_salary = reader.IsDBNull(27) ? defaultNum : reader.GetDouble(27);
                     cust.Cust_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
                     cust.Cust_save_date = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
-                    cust.Cust_Nationality_name = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
-                    cust.Cust_Origin_name = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
-                    cust.Cust_job_province_name = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
-                    cust.Cust_status_name = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+
+                    cust.bs_ntn = new Base_Nationalitys();
+                    cust.bs_ntn.Nationality_id = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
+                    cust.bs_ntn.Nationality_name_ENG = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    cust.bs_ntn.Nationality_name_TH = reader.IsDBNull(31) ? defaultString : reader.GetString(13);
+
+                    cust.bs_org = new Base_Origins();
+                    cust.bs_org.Origin_id = reader.IsDBNull(10) ? defaultNum : reader.GetInt32(10);
+                    cust.bs_org.Origin_name_ENG = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    cust.bs_org.Origin_name_TH = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+
+                    cust.th_pv_job_ctm = new TH_Provinces();
+                    cust.th_pv_job_ctm.Province_id = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
+                    cust.th_pv_job_ctm.Province_name = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+
+                    cust.bs_ps_st = new Base_Person_Status();
+                    cust.bs_ps_st.person_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
+                    cust.bs_ps_st.person_status_name = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
 
                     list_cust.Add(cust);
 
@@ -192,11 +210,24 @@ namespace JKLWebBase_v2.Managers_Customers
                     cust.Cust_job_salary = reader.IsDBNull(27) ? defaultNum : reader.GetDouble(27);
                     cust.Cust_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
                     cust.Cust_save_date = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
-                    cust.Cust_Nationality_name = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
-                    cust.Cust_Origin_name = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
-                    cust.Cust_job_province_name = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
-                    cust.Cust_status_name = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
 
+                    cust.bs_ntn = new Base_Nationalitys();
+                    cust.bs_ntn.Nationality_id = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
+                    cust.bs_ntn.Nationality_name_ENG = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    cust.bs_ntn.Nationality_name_TH = reader.IsDBNull(31) ? defaultString : reader.GetString(13);
+
+                    cust.bs_org = new Base_Origins();
+                    cust.bs_org.Origin_id = reader.IsDBNull(10) ? defaultNum : reader.GetInt32(10);
+                    cust.bs_org.Origin_name_ENG = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    cust.bs_org.Origin_name_TH = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+
+                    cust.th_pv_job_ctm = new TH_Provinces();
+                    cust.th_pv_job_ctm.Province_id = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
+                    cust.th_pv_job_ctm.Province_name = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+
+                    cust.bs_ps_st = new Base_Person_Status();
+                    cust.bs_ps_st.person_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
+                    cust.bs_ps_st.person_status_name = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
                 }
 
                 return cust;

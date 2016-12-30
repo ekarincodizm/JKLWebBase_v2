@@ -21,6 +21,8 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Search_Leasings_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Leasings");
+
             Response.Redirect("/Form_Leasings/Leasing_Search");
         }
 
@@ -31,6 +33,8 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Search_Customers_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Customers");
+
             Session["Class_Active_Customer"] = 1;
 
             Response.Redirect("/Form_Customer/Customer_Search");

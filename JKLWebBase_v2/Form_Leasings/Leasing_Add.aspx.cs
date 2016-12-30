@@ -338,6 +338,8 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Period_pure = string.IsNullOrEmpty(Period_pure_TBx.Text) ? 0 : Convert.ToDouble(Period_pure_TBx.Text);
             cls.Period_payment = string.IsNullOrEmpty(Period_Payment_TBx.Text) ? 0 : Convert.ToDouble(Period_Payment_TBx.Text);
             cls.Period_require = string.IsNullOrEmpty(Period_require_TBx.Text) ? 0 : Convert.ToDouble(Period_require_TBx.Text);
+            cls.Total_period_left = string.IsNullOrEmpty(Total_Period_TBx.Text) ? 0 : Convert.ToInt32(Total_Period_TBx.Text);
+            cls.Total_payment_left = string.IsNullOrEmpty(Total_Net_Leasing_TBx.Text) ? 0 : Convert.ToDouble(Total_Net_Leasing_TBx.Text);
             cls.Payment_schedule = Payment_Schedule_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Payment_Schedule_DDL.SelectedValue);
             cls.First_payment_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(First_Payment_Date_TBx.Text);
 
@@ -376,14 +378,14 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Car_old_owner_road = string.IsNullOrEmpty(Car_Old_Owner_Road_TBx.Text) ? "" : Car_Old_Owner_Road_TBx.Text;
             cls.Car_old_owner_subdistrict = string.IsNullOrEmpty(Car_Old_Owner_Subdistrict_TBx.Text) ? "" : Car_Old_Owner_Subdistrict_TBx.Text;
             cls.Car_old_owner_district = string.IsNullOrEmpty(Car_Old_Owner_District_TBx.Text) ? "" : Car_Old_Owner_District_TBx.Text;
-            cls.Car_old_owner_province = Car_Old_Owner_Province_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Old_Owner_Province_DDL.SelectedValue);
+            cls.Car_old_owner_province = Car_Old_Owner_Province_DDL.SelectedIndex < 0 ? 0 : Convert.ToInt32(Car_Old_Owner_Province_DDL.SelectedValue);
             cls.Car_old_owner_contry = string.IsNullOrEmpty(Car_Old_Owner_Contry_TBx.Text) ? "" : Car_Old_Owner_Contry_TBx.Text;
             cls.Car_old_owner_zipcode = string.IsNullOrEmpty(Car_Old_Owner_Zipcode_TBx.Text) ? "" : Car_Old_Owner_Zipcode_TBx.Text;
 
             Customers ctm = (Customers)Session["Customer_Leasing"];
 
             cls.Cust_id = ctm.Cust_id;
-            cls.Tent_car_id = Tent_car_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Tent_car_DDL.SelectedValue);
+            cls.Tent_car_id = Tent_car_DDL.SelectedIndex < 0 ? 0 : Convert.ToInt32(Tent_car_DDL.SelectedValue);
 
             // ข้อมูลเช็คและการโอน
             cls.Cheque_receiver = string.IsNullOrEmpty(Cheque_receiver_TBx.Text) ? "" : Cheque_receiver_TBx.Text;
@@ -393,7 +395,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Cheque_sum = string.IsNullOrEmpty(Cheque_sum_TBx.Text) ? 0 : Convert.ToDouble(Cheque_sum_TBx.Text);
             cls.Cheque_receive_date = string.IsNullOrEmpty(Cheque_receive_date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);
 
-            cls.Contract_status = "1";
+            cls.Contract_status = 1;
 
             Session["Leasings"] = cls;
 

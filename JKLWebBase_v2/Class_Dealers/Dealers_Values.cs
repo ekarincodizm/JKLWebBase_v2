@@ -1,6 +1,6 @@
 ﻿namespace JKLWebBase_v2.Class_Dealers
 {
-    public class Car_Dealers_Values
+    public class Dealers_Values
     {
         public string Dealer_id { get; set; } //รหัสนายหน้า
         public double Dealer_commission { get; set; } //ค่านายหน้า

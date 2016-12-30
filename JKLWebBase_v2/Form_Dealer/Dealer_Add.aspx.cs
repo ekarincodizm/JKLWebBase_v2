@@ -83,7 +83,7 @@ namespace JKLWebBase_v2.Form_Dealer
 
         private void _CheckDealer()
         {
-            Car_Dealers cdl = new Car_Dealers_Manager().getDealerByIdCard(Dealer_idcard_TBx.Text);
+            Dealers cdl = new Dealers_Manager().getDealerByIdCard(Dealer_idcard_TBx.Text);
             if (cdl.Dealer_id != null)
             {
                 _GetDealer(cdl);
@@ -110,7 +110,7 @@ namespace JKLWebBase_v2.Form_Dealer
         ****************************************************                                                                    ********************************************************
         *******************************************************************************************************************************************************************************/
 
-        private void _GetDealer(Car_Dealers cdl)
+        private void _GetDealer(Dealers cdl)
         {
             Dealer_fname_TBx.Text = cdl.Dealer_fname;
             Dealer_lname_TBx.Text = cdl.Dealer_lname;
@@ -156,8 +156,8 @@ namespace JKLWebBase_v2.Form_Dealer
 
         private void _AddDealer()
         {
-            Car_Dealers_Manager cdl_mng = new Car_Dealers_Manager();
-            Car_Dealers cdl = new Car_Dealers();
+            Dealers_Manager cdl_mng = new Dealers_Manager();
+            Dealers cdl = new Dealers();
 
             cdl.Dealer_id = cdl_mng.generateDealerID();
             cdl.Dealer_fname = string.IsNullOrEmpty(Dealer_fname_TBx.Text) ? "" : Dealer_fname_TBx.Text;

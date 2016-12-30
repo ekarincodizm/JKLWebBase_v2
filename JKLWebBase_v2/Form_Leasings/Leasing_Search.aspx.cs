@@ -15,6 +15,8 @@ namespace JKLWebBase_v2
 {
     public partial class Leasing_Search : Page
     {
+        Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -84,6 +86,221 @@ namespace JKLWebBase_v2
             }
         }
 
+        protected void Search_Btn_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Leasings");
+
+            _getLeasing();
+        }
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                   Search Leasing Method                            ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        private void _getLeasing()
+        {
+            string deposit_no = Deps_No_TBx.Text;
+            string leasing_no = Leasing_No_TBx.Text;
+            string idcard = Cust_Idcard_TBx.Text;
+            string name = Cust_Name_TBx.Text.Trim(' ');
+            string date_str = DateTimeUtility.convertDateToMYSQL(Leasing_Date_str_TBx.Text);
+            string date_end = DateTimeUtility.convertDateToMYSQL(Leasing_Date_end_TBx.Text);
+            string leasing_Code_inline = _getCheckedLeasing_Code();
+            string branch_id_inline = _getCheckedBranch();
+            string zone_id_inline = _getCheckedZone();
+
+            if (!string.IsNullOrEmpty(deposit_no) || !string.IsNullOrEmpty(leasing_no) || !string.IsNullOrEmpty(idcard) || !string.IsNullOrEmpty(name) || !string.IsNullOrEmpty(date_str) ||
+                !string.IsNullOrEmpty(date_end) || !string.IsNullOrEmpty(leasing_Code_inline) || !string.IsNullOrEmpty(branch_id_inline) || !string.IsNullOrEmpty(zone_id_inline))
+            {
+                cls_mng = new Car_Leasings_Manager();
+
+                List<Car_Leasings> list_cls_all = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "": name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, branch_id_inline, zone_id_inline, 0, 0);
+
+                int row = list_cls_all.Count;
+
+                _pageCount(row);
+
+                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, branch_id_inline, zone_id_inline, 0, 20);
+
+                Session["deposit_no"] = deposit_no;
+                Session["leasing_no"] = leasing_no;
+                Session["idcard"] = idcard;
+                Session["name"] = name;
+                Session["date_str"] = deposit_no;
+                Session["date_end"] = date_end;
+                Session["leasing_Code_inline"] = leasing_Code_inline;
+                Session["branch_id_inline"] = branch_id_inline;
+                Session["zone_id_inline"] = zone_id_inline;
+                Session["row_str"] = 0;
+
+                Session["List_Leasings"] = list_cls;
+            }
+        }
+
+        private void _pageCount(int row)
+        {
+            int paging = row > 20 ? (row / 20) + 1 : 1;
+
+            for (int i = 1; i <= paging; i++)
+            {
+                Paging_DDL.Items.Add(new ListItem("" + i, "" + i));
+            }
+
+            if (paging == 1)
+            {
+                link_Previous.Enabled = false;
+                link_Next.Enabled = false;
+            }
+            else if (paging > 1 && Paging_DDL.Items[0].Value == "0")
+            {
+                link_Previous.Enabled = false;
+                link_Next.Enabled = true;
+            }
+            else
+            {
+                link_Previous.Enabled = true;
+                link_Next.Enabled = true;
+            }
+        }
+
+        protected void link_Previous_Click(object sender, EventArgs e)
+        {
+            int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
+
+            if (current_page > 1)
+            {
+                int prev = current_page - 1;
+
+                Paging_DDL.SelectedValue = prev.ToString();
+
+                _getMoreDealer(prev);
+            }
+        }
+        protected void Paging_DDL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
+
+            _getMoreDealer(current_page);
+        }
+
+        protected void link_Next_Click(object sender, EventArgs e)
+        {
+            int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
+
+            int next = current_page + 1;
+
+            Paging_DDL.SelectedValue = next.ToString();
+
+            _getMoreDealer(next);
+        }
+
+        private void _getMoreDealer(int current_page)
+        {
+            string deposit_no = (string)Session["deposit_no"];
+            string leasing_no = (string)Session["leasing_no"];
+            string idcard = (string)Session["idcard"];
+            string name = (string)Session["name"];
+            string date_str = (string)Session["date_str"];
+            string date_end = (string)Session["date_end"];
+            string leasing_Code_inline = (string)Session["leasing_Code_inline"];
+            string branch_id_inline = (string)Session["branch_id_inline"];
+            string zone_id_inline = (string)Session["zone_id_inline"];
+
+            cls_mng = new Car_Leasings_Manager();
+
+            if (current_page > 1)
+            {
+                int row_str = (current_page - 1) * 20;
+
+                link_Previous.Enabled = true;
+
+                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, branch_id_inline, zone_id_inline, 0, 20);
+
+                Session["row_str"] = row_str;
+
+                Session["List_Dealers"] = list_cls;
+            }
+            else
+            {
+                link_Previous.Enabled = false;
+
+                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, branch_id_inline, zone_id_inline, 0, 20);
+
+                Session["row_str"] = 0;
+
+                Session["List_Dealers"] = list_cls;
+            }
+        }
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                   Get Value in CheckBoxList                        ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        private string _getCheckedLeasing_Code()
+        {
+            string leasing_Code_inline = "";
+            int count = 1;
+
+            for (int i = 0; i < Leasing_Code_ChkBxL.Items.Count; i++)
+            {
+                if (Leasing_Code_ChkBxL.Items[i].Selected && count == 1)
+                {
+                    leasing_Code_inline += Leasing_Code_ChkBxL.Items[i].Value;
+                    count++;
+                }
+                else if (Leasing_Code_ChkBxL.Items[i].Selected)
+                {
+                    leasing_Code_inline += ","+Leasing_Code_ChkBxL.Items[i].Value;
+                    count++;
+                }
+            }
+            return leasing_Code_inline;
+        }
+
+        private string _getCheckedBranch()
+        {
+            string branch_id_inline = "";
+            int count = 1;
+
+            for (int i = 0; i < Branch_ChkBxL.Items.Count; i++)
+            {
+                if (Branch_ChkBxL.Items[i].Selected && count == 1)
+                {
+                    branch_id_inline += Branch_ChkBxL.Items[i].Value;
+                    count++;
+                }
+                else if (Branch_ChkBxL.Items[i].Selected)
+                {
+                    branch_id_inline += "," + Branch_ChkBxL.Items[i].Value;
+                    count++;
+                }
+            }
+            return branch_id_inline;
+        }
+
+        private string _getCheckedZone()
+        {
+            string zone_id_inline = "";
+            int count = 1;
+
+            for (int i = 0; i < Zone_ChkBxL.Items.Count; i++)
+            {
+                if (Zone_ChkBxL.Items[i].Selected && count == 1)
+                {
+                    zone_id_inline += Zone_ChkBxL.Items[i].Value;
+                    count++;
+                }
+                else if (Zone_ChkBxL.Items[i].Selected)
+                {
+                    zone_id_inline += "," + Zone_ChkBxL.Items[i].Value;
+                    count++;
+                }
+            }
+            return zone_id_inline;
+        }
+
         /*******************************************************************************************************************************************************************************
         ****************************************************                   Load Default Data to Form                        ********************************************************
         ****************************************************                                                                    ********************************************************
@@ -129,5 +346,7 @@ namespace JKLWebBase_v2
                 Zone_ChkBxL.Items.Add(new ListItem(data.Zone_code + " " + data.Zone_name, data.Zone_id.ToString()));
             }
         }
+
+
     }
 }
