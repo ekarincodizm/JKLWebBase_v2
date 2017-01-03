@@ -565,7 +565,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 con.Close();
             }
         }
-
+ 
         public bool editCarLeasings(Car_Leasings cls)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
@@ -689,6 +689,207 @@ namespace JKLWebBase_v2.Managers_Leasings
             catch (Exception ex)
             {
                 error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> editCarLeasings() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool checkDuplicateBondsman(string Leasing_id, string Cust_id, string Cust_idcard)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_car_leasings_bondsmans ] :: 
+                 * g_car_leasings_bondsmans (IN i_Leasing_id VARCHAR(50), IN i_Cust_id VARCHAR(50), IN i_Cust_idcard VARCHAR(50))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_car_leasings_bondsmans", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);
+                cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
+                cmd.Parameters.AddWithValue("@i_Cust_idcard", Cust_idcard);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                bool detected = false;
+
+                if (reader.Read())
+                {
+                    detected = true;
+                }
+
+                return detected;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> checkDuplicateBondsman() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> checkDuplicateBondsman() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<Car_Leasings_Bondsmans> getAllBondsmans(string Leasing_id, string Cust_id, string Cust_idcard)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_car_leasings_bondsmans ] :: 
+                 * g_car_leasings_bondsmans (IN i_Leasing_id VARCHAR(50), IN i_Cust_id VARCHAR(50), IN i_Cust_idcard VARCHAR(50))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_car_leasings_bondsmans", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);
+                cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
+                cmd.Parameters.AddWithValue("@i_Cust_idcard", Cust_idcard);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Car_Leasings_Bondsmans> list_cls_bsm = new List<Car_Leasings_Bondsmans>();
+
+                while (reader.Read())
+                {
+                    Car_Leasings_Bondsmans cls_bsm = new Car_Leasings_Bondsmans();
+
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    cls_bsm.Leasing_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    cls_bsm.Bondsman_no =  reader.IsDBNull(1) ? defaultNum : reader.GetInt32(1);
+                    cls_bsm.Cust_id = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    cls_bsm.Bondsman_save_date = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+
+                    cls_bsm.ctm = new Customers();
+                    cls_bsm.ctm.Cust_id = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    cls_bsm.ctm.Cust_idcard = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    cls_bsm.ctm.Cust_Fname = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
+                    cls_bsm.ctm.Cust_LName = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+                    cls_bsm.ctm.Cust_B_date = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
+                    cls_bsm.ctm.Cust_age = reader.IsDBNull(8) ? defaultNum : reader.GetInt32(8);
+                    cls_bsm.ctm.Cust_Idcard_without = reader.IsDBNull(9) ? defaultString : reader.GetString(9);
+                    cls_bsm.ctm.Cust_Idcard_start = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
+                    cls_bsm.ctm.Cust_Idcard_expire = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
+                    cls_bsm.ctm.Cust_Nationality = reader.IsDBNull(12) ? defaultNum : reader.GetInt32(12);
+                    cls_bsm.ctm.Cust_Origin = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
+                    cls_bsm.ctm.Cust_status_id = reader.IsDBNull(14) ? defaultNum : reader.GetInt32(14);
+                    cls_bsm.ctm.Cust_save_date = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+
+                    list_cls_bsm.Add(cls_bsm);
+                }
+
+                return list_cls_bsm;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> getAllBondsmans() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> getAllBondsmans() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool addBondsman(string Leasing_id, int bondsman_no, string Cust_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ i_car_leasings_bondsmans ] :: 
+                 * i_car_leasings_bondsmans (in i_Leasing_id varchar(50), in i_bondsman_no int(1) , in i_Cust_id varchar(50))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_car_leasings_bondsmans", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);
+                cmd.Parameters.AddWithValue("@i_bondsman_no", bondsman_no);
+                cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> addBondsman() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> addBondsman() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool removeBondsman(string Leasing_id, int bondsman_no, string Cust_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ d_car_leasings_bondsmans ] :: 
+                 * d_car_leasings_bondsmans (in i_Leasing_id varchar(50), in i_bondsman_no int(1) , in i_Cust_id varchar(50))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("d_car_leasings_bondsmans", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);
+                cmd.Parameters.AddWithValue("@i_bondsman_no", bondsman_no);
+                cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> removeBondsman() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> removeBondsman() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }

@@ -13,18 +13,39 @@ namespace JKLWebBase_v2.Form_Dealer
 {
     public partial class Dealer_Edit : Page
     {
+        Dealers cdl = new Dealers();
+        Dealers_Manager cdl_mng = new Dealers_Manager();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                Session.Remove("List_Dealers");
+
                 _loadThaiProvinces();
                 _loadDealerStatus();
+
+                if (Request.Params["code"] == null)
+                {
+                    Response.Redirect("/Form_Dealer/Dealer_Add");
+
+                }
+                else if (Request.Params["code"] != null)
+                {
+                    string[] code = Request.Params["code"].Split('U');
+                    string idcard = code[1];
+
+                    cdl = cdl_mng.getDealerByIdCard(idcard);
+
+                    Session["Dealer"] = cdl;
+
+                    _GetDealer(cdl);
+                }
             }
 
             Alert_Success_Panel.Visible = false;
 
-            Dealers cdl_tmp = (Dealers)Session["Dealer"];
-            _GetDealer(cdl_tmp);
+            
         }
 
         protected void Dealer_Add_Save_Btn_Click(object sender, EventArgs e)
@@ -70,15 +91,16 @@ namespace JKLWebBase_v2.Form_Dealer
             Dealer_lname_TBx.Text = cdl.Dealer_lname;
             Dealer_idcard_TBx.Text = cdl.Dealer_idcard;
             Dealer_address_no_TBx.Text = cdl.Dealer_address_no;
-            Dealer_vilage_TBx.Text = cdl.Dealer_vilage;
-            Dealer_vilage_no_TBx.Text = cdl.Dealer_vilage_no;
-            Dealer_alley_TBx.Text = cdl.Dealer_alley;
-            Dealer_road_TBx.Text = cdl.Dealer_road;
-            Dealer_subdistrict_TBx.Text = cdl.Dealer_subdistrict;
-            Dealer_district_TBx.Text = cdl.Dealer_district;
+            Dealer_vilage_TBx.Text = cdl.Dealer_vilage.IndexOf('.') >= 1 ? cdl.Dealer_vilage.Split('.')[1] : "" ;
+            Dealer_vilage_no_TBx.Text = cdl.Dealer_vilage_no.IndexOf('.') >= 1 ? cdl.Dealer_vilage_no.Split('.')[1] : "";
+            Dealer_alley_TBx.Text = cdl.Dealer_alley.IndexOf('.') >= 1 ? cdl.Dealer_alley.Split('.')[1] : "";
+            Dealer_road_TBx.Text = cdl.Dealer_road.IndexOf('.') >= 1 ? cdl.Dealer_road.Split('.')[1] : "";
+            Dealer_subdistrict_TBx.Text = cdl.Dealer_subdistrict.IndexOf('.') >= 1 ? cdl.Dealer_subdistrict.Split('.')[1] : "";
+            Dealer_district_TBx.Text = cdl.Dealer_district.IndexOf('.') >= 1 ? cdl.Dealer_district.Split('.')[1] : "";
             Dealer_province_DDL.SelectedValue = cdl.Dealer_province.ToString();
             Dealer_country_TBx.Text = cdl.Dealer_country;
             Dealer_zipcode_TBx.Text = cdl.Dealer_zipcode;
+            Dealer_status_DDL.SelectedValue = cdl.Dealer_status.ToString();
         }
 
         /*******************************************************************************************************************************************************************************
@@ -110,8 +132,7 @@ namespace JKLWebBase_v2.Form_Dealer
 
         private void _EditDealer()
         {
-            Dealers_Manager cdl_mng = new Dealers_Manager();
-            Dealers cdl = new Dealers();
+            cdl = new Dealers();
 
             Dealers cdl_tmp = (Dealers)Session["Dealer"];
 
@@ -120,12 +141,12 @@ namespace JKLWebBase_v2.Form_Dealer
             cdl.Dealer_lname = string.IsNullOrEmpty(Dealer_lname_TBx.Text) ? "" : Dealer_lname_TBx.Text;
             cdl.Dealer_idcard = string.IsNullOrEmpty(Dealer_idcard_TBx.Text) ? "" : Dealer_idcard_TBx.Text;
             cdl.Dealer_address_no = string.IsNullOrEmpty(Dealer_address_no_TBx.Text) ? "" : Dealer_address_no_TBx.Text;
-            cdl.Dealer_vilage = string.IsNullOrEmpty(Dealer_vilage_TBx.Text) ? "" : Dealer_vilage_TBx.Text;
-            cdl.Dealer_vilage_no = string.IsNullOrEmpty(Dealer_vilage_no_TBx.Text) ? "" : Dealer_vilage_no_TBx.Text;
-            cdl.Dealer_alley = string.IsNullOrEmpty(Dealer_alley_TBx.Text) ? "" : Dealer_alley_TBx.Text;
-            cdl.Dealer_road = string.IsNullOrEmpty(Dealer_road_TBx.Text) ? "" : Dealer_road_TBx.Text;
-            cdl.Dealer_subdistrict = string.IsNullOrEmpty(Dealer_subdistrict_TBx.Text) ? "" : Dealer_subdistrict_TBx.Text;
-            cdl.Dealer_district = string.IsNullOrEmpty(Dealer_district_TBx.Text) ? "" : Dealer_district_TBx.Text;
+            cdl.Dealer_vilage = string.IsNullOrEmpty(Dealer_vilage_TBx.Text) ? "บ.-" : "บ." + Dealer_vilage_TBx.Text;
+            cdl.Dealer_vilage_no = string.IsNullOrEmpty(Dealer_vilage_no_TBx.Text) ? "ม.-" : "ม." + Dealer_vilage_no_TBx.Text;
+            cdl.Dealer_alley = string.IsNullOrEmpty(Dealer_alley_TBx.Text) ? "ซ.-" : "ซ." + Dealer_alley_TBx.Text;
+            cdl.Dealer_road = string.IsNullOrEmpty(Dealer_road_TBx.Text) ? "ถ.-" : "ถ." + Dealer_road_TBx.Text;
+            cdl.Dealer_subdistrict = string.IsNullOrEmpty(Dealer_subdistrict_TBx.Text) ? "ต.-" : "ต." + Dealer_subdistrict_TBx.Text;
+            cdl.Dealer_district = string.IsNullOrEmpty(Dealer_district_TBx.Text) ? "อ.-" : "อ." + Dealer_district_TBx.Text;
             cdl.Dealer_province = Dealer_province_DDL.SelectedIndex <= 0 ? 39 : Convert.ToInt32(Dealer_province_DDL.SelectedValue);
             cdl.Dealer_country = string.IsNullOrEmpty(Dealer_country_TBx.Text) ? "" : Dealer_country_TBx.Text;
             cdl.Dealer_zipcode = string.IsNullOrEmpty(Dealer_zipcode_TBx.Text) ? "" : Dealer_zipcode_TBx.Text;

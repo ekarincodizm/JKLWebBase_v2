@@ -64,7 +64,7 @@
                             <td style="text-align: center;"><%= row_str + i + 1 %></td>
                             <td style="text-align: center;"><%= dlr.Dealer_idcard %></td>
                             <td><%= dlr.Dealer_fname + " " + dlr.Dealer_lname %></td>
-                            <td><%= dlr.Dealer_address_no + " บ." + dlr.Dealer_vilage + " ม." + dlr.Dealer_vilage_no + " ซ." + dlr.Dealer_alley + " ถ." + dlr.Dealer_road + " ต." + dlr.Dealer_subdistrict + " อ." + dlr.Dealer_district + " จ." + dlr.cdl_pv.Province_name + " " + dlr.Dealer_zipcode%></td>
+                            <td><%= dlr.Dealer_address_no + " " + dlr.Dealer_vilage_no + " " + dlr.Dealer_vilage + " " + dlr.Dealer_alley + " " + dlr.Dealer_road + " " + dlr.Dealer_subdistrict + " " + dlr.Dealer_district + " จ." + dlr.cdl_pv.Province_name + " " + dlr.Dealer_zipcode%></td>
                             <td><%= dlr.Dealer_status_name %></td>
                             <td>
                                 <a class="btn btn-xs btn-warning btn-block" href="Dealer_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, dlr.Dealer_idcard, "") %>" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit"></i> </a>

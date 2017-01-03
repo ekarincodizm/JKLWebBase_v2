@@ -85,7 +85,7 @@ namespace JKLWebBase_v2.Form_Main
         {
             Session["Class_Active"] = 3;
 
-            if (Session["Dealers"] == null)
+            if (Session["Dealers_Leasing"] == null)
             {
                 Response.Redirect("/Form_Leasings/Leasing_Add_Dealer");
             }

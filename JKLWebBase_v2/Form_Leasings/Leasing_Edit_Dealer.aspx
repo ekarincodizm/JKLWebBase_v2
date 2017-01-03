@@ -5,6 +5,12 @@
 <%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="Print_Menu_Leasing.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+    <!-- Print Menu Button -->
+    <print_menu_leasing:Print_Menu id="Print_Menu1" runat="server" />
+
+    <!-- ./Print Menu Button -->
+
     <!-- Alert MessagesBox -->
     <asp:Panel ID="Alert_Warning_Panel" runat="server" Visible="false">
     <div class="col-md-6 col-md-offset-3">
@@ -21,12 +27,27 @@
         </div>
     </div>
     </asp:Panel>
+
+    <asp:Panel ID="Alert_Danger_Panel" runat="server" Visible="false">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                </button>
+                <div class="modal-header">
+                    <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>
+                        <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label>
+                    </h6>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <asp:Label ID="alert_danger_Lbl" runat="server"> </asp:Label>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </asp:Panel>
     <!-- Alert MessagesBox -->
-
-    <!-- Print Menu Button -->
-    <print_menu_leasing:Print_Menu id="Print_Menu1" runat="server" />
-
-    <!-- ./Print Menu Button -->
 
     <div class="col-lg-12">
         <h4 class="page-header"> แก้ไขข้อมูลนายหน้า </h4>
@@ -115,14 +136,14 @@
                         <div class="col-xs-2">
                             <asp:Label ID="Dealer_commission_Lbl" runat="server" >ค่านายหน้า</asp:Label>
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Dealer_commission_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox ID="Dealer_commission_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Dealer_percen_Lbl" runat="server" > % หัก ณ ที่จ่าย</asp:Label>
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Dealer_percen_TBx" runat="server" CssClass="form-control" TextMode="Number" OnTextChanged="Dealer_percen_TBx_TextChanged" AutoPostBack="true"></asp:TextBox>
+                                <asp:TextBox ID="Dealer_percen_TBx" runat="server" CssClass="form-control" OnTextChanged="Dealer_percen_TBx_TextChanged" AutoPostBack="true"></asp:TextBox>
                                 <span class="input-group-addon">%</span>
                             </div>
                         </div>

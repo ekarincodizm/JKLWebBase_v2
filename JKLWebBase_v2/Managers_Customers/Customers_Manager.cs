@@ -57,7 +57,7 @@ namespace JKLWebBase_v2.Managers_Customers
             {
                 /* 
                  * :: StoredProcedure :: [ g_customers ] :: 
-                 * g_customers (in i_Cust_idcard varchar(13), in i_Cust_Fname varchar(255), in i_Cust_LName varchar(255), IN i_row_str INT(11), IN i_row_limit INT(11))
+                 * g_customers (in i_Cust_idcard varchar(30), in i_Cust_Fname varchar(255), in i_Cust_LName varchar(255), IN i_row_str INT(11), IN i_row_limit INT(11))
                  * 
                  */
 

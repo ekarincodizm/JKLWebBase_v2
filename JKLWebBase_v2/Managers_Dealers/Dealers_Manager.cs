@@ -57,7 +57,7 @@ namespace JKLWebBase_v2.Managers_Dealers
             {
                 /* 
                  * :: StoredProcedure :: [ g_car_dealers ] :: 
-                 * g_car_dealers (in i_Dealer_idcard varchar(13), in i_Dealer_fname varchar(255), in i_Dealer_lname varchar(255), IN i_row_str INT(11), IN i_row_limit INT(11))
+                 * g_car_dealers (in i_Dealer_idcard varchar(20), in i_Dealer_fname varchar(255), in i_Dealer_lname varchar(255), IN i_row_str INT(11), IN i_row_limit INT(11))
                  * 
                  */
 
@@ -230,8 +230,33 @@ namespace JKLWebBase_v2.Managers_Dealers
                     cdlval.Dealer_com_code = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
                     cdlval.Dealer_bookcode = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
                     cdlval.Dealer_date_print = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
-                    cdlval.Dealer_save_date = reader.IsDBNull(8) ? defaultString : reader.GetString(9);
+                    cdlval.Dealer_value_save_date = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
                     cdlval.Leasing_id = reader.IsDBNull(9) ? defaultString : reader.GetString(9);
+
+                    cdlval.dlr = new Dealers();
+                    cdlval.dlr.Dealer_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    cdlval.dlr.Dealer_fname = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
+                    cdlval.dlr.Dealer_lname = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
+                    cdlval.dlr.Dealer_idcard = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+                    cdlval.dlr.Dealer_address_no = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    cdlval.dlr.Dealer_vilage = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+                    cdlval.dlr.Dealer_vilage_no = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    cdlval.dlr.Dealer_alley = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+                    cdlval.dlr.Dealer_road = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    cdlval.dlr.Dealer_subdistrict = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
+                    cdlval.dlr.Dealer_district = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    cdlval.dlr.Dealer_province = reader.IsDBNull(20) ? defaultNum : reader.GetInt32(20);
+                    cdlval.dlr.Dealer_country = reader.IsDBNull(21) ? defaultString : reader.GetString(21);
+                    cdlval.dlr.Dealer_zipcode = reader.IsDBNull(22) ? defaultString : reader.GetString(22);
+                    cdlval.dlr.Dealer_status = reader.IsDBNull(23) ? defaultNum : reader.GetInt32(23);
+                    cdlval.dlr.Dealer_status_name = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
+                    cdlval.dlr.Dealer_save_date = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
+
+                    cdlval.dlr.cdl_pv = new TH_Provinces();
+                    cdlval.dlr.cdl_pv.Province_id = reader.IsDBNull(20) ? defaultNum : reader.GetInt32(20);
+                    cdlval.dlr.cdl_pv.Province_name = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
+
+
                 }
 
                 return cdlval;
@@ -262,7 +287,7 @@ namespace JKLWebBase_v2.Managers_Dealers
             {
                 /* 
                  * :: StoredProcedure :: [ i_car_dealers ] :: 
-                 * i_car_dealers (in i_Dealer_id varchar(50),            in i_Dealer_fname varchar(255),         in i_Dealer_lname varchar(255),     in i_Dealer_idcard varchar(13), 
+                 * i_car_dealers (in i_Dealer_id varchar(50),            in i_Dealer_fname varchar(255),         in i_Dealer_lname varchar(255),     in i_Dealer_idcard varchar(20), 
 				 *	              in i_Dealer_address_no varchar(255),   in i_Dealer_vilage varchar(255),        in i_Dealer_vilage_no varchar(255), in i_Dealer_alley varchar(255), 
 				 *	              in i_Dealer_road varchar(255),         in i_Dealer_subdistrict varchar(255),   in i_Dealer_district varchar(255),  in i_Dealer_province int(11), 
 				 *	              in i_Dealer_country varchar(255),      in i_Dealer_zipcode varchar(255),       in i_Dealer_status int(11))
@@ -407,6 +432,44 @@ namespace JKLWebBase_v2.Managers_Dealers
             catch (Exception ex)
             {
                 error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> editDealer() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool removeDealer(string Leasing_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ d_car_dealers_values ] :: 
+                 * d_car_dealers_values (IN i_Leasing_id VARCHAR(50))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("d_car_dealers_values", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);;
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Dealers --> Car_Dealers_Manager --> removeDealer() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Dealers --> Car_Dealers_Manager --> removeDealer() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }

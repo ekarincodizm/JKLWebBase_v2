@@ -13,6 +13,15 @@ namespace JKLWebBase_v2.Form_Leasings {
     public partial class Leasing_Edit_Dealer {
         
         /// <summary>
+        /// Print_Menu1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JKLWebBase_v2.Form_Main.Print_Menu_Leasing Print_Menu1;
+        
+        /// <summary>
         /// Alert_Warning_Panel control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,31 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
         
         /// <summary>
-        /// Print_Menu1 control.
+        /// Alert_Danger_Panel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::JKLWebBase_v2.Form_Main.Print_Menu_Leasing Print_Menu1;
+        protected global::System.Web.UI.WebControls.Panel Alert_Danger_Panel;
+        
+        /// <summary>
+        /// alert_header_danger_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label alert_header_danger_Lbl;
+        
+        /// <summary>
+        /// alert_danger_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label alert_danger_Lbl;
         
         /// <summary>
         /// nav_tabs control.

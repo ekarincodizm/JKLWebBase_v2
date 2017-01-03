@@ -348,6 +348,7 @@
     <Compile Include="Class_Dealers\Dealers.cs" />
     <Compile Include="Class_Dealers\Dealers_Values.cs" />
     <Compile Include="Class_Leasings\Car_Leasings.cs" />
+    <Compile Include="Class_Leasings\Car_Leasings_Bondsmans.cs" />
     <Compile Include="Class_Leasings\Car_Leasings_Payment.cs" />
     <Compile Include="Class_Leasings\Car_Leasings_Photo.cs" />
     <Compile Include="Form_Customer\Customer_Home_Photo.aspx.cs">
@@ -568,7 +569,6 @@
     <Compile Include="Managers_Customers\Customers_Manager.cs" />
     <Compile Include="Managers_Customers\Customers_Spouse_Manager.cs" />
     <Compile Include="Managers_Dealers\Dealers_Manager.cs" />
-    <Compile Include="Managers_Leasings\Car_Leasings_Bondsman_Manager.cs" />
     <Compile Include="Managers_Leasings\Car_Leasings_Manager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
