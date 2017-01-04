@@ -698,19 +698,24 @@ namespace JKLWebBase_v2.Managers_Leasings
             }
         }
 
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                   Leasings Bondsmans Management Coding             ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
         public bool checkDuplicateBondsman(string Leasing_id, string Cust_id, string Cust_idcard)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 /* 
-                 * :: StoredProcedure :: [ g_car_leasings_bondsmans ] :: 
-                 * g_car_leasings_bondsmans (IN i_Leasing_id VARCHAR(50), IN i_Cust_id VARCHAR(50), IN i_Cust_idcard VARCHAR(50))
+                 * :: StoredProcedure :: [ g_car_leasings_bondsmans_chk_duplicate ] :: 
+                 * g_car_leasings_bondsmans_chk_duplicate (IN i_Leasing_id VARCHAR(50), IN i_Cust_id VARCHAR(50), IN i_Cust_idcard VARCHAR(50))
                  * 
                  */
 
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("g_car_leasings_bondsmans", con);
+                MySqlCommand cmd = new MySqlCommand("g_car_leasings_bondsmans_chk_duplicate", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);
                 cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
@@ -890,6 +895,291 @@ namespace JKLWebBase_v2.Managers_Leasings
             catch (Exception ex)
             {
                 error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> removeBondsman() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                   Leasings Car Photo Management Coding             ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
+        public string generateLeasingsCarDigitID()
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                con.Open();
+                string sql = "SELECT * FROM v_getdigit ";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                string id = "";
+                if (reader.Read())
+                {
+                    id = reader.IsDBNull(0) ? "" : reader.GetString(0);
+                }
+
+                return id;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> generateLeasingsCarDigitID() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> generateLeasingsCarDigitID() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public string getLastNumberLeasingsCarPhotoId(string Leasing_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_last_car_leasings_photo_by_id ] :: 
+                 * g_last_car_leasings_photo_by_id (IN i_Leasing_id varchar(50))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_last_car_leasings_photo_by_id", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                string digit = "";
+
+                if (reader.Read())
+                {
+                    digit = reader.IsDBNull(0) ? "" : reader.GetString(0);
+                }
+
+                return digit;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> getLastNumberLeasingsCarPhotoId() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> getLastNumberLeasingsCarPhotoId() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<Car_Leasings_Photo> getLeasingsCarPhoto(string Leasing_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_car_leasings_photo ] :: 
+                 * g_car_leasings_photo (IN i_Leasing_id varchar(50))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_car_leasings_photo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Car_Leasings_Photo> list_cls_photo = new List<Car_Leasings_Photo>();
+
+                while (reader.Read())
+                {
+                    Car_Leasings_Photo cls_photo = new Car_Leasings_Photo();
+
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    cls_photo.Leasing_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    cls_photo.Car_img_num = reader.IsDBNull(1) ? defaultNum : reader.GetInt32(1);
+                    cls_photo.Car_img_old_name = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    cls_photo.Car_img_path = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    cls_photo.Car_img_full_path = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    cls_photo.Car_img_local_path = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
+                    cls_photo.Car_img_save_date = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+
+                    list_cls_photo.Add(cls_photo);
+
+                }
+
+                return list_cls_photo;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> getLeasingsCarPhoto() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> getLeasingsCarPhoto() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public Car_Leasings_Photo getLeasingsCarPhotoSelected(string Leasing_id, string Car_img_num)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_car_leasings_photo_for_remove ] :: 
+                 * g_car_leasings_photo_for_remove (IN i_Leasing_id VARCHAR(50), IN i_Car_img_num INT(11))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_car_leasings_photo_for_remove", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);
+                cmd.Parameters.AddWithValue("@i_Car_img_num", Car_img_num);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Car_Leasings_Photo cls_photo = new Car_Leasings_Photo();
+
+                if (reader.Read())
+                {
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    cls_photo.Leasing_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    cls_photo.Car_img_num = reader.IsDBNull(1) ? defaultNum : reader.GetInt32(1);
+                    cls_photo.Car_img_old_name = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    cls_photo.Car_img_path = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    cls_photo.Car_img_full_path = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    cls_photo.Car_img_local_path = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
+                    cls_photo.Car_img_save_date = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+
+                }
+
+                return cls_photo;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> getLeasingsCarPhotoSelected) : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> getLeasingsCarPhotoSelected() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool addLeasingsCarPhoto(Car_Leasings_Photo cls_photo)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ i_car_leasings_photo ] :: 
+                 * i_car_leasings_photo (in i_Leasing_id varchar(50),   in i_Car_img_num int(11),       in i_Car_img_old_name TEXT, 
+				 *	                     in i_Car_img_path TEXT,        in i_Car_img_full_path TEXT,    in i_Car_img_local_path TEXT)
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_car_leasings_photo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Leasing_id", cls_photo.Leasing_id);
+                cmd.Parameters.AddWithValue("@i_Car_img_num", cls_photo.Car_img_num);
+                cmd.Parameters.AddWithValue("@i_Car_img_old_name", cls_photo.Car_img_old_name);
+                cmd.Parameters.AddWithValue("@i_Car_img_path", cls_photo.Car_img_path);
+                cmd.Parameters.AddWithValue("@i_Car_img_full_path", cls_photo.Car_img_full_path);
+                cmd.Parameters.AddWithValue("@i_Car_img_local_path", cls_photo.Car_img_local_path);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> addLeasingsCarPhoto() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> addLeasingsCarPhoto() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool removeLeasingsCarPhoto(string Leasing_id, int Car_img_num)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ d_car_leasings_photo ] :: 
+                 * d_car_leasings_photo (IN i_Leasing_id VARCHAR(50), IN i_Car_img_num INT(11))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("d_car_leasings_photo", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);
+                cmd.Parameters.AddWithValue("@i_Car_img_num", Car_img_num);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasings_Manager --> removeLeasingsCarPhoto() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Manager --> removeLeasingsCarPhoto() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return false;
             }

@@ -68,11 +68,15 @@ namespace JKLWebBase_v2.Form_Main
         {
             Session.Remove("List_Leasings");
 
+            Session["Class_Active"] = 1;
+
             Response.Redirect("/Form_Leasings/Leasing_Search");
         }
 
         protected void link_Menu_Leasing_Add_Click(object sender, EventArgs e)
         {
+            Session["Class_Active"] = 1;
+
             Response.Redirect("/Form_Leasings/Leasing_Add");
         }
 

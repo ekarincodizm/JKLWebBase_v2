@@ -4,10 +4,14 @@
 
 <%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="Print_Menu_Leasing.ascx" %>
 
+<%@ Import Namespace="JKLWebBase_v2.Class_Leasings" %>
+<%@ Import Namespace="JKLWebBase_v2.Managers_Leasings" %>
+<%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <!-- Print Menu Button -->
-    <print_menu_leasing:Print_Menu id="Print_Menu1" runat="server" />
+    <print_menu_leasing:Print_Menu ID="Print_Menu1" runat="server" />
 
     <!-- ./Print Menu Button -->
 
@@ -19,7 +23,9 @@
                     <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
                 </button>
                 <div class="modal-header">
-                    <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i> <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label> </h6>
+                    <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>
+                        <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label>
+                    </h6>
                 </div>
                 <div class="modal-body">
                     <p>
@@ -37,7 +43,9 @@
                     <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
                 </button>
                 <div class="modal-header">
-                    <h6 class="modal-title"><i class="fa fa-thumbs-o-up fa-fw"></i> <asp:Label ID="alert_header_success_Lbl" runat="server"> </asp:Label> </h6>
+                    <h6 class="modal-title"><i class="fa fa-thumbs-o-up fa-fw"></i>
+                        <asp:Label ID="alert_header_success_Lbl" runat="server"> </asp:Label>
+                    </h6>
                 </div>
                 <div class="modal-body">
                     <p>
@@ -166,44 +174,29 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="form-group col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton9" runat="server" CssClass="btn btn-success left" ><i class="fa fa-download fa-fw"></i> download </asp:LinkButton>
-                            <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i> remove </asp:LinkButton>
-                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image2" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image3" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image4" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                    </div>
+                    <%
+                        if (Session["list_cls_photo"] != null)
+                        {
+                            List<Car_Leasings_Photo> list_cls_photo = (List<Car_Leasings_Photo>)Session["list_cls_photo"];
+                            int col = 1;
+                            for (int i = 0; i < list_cls_photo.Count; i++)
+                            {
+                                Car_Leasings_Photo cls_photo = list_cls_photo[i];
 
-                    <div class="row">
-                        <div class="form-group col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton5" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image5" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton6" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image6" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton7" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image7" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
-                        <div class="col-xs-6 col-sm-3">
-                            <asp:LinkButton ID="LinkButton8" runat="server" CssClass="btn btn-danger right"><i class="fa fa-trash-o fa-fw"></i></asp:LinkButton>
-                            <asp:Image ID="Image8" runat="server" ImageUrl="~/Images_web/default-img.jpg" Width="100%" />
-                        </div>
+                                string ogn_code = CryptographyCode.GenerateSHA512String(cls_photo.Leasing_id);
+
+                    %>
+                    <%= (i % 4) == 0 ? "<div class='row'>" : "" %>
+                    <div class="form-group col-xs-6 col-sm-3">
+                        <a class="btn btn-danger right" href="Leasing_Car_Img_Remove?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_photo.Leasing_id, cls_photo.Car_img_num.ToString()) %>" data-toggle="tooltip" data-placement="left" title="ลบ"><i class="fa fa-trash-o"></i></a>
+                        <img alt="<%=cls_photo.Car_img_old_name %>" src="<%= string.IsNullOrEmpty(cls_photo.Car_img_path)? "../Images_web/default-img.jpg" : cls_photo.Car_img_path %>" width="100%" height="250px" />
                     </div>
+                    <%= col == 4? "</div>" : "" %>
+                    <%
+                                if (col == 4) { col = 1; } else { col++; }
+                            }
+                        }
+                    %>
                 </div>
                 <!-- /.รูปรถ -->
 

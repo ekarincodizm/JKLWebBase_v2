@@ -126,45 +126,50 @@ namespace JKLWebBase_v2.Form_Leasings
             Customers ctm_tmp = new Customers_Manager().getCustomersByIdCard(Cust_idcard_TBx.Text);
             Customers ctm_lsg = (Customers)Session["Customer_Leasing"];
             Car_Leasings cls_tmp = (Car_Leasings)Session["Leasings"];
+            nob = Convert.ToInt32(Session["Number_Of_Bondsman"].ToString());
+            Customers ctm_bsm = (Customers)Session["Bondsman_" + nob];
             Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
 
-            if (ctm_tmp.Cust_idcard == ctm_lsg.Cust_idcard)
+            if (ctm_tmp.Cust_idcard != ctm_bsm.Cust_idcard)
             {
-                Alert_Danger_Panel.Visible = true;
-                alert_header_danger_Lbl.Text = "เลขบัตรประชาชนซ้ำ";
-                alert_danger_Lbl.Text = "เลขบัตรประชาชน " + Cust_idcard_TBx.Text + " ของผู้ค้ำประกันนี้ ไม่สามารถใช้งานได้ เนื่องจากตรงกับผู้ทำสัญญา";
-
-                Save_Btn.Visible = false;
-            }
-            else if (cls_mng.checkDuplicateBondsman(cls_tmp.Leasing_id, ctm_lsg.Cust_id, ctm_lsg.Cust_idcard))
-            {
-                Alert_Danger_Panel.Visible = true;
-                alert_header_danger_Lbl.Text = "เลขบัตรประชาชนซ้ำ";
-                alert_danger_Lbl.Text = "เลขบัตรประชาชน " + Cust_idcard_TBx.Text + " ของผู้ค้ำประกันนี้ ไม่สามารถใช้งานได้ เนื่องจากซ้ำกับผู้ค้ำอื่น";
-
-                Save_Btn.Visible = false;
-            }
-            else
-            {
-                Alert_Danger_Panel.Visible = false;
-                Save_Btn.Visible = true;
-
-                if (ctm_tmp.Cust_idcard != null)
+                if (ctm_tmp.Cust_idcard == ctm_lsg.Cust_idcard)
                 {
-                    _GetCustomer(ctm_tmp);
+                    Alert_Danger_Panel.Visible = true;
+                    alert_header_danger_Lbl.Text = "เลขบัตรประชาชนซ้ำ";
+                    alert_danger_Lbl.Text = "เลขบัตรประชาชน " + Cust_idcard_TBx.Text + " ของผู้ค้ำประกันนี้ ไม่สามารถใช้งานได้ เนื่องจากตรงกับผู้ทำสัญญา";
 
-                    Session["chk_customer"] = ctm_tmp;
+                    Save_Btn.Visible = false;
+                }
+                else if (cls_mng.checkDuplicateBondsman(cls_tmp.Leasing_id, ctm_tmp.Cust_id, ctm_tmp.Cust_idcard))
+                {
+                    Alert_Danger_Panel.Visible = true;
+                    alert_header_danger_Lbl.Text = "เลขบัตรประชาชนซ้ำ";
+                    alert_danger_Lbl.Text = "เลขบัตรประชาชน " + Cust_idcard_TBx.Text + " ของผู้ค้ำประกันนี้ ไม่สามารถใช้งานได้ เนื่องจากซ้ำกับผู้ค้ำอื่น";
 
-                    Alert_Warning_Panel.Visible = false;
+                    Save_Btn.Visible = false;
                 }
                 else
                 {
-                    Alert_Warning_Panel.Visible = true;
-                    Alert_Id_Card_Lbl.Text = "ไม่พบเลขบัตรประชาชน " + Cust_idcard_TBx.Text + " นี้ในระบบข้อมูลลูกค้า";
+                    Alert_Danger_Panel.Visible = false;
+                    Save_Btn.Visible = true;
 
-                    Cust_idcard_TBx.Focus();
+                    if (ctm_tmp.Cust_idcard != null)
+                    {
+                        _GetCustomer(ctm_tmp);
 
-                    _ClearCustomer();
+                        Session["chk_customer"] = ctm_tmp;
+
+                        Alert_Warning_Panel.Visible = false;
+                    }
+                    else
+                    {
+                        Alert_Warning_Panel.Visible = true;
+                        Alert_Id_Card_Lbl.Text = "ไม่พบเลขบัตรประชาชน " + Cust_idcard_TBx.Text + " นี้ในระบบข้อมูลลูกค้า";
+
+                        Cust_idcard_TBx.Focus();
+
+                        _ClearCustomer();
+                    }
                 }
             }
         }

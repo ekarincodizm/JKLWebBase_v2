@@ -18,6 +18,8 @@ namespace JKLWebBase_v2.Form_Leasings
         Customers ctm = new Customers();
         Car_Leasings cls = new Car_Leasings();
 
+        int nob = 0; // number of bondsman = ลำดับผู้ค้ำระกัน
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -87,7 +89,7 @@ namespace JKLWebBase_v2.Form_Leasings
             Session.Remove("chk_customer_spouse");
 
             /* แสดงหน้าผู้ค้ำประกันคนถัดไป */
-            int nob = Convert.ToInt32(Session["Number_Of_Bondsman"].ToString()) + 1;
+            nob = Convert.ToInt32(Session["Number_Of_Bondsman"].ToString()) + 1;
 
             if (nob > 5)
             {
@@ -205,6 +207,7 @@ namespace JKLWebBase_v2.Form_Leasings
             Customers ctm_lsg = (Customers)Session["Customer_Leasing"];
             Car_Leasings cls_tmp = (Car_Leasings)Session["Leasings"];
             Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
+            nob = Convert.ToInt32(Session["Number_Of_Bondsman"].ToString());
 
             if (ctm_tmp.Cust_idcard == ctm_lsg.Cust_idcard)
             {
@@ -214,7 +217,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
                 Customer_Add_Save_Btn.Visible = false;
             }
-            else if(cls_mng.checkDuplicateBondsman(cls_tmp.Leasing_id, ctm_lsg.Cust_id, ctm_lsg.Cust_idcard))
+            else if(cls_mng.checkDuplicateBondsman(cls_tmp.Leasing_id, ctm_tmp.Cust_id, ctm_tmp.Cust_idcard))
             {
                 Alert_Danger_Panel.Visible = true;
                 alert_header_danger_Lbl.Text = "เลขบัตรประชาชนซ้ำ";
@@ -661,7 +664,7 @@ namespace JKLWebBase_v2.Form_Leasings
             }
 
             cls = (Car_Leasings)Session["Leasings"];
-            int nob = Convert.ToInt32(Session["Number_Of_Bondsman"].ToString());
+            nob = Convert.ToInt32(Session["Number_Of_Bondsman"].ToString());
 
             _AddBondsmans(cls.Leasing_id, nob, ctm.Cust_id);
 

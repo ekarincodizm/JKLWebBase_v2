@@ -437,7 +437,7 @@ namespace JKLWebBase_v2.Managers_Customers
             {
                 /* 
                  * :: StoredProcedure :: [ g_last_customers_homeaddress_photo_by_id ] :: 
-                 * g_last_customers_homeaddress_photo_by_id (IN i_Cust_id varchar(50), IN i_Address_type_id int(11))
+                 * g_last_customers_homeaddress_photo_by_id (IN i_Cust_id varchar(50))
                  * 
                  */
 
