@@ -22,12 +22,12 @@ namespace JKLWebBase_v2.Reports.Leasings.Payment_Schedule {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// CTRV_Payment_Schedule control.
+        /// CRV_Payment_Schedule control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CTRV_Payment_Schedule;
+        protected global::CrystalDecisions.Web.CrystalReportViewer CRV_Payment_Schedule;
     }
 }

@@ -46,6 +46,8 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Menu_Add_Dealer_Click(object sender, EventArgs e)
         {
+            Session.Remove("Dealer");
+
             Response.Redirect("/Form_Dealer/Dealer_Add");
         }
 
@@ -75,6 +77,10 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Menu_Leasing_Add_Click(object sender, EventArgs e)
         {
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Dealers_Leasing");
+
             Session["Class_Active"] = 1;
 
             Response.Redirect("/Form_Leasings/Leasing_Add");

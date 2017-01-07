@@ -28,7 +28,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_Front_Card;
+        protected global::System.Web.UI.WebControls.HyperLink Print_Front_Card;
         
         /// <summary>
         /// Print_Payment_Schedule control.
@@ -37,7 +37,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_Payment_Schedule;
+        protected global::System.Web.UI.WebControls.HyperLink Print_Payment_Schedule;
         
         /// <summary>
         /// Print_Full_Payment_Schedule control.
@@ -46,7 +46,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_Full_Payment_Schedule;
+        protected global::System.Web.UI.WebControls.HyperLink Print_Full_Payment_Schedule;
         
         /// <summary>
         /// Print_Half_Payment_Schedule control.
@@ -55,7 +55,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_Half_Payment_Schedule;
+        protected global::System.Web.UI.WebControls.HyperLink Print_Half_Payment_Schedule;
         
         /// <summary>
         /// Print_SH control.
@@ -64,7 +64,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_SH;
+        protected global::System.Web.UI.WebControls.HyperLink Print_SH;
         
         /// <summary>
         /// Print_KH1 control.
@@ -73,7 +73,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_KH1;
+        protected global::System.Web.UI.WebControls.HyperLink Print_KH1;
         
         /// <summary>
         /// Print_KH2 control.
@@ -82,7 +82,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_KH2;
+        protected global::System.Web.UI.WebControls.HyperLink Print_KH2;
         
         /// <summary>
         /// Print_P_NG_D_3 control.
@@ -91,7 +91,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_P_NG_D_3;
+        protected global::System.Web.UI.WebControls.HyperLink Print_P_NG_D_3;
         
         /// <summary>
         /// Print_Half_Certified control.
@@ -100,7 +100,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_Half_Certified;
+        protected global::System.Web.UI.WebControls.HyperLink Print_Half_Certified;
         
         /// <summary>
         /// Print_Half_Confirm control.
@@ -109,7 +109,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_Half_Confirm;
+        protected global::System.Web.UI.WebControls.HyperLink Print_Half_Confirm;
         
         /// <summary>
         /// Print_Full_Certified control.
@@ -118,7 +118,7 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_Full_Certified;
+        protected global::System.Web.UI.WebControls.HyperLink Print_Full_Certified;
         
         /// <summary>
         /// Print_Full_Confirm control.
@@ -127,6 +127,6 @@ namespace JKLWebBase_v2.Form_Main {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Print_Full_Confirm;
+        protected global::System.Web.UI.WebControls.HyperLink Print_Full_Confirm;
     }
 }

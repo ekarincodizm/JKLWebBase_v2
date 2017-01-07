@@ -13,6 +13,15 @@ namespace JKLWebBase_v2.Form_Leasings {
     public partial class Leasing_Payment_Schedule {
         
         /// <summary>
+        /// Print_Menu1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::JKLWebBase_v2.Form_Main.Print_Menu_Leasing Print_Menu1;
+        
+        /// <summary>
         /// nav_tabs control.
         /// </summary>
         /// <remarks>

@@ -79,7 +79,6 @@ namespace JKLWebBase_v2.Form_Leasings
             ctm = (Customers)Session["Customer_Leasing"];
 
             string server_path = Server.MapPath("/");
-            string server_path1 = Server.MapPath(".");
 
             /* Create Main Folder for Detected Images of Contact Leasing  */
             string mainDirectory = ctm.Cust_id;

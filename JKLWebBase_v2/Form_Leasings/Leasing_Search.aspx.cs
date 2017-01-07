@@ -86,6 +86,37 @@ namespace JKLWebBase_v2
             }
         }
 
+        protected void link_Previous_Click(object sender, EventArgs e)
+        {
+            int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
+
+            if (current_page > 1)
+            {
+                int prev = current_page - 1;
+
+                Paging_DDL.SelectedValue = prev.ToString();
+
+                _getMoreDealer(prev);
+            }
+        }
+        protected void Paging_DDL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
+
+            _getMoreDealer(current_page);
+        }
+
+        protected void link_Next_Click(object sender, EventArgs e)
+        {
+            int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
+
+            int next = current_page + 1;
+
+            Paging_DDL.SelectedValue = next.ToString();
+
+            _getMoreDealer(next);
+        }
+
         protected void Search_Btn_Click(object sender, EventArgs e)
         {
             Session.Remove("List_Leasings");
@@ -162,37 +193,6 @@ namespace JKLWebBase_v2
                 link_Previous.Enabled = true;
                 link_Next.Enabled = true;
             }
-        }
-
-        protected void link_Previous_Click(object sender, EventArgs e)
-        {
-            int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
-
-            if (current_page > 1)
-            {
-                int prev = current_page - 1;
-
-                Paging_DDL.SelectedValue = prev.ToString();
-
-                _getMoreDealer(prev);
-            }
-        }
-        protected void Paging_DDL_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
-
-            _getMoreDealer(current_page);
-        }
-
-        protected void link_Next_Click(object sender, EventArgs e)
-        {
-            int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
-
-            int next = current_page + 1;
-
-            Paging_DDL.SelectedValue = next.ToString();
-
-            _getMoreDealer(next);
         }
 
         private void _getMoreDealer(int current_page)

@@ -17,18 +17,22 @@ namespace JKLWebBase_v2.Form_Leasings
     public partial class Leasing_Payment_Schedule : System.Web.UI.Page
     {
         Car_Leasings cls = new Car_Leasings();
+        Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Leasings"] != null)
             {
                 cls = (Car_Leasings)Session["Leasings"];
+
+                List<Car_Leasings_Payment> list_cls_pay = cls_mng.getPaymentScheduleById(cls.Leasing_id);
+
+                Session["list_cls_pay"] = list_cls_pay;
             }
             else
             {
-                //Response.Redirect("/Form_Leasings/Leasing_Add");
+                Response.Redirect("/Form_Leasings/Leasing_Add");
             }
-
         }
     }
 }
