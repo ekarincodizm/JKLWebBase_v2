@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Front_Card_Prv.aspx.cs" Inherits="JKLWebBase_v2.Reports.Leasings.Front_Card.Front_Card_Prv" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Confirm_Payment.aspx.cs" Inherits="JKLWebBase_v2.Reports.Leasings.Confirm_Payment.Confirm_Payment" %>
 
 <%@ Register Assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 
@@ -10,7 +10,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <CR:CrystalReportViewer ID="CRV_Front_Card" runat="server" AutoDataBind="True" GroupTreeStyle-ShowLines="False" ToolPanelView="None" Width="100%" PageZoomFactor="125" />
+    <div>
+        <CR:CrystalReportViewer ID="CRV_Display_Report" runat="server" AutoDataBind="true" />
+    </div>
     </form>
 </body>
 </html>

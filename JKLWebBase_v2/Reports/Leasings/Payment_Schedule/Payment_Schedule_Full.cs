@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
+namespace JKLWebBase_v2.Reports.Leasings.Payment_Schedule {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Certified_Leasing_Half : ReportClass {
+    public class Payment_Schedule_Full : ReportClass {
         
-        public Certified_Leasing_Half() {
+        public Payment_Schedule_Full() {
         }
         
         public override string ResourceName {
             get {
-                return "Certified_Leasing_Half.rpt";
+                return "Payment_Schedule_Full.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         public override string FullResourceName {
             get {
-                return "JKLWebBase_v2.Reports.Leasings.Certified_Leasing.Certified_Leasing_Half.rpt";
+                return "JKLWebBase_v2.Reports.Leasings.Payment_Schedule.Payment_Schedule_Full.rpt";
             }
             set {
                 // Do nothing
@@ -74,7 +74,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection5 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,41 +82,17 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection6 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection7 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[7];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCertified_Leasing_Half : Component, ICachedReport {
+    public class CachedPayment_Schedule_Full : Component, ICachedReport {
         
-        public CachedCertified_Leasing_Half() {
+        public CachedPayment_Schedule_Full() {
         }
         
         [Browsable(false)]
@@ -153,7 +129,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Certified_Leasing_Half rpt = new Certified_Leasing_Half();
+            Payment_Schedule_Full rpt = new Payment_Schedule_Full();
             rpt.Site = this.Site;
             return rpt;
         }

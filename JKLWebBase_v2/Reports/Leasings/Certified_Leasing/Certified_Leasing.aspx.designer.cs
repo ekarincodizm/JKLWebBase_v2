@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Reports.Leasings.Front_Card {
+namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
     
     
-    public partial class Front_Card_Prv {
+    public partial class Certified_Leasing {
         
         /// <summary>
         /// form1 control.
@@ -22,12 +22,12 @@ namespace JKLWebBase_v2.Reports.Leasings.Front_Card {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// CRV_Front_Card control.
+        /// CRV_Display_Report control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CrystalDecisions.Web.CrystalReportViewer CRV_Front_Card;
+        protected global::CrystalDecisions.Web.CrystalReportViewer CRV_Display_Report;
     }
 }
