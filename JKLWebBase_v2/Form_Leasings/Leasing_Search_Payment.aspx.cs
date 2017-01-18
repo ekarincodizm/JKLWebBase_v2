@@ -9,9 +9,9 @@ using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Leasings;
 
-namespace JKLWebBase_v2
+namespace JKLWebBase_v2.Form_Leasings
 {
-    public partial class Leasing_Search : Page
+    public partial class Leasing_Search_Payment : Page
     {
         Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
 
@@ -31,11 +31,12 @@ namespace JKLWebBase_v2
 
             if (Leasing_Code_ChkBx_All.Checked)
             {
-                for(int i = 0; i < count; i++)
+                for (int i = 0; i < count; i++)
                 {
                     Leasing_Code_ChkBxL.Items[i].Selected = true;
                 }
-            } else
+            }
+            else
             {
                 for (int i = 0; i < count; i++)
                 {
@@ -144,7 +145,7 @@ namespace JKLWebBase_v2
             {
                 cls_mng = new Car_Leasings_Manager();
 
-                List<Car_Leasings> list_cls_all = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "": name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, branch_id_inline, zone_id_inline, 0, 0);
+                List<Car_Leasings> list_cls_all = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, branch_id_inline, zone_id_inline, 0, 0);
 
                 int row = list_cls_all.Count;
 
@@ -250,7 +251,7 @@ namespace JKLWebBase_v2
                 }
                 else if (Leasing_Code_ChkBxL.Items[i].Selected)
                 {
-                    leasing_Code_inline += ","+Leasing_Code_ChkBxL.Items[i].Value;
+                    leasing_Code_inline += "," + Leasing_Code_ChkBxL.Items[i].Value;
                     count++;
                 }
             }

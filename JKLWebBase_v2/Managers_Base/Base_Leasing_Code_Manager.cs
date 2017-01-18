@@ -30,17 +30,18 @@ namespace JKLWebBase_v2.Managers_Base
                     blsc.Leasing_code_S_Name = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
                     blsc.Leasing_code_F_Name = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
                     blsc.Leasing_code_Tax_id = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
-                    blsc.Leasing_code_address_no = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
-                    blsc.Leasing_code_vilage = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
-                    blsc.Leasing_code_vilage_no = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
-                    blsc.Leasing_code_alley = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
-                    blsc.Leasing_code_road = reader.IsDBNull(9) ? defaultString : reader.GetString(9);
-                    blsc.Leasing_code_subdistrict = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
-                    blsc.Leasing_code_district = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
-                    blsc.Leasing_code_province = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                    blsc.Leasing_code_country = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
-                    blsc.Leasing_code_zipcode = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    blsc.Leasing_code_tel = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    blsc.Leasing_code_Tax_subcode = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
+                    blsc.Leasing_code_address_no = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+                    blsc.Leasing_code_vilage = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
+                    blsc.Leasing_code_vilage_no = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
+                    blsc.Leasing_code_alley = reader.IsDBNull(9) ? defaultString : reader.GetString(9);
+                    blsc.Leasing_code_road = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
+                    blsc.Leasing_code_subdistrict = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
+                    blsc.Leasing_code_district = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+                    blsc.Leasing_code_province = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    blsc.Leasing_code_country = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+                    blsc.Leasing_code_zipcode = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    blsc.Leasing_code_tel = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
                     lblsc.Add(blsc);
                 }
 

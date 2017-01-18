@@ -26,12 +26,12 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing
 
                 if (Request.Params["mod"] == "1")
                 {
-                    //printReport(ls_ds);
+                    printReport(ls_ds);
                 }
-                else if (Request.Params["mod"] == "2")
-                {
-                    printReportFull(ls_ds);
-                }
+            }
+            else
+            {
+                printReportOutline();
             }
         }
 
@@ -65,13 +65,13 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Certified_Leasing --> _loadReport() : " + ex.Message.ToString();
+                error = "MysqlException ==> Certified_Leasing : Page --> _loadReport() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Certified_Leasing --> _loadReport() : " + ex.Message.ToString();
+                error = "Exception ==> Certified_Leasing : Page --> _loadReport() : " + ex.Message.ToString();
                 Log_Error._writeErrorFile(error);
                 return null;
             }
@@ -85,84 +85,123 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing
             }
         }
 
-        /*public void printReport(Leasing_Ds ls_ds)
+        public void printReportOutline()
         {
-            cls = (Car_Leasings)Session["Leasings"];
+            if (Session["Company_Values"] != null)
+            {
+                try
+                {
+                    string Company_Values = (string)Session["Company_Values"];
 
-            Certified_Leasing_Half rpt = new Certified_Leasing_Half();
-            rpt.SetDataSource(ls_ds);
+                    string[] Array_Company = Company_Values.Split('|');
 
-            CRV_Display_Report.ReportSource = rpt;
+                    Certified_Leasing_Outline rpt = new Certified_Leasing_Outline();
+                    rpt.SetParameterValue("Company_Name", Array_Company[0]);
+                    rpt.SetParameterValue("Company_Address", Array_Company[1]);
+                    rpt.SetParameterValue("SubCompany_Address_1", Array_Company[2]);
+                    rpt.SetParameterValue("SubCompany_Address_2", Array_Company[3]);
+                    rpt.SetParameterValue("SubCompany_Address_3", Array_Company[4]);
 
-            /// Export Report to PDF File with Save As Mode
-            /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Payment_Schedule_" + cls.Deps_no);
-            /// Response.End();
+                    CRV_Display_Report.ReportSource = rpt;
 
-            ExportReport(rpt);
-        }*/
+                    /// Export Report to PDF File with Save As Mode
+                    /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Payment_Schedule_" + cls.Deps_no);
+                    /// Response.End();
 
-       public void printReportFull(Leasing_Ds ls_ds)
-       {
-            cls = (Car_Leasings)Session["Leasings"];
-
-            Certified_Leasing_Full rpt = new Certified_Leasing_Full();
-            rpt.SetDataSource(ls_ds);
-
-            CRV_Display_Report.ReportSource = rpt;
-
-            /// Export Report to PDF File with Save As Mode
-            /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Payment_Schedule_" + cls.Deps_no);
-            /// Response.End();
-
-            ExportReportFull(rpt);
+                    ExportReportOutline(rpt, Array_Company[0]);
+                }
+                catch (Exception ex)
+                {
+                    error = "Exception ==> Certified_Leasing : Page --> printReportOutline() : " + ex.Message.ToString();
+                    Log_Error._writeErrorFile(error);
+                }
+            }
         }
 
-       /*public void ExportReport(Certified_Leasing_Half rpt)
-       {
-           cls = (Car_Leasings)Session["Leasings"];
-
-            /// Create Main Folder for Detected Images of Contact Leasing
-            string mainDirectory = cls.Leasing_id;
-
-            string mainDirectoryPath = "C:/ReportExport/" + mainDirectory;
-
-            if (!Directory.Exists(mainDirectoryPath))
-            {
-                Directory.CreateDirectory(mainDirectoryPath);
-            }
-
-            /// Export Report to PDF File with Save As Mode
-            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/Certified_Leasing_" + cls.Deps_no + ".pdf");
-
-            /// Display PDF File to PDF Program
-            Process process = new Process();
-            process.StartInfo.UseShellExecute = true;
-            process.StartInfo.FileName = "C:/ReportExport/" + mainDirectory + "/Certified_Leasing_" + cls.Deps_no + ".pdf";
-            process.Start();
-        }*/
-
-        public void ExportReportFull(Certified_Leasing_Full rpt)
+        public void ExportReportOutline(Certified_Leasing_Outline rpt, string file_name)
         {
-            cls = (Car_Leasings)Session["Leasings"];
-
-            /// Create Main Folder for Detected Images of Contact Leasing
-            string mainDirectory = cls.Leasing_id;
-
-            string mainDirectoryPath = "C:/ReportExport/" + mainDirectory;
-
-            if (!Directory.Exists(mainDirectoryPath))
+            try
             {
-                Directory.CreateDirectory(mainDirectoryPath);
+                /// Create Main Folder for Detected Images of Contact Leasing
+                string mainDirectory = "OutlineReport";
+
+                string mainDirectoryPath = "C:/ReportExport/" + mainDirectory;
+
+                if (!Directory.Exists(mainDirectoryPath))
+                {
+                    Directory.CreateDirectory(mainDirectoryPath);
+                }
+
+                /// Export Report to PDF File with Save As Mode
+                rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/หนังสือรับรองการเช่า-ซื้อ_" + file_name + ".pdf");
+
+                /// Display PDF File to PDF Program
+                Process process = new Process();
+                process.StartInfo.UseShellExecute = true;
+                process.StartInfo.FileName = "C:/ReportExport/" + mainDirectory + "/หนังสือรับรองการเช่า-ซื้อ_" + file_name + ".pdf";
+                process.Start();
             }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Certified_Leasing : Page --> ExportReportOutline() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+            }
+        }
 
-            /// Export Report to PDF File with Save As Mode
-            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/Certified_Leasing_Full_" + cls.Deps_no + ".pdf");
+        public void printReport(Leasing_Ds ls_ds)
+        {
+            try
+            {
+                cls = (Car_Leasings)Session["Leasings"];
 
-            /// Display PDF File to PDF Program
-            Process process = new Process();
-            process.StartInfo.UseShellExecute = true;
-            process.StartInfo.FileName = "C:/ReportExport/" + mainDirectory + "/Certified_Leasing_Full_" + cls.Deps_no + ".pdf";
-            process.Start();
+                Certified_Leasing_Result rpt = new Certified_Leasing_Result();
+                rpt.SetDataSource(ls_ds);
+
+                CRV_Display_Report.ReportSource = rpt;
+
+                /// Export Report to PDF File with Save As Mode
+                /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Payment_Schedule_" + cls.Deps_no);
+                /// Response.End();
+
+                ExportReport(rpt);
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Certified_Leasing : Page --> printReport() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+            }
+        }
+
+        public void ExportReport(Certified_Leasing_Result rpt)
+        {
+            try
+            {
+                cls = (Car_Leasings)Session["Leasings"];
+
+                /// Create Main Folder for Detected Images of Contact Leasing
+                string mainDirectory = cls.Leasing_id;
+
+                string mainDirectoryPath = "C:/ReportExport/" + mainDirectory;
+
+                if (!Directory.Exists(mainDirectoryPath))
+                {
+                    Directory.CreateDirectory(mainDirectoryPath);
+                }
+
+                /// Export Report to PDF File with Save As Mode
+                rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/หนังสือรับรองการเช่า-ซื้อ_" + cls.Deps_no + ".pdf");
+
+                /// Display PDF File to PDF Program
+                Process process = new Process();
+                process.StartInfo.UseShellExecute = true;
+                process.StartInfo.FileName = "C:/ReportExport/" + mainDirectory + "/หนังสือรับรองการเช่า-ซื้อ_" + cls.Deps_no + ".pdf";
+                process.Start();
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Certified_Leasing : Page --> ExportReport() : " + ex.Message.ToString();
+                Log_Error._writeErrorFile(error);
+            }
         }
     }
 }

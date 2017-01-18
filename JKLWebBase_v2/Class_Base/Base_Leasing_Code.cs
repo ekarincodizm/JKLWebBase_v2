@@ -7,6 +7,7 @@
         public string Leasing_code_S_Name { get; set; }
         public string Leasing_code_F_Name { get; set; }
         public string Leasing_code_Tax_id { get; set; }
+        public string Leasing_code_Tax_subcode { get; set; }
         public string Leasing_code_address_no { get; set; }
         public string Leasing_code_vilage { get; set; }
         public string Leasing_code_vilage_no { get; set; }

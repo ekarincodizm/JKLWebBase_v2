@@ -266,6 +266,7 @@
   <ItemGroup>
     <Content Include="Form_Customer\Customer_Home_Photo_Remove.aspx" />
     <Content Include="Form_Leasings\Leasing_Car_Img_Remove.aspx" />
+    <Content Include="Form_Leasings\Leasing_Search_Payment.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -314,8 +315,13 @@
     <Content Include="Images_web\default-img.jpg" />
     <Content Include="Images_web\Logo_JKL.png" />
     <Content Include="Reports\Leasings\Certified_Leasing\Certified_Leasing.aspx" />
+    <Content Include="Reports\Leasings\Certified_Leasing\Certified_Leasing_Outline_Prv.aspx" />
     <Content Include="Reports\Leasings\Confirm_Payment\Confirm_Payment.aspx" />
+    <Content Include="Reports\Leasings\Confirm_Payment\Confirm_Payment_Web_Outline.aspx" />
     <Content Include="Reports\Leasings\Front_Card\Front_Card_Prv.aspx" />
+    <Content Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1.aspx" />
+    <Content Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2.aspx" />
+    <Content Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1.aspx" />
     <Content Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -527,6 +533,13 @@
     <Compile Include="Form_Leasings\Leasing_Payment_Schedule.aspx.designer.cs">
       <DependentUpon>Leasing_Payment_Schedule.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form_Leasings\Leasing_Search_Payment.aspx.cs">
+      <DependentUpon>Leasing_Search_Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Search_Payment.aspx.designer.cs">
+      <DependentUpon>Leasing_Search_Payment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Form_Leasings\Print_Menu_Leasing.ascx.cs">
       <DependentUpon>Print_Menu_Leasing.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -664,11 +677,24 @@
     <Compile Include="Reports\Leasings\Certified_Leasing\Certified_Leasing.aspx.designer.cs">
       <DependentUpon>Certified_Leasing.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Leasings\Certified_Leasing\Certified_Leasing_Full.cs">
+    <Compile Include="Reports\Leasings\Certified_Leasing\Certified_Leasing_Result.cs">
+      <DependentUpon>Certified_Leasing_Result.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Leasings\Certified_Leasing\Certified_Leasing_Outline.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Certified_Leasing_Full.rpt</DependentUpon>
+      <DependentUpon>Certified_Leasing_Outline.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Certified_Leasing\Certified_Leasing_Outline_Prv.aspx.cs">
+      <DependentUpon>Certified_Leasing_Outline_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Certified_Leasing\Certified_Leasing_Outline_Prv.aspx.designer.cs">
+      <DependentUpon>Certified_Leasing_Outline_Prv.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reports\Leasings\Confirm_Payment\Confirm_Payment.aspx.cs">
       <DependentUpon>Confirm_Payment.aspx</DependentUpon>
@@ -677,16 +703,56 @@
     <Compile Include="Reports\Leasings\Confirm_Payment\Confirm_Payment.aspx.designer.cs">
       <DependentUpon>Confirm_Payment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Leasings\Confirm_Payment\Confirm_Payment_Full.cs">
-      <DependentUpon>Confirm_Payment_Full.rpt</DependentUpon>
+    <Compile Include="Reports\Leasings\Confirm_Payment\Confirm_Payment_Outline.cs">
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Confirm_Payment_Outline.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Confirm_Payment\Confirm_Payment_Web_Outline.aspx.cs">
+      <DependentUpon>Confirm_Payment_Web_Outline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Confirm_Payment\Confirm_Payment_Web_Outline.aspx.designer.cs">
+      <DependentUpon>Confirm_Payment_Web_Outline.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reports\Leasings\DataSet_Leasings\Leasing_Ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Leasing_Ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1.aspx.cs">
+      <DependentUpon>Car_Leasing_KH1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1.aspx.designer.cs">
+      <DependentUpon>Car_Leasing_KH1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2.aspx.cs">
+      <DependentUpon>Car_Leasing_KH2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2.aspx.designer.cs">
+      <DependentUpon>Car_Leasing_KH2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2.cs">
+      <DependentUpon>Car_Leasing_KH2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1.aspx.cs">
+      <DependentUpon>Car_Leasing_SH1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1.aspx.designer.cs">
+      <DependentUpon>Car_Leasing_SH1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1.cs">
+      <DependentUpon>Car_Leasing_SH1.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reports\Leasings\Notification_Payment\Notification_Payment.cs">
       <AutoGen>True</AutoGen>
@@ -707,59 +773,11 @@
     <Compile Include="Reports\Leasings\Front_Card\Front_Card_Prv.aspx.designer.cs">
       <DependentUpon>Front_Card_Prv.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1_P1.cs">
-      <DependentUpon>Car_Leasing_KH1_P1.rpt</DependentUpon>
+    <Compile Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1.cs">
+      <DependentUpon>Car_Leasing_KH1.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1_P2.cs">
-      <DependentUpon>Car_Leasing_KH1_P2.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1_P3.cs">
-      <DependentUpon>Car_Leasing_KH1_P3.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1_P4.cs">
-      <DependentUpon>Car_Leasing_KH1_P4.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2_P1.cs">
-      <DependentUpon>Car_Leasing_KH2_P1.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2_P2.cs">
-      <DependentUpon>Car_Leasing_KH2_P2.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2_P3.cs">
-      <DependentUpon>Car_Leasing_KH2_P3.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2_P4.cs">
-      <DependentUpon>Car_Leasing_KH2_P4.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Confirm_Payment\Confirm_Payment_Half.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Confirm_Payment_Half.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Full.cs">
       <DependentUpon>Payment_Schedule_Full.rpt</DependentUpon>
@@ -787,30 +805,6 @@
     </Compile>
     <Compile Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx.designer.cs">
       <DependentUpon>Payment_Schedule_Prv.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1_P3.cs">
-      <DependentUpon>Car_Leasing_SH1_P3.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1_P4.cs">
-      <DependentUpon>Car_Leasing_SH1_P4.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1_P2.cs">
-      <DependentUpon>Car_Leasing_SH1_P2.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1_P1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Car_Leasing_SH1_P1.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -849,13 +843,25 @@
     <Folder Include="Reports\Leasings\Payment_Summary_Year\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\Leasings\Certified_Leasing\Certified_Leasing_Full.rpt">
+    <EmbeddedResource Include="Reports\Leasings\Certified_Leasing\Certified_Leasing_Result.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Certified_Leasing_Full.cs</LastGenOutput>
+      <LastGenOutput>Certified_Leasing_Result.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Confirm_Payment\Confirm_Payment_Full.rpt">
+    <EmbeddedResource Include="Reports\Leasings\Certified_Leasing\Certified_Leasing_Outline.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Confirm_Payment_Full.cs</LastGenOutput>
+      <LastGenOutput>Certified_Leasing_Outline.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Leasings\Confirm_Payment\Confirm_Payment_Outline.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Confirm_Payment_Outline.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Car_Leasing_KH2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Car_Leasing_SH1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Leasings\Notification_Payment\Notification_Payment.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -865,41 +871,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Front_Card.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1_P1.rpt">
+    <EmbeddedResource Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_KH1_P1.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1_P2.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_KH1_P2.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1_P3.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_KH1_P3.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_KH1\Car_Leasing_KH1_P4.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_KH1_P4.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2_P1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_KH2_P1.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2_P2.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_KH2_P2.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2_P3.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_KH2_P3.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_KH2\Car_Leasing_KH2_P4.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_KH2_P4.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Confirm_Payment\Confirm_Payment_Half.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Confirm_Payment_Half.cs</LastGenOutput>
+      <LastGenOutput>Car_Leasing_KH1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Leasings\Payment_Schedule\Payment_Schedule_Full.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -908,22 +882,6 @@
     <EmbeddedResource Include="Reports\Leasings\Payment_Schedule\Payment_Schedule.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Payment_Schedule.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1_P3.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_SH1_P3.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1_P4.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_SH1_P4.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1_P2.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_SH1_P2.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Leasings\Leasing_SH1\Car_Leasing_SH1_P1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Car_Leasing_SH1_P1.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

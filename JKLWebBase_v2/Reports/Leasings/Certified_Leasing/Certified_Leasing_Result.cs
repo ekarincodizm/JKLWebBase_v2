@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
+namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Car_Leasing_SH1_P3 : ReportClass {
+    public class Certified_Leasing_Result : ReportClass {
         
-        public Car_Leasing_SH1_P3() {
+        public Certified_Leasing_Result() {
         }
         
         public override string ResourceName {
             get {
-                return "Car_Leasing_SH1_P3.rpt";
+                return "Certified_Leasing_Result.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
         
         public override string FullResourceName {
             get {
-                return "JKLWebBase_v2.Reports.Leasings.Leasing_SH1.Car_Leasing_SH1_P3.rpt";
+                return "JKLWebBase_v2.Reports.Leasings.Certified_Leasing.Certified_Leasing_Result.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCar_Leasing_SH1_P3 : Component, ICachedReport {
+    public class CachedCertified_Leasing_Result : Component, ICachedReport {
         
-        public CachedCar_Leasing_SH1_P3() {
+        public CachedCertified_Leasing_Result() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Car_Leasing_SH1_P3 rpt = new Car_Leasing_SH1_P3();
+            Certified_Leasing_Result rpt = new Certified_Leasing_Result();
             rpt.Site = this.Site;
             return rpt;
         }

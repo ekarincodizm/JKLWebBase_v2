@@ -53,7 +53,9 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Menu_Pyament_Leasing_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Form_Leasings/Leasing_Payment");
+            Session.Remove("List_Leasings");
+
+            Response.Redirect("/Form_Leasings/Leasing_Search_Payment");
         }
 
         protected void link_Menu_Deposit_Search_Click(object sender, EventArgs e)

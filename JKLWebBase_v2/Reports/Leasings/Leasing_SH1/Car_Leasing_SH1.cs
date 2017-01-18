@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
+namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Certified_Leasing_Full : ReportClass {
+    public class Car_Leasing_SH1 : ReportClass {
         
-        public Certified_Leasing_Full() {
+        public Car_Leasing_SH1() {
         }
         
         public override string ResourceName {
             get {
-                return "Certified_Leasing_Full.rpt";
+                return "Car_Leasing_SH1.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         public override string FullResourceName {
             get {
-                return "JKLWebBase_v2.Reports.Leasings.Certified_Leasing.Certified_Leasing_Full.rpt";
+                return "JKLWebBase_v2.Reports.Leasings.Leasing_SH1.Car_Leasing_SH1.rpt";
             }
             set {
                 // Do nothing
@@ -74,7 +74,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection5 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection6 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection5 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,7 +90,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection7 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection6 {
             get {
                 return this.ReportDefinition.Sections[5];
             }
@@ -114,9 +114,9 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCertified_Leasing_Full : Component, ICachedReport {
+    public class CachedCar_Leasing_SH1 : Component, ICachedReport {
         
-        public CachedCertified_Leasing_Full() {
+        public CachedCar_Leasing_SH1() {
         }
         
         [Browsable(false)]
@@ -153,7 +153,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Certified_Leasing_Full rpt = new Certified_Leasing_Full();
+            Car_Leasing_SH1 rpt = new Car_Leasing_SH1();
             rpt.Site = this.Site;
             return rpt;
         }

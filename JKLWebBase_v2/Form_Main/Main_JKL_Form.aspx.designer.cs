@@ -40,6 +40,15 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_Report_Payment_Daily_Leasings;
         
         /// <summary>
+        /// link_Report_Form_Certified_Leasing_Outline control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink link_Report_Form_Certified_Leasing_Outline;
+        
+        /// <summary>
         /// link_Search_Customers control.
         /// </summary>
         /// <remarks>

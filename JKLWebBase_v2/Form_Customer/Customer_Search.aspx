@@ -4,7 +4,7 @@
 <%@ Import Namespace="JKLWebBase_v2.Managers_Customers" %>
 <%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h6>ค้นหาข้อมูลผู้ติดต่อ </h6>

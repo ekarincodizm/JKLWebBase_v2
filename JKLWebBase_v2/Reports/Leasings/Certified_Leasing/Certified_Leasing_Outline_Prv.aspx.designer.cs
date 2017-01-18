@@ -7,99 +7,117 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Form_Main {
+namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing {
     
     
-    public partial class Print_Menu_Leasing {
+    public partial class Certified_Leasing_Outline_Prv {
         
         /// <summary>
-        /// Print_Menu_panel control.
+        /// Confirm_Form_panel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Print_Menu_panel;
+        protected global::System.Web.UI.WebControls.Panel Confirm_Form_panel;
         
         /// <summary>
-        /// Print_Front_Card control.
+        /// Company_Name_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Print_Front_Card;
+        protected global::System.Web.UI.WebControls.Label Company_Name_Lbl;
         
         /// <summary>
-        /// Print_Payment_Schedule control.
+        /// Company_Name_DDl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Print_Payment_Schedule;
+        protected global::System.Web.UI.WebControls.DropDownList Company_Name_DDl;
         
         /// <summary>
-        /// Print_Full_Payment_Schedule control.
+        /// Company_Address_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Print_Full_Payment_Schedule;
+        protected global::System.Web.UI.WebControls.Label Company_Address_Lbl;
         
         /// <summary>
-        /// Print_P_NG_D_3 control.
+        /// Company_Address_TBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Print_P_NG_D_3;
+        protected global::System.Web.UI.WebControls.TextBox Company_Address_TBx;
         
         /// <summary>
-        /// Print_SH control.
+        /// SubCompany_Address_1_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Print_SH;
+        protected global::System.Web.UI.WebControls.Label SubCompany_Address_1_Lbl;
         
         /// <summary>
-        /// Print_KH1 control.
+        /// SubCompany_Address_1_TBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Print_KH1;
+        protected global::System.Web.UI.WebControls.TextBox SubCompany_Address_1_TBx;
         
         /// <summary>
-        /// Print_KH2 control.
+        /// SubCompany_Address_2_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Print_KH2;
+        protected global::System.Web.UI.WebControls.Label SubCompany_Address_2_Lbl;
         
         /// <summary>
-        /// Print_Half_Certified control.
+        /// SubCompany_Address_2_TBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Print_Half_Certified;
+        protected global::System.Web.UI.WebControls.TextBox SubCompany_Address_2_TBx;
         
         /// <summary>
-        /// Print_Half_Confirm control.
+        /// SubCompany_Address_3_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Print_Half_Confirm;
+        protected global::System.Web.UI.WebControls.Label SubCompany_Address_3_Lbl;
+        
+        /// <summary>
+        /// SubCompany_Address_3_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SubCompany_Address_3_TBx;
+        
+        /// <summary>
+        /// Export_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Export_Btn;
     }
 }

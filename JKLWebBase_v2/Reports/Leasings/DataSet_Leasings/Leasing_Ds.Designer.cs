@@ -537,6 +537,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             private global::System.Data.DataColumn columnCust_job_zipcode;
             
+            private global::System.Data.DataColumn columnCust_status_id;
+            
             private global::System.Data.DataColumn columnCust_status;
             
             private global::System.Data.DataColumn columnCust_Address_type_id;
@@ -825,6 +827,14 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             public global::System.Data.DataColumn Cust_job_zipcodeColumn {
                 get {
                     return this.columnCust_job_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_status_idColumn {
+                get {
+                    return this.columnCust_status_id;
                 }
             }
             
@@ -1154,6 +1164,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_job_province, 
                         string Cust_job_country, 
                         string Cust_job_zipcode, 
+                        string Cust_status_id, 
                         string Cust_status, 
                         string Cust_Address_type_id, 
                         string Cust_Address_no, 
@@ -1213,6 +1224,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_job_province,
                         Cust_job_country,
                         Cust_job_zipcode,
+                        Cust_status_id,
                         Cust_status,
                         Cust_Address_type_id,
                         Cust_Address_no,
@@ -1292,6 +1304,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_job_province = base.Columns["Cust_job_province"];
                 this.columnCust_job_country = base.Columns["Cust_job_country"];
                 this.columnCust_job_zipcode = base.Columns["Cust_job_zipcode"];
+                this.columnCust_status_id = base.Columns["Cust_status_id"];
                 this.columnCust_status = base.Columns["Cust_status"];
                 this.columnCust_Address_type_id = base.Columns["Cust_Address_type_id"];
                 this.columnCust_Address_no = base.Columns["Cust_Address_no"];
@@ -1378,6 +1391,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_job_country);
                 this.columnCust_job_zipcode = new global::System.Data.DataColumn("Cust_job_zipcode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_job_zipcode);
+                this.columnCust_status_id = new global::System.Data.DataColumn("Cust_status_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_status_id);
                 this.columnCust_status = new global::System.Data.DataColumn("Cust_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_status);
                 this.columnCust_Address_type_id = new global::System.Data.DataColumn("Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3332,6 +3347,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             private global::System.Data.DataColumn columnCust_job_zipcode;
             
+            private global::System.Data.DataColumn columnCust_status_id;
+            
             private global::System.Data.DataColumn columnCust_status;
             
             private global::System.Data.DataColumn columnCust_Address_type_id;
@@ -3636,6 +3653,14 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             public global::System.Data.DataColumn Cust_job_zipcodeColumn {
                 get {
                     return this.columnCust_job_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_status_idColumn {
+                get {
+                    return this.columnCust_status_id;
                 }
             }
             
@@ -3967,6 +3992,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_job_province, 
                         string Cust_job_country, 
                         string Cust_job_zipcode, 
+                        string Cust_status_id, 
                         string Cust_status, 
                         string Cust_Address_type_id, 
                         string Cust_Address_no, 
@@ -4028,6 +4054,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_job_province,
                         Cust_job_country,
                         Cust_job_zipcode,
+                        Cust_status_id,
                         Cust_status,
                         Cust_Address_type_id,
                         Cust_Address_no,
@@ -4109,6 +4136,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_job_province = base.Columns["Cust_job_province"];
                 this.columnCust_job_country = base.Columns["Cust_job_country"];
                 this.columnCust_job_zipcode = base.Columns["Cust_job_zipcode"];
+                this.columnCust_status_id = base.Columns["Cust_status_id"];
                 this.columnCust_status = base.Columns["Cust_status"];
                 this.columnCust_Address_type_id = base.Columns["Cust_Address_type_id"];
                 this.columnCust_Address_no = base.Columns["Cust_Address_no"];
@@ -4199,6 +4227,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_job_country);
                 this.columnCust_job_zipcode = new global::System.Data.DataColumn("Cust_job_zipcode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_job_zipcode);
+                this.columnCust_status_id = new global::System.Data.DataColumn("Cust_status_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_status_id);
                 this.columnCust_status = new global::System.Data.DataColumn("Cust_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_status);
                 this.columnCust_Address_type_id = new global::System.Data.DataColumn("Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
@@ -4449,6 +4479,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnCust_job_country;
             
             private global::System.Data.DataColumn columnCust_job_zipcode;
+            
+            private global::System.Data.DataColumn columnCust_status_id;
             
             private global::System.Data.DataColumn columnCust_status;
             
@@ -4754,6 +4786,14 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             public global::System.Data.DataColumn Cust_job_zipcodeColumn {
                 get {
                     return this.columnCust_job_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_status_idColumn {
+                get {
+                    return this.columnCust_status_id;
                 }
             }
             
@@ -5085,6 +5125,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_job_province, 
                         string Cust_job_country, 
                         string Cust_job_zipcode, 
+                        string Cust_status_id, 
                         string Cust_status, 
                         string Cust_Address_type_id, 
                         string Cust_Address_no, 
@@ -5146,6 +5187,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_job_province,
                         Cust_job_country,
                         Cust_job_zipcode,
+                        Cust_status_id,
                         Cust_status,
                         Cust_Address_type_id,
                         Cust_Address_no,
@@ -5227,6 +5269,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_job_province = base.Columns["Cust_job_province"];
                 this.columnCust_job_country = base.Columns["Cust_job_country"];
                 this.columnCust_job_zipcode = base.Columns["Cust_job_zipcode"];
+                this.columnCust_status_id = base.Columns["Cust_status_id"];
                 this.columnCust_status = base.Columns["Cust_status"];
                 this.columnCust_Address_type_id = base.Columns["Cust_Address_type_id"];
                 this.columnCust_Address_no = base.Columns["Cust_Address_no"];
@@ -5317,6 +5360,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_job_country);
                 this.columnCust_job_zipcode = new global::System.Data.DataColumn("Cust_job_zipcode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_job_zipcode);
+                this.columnCust_status_id = new global::System.Data.DataColumn("Cust_status_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_status_id);
                 this.columnCust_status = new global::System.Data.DataColumn("Cust_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_status);
                 this.columnCust_Address_type_id = new global::System.Data.DataColumn("Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
@@ -5567,6 +5612,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnCust_job_country;
             
             private global::System.Data.DataColumn columnCust_job_zipcode;
+            
+            private global::System.Data.DataColumn columnCust_status_id;
             
             private global::System.Data.DataColumn columnCust_status;
             
@@ -5872,6 +5919,14 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             public global::System.Data.DataColumn Cust_job_zipcodeColumn {
                 get {
                     return this.columnCust_job_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_status_idColumn {
+                get {
+                    return this.columnCust_status_id;
                 }
             }
             
@@ -6203,6 +6258,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_job_province, 
                         string Cust_job_country, 
                         string Cust_job_zipcode, 
+                        string Cust_status_id, 
                         string Cust_status, 
                         string Cust_Address_type_id, 
                         string Cust_Address_no, 
@@ -6264,6 +6320,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_job_province,
                         Cust_job_country,
                         Cust_job_zipcode,
+                        Cust_status_id,
                         Cust_status,
                         Cust_Address_type_id,
                         Cust_Address_no,
@@ -6345,6 +6402,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_job_province = base.Columns["Cust_job_province"];
                 this.columnCust_job_country = base.Columns["Cust_job_country"];
                 this.columnCust_job_zipcode = base.Columns["Cust_job_zipcode"];
+                this.columnCust_status_id = base.Columns["Cust_status_id"];
                 this.columnCust_status = base.Columns["Cust_status"];
                 this.columnCust_Address_type_id = base.Columns["Cust_Address_type_id"];
                 this.columnCust_Address_no = base.Columns["Cust_Address_no"];
@@ -6435,6 +6493,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_job_country);
                 this.columnCust_job_zipcode = new global::System.Data.DataColumn("Cust_job_zipcode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_job_zipcode);
+                this.columnCust_status_id = new global::System.Data.DataColumn("Cust_status_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_status_id);
                 this.columnCust_status = new global::System.Data.DataColumn("Cust_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_status);
                 this.columnCust_Address_type_id = new global::System.Data.DataColumn("Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
@@ -6685,6 +6745,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnCust_job_country;
             
             private global::System.Data.DataColumn columnCust_job_zipcode;
+            
+            private global::System.Data.DataColumn columnCust_status_id;
             
             private global::System.Data.DataColumn columnCust_status;
             
@@ -6990,6 +7052,14 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             public global::System.Data.DataColumn Cust_job_zipcodeColumn {
                 get {
                     return this.columnCust_job_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_status_idColumn {
+                get {
+                    return this.columnCust_status_id;
                 }
             }
             
@@ -7321,6 +7391,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_job_province, 
                         string Cust_job_country, 
                         string Cust_job_zipcode, 
+                        string Cust_status_id, 
                         string Cust_status, 
                         string Cust_Address_type_id, 
                         string Cust_Address_no, 
@@ -7382,6 +7453,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_job_province,
                         Cust_job_country,
                         Cust_job_zipcode,
+                        Cust_status_id,
                         Cust_status,
                         Cust_Address_type_id,
                         Cust_Address_no,
@@ -7463,6 +7535,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_job_province = base.Columns["Cust_job_province"];
                 this.columnCust_job_country = base.Columns["Cust_job_country"];
                 this.columnCust_job_zipcode = base.Columns["Cust_job_zipcode"];
+                this.columnCust_status_id = base.Columns["Cust_status_id"];
                 this.columnCust_status = base.Columns["Cust_status"];
                 this.columnCust_Address_type_id = base.Columns["Cust_Address_type_id"];
                 this.columnCust_Address_no = base.Columns["Cust_Address_no"];
@@ -7553,6 +7626,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_job_country);
                 this.columnCust_job_zipcode = new global::System.Data.DataColumn("Cust_job_zipcode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_job_zipcode);
+                this.columnCust_status_id = new global::System.Data.DataColumn("Cust_status_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_status_id);
                 this.columnCust_status = new global::System.Data.DataColumn("Cust_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_status);
                 this.columnCust_Address_type_id = new global::System.Data.DataColumn("Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
@@ -7803,6 +7878,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnCust_job_country;
             
             private global::System.Data.DataColumn columnCust_job_zipcode;
+            
+            private global::System.Data.DataColumn columnCust_status_id;
             
             private global::System.Data.DataColumn columnCust_status;
             
@@ -8108,6 +8185,14 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             public global::System.Data.DataColumn Cust_job_zipcodeColumn {
                 get {
                     return this.columnCust_job_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_status_idColumn {
+                get {
+                    return this.columnCust_status_id;
                 }
             }
             
@@ -8439,6 +8524,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_job_province, 
                         string Cust_job_country, 
                         string Cust_job_zipcode, 
+                        string Cust_status_id, 
                         string Cust_status, 
                         string Cust_Address_type_id, 
                         string Cust_Address_no, 
@@ -8500,6 +8586,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_job_province,
                         Cust_job_country,
                         Cust_job_zipcode,
+                        Cust_status_id,
                         Cust_status,
                         Cust_Address_type_id,
                         Cust_Address_no,
@@ -8581,6 +8668,7 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_job_province = base.Columns["Cust_job_province"];
                 this.columnCust_job_country = base.Columns["Cust_job_country"];
                 this.columnCust_job_zipcode = base.Columns["Cust_job_zipcode"];
+                this.columnCust_status_id = base.Columns["Cust_status_id"];
                 this.columnCust_status = base.Columns["Cust_status"];
                 this.columnCust_Address_type_id = base.Columns["Cust_Address_type_id"];
                 this.columnCust_Address_no = base.Columns["Cust_Address_no"];
@@ -8671,6 +8759,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_job_country);
                 this.columnCust_job_zipcode = new global::System.Data.DataColumn("Cust_job_zipcode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_job_zipcode);
+                this.columnCust_status_id = new global::System.Data.DataColumn("Cust_status_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_status_id);
                 this.columnCust_status = new global::System.Data.DataColumn("Cust_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_status);
                 this.columnCust_Address_type_id = new global::System.Data.DataColumn("Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
@@ -9258,6 +9348,22 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 }
                 set {
                     this[this.tableCustomers.Cust_job_zipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_status_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cust_status_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_status_id\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cust_status_idColumn] = value;
                 }
             }
             
@@ -10075,6 +10181,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCust_job_zipcodeNull() {
                 this[this.tableCustomers.Cust_job_zipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_status_idNull() {
+                return this.IsNull(this.tableCustomers.Cust_status_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_status_idNull() {
+                this[this.tableCustomers.Cust_status_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13665,6 +13783,22 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_status_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cust_status_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_status_id\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cust_status_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_status {
                 get {
                     try {
@@ -14505,6 +14639,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_status_idNull() {
+                return this.IsNull(this.tableBondsmans_1.Cust_status_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_status_idNull() {
+                this[this.tableBondsmans_1.Cust_status_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCust_statusNull() {
                 return this.IsNull(this.tableBondsmans_1.Cust_statusColumn);
             }
@@ -15327,6 +15473,22 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 }
                 set {
                     this[this.tableBondsmans_2.Cust_job_zipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_status_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cust_status_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_status_id\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cust_status_idColumn] = value;
                 }
             }
             
@@ -16172,6 +16334,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_status_idNull() {
+                return this.IsNull(this.tableBondsmans_2.Cust_status_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_status_idNull() {
+                this[this.tableBondsmans_2.Cust_status_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCust_statusNull() {
                 return this.IsNull(this.tableBondsmans_2.Cust_statusColumn);
             }
@@ -16994,6 +17168,22 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 }
                 set {
                     this[this.tableBondsmans_3.Cust_job_zipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_status_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cust_status_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_status_id\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cust_status_idColumn] = value;
                 }
             }
             
@@ -17839,6 +18029,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_status_idNull() {
+                return this.IsNull(this.tableBondsmans_3.Cust_status_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_status_idNull() {
+                this[this.tableBondsmans_3.Cust_status_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCust_statusNull() {
                 return this.IsNull(this.tableBondsmans_3.Cust_statusColumn);
             }
@@ -18661,6 +18863,22 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 }
                 set {
                     this[this.tableBondsmans_4.Cust_job_zipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_status_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cust_status_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_status_id\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cust_status_idColumn] = value;
                 }
             }
             
@@ -19506,6 +19724,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_status_idNull() {
+                return this.IsNull(this.tableBondsmans_4.Cust_status_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_status_idNull() {
+                this[this.tableBondsmans_4.Cust_status_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCust_statusNull() {
                 return this.IsNull(this.tableBondsmans_4.Cust_statusColumn);
             }
@@ -20328,6 +20558,22 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 }
                 set {
                     this[this.tableBondsmans_5.Cust_job_zipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_status_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cust_status_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_status_id\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cust_status_idColumn] = value;
                 }
             }
             
@@ -21169,6 +21415,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCust_job_zipcodeNull() {
                 this[this.tableBondsmans_5.Cust_job_zipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_status_idNull() {
+                return this.IsNull(this.tableBondsmans_5.Cust_status_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_status_idNull() {
+                this[this.tableBondsmans_5.Cust_status_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

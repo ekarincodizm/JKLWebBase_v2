@@ -16,14 +16,14 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_KH2 {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Car_Leasing_KH2_P4 : ReportClass {
+    public class Car_Leasing_KH2 : ReportClass {
         
-        public Car_Leasing_KH2_P4() {
+        public Car_Leasing_KH2() {
         }
         
         public override string ResourceName {
             get {
-                return "Car_Leasing_KH2_P4.rpt";
+                return "Car_Leasing_KH2.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_KH2 {
         
         public override string FullResourceName {
             get {
-                return "JKLWebBase_v2.Reports.Leasings.Leasing_KH2.Car_Leasing_KH2_P4.rpt";
+                return "JKLWebBase_v2.Reports.Leasings.Leasing_KH2.Car_Leasing_KH2.rpt";
             }
             set {
                 // Do nothing
@@ -74,7 +74,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_KH2 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,17 +82,41 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_KH2 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection5 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection6 {
+            get {
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+            get {
+                return this.ReportDefinition.Sections[6];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[7];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCar_Leasing_KH2_P4 : Component, ICachedReport {
+    public class CachedCar_Leasing_KH2 : Component, ICachedReport {
         
-        public CachedCar_Leasing_KH2_P4() {
+        public CachedCar_Leasing_KH2() {
         }
         
         [Browsable(false)]
@@ -129,7 +153,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_KH2 {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Car_Leasing_KH2_P4 rpt = new Car_Leasing_KH2_P4();
+            Car_Leasing_KH2 rpt = new Car_Leasing_KH2();
             rpt.Site = this.Site;
             return rpt;
         }

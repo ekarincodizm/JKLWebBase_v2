@@ -8,7 +8,7 @@
 <%@ Import Namespace="JKLWebBase_v2.Managers_Leasings" %>
 <%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <!-- Print Menu Button -->
     <print_menu_leasing:Print_Menu ID="Print_Menu1" runat="server" />

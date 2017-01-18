@@ -7,6 +7,7 @@
         public string Branch_N_name { get; set; }
         public string Branch_F_name { get; set; }
         public string Branch_tax_id { get; set; }
+        public string Branch_tax_subcode { get; set; }
         public string Branch_address_no { get; set; }
         public string Branch_vilage { get; set; }
         public string Branch_vilage_no { get; set; }

@@ -43,7 +43,7 @@
 
                 <div class="col-lg-4">
                     <asp:LinkButton ID="link_Report_Payment_Daily_Leasings" runat="server" OnClick="link_Report_Payment_Daily_Leasings_Click">
-                            <div class="panel panel-info">
+                            <div class="panel panel-danger">
                                 <div class="panel-heading">
                                     <div class="row">
                                         <div class="col-xs-3">
@@ -56,6 +56,25 @@
                                 </div>
                             </div>
                     </asp:LinkButton>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <asp:HyperLink ID="link_Report_Form_Certified_Leasing_Outline" runat="server" NavigateUrl="/Reports/Leasings/Certified_Leasing/Certified_Leasing_Outline_Prv" Target="_blank">
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-file-pdf-o fa-5x"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <h3> <strong> แบบฟอร์มหนังสือรับรองการเช่า - ซื้อ </strong> </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </asp:HyperLink>
                 </div>
             </div>
         </div>
