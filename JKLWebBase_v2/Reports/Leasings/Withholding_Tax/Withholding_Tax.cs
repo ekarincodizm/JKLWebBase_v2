@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
+namespace JKLWebBase_v2.Reports.Leasings.Withholding_Tax {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Car_Leasing_SH1 : ReportClass {
+    public class Withholding_Tax : ReportClass {
         
-        public Car_Leasing_SH1() {
+        public Withholding_Tax() {
         }
         
         public override string ResourceName {
             get {
-                return "Car_Leasing_SH1.rpt";
+                return "Withholding_Tax.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
         
         public override string FullResourceName {
             get {
-                return "JKLWebBase_v2.Reports.Leasings.Leasing_SH1.Car_Leasing_SH1.rpt";
+                return "JKLWebBase_v2.Reports.Leasings.Withholding_Tax.Withholding_Tax.rpt";
             }
             set {
                 // Do nothing
@@ -74,7 +74,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,41 +82,17 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection5 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section DetailSection6 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[7];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCar_Leasing_SH1 : Component, ICachedReport {
+    public class CachedWithholding_Tax : Component, ICachedReport {
         
-        public CachedCar_Leasing_SH1() {
+        public CachedWithholding_Tax() {
         }
         
         [Browsable(false)]
@@ -153,7 +129,7 @@ namespace JKLWebBase_v2.Reports.Leasings.Leasing_SH1 {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Car_Leasing_SH1 rpt = new Car_Leasing_SH1();
+            Withholding_Tax rpt = new Withholding_Tax();
             rpt.Site = this.Site;
             return rpt;
         }

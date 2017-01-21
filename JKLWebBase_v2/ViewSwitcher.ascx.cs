@@ -9,7 +9,7 @@ using Microsoft.AspNet.FriendlyUrls.Resolvers;
 
 namespace JKLWebBase_v2
 {
-    public partial class ViewSwitcher : System.Web.UI.UserControl
+    public partial class ViewSwitcher : UserControl
     {
         protected string CurrentView { get; private set; }
 

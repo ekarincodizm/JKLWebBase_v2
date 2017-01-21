@@ -38,6 +38,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
         
         private Bondsmans_5DataTable tableBondsmans_5;
         
+        private BranchDataTable tableBranch;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -86,6 +88,9 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 }
                 if ((ds.Tables["Bondsmans_5"] != null)) {
                     base.Tables.Add(new Bondsmans_5DataTable(ds.Tables["Bondsmans_5"]));
+                }
+                if ((ds.Tables["Branch"] != null)) {
+                    base.Tables.Add(new BranchDataTable(ds.Tables["Branch"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -177,6 +182,16 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public BranchDataTable Branch {
+            get {
+                return this.tableBranch;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -263,6 +278,9 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 if ((ds.Tables["Bondsmans_5"] != null)) {
                     base.Tables.Add(new Bondsmans_5DataTable(ds.Tables["Bondsmans_5"]));
                 }
+                if ((ds.Tables["Branch"] != null)) {
+                    base.Tables.Add(new BranchDataTable(ds.Tables["Branch"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -338,6 +356,12 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                     this.tableBondsmans_5.InitVars();
                 }
             }
+            this.tableBranch = ((BranchDataTable)(base.Tables["Branch"]));
+            if ((initTable == true)) {
+                if ((this.tableBranch != null)) {
+                    this.tableBranch.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -362,6 +386,8 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             base.Tables.Add(this.tableBondsmans_4);
             this.tableBondsmans_5 = new Bondsmans_5DataTable();
             base.Tables.Add(this.tableBondsmans_5);
+            this.tableBranch = new BranchDataTable();
+            base.Tables.Add(this.tableBranch);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -403,6 +429,12 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeBondsmans_5() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeBranch() {
             return false;
         }
         
@@ -481,6 +513,9 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Bondsmans_5RowChangeEventHandler(object sender, Bondsmans_5RowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void BranchRowChangeEventHandler(object sender, BranchRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -566,6 +601,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnCust_Tel;
             
             private global::System.Data.DataColumn columnHome_Address;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_type_id;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Alley;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Road;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Subdistrict;
+            
+            private global::System.Data.DataColumn columnCur_Cust_District;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Province;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Country;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Zipcode;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Tel;
             
             private global::System.Data.DataColumn columnCurrent_Address;
             
@@ -952,6 +1011,102 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_type_idColumn {
+                get {
+                    return this.columnCur_Cust_Address_type_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_noColumn {
+                get {
+                    return this.columnCur_Cust_Address_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_VilageColumn {
+                get {
+                    return this.columnCur_Cust_Vilage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Vilage_noColumn {
+                get {
+                    return this.columnCur_Cust_Vilage_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_AlleyColumn {
+                get {
+                    return this.columnCur_Cust_Alley;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_RoadColumn {
+                get {
+                    return this.columnCur_Cust_Road;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_SubdistrictColumn {
+                get {
+                    return this.columnCur_Cust_Subdistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_DistrictColumn {
+                get {
+                    return this.columnCur_Cust_District;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ProvinceColumn {
+                get {
+                    return this.columnCur_Cust_Province;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_CountryColumn {
+                get {
+                    return this.columnCur_Cust_Country;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ZipcodeColumn {
+                get {
+                    return this.columnCur_Cust_Zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_TelColumn {
+                get {
+                    return this.columnCur_Cust_Tel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Current_AddressColumn {
                 get {
                     return this.columnCurrent_Address;
@@ -1179,6 +1334,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_Zipcode, 
                         string Cust_Tel, 
                         string Home_Address, 
+                        string Cur_Cust_Address_type_id, 
+                        string Cur_Cust_Address_no, 
+                        string Cur_Cust_Vilage, 
+                        string Cur_Cust_Vilage_no, 
+                        string Cur_Cust_Alley, 
+                        string Cur_Cust_Road, 
+                        string Cur_Cust_Subdistrict, 
+                        string Cur_Cust_District, 
+                        string Cur_Cust_Province, 
+                        string Cur_Cust_Country, 
+                        string Cur_Cust_Zipcode, 
+                        string Cur_Cust_Tel, 
                         string Current_Address, 
                         string Spouse_idcard, 
                         string Spouse_Fname, 
@@ -1239,6 +1406,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_Zipcode,
                         Cust_Tel,
                         Home_Address,
+                        Cur_Cust_Address_type_id,
+                        Cur_Cust_Address_no,
+                        Cur_Cust_Vilage,
+                        Cur_Cust_Vilage_no,
+                        Cur_Cust_Alley,
+                        Cur_Cust_Road,
+                        Cur_Cust_Subdistrict,
+                        Cur_Cust_District,
+                        Cur_Cust_Province,
+                        Cur_Cust_Country,
+                        Cur_Cust_Zipcode,
+                        Cur_Cust_Tel,
                         Current_Address,
                         Spouse_idcard,
                         Spouse_Fname,
@@ -1319,6 +1498,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_Zipcode = base.Columns["Cust_Zipcode"];
                 this.columnCust_Tel = base.Columns["Cust_Tel"];
                 this.columnHome_Address = base.Columns["Home_Address"];
+                this.columnCur_Cust_Address_type_id = base.Columns["Cur_Cust_Address_type_id"];
+                this.columnCur_Cust_Address_no = base.Columns["Cur_Cust_Address_no"];
+                this.columnCur_Cust_Vilage = base.Columns["Cur_Cust_Vilage"];
+                this.columnCur_Cust_Vilage_no = base.Columns["Cur_Cust_Vilage_no"];
+                this.columnCur_Cust_Alley = base.Columns["Cur_Cust_Alley"];
+                this.columnCur_Cust_Road = base.Columns["Cur_Cust_Road"];
+                this.columnCur_Cust_Subdistrict = base.Columns["Cur_Cust_Subdistrict"];
+                this.columnCur_Cust_District = base.Columns["Cur_Cust_District"];
+                this.columnCur_Cust_Province = base.Columns["Cur_Cust_Province"];
+                this.columnCur_Cust_Country = base.Columns["Cur_Cust_Country"];
+                this.columnCur_Cust_Zipcode = base.Columns["Cur_Cust_Zipcode"];
+                this.columnCur_Cust_Tel = base.Columns["Cur_Cust_Tel"];
                 this.columnCurrent_Address = base.Columns["Current_Address"];
                 this.columnSpouse_idcard = base.Columns["Spouse_idcard"];
                 this.columnSpouse_Fname = base.Columns["Spouse_Fname"];
@@ -1421,6 +1612,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_Tel);
                 this.columnHome_Address = new global::System.Data.DataColumn("Home_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHome_Address);
+                this.columnCur_Cust_Address_type_id = new global::System.Data.DataColumn("Cur_Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_type_id);
+                this.columnCur_Cust_Address_no = new global::System.Data.DataColumn("Cur_Cust_Address_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_no);
+                this.columnCur_Cust_Vilage = new global::System.Data.DataColumn("Cur_Cust_Vilage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage);
+                this.columnCur_Cust_Vilage_no = new global::System.Data.DataColumn("Cur_Cust_Vilage_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage_no);
+                this.columnCur_Cust_Alley = new global::System.Data.DataColumn("Cur_Cust_Alley", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Alley);
+                this.columnCur_Cust_Road = new global::System.Data.DataColumn("Cur_Cust_Road", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Road);
+                this.columnCur_Cust_Subdistrict = new global::System.Data.DataColumn("Cur_Cust_Subdistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Subdistrict);
+                this.columnCur_Cust_District = new global::System.Data.DataColumn("Cur_Cust_District", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_District);
+                this.columnCur_Cust_Province = new global::System.Data.DataColumn("Cur_Cust_Province", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Province);
+                this.columnCur_Cust_Country = new global::System.Data.DataColumn("Cur_Cust_Country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Country);
+                this.columnCur_Cust_Zipcode = new global::System.Data.DataColumn("Cur_Cust_Zipcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Zipcode);
+                this.columnCur_Cust_Tel = new global::System.Data.DataColumn("Cur_Cust_Tel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Tel);
                 this.columnCurrent_Address = new global::System.Data.DataColumn("Current_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurrent_Address);
                 this.columnSpouse_idcard = new global::System.Data.DataColumn("Spouse_idcard", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3377,6 +3592,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             private global::System.Data.DataColumn columnHome_Address;
             
+            private global::System.Data.DataColumn columnCur_Cust_Address_type_id;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Alley;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Road;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Subdistrict;
+            
+            private global::System.Data.DataColumn columnCur_Cust_District;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Province;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Country;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Zipcode;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Tel;
+            
             private global::System.Data.DataColumn columnCurrent_Address;
             
             private global::System.Data.DataColumn columnSpouse_idcard;
@@ -3778,6 +4017,102 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_type_idColumn {
+                get {
+                    return this.columnCur_Cust_Address_type_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_noColumn {
+                get {
+                    return this.columnCur_Cust_Address_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_VilageColumn {
+                get {
+                    return this.columnCur_Cust_Vilage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Vilage_noColumn {
+                get {
+                    return this.columnCur_Cust_Vilage_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_AlleyColumn {
+                get {
+                    return this.columnCur_Cust_Alley;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_RoadColumn {
+                get {
+                    return this.columnCur_Cust_Road;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_SubdistrictColumn {
+                get {
+                    return this.columnCur_Cust_Subdistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_DistrictColumn {
+                get {
+                    return this.columnCur_Cust_District;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ProvinceColumn {
+                get {
+                    return this.columnCur_Cust_Province;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_CountryColumn {
+                get {
+                    return this.columnCur_Cust_Country;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ZipcodeColumn {
+                get {
+                    return this.columnCur_Cust_Zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_TelColumn {
+                get {
+                    return this.columnCur_Cust_Tel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Current_AddressColumn {
                 get {
                     return this.columnCurrent_Address;
@@ -4007,6 +4342,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_Zipcode, 
                         string Cust_Tel, 
                         string Home_Address, 
+                        string Cur_Cust_Address_type_id, 
+                        string Cur_Cust_Address_no, 
+                        string Cur_Cust_Vilage, 
+                        string Cur_Cust_Vilage_no, 
+                        string Cur_Cust_Alley, 
+                        string Cur_Cust_Road, 
+                        string Cur_Cust_Subdistrict, 
+                        string Cur_Cust_District, 
+                        string Cur_Cust_Province, 
+                        string Cur_Cust_Country, 
+                        string Cur_Cust_Zipcode, 
+                        string Cur_Cust_Tel, 
                         string Current_Address, 
                         string Spouse_idcard, 
                         string Spouse_Fname, 
@@ -4069,6 +4416,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_Zipcode,
                         Cust_Tel,
                         Home_Address,
+                        Cur_Cust_Address_type_id,
+                        Cur_Cust_Address_no,
+                        Cur_Cust_Vilage,
+                        Cur_Cust_Vilage_no,
+                        Cur_Cust_Alley,
+                        Cur_Cust_Road,
+                        Cur_Cust_Subdistrict,
+                        Cur_Cust_District,
+                        Cur_Cust_Province,
+                        Cur_Cust_Country,
+                        Cur_Cust_Zipcode,
+                        Cur_Cust_Tel,
                         Current_Address,
                         Spouse_idcard,
                         Spouse_Fname,
@@ -4151,6 +4510,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_Zipcode = base.Columns["Cust_Zipcode"];
                 this.columnCust_Tel = base.Columns["Cust_Tel"];
                 this.columnHome_Address = base.Columns["Home_Address"];
+                this.columnCur_Cust_Address_type_id = base.Columns["Cur_Cust_Address_type_id"];
+                this.columnCur_Cust_Address_no = base.Columns["Cur_Cust_Address_no"];
+                this.columnCur_Cust_Vilage = base.Columns["Cur_Cust_Vilage"];
+                this.columnCur_Cust_Vilage_no = base.Columns["Cur_Cust_Vilage_no"];
+                this.columnCur_Cust_Alley = base.Columns["Cur_Cust_Alley"];
+                this.columnCur_Cust_Road = base.Columns["Cur_Cust_Road"];
+                this.columnCur_Cust_Subdistrict = base.Columns["Cur_Cust_Subdistrict"];
+                this.columnCur_Cust_District = base.Columns["Cur_Cust_District"];
+                this.columnCur_Cust_Province = base.Columns["Cur_Cust_Province"];
+                this.columnCur_Cust_Country = base.Columns["Cur_Cust_Country"];
+                this.columnCur_Cust_Zipcode = base.Columns["Cur_Cust_Zipcode"];
+                this.columnCur_Cust_Tel = base.Columns["Cur_Cust_Tel"];
                 this.columnCurrent_Address = base.Columns["Current_Address"];
                 this.columnSpouse_idcard = base.Columns["Spouse_idcard"];
                 this.columnSpouse_Fname = base.Columns["Spouse_Fname"];
@@ -4257,6 +4628,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_Tel);
                 this.columnHome_Address = new global::System.Data.DataColumn("Home_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHome_Address);
+                this.columnCur_Cust_Address_type_id = new global::System.Data.DataColumn("Cur_Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_type_id);
+                this.columnCur_Cust_Address_no = new global::System.Data.DataColumn("Cur_Cust_Address_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_no);
+                this.columnCur_Cust_Vilage = new global::System.Data.DataColumn("Cur_Cust_Vilage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage);
+                this.columnCur_Cust_Vilage_no = new global::System.Data.DataColumn("Cur_Cust_Vilage_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage_no);
+                this.columnCur_Cust_Alley = new global::System.Data.DataColumn("Cur_Cust_Alley", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Alley);
+                this.columnCur_Cust_Road = new global::System.Data.DataColumn("Cur_Cust_Road", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Road);
+                this.columnCur_Cust_Subdistrict = new global::System.Data.DataColumn("Cur_Cust_Subdistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Subdistrict);
+                this.columnCur_Cust_District = new global::System.Data.DataColumn("Cur_Cust_District", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_District);
+                this.columnCur_Cust_Province = new global::System.Data.DataColumn("Cur_Cust_Province", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Province);
+                this.columnCur_Cust_Country = new global::System.Data.DataColumn("Cur_Cust_Country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Country);
+                this.columnCur_Cust_Zipcode = new global::System.Data.DataColumn("Cur_Cust_Zipcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Zipcode);
+                this.columnCur_Cust_Tel = new global::System.Data.DataColumn("Cur_Cust_Tel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Tel);
                 this.columnCurrent_Address = new global::System.Data.DataColumn("Current_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurrent_Address);
                 this.columnSpouse_idcard = new global::System.Data.DataColumn("Spouse_idcard", typeof(string), null, global::System.Data.MappingType.Element);
@@ -4509,6 +4904,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnCust_Tel;
             
             private global::System.Data.DataColumn columnHome_Address;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_type_id;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Alley;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Road;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Subdistrict;
+            
+            private global::System.Data.DataColumn columnCur_Cust_District;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Province;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Country;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Zipcode;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Tel;
             
             private global::System.Data.DataColumn columnCurrent_Address;
             
@@ -4911,6 +5330,102 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_type_idColumn {
+                get {
+                    return this.columnCur_Cust_Address_type_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_noColumn {
+                get {
+                    return this.columnCur_Cust_Address_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_VilageColumn {
+                get {
+                    return this.columnCur_Cust_Vilage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Vilage_noColumn {
+                get {
+                    return this.columnCur_Cust_Vilage_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_AlleyColumn {
+                get {
+                    return this.columnCur_Cust_Alley;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_RoadColumn {
+                get {
+                    return this.columnCur_Cust_Road;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_SubdistrictColumn {
+                get {
+                    return this.columnCur_Cust_Subdistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_DistrictColumn {
+                get {
+                    return this.columnCur_Cust_District;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ProvinceColumn {
+                get {
+                    return this.columnCur_Cust_Province;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_CountryColumn {
+                get {
+                    return this.columnCur_Cust_Country;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ZipcodeColumn {
+                get {
+                    return this.columnCur_Cust_Zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_TelColumn {
+                get {
+                    return this.columnCur_Cust_Tel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Current_AddressColumn {
                 get {
                     return this.columnCurrent_Address;
@@ -5140,6 +5655,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_Zipcode, 
                         string Cust_Tel, 
                         string Home_Address, 
+                        string Cur_Cust_Address_type_id, 
+                        string Cur_Cust_Address_no, 
+                        string Cur_Cust_Vilage, 
+                        string Cur_Cust_Vilage_no, 
+                        string Cur_Cust_Alley, 
+                        string Cur_Cust_Road, 
+                        string Cur_Cust_Subdistrict, 
+                        string Cur_Cust_District, 
+                        string Cur_Cust_Province, 
+                        string Cur_Cust_Country, 
+                        string Cur_Cust_Zipcode, 
+                        string Cur_Cust_Tel, 
                         string Current_Address, 
                         string Spouse_idcard, 
                         string Spouse_Fname, 
@@ -5202,6 +5729,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_Zipcode,
                         Cust_Tel,
                         Home_Address,
+                        Cur_Cust_Address_type_id,
+                        Cur_Cust_Address_no,
+                        Cur_Cust_Vilage,
+                        Cur_Cust_Vilage_no,
+                        Cur_Cust_Alley,
+                        Cur_Cust_Road,
+                        Cur_Cust_Subdistrict,
+                        Cur_Cust_District,
+                        Cur_Cust_Province,
+                        Cur_Cust_Country,
+                        Cur_Cust_Zipcode,
+                        Cur_Cust_Tel,
                         Current_Address,
                         Spouse_idcard,
                         Spouse_Fname,
@@ -5284,6 +5823,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_Zipcode = base.Columns["Cust_Zipcode"];
                 this.columnCust_Tel = base.Columns["Cust_Tel"];
                 this.columnHome_Address = base.Columns["Home_Address"];
+                this.columnCur_Cust_Address_type_id = base.Columns["Cur_Cust_Address_type_id"];
+                this.columnCur_Cust_Address_no = base.Columns["Cur_Cust_Address_no"];
+                this.columnCur_Cust_Vilage = base.Columns["Cur_Cust_Vilage"];
+                this.columnCur_Cust_Vilage_no = base.Columns["Cur_Cust_Vilage_no"];
+                this.columnCur_Cust_Alley = base.Columns["Cur_Cust_Alley"];
+                this.columnCur_Cust_Road = base.Columns["Cur_Cust_Road"];
+                this.columnCur_Cust_Subdistrict = base.Columns["Cur_Cust_Subdistrict"];
+                this.columnCur_Cust_District = base.Columns["Cur_Cust_District"];
+                this.columnCur_Cust_Province = base.Columns["Cur_Cust_Province"];
+                this.columnCur_Cust_Country = base.Columns["Cur_Cust_Country"];
+                this.columnCur_Cust_Zipcode = base.Columns["Cur_Cust_Zipcode"];
+                this.columnCur_Cust_Tel = base.Columns["Cur_Cust_Tel"];
                 this.columnCurrent_Address = base.Columns["Current_Address"];
                 this.columnSpouse_idcard = base.Columns["Spouse_idcard"];
                 this.columnSpouse_Fname = base.Columns["Spouse_Fname"];
@@ -5390,6 +5941,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_Tel);
                 this.columnHome_Address = new global::System.Data.DataColumn("Home_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHome_Address);
+                this.columnCur_Cust_Address_type_id = new global::System.Data.DataColumn("Cur_Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_type_id);
+                this.columnCur_Cust_Address_no = new global::System.Data.DataColumn("Cur_Cust_Address_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_no);
+                this.columnCur_Cust_Vilage = new global::System.Data.DataColumn("Cur_Cust_Vilage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage);
+                this.columnCur_Cust_Vilage_no = new global::System.Data.DataColumn("Cur_Cust_Vilage_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage_no);
+                this.columnCur_Cust_Alley = new global::System.Data.DataColumn("Cur_Cust_Alley", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Alley);
+                this.columnCur_Cust_Road = new global::System.Data.DataColumn("Cur_Cust_Road", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Road);
+                this.columnCur_Cust_Subdistrict = new global::System.Data.DataColumn("Cur_Cust_Subdistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Subdistrict);
+                this.columnCur_Cust_District = new global::System.Data.DataColumn("Cur_Cust_District", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_District);
+                this.columnCur_Cust_Province = new global::System.Data.DataColumn("Cur_Cust_Province", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Province);
+                this.columnCur_Cust_Country = new global::System.Data.DataColumn("Cur_Cust_Country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Country);
+                this.columnCur_Cust_Zipcode = new global::System.Data.DataColumn("Cur_Cust_Zipcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Zipcode);
+                this.columnCur_Cust_Tel = new global::System.Data.DataColumn("Cur_Cust_Tel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Tel);
                 this.columnCurrent_Address = new global::System.Data.DataColumn("Current_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurrent_Address);
                 this.columnSpouse_idcard = new global::System.Data.DataColumn("Spouse_idcard", typeof(string), null, global::System.Data.MappingType.Element);
@@ -5642,6 +6217,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnCust_Tel;
             
             private global::System.Data.DataColumn columnHome_Address;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_type_id;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Alley;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Road;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Subdistrict;
+            
+            private global::System.Data.DataColumn columnCur_Cust_District;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Province;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Country;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Zipcode;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Tel;
             
             private global::System.Data.DataColumn columnCurrent_Address;
             
@@ -6044,6 +6643,102 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_type_idColumn {
+                get {
+                    return this.columnCur_Cust_Address_type_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_noColumn {
+                get {
+                    return this.columnCur_Cust_Address_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_VilageColumn {
+                get {
+                    return this.columnCur_Cust_Vilage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Vilage_noColumn {
+                get {
+                    return this.columnCur_Cust_Vilage_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_AlleyColumn {
+                get {
+                    return this.columnCur_Cust_Alley;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_RoadColumn {
+                get {
+                    return this.columnCur_Cust_Road;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_SubdistrictColumn {
+                get {
+                    return this.columnCur_Cust_Subdistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_DistrictColumn {
+                get {
+                    return this.columnCur_Cust_District;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ProvinceColumn {
+                get {
+                    return this.columnCur_Cust_Province;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_CountryColumn {
+                get {
+                    return this.columnCur_Cust_Country;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ZipcodeColumn {
+                get {
+                    return this.columnCur_Cust_Zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_TelColumn {
+                get {
+                    return this.columnCur_Cust_Tel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Current_AddressColumn {
                 get {
                     return this.columnCurrent_Address;
@@ -6273,6 +6968,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_Zipcode, 
                         string Cust_Tel, 
                         string Home_Address, 
+                        string Cur_Cust_Address_type_id, 
+                        string Cur_Cust_Address_no, 
+                        string Cur_Cust_Vilage, 
+                        string Cur_Cust_Vilage_no, 
+                        string Cur_Cust_Alley, 
+                        string Cur_Cust_Road, 
+                        string Cur_Cust_Subdistrict, 
+                        string Cur_Cust_District, 
+                        string Cur_Cust_Province, 
+                        string Cur_Cust_Country, 
+                        string Cur_Cust_Zipcode, 
+                        string Cur_Cust_Tel, 
                         string Current_Address, 
                         string Spouse_idcard, 
                         string Spouse_Fname, 
@@ -6335,6 +7042,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_Zipcode,
                         Cust_Tel,
                         Home_Address,
+                        Cur_Cust_Address_type_id,
+                        Cur_Cust_Address_no,
+                        Cur_Cust_Vilage,
+                        Cur_Cust_Vilage_no,
+                        Cur_Cust_Alley,
+                        Cur_Cust_Road,
+                        Cur_Cust_Subdistrict,
+                        Cur_Cust_District,
+                        Cur_Cust_Province,
+                        Cur_Cust_Country,
+                        Cur_Cust_Zipcode,
+                        Cur_Cust_Tel,
                         Current_Address,
                         Spouse_idcard,
                         Spouse_Fname,
@@ -6417,6 +7136,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_Zipcode = base.Columns["Cust_Zipcode"];
                 this.columnCust_Tel = base.Columns["Cust_Tel"];
                 this.columnHome_Address = base.Columns["Home_Address"];
+                this.columnCur_Cust_Address_type_id = base.Columns["Cur_Cust_Address_type_id"];
+                this.columnCur_Cust_Address_no = base.Columns["Cur_Cust_Address_no"];
+                this.columnCur_Cust_Vilage = base.Columns["Cur_Cust_Vilage"];
+                this.columnCur_Cust_Vilage_no = base.Columns["Cur_Cust_Vilage_no"];
+                this.columnCur_Cust_Alley = base.Columns["Cur_Cust_Alley"];
+                this.columnCur_Cust_Road = base.Columns["Cur_Cust_Road"];
+                this.columnCur_Cust_Subdistrict = base.Columns["Cur_Cust_Subdistrict"];
+                this.columnCur_Cust_District = base.Columns["Cur_Cust_District"];
+                this.columnCur_Cust_Province = base.Columns["Cur_Cust_Province"];
+                this.columnCur_Cust_Country = base.Columns["Cur_Cust_Country"];
+                this.columnCur_Cust_Zipcode = base.Columns["Cur_Cust_Zipcode"];
+                this.columnCur_Cust_Tel = base.Columns["Cur_Cust_Tel"];
                 this.columnCurrent_Address = base.Columns["Current_Address"];
                 this.columnSpouse_idcard = base.Columns["Spouse_idcard"];
                 this.columnSpouse_Fname = base.Columns["Spouse_Fname"];
@@ -6523,6 +7254,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_Tel);
                 this.columnHome_Address = new global::System.Data.DataColumn("Home_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHome_Address);
+                this.columnCur_Cust_Address_type_id = new global::System.Data.DataColumn("Cur_Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_type_id);
+                this.columnCur_Cust_Address_no = new global::System.Data.DataColumn("Cur_Cust_Address_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_no);
+                this.columnCur_Cust_Vilage = new global::System.Data.DataColumn("Cur_Cust_Vilage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage);
+                this.columnCur_Cust_Vilage_no = new global::System.Data.DataColumn("Cur_Cust_Vilage_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage_no);
+                this.columnCur_Cust_Alley = new global::System.Data.DataColumn("Cur_Cust_Alley", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Alley);
+                this.columnCur_Cust_Road = new global::System.Data.DataColumn("Cur_Cust_Road", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Road);
+                this.columnCur_Cust_Subdistrict = new global::System.Data.DataColumn("Cur_Cust_Subdistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Subdistrict);
+                this.columnCur_Cust_District = new global::System.Data.DataColumn("Cur_Cust_District", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_District);
+                this.columnCur_Cust_Province = new global::System.Data.DataColumn("Cur_Cust_Province", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Province);
+                this.columnCur_Cust_Country = new global::System.Data.DataColumn("Cur_Cust_Country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Country);
+                this.columnCur_Cust_Zipcode = new global::System.Data.DataColumn("Cur_Cust_Zipcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Zipcode);
+                this.columnCur_Cust_Tel = new global::System.Data.DataColumn("Cur_Cust_Tel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Tel);
                 this.columnCurrent_Address = new global::System.Data.DataColumn("Current_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurrent_Address);
                 this.columnSpouse_idcard = new global::System.Data.DataColumn("Spouse_idcard", typeof(string), null, global::System.Data.MappingType.Element);
@@ -6775,6 +7530,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnCust_Tel;
             
             private global::System.Data.DataColumn columnHome_Address;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_type_id;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Alley;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Road;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Subdistrict;
+            
+            private global::System.Data.DataColumn columnCur_Cust_District;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Province;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Country;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Zipcode;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Tel;
             
             private global::System.Data.DataColumn columnCurrent_Address;
             
@@ -7177,6 +7956,102 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_type_idColumn {
+                get {
+                    return this.columnCur_Cust_Address_type_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_noColumn {
+                get {
+                    return this.columnCur_Cust_Address_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_VilageColumn {
+                get {
+                    return this.columnCur_Cust_Vilage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Vilage_noColumn {
+                get {
+                    return this.columnCur_Cust_Vilage_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_AlleyColumn {
+                get {
+                    return this.columnCur_Cust_Alley;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_RoadColumn {
+                get {
+                    return this.columnCur_Cust_Road;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_SubdistrictColumn {
+                get {
+                    return this.columnCur_Cust_Subdistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_DistrictColumn {
+                get {
+                    return this.columnCur_Cust_District;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ProvinceColumn {
+                get {
+                    return this.columnCur_Cust_Province;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_CountryColumn {
+                get {
+                    return this.columnCur_Cust_Country;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ZipcodeColumn {
+                get {
+                    return this.columnCur_Cust_Zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_TelColumn {
+                get {
+                    return this.columnCur_Cust_Tel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Current_AddressColumn {
                 get {
                     return this.columnCurrent_Address;
@@ -7406,6 +8281,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_Zipcode, 
                         string Cust_Tel, 
                         string Home_Address, 
+                        string Cur_Cust_Address_type_id, 
+                        string Cur_Cust_Address_no, 
+                        string Cur_Cust_Vilage, 
+                        string Cur_Cust_Vilage_no, 
+                        string Cur_Cust_Alley, 
+                        string Cur_Cust_Road, 
+                        string Cur_Cust_Subdistrict, 
+                        string Cur_Cust_District, 
+                        string Cur_Cust_Province, 
+                        string Cur_Cust_Country, 
+                        string Cur_Cust_Zipcode, 
+                        string Cur_Cust_Tel, 
                         string Current_Address, 
                         string Spouse_idcard, 
                         string Spouse_Fname, 
@@ -7468,6 +8355,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_Zipcode,
                         Cust_Tel,
                         Home_Address,
+                        Cur_Cust_Address_type_id,
+                        Cur_Cust_Address_no,
+                        Cur_Cust_Vilage,
+                        Cur_Cust_Vilage_no,
+                        Cur_Cust_Alley,
+                        Cur_Cust_Road,
+                        Cur_Cust_Subdistrict,
+                        Cur_Cust_District,
+                        Cur_Cust_Province,
+                        Cur_Cust_Country,
+                        Cur_Cust_Zipcode,
+                        Cur_Cust_Tel,
                         Current_Address,
                         Spouse_idcard,
                         Spouse_Fname,
@@ -7550,6 +8449,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_Zipcode = base.Columns["Cust_Zipcode"];
                 this.columnCust_Tel = base.Columns["Cust_Tel"];
                 this.columnHome_Address = base.Columns["Home_Address"];
+                this.columnCur_Cust_Address_type_id = base.Columns["Cur_Cust_Address_type_id"];
+                this.columnCur_Cust_Address_no = base.Columns["Cur_Cust_Address_no"];
+                this.columnCur_Cust_Vilage = base.Columns["Cur_Cust_Vilage"];
+                this.columnCur_Cust_Vilage_no = base.Columns["Cur_Cust_Vilage_no"];
+                this.columnCur_Cust_Alley = base.Columns["Cur_Cust_Alley"];
+                this.columnCur_Cust_Road = base.Columns["Cur_Cust_Road"];
+                this.columnCur_Cust_Subdistrict = base.Columns["Cur_Cust_Subdistrict"];
+                this.columnCur_Cust_District = base.Columns["Cur_Cust_District"];
+                this.columnCur_Cust_Province = base.Columns["Cur_Cust_Province"];
+                this.columnCur_Cust_Country = base.Columns["Cur_Cust_Country"];
+                this.columnCur_Cust_Zipcode = base.Columns["Cur_Cust_Zipcode"];
+                this.columnCur_Cust_Tel = base.Columns["Cur_Cust_Tel"];
                 this.columnCurrent_Address = base.Columns["Current_Address"];
                 this.columnSpouse_idcard = base.Columns["Spouse_idcard"];
                 this.columnSpouse_Fname = base.Columns["Spouse_Fname"];
@@ -7656,6 +8567,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_Tel);
                 this.columnHome_Address = new global::System.Data.DataColumn("Home_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHome_Address);
+                this.columnCur_Cust_Address_type_id = new global::System.Data.DataColumn("Cur_Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_type_id);
+                this.columnCur_Cust_Address_no = new global::System.Data.DataColumn("Cur_Cust_Address_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_no);
+                this.columnCur_Cust_Vilage = new global::System.Data.DataColumn("Cur_Cust_Vilage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage);
+                this.columnCur_Cust_Vilage_no = new global::System.Data.DataColumn("Cur_Cust_Vilage_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage_no);
+                this.columnCur_Cust_Alley = new global::System.Data.DataColumn("Cur_Cust_Alley", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Alley);
+                this.columnCur_Cust_Road = new global::System.Data.DataColumn("Cur_Cust_Road", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Road);
+                this.columnCur_Cust_Subdistrict = new global::System.Data.DataColumn("Cur_Cust_Subdistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Subdistrict);
+                this.columnCur_Cust_District = new global::System.Data.DataColumn("Cur_Cust_District", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_District);
+                this.columnCur_Cust_Province = new global::System.Data.DataColumn("Cur_Cust_Province", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Province);
+                this.columnCur_Cust_Country = new global::System.Data.DataColumn("Cur_Cust_Country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Country);
+                this.columnCur_Cust_Zipcode = new global::System.Data.DataColumn("Cur_Cust_Zipcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Zipcode);
+                this.columnCur_Cust_Tel = new global::System.Data.DataColumn("Cur_Cust_Tel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Tel);
                 this.columnCurrent_Address = new global::System.Data.DataColumn("Current_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurrent_Address);
                 this.columnSpouse_idcard = new global::System.Data.DataColumn("Spouse_idcard", typeof(string), null, global::System.Data.MappingType.Element);
@@ -7908,6 +8843,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnCust_Tel;
             
             private global::System.Data.DataColumn columnHome_Address;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_type_id;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Address_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Vilage_no;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Alley;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Road;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Subdistrict;
+            
+            private global::System.Data.DataColumn columnCur_Cust_District;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Province;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Country;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Zipcode;
+            
+            private global::System.Data.DataColumn columnCur_Cust_Tel;
             
             private global::System.Data.DataColumn columnCurrent_Address;
             
@@ -8310,6 +9269,102 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_type_idColumn {
+                get {
+                    return this.columnCur_Cust_Address_type_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Address_noColumn {
+                get {
+                    return this.columnCur_Cust_Address_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_VilageColumn {
+                get {
+                    return this.columnCur_Cust_Vilage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_Vilage_noColumn {
+                get {
+                    return this.columnCur_Cust_Vilage_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_AlleyColumn {
+                get {
+                    return this.columnCur_Cust_Alley;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_RoadColumn {
+                get {
+                    return this.columnCur_Cust_Road;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_SubdistrictColumn {
+                get {
+                    return this.columnCur_Cust_Subdistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_DistrictColumn {
+                get {
+                    return this.columnCur_Cust_District;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ProvinceColumn {
+                get {
+                    return this.columnCur_Cust_Province;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_CountryColumn {
+                get {
+                    return this.columnCur_Cust_Country;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_ZipcodeColumn {
+                get {
+                    return this.columnCur_Cust_Zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cur_Cust_TelColumn {
+                get {
+                    return this.columnCur_Cust_Tel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Current_AddressColumn {
                 get {
                     return this.columnCurrent_Address;
@@ -8539,6 +9594,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         string Cust_Zipcode, 
                         string Cust_Tel, 
                         string Home_Address, 
+                        string Cur_Cust_Address_type_id, 
+                        string Cur_Cust_Address_no, 
+                        string Cur_Cust_Vilage, 
+                        string Cur_Cust_Vilage_no, 
+                        string Cur_Cust_Alley, 
+                        string Cur_Cust_Road, 
+                        string Cur_Cust_Subdistrict, 
+                        string Cur_Cust_District, 
+                        string Cur_Cust_Province, 
+                        string Cur_Cust_Country, 
+                        string Cur_Cust_Zipcode, 
+                        string Cur_Cust_Tel, 
                         string Current_Address, 
                         string Spouse_idcard, 
                         string Spouse_Fname, 
@@ -8601,6 +9668,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                         Cust_Zipcode,
                         Cust_Tel,
                         Home_Address,
+                        Cur_Cust_Address_type_id,
+                        Cur_Cust_Address_no,
+                        Cur_Cust_Vilage,
+                        Cur_Cust_Vilage_no,
+                        Cur_Cust_Alley,
+                        Cur_Cust_Road,
+                        Cur_Cust_Subdistrict,
+                        Cur_Cust_District,
+                        Cur_Cust_Province,
+                        Cur_Cust_Country,
+                        Cur_Cust_Zipcode,
+                        Cur_Cust_Tel,
                         Current_Address,
                         Spouse_idcard,
                         Spouse_Fname,
@@ -8683,6 +9762,18 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 this.columnCust_Zipcode = base.Columns["Cust_Zipcode"];
                 this.columnCust_Tel = base.Columns["Cust_Tel"];
                 this.columnHome_Address = base.Columns["Home_Address"];
+                this.columnCur_Cust_Address_type_id = base.Columns["Cur_Cust_Address_type_id"];
+                this.columnCur_Cust_Address_no = base.Columns["Cur_Cust_Address_no"];
+                this.columnCur_Cust_Vilage = base.Columns["Cur_Cust_Vilage"];
+                this.columnCur_Cust_Vilage_no = base.Columns["Cur_Cust_Vilage_no"];
+                this.columnCur_Cust_Alley = base.Columns["Cur_Cust_Alley"];
+                this.columnCur_Cust_Road = base.Columns["Cur_Cust_Road"];
+                this.columnCur_Cust_Subdistrict = base.Columns["Cur_Cust_Subdistrict"];
+                this.columnCur_Cust_District = base.Columns["Cur_Cust_District"];
+                this.columnCur_Cust_Province = base.Columns["Cur_Cust_Province"];
+                this.columnCur_Cust_Country = base.Columns["Cur_Cust_Country"];
+                this.columnCur_Cust_Zipcode = base.Columns["Cur_Cust_Zipcode"];
+                this.columnCur_Cust_Tel = base.Columns["Cur_Cust_Tel"];
                 this.columnCurrent_Address = base.Columns["Current_Address"];
                 this.columnSpouse_idcard = base.Columns["Spouse_idcard"];
                 this.columnSpouse_Fname = base.Columns["Spouse_Fname"];
@@ -8789,6 +9880,30 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_Tel);
                 this.columnHome_Address = new global::System.Data.DataColumn("Home_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHome_Address);
+                this.columnCur_Cust_Address_type_id = new global::System.Data.DataColumn("Cur_Cust_Address_type_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_type_id);
+                this.columnCur_Cust_Address_no = new global::System.Data.DataColumn("Cur_Cust_Address_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Address_no);
+                this.columnCur_Cust_Vilage = new global::System.Data.DataColumn("Cur_Cust_Vilage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage);
+                this.columnCur_Cust_Vilage_no = new global::System.Data.DataColumn("Cur_Cust_Vilage_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Vilage_no);
+                this.columnCur_Cust_Alley = new global::System.Data.DataColumn("Cur_Cust_Alley", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Alley);
+                this.columnCur_Cust_Road = new global::System.Data.DataColumn("Cur_Cust_Road", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Road);
+                this.columnCur_Cust_Subdistrict = new global::System.Data.DataColumn("Cur_Cust_Subdistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Subdistrict);
+                this.columnCur_Cust_District = new global::System.Data.DataColumn("Cur_Cust_District", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_District);
+                this.columnCur_Cust_Province = new global::System.Data.DataColumn("Cur_Cust_Province", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Province);
+                this.columnCur_Cust_Country = new global::System.Data.DataColumn("Cur_Cust_Country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Country);
+                this.columnCur_Cust_Zipcode = new global::System.Data.DataColumn("Cur_Cust_Zipcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Zipcode);
+                this.columnCur_Cust_Tel = new global::System.Data.DataColumn("Cur_Cust_Tel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCur_Cust_Tel);
                 this.columnCurrent_Address = new global::System.Data.DataColumn("Current_Address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCurrent_Address);
                 this.columnSpouse_idcard = new global::System.Data.DataColumn("Spouse_idcard", typeof(string), null, global::System.Data.MappingType.Element);
@@ -8913,6 +10028,494 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "Bondsmans_5DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class BranchDataTable : global::System.Data.TypedTableBase<BranchRow> {
+            
+            private global::System.Data.DataColumn columnBranch_id;
+            
+            private global::System.Data.DataColumn columnBranch_code;
+            
+            private global::System.Data.DataColumn columnBranch_N_name;
+            
+            private global::System.Data.DataColumn columnBranch_F_name;
+            
+            private global::System.Data.DataColumn columnBranch_tax_id;
+            
+            private global::System.Data.DataColumn columnBranch_tax_subcode;
+            
+            private global::System.Data.DataColumn columnBranch_address_no;
+            
+            private global::System.Data.DataColumn columnBranch_vilage;
+            
+            private global::System.Data.DataColumn columnBranch_vilage_no;
+            
+            private global::System.Data.DataColumn columnBranch_alley;
+            
+            private global::System.Data.DataColumn columnBranch_road;
+            
+            private global::System.Data.DataColumn columnBranch_subdistrict;
+            
+            private global::System.Data.DataColumn columnBranch_district;
+            
+            private global::System.Data.DataColumn columnBranch_province;
+            
+            private global::System.Data.DataColumn columnBranch_country;
+            
+            private global::System.Data.DataColumn columnBranch_zipcode;
+            
+            private global::System.Data.DataColumn columnBranch_tel;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public BranchDataTable() {
+                this.TableName = "Branch";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal BranchDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected BranchDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_idColumn {
+                get {
+                    return this.columnBranch_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_codeColumn {
+                get {
+                    return this.columnBranch_code;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_N_nameColumn {
+                get {
+                    return this.columnBranch_N_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_F_nameColumn {
+                get {
+                    return this.columnBranch_F_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_tax_idColumn {
+                get {
+                    return this.columnBranch_tax_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_tax_subcodeColumn {
+                get {
+                    return this.columnBranch_tax_subcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_address_noColumn {
+                get {
+                    return this.columnBranch_address_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_vilageColumn {
+                get {
+                    return this.columnBranch_vilage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_vilage_noColumn {
+                get {
+                    return this.columnBranch_vilage_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_alleyColumn {
+                get {
+                    return this.columnBranch_alley;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_roadColumn {
+                get {
+                    return this.columnBranch_road;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_subdistrictColumn {
+                get {
+                    return this.columnBranch_subdistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_districtColumn {
+                get {
+                    return this.columnBranch_district;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_provinceColumn {
+                get {
+                    return this.columnBranch_province;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_countryColumn {
+                get {
+                    return this.columnBranch_country;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_zipcodeColumn {
+                get {
+                    return this.columnBranch_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Branch_telColumn {
+                get {
+                    return this.columnBranch_tel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public BranchRow this[int index] {
+                get {
+                    return ((BranchRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event BranchRowChangeEventHandler BranchRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event BranchRowChangeEventHandler BranchRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event BranchRowChangeEventHandler BranchRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event BranchRowChangeEventHandler BranchRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddBranchRow(BranchRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public BranchRow AddBranchRow(
+                        string Branch_id, 
+                        string Branch_code, 
+                        string Branch_N_name, 
+                        string Branch_F_name, 
+                        string Branch_tax_id, 
+                        string Branch_tax_subcode, 
+                        string Branch_address_no, 
+                        string Branch_vilage, 
+                        string Branch_vilage_no, 
+                        string Branch_alley, 
+                        string Branch_road, 
+                        string Branch_subdistrict, 
+                        string Branch_district, 
+                        string Branch_province, 
+                        string Branch_country, 
+                        string Branch_zipcode, 
+                        string Branch_tel) {
+                BranchRow rowBranchRow = ((BranchRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Branch_id,
+                        Branch_code,
+                        Branch_N_name,
+                        Branch_F_name,
+                        Branch_tax_id,
+                        Branch_tax_subcode,
+                        Branch_address_no,
+                        Branch_vilage,
+                        Branch_vilage_no,
+                        Branch_alley,
+                        Branch_road,
+                        Branch_subdistrict,
+                        Branch_district,
+                        Branch_province,
+                        Branch_country,
+                        Branch_zipcode,
+                        Branch_tel};
+                rowBranchRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBranchRow);
+                return rowBranchRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                BranchDataTable cln = ((BranchDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new BranchDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnBranch_id = base.Columns["Branch_id"];
+                this.columnBranch_code = base.Columns["Branch_code"];
+                this.columnBranch_N_name = base.Columns["Branch_N_name"];
+                this.columnBranch_F_name = base.Columns["Branch_F_name"];
+                this.columnBranch_tax_id = base.Columns["Branch_tax_id"];
+                this.columnBranch_tax_subcode = base.Columns["Branch_tax_subcode"];
+                this.columnBranch_address_no = base.Columns["Branch_address_no"];
+                this.columnBranch_vilage = base.Columns["Branch_vilage"];
+                this.columnBranch_vilage_no = base.Columns["Branch_vilage_no"];
+                this.columnBranch_alley = base.Columns["Branch_alley"];
+                this.columnBranch_road = base.Columns["Branch_road"];
+                this.columnBranch_subdistrict = base.Columns["Branch_subdistrict"];
+                this.columnBranch_district = base.Columns["Branch_district"];
+                this.columnBranch_province = base.Columns["Branch_province"];
+                this.columnBranch_country = base.Columns["Branch_country"];
+                this.columnBranch_zipcode = base.Columns["Branch_zipcode"];
+                this.columnBranch_tel = base.Columns["Branch_tel"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnBranch_id = new global::System.Data.DataColumn("Branch_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_id);
+                this.columnBranch_code = new global::System.Data.DataColumn("Branch_code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_code);
+                this.columnBranch_N_name = new global::System.Data.DataColumn("Branch_N_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_N_name);
+                this.columnBranch_F_name = new global::System.Data.DataColumn("Branch_F_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_F_name);
+                this.columnBranch_tax_id = new global::System.Data.DataColumn("Branch_tax_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_tax_id);
+                this.columnBranch_tax_subcode = new global::System.Data.DataColumn("Branch_tax_subcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_tax_subcode);
+                this.columnBranch_address_no = new global::System.Data.DataColumn("Branch_address_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_address_no);
+                this.columnBranch_vilage = new global::System.Data.DataColumn("Branch_vilage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_vilage);
+                this.columnBranch_vilage_no = new global::System.Data.DataColumn("Branch_vilage_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_vilage_no);
+                this.columnBranch_alley = new global::System.Data.DataColumn("Branch_alley", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_alley);
+                this.columnBranch_road = new global::System.Data.DataColumn("Branch_road", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_road);
+                this.columnBranch_subdistrict = new global::System.Data.DataColumn("Branch_subdistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_subdistrict);
+                this.columnBranch_district = new global::System.Data.DataColumn("Branch_district", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_district);
+                this.columnBranch_province = new global::System.Data.DataColumn("Branch_province", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_province);
+                this.columnBranch_country = new global::System.Data.DataColumn("Branch_country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_country);
+                this.columnBranch_zipcode = new global::System.Data.DataColumn("Branch_zipcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_zipcode);
+                this.columnBranch_tel = new global::System.Data.DataColumn("Branch_tel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBranch_tel);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public BranchRow NewBranchRow() {
+                return ((BranchRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new BranchRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(BranchRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.BranchRowChanged != null)) {
+                    this.BranchRowChanged(this, new BranchRowChangeEvent(((BranchRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.BranchRowChanging != null)) {
+                    this.BranchRowChanging(this, new BranchRowChangeEvent(((BranchRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.BranchRowDeleted != null)) {
+                    this.BranchRowDeleted(this, new BranchRowChangeEvent(((BranchRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.BranchRowDeleting != null)) {
+                    this.BranchRowDeleting(this, new BranchRowChangeEvent(((BranchRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveBranchRow(BranchRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Leasing_Ds ds = new Leasing_Ds();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "BranchDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -9588,6 +11191,198 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
                 }
                 set {
                     this[this.tableCustomers.Home_AddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_type_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_Address_type_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_type_id\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_Address_type_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_Address_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_no\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_Address_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_VilageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_VilageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_Vilage_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage_no\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_Vilage_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Alley {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_AlleyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Alley\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_AlleyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Road {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_RoadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Road\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_RoadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Subdistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_SubdistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Subdistrict\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_SubdistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_District {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_DistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_District\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_DistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Province {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_ProvinceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Province\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_ProvinceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Country {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_CountryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Country\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_CountryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Zipcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_ZipcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Zipcode\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_ZipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Tel {
+                get {
+                    try {
+                        return ((string)(this[this.tableCustomers.Cur_Cust_TelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Tel\' in table \'Customers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCustomers.Cur_Cust_TelColumn] = value;
                 }
             }
             
@@ -10361,6 +12156,150 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetHome_AddressNull() {
                 this[this.tableCustomers.Home_AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_type_idNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_Address_type_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_type_idNull() {
+                this[this.tableCustomers.Cur_Cust_Address_type_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_noNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_Address_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_noNull() {
+                this[this.tableCustomers.Cur_Cust_Address_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_VilageNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_VilageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_VilageNull() {
+                this[this.tableCustomers.Cur_Cust_VilageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Vilage_noNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_Vilage_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Vilage_noNull() {
+                this[this.tableCustomers.Cur_Cust_Vilage_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_AlleyNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_AlleyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_AlleyNull() {
+                this[this.tableCustomers.Cur_Cust_AlleyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_RoadNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_RoadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_RoadNull() {
+                this[this.tableCustomers.Cur_Cust_RoadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_SubdistrictNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_SubdistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_SubdistrictNull() {
+                this[this.tableCustomers.Cur_Cust_SubdistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_DistrictNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_DistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_DistrictNull() {
+                this[this.tableCustomers.Cur_Cust_DistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ProvinceNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_ProvinceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ProvinceNull() {
+                this[this.tableCustomers.Cur_Cust_ProvinceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_CountryNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_CountryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_CountryNull() {
+                this[this.tableCustomers.Cur_Cust_CountryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ZipcodeNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_ZipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ZipcodeNull() {
+                this[this.tableCustomers.Cur_Cust_ZipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_TelNull() {
+                return this.IsNull(this.tableCustomers.Cur_Cust_TelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_TelNull() {
+                this[this.tableCustomers.Cur_Cust_TelColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14023,6 +15962,199 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_type_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_Address_type_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_type_id\' in table \'Bondsmans_1\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_Address_type_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_Address_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_no\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_Address_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_VilageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_VilageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_Vilage_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage_no\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_Vilage_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Alley {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_AlleyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Alley\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_AlleyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Road {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_RoadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Road\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_RoadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Subdistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_SubdistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Subdistrict\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_SubdistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_District {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_DistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_District\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_DistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Province {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_ProvinceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Province\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_ProvinceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Country {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_CountryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Country\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_CountryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Zipcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_ZipcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Zipcode\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_ZipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Tel {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_1.Cur_Cust_TelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Tel\' in table \'Bondsmans_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_1.Cur_Cust_TelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Current_Address {
                 get {
                     try {
@@ -14815,6 +16947,150 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetHome_AddressNull() {
                 this[this.tableBondsmans_1.Home_AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_type_idNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_Address_type_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_type_idNull() {
+                this[this.tableBondsmans_1.Cur_Cust_Address_type_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_noNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_Address_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_noNull() {
+                this[this.tableBondsmans_1.Cur_Cust_Address_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_VilageNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_VilageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_VilageNull() {
+                this[this.tableBondsmans_1.Cur_Cust_VilageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Vilage_noNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_Vilage_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Vilage_noNull() {
+                this[this.tableBondsmans_1.Cur_Cust_Vilage_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_AlleyNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_AlleyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_AlleyNull() {
+                this[this.tableBondsmans_1.Cur_Cust_AlleyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_RoadNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_RoadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_RoadNull() {
+                this[this.tableBondsmans_1.Cur_Cust_RoadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_SubdistrictNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_SubdistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_SubdistrictNull() {
+                this[this.tableBondsmans_1.Cur_Cust_SubdistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_DistrictNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_DistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_DistrictNull() {
+                this[this.tableBondsmans_1.Cur_Cust_DistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ProvinceNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_ProvinceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ProvinceNull() {
+                this[this.tableBondsmans_1.Cur_Cust_ProvinceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_CountryNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_CountryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_CountryNull() {
+                this[this.tableBondsmans_1.Cur_Cust_CountryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ZipcodeNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_ZipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ZipcodeNull() {
+                this[this.tableBondsmans_1.Cur_Cust_ZipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_TelNull() {
+                return this.IsNull(this.tableBondsmans_1.Cur_Cust_TelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_TelNull() {
+                this[this.tableBondsmans_1.Cur_Cust_TelColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15718,6 +17994,199 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_type_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_Address_type_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_type_id\' in table \'Bondsmans_2\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_Address_type_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_Address_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_no\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_Address_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_VilageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_VilageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_Vilage_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage_no\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_Vilage_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Alley {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_AlleyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Alley\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_AlleyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Road {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_RoadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Road\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_RoadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Subdistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_SubdistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Subdistrict\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_SubdistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_District {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_DistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_District\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_DistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Province {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_ProvinceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Province\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_ProvinceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Country {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_CountryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Country\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_CountryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Zipcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_ZipcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Zipcode\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_ZipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Tel {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_2.Cur_Cust_TelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Tel\' in table \'Bondsmans_2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_2.Cur_Cust_TelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Current_Address {
                 get {
                     try {
@@ -16510,6 +18979,150 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetHome_AddressNull() {
                 this[this.tableBondsmans_2.Home_AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_type_idNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_Address_type_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_type_idNull() {
+                this[this.tableBondsmans_2.Cur_Cust_Address_type_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_noNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_Address_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_noNull() {
+                this[this.tableBondsmans_2.Cur_Cust_Address_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_VilageNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_VilageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_VilageNull() {
+                this[this.tableBondsmans_2.Cur_Cust_VilageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Vilage_noNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_Vilage_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Vilage_noNull() {
+                this[this.tableBondsmans_2.Cur_Cust_Vilage_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_AlleyNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_AlleyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_AlleyNull() {
+                this[this.tableBondsmans_2.Cur_Cust_AlleyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_RoadNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_RoadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_RoadNull() {
+                this[this.tableBondsmans_2.Cur_Cust_RoadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_SubdistrictNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_SubdistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_SubdistrictNull() {
+                this[this.tableBondsmans_2.Cur_Cust_SubdistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_DistrictNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_DistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_DistrictNull() {
+                this[this.tableBondsmans_2.Cur_Cust_DistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ProvinceNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_ProvinceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ProvinceNull() {
+                this[this.tableBondsmans_2.Cur_Cust_ProvinceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_CountryNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_CountryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_CountryNull() {
+                this[this.tableBondsmans_2.Cur_Cust_CountryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ZipcodeNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_ZipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ZipcodeNull() {
+                this[this.tableBondsmans_2.Cur_Cust_ZipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_TelNull() {
+                return this.IsNull(this.tableBondsmans_2.Cur_Cust_TelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_TelNull() {
+                this[this.tableBondsmans_2.Cur_Cust_TelColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17413,6 +20026,199 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_type_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_Address_type_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_type_id\' in table \'Bondsmans_3\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_Address_type_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_Address_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_no\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_Address_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_VilageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_VilageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_Vilage_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage_no\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_Vilage_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Alley {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_AlleyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Alley\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_AlleyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Road {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_RoadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Road\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_RoadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Subdistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_SubdistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Subdistrict\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_SubdistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_District {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_DistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_District\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_DistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Province {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_ProvinceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Province\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_ProvinceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Country {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_CountryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Country\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_CountryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Zipcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_ZipcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Zipcode\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_ZipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Tel {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_3.Cur_Cust_TelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Tel\' in table \'Bondsmans_3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_3.Cur_Cust_TelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Current_Address {
                 get {
                     try {
@@ -18205,6 +21011,150 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetHome_AddressNull() {
                 this[this.tableBondsmans_3.Home_AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_type_idNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_Address_type_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_type_idNull() {
+                this[this.tableBondsmans_3.Cur_Cust_Address_type_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_noNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_Address_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_noNull() {
+                this[this.tableBondsmans_3.Cur_Cust_Address_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_VilageNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_VilageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_VilageNull() {
+                this[this.tableBondsmans_3.Cur_Cust_VilageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Vilage_noNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_Vilage_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Vilage_noNull() {
+                this[this.tableBondsmans_3.Cur_Cust_Vilage_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_AlleyNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_AlleyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_AlleyNull() {
+                this[this.tableBondsmans_3.Cur_Cust_AlleyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_RoadNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_RoadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_RoadNull() {
+                this[this.tableBondsmans_3.Cur_Cust_RoadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_SubdistrictNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_SubdistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_SubdistrictNull() {
+                this[this.tableBondsmans_3.Cur_Cust_SubdistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_DistrictNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_DistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_DistrictNull() {
+                this[this.tableBondsmans_3.Cur_Cust_DistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ProvinceNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_ProvinceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ProvinceNull() {
+                this[this.tableBondsmans_3.Cur_Cust_ProvinceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_CountryNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_CountryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_CountryNull() {
+                this[this.tableBondsmans_3.Cur_Cust_CountryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ZipcodeNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_ZipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ZipcodeNull() {
+                this[this.tableBondsmans_3.Cur_Cust_ZipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_TelNull() {
+                return this.IsNull(this.tableBondsmans_3.Cur_Cust_TelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_TelNull() {
+                this[this.tableBondsmans_3.Cur_Cust_TelColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19108,6 +22058,199 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_type_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_Address_type_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_type_id\' in table \'Bondsmans_4\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_Address_type_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_Address_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_no\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_Address_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_VilageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_VilageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_Vilage_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage_no\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_Vilage_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Alley {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_AlleyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Alley\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_AlleyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Road {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_RoadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Road\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_RoadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Subdistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_SubdistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Subdistrict\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_SubdistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_District {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_DistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_District\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_DistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Province {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_ProvinceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Province\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_ProvinceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Country {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_CountryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Country\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_CountryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Zipcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_ZipcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Zipcode\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_ZipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Tel {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_4.Cur_Cust_TelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Tel\' in table \'Bondsmans_4\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_4.Cur_Cust_TelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Current_Address {
                 get {
                     try {
@@ -19900,6 +23043,150 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetHome_AddressNull() {
                 this[this.tableBondsmans_4.Home_AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_type_idNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_Address_type_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_type_idNull() {
+                this[this.tableBondsmans_4.Cur_Cust_Address_type_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_noNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_Address_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_noNull() {
+                this[this.tableBondsmans_4.Cur_Cust_Address_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_VilageNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_VilageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_VilageNull() {
+                this[this.tableBondsmans_4.Cur_Cust_VilageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Vilage_noNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_Vilage_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Vilage_noNull() {
+                this[this.tableBondsmans_4.Cur_Cust_Vilage_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_AlleyNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_AlleyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_AlleyNull() {
+                this[this.tableBondsmans_4.Cur_Cust_AlleyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_RoadNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_RoadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_RoadNull() {
+                this[this.tableBondsmans_4.Cur_Cust_RoadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_SubdistrictNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_SubdistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_SubdistrictNull() {
+                this[this.tableBondsmans_4.Cur_Cust_SubdistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_DistrictNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_DistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_DistrictNull() {
+                this[this.tableBondsmans_4.Cur_Cust_DistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ProvinceNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_ProvinceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ProvinceNull() {
+                this[this.tableBondsmans_4.Cur_Cust_ProvinceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_CountryNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_CountryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_CountryNull() {
+                this[this.tableBondsmans_4.Cur_Cust_CountryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ZipcodeNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_ZipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ZipcodeNull() {
+                this[this.tableBondsmans_4.Cur_Cust_ZipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_TelNull() {
+                return this.IsNull(this.tableBondsmans_4.Cur_Cust_TelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_TelNull() {
+                this[this.tableBondsmans_4.Cur_Cust_TelColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20803,6 +24090,199 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_type_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_Address_type_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_type_id\' in table \'Bondsmans_5\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_Address_type_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Address_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_Address_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Address_no\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_Address_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_VilageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_VilageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Vilage_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_Vilage_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Vilage_no\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_Vilage_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Alley {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_AlleyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Alley\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_AlleyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Road {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_RoadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Road\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_RoadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Subdistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_SubdistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Subdistrict\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_SubdistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_District {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_DistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_District\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_DistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Province {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_ProvinceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Province\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_ProvinceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Country {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_CountryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Country\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_CountryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Zipcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_ZipcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Zipcode\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_ZipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cur_Cust_Tel {
+                get {
+                    try {
+                        return ((string)(this[this.tableBondsmans_5.Cur_Cust_TelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cur_Cust_Tel\' in table \'Bondsmans_5\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBondsmans_5.Cur_Cust_TelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Current_Address {
                 get {
                     try {
@@ -21599,6 +25079,150 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_type_idNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_Address_type_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_type_idNull() {
+                this[this.tableBondsmans_5.Cur_Cust_Address_type_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Address_noNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_Address_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Address_noNull() {
+                this[this.tableBondsmans_5.Cur_Cust_Address_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_VilageNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_VilageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_VilageNull() {
+                this[this.tableBondsmans_5.Cur_Cust_VilageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_Vilage_noNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_Vilage_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_Vilage_noNull() {
+                this[this.tableBondsmans_5.Cur_Cust_Vilage_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_AlleyNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_AlleyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_AlleyNull() {
+                this[this.tableBondsmans_5.Cur_Cust_AlleyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_RoadNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_RoadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_RoadNull() {
+                this[this.tableBondsmans_5.Cur_Cust_RoadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_SubdistrictNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_SubdistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_SubdistrictNull() {
+                this[this.tableBondsmans_5.Cur_Cust_SubdistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_DistrictNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_DistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_DistrictNull() {
+                this[this.tableBondsmans_5.Cur_Cust_DistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ProvinceNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_ProvinceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ProvinceNull() {
+                this[this.tableBondsmans_5.Cur_Cust_ProvinceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_CountryNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_CountryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_CountryNull() {
+                this[this.tableBondsmans_5.Cur_Cust_CountryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_ZipcodeNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_ZipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_ZipcodeNull() {
+                this[this.tableBondsmans_5.Cur_Cust_ZipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCur_Cust_TelNull() {
+                return this.IsNull(this.tableBondsmans_5.Cur_Cust_TelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCur_Cust_TelNull() {
+                this[this.tableBondsmans_5.Cur_Cust_TelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCurrent_AddressNull() {
                 return this.IsNull(this.tableBondsmans_5.Current_AddressColumn);
             }
@@ -21827,6 +25451,497 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class BranchRow : global::System.Data.DataRow {
+            
+            private BranchDataTable tableBranch;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal BranchRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableBranch = ((BranchDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_id\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_code {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_codeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_code\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_codeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_N_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_N_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_N_name\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_N_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_F_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_F_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_F_name\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_F_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_tax_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_tax_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_tax_id\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_tax_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_tax_subcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_tax_subcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_tax_subcode\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_tax_subcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_address_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_address_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_address_no\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_address_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_vilage {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_vilageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_vilage\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_vilageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_vilage_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_vilage_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_vilage_no\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_vilage_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_alley {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_alleyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_alley\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_alleyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_road {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_roadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_road\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_roadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_subdistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_subdistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_subdistrict\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_subdistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_district {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_districtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_district\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_districtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_province {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_provinceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_province\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_provinceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_country {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_countryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_country\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_countryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_zipcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_zipcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_zipcode\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_zipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Branch_tel {
+                get {
+                    try {
+                        return ((string)(this[this.tableBranch.Branch_telColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Branch_tel\' in table \'Branch\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBranch.Branch_telColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_idNull() {
+                return this.IsNull(this.tableBranch.Branch_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_idNull() {
+                this[this.tableBranch.Branch_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_codeNull() {
+                return this.IsNull(this.tableBranch.Branch_codeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_codeNull() {
+                this[this.tableBranch.Branch_codeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_N_nameNull() {
+                return this.IsNull(this.tableBranch.Branch_N_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_N_nameNull() {
+                this[this.tableBranch.Branch_N_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_F_nameNull() {
+                return this.IsNull(this.tableBranch.Branch_F_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_F_nameNull() {
+                this[this.tableBranch.Branch_F_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_tax_idNull() {
+                return this.IsNull(this.tableBranch.Branch_tax_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_tax_idNull() {
+                this[this.tableBranch.Branch_tax_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_tax_subcodeNull() {
+                return this.IsNull(this.tableBranch.Branch_tax_subcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_tax_subcodeNull() {
+                this[this.tableBranch.Branch_tax_subcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_address_noNull() {
+                return this.IsNull(this.tableBranch.Branch_address_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_address_noNull() {
+                this[this.tableBranch.Branch_address_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_vilageNull() {
+                return this.IsNull(this.tableBranch.Branch_vilageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_vilageNull() {
+                this[this.tableBranch.Branch_vilageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_vilage_noNull() {
+                return this.IsNull(this.tableBranch.Branch_vilage_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_vilage_noNull() {
+                this[this.tableBranch.Branch_vilage_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_alleyNull() {
+                return this.IsNull(this.tableBranch.Branch_alleyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_alleyNull() {
+                this[this.tableBranch.Branch_alleyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_roadNull() {
+                return this.IsNull(this.tableBranch.Branch_roadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_roadNull() {
+                this[this.tableBranch.Branch_roadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_subdistrictNull() {
+                return this.IsNull(this.tableBranch.Branch_subdistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_subdistrictNull() {
+                this[this.tableBranch.Branch_subdistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_districtNull() {
+                return this.IsNull(this.tableBranch.Branch_districtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_districtNull() {
+                this[this.tableBranch.Branch_districtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_provinceNull() {
+                return this.IsNull(this.tableBranch.Branch_provinceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_provinceNull() {
+                this[this.tableBranch.Branch_provinceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_countryNull() {
+                return this.IsNull(this.tableBranch.Branch_countryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_countryNull() {
+                this[this.tableBranch.Branch_countryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_zipcodeNull() {
+                return this.IsNull(this.tableBranch.Branch_zipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_zipcodeNull() {
+                this[this.tableBranch.Branch_zipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBranch_telNull() {
+                return this.IsNull(this.tableBranch.Branch_telColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBranch_telNull() {
+                this[this.tableBranch.Branch_telColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -22050,6 +26165,40 @@ namespace JKLWebBase_v2.Reports.Leasings.DataSet_Leasings {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Bondsmans_5Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class BranchRowChangeEvent : global::System.EventArgs {
+            
+            private BranchRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public BranchRowChangeEvent(BranchRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public BranchRow Row {
                 get {
                     return this.eventRow;
                 }

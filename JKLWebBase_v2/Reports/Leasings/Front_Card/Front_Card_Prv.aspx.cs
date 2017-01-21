@@ -98,8 +98,6 @@ namespace JKLWebBase_v2.Reports.Leasings.Front_Card
 
                 CRV_Front_Card.ReportSource = rpt;
 
-                //printReport(rpt);
-
                 ExportReport(rpt);
             }
             catch (MySqlException ex)
@@ -132,14 +130,6 @@ namespace JKLWebBase_v2.Reports.Leasings.Front_Card
             }
         }
 
-        private void printReport(Front_Card rpt)
-        {
-            cls = (Car_Leasings)Session["Leasings"];
-
-            rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Front_Card_" + cls.Deps_no);
-            Response.End();
-        }
-
         public void ExportReport(Front_Card rpt)
         {
             cls = (Car_Leasings)Session["Leasings"];
@@ -154,11 +144,11 @@ namespace JKLWebBase_v2.Reports.Leasings.Front_Card
                 Directory.CreateDirectory(mainDirectoryPath);
             }
 
-            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/Payment_Schedule_" + cls.Deps_no + ".pdf");
+            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/หน้าการ์ด_" + cls.Deps_no + ".pdf");
 
             Process process = new Process();
             process.StartInfo.UseShellExecute = true;
-            process.StartInfo.FileName = "C:/ReportExport/" + mainDirectory + "/Payment_Schedule_" + cls.Deps_no + ".pdf";
+            process.StartInfo.FileName = "C:/ReportExport/" + mainDirectory + "/หน้าการ์ด_" + cls.Deps_no + ".pdf";
             process.Start();
         }
     }

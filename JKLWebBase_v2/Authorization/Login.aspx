@@ -6,12 +6,13 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %>- My ASP.NET Application</title>
+    <title><%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
+        <%: Styles.Render("~/Content/bootstrap/css") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/bootstrap/css" />
+    <!--<webopt:bundlereference runat="server" path="~/Content/bootstrap/css" />-->
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>

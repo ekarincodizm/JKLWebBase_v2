@@ -8,33 +8,39 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
+        <%: Styles.Render("~/Content/bootstrap/css") %>
     </asp:PlaceHolder>
-    <webopt:BundleReference runat="server" Path="~/Content/bootstrap/css" />
+    <!--<webopt:BundleReference runat="server" Path="~/Content/bootstrap/css" />-->
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body>
-    <div style="background-color: #004d00; width: 100%; height: 100px; color: #fff; padding: 10px;">
+    <div style="background-color: #004d00; width: 100%; height: 100px; color: #fff;">
         <div class="col-lg-6">
             <i class="fa fa-bank fa-3x"></i>
             <span style="font-size: 40pt;">JaiKwang Financial Management System </span>
         </div>
         <div class="col-lg-6">
-            <p style="font-size: 12pt; text-align: right;">ผู้ใช้งาน :
-                <asp:Label ID="Username_Lbl" runat="server" ForeColor="Red" Enabled="false" Text="Test"> </asp:Label>
+
+            <p style="font-size: 12pt; text-align: right;">
+                ผู้ใช้งาน :
+                <asp:Label ID="Username_Lbl" runat="server" Enabled="false" Text="Test"> </asp:Label>
             </p>
-            <p style="font-size: 12pt; text-align: right;">ตำแหน่ง :
+            <p style="font-size: 12pt; text-align: right;">
+                ตำแหน่ง :
                 <asp:Label ID="Job_Position_Lbl" runat="server" ForeColor="Red" Enabled="false" Text="Test"> </asp:Label>
             </p>
-            <p style="font-size: 12pt; text-align: right;">ระดับ :
+            <p style="font-size: 12pt; text-align: right;">
+                ระดับ :
                 <asp:Label ID="Level_Access_Lbl" runat="server" ForeColor="Red" Enabled="false" Text="Test"> </asp:Label>
             </p>
         </div>
     </div>
+
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
