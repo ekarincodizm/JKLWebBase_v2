@@ -36,6 +36,8 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Leasings");
             Session.Remove("Dealers_Leasing");
 
+            Session["Class_Active"] = 1;
+
             Response.Redirect("/Form_Leasings/Leasing_Search");
         }
 

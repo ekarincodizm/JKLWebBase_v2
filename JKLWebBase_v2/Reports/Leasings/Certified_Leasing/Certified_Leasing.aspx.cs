@@ -22,66 +22,14 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing
         {
             if (Request.Params["mod"] != null)
             {
-                ls_ds = _loadReport();
-
                 if (Request.Params["mod"] == "1")
                 {
-                    printReport(ls_ds);
+                    printReport();
                 }
             }
             else
             {
                 printReportOutline();
-            }
-        }
-
-        private Leasing_Ds _loadReport()
-        {
-            cls = (Car_Leasings)Session["Leasings"];
-
-            MySqlConnection con_cls = MySQLConnection.connectionMySQL();
-            MySqlConnection con_ctm = MySQLConnection.connectionMySQL();
-            try
-            {
-
-                con_cls.Open();
-                MySqlCommand cmd_cls = new MySqlCommand("r_leasings", con_cls);
-                cmd_cls.CommandType = CommandType.StoredProcedure;
-                cmd_cls.Parameters.AddWithValue("@i_Leasing_id", cls.Leasing_id);
-                MySqlDataReader reader_cls = cmd_cls.ExecuteReader();
-
-                con_ctm.Open();
-                MySqlCommand cmd_ctm = new MySqlCommand("r_customers", con_ctm);
-                cmd_ctm.CommandType = CommandType.StoredProcedure;
-                cmd_ctm.Parameters.AddWithValue("@i_Cust_id", cls.Cust_id);
-                MySqlDataReader reader_ctm = cmd_ctm.ExecuteReader();
-
-                Leasing_Ds ls_ds = new Leasing_Ds();
-                ls_ds.Clear();
-                ls_ds.Tables["Leasings"].Load(reader_cls);
-                ls_ds.Tables["Customers"].Load(reader_ctm);
-
-                return ls_ds;
-            }
-            catch (MySqlException ex)
-            {
-                error = "MysqlException ==> Certified_Leasing : Page --> _loadReport() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
-                return null;
-            }
-            catch (Exception ex)
-            {
-                error = "Exception ==> Certified_Leasing : Page --> _loadReport() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
-                return null;
-            }
-            finally
-            {
-                con_cls.Close();
-                con_ctm.Close();
-
-                con_cls.Dispose();
-                con_ctm.Dispose();
             }
         }
 
@@ -133,12 +81,12 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing
                 }
 
                 /// Export Report to PDF File with Save As Mode
-                rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/หนังสือรับรองการเช่า-ซื้อ_" + file_name + ".pdf");
+                rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/หนังสือรับรองการเช่า-ซื้อ_template_" + file_name + ".pdf");
 
                 /// Display PDF File to PDF Program
                 Process process = new Process();
                 process.StartInfo.UseShellExecute = true;
-                process.StartInfo.FileName = "C:/ReportExport/" + mainDirectory + "/หนังสือรับรองการเช่า-ซื้อ_" + file_name + ".pdf";
+                process.StartInfo.FileName = "C:/ReportExport/" + mainDirectory + "/หนังสือรับรองการเช่า-ซื้อ_template_" + file_name + ".pdf";
                 process.Start();
             }
             catch (Exception ex)
@@ -148,27 +96,55 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing
             }
         }
 
-        public void printReport(Leasing_Ds ls_ds)
+        public void printReport()
         {
-            try
+            if (Session["Data_CTFLS_Values"] != null)
             {
-                cls = (Car_Leasings)Session["Leasings"];
+                try
+                {
+                    string Data_CTFLS_Values = (string)Session["Data_CTFLS_Values"];
 
-                Certified_Leasing_Result rpt = new Certified_Leasing_Result();
-                rpt.SetDataSource(ls_ds);
+                    string[] Array_Data_CTFLS_Values = Data_CTFLS_Values.Split('|');
 
-                CRV_Display_Report.ReportSource = rpt;
+                    Certified_Leasing_Result rpt = new Certified_Leasing_Result();
+                    rpt.SetParameterValue("Leasing_Date", Array_Data_CTFLS_Values[0]);
+                    rpt.SetParameterValue("Registrar", Array_Data_CTFLS_Values[1]);
+                    rpt.SetParameterValue("Car_detail", Array_Data_CTFLS_Values[2]);
+                    rpt.SetParameterValue("Car_model", Array_Data_CTFLS_Values[3]);
+                    rpt.SetParameterValue("Car_engine_no", Array_Data_CTFLS_Values[4]);
+                    rpt.SetParameterValue("Car_chassis_no", Array_Data_CTFLS_Values[5]);
+                    rpt.SetParameterValue("Ctm_name", Array_Data_CTFLS_Values[6]);
+                    rpt.SetParameterValue("Ctm_address_no", Array_Data_CTFLS_Values[7]);
+                    rpt.SetParameterValue("Ctm_moo", Array_Data_CTFLS_Values[8]);
+                    rpt.SetParameterValue("Ctm_alley", Array_Data_CTFLS_Values[9]);
+                    rpt.SetParameterValue("Ctm_road", Array_Data_CTFLS_Values[10]);
+                    rpt.SetParameterValue("Ctm_subdistrict", Array_Data_CTFLS_Values[11]);
+                    rpt.SetParameterValue("Ctm_district", Array_Data_CTFLS_Values[12]);
+                    rpt.SetParameterValue("Ctm_Province", Array_Data_CTFLS_Values[13]);
+                    rpt.SetParameterValue("Finance", Array_Data_CTFLS_Values[14]);
+                    rpt.SetParameterValue("Interest", Array_Data_CTFLS_Values[15]);
+                    rpt.SetParameterValue("Total_Finance", Array_Data_CTFLS_Values[16]);
+                    rpt.SetParameterValue("Total_period", Array_Data_CTFLS_Values[17]);
+                    rpt.SetParameterValue("Period_pay", Array_Data_CTFLS_Values[18]);
+                    rpt.SetParameterValue("Period_vat", Array_Data_CTFLS_Values[19]);
+                    rpt.SetParameterValue("Total_sum_Period", Array_Data_CTFLS_Values[20]);
+                    rpt.SetParameterValue("For", Array_Data_CTFLS_Values[21]);
+                    rpt.SetParameterValue("Agree", Array_Data_CTFLS_Values[22]);
 
-                /// Export Report to PDF File with Save As Mode
-                /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Payment_Schedule_" + cls.Deps_no);
-                /// Response.End();
 
-                ExportReport(rpt);
-            }
-            catch (Exception ex)
-            {
-                error = "Exception ==> Certified_Leasing : Page --> printReport() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                    CRV_Display_Report.ReportSource = rpt;
+
+                    /// Export Report to PDF File with Save As Mode
+                    /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Payment_Schedule_" + cls.Deps_no);
+                    /// Response.End();
+
+                    ExportReport(rpt);
+                }
+                catch (Exception ex)
+                {
+                    error = "Exception ==> Certified_Leasing : Page --> printReport() : " + ex.Message.ToString();
+                    Log_Error._writeErrorFile(error);
+                }
             }
         }
 
