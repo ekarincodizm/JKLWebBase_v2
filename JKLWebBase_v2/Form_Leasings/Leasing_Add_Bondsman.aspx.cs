@@ -234,7 +234,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 {
                     _GetCustomer(ctm_tmp);
 
-                    Session["chk_customer"] = ctm_tmp;
+                    Session["chk_bsm"] = ctm_tmp;
 
                     Alert_Warning_Panel.Visible = false;
                 }
@@ -354,7 +354,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             if (cmarry.Cust_id != null)
             {
-                Session["chk_customer_spouse"] = cmarry;
+                Session["chk_bsm_spouse"] = cmarry;
             }
 
             Spouse_idcard_TBx.Text = cmarry.Spouse_idcard;
@@ -363,12 +363,12 @@ namespace JKLWebBase_v2.Form_Leasings
             Spouse_Nationality_DDL.SelectedValue = cmarry.Spouse_Nationality.ToString();
             Spouse_Origin_DDL.SelectedValue = cmarry.Spouse_Origin.ToString();
             Spouse_address_no_TBx.Text = cmarry.Spouse_address_no;
-            Spouse_vilage_TBx.Text = cmarry.Spouse_vilage.IndexOf('.') >= 1 ? cmarry.Spouse_vilage.Split('.')[1] : "";
-            Spouse_vilage_no_TBx.Text = cmarry.Spouse_vilage_no.IndexOf('.') >= 1 ? cmarry.Spouse_vilage_no.Split('.')[1] : "";
-            Spouse_alley_TBx.Text = cmarry.Spouse_alley.IndexOf('.') >= 1 ? cmarry.Spouse_alley.Split('.')[1] : "";
-            Spouse_road_TBx.Text = cmarry.Spouse_road.IndexOf('.') >= 1 ? cmarry.Spouse_road.Split('.')[1] : "";
-            Spouse_subdistrict_TBx.Text = cmarry.Spouse_subdistrict.IndexOf('.') >= 1 ? cmarry.Spouse_subdistrict.Split('.')[1] : "";
-            Spouse_district_TBx.Text = cmarry.Spouse_district.IndexOf('.') >= 1 ? cmarry.Spouse_district.Split('.')[1] : "";
+            Spouse_vilage_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_vilage) ? "" : cmarry.Spouse_vilage.IndexOf('.') >= 1 ? cmarry.Spouse_vilage.Split('.')[1] : "";
+            Spouse_vilage_no_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_vilage_no) ? "" : cmarry.Spouse_vilage_no.IndexOf('.') >= 1 ? cmarry.Spouse_vilage_no.Split('.')[1] : "";
+            Spouse_alley_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_alley) ? "" : cmarry.Spouse_alley.IndexOf('.') >= 1 ? cmarry.Spouse_alley.Split('.')[1] : "";
+            Spouse_road_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_road) ? "" : cmarry.Spouse_road.IndexOf('.') >= 1 ? cmarry.Spouse_road.Split('.')[1] : "";
+            Spouse_subdistrict_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_subdistrict) ? "" : cmarry.Spouse_subdistrict.IndexOf('.') >= 1 ? cmarry.Spouse_subdistrict.Split('.')[1] : "";
+            Spouse_district_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_district) ? "" : cmarry.Spouse_district.IndexOf('.') >= 1 ? cmarry.Spouse_district.Split('.')[1] : "";
             Spouse_province_DDL.SelectedValue = cmarry.Spouse_province.ToString();
             Spouse_country_TBx.Text = cmarry.Spouse_country;
             Spouse_zipcode_TBx.Text = cmarry.Spouse_zipcode;
@@ -378,12 +378,12 @@ namespace JKLWebBase_v2.Form_Leasings
             Spouse_job_salary_TBx.Text = cmarry.Spouse_job_salary.ToString();
             Spouse_job_local_name_TBx.Text = cmarry.Spouse_job_local_name;
             Spouse_job_address_no_TBx.Text = cmarry.Spouse_job_address_no;
-            Spouse_job_vilage_TBx.Text = cmarry.Spouse_job_vilage.IndexOf('.') >= 1 ? cmarry.Spouse_job_vilage.Split('.')[1] : "";
-            Spouse_job_vilage_no_TBx.Text = cmarry.Spouse_job_vilage_no.IndexOf('.') >= 1 ? cmarry.Spouse_job_vilage_no.Split('.')[1] : "";
-            Spouse_job_alley_TBx.Text = cmarry.Spouse_job_alley.IndexOf('.') >= 1 ? cmarry.Spouse_job_alley.Split('.')[1] : "";
-            Spouse_job_road_TBx.Text = cmarry.Spouse_job_road.IndexOf('.') >= 1 ? cmarry.Spouse_job_road.Split('.')[1] : "";
-            Spouse_job_subdistrict_TBx.Text = cmarry.Spouse_job_subdistrict.IndexOf('.') >= 1 ? cmarry.Spouse_job_subdistrict.Split('.')[1] : "";
-            Spouse_job_district_TBx.Text = cmarry.Spouse_job_district.IndexOf('.') >= 1 ? cmarry.Spouse_job_district.Split('.')[1] : "";
+            Spouse_job_vilage_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_job_vilage) ? "" : cmarry.Spouse_job_vilage.IndexOf('.') >= 1 ? cmarry.Spouse_job_vilage.Split('.')[1] : "";
+            Spouse_job_vilage_no_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_job_vilage_no) ? "" : cmarry.Spouse_job_vilage_no.IndexOf('.') >= 1 ? cmarry.Spouse_job_vilage_no.Split('.')[1] : "";
+            Spouse_job_alley_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_job_alley) ? "" : cmarry.Spouse_job_alley.IndexOf('.') >= 1 ? cmarry.Spouse_job_alley.Split('.')[1] : "";
+            Spouse_job_road_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_job_road) ? "" : cmarry.Spouse_job_road.IndexOf('.') >= 1 ? cmarry.Spouse_job_road.Split('.')[1] : "";
+            Spouse_job_subdistrict_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_job_subdistrict) ? "" : cmarry.Spouse_job_subdistrict.IndexOf('.') >= 1 ? cmarry.Spouse_job_subdistrict.Split('.')[1] : "";
+            Spouse_job_district_TBx.Text = string.IsNullOrEmpty(cmarry.Spouse_job_district) ? "" : cmarry.Spouse_job_district.IndexOf('.') >= 1 ? cmarry.Spouse_job_district.Split('.')[1] : "";
             Spouse_job_province_DDL.SelectedValue = cmarry.Spouse_job_province.ToString();
             Spouse_job_country_TBx.Text = cmarry.Spouse_job_country;
             Spouse_job_zipcode_TBx.Text = cmarry.Spouse_job_zipcode;
@@ -585,9 +585,9 @@ namespace JKLWebBase_v2.Form_Leasings
         {
             Customers_Manager ctm_mng = new Customers_Manager();
 
-            if (Session["chk_customer"] != null)
+            if (Session["chk_bsm"] != null)
             {
-                Customers ctm_tmp = (Customers)Session["chk_customer"];
+                Customers ctm_tmp = (Customers)Session["chk_bsm"];
 
                 ctm.Cust_id = ctm_tmp.Cust_id;
                 ctm.Cust_idcard = ctm_tmp.Cust_idcard;
@@ -735,7 +735,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             Customers_Address_Manager ctm_add_mng = new Customers_Address_Manager();
 
-            if (Session["chk_customer"] != null)
+            if (Session["chk_bsm"] != null)
             {
                 ctm_add_mng.editCustomersAddress(ctmadd_idcard);
                 ctm_add_mng.editCustomersAddress(ctmadd_home);
@@ -753,9 +753,9 @@ namespace JKLWebBase_v2.Form_Leasings
         {
             Customers_Spouse_Manager ctm_sp_mng = new Customers_Spouse_Manager();
 
-            if (Session["chk_customer_spouse"] != null)
+            if (Session["chk_bsm_spouse"] != null)
             {
-                Customers_Spouse cmarry_tmp = (Customers_Spouse)Session["chk_customer_spouse"];
+                Customers_Spouse cmarry_tmp = (Customers_Spouse)Session["chk_bsm_spouse"];
                 Customers_Spouse cmarry = new Customers_Spouse();
 
                 cmarry.Cust_id = cmarry_tmp.Cust_id;

@@ -61,6 +61,8 @@ namespace JKLWebBase_v2.Form_Leasings
         }
         protected void Save_Btn_Click(object sender, EventArgs e)
         {
+            _EditLeasings();
+
             Session["Class_Active"] = 3;
 
             if (Session["Dealers"] == null)
@@ -456,7 +458,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Deps_no = string.IsNullOrEmpty(Deps_No_TBx.Text) ? "" : Deps_No_TBx.Text;
             cls.Leasing_no = string.IsNullOrEmpty(Leasing_No_TBx.Text) ? "" : Leasing_No_TBx.Text;
             cls.Leasing_code_id = Leasing_Code_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Leasing_Code_DDL.SelectedValue);
-            cls.Leasing_date = string.IsNullOrEmpty(Leasing_Date_TBx.Text) ? "" : Leasing_Date_TBx.Text;
+            cls.Leasing_date = string.IsNullOrEmpty(Leasing_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Leasing_Date_TBx.Text);
             cls.Branch_id = Branch_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Branch_DDL.SelectedValue);
             cls.Zone_id = Zone_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Zone_DDL.SelectedValue);
             cls.Court_id = Court_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Court_DDL.SelectedValue);
@@ -482,10 +484,10 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Total_period_left = string.IsNullOrEmpty(Total_Period_TBx.Text) ? 0 : Convert.ToInt32(Total_Period_TBx.Text);
             cls.Total_payment_left = string.IsNullOrEmpty(Total_Net_Leasing_TBx.Text) ? 0 : Convert.ToDouble(Total_Net_Leasing_TBx.Text);
             cls.Payment_schedule = Payment_Schedule_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Payment_Schedule_DDL.SelectedValue);
-            cls.First_payment_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? "" : DateTimeUtility.convertDateToMYSQL(First_Payment_Date_TBx.Text);
+            cls.First_payment_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(First_Payment_Date_TBx.Text);
 
             // ข้อมูลรถ
-            cls.Car_register_date = string.IsNullOrEmpty(Car_Register_Date_TBx.Text) ? "" : Car_Register_Date_TBx.Text;
+            cls.Car_register_date = string.IsNullOrEmpty(Car_Register_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Car_Register_Date_TBx.Text);
             cls.Car_license_plate = string.IsNullOrEmpty(Car_Plate_TBx.Text) ? "" : Car_Plate_TBx.Text;
             cls.Car_plate_province = Car_Plate_Province_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Plate_Province_DDL.SelectedValue);
             cls.Car_type = string.IsNullOrEmpty(Car_Type_TBx.Text) ? "" : Car_Type_TBx.Text;
@@ -503,8 +505,8 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Car_gas_No = string.IsNullOrEmpty(Car_Gas_No_TBx.Text) ? "" : Car_Gas_No_TBx.Text;
             cls.Car_used_id = Car_Used_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Used_DDL.SelectedValue);
             cls.Car_distance = string.IsNullOrEmpty(Car_Distance_TBx.Text) ? 0 : Convert.ToInt32(Car_Distance_TBx.Text);
-            cls.Car_next_register_date = string.IsNullOrEmpty(Car_Next_Register_Date_TBx.Text) ? "" : Car_Next_Register_Date_TBx.Text;
-            cls.Car_tax_value = string.IsNullOrEmpty(Car_Tax_Value_Lbl.Text) ? 0 : Convert.ToDouble(Car_Tax_Value_Lbl.Text);
+            cls.Car_next_register_date = string.IsNullOrEmpty(Car_Next_Register_Date_TBx.Text) ? DateTime.Now.ToString() : DateTimeUtility.convertDateToMYSQL(Car_Next_Register_Date_TBx.Text);
+            cls.Car_tax_value = string.IsNullOrEmpty(Car_Tax_Value_TBx.Text) ? 0 : Convert.ToDouble(Car_Tax_Value_TBx.Text);
             cls.Car_credits = string.IsNullOrEmpty(Car_Credits_TBx.Text) ? "" : Car_Credits_TBx.Text;
             cls.Car_agent = string.IsNullOrEmpty(Car_agent_TBx.Text) ? "" : Car_agent_TBx.Text;
 

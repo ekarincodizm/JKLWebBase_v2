@@ -98,13 +98,14 @@ namespace JKLWebBase_v2.Reports.Leasings.Certified_Leasing
                     Leasing_Date_TBx.Text = Print_Date_TBx.Text;
 
                     double Finance = reader_cls.IsDBNull(13) ? 0 : reader_cls.GetDouble(13);
+                    int Total_Period = reader_cls.IsDBNull(16) ? 0 : reader_cls.GetInt32(16);
+                    double Interest = reader_cls.IsDBNull(18) ? 0 : reader_cls.GetDouble(18);
                     double Total_Period_Payment = reader_cls.IsDBNull(26) ? 0 : reader_cls.GetDouble(26);
                     double Period_Pay = reader_cls.IsDBNull(22) ? 0 : reader_cls.GetDouble(22);
-                    int Total_Period = reader_cls.IsDBNull(16) ? 0 : reader_cls.GetInt32(16);
+                    
 
                     double Period_Vat = Total_Period_Payment - Period_Pay;
-                    double Total_Finance = Period_Pay * Total_Period;
-                    double Interest = Total_Finance - Finance;
+                    double Total_Finance = Finance + Interest;
 
                     Finance_TBx.Text = Finance.ToString("#,###.00");
                     Interest_TBx.Text = Interest.ToString("#,###.00");
