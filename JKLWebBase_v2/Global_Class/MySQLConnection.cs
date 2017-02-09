@@ -16,14 +16,14 @@ namespace JKLWebBase_v2.Global_Class
             }
             catch (MySqlException ex)
             {
-                string error = "ไม่สามารถเชื่อมต่อไปยังฐานข้อมูล MySQL Server ได้ " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                string error = "ไม่สามารถเชื่อมต่อไปยังฐานข้อมูล MySQL Server ได้ ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                string error = "ไม่สามารถติดต่อฐานข้อมูล MySQL Server ได้ " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                string error = "ไม่สามารถติดต่อฐานข้อมูล MySQL Server ได้ ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
         }

@@ -57,18 +57,27 @@
                             for (int i = 0; i < list_cust.Count; i++)
                             {
                                 Customers ctm = list_cust[i];
-                                Customers_Address ctm_add = new Customers_Address_Manager().getCustomersAddressByCustomerId(ctm.Cust_id, 2);
 
-                                string ogn_code = CryptographyCode.GenerateSHA512String(ctm.Cust_idcard);
+                                string Address = "";
+                                Address += string.IsNullOrEmpty(ctm.Cust_Home_address_no) ? "" : ctm.Cust_Home_address_no;
+                                Address += string.IsNullOrEmpty(ctm.Cust_Home_vilage_no) ? "" : ctm.Cust_Home_vilage_no.IndexOf('.') >= 1 ? ctm.Cust_Home_vilage_no.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_vilage_no : "";
+                                Address += string.IsNullOrEmpty(ctm.Cust_Home_vilage) ? "" : ctm.Cust_Home_vilage.IndexOf('.') >= 1 ? ctm.Cust_Home_vilage.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_vilage : "";
+                                Address += string.IsNullOrEmpty(ctm.Cust_Home_alley) ? "" : ctm.Cust_Home_alley.IndexOf('.') >= 1 ? ctm.Cust_Home_alley.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_alley : "";
+                                Address += string.IsNullOrEmpty(ctm.Cust_Home_road) ? "" : ctm.Cust_Home_road.IndexOf('.') >= 1 ? ctm.Cust_Home_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_road : "";
+                                Address += string.IsNullOrEmpty(ctm.Cust_Home_subdistrict) ? "" : ctm.Cust_Home_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Home_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_subdistrict : "";
+                                Address += string.IsNullOrEmpty(ctm.Cust_Home_district) ? "" : ctm.Cust_Home_district.IndexOf('.') >= 1 ? ctm.Cust_Home_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_district : "";
+                                Address += string.IsNullOrEmpty(ctm.ctm_home_pv.Province_name) ? "" : " จ." + ctm.ctm_home_pv.Province_name;
+
+                                string ogn_code = CryptographyCode.GenerateSHA512String(ctm.Cust_Idcard);
                         %>
                         <tr>
                             <td style="text-align: center;"><%= row_str + i + 1 %></td>
-                            <td style="text-align: center;"><%= ctm.Cust_idcard %></td>
+                            <td style="text-align: center;"><%= ctm.Cust_Idcard %></td>
                             <td><%= ctm.Cust_Fname + " " + ctm.Cust_LName %></td>
-                            <td><%= ctm_add.Address_inline %></td>
-                            <td><%= ctm_add.Cust_Tel %></td>
+                            <td><%= Address %></td>
+                            <td><%= ctm.Cust_Tel %></td>
                             <td>
-                                <a class="btn btn-xs btn-warning btn-block" href="Customer_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm.Cust_idcard, "") %>" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit"></i> </a>
+                                <a class="btn btn-xs btn-warning btn-block" href="Customer_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm.Cust_Idcard, "") %>" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit"></i> </a>
                             </td>
                         </tr>
                         <% } %>

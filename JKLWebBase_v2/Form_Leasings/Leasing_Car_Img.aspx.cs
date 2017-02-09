@@ -143,8 +143,8 @@ namespace JKLWebBase_v2.Form_Leasings
                 catch (Exception ex)
                 {
                     Session["Uploaded_Leasing"] = 0;
-                    string error = "ไม่สามารถ Upload รูปภาพนี้ได้ : " + ex.Message.ToString();
-                    Log_Error._writeErrorFile(error);
+                    string error = "ไม่สามารถ Upload รูปภาพนี้ได้ ";
+                    Log_Error._writeErrorFile(error, ex);
                 }
             }
 

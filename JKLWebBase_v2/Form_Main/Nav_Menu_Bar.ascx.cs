@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace JKLWebBase_v2.Form_Main
 {
-    public partial class Nav_Menu_Bar : System.Web.UI.UserControl
+    public partial class Nav_Menu_Bar : UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,18 +33,18 @@ namespace JKLWebBase_v2.Form_Main
             Response.Redirect("/Form_Customer/Customer_Add");
         }
 
-        protected void link_Menu_Search_Dealer_Click(object sender, EventArgs e)
+        protected void link_Menu_Search_Agent_Click(object sender, EventArgs e)
         {
-            Session.Remove("List_Dealers");
+            Session.Remove("List_Agents");
 
-            Response.Redirect("/Form_Dealer/Dealer_Search");
+            Response.Redirect("/Form_Agents/Agents_Search");
         }
 
-        protected void link_Menu_Add_Dealer_Click(object sender, EventArgs e)
+        protected void link_Menu_Add_Agent_Click(object sender, EventArgs e)
         {
-            Session.Remove("Dealer");
+            Session.Remove("Agent");
 
-            Response.Redirect("/Form_Dealer/Dealer_Add");
+            Response.Redirect("/Form_Agents/Agents_Add");
         }
 
         protected void link_Menu_Pyament_Leasing_Click(object sender, EventArgs e)
@@ -81,7 +77,7 @@ namespace JKLWebBase_v2.Form_Main
         {
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
-            Session.Remove("Dealers_Leasing");
+            Session.Remove("Agents_Leasing");
 
             Session["Class_Active"] = 1;
 

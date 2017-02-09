@@ -40,22 +40,22 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_Menu_Add_Customer;
         
         /// <summary>
-        /// link_Menu_Search_Dealer control.
+        /// link_Menu_Search_Agent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Search_Dealer;
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Search_Agent;
         
         /// <summary>
-        /// link_Menu_Add_Dealer control.
+        /// link_Menu_Add_Agent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Add_Dealer;
+        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Add_Agent;
         
         /// <summary>
         /// link_Menu_Pyament_Leasing control.

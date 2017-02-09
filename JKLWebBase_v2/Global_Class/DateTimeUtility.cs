@@ -23,7 +23,7 @@ namespace JKLWebBase_v2.Global_Class
 
         public static string _dateTimeToText()
         {
-            return DateTime.Now.ToString();
+            return DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt");
         }
 
         public static string _dateNOW()

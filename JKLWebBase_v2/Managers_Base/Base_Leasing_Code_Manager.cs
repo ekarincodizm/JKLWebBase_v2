@@ -49,14 +49,14 @@ namespace JKLWebBase_v2.Managers_Base
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Base --> Base_Leasing_Code_Manager --> getLeasingCode() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Base --> Base_Leasing_Code_Manager --> getLeasingCode() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Base --> Base_Leasing_Code_Manager --> getLeasingCode() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Base --> Base_Leasing_Code_Manager --> getLeasingCode() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             finally

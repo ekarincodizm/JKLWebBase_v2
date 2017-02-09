@@ -31,58 +31,58 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_Leasing_Add;
         
         /// <summary>
-        /// link_Dealers_Add control.
+        /// link_Agents_Add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Dealers_Add;
+        protected global::System.Web.UI.WebControls.LinkButton link_Agents_Add;
         
         /// <summary>
-        /// link_Add_Bondsman_1 control.
+        /// link_Add_Guarantor_1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_1;
+        protected global::System.Web.UI.WebControls.LinkButton link_Add_Guarantor_1;
         
         /// <summary>
-        /// link_Add_Bondsman_2 control.
+        /// link_Add_Guarantor_2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_2;
+        protected global::System.Web.UI.WebControls.LinkButton link_Add_Guarantor_2;
         
         /// <summary>
-        /// link_Add_Bondsman_3 control.
+        /// link_Add_Guarantor_3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_3;
+        protected global::System.Web.UI.WebControls.LinkButton link_Add_Guarantor_3;
         
         /// <summary>
-        /// link_Add_Bondsman_4 control.
+        /// link_Add_Guarantor_4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_4;
+        protected global::System.Web.UI.WebControls.LinkButton link_Add_Guarantor_4;
         
         /// <summary>
-        /// link_Add_Bondsman_5 control.
+        /// link_Add_Guarantor_5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Add_Bondsman_5;
+        protected global::System.Web.UI.WebControls.LinkButton link_Add_Guarantor_5;
         
         /// <summary>
         /// link_Add_Car_Img control.

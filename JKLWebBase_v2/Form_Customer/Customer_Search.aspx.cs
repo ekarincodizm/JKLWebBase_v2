@@ -90,14 +90,14 @@ namespace JKLWebBase_v2.Form_Customer
 
                 Paging_DDL.SelectedValue = prev.ToString();
 
-                _getMoreDealer(prev);
+                _getMoreCustomer(prev);
             }
         }
         protected void Paging_DDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
 
-            _getMoreDealer(current_page);
+            _getMoreCustomer(current_page);
         }
 
         protected void link_Next_Click(object sender, EventArgs e)
@@ -108,10 +108,10 @@ namespace JKLWebBase_v2.Form_Customer
 
             Paging_DDL.SelectedValue = next.ToString();
 
-            _getMoreDealer(next);
+            _getMoreCustomer(next);
         }
 
-        private void _getMoreDealer(int current_page)
+        private void _getMoreCustomer(int current_page)
         {
             string idcard = (string)Session["idcard"];
             string fname = (string)Session["fname"];

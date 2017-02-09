@@ -1021,31 +1021,31 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.TextBox Leasing_No_TBx;
         
         /// <summary>
-        /// Branch_Lbl control.
+        /// Company_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Branch_Lbl;
+        protected global::System.Web.UI.WebControls.Label Company_Lbl;
         
         /// <summary>
-        /// RFV_Branch_DDL control.
+        /// RFV_Company_DDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Branch_DDL;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Company_DDL;
         
         /// <summary>
-        /// Branch_DDL control.
+        /// Company_DDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Branch_DDL;
+        protected global::System.Web.UI.WebControls.DropDownList Company_DDL;
         
         /// <summary>
         /// Zone_Lbl control.
@@ -1172,6 +1172,24 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Person_Receive_Trasfer_TBx;
+        
+        /// <summary>
+        /// Guarantee_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Guarantee_Lbl;
+        
+        /// <summary>
+        /// Guarantee_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Guarantee_TBx;
         
         /// <summary>
         /// Payment_Schedule_Lbl control.

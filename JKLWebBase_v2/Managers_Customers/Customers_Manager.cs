@@ -33,14 +33,14 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> generateCustomerID() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> generateCustomerID() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> generateCustomerID() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> generateCustomerID() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             finally
@@ -70,83 +70,194 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_row_str", i_row_str);
                 cmd.Parameters.AddWithValue("@i_row_limit", i_row_limit);
 
-
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                List<Customers> list_cust = new List<Customers>();
+                List<Customers> list_ctm = new List<Customers>();
 
                 while (reader.Read())
                 {
-                    Customers cust = new Customers();
+                    Customers ctm = new Customers();
 
                     int defaultNum = 0;
                     string defaultString = "";
 
-                    cust.Cust_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
-                    cust.Cust_idcard = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
-                    cust.Cust_Fname = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
-                    cust.Cust_LName = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
-                    cust.Cust_B_date = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
-                    cust.Cust_age = reader.IsDBNull(5) ? defaultNum : reader.GetInt32(5);
-                    cust.Cust_Idcard_without = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
-                    cust.Cust_Idcard_start = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
-                    cust.Cust_Idcard_expire = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
-                    cust.Cust_Nationality = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
-                    cust.Cust_Origin = reader.IsDBNull(10) ? defaultNum : reader.GetInt32(10);
-                    cust.Cust_job = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
-                    cust.Cust_job_position = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                    cust.Cust_job_long = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
-                    cust.Cust_job_local_name = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    cust.Cust_job_address_no = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
-                    cust.Cust_job_vilage = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    cust.Cust_job_vilage_no = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
-                    cust.Cust_job_alley = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
-                    cust.Cust_job_road = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
-                    cust.Cust_job_subdistrict = reader.IsDBNull(20) ? defaultString : reader.GetString(20);
-                    cust.Cust_job_district = reader.IsDBNull(21) ? defaultString : reader.GetString(21);
-                    cust.Cust_job_province = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
-                    cust.Cust_job_country = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
-                    cust.Cust_job_zipcode = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
-                    cust.Cust_job_tel = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
-                    cust.Cust_job_email = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
-                    cust.Cust_job_salary = reader.IsDBNull(27) ? defaultNum : reader.GetDouble(27);
-                    cust.Cust_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
-                    cust.Cust_save_date = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    ctm.Cust_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    ctm.Cust_Idcard = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    ctm.Cust_Fname = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    ctm.Cust_LName = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    ctm.Cust_B_date = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    ctm.Cust_Age = reader.IsDBNull(5) ? defaultNum : reader.GetInt32(5);
+                    ctm.Cust_Idcard_without = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+                    ctm.Cust_Idcard_start = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
+                    ctm.Cust_Idcard_expire = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
 
-                    cust.bs_ntn = new Base_Nationalitys();
-                    cust.bs_ntn.Nationality_id = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
-                    cust.bs_ntn.Nationality_name_ENG = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
-                    cust.bs_ntn.Nationality_name_TH = reader.IsDBNull(31) ? defaultString : reader.GetString(13);
+                    ctm.ctm_ntnlt = new Base_Nationalitys();
+                    ctm.ctm_ntnlt.Nationality_id = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
+                    ctm.ctm_ntnlt.Nationality_name_ENG = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
+                    ctm.ctm_ntnlt.Nationality_name_TH = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
 
-                    cust.bs_org = new Base_Origins();
-                    cust.bs_org.Origin_id = reader.IsDBNull(10) ? defaultNum : reader.GetInt32(10);
-                    cust.bs_org.Origin_name_ENG = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
-                    cust.bs_org.Origin_name_TH = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+                    ctm.ctm_org = new Base_Origins();
+                    ctm.ctm_org.Origin_id = reader.IsDBNull(12) ? defaultNum : reader.GetInt32(12);
+                    ctm.ctm_org.Origin_name_ENG = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    ctm.ctm_org.Origin_name_TH = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
 
-                    cust.th_pv_job_ctm = new TH_Provinces();
-                    cust.th_pv_job_ctm.Province_id = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
-                    cust.th_pv_job_ctm.Province_name = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+                    ctm.Cust_Tel = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    ctm.Cust_Email = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
 
-                    cust.bs_ps_st = new Base_Person_Status();
-                    cust.bs_ps_st.person_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
-                    cust.bs_ps_st.person_status_name = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
+                    ctm.ctm_pstt = new Base_Person_Status();
+                    ctm.ctm_pstt.person_status_id = reader.IsDBNull(17) ? defaultNum : reader.GetInt32(17);
+                    ctm.ctm_pstt.person_status_name = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
 
-                    list_cust.Add(cust);
+                    ctm.Cust_Marry_idcard = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    ctm.Cust_Marry_Fname = reader.IsDBNull(20) ? defaultString : reader.GetString(20);
+                    ctm.Cust_Marry_Lname = reader.IsDBNull(21) ? defaultString : reader.GetString(21);
 
+                    ctm.ctm_marry_ntnlt = new Base_Nationalitys();
+                    ctm.ctm_marry_ntnlt.Nationality_id = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
+                    ctm.ctm_marry_ntnlt.Nationality_name_ENG = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
+                    ctm.ctm_marry_ntnlt.Nationality_name_TH = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
+
+                    ctm.ctm_marry_org = new Base_Origins();
+                    ctm.ctm_marry_org.Origin_id = reader.IsDBNull(25) ? defaultNum : reader.GetInt32(25);
+                    ctm.ctm_marry_org.Origin_name_ENG = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
+                    ctm.ctm_marry_org.Origin_name_TH = reader.IsDBNull(27) ? defaultString : reader.GetString(27);
+
+                    ctm.Cust_Marry_Address_no = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
+                    ctm.Cust_Marry_vilage = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    ctm.Cust_Marry_vilage_no = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    ctm.Cust_Marry_alley = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
+                    ctm.Cust_Marry_road = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    ctm.Cust_Marry_subdistrict = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+                    ctm.Cust_Marry_district = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+
+                    ctm.ctm_marry_pv = new TH_Provinces();
+                    ctm.ctm_marry_pv.Province_id = reader.IsDBNull(35) ? defaultNum : reader.GetInt32(35);
+                    ctm.ctm_marry_pv.Province_name = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+
+                    ctm.Cust_Marry_country = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
+                    ctm.Cust_Marry_zipcode = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
+                    ctm.Cust_Marry_tel = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
+                    ctm.Cust_Marry_email = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
+                    ctm.Cust_Marry_job = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
+                    ctm.Cust_Marry_job_position = reader.IsDBNull(42) ? defaultString : reader.GetString(42);
+                    ctm.Cust_Marry_job_long = reader.IsDBNull(43) ? defaultNum : reader.GetInt32(43);
+                    ctm.Cust_Marry_job_salary = reader.IsDBNull(44) ? defaultNum : reader.GetDouble(44);
+                    ctm.Cust_Marry_job_local_name = reader.IsDBNull(45) ? defaultString : reader.GetString(45);
+                    ctm.Cust_Marry_job_address_no = reader.IsDBNull(46) ? defaultString : reader.GetString(46);
+                    ctm.Cust_Marry_job_vilage = reader.IsDBNull(47) ? defaultString : reader.GetString(47);
+                    ctm.Cust_Marry_job_vilage_no = reader.IsDBNull(48) ? defaultString : reader.GetString(48);
+                    ctm.Cust_Marry_job_alley = reader.IsDBNull(49) ? defaultString : reader.GetString(49);
+                    ctm.Cust_Marry_job_road = reader.IsDBNull(50) ? defaultString : reader.GetString(50);
+                    ctm.Cust_Marry_job_subdistrict = reader.IsDBNull(51) ? defaultString : reader.GetString(51);
+                    ctm.Cust_Marry_job_district = reader.IsDBNull(52) ? defaultString : reader.GetString(52);
+
+                    ctm.ctm_marry_job_pv = new TH_Provinces();
+                    ctm.ctm_marry_pv.Province_id = reader.IsDBNull(53) ? defaultNum : reader.GetInt32(53);
+                    ctm.ctm_marry_pv.Province_name = reader.IsDBNull(54) ? defaultString : reader.GetString(54);
+
+                    ctm.Cust_Marry_job_country = reader.IsDBNull(55) ? defaultString : reader.GetString(55);
+                    ctm.Cust_Marry_job_zipcode = reader.IsDBNull(56) ? defaultString : reader.GetString(56);
+                    ctm.Cust_Marry_job_tel = reader.IsDBNull(57) ? defaultString : reader.GetString(57);
+                    ctm.Cust_Job = reader.IsDBNull(58) ? defaultString : reader.GetString(58);
+                    ctm.Cust_Job_position = reader.IsDBNull(59) ? defaultString : reader.GetString(59);
+                    ctm.Cust_Job_long = reader.IsDBNull(60) ? defaultNum : reader.GetInt32(60);
+                    ctm.Cust_Job_salary = reader.IsDBNull(61) ? defaultNum : reader.GetDouble(61);
+                    ctm.Cust_Job_local_name = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
+                    ctm.Cust_Job_address_no = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
+                    ctm.Cust_Job_vilage = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
+                    ctm.Cust_Job_vilage_no = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
+                    ctm.Cust_Job_alley = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
+                    ctm.Cust_Job_road = reader.IsDBNull(67) ? defaultString : reader.GetString(67);
+                    ctm.Cust_Job_subdistrict = reader.IsDBNull(68) ? defaultString : reader.GetString(68);
+                    ctm.Cust_Job_district = reader.IsDBNull(69) ? defaultString : reader.GetString(69);
+
+                    ctm.ctm_job_pv = new TH_Provinces();
+                    ctm.ctm_job_pv.Province_id = reader.IsDBNull(70) ? defaultNum : reader.GetInt32(70);
+                    ctm.ctm_job_pv.Province_name = reader.IsDBNull(71) ? defaultString : reader.GetString(71);
+
+                    ctm.Cust_Job_country = reader.IsDBNull(72) ? defaultString : reader.GetString(72);
+                    ctm.Cust_Job_zipcode = reader.IsDBNull(73) ? defaultString : reader.GetString(73);
+                    ctm.Cust_Job_tel = reader.IsDBNull(74) ? defaultString : reader.GetString(74);
+                    ctm.Cust_Job_email = reader.IsDBNull(75) ? defaultString : reader.GetString(75);
+                    ctm.Cust_Home_address_no = reader.IsDBNull(76) ? defaultString : reader.GetString(76);
+                    ctm.Cust_Home_vilage = reader.IsDBNull(77) ? defaultString : reader.GetString(77);
+                    ctm.Cust_Home_vilage_no = reader.IsDBNull(78) ? defaultString : reader.GetString(78);
+                    ctm.Cust_Home_alley = reader.IsDBNull(79) ? defaultString : reader.GetString(79);
+                    ctm.Cust_Home_road = reader.IsDBNull(80) ? defaultString : reader.GetString(80);
+                    ctm.Cust_Home_subdistrict = reader.IsDBNull(81) ? defaultString : reader.GetString(81);
+                    ctm.Cust_Home_district = reader.IsDBNull(82) ? defaultString : reader.GetString(82);
+
+                    ctm.ctm_home_pv = new TH_Provinces();
+                    ctm.ctm_home_pv.Province_id = reader.IsDBNull(83) ? defaultNum : reader.GetInt32(83);
+                    ctm.ctm_home_pv.Province_name = reader.IsDBNull(84) ? defaultString : reader.GetString(84);
+
+                    ctm.Cust_Home_country = reader.IsDBNull(85) ? defaultString : reader.GetString(85);
+                    ctm.Cust_Home_zipcode = reader.IsDBNull(86) ? defaultString : reader.GetString(86);
+                    ctm.Cust_Home_tel = reader.IsDBNull(87) ? defaultString : reader.GetString(87);
+                    ctm.Cust_Home_GPS_Latitude = reader.IsDBNull(88) ? defaultString : reader.GetString(88);
+                    ctm.Cust_Home_GPS_Longitude = reader.IsDBNull(89) ? defaultString : reader.GetString(89);
+
+                    ctm.ctm_home_stt = new Base_Home_Status();
+                    ctm.ctm_home_stt.Home_status_id = reader.IsDBNull(90) ? defaultNum : reader.GetInt32(90);
+                    ctm.ctm_home_stt.Home_status_name = reader.IsDBNull(91) ? defaultString : reader.GetString(91);
+
+                    ctm.Cust_Idcard_address_no = reader.IsDBNull(92) ? defaultString : reader.GetString(92);
+                    ctm.Cust_Idcard_vilage = reader.IsDBNull(93) ? defaultString : reader.GetString(93);
+                    ctm.Cust_Idcard_vilage_no = reader.IsDBNull(94) ? defaultString : reader.GetString(94);
+                    ctm.Cust_Idcard_alley = reader.IsDBNull(95) ? defaultString : reader.GetString(95);
+                    ctm.Cust_Idcard_road = reader.IsDBNull(96) ? defaultString : reader.GetString(96);
+                    ctm.Cust_Idcard_subdistrict = reader.IsDBNull(97) ? defaultString : reader.GetString(97);
+                    ctm.Cust_Idcard_district = reader.IsDBNull(98) ? defaultString : reader.GetString(98);
+
+                    ctm.ctm_idcard_pv = new TH_Provinces();
+                    ctm.ctm_idcard_pv.Province_id = reader.IsDBNull(99) ? defaultNum : reader.GetInt32(99);
+                    ctm.ctm_idcard_pv.Province_name = reader.IsDBNull(100) ? defaultString : reader.GetString(100);
+
+                    ctm.Cust_Idcard_country = reader.IsDBNull(101) ? defaultString : reader.GetString(101);
+                    ctm.Cust_Idcard_zipcode = reader.IsDBNull(102) ? defaultString : reader.GetString(102);
+                    ctm.Cust_Idcard_tel = reader.IsDBNull(103) ? defaultString : reader.GetString(103);
+
+                    ctm.ctm_idcard_stt = new Base_Home_Status();
+                    ctm.ctm_idcard_stt.Home_status_id = reader.IsDBNull(104) ? defaultNum : reader.GetInt32(104);
+                    ctm.ctm_idcard_stt.Home_status_name = reader.IsDBNull(105) ? defaultString : reader.GetString(105);
+
+                    ctm.Cust_Current_address_no = reader.IsDBNull(106) ? defaultString : reader.GetString(106);
+                    ctm.Cust_Current_vilage = reader.IsDBNull(107) ? defaultString : reader.GetString(107);
+                    ctm.Cust_Current_vilage_no = reader.IsDBNull(108) ? defaultString : reader.GetString(108);
+                    ctm.Cust_Current_alley = reader.IsDBNull(109) ? defaultString : reader.GetString(109);
+                    ctm.Cust_Current_road = reader.IsDBNull(110) ? defaultString : reader.GetString(110);
+                    ctm.Cust_Current_subdistrict = reader.IsDBNull(111) ? defaultString : reader.GetString(111);
+                    ctm.Cust_Current_district = reader.IsDBNull(112) ? defaultString : reader.GetString(112);
+
+                    ctm.ctm_current_pv = new TH_Provinces();
+                    ctm.ctm_current_pv.Province_id = reader.IsDBNull(113) ? defaultNum : reader.GetInt32(113);
+                    ctm.ctm_current_pv.Province_name = reader.IsDBNull(114) ? defaultString : reader.GetString(114);
+
+                    ctm.Cust_Current_country = reader.IsDBNull(115) ? defaultString : reader.GetString(115);
+                    ctm.Cust_Current_zipcode = reader.IsDBNull(116) ? defaultString : reader.GetString(116);
+                    ctm.Cust_Current_tel = reader.IsDBNull(117) ? defaultString : reader.GetString(117);
+
+                    ctm.ctm_current_stt = new Base_Home_Status();
+                    ctm.ctm_current_stt.Home_status_id = reader.IsDBNull(118) ? defaultNum : reader.GetInt32(118);
+                    ctm.ctm_current_stt.Home_status_name = reader.IsDBNull(119) ? defaultString : reader.GetString(119);
+
+                    ctm.Cust_save_date = reader.IsDBNull(120) ? defaultString : reader.GetString(120);
+
+                    list_ctm.Add(ctm);
                 }
 
-                return list_cust;
+                return list_ctm;
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomers() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomers() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomers() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomers() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             finally
@@ -173,75 +284,188 @@ namespace JKLWebBase_v2.Managers_Customers
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                Customers cust = new Customers();
+                Customers ctm = new Customers();
 
                 if (reader.Read())
                 {
                     int defaultNum = 0;
                     string defaultString = "";
 
-                    cust.Cust_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
-                    cust.Cust_idcard = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
-                    cust.Cust_Fname = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
-                    cust.Cust_LName = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
-                    cust.Cust_B_date = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
-                    cust.Cust_age = reader.IsDBNull(5) ? defaultNum : reader.GetInt32(5);
-                    cust.Cust_Idcard_without = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
-                    cust.Cust_Idcard_start = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
-                    cust.Cust_Idcard_expire = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
-                    cust.Cust_Nationality = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
-                    cust.Cust_Origin = reader.IsDBNull(10) ? defaultNum : reader.GetInt32(10);
-                    cust.Cust_job = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
-                    cust.Cust_job_position = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                    cust.Cust_job_long = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
-                    cust.Cust_job_local_name = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    cust.Cust_job_address_no = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
-                    cust.Cust_job_vilage = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    cust.Cust_job_vilage_no = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
-                    cust.Cust_job_alley = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
-                    cust.Cust_job_road = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
-                    cust.Cust_job_subdistrict = reader.IsDBNull(20) ? defaultString : reader.GetString(20);
-                    cust.Cust_job_district = reader.IsDBNull(21) ? defaultString : reader.GetString(21);
-                    cust.Cust_job_province = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
-                    cust.Cust_job_country = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
-                    cust.Cust_job_zipcode = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
-                    cust.Cust_job_tel = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
-                    cust.Cust_job_email = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
-                    cust.Cust_job_salary = reader.IsDBNull(27) ? defaultNum : reader.GetDouble(27);
-                    cust.Cust_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
-                    cust.Cust_save_date = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    ctm.Cust_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    ctm.Cust_Idcard = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    ctm.Cust_Fname = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    ctm.Cust_LName = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    ctm.Cust_B_date = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    ctm.Cust_Age = reader.IsDBNull(5) ? defaultNum : reader.GetInt32(5);
+                    ctm.Cust_Idcard_without = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+                    ctm.Cust_Idcard_start = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
+                    ctm.Cust_Idcard_expire = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
 
-                    cust.bs_ntn = new Base_Nationalitys();
-                    cust.bs_ntn.Nationality_id = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
-                    cust.bs_ntn.Nationality_name_ENG = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
-                    cust.bs_ntn.Nationality_name_TH = reader.IsDBNull(31) ? defaultString : reader.GetString(13);
+                    ctm.ctm_ntnlt = new Base_Nationalitys();
+                    ctm.ctm_ntnlt.Nationality_id = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
+                    ctm.ctm_ntnlt.Nationality_name_ENG = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
+                    ctm.ctm_ntnlt.Nationality_name_TH = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
 
-                    cust.bs_org = new Base_Origins();
-                    cust.bs_org.Origin_id = reader.IsDBNull(10) ? defaultNum : reader.GetInt32(10);
-                    cust.bs_org.Origin_name_ENG = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
-                    cust.bs_org.Origin_name_TH = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+                    ctm.ctm_org = new Base_Origins();
+                    ctm.ctm_org.Origin_id = reader.IsDBNull(12) ? defaultNum : reader.GetInt32(12);
+                    ctm.ctm_org.Origin_name_ENG = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    ctm.ctm_org.Origin_name_TH = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
 
-                    cust.th_pv_job_ctm = new TH_Provinces();
-                    cust.th_pv_job_ctm.Province_id = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
-                    cust.th_pv_job_ctm.Province_name = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+                    ctm.Cust_Tel = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    ctm.Cust_Email = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
 
-                    cust.bs_ps_st = new Base_Person_Status();
-                    cust.bs_ps_st.person_status_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
-                    cust.bs_ps_st.person_status_name = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
+                    ctm.ctm_pstt = new Base_Person_Status();
+                    ctm.ctm_pstt.person_status_id = reader.IsDBNull(17) ? defaultNum : reader.GetInt32(17);
+                    ctm.ctm_pstt.person_status_name = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
+
+                    ctm.Cust_Marry_idcard = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    ctm.Cust_Marry_Fname = reader.IsDBNull(20) ? defaultString : reader.GetString(20);
+                    ctm.Cust_Marry_Lname = reader.IsDBNull(21) ? defaultString : reader.GetString(21);
+
+                    ctm.ctm_marry_ntnlt = new Base_Nationalitys();
+                    ctm.ctm_marry_ntnlt.Nationality_id = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
+                    ctm.ctm_marry_ntnlt.Nationality_name_ENG = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
+                    ctm.ctm_marry_ntnlt.Nationality_name_TH = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
+
+                    ctm.ctm_marry_org = new Base_Origins();
+                    ctm.ctm_marry_org.Origin_id = reader.IsDBNull(25) ? defaultNum : reader.GetInt32(25);
+                    ctm.ctm_marry_org.Origin_name_ENG = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
+                    ctm.ctm_marry_org.Origin_name_TH = reader.IsDBNull(27) ? defaultString : reader.GetString(27);
+
+                    ctm.Cust_Marry_Address_no = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
+                    ctm.Cust_Marry_vilage = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    ctm.Cust_Marry_vilage_no = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    ctm.Cust_Marry_alley = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
+                    ctm.Cust_Marry_road = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    ctm.Cust_Marry_subdistrict = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+                    ctm.Cust_Marry_district = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+
+                    ctm.ctm_marry_pv = new TH_Provinces();
+                    ctm.ctm_marry_pv.Province_id = reader.IsDBNull(35) ? defaultNum : reader.GetInt32(35);
+                    ctm.ctm_marry_pv.Province_name = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+
+                    ctm.Cust_Marry_country = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
+                    ctm.Cust_Marry_zipcode = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
+                    ctm.Cust_Marry_tel = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
+                    ctm.Cust_Marry_email = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
+                    ctm.Cust_Marry_job = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
+                    ctm.Cust_Marry_job_position = reader.IsDBNull(42) ? defaultString : reader.GetString(42);
+                    ctm.Cust_Marry_job_long = reader.IsDBNull(43) ? defaultNum : reader.GetInt32(43);
+                    ctm.Cust_Marry_job_salary = reader.IsDBNull(44) ? defaultNum : reader.GetDouble(44);
+                    ctm.Cust_Marry_job_local_name = reader.IsDBNull(45) ? defaultString : reader.GetString(45);
+                    ctm.Cust_Marry_job_address_no = reader.IsDBNull(46) ? defaultString : reader.GetString(46);
+                    ctm.Cust_Marry_job_vilage = reader.IsDBNull(47) ? defaultString : reader.GetString(47);
+                    ctm.Cust_Marry_job_vilage_no = reader.IsDBNull(48) ? defaultString : reader.GetString(48);
+                    ctm.Cust_Marry_job_alley = reader.IsDBNull(49) ? defaultString : reader.GetString(49);
+                    ctm.Cust_Marry_job_road = reader.IsDBNull(50) ? defaultString : reader.GetString(50);
+                    ctm.Cust_Marry_job_subdistrict = reader.IsDBNull(51) ? defaultString : reader.GetString(51);
+                    ctm.Cust_Marry_job_district = reader.IsDBNull(52) ? defaultString : reader.GetString(52);
+
+                    ctm.ctm_marry_job_pv = new TH_Provinces();
+                    ctm.ctm_marry_job_pv.Province_id = reader.IsDBNull(53) ? defaultNum : reader.GetInt32(53);
+                    ctm.ctm_marry_job_pv.Province_name = reader.IsDBNull(54) ? defaultString : reader.GetString(54);
+
+                    ctm.Cust_Marry_job_country = reader.IsDBNull(55) ? defaultString : reader.GetString(55);
+                    ctm.Cust_Marry_job_zipcode = reader.IsDBNull(56) ? defaultString : reader.GetString(56);
+                    ctm.Cust_Marry_job_tel = reader.IsDBNull(57) ? defaultString : reader.GetString(57);
+                    ctm.Cust_Job = reader.IsDBNull(58) ? defaultString : reader.GetString(58);
+                    ctm.Cust_Job_position = reader.IsDBNull(59) ? defaultString : reader.GetString(59);
+                    ctm.Cust_Job_long = reader.IsDBNull(60) ? defaultNum : reader.GetInt32(60);
+                    ctm.Cust_Job_salary = reader.IsDBNull(61) ? defaultNum : reader.GetDouble(61);
+                    ctm.Cust_Job_local_name = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
+                    ctm.Cust_Job_address_no = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
+                    ctm.Cust_Job_vilage = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
+                    ctm.Cust_Job_vilage_no = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
+                    ctm.Cust_Job_alley = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
+                    ctm.Cust_Job_road = reader.IsDBNull(67) ? defaultString : reader.GetString(67);
+                    ctm.Cust_Job_subdistrict = reader.IsDBNull(68) ? defaultString : reader.GetString(68);
+                    ctm.Cust_Job_district = reader.IsDBNull(69) ? defaultString : reader.GetString(69);
+
+                    ctm.ctm_job_pv = new TH_Provinces();
+                    ctm.ctm_job_pv.Province_id = reader.IsDBNull(70) ? defaultNum : reader.GetInt32(70);
+                    ctm.ctm_job_pv.Province_name = reader.IsDBNull(71) ? defaultString : reader.GetString(71);
+
+                    ctm.Cust_Job_country = reader.IsDBNull(72) ? defaultString : reader.GetString(72);
+                    ctm.Cust_Job_zipcode = reader.IsDBNull(73) ? defaultString : reader.GetString(73);
+                    ctm.Cust_Job_tel = reader.IsDBNull(74) ? defaultString : reader.GetString(74);
+                    ctm.Cust_Job_email = reader.IsDBNull(75) ? defaultString : reader.GetString(75);
+                    ctm.Cust_Home_address_no = reader.IsDBNull(76) ? defaultString : reader.GetString(76);
+                    ctm.Cust_Home_vilage = reader.IsDBNull(77) ? defaultString : reader.GetString(77);
+                    ctm.Cust_Home_vilage_no = reader.IsDBNull(78) ? defaultString : reader.GetString(78);
+                    ctm.Cust_Home_alley = reader.IsDBNull(79) ? defaultString : reader.GetString(79);
+                    ctm.Cust_Home_road = reader.IsDBNull(80) ? defaultString : reader.GetString(80);
+                    ctm.Cust_Home_subdistrict = reader.IsDBNull(81) ? defaultString : reader.GetString(81);
+                    ctm.Cust_Home_district = reader.IsDBNull(82) ? defaultString : reader.GetString(82);
+
+                    ctm.ctm_home_pv = new TH_Provinces();
+                    ctm.ctm_home_pv.Province_id = reader.IsDBNull(83) ? defaultNum : reader.GetInt32(83);
+                    ctm.ctm_home_pv.Province_name = reader.IsDBNull(84) ? defaultString : reader.GetString(84);
+
+                    ctm.Cust_Home_country = reader.IsDBNull(85) ? defaultString : reader.GetString(85);
+                    ctm.Cust_Home_zipcode = reader.IsDBNull(86) ? defaultString : reader.GetString(86);
+                    ctm.Cust_Home_tel = reader.IsDBNull(87) ? defaultString : reader.GetString(87);
+                    ctm.Cust_Home_GPS_Latitude = reader.IsDBNull(88) ? defaultString : reader.GetString(88);
+                    ctm.Cust_Home_GPS_Longitude = reader.IsDBNull(89) ? defaultString : reader.GetString(89);
+
+                    ctm.ctm_home_stt = new Base_Home_Status();
+                    ctm.ctm_home_stt.Home_status_id = reader.IsDBNull(90) ? defaultNum : reader.GetInt32(90);
+                    ctm.ctm_home_stt.Home_status_name = reader.IsDBNull(91) ? defaultString : reader.GetString(91);
+
+                    ctm.Cust_Idcard_address_no = reader.IsDBNull(92) ? defaultString : reader.GetString(92);
+                    ctm.Cust_Idcard_vilage = reader.IsDBNull(93) ? defaultString : reader.GetString(93);
+                    ctm.Cust_Idcard_vilage_no = reader.IsDBNull(94) ? defaultString : reader.GetString(94);
+                    ctm.Cust_Idcard_alley = reader.IsDBNull(95) ? defaultString : reader.GetString(95);
+                    ctm.Cust_Idcard_road = reader.IsDBNull(96) ? defaultString : reader.GetString(96);
+                    ctm.Cust_Idcard_subdistrict = reader.IsDBNull(97) ? defaultString : reader.GetString(97);
+                    ctm.Cust_Idcard_district = reader.IsDBNull(98) ? defaultString : reader.GetString(98);
+
+                    ctm.ctm_idcard_pv = new TH_Provinces();
+                    ctm.ctm_idcard_pv.Province_id = reader.IsDBNull(99) ? defaultNum : reader.GetInt32(99);
+                    ctm.ctm_idcard_pv.Province_name = reader.IsDBNull(100) ? defaultString : reader.GetString(100);
+
+                    ctm.Cust_Idcard_country = reader.IsDBNull(101) ? defaultString : reader.GetString(101);
+                    ctm.Cust_Idcard_zipcode = reader.IsDBNull(102) ? defaultString : reader.GetString(102);
+                    ctm.Cust_Idcard_tel = reader.IsDBNull(103) ? defaultString : reader.GetString(103);
+
+                    ctm.ctm_idcard_stt = new Base_Home_Status();
+                    ctm.ctm_idcard_stt.Home_status_id = reader.IsDBNull(104) ? defaultNum : reader.GetInt32(104);
+                    ctm.ctm_idcard_stt.Home_status_name = reader.IsDBNull(105) ? defaultString : reader.GetString(105);
+
+                    ctm.Cust_Current_address_no = reader.IsDBNull(106) ? defaultString : reader.GetString(106);
+                    ctm.Cust_Current_vilage = reader.IsDBNull(107) ? defaultString : reader.GetString(107);
+                    ctm.Cust_Current_vilage_no = reader.IsDBNull(108) ? defaultString : reader.GetString(108);
+                    ctm.Cust_Current_alley = reader.IsDBNull(109) ? defaultString : reader.GetString(109);
+                    ctm.Cust_Current_road = reader.IsDBNull(110) ? defaultString : reader.GetString(110);
+                    ctm.Cust_Current_subdistrict = reader.IsDBNull(111) ? defaultString : reader.GetString(111);
+                    ctm.Cust_Current_district = reader.IsDBNull(112) ? defaultString : reader.GetString(112);
+
+                    ctm.ctm_current_pv = new TH_Provinces();
+                    ctm.ctm_current_pv.Province_id = reader.IsDBNull(113) ? defaultNum : reader.GetInt32(113);
+                    ctm.ctm_current_pv.Province_name = reader.IsDBNull(114) ? defaultString : reader.GetString(114);
+
+                    ctm.Cust_Current_country = reader.IsDBNull(115) ? defaultString : reader.GetString(115);
+                    ctm.Cust_Current_zipcode = reader.IsDBNull(116) ? defaultString : reader.GetString(116);
+                    ctm.Cust_Current_tel = reader.IsDBNull(117) ? defaultString : reader.GetString(117);
+
+                    ctm.ctm_current_stt = new Base_Home_Status();
+                    ctm.ctm_current_stt.Home_status_id = reader.IsDBNull(118) ? defaultNum : reader.GetInt32(118);
+                    ctm.ctm_current_stt.Home_status_name = reader.IsDBNull(119) ? defaultString : reader.GetString(119);
+
+                    ctm.Cust_save_date = reader.IsDBNull(120) ? defaultString : reader.GetString(120);
                 }
 
-                return cust;
+                return ctm;
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomersByIdCard() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomersByIdCard() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomersByIdCard() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomersByIdCard() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             finally
@@ -250,19 +474,39 @@ namespace JKLWebBase_v2.Managers_Customers
             }
         }
 
-        public bool addCustomers(Customers cust)
+        public bool addCustomers(Customers ctm)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 /* 
                  * :: StoredProcedure :: [ i_customers ] :: 
-                 * i_customers (in i_Cust_id varchar(50)                , in i_Cust_idcard varchar(255)         , in i_Cust_Fname varchar(255)      , in i_Cust_LName varchar(255)          , in i_Cust_B_date date, in i_Cust_age int(11),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                utf8                  utf8_general_ci       utf8_general_ci   
-                 *     		    in i_Cust_Idcard_without  varchar(255)  , in i_Cust_Idcard_start date           , in i_Cust_Idcard_expire date      , in i_Cust_Nationality int(11)         , in i_Cust_Origin int(11),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-                 *      		in i_Cust_job varchar(50)               , in i_Cust_job_position varchar(255)   , in i_Cust_job_long int(11)        , in i_Cust_job_local_name varchar(255) , in i_Cust_job_address_no varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                 *      		in i_Cust_job_vilage varchar(255)       , in i_Cust_job_vilage_no varchar(255)  , in i_Cust_job_alley varchar(255)  , in i_Cust_job_road varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-                 *      		in i_Cust_job_subdistrict varchar(255)  , in i_Cust_job_district varchar(255)   , in i_Cust_job_province int(11)    , in i_Cust_job_country varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-                 *      		in i_Cust_job_zipcode varchar(255)      , in i_Cust_job_tel varchar(255)        , in i_Cust_job_email varchar(255)  , in i_Cust_job_salary double(10,2), in i_Cust_status_id int(11))
+                 * i_customers ( IN i_Cust_id VARCHAR(50), IN i_Cust_Idcard VARCHAR(20), IN i_Cust_Fname VARCHAR(255), IN i_Cust_LName VARCHAR(255),
+	             *   IN i_Cust_B_date DATE, IN i_Cust_Age INT(11), IN i_Cust_Idcard_without VARCHAR(255), IN i_Cust_Idcard_start DATE,
+	             *   IN i_Cust_Idcard_expire DATE, IN i_Cust_Nationality_id INT(11), IN i_Cust_Origin_id INT(11), IN i_Cust_Tel VARCHAR(255),
+	             *   IN i_Cust_Email VARCHAR(255), IN i_Cust_Status_id INT(11), IN i_Cust_Marry_idcard VARCHAR(20), IN i_Cust_Marry_Fname VARCHAR(255),
+	             *   IN i_Cust_Marry_Lname VARCHAR(255), IN i_Cust_Marry_Nationality INT(11), IN i_Cust_Marry_Origin INT(11), IN i_Cust_Marry_Address_no VARCHAR(255),
+	             *   IN i_Cust_Marry_vilage VARCHAR(255), IN i_Cust_Marry_vilage_no VARCHAR(255), IN i_Cust_Marry_alley VARCHAR(255), IN i_Cust_Marry_road VARCHAR(255),
+	             *   IN i_Cust_Marry_subdistrict VARCHAR(255), IN i_Cust_Marry_district VARCHAR(255), IN i_Cust_Marry_province_id INT(11), IN i_Cust_Marry_country VARCHAR(255),
+	             *   IN i_Cust_Marry_zipcode VARCHAR(255), IN i_Cust_Marry_tel VARCHAR(255), IN i_Cust_Marry_email VARCHAR(255), IN i_Cust_Marry_job VARCHAR(255),
+	             *   IN i_Cust_Marry_job_position VARCHAR(255), IN i_Cust_Marry_job_long INT(11), IN i_Cust_Marry_job_salary DOUBLE(10,2), IN i_Cust_Marry_job_local_name VARCHAR(255),
+	             *   IN i_Cust_Marry_job_address_no VARCHAR(255), IN i_Cust_Marry_job_vilage VARCHAR(255), IN i_Cust_Marry_job_vilage_no VARCHAR(255), IN i_Cust_Marry_job_alley VARCHAR(255),
+	             *   IN i_Cust_Marry_job_road VARCHAR(255), IN i_Cust_Marry_job_subdistrict VARCHAR(255), IN i_Cust_Marry_job_district VARCHAR(255), IN i_Cust_Marry_job_province_id INT(11),
+	             *   IN i_Cust_Marry_job_zipcode VARCHAR(255), IN i_Cust_Marry_job_tel VARCHAR(255), IN i_Cust_Job VARCHAR(255), IN i_Cust_Job_position VARCHAR(255),
+	             *   IN i_Cust_Job_long INT(11), IN i_Cust_Job_salary DOUBLE(10,2), IN i_Cust_Job_local_name VARCHAR(255), IN i_Cust_Job_address_no VARCHAR(255),
+	             *   IN i_Cust_Job_vilage VARCHAR(255), IN i_Cust_Job_vilage_no VARCHAR(255), IN i_Cust_Job_alley VARCHAR(255), IN i_Cust_Job_road VARCHAR(255),
+	             *   IN i_Cust_Job_subdistrict VARCHAR(255), IN i_Cust_Job_district VARCHAR(255), IN i_Cust_Job_province_id INT(11), IN i_Cust_Job_country VARCHAR(255),
+	             *   IN i_Cust_Job_zipcode VARCHAR(255), IN i_Cust_Job_tel VARCHAR(255), IN i_Cust_Job_email VARCHAR(255), IN i_Cust_Home_address_no VARCHAR(255),
+	             *   IN i_Cust_Home_vilage VARCHAR(255), IN i_Cust_Home_vilage_no VARCHAR(255), IN i_Cust_Home_alley VARCHAR(255), IN i_Cust_Home_road VARCHAR(255),
+	             *   IN i_Cust_Home_subdistrict VARCHAR(255), IN i_Cust_Home_district VARCHAR(255), IN i_Cust_Home_province_id INT(11), IN i_Cust_Home_country VARCHAR(255),
+	             *   IN i_Cust_Home_zipcode VARCHAR(255), IN i_Cust_Home_tel VARCHAR(255), IN i_Cust_Home_GPS_Latitude VARCHAR(255), IN i_Cust_Home_GPS_Longitude VARCHAR(255),
+	             *   IN i_Cust_Home_Status_id INT(11), IN i_Cust_Idcard_address_no VARCHAR(255), IN i_Cust_Idcard_vilage VARCHAR(255), IN i_Cust_Idcard_vilage_no VARCHAR(255),
+	             *   IN i_Cust_Idcard_alley VARCHAR(255), IN i_Cust_Idcard_road VARCHAR(255), IN i_Cust_Idcard_subdistrict VARCHAR(255), IN i_Cust_Idcard_district VARCHAR(255),
+	             *   IN i_Cust_Idcard_province_id INT(11), IN i_Cust_Idcard_country VARCHAR(255), IN i_Cust_Idcard_zipcode VARCHAR(255), IN i_Cust_Idcard_tel VARCHAR(255),
+	             *   IN i_Cust_Idcard_Status_id INT(11), IN i_Cust_Current_address_no VARCHAR(255), IN i_Cust_Current_vilage VARCHAR(255), IN i_Cust_Current_vilage_no VARCHAR(255),
+	             *   IN i_Cust_Current_alley VARCHAR(255), IN i_Cust_Current_road VARCHAR(255), IN i_Cust_Current_subdistrict VARCHAR(255), IN i_Cust_Current_district VARCHAR(255),
+	             *   IN i_Cust_Current_province_id INT(11), IN i_Cust_Current_country VARCHAR(255), IN i_Cust_Current_zipcode VARCHAR(255), IN i_Cust_Current_tel VARCHAR(255),
+	             *   IN i_Cust_Current_Status_id INT(11))
                  * 
                  */
 
@@ -270,35 +514,108 @@ namespace JKLWebBase_v2.Managers_Customers
                 MySqlCommand cmd = new MySqlCommand("i_customers", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@i_Cust_id", cust.Cust_id);
-                cmd.Parameters.AddWithValue("@i_Cust_idcard", cust.Cust_idcard);
-                cmd.Parameters.AddWithValue("@i_Cust_Fname", cust.Cust_Fname);
-                cmd.Parameters.AddWithValue("@i_Cust_LName", cust.Cust_LName);
-                cmd.Parameters.AddWithValue("@i_Cust_B_date", cust.Cust_B_date);
-                cmd.Parameters.AddWithValue("@i_Cust_age", cust.Cust_age);
-                cmd.Parameters.AddWithValue("@i_Cust_Idcard_without", cust.Cust_Idcard_without);
-                cmd.Parameters.AddWithValue("@i_Cust_Idcard_start", cust.Cust_Idcard_start);
-                cmd.Parameters.AddWithValue("@i_Cust_Idcard_expire", cust.Cust_Idcard_expire);
-                cmd.Parameters.AddWithValue("@i_Cust_Nationality", cust.Cust_Nationality);
-                cmd.Parameters.AddWithValue("@i_Cust_Origin", cust.Cust_Origin);
-                cmd.Parameters.AddWithValue("@i_Cust_job", cust.Cust_job);
-                cmd.Parameters.AddWithValue("@i_Cust_job_position", cust.Cust_job_position);
-                cmd.Parameters.AddWithValue("@i_Cust_job_long", cust.Cust_job_long);
-                cmd.Parameters.AddWithValue("@i_Cust_job_local_name", cust.Cust_job_local_name);
-                cmd.Parameters.AddWithValue("@i_Cust_job_address_no", cust.Cust_job_address_no);
-                cmd.Parameters.AddWithValue("@i_Cust_job_vilage", cust.Cust_job_vilage);
-                cmd.Parameters.AddWithValue("@i_Cust_job_vilage_no", cust.Cust_job_vilage_no);
-                cmd.Parameters.AddWithValue("@i_Cust_job_alley", cust.Cust_job_alley);
-                cmd.Parameters.AddWithValue("@i_Cust_job_road", cust.Cust_job_road);
-                cmd.Parameters.AddWithValue("@i_Cust_job_subdistrict", cust.Cust_job_subdistrict);
-                cmd.Parameters.AddWithValue("@i_Cust_job_district", cust.Cust_job_district);
-                cmd.Parameters.AddWithValue("@i_Cust_job_province", cust.Cust_job_province);
-                cmd.Parameters.AddWithValue("@i_Cust_job_country", cust.Cust_job_country);
-                cmd.Parameters.AddWithValue("@i_Cust_job_zipcode", cust.Cust_job_zipcode);
-                cmd.Parameters.AddWithValue("@i_Cust_job_tel", cust.Cust_job_tel);
-                cmd.Parameters.AddWithValue("@i_Cust_job_email", cust.Cust_job_email);
-                cmd.Parameters.AddWithValue("@i_Cust_job_salary", cust.Cust_job_salary);
-                cmd.Parameters.AddWithValue("@i_Cust_status_id", cust.Cust_status_id);
+                cmd.Parameters.AddWithValue("@i_Cust_id", ctm.Cust_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard", ctm.Cust_Idcard);
+                cmd.Parameters.AddWithValue("@i_Cust_Fname", ctm.Cust_Fname);
+                cmd.Parameters.AddWithValue("@i_Cust_LName", ctm.Cust_LName);
+                cmd.Parameters.AddWithValue("@i_Cust_B_date", ctm.Cust_B_date);
+                cmd.Parameters.AddWithValue("@i_Cust_Age", ctm.Cust_Age);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_without", ctm.Cust_Idcard_without);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_start", ctm.Cust_Idcard_start);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_expire", ctm.Cust_Idcard_expire);
+                cmd.Parameters.AddWithValue("@i_Cust_Nationality_id", ctm.ctm_ntnlt.Nationality_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Origin_id", ctm.ctm_org.Origin_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Tel", ctm.Cust_Tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Email", ctm.Cust_Email);
+                cmd.Parameters.AddWithValue("@i_Cust_Status_id", ctm.ctm_pstt.person_status_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_idcard", ctm.Cust_Marry_idcard);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_Fname", ctm.Cust_Marry_Fname);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_Lname", ctm.Cust_Marry_Lname);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_Nationality", ctm.ctm_marry_ntnlt.Nationality_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_Origin", ctm.ctm_marry_org.Origin_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_Address_no", ctm.Cust_Marry_Address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_vilage", ctm.Cust_Marry_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_vilage_no", ctm.Cust_Marry_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_alley", ctm.Cust_Marry_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_road", ctm.Cust_Marry_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_subdistrict", ctm.Cust_Marry_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_district", ctm.Cust_Marry_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_province_id", ctm.ctm_marry_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_country", ctm.Cust_Marry_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_zipcode", ctm.Cust_Marry_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_tel", ctm.Cust_Marry_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_email", ctm.Cust_Marry_email);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job", ctm.Cust_Marry_job);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_position", ctm.Cust_Marry_job_position);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_long", ctm.Cust_Marry_job_long);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_salary", ctm.Cust_Marry_job_salary);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_local_name", ctm.Cust_Marry_job_local_name);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_address_no", ctm.Cust_Marry_job_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_vilage", ctm.Cust_Marry_job_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_vilage_no", ctm.Cust_Marry_job_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_alley", ctm.Cust_Marry_job_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_road", ctm.Cust_Marry_job_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_subdistrict", ctm.Cust_Marry_job_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_district", ctm.Cust_Marry_job_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_province_id", ctm.ctm_marry_job_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_country", ctm.Cust_Marry_job_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_zipcode", ctm.Cust_Marry_job_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_tel", ctm.Cust_Marry_job_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Job", ctm.Cust_Job);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_position", ctm.Cust_Job_position);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_long", ctm.Cust_Job_long);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_salary", ctm.Cust_Job_salary);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_local_name", ctm.Cust_Job_local_name);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_address_no", ctm.Cust_Job_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_vilage", ctm.Cust_Job_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_vilage_no", ctm.Cust_Job_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_alley", ctm.Cust_Job_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_road", ctm.Cust_Job_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_subdistrict", ctm.Cust_Job_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_district", ctm.Cust_Job_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_province_id", ctm.ctm_job_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_country", ctm.Cust_Job_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_zipcode", ctm.Cust_Job_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_tel", ctm.Cust_Job_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_email", ctm.Cust_Job_email);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_address_no", ctm.Cust_Home_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_vilage", ctm.Cust_Home_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_vilage_no", ctm.Cust_Home_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_alley", ctm.Cust_Home_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_road", ctm.Cust_Home_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_subdistrict", ctm.Cust_Home_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_district", ctm.Cust_Home_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_province_id", ctm.ctm_home_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_country", ctm.Cust_Home_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_zipcode", ctm.Cust_Home_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_tel", ctm.Cust_Home_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_GPS_Latitude", ctm.Cust_Home_GPS_Latitude);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_GPS_Longitude", ctm.Cust_Home_GPS_Longitude);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_Status_id", ctm.ctm_home_stt.Home_status_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_address_no", ctm.Cust_Idcard_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_vilage", ctm.Cust_Idcard_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_vilage_no", ctm.Cust_Idcard_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_alley", ctm.Cust_Idcard_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_road", ctm.Cust_Idcard_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_subdistrict", ctm.Cust_Idcard_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_district", ctm.Cust_Idcard_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_province_id", ctm.ctm_idcard_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_country", ctm.Cust_Idcard_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_zipcode", ctm.Cust_Idcard_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_tel", ctm.Cust_Idcard_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_Status_id", ctm.ctm_idcard_stt.Home_status_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_address_no", ctm.Cust_Current_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_vilage", ctm.Cust_Current_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_vilage_no", ctm.Cust_Current_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_alley", ctm.Cust_Current_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_road", ctm.Cust_Current_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_subdistrict", ctm.Cust_Current_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_district", ctm.Cust_Current_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_province_id", ctm.ctm_current_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_country", ctm.Cust_Current_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_zipcode", ctm.Cust_Current_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_tel", ctm.Cust_Current_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_Status_id", ctm.ctm_current_stt.Home_status_id);
 
                 cmd.ExecuteNonQuery();
 
@@ -306,14 +623,14 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> addCustomers() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> addCustomers() ";
+                Log_Error._writeErrorFile(error, ex);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> addCustomers() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> addCustomers() ";
+                Log_Error._writeErrorFile(error, ex);
                 return false;
             }
             finally
@@ -322,19 +639,39 @@ namespace JKLWebBase_v2.Managers_Customers
             }
         }
 
-        public bool editCustomers(Customers cust)
+        public bool editCustomers(Customers ctm)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 /* 
                  * :: StoredProcedure :: [ u_customers ] :: 
-                 * u_customers (in i_Cust_id varchar(50)                , in i_Cust_idcard varchar(255)         , in i_Cust_Fname varchar(255)      , in i_Cust_LName varchar(255)          , in i_Cust_B_date date, in i_Cust_age int(11),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                utf8                  utf8_general_ci       utf8_general_ci   
-                 *     		    in i_Cust_Idcard_without  varchar(255)  , in i_Cust_Idcard_start date           , in i_Cust_Idcard_expire date      , in i_Cust_Nationality int(11)         , in i_Cust_Origin int(11),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-                 *      		in i_Cust_job varchar(50)               , in i_Cust_job_position varchar(255)   , in i_Cust_job_long int(11)        , in i_Cust_job_local_name varchar(255) , in i_Cust_job_address_no varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                 *      		in i_Cust_job_vilage varchar(255)       , in i_Cust_job_vilage_no varchar(255)  , in i_Cust_job_alley varchar(255)  , in i_Cust_job_road varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-                 *      		in i_Cust_job_subdistrict varchar(255)  , in i_Cust_job_district varchar(255)   , in i_Cust_job_province int(11)    , in i_Cust_job_country varchar(255),                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-                 *      		in i_Cust_job_zipcode varchar(255)      , in i_Cust_job_tel varchar(255)        , in i_Cust_job_email varchar(255)  , in i_Cust_job_salary double(10,2), in i_Cust_status_id int(11))
+                 * u_customers ( IN i_Cust_id VARCHAR(50), IN i_Cust_Idcard VARCHAR(20), IN i_Cust_Fname VARCHAR(255), IN i_Cust_LName VARCHAR(255),
+	             *   IN i_Cust_B_date DATE, IN i_Cust_Age INT(11), IN i_Cust_Idcard_without VARCHAR(255), IN i_Cust_Idcard_start DATE,
+	             *   IN i_Cust_Idcard_expire DATE, IN i_Cust_Nationality_id INT(11), IN i_Cust_Origin_id INT(11), IN i_Cust_Tel VARCHAR(255),
+	             *   IN i_Cust_Email VARCHAR(255), IN i_Cust_Status_id INT(11), IN i_Cust_Marry_idcard VARCHAR(20), IN i_Cust_Marry_Fname VARCHAR(255),
+	             *   IN i_Cust_Marry_Lname VARCHAR(255), IN i_Cust_Marry_Nationality INT(11), IN i_Cust_Marry_Origin INT(11), IN i_Cust_Marry_Address_no VARCHAR(255),
+	             *   IN i_Cust_Marry_vilage VARCHAR(255), IN i_Cust_Marry_vilage_no VARCHAR(255), IN i_Cust_Marry_alley VARCHAR(255), IN i_Cust_Marry_road VARCHAR(255),
+	             *   IN i_Cust_Marry_subdistrict VARCHAR(255), IN i_Cust_Marry_district VARCHAR(255), IN i_Cust_Marry_province_id INT(11), IN i_Cust_Marry_country VARCHAR(255),
+	             *   IN i_Cust_Marry_zipcode VARCHAR(255), IN i_Cust_Marry_tel VARCHAR(255), IN i_Cust_Marry_email VARCHAR(255), IN i_Cust_Marry_job VARCHAR(255),
+	             *   IN i_Cust_Marry_job_position VARCHAR(255), IN i_Cust_Marry_job_long INT(11), IN i_Cust_Marry_job_salary DOUBLE(10,2), IN i_Cust_Marry_job_local_name VARCHAR(255),
+	             *   IN i_Cust_Marry_job_address_no VARCHAR(255), IN i_Cust_Marry_job_vilage VARCHAR(255), IN i_Cust_Marry_job_vilage_no VARCHAR(255), IN i_Cust_Marry_job_alley VARCHAR(255),
+	             *   IN i_Cust_Marry_job_road VARCHAR(255), IN i_Cust_Marry_job_subdistrict VARCHAR(255), IN i_Cust_Marry_job_district VARCHAR(255), IN i_Cust_Marry_job_province_id INT(11),
+	             *   IN i_Cust_Marry_job_zipcode VARCHAR(255), IN i_Cust_Marry_job_tel VARCHAR(255), IN i_Cust_Job VARCHAR(255), IN i_Cust_Job_position VARCHAR(255),
+	             *   IN i_Cust_Job_long INT(11), IN i_Cust_Job_salary DOUBLE(10,2), IN i_Cust_Job_local_name VARCHAR(255), IN i_Cust_Job_address_no VARCHAR(255),
+	             *   IN i_Cust_Job_vilage VARCHAR(255), IN i_Cust_Job_vilage_no VARCHAR(255), IN i_Cust_Job_alley VARCHAR(255), IN i_Cust_Job_road VARCHAR(255),
+	             *   IN i_Cust_Job_subdistrict VARCHAR(255), IN i_Cust_Job_district VARCHAR(255), IN i_Cust_Job_province_id INT(11), IN i_Cust_Job_country VARCHAR(255),
+	             *   IN i_Cust_Job_zipcode VARCHAR(255), IN i_Cust_Job_tel VARCHAR(255), IN i_Cust_Job_email VARCHAR(255), IN i_Cust_Home_address_no VARCHAR(255),
+	             *   IN i_Cust_Home_vilage VARCHAR(255), IN i_Cust_Home_vilage_no VARCHAR(255), IN i_Cust_Home_alley VARCHAR(255), IN i_Cust_Home_road VARCHAR(255),
+	             *   IN i_Cust_Home_subdistrict VARCHAR(255), IN i_Cust_Home_district VARCHAR(255), IN i_Cust_Home_province_id INT(11), IN i_Cust_Home_country VARCHAR(255),
+	             *   IN i_Cust_Home_zipcode VARCHAR(255), IN i_Cust_Home_tel VARCHAR(255), IN i_Cust_Home_GPS_Latitude VARCHAR(255), IN i_Cust_Home_GPS_Longitude VARCHAR(255),
+	             *   IN i_Cust_Home_Status_id INT(11), IN i_Cust_Idcard_address_no VARCHAR(255), IN i_Cust_Idcard_vilage VARCHAR(255), IN i_Cust_Idcard_vilage_no VARCHAR(255),
+	             *   IN i_Cust_Idcard_alley VARCHAR(255), IN i_Cust_Idcard_road VARCHAR(255), IN i_Cust_Idcard_subdistrict VARCHAR(255), IN i_Cust_Idcard_district VARCHAR(255),
+	             *   IN i_Cust_Idcard_province_id INT(11), IN i_Cust_Idcard_country VARCHAR(255), IN i_Cust_Idcard_zipcode VARCHAR(255), IN i_Cust_Idcard_tel VARCHAR(255),
+	             *   IN i_Cust_Idcard_Status_id INT(11), IN i_Cust_Current_address_no VARCHAR(255), IN i_Cust_Current_vilage VARCHAR(255), IN i_Cust_Current_vilage_no VARCHAR(255),
+	             *   IN i_Cust_Current_alley VARCHAR(255), IN i_Cust_Current_road VARCHAR(255), IN i_Cust_Current_subdistrict VARCHAR(255), IN i_Cust_Current_district VARCHAR(255),
+	             *   IN i_Cust_Current_province_id INT(11), IN i_Cust_Current_country VARCHAR(255), IN i_Cust_Current_zipcode VARCHAR(255), IN i_Cust_Current_tel VARCHAR(255),
+	             *   IN i_Cust_Current_Status_id INT(11))
                  * 
                  */
 
@@ -342,35 +679,108 @@ namespace JKLWebBase_v2.Managers_Customers
                 MySqlCommand cmd = new MySqlCommand("u_customers", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@i_Cust_id", cust.Cust_id);
-                cmd.Parameters.AddWithValue("@i_Cust_idcard", cust.Cust_idcard);
-                cmd.Parameters.AddWithValue("@i_Cust_Fname", cust.Cust_Fname);
-                cmd.Parameters.AddWithValue("@i_Cust_LName", cust.Cust_LName);
-                cmd.Parameters.AddWithValue("@i_Cust_B_date", cust.Cust_B_date);
-                cmd.Parameters.AddWithValue("@i_Cust_age", cust.Cust_age);
-                cmd.Parameters.AddWithValue("@i_Cust_Idcard_without", cust.Cust_Idcard_without);
-                cmd.Parameters.AddWithValue("@i_Cust_Idcard_start", cust.Cust_Idcard_start);
-                cmd.Parameters.AddWithValue("@i_Cust_Idcard_expire", cust.Cust_Idcard_expire);
-                cmd.Parameters.AddWithValue("@i_Cust_Nationality", cust.Cust_Nationality);
-                cmd.Parameters.AddWithValue("@i_Cust_Origin", cust.Cust_Origin);
-                cmd.Parameters.AddWithValue("@i_Cust_job", cust.Cust_job);
-                cmd.Parameters.AddWithValue("@i_Cust_job_position", cust.Cust_job_position);
-                cmd.Parameters.AddWithValue("@i_Cust_job_long", cust.Cust_job_long);
-                cmd.Parameters.AddWithValue("@i_Cust_job_local_name", cust.Cust_job_local_name);
-                cmd.Parameters.AddWithValue("@i_Cust_job_address_no", cust.Cust_job_address_no);
-                cmd.Parameters.AddWithValue("@i_Cust_job_vilage", cust.Cust_job_vilage);
-                cmd.Parameters.AddWithValue("@i_Cust_job_vilage_no", cust.Cust_job_vilage_no);
-                cmd.Parameters.AddWithValue("@i_Cust_job_alley", cust.Cust_job_alley);
-                cmd.Parameters.AddWithValue("@i_Cust_job_road", cust.Cust_job_road);
-                cmd.Parameters.AddWithValue("@i_Cust_job_subdistrict", cust.Cust_job_subdistrict);
-                cmd.Parameters.AddWithValue("@i_Cust_job_district", cust.Cust_job_district);
-                cmd.Parameters.AddWithValue("@i_Cust_job_province", cust.Cust_job_province);
-                cmd.Parameters.AddWithValue("@i_Cust_job_country", cust.Cust_job_country);
-                cmd.Parameters.AddWithValue("@i_Cust_job_zipcode", cust.Cust_job_zipcode);
-                cmd.Parameters.AddWithValue("@i_Cust_job_tel", cust.Cust_job_tel);
-                cmd.Parameters.AddWithValue("@i_Cust_job_email", cust.Cust_job_email);
-                cmd.Parameters.AddWithValue("@i_Cust_job_salary", cust.Cust_job_salary);
-                cmd.Parameters.AddWithValue("@i_Cust_status_id", cust.Cust_status_id);
+                cmd.Parameters.AddWithValue("@i_Cust_id", ctm.Cust_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard", ctm.Cust_Idcard);
+                cmd.Parameters.AddWithValue("@i_Cust_Fname", ctm.Cust_Fname);
+                cmd.Parameters.AddWithValue("@i_Cust_LName", ctm.Cust_LName);
+                cmd.Parameters.AddWithValue("@i_Cust_B_date", ctm.Cust_B_date);
+                cmd.Parameters.AddWithValue("@i_Cust_Age", ctm.Cust_Age);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_without", ctm.Cust_Idcard_without);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_start", ctm.Cust_Idcard_start);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_expire", ctm.Cust_Idcard_expire);
+                cmd.Parameters.AddWithValue("@i_Cust_Nationality_id", ctm.ctm_ntnlt.Nationality_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Origin_id", ctm.ctm_org.Origin_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Tel", ctm.Cust_Tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Email", ctm.Cust_Email);
+                cmd.Parameters.AddWithValue("@i_Cust_Status_id", ctm.ctm_pstt.person_status_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_idcard", ctm.Cust_Marry_idcard);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_Fname", ctm.Cust_Marry_Fname);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_Lname", ctm.Cust_Marry_Lname);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_Nationality", ctm.ctm_marry_ntnlt.Nationality_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_Origin", ctm.ctm_marry_org.Origin_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_Address_no", ctm.Cust_Marry_Address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_vilage", ctm.Cust_Marry_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_vilage_no", ctm.Cust_Marry_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_alley", ctm.Cust_Marry_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_road", ctm.Cust_Marry_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_subdistrict", ctm.Cust_Marry_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_district", ctm.Cust_Marry_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_province_id", ctm.ctm_marry_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_country", ctm.Cust_Marry_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_zipcode", ctm.Cust_Marry_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_tel", ctm.Cust_Marry_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_email", ctm.Cust_Marry_email);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job", ctm.Cust_Marry_job);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_position", ctm.Cust_Marry_job_position);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_long", ctm.Cust_Marry_job_long);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_salary", ctm.Cust_Marry_job_salary);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_local_name", ctm.Cust_Marry_job_local_name);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_address_no", ctm.Cust_Marry_job_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_vilage", ctm.Cust_Marry_job_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_vilage_no", ctm.Cust_Marry_job_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_alley", ctm.Cust_Marry_job_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_road", ctm.Cust_Marry_job_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_subdistrict", ctm.Cust_Marry_job_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_district", ctm.Cust_Marry_job_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_province_id", ctm.ctm_marry_job_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_country", ctm.Cust_Marry_job_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_zipcode", ctm.Cust_Marry_job_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_tel", ctm.Cust_Marry_job_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Job", ctm.Cust_Job);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_position", ctm.Cust_Job_position);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_long", ctm.Cust_Job_long);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_salary", ctm.Cust_Job_salary);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_local_name", ctm.Cust_Job_local_name);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_address_no", ctm.Cust_Job_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_vilage", ctm.Cust_Job_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_vilage_no", ctm.Cust_Job_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_alley", ctm.Cust_Job_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_road", ctm.Cust_Job_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_subdistrict", ctm.Cust_Job_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_district", ctm.Cust_Job_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_province_id", ctm.ctm_job_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_country", ctm.Cust_Job_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_zipcode", ctm.Cust_Job_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_tel", ctm.Cust_Job_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_email", ctm.Cust_Job_email);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_address_no", ctm.Cust_Home_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_vilage", ctm.Cust_Home_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_vilage_no", ctm.Cust_Home_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_alley", ctm.Cust_Home_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_road", ctm.Cust_Home_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_subdistrict", ctm.Cust_Home_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_district", ctm.Cust_Home_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_province_id", ctm.ctm_home_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_country", ctm.Cust_Home_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_zipcode", ctm.Cust_Home_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_tel", ctm.Cust_Home_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_GPS_Latitude", ctm.Cust_Home_GPS_Latitude);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_GPS_Longitude", ctm.Cust_Home_GPS_Longitude);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_Status_id", ctm.ctm_home_stt.Home_status_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_address_no", ctm.Cust_Idcard_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_vilage", ctm.Cust_Idcard_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_vilage_no", ctm.Cust_Idcard_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_alley", ctm.Cust_Idcard_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_road", ctm.Cust_Idcard_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_subdistrict", ctm.Cust_Idcard_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_district", ctm.Cust_Idcard_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_province_id", ctm.ctm_idcard_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_country", ctm.Cust_Idcard_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_zipcode", ctm.Cust_Idcard_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_tel", ctm.Cust_Idcard_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_Status_id", ctm.ctm_idcard_stt.Home_status_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_address_no", ctm.Cust_Current_address_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_vilage", ctm.Cust_Current_vilage);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_vilage_no", ctm.Cust_Current_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_alley", ctm.Cust_Current_alley);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_road", ctm.Cust_Current_road);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_subdistrict", ctm.Cust_Current_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_district", ctm.Cust_Current_district);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_province_id", ctm.ctm_current_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_country", ctm.Cust_Current_country);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_zipcode", ctm.Cust_Current_zipcode);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_tel", ctm.Cust_Current_tel);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_Status_id", ctm.ctm_current_stt.Home_status_id);
 
                 cmd.ExecuteNonQuery();
 
@@ -378,14 +788,14 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> editCustomers() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> editCustomers() ";
+                Log_Error._writeErrorFile(error, ex);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> editCustomers( : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> editCustomers( ";
+                Log_Error._writeErrorFile(error, ex);
                 return false;
             }
             finally
@@ -413,14 +823,14 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> generateDigitID() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> generateDigitID() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> generateDigitID() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> generateDigitID() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             finally
@@ -436,13 +846,13 @@ namespace JKLWebBase_v2.Managers_Customers
             try
             {
                 /* 
-                 * :: StoredProcedure :: [ g_last_customers_homeaddress_photo_by_id ] :: 
-                 * g_last_customers_homeaddress_photo_by_id (IN i_Cust_id varchar(50))
+                 * :: StoredProcedure :: [ g_customers_home_photo_lastnumber_by_id ] :: 
+                 * g_customers_home_photo_lastnumber_by_id (IN i_Cust_id varchar(50))
                  * 
                  */
 
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("g_last_customers_homeaddress_photo_by_id", con);
+                MySqlCommand cmd = new MySqlCommand("g_customers_home_photo_lastnumber_by_id", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
 
@@ -459,14 +869,14 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getLastNumberPhotoId() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getLastNumberPhotoId() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> getLastNumberPhotoId() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> getLastNumberPhotoId() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             finally
@@ -475,29 +885,29 @@ namespace JKLWebBase_v2.Managers_Customers
             }
         }
 
-        public List<Customers_Homeaddress_Photo> getCustomersHomePhoto(string Cust_id)
+        public List<Customers_Home_Photo> getCustomersHomePhoto(string Cust_id)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 /* 
-                 * :: StoredProcedure :: [ g_customers_homeaddress_photo ] :: 
-                 * g_customers_homeaddress_photo (IN i_Cust_id varchar(50))
+                 * :: StoredProcedure :: [ g_customers_home_photo ] :: 
+                 * g_customers_home_photo (IN i_Cust_id varchar(50))
                  * 
                  */
 
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("g_customers_homeaddress_photo", con);
+                MySqlCommand cmd = new MySqlCommand("g_customers_home_photo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                List<Customers_Homeaddress_Photo> list_ctm_photo = new List<Customers_Homeaddress_Photo>();
+                List<Customers_Home_Photo> list_ctm_photo = new List<Customers_Home_Photo>();
 
                 while (reader.Read())
                 {
-                    Customers_Homeaddress_Photo ctm_photo = new Customers_Homeaddress_Photo();
+                    Customers_Home_Photo ctm_photo = new Customers_Home_Photo();
 
                     int defaultNum = 0;
                     string defaultString = "";
@@ -518,14 +928,14 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhoto() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhoto() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhoto() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhoto() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             finally
@@ -534,7 +944,7 @@ namespace JKLWebBase_v2.Managers_Customers
             }
         }
 
-        public Customers_Homeaddress_Photo getCustomersHomePhotoSelected(string Cust_id, string Home_img_num)
+        public Customers_Home_Photo getCustomersHomePhotoSelected(string Cust_id, string Home_img_num)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
@@ -553,7 +963,7 @@ namespace JKLWebBase_v2.Managers_Customers
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                Customers_Homeaddress_Photo ctm_photo = new Customers_Homeaddress_Photo();
+                Customers_Home_Photo ctm_photo = new Customers_Home_Photo();
 
                 if (reader.Read())
                 {
@@ -574,14 +984,14 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhotoSelected) : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhotoSelected) ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhotoSelected() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomersHomePhotoSelected() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             finally
@@ -590,20 +1000,20 @@ namespace JKLWebBase_v2.Managers_Customers
             }
         }
 
-        public bool addCustomersHomePhoto(Customers_Homeaddress_Photo ctm_photo)
+        public bool addCustomersHomePhoto(Customers_Home_Photo ctm_photo)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 /* 
-                 * :: StoredProcedure :: [ i_customers_homeaddress_photo ] :: 
-                 * i_customers_homeaddress_photo   (in i_Cust_id varchar(50),       in i_Home_img_num int(11),      in i_Home_img_old_name text,    in i_Home_img_path text, 
+                 * :: StoredProcedure :: [ i_customers_home_photo ] :: 
+                 * i_customers_home_photo   (in i_Cust_id varchar(50),       in i_Home_img_num int(11),      in i_Home_img_old_name text,    in i_Home_img_path text, 
 				 *					                in i_Home_img_full_path text,   in i_Home_img_local_path text)
                  * 
                  */
 
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("i_customers_homeaddress_photo", con);
+                MySqlCommand cmd = new MySqlCommand("i_customers_home_photo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@i_Cust_id", ctm_photo.Cust_id);
@@ -619,14 +1029,14 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> addCustomersHomePhoto() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> addCustomersHomePhoto() ";
+                Log_Error._writeErrorFile(error, ex);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> addCustomersHomePhoto() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> addCustomersHomePhoto() ";
+                Log_Error._writeErrorFile(error, ex);
                 return false;
             }
             finally
@@ -641,13 +1051,13 @@ namespace JKLWebBase_v2.Managers_Customers
             try
             {
                 /* 
-                 * :: StoredProcedure :: [ d_customers_homeaddress_photo ] :: 
-                 * d_customers_homeaddress_photo (IN i_Cust_id varchar(50), IN i_Home_img_num INT(11))
+                 * :: StoredProcedure :: [ d_customers_home_photo ] :: 
+                 * d_customers_home_photo (IN i_Cust_id varchar(50), IN i_Home_img_num INT(11))
                  * 
                  */
 
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("d_customers_homeaddress_photo", con);
+                MySqlCommand cmd = new MySqlCommand("d_customers_home_photo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@i_Cust_id", Cust_id);
                 cmd.Parameters.AddWithValue("@i_Home_img_num", Home_img_num);
@@ -658,14 +1068,14 @@ namespace JKLWebBase_v2.Managers_Customers
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> removeCustomersHomePhoto() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> removeCustomersHomePhoto() ";
+                Log_Error._writeErrorFile(error, ex);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Customers --> Customers_Manager --> removeCustomersHomePhoto() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> removeCustomersHomePhoto() ";
+                Log_Error._writeErrorFile(error, ex);
                 return false;
             }
             finally

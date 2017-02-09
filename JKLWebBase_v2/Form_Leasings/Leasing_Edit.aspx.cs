@@ -65,13 +65,13 @@ namespace JKLWebBase_v2.Form_Leasings
 
             Session["Class_Active"] = 3;
 
-            if (Session["Dealers"] == null)
+            if (Session["Agents_Leasing"] == null)
             {
-                Response.Redirect("/Form_Leasings/Leasing_Add_Dealer");
+                Response.Redirect("/Form_Leasings/Leasing_Add_Agent");
             }
             else
             {
-                Response.Redirect("/Form_Leasings/Leasing_Edit_Dealer");
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Agent");
             }
         }
 
@@ -150,12 +150,12 @@ namespace JKLWebBase_v2.Form_Leasings
         // สาขา
         private void _loadBrands()
         {
-            List<Base_Branchs> list_data = new Base_Branchs_Manager().getBranchs();
-            Branch_DDL.Items.Add(new ListItem("--------กรุณาเลือก--------", "0"));
+            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys();
+            Company_DDL.Items.Add(new ListItem("--------กรุณาเลือก--------", "0"));
             for (int i = 0; i < list_data.Count; i++)
             {
-                Base_Branchs data = list_data[i];
-                Branch_DDL.Items.Add(new ListItem(data.Branch_code + " ( " + data.Branch_N_name + " ) ", data.Branch_id.ToString()));
+                Base_Companys data = list_data[i];
+                Company_DDL.Items.Add(new ListItem(data.Company_code + " ( " + data.Company_N_name + " ) ", data.Company_id.ToString()));
             }
         }
 
@@ -249,11 +249,11 @@ namespace JKLWebBase_v2.Form_Leasings
 
             Deps_No_TBx.Text = cls_tmp.Deps_no;
             Leasing_No_TBx.Text = cls_tmp.Leasing_no;
-            Leasing_Code_DDL.SelectedValue = cls_tmp.Leasing_code_id.ToString();
+            Leasing_Code_DDL.SelectedValue = cls_tmp.bs_ls_code.Leasing_code_id.ToString();
             Leasing_Date_TBx.Text = DateTimeUtility.convertDateToPage(cls_tmp.Leasing_date);
-            Branch_DDL.SelectedValue = cls_tmp.Branch_id.ToString();
-            Zone_DDL.SelectedValue = cls_tmp.Zone_id.ToString();
-            Court_DDL.SelectedValue = cls_tmp.Court_id.ToString();
+            Company_DDL.SelectedValue = cls_tmp.bs_cpn.Company_id.ToString();
+            Zone_DDL.SelectedValue = cls_tmp.bs_zn.Zone_id.ToString();
+            Court_DDL.SelectedValue = cls_tmp.bs_ct.Court_id.ToString();
             Person_Receive_Trasfer_TBx.Text = cls_tmp.PeReT;
 
             TotalPaymentTime_DDL.SelectedValue = cls_tmp.TotalPaymentTime.ToString();
@@ -278,10 +278,10 @@ namespace JKLWebBase_v2.Form_Leasings
             // ข้อมูลรถ
             Car_Register_Date_TBx.Text = DateTimeUtility.convertDateToPage(cls_tmp.Car_register_date);
             Car_Plate_TBx.Text = cls_tmp.Car_license_plate;
-            Car_Plate_Province_DDL.SelectedValue = cls_tmp.Car_plate_province.ToString();
+            Car_Plate_Province_DDL.SelectedValue = cls_tmp.cls_plate_pv.Province_id.ToString();
             Car_Type_TBx.Text = cls_tmp.Car_type;
             Car_Feature_TBx.Text = cls_tmp.Car_feature;
-            Car_Brand_DDL.SelectedValue = cls_tmp.Car_brand.ToString();
+            Car_Brand_DDL.SelectedValue = cls_tmp.bs_cbrn.car_brand_id.ToString();
             Car_Model_TBx.Text = cls_tmp.Car_model;
             Car_Year_DDL.SelectedValue = cls_tmp.Car_year;
             Car_Color_TBx.Text = cls_tmp.Car_color;
@@ -309,11 +309,11 @@ namespace JKLWebBase_v2.Form_Leasings
             Car_Old_Owner_Road_TBx.Text = cls_tmp.Car_old_owner_road.IndexOf('.') >= 1 ? cls_tmp.Car_old_owner_road.Split('.')[1] : "";
             Car_Old_Owner_Subdistrict_TBx.Text = cls_tmp.Car_old_owner_subdistrict.IndexOf('.') >= 1 ? cls_tmp.Car_old_owner_subdistrict.Split('.')[1] : "";
             Car_Old_Owner_District_TBx.Text = cls_tmp.Car_old_owner_district.IndexOf('.') >= 1 ? cls_tmp.Car_old_owner_district.Split('.')[1] : "";
-            Car_Old_Owner_Province_DDL.SelectedValue = cls_tmp.Car_old_owner_province.ToString();
+            Car_Old_Owner_Province_DDL.SelectedValue = cls_tmp.cls_owner_pv.Province_id.ToString();
             Car_Old_Owner_Contry_TBx.Text = cls_tmp.Car_old_owner_contry;
             Car_Old_Owner_Zipcode_TBx.Text = cls_tmp.Car_old_owner_zipcode;
 
-            Tent_car_DDL.SelectedValue = cls_tmp.Tent_car_id.ToString();
+            Tent_car_DDL.SelectedValue = cls_tmp.tent_car.Tent_car_id.ToString();
             Cheque_receiver_TBx.Text = cls_tmp.Cheque_receiver;
             Cheque_bank_TBx.Text = cls_tmp.Cheque_bank;
             Cheque_bank_branch_TBx.Text = cls_tmp.Cheque_bank_branch;
@@ -446,7 +446,7 @@ namespace JKLWebBase_v2.Form_Leasings
         *******************************************************************************************************************************************************************************/
 
 
-        private bool _EditLeasings()
+        private void _EditLeasings()
         {
             Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
             Car_Leasings cls = new Car_Leasings();
@@ -457,11 +457,21 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Leasing_id = cls_tmp.Leasing_id;
             cls.Deps_no = string.IsNullOrEmpty(Deps_No_TBx.Text) ? "" : Deps_No_TBx.Text;
             cls.Leasing_no = string.IsNullOrEmpty(Leasing_No_TBx.Text) ? "" : Leasing_No_TBx.Text;
-            cls.Leasing_code_id = Leasing_Code_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Leasing_Code_DDL.SelectedValue);
+
+            cls.bs_ls_code = new Base_Leasing_Code();
+            cls.bs_ls_code.Leasing_code_id = Leasing_Code_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Leasing_Code_DDL.SelectedValue);
+
             cls.Leasing_date = string.IsNullOrEmpty(Leasing_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Leasing_Date_TBx.Text);
-            cls.Branch_id = Branch_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Branch_DDL.SelectedValue);
-            cls.Zone_id = Zone_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Zone_DDL.SelectedValue);
-            cls.Court_id = Court_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Court_DDL.SelectedValue);
+
+            cls.bs_cpn = new Base_Companys();
+            cls.bs_cpn.Company_id = Company_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Company_DDL.SelectedValue);
+
+            cls.bs_zn = new Base_Zone_Service();
+            cls.bs_zn.Zone_id = Zone_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Zone_DDL.SelectedValue);
+
+            cls.bs_ct = new Base_Courts();
+            cls.bs_ct.Court_id = Court_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Court_DDL.SelectedValue);
+
             cls.PeReT = string.IsNullOrEmpty(Person_Receive_Trasfer_TBx.Text) ? "" : Person_Receive_Trasfer_TBx.Text;
 
             // ข้อมูลการประเมิน
@@ -489,10 +499,16 @@ namespace JKLWebBase_v2.Form_Leasings
             // ข้อมูลรถ
             cls.Car_register_date = string.IsNullOrEmpty(Car_Register_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Car_Register_Date_TBx.Text);
             cls.Car_license_plate = string.IsNullOrEmpty(Car_Plate_TBx.Text) ? "" : Car_Plate_TBx.Text;
-            cls.Car_plate_province = Car_Plate_Province_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Plate_Province_DDL.SelectedValue);
+
+            cls.cls_plate_pv = new TH_Provinces();
+            cls.cls_plate_pv.Province_id = Car_Plate_Province_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Plate_Province_DDL.SelectedValue);
+
             cls.Car_type = string.IsNullOrEmpty(Car_Type_TBx.Text) ? "" : Car_Type_TBx.Text;
             cls.Car_feature = string.IsNullOrEmpty(Car_Feature_TBx.Text) ? "" : Car_Feature_TBx.Text;
-            cls.Car_brand = Car_Brand_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Brand_DDL.SelectedValue);
+
+            cls.bs_cbrn = new Base_Car_Brands();
+            cls.bs_cbrn.car_brand_id = Car_Brand_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Brand_DDL.SelectedValue);
+
             cls.Car_model = string.IsNullOrEmpty(Car_Model_TBx.Text) ? "" : Car_Model_TBx.Text;
             cls.Car_year = Car_Year_DDL.SelectedIndex <= 0 ? "" : Car_Year_DDL.SelectedValue;
             cls.Car_color = string.IsNullOrEmpty(Car_Color_TBx.Text) ? "" : Car_Color_TBx.Text;
@@ -513,7 +529,7 @@ namespace JKLWebBase_v2.Form_Leasings
             // ข้อมูลเจ้าของรถเดิม
             cls.Car_old_owner = string.IsNullOrEmpty(Car_Old_Owner_TBx.Text) ? "" : Car_Old_Owner_TBx.Text;
             cls.Car_old_owner_idcard = string.IsNullOrEmpty(Car_Old_Owner_Idcard_TBx.Text) ? "" : Car_Old_Owner_Idcard_TBx.Text;
-            cls.Car_old_owner_b_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Car_old_owner_b_date_TBx.Text);
+            cls.Car_old_owner_b_date = string.IsNullOrEmpty(Car_old_owner_b_date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Car_old_owner_b_date_TBx.Text);
             cls.Car_old_owner_address_no = string.IsNullOrEmpty(Car_Old_Owner_Address_No_TBx.Text) ? "" : Car_Old_Owner_Address_No_TBx.Text;
             cls.Car_old_owner_vilage = string.IsNullOrEmpty(Car_Old_Owner_Vilage_TBx.Text) ? "บ.-" : "บ." + Car_Old_Owner_Vilage_TBx.Text;
             cls.Car_old_owner_vilage_no = string.IsNullOrEmpty(Car_Old_Owner_Vilage_No_TBx.Text) ? "ม.-" : "ม." + Car_Old_Owner_Vilage_No_TBx.Text;
@@ -521,12 +537,15 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Car_old_owner_road = string.IsNullOrEmpty(Car_Old_Owner_Road_TBx.Text) ? "ถ.-" : "ถ." + Car_Old_Owner_Road_TBx.Text;
             cls.Car_old_owner_subdistrict = string.IsNullOrEmpty(Car_Old_Owner_Subdistrict_TBx.Text) ? "ต.-" : "ต." + Car_Old_Owner_Subdistrict_TBx.Text;
             cls.Car_old_owner_district = string.IsNullOrEmpty(Car_Old_Owner_District_TBx.Text) ? "อ.-" : "อ." + Car_Old_Owner_District_TBx.Text;
-            cls.Car_old_owner_province = Car_Old_Owner_Province_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Old_Owner_Province_DDL.SelectedValue);
+
+            cls.cls_owner_pv = new TH_Provinces();
+            cls.cls_owner_pv.Province_id = Car_Old_Owner_Province_DDL.SelectedIndex < 0 ? 39 : Convert.ToInt32(Car_Old_Owner_Province_DDL.SelectedValue);
+
             cls.Car_old_owner_contry = string.IsNullOrEmpty(Car_Old_Owner_Contry_TBx.Text) ? "" : Car_Old_Owner_Contry_TBx.Text;
             cls.Car_old_owner_zipcode = string.IsNullOrEmpty(Car_Old_Owner_Zipcode_TBx.Text) ? "" : Car_Old_Owner_Zipcode_TBx.Text;
 
-            cls.Cust_id = cls_tmp.Cust_id;
-            cls.Tent_car_id = Tent_car_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Tent_car_DDL.SelectedValue);
+            cls.tent_car = new Base_Tents_Car();
+            cls.tent_car.Tent_car_id = Tent_car_DDL.SelectedIndex < 0 ? 0 : Convert.ToInt32(Tent_car_DDL.SelectedValue);
 
             // ข้อมูลเช็คและการโอน
             cls.Cheque_receiver = string.IsNullOrEmpty(Cheque_receiver_TBx.Text) ? "" : Cheque_receiver_TBx.Text;
@@ -534,14 +553,17 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Cheque_bank_branch = string.IsNullOrEmpty(Cheque_bank_branch_TBx.Text) ? "" : Cheque_bank_branch_TBx.Text;
             cls.Cheque_number = string.IsNullOrEmpty(Cheque_number_TBx.Text) ? "" : Cheque_number_TBx.Text;
             cls.Cheque_sum = string.IsNullOrEmpty(Cheque_sum_TBx.Text) ? 0 : Convert.ToDouble(Cheque_sum_TBx.Text);
-            cls.Cheque_receive_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);
+            cls.Cheque_receive_date = string.IsNullOrEmpty(Cheque_receive_date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);
+            cls.Guarantee = string.IsNullOrEmpty(Guarantee_TBx.Text) ? "" : Guarantee_TBx.Text;
 
-            cls.Contract_status = cls_tmp.Contract_status;
+            cls.bs_ls_stt = new Base_Leasing_Status();
+            cls.bs_ls_stt.Contract_Status_id = 1;
+
+            cls_mng.editCarLeasings(cls);
+
+
 
             Session["Leasings"] = cls;
-
-            return cls_mng.editCarLeasings(cls);
-
         }
     }
 }

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using JKLWebBase_v2.Class_Agents;
+using JKLWebBase_v2.Class_Leasings;
+using JKLWebBase_v2.Class_Customers;
+using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace JKLWebBase_v2.Form_Main
 {
-    public partial class Tabs_Menu_Leasings : System.Web.UI.UserControl
+    public partial class Tabs_Menu_Leasings : UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,12 +14,12 @@ namespace JKLWebBase_v2.Form_Main
             {
                 link_Customer_Add.Enabled = true;
                 link_Leasing_Add.Enabled = true;
-                link_Dealers_Add.Enabled = false;
-                link_Add_Bondsman_1.Enabled = false;
-                link_Add_Bondsman_2.Enabled = false;
-                link_Add_Bondsman_3.Enabled = false;
-                link_Add_Bondsman_4.Enabled = false;
-                link_Add_Bondsman_5.Enabled = false;
+                link_Agents_Add.Enabled = false;
+                link_Add_Guarantor_1.Enabled = false;
+                link_Add_Guarantor_2.Enabled = false;
+                link_Add_Guarantor_3.Enabled = false;
+                link_Add_Guarantor_4.Enabled = false;
+                link_Add_Guarantor_5.Enabled = false;
                 link_Add_Car_Img.Enabled = false;
                 link_List_Payment_Schedule.Enabled = false;
             }
@@ -28,12 +27,12 @@ namespace JKLWebBase_v2.Form_Main
             {
                 link_Customer_Add.Enabled = true;
                 link_Leasing_Add.Enabled = true;
-                link_Dealers_Add.Enabled = true;
-                link_Add_Bondsman_1.Enabled = true;
-                link_Add_Bondsman_2.Enabled = true;
-                link_Add_Bondsman_3.Enabled = true;
-                link_Add_Bondsman_4.Enabled = true;
-                link_Add_Bondsman_5.Enabled = true;
+                link_Agents_Add.Enabled = true;
+                link_Add_Guarantor_1.Enabled = true;
+                link_Add_Guarantor_2.Enabled = true;
+                link_Add_Guarantor_3.Enabled = true;
+                link_Add_Guarantor_4.Enabled = true;
+                link_Add_Guarantor_5.Enabled = true;
                 link_Add_Car_Img.Enabled = true;
                 link_List_Payment_Schedule.Enabled = true;
             }
@@ -41,12 +40,12 @@ namespace JKLWebBase_v2.Form_Main
             {
                 link_Customer_Add.Enabled = true;
                 link_Leasing_Add.Enabled = false;
-                link_Dealers_Add.Enabled = false;
-                link_Add_Bondsman_1.Enabled = false;
-                link_Add_Bondsman_2.Enabled = false;
-                link_Add_Bondsman_3.Enabled = false;
-                link_Add_Bondsman_4.Enabled = false;
-                link_Add_Bondsman_5.Enabled = false;
+                link_Agents_Add.Enabled = false;
+                link_Add_Guarantor_1.Enabled = false;
+                link_Add_Guarantor_2.Enabled = false;
+                link_Add_Guarantor_3.Enabled = false;
+                link_Add_Guarantor_4.Enabled = false;
+                link_Add_Guarantor_5.Enabled = false;
                 link_Add_Car_Img.Enabled = false;
                 link_List_Payment_Schedule.Enabled = false;
             }
@@ -81,97 +80,97 @@ namespace JKLWebBase_v2.Form_Main
 
         }
 
-        protected void link_Dealers_Add_Click(object sender, EventArgs e)
+        protected void link_Agents_Add_Click(object sender, EventArgs e)
         {
             Session["Class_Active"] = 3;
 
-            if (Session["Dealers_Leasing"] == null)
+            if (Session["Agents_Leasing"] == null)
             {
-                Response.Redirect("/Form_Leasings/Leasing_Add_Dealer");
+                Response.Redirect("/Form_Leasings/Leasing_Add_Agent");
             }
             else
             {
-                Response.Redirect("/Form_Leasings/Leasing_Edit_Dealer");
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Agent");
             }
         }
 
-        protected void link_Add_Bondsman_1_Click(object sender, EventArgs e)
+        protected void link_Add_Guarantor_1_Click(object sender, EventArgs e)
         {
             Session["Class_Active"] = 4;
 
-            Session["Number_Of_Bondsman"] = "1";
+            Session["Number_Of_Guarantor"] = "1";
 
-            if (Session["Bondsman_1"] == null)
+            if (Session["Guarantor_1"] == null)
             {
-                Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
+                Response.Redirect("/Form_Leasings/Leasing_Add_Guarantor");
             }
             else
             {
-                Response.Redirect("/Form_Leasings/Leasing_Edit_Bondsman");
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Guarantor");
             }
         }
 
-        protected void link_Add_Bondsman_2_Click(object sender, EventArgs e)
+        protected void link_Add_Guarantor_2_Click(object sender, EventArgs e)
         {
             Session["Class_Active"] = 5;
 
-            Session["Number_Of_Bondsman"] = "2";
+            Session["Number_Of_Guarantor"] = "2";
 
-            if (Session["Bondsman_2"] == null)
+            if (Session["Guarantor_2"] == null)
             {
-                Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
+                Response.Redirect("/Form_Leasings/Leasing_Add_Guarantor");
             }
             else
             {
-                Response.Redirect("/Form_Leasings/Leasing_Edit_Bondsman");
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Guarantor");
             }
         }
 
-        protected void link_Add_Bondsman_3_Click(object sender, EventArgs e)
+        protected void link_Add_Guarantor_3_Click(object sender, EventArgs e)
         {
             Session["Class_Active"] = 6;
 
-            Session["Number_Of_Bondsman"] = "3";
+            Session["Number_Of_Guarantor"] = "3";
 
-            if (Session["Bondsman_3"] == null)
+            if (Session["Guarantor_3"] == null)
             {
-                Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
+                Response.Redirect("/Form_Leasings/Leasing_Add_Guarantor");
             }
             else
             {
-                Response.Redirect("/Form_Leasings/Leasing_Edit_Bondsman");
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Guarantor");
             }
         }
 
-        protected void link_Add_Bondsman_4_Click(object sender, EventArgs e)
+        protected void link_Add_Guarantor_4_Click(object sender, EventArgs e)
         {
             Session["Class_Active"] = 7;
 
-            Session["Number_Of_Bondsman"] = "4";
+            Session["Number_Of_Guarantor"] = "4";
 
-            if (Session["Bondsman_4"] == null)
+            if (Session["Guarantor_4"] == null)
             {
-                Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
+                Response.Redirect("/Form_Leasings/Leasing_Add_Guarantor");
             }
             else
             {
-                Response.Redirect("/Form_Leasings/Leasing_Edit_Bondsman");
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Guarantor");
             }
         }
 
-        protected void link_Add_Bondsman_5_Click(object sender, EventArgs e)
+        protected void link_Add_Guarantor_5_Click(object sender, EventArgs e)
         {
             Session["Class_Active"] = 8;
 
-            Session["Number_Of_Bondsman"] = "5";
+            Session["Number_Of_Guarantor"] = "5";
 
-            if (Session["Bondsman_5"] == null)
+            if (Session["Guarantor_5"] == null)
             {
-                Response.Redirect("/Form_Leasings/Leasing_Add_Bondsman");
+                Response.Redirect("/Form_Leasings/Leasing_Add_Guarantor");
             }
             else
             {
-                Response.Redirect("/Form_Leasings/Leasing_Edit_Bondsman");
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Guarantor");
             }
         }
 

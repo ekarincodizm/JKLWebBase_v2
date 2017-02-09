@@ -1,14 +1,9 @@
-﻿using JKLWebBase_v2.Reports.Leasings.Certified_Leasing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace JKLWebBase_v2.Form_Main
 {
-    public partial class Main_JKL_Form : System.Web.UI.Page
+    public partial class Main_JKL_Form : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,10 +14,10 @@ namespace JKLWebBase_v2.Form_Main
         {
             Session.Remove("List_Customers");
             Session.Remove("List_Leasings");
-            Session.Remove("List_Dealers");
+            Session.Remove("List_Agents");
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
-            Session.Remove("Dealers_Leasing");
+            Session.Remove("Agent_Leasing");
 
             Response.Redirect("/Form_Leasings/Leasing_Search_Payment");
         }
@@ -31,10 +26,10 @@ namespace JKLWebBase_v2.Form_Main
         {
             Session.Remove("List_Customers");
             Session.Remove("List_Leasings");
-            Session.Remove("List_Dealers");
+            Session.Remove("List_Agents");
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
-            Session.Remove("Dealers_Leasing");
+            Session.Remove("Agent_Leasing");
 
             Session["Class_Active"] = 1;
 
@@ -50,26 +45,26 @@ namespace JKLWebBase_v2.Form_Main
         {
             Session.Remove("List_Customers");
             Session.Remove("List_Leasings");
-            Session.Remove("List_Dealers");
+            Session.Remove("List_Agents");
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
-            Session.Remove("Dealers_Leasing");
+            Session.Remove("Agent_Leasing");
 
             Session["Class_Active_Customer"] = 1;
 
             Response.Redirect("/Form_Customer/Customer_Search");
         }
 
-        protected void link_Search_Dealers_Click(object sender, EventArgs e)
+        protected void link_Search_Agents_Click(object sender, EventArgs e)
         {
             Session.Remove("List_Customers");
             Session.Remove("List_Leasings");
-            Session.Remove("List_Dealers");
+            Session.Remove("List_Agents");
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
-            Session.Remove("Dealers_Leasing");
+            Session.Remove("Agent_Leasing");
 
-            Response.Redirect("/Form_Dealer/Dealer_Search");
+            Response.Redirect("/Form_Agents/Agents_Search");
         }
     }
 }

@@ -35,14 +35,14 @@ namespace JKLWebBase_v2.Managers_Base
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Base --> Base_Origins_Manager --> getOrigins() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "MysqlException ==> Managers_Base --> Base_Origins_Manager --> getOrigins() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Base --> Base_Origins_Manager --> getOrigins() : " + ex.Message.ToString();
-                Log_Error._writeErrorFile(error);
+                error = "Exception ==> Managers_Base --> Base_Origins_Manager --> getOrigins() ";
+                Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             finally

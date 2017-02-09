@@ -61,7 +61,7 @@
 
             <div class="row">
                 <div class="col-lg-4">
-                    <asp:HyperLink ID="link_Report_Form_Certified_Leasing_Outline" runat="server" NavigateUrl="/Reports/Leasings/Certified_Leasing/Certified_Leasing_Outline_Prv" Target="_blank">
+                    <asp:HyperLink ID="link_Report_Form_Certified_Leasing_Outline" runat="server" NavigateUrl="/Reports_Leasings/Certified_Leasing/Certified_Leasing_Outline_Prv" Target="_blank">
                             <div class="panel panel-danger">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -101,7 +101,7 @@
                     </asp:LinkButton>
                 </div>
                 <div class="col-lg-4">
-                    <asp:LinkButton ID="link_Search_Dealers" runat="server" OnClick="link_Search_Dealers_Click">
+                    <asp:LinkButton ID="link_Search_Agents" runat="server" OnClick="link_Search_Agents_Click">
                     <div class="panel panel-warning">
                         <div class="panel-heading">
                             <div class="row">

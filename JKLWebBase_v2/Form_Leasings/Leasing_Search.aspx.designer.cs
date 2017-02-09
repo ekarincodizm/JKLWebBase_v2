@@ -157,22 +157,22 @@ namespace JKLWebBase_v2 {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Branch_ChkBx_All control.
+        /// Company_ChkBxL_All control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Branch_ChkBx_All;
+        protected global::System.Web.UI.WebControls.CheckBox Company_ChkBxL_All;
         
         /// <summary>
-        /// Branch_ChkBxL control.
+        /// Company_ChkBxL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList Branch_ChkBxL;
+        protected global::System.Web.UI.WebControls.CheckBoxList Company_ChkBxL;
         
         /// <summary>
         /// Label2 control.

@@ -23,10 +23,10 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <asp:LinkButton ID="link_Menu_Search_Dealer" runat="server" OnClick="link_Menu_Search_Dealer_Click"> <i class="fa fa-search fa-fw"></i> ค้นหาข้อมูลนายหน้า </asp:LinkButton>
+                    <asp:LinkButton ID="link_Menu_Search_Agent" runat="server" OnClick="link_Menu_Search_Agent_Click"> <i class="fa fa-search fa-fw"></i> ค้นหาข้อมูลนายหน้า </asp:LinkButton>
                 </li>
                 <li>
-                    <asp:LinkButton ID="link_Menu_Add_Dealer" runat="server" OnClick="link_Menu_Add_Dealer_Click"> <i class="fa fa-user fa-fw"></i> เพิ่มข้อมูลนายหน้า </asp:LinkButton>
+                    <asp:LinkButton ID="link_Menu_Add_Agent" runat="server" OnClick="link_Menu_Add_Agent_Click"> <i class="fa fa-user fa-fw"></i> เพิ่มข้อมูลนายหน้า </asp:LinkButton>
                 </li>
             </ul>
         </li>

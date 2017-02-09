@@ -165,11 +165,11 @@
                 <%
                     if (Session["list_ctm_photo"] != null)
                     {
-                        List<Customers_Homeaddress_Photo> list_ctm_photo = (List<Customers_Homeaddress_Photo>)Session["list_ctm_photo"];
+                        List<Customers_Home_Photo> list_ctm_photo = (List<Customers_Home_Photo>)Session["list_ctm_photo"];
                         int col = 1;
                         for(int i = 0; i < list_ctm_photo.Count; i++)
                         {
-                            Customers_Homeaddress_Photo ctm_photo = list_ctm_photo[i];
+                            Customers_Home_Photo ctm_photo = list_ctm_photo[i];
 
                             string ogn_code = CryptographyCode.GenerateSHA512String(ctm_photo.Cust_id);
                         

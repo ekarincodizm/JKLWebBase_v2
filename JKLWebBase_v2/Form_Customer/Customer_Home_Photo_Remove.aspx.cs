@@ -28,7 +28,7 @@ namespace JKLWebBase_v2.Form_Customer
                     string number_img = code[2];
 
                     Customers_Manager ctm_mng = new Customers_Manager();
-                    Customers_Homeaddress_Photo ctm_home_photo = ctm_mng.getCustomersHomePhotoSelected(Cust_id, number_img);
+                    Customers_Home_Photo ctm_home_photo = ctm_mng.getCustomersHomePhotoSelected(Cust_id, number_img);
 
                     if (string.IsNullOrEmpty(ctm_home_photo.Home_img_path))
                     {

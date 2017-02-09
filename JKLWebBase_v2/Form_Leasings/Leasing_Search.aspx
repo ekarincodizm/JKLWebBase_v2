@@ -128,9 +128,9 @@
                 </div>
                 <div class="form-group col-xs-6">
                     <asp:Label ID="Label1" runat="server" CssClass="checkbox">สาขา
-                        <asp:CheckBox ID="Branch_ChkBx_All" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="Branch_ChkBx_All_CheckedChanged" AutoPostBack="true" />
+                        <asp:CheckBox ID="Company_ChkBxL_All" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="Company_ChkBxL_All_CheckedChanged" AutoPostBack="true" />
                     </asp:Label>
-                    <asp:CheckBoxList ID="Branch_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="6">
+                    <asp:CheckBoxList ID="Company_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="6">
                     </asp:CheckBoxList>
                 </div>
                 <div class="form-group col-xs-4">
@@ -185,41 +185,41 @@
                         <tr>
                             <td >
                                 <% 
-                                    if (cls.Contract_status == 1)
+                                    if (cls.bs_ls_stt.Contract_Status_id == 1)
                                     {
-                                        Response.Write("<label class='label label-success' > " + cls.bs_ls_st.Contract_Status_name + " </label>");
+                                        Response.Write("<label class='label label-success' > " + cls.bs_ls_stt.Contract_Status_name + " </label>");
                                     }
-                                    else if(cls.Contract_status  == 2)
+                                    else if(cls.bs_ls_stt.Contract_Status_id  == 2)
                                     {
-                                        Response.Write("<label class='label label-warning' >  " + cls.bs_ls_st.Contract_Status_name + "  </label>");
+                                        Response.Write("<label class='label label-warning' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.Contract_status  == 3)
+                                    else if(cls.bs_ls_stt.Contract_Status_id  == 3)
                                     {
-                                        Response.Write("<label class='label label-warning' >  " + cls.bs_ls_st.Contract_Status_name + "  </label>");
+                                        Response.Write("<label class='label label-warning' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.Contract_status  == 4)
+                                    else if(cls.bs_ls_stt.Contract_Status_id  == 4)
                                     {
-                                        Response.Write("<label class='label label-danger' >  " + cls.bs_ls_st.Contract_Status_name + "  </label>");
+                                        Response.Write("<label class='label label-danger' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.Contract_status  == 5)
+                                    else if(cls.bs_ls_stt.Contract_Status_id  == 5)
                                     {
-                                        Response.Write("<label class='label label-danger' >  " + cls.bs_ls_st.Contract_Status_name + "  </label>");
+                                        Response.Write("<label class='label label-danger' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.Contract_status == 6)
+                                    else if(cls.bs_ls_stt.Contract_Status_id == 6)
                                     {
-                                        Response.Write("<label class='label label-danger' >  " + cls.bs_ls_st.Contract_Status_name + "  </label>");
+                                        Response.Write("<label class='label label-danger' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.Contract_status == 7)
+                                    else if(cls.bs_ls_stt.Contract_Status_id == 7)
                                     {
-                                        Response.Write("<label class='label label-info' >  " + cls.bs_ls_st.Contract_Status_name + "  </label>");
+                                        Response.Write("<label class='label label-info' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.Contract_status == 8)
+                                    else if(cls.bs_ls_stt.Contract_Status_id == 8)
                                     {
-                                        Response.Write("<label class='label label-info' >  " + cls.bs_ls_st.Contract_Status_name + "  </label>");
+                                        Response.Write("<label class='label label-info' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.Contract_status == 9)
+                                    else if(cls.bs_ls_stt.Contract_Status_id == 9)
                                     {
-                                        Response.Write("<label class='label label-success' >  " + cls.bs_ls_st.Contract_Status_name + "  </label>");
+                                        Response.Write("<label class='label label-success' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
                                 %>
                             </td>
@@ -234,7 +234,7 @@
                             <td <%= cls.Total_payment_left == 0 ? "style='color: #2fba00;'" : "style='color: #ff0000;'" %> ><%= cls.Total_payment_left.ToString("#,###.00") %></td>
                             <td style="color: #ff0000;"><%= cls.Total_period_lose %></td>
                             <td >
-                                <a class="btn btn-xs btn-warning" href="Leasing_Edit_Customer?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, cls.ctm.Cust_idcard) %>" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit" ></i></a>
+                                <a class="btn btn-xs btn-warning" href="Leasing_Edit_Customer?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, cls.ctm.Cust_Idcard) %>" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit" ></i></a>
                                 <a class="btn btn-xs btn-info" href="<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, "") %>" data-toggle="tooltip" data-placement="top" title="รายการเช่า - ซื้อ"><i class="fa fa-list-alt"></i></a>
                             </td>
                         </tr>

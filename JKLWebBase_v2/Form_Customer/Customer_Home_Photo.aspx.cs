@@ -109,7 +109,7 @@ namespace JKLWebBase_v2.Form_Customer
 
                         userPostedFile.SaveAs(subDirectoryPath + "\\" + Path.GetFileName(old_name).Replace(old_name, new_name));
 
-                        Customers_Homeaddress_Photo ctm_photo = new Customers_Homeaddress_Photo();
+                        Customers_Home_Photo ctm_photo = new Customers_Home_Photo();
 
                         ctm_photo.Cust_id = ctm.Cust_id;
                         ctm_photo.Home_img_num = Convert.ToInt32(number_img);
@@ -125,8 +125,8 @@ namespace JKLWebBase_v2.Form_Customer
                 catch (Exception ex)
                 {
                     Session["Uploaded"] = 0;
-                    string error = "ไม่สามารถ Upload รูปภาพนี้ได้ : " + ex.Message.ToString();
-                    Log_Error._writeErrorFile(error);
+                    string error = "ไม่สามารถ Upload รูปภาพนี้ได้ ";
+                    Log_Error._writeErrorFile(error, ex);
                 }
             }
 
@@ -139,7 +139,7 @@ namespace JKLWebBase_v2.Form_Customer
         {
             ctm = (Customers)Session["Customer"];
 
-            List<Customers_Homeaddress_Photo> list_ctm_photo = ctm_mng.getCustomersHomePhoto(ctm.Cust_id);
+            List<Customers_Home_Photo> list_ctm_photo = ctm_mng.getCustomersHomePhoto(ctm.Cust_id);
 
             Session["list_ctm_photo"] = list_ctm_photo;
         }

@@ -49,13 +49,13 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.HyperLink Print_Full_Payment_Schedule;
         
         /// <summary>
-        /// Print_P_NG_D_3 control.
+        /// Print_Withholding_Tax control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Print_P_NG_D_3;
+        protected global::System.Web.UI.WebControls.HyperLink Print_Withholding_Tax;
         
         /// <summary>
         /// Print_SH control.

@@ -58,13 +58,13 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_Search_Customers;
         
         /// <summary>
-        /// link_Search_Dealers control.
+        /// link_Search_Agents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Search_Dealers;
+        protected global::System.Web.UI.WebControls.LinkButton link_Search_Agents;
         
         /// <summary>
         /// LinkButton5 control.

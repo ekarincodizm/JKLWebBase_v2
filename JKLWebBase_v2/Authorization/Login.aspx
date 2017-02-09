@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Login_Test" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="JKLWebBase_v2.Login" %>
+﻿<%@ Page Title="Login" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="JKLWebBase_v2.Login" %>
 
 <!DOCTYPE html>
 

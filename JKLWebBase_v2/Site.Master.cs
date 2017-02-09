@@ -74,13 +74,30 @@ namespace JKLWebBase_v2
         {
             if (!IsPostBack)
             {
-                Username_Lbl.Text = " IP Client Connect : " + Request.UserHostAddress + " | MAC : " + GetMACAddressFromClient();
+                Username_Lbl.Text = " IP Client Connect : " + Request.UserHostAddress + " | MAC : " + GetMACAddressServer();
             }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        public string GetMACAddress()
+        {
+            ManagementObjectSearcher objMOS = new ManagementObjectSearcher("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection objMOC = objMOS.Get();
+            string MACAddress = String.Empty;
+            foreach (ManagementObject objMO in objMOC)
+            {
+                if (MACAddress == String.Empty) // only return MAC Address from first card   
+                {
+                    MACAddress = objMO["MacAddress"].ToString();
+                }
+                objMO.Dispose();
+            }
+            MACAddress = MACAddress.Replace(":", "");
+            return MACAddress;
         }
 
         public string GetMACAddressServer()

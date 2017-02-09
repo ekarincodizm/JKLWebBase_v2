@@ -337,8 +337,8 @@
                             <asp:TextBox ID="Cheque_bank_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                         </div>
                         <div class="col-xs-2">
-                            <asp:Label ID="Cheque_bank_branch_Lbl" runat="server" > สาขา </asp:Label>
-                            <asp:TextBox ID="Cheque_bank_branch_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
+                            <asp:Label ID="Cheque_bank_Branch_Lbl" runat="server" > สาขา </asp:Label>
+                            <asp:TextBox ID="Cheque_bank_Branch_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Check_number_Lbl" runat="server" >หมายเลขเช็ค / เลขบัญชี </asp:Label>
@@ -421,8 +421,8 @@
                             <asp:TextBox ID="Leasing_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-2">
-                            <asp:Label ID="Branch_Lbl" runat="server" >สาขา <asp:RequiredFieldValidator ID="RFV_Branch_DDL" runat="server" ErrorMessage=" กรุณาเลือก " CssClass="text-danger" ControlToValidate="Branch_DDL" SetFocusOnError="true" ValidationGroup="Save_Validation" InitialValue="0"></asp:RequiredFieldValidator> </asp:Label>
-                            <asp:DropDownList ID="Branch_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
+                            <asp:Label ID="Company_Lbl" runat="server" >สาขา <asp:RequiredFieldValidator ID="RFV_Company_DDL" runat="server" ErrorMessage=" กรุณาเลือก " CssClass="text-danger" ControlToValidate="Company_DDL" SetFocusOnError="true" ValidationGroup="Save_Validation" InitialValue="0"></asp:RequiredFieldValidator> </asp:Label>
+                            <asp:DropDownList ID="Company_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Zone_Lbl" runat="server" >เขตบริการ <asp:RequiredFieldValidator ID="RFV_Zone_DDL" runat="server" ErrorMessage=" กรุณาเลือก " CssClass="text-danger" ControlToValidate="Zone_DDL" SetFocusOnError="true" ValidationGroup="Save_Validation" InitialValue="0"></asp:RequiredFieldValidator> </asp:Label>
@@ -483,9 +483,13 @@
                             <asp:Label ID="Court_Lbl" runat="server" >ศาล <asp:RequiredFieldValidator ID="RFV_Court_DDL" runat="server" ErrorMessage=" กรุณาเลือก " CssClass="text-danger" ControlToValidate="Court_DDL" SetFocusOnError="true" ValidationGroup="Save_Validation" InitialValue="0"></asp:RequiredFieldValidator> </asp:Label>
                             <asp:DropDownList ID="Court_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col-xs-4">
                             <asp:Label ID="Person_Receive_Trasfer_Lbl" runat="server" >ผู้รับโอน</asp:Label>
                             <asp:TextBox ID="Person_Receive_Trasfer_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                        <div class="col-xs-4">
+                            <asp:Label ID="Guarantee_Lbl" runat="server" >หลักประกัน</asp:Label>
+                            <asp:TextBox ID="Guarantee_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
 

@@ -45,22 +45,22 @@ namespace JKLWebBase_v2.Form_Leasings
             }
         }
 
-        protected void Branch_ChkBx_All_CheckedChanged(object sender, EventArgs e)
+        protected void Company_ChkBx_All_CheckedChanged(object sender, EventArgs e)
         {
-            int count = Branch_ChkBxL.Items.Count;
+            int count = Company_ChkBxL.Items.Count;
 
-            if (Branch_ChkBx_All.Checked)
+            if (Company_ChkBx_All.Checked)
             {
                 for (int i = 0; i < count; i++)
                 {
-                    Branch_ChkBxL.Items[i].Selected = true;
+                    Company_ChkBxL.Items[i].Selected = true;
                 }
             }
             else
             {
                 for (int i = 0; i < count; i++)
                 {
-                    Branch_ChkBxL.Items[i].Selected = false;
+                    Company_ChkBxL.Items[i].Selected = false;
                 }
             }
         }
@@ -137,21 +137,21 @@ namespace JKLWebBase_v2.Form_Leasings
             string date_str = DateTimeUtility.convertDateToMYSQL(Leasing_Date_str_TBx.Text);
             string date_end = DateTimeUtility.convertDateToMYSQL(Leasing_Date_end_TBx.Text);
             string leasing_Code_inline = _getCheckedLeasing_Code();
-            string branch_id_inline = _getCheckedBranch();
+            string Company_id_inline = _getCheckedBranch();
             string zone_id_inline = _getCheckedZone();
 
             if (!string.IsNullOrEmpty(deposit_no) || !string.IsNullOrEmpty(leasing_no) || !string.IsNullOrEmpty(idcard) || !string.IsNullOrEmpty(name) || !string.IsNullOrEmpty(date_str) ||
-                !string.IsNullOrEmpty(date_end) || !string.IsNullOrEmpty(leasing_Code_inline) || !string.IsNullOrEmpty(branch_id_inline) || !string.IsNullOrEmpty(zone_id_inline))
+                !string.IsNullOrEmpty(date_end) || !string.IsNullOrEmpty(leasing_Code_inline) || !string.IsNullOrEmpty(Company_id_inline) || !string.IsNullOrEmpty(zone_id_inline))
             {
                 cls_mng = new Car_Leasings_Manager();
 
-                List<Car_Leasings> list_cls_all = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, branch_id_inline, zone_id_inline, 0, 0);
+                List<Car_Leasings> list_cls_all = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 0);
 
                 int row = list_cls_all.Count;
 
                 _pageCount(row);
 
-                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, branch_id_inline, zone_id_inline, 0, 20);
+                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 20);
 
                 Session["deposit_no"] = deposit_no;
                 Session["leasing_no"] = leasing_no;
@@ -160,7 +160,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 Session["date_str"] = deposit_no;
                 Session["date_end"] = date_end;
                 Session["leasing_Code_inline"] = leasing_Code_inline;
-                Session["branch_id_inline"] = branch_id_inline;
+                Session["Company_id_inline"] = Company_id_inline;
                 Session["zone_id_inline"] = zone_id_inline;
                 Session["row_str"] = 0;
 
@@ -203,7 +203,7 @@ namespace JKLWebBase_v2.Form_Leasings
             string date_str = (string)Session["date_str"];
             string date_end = (string)Session["date_end"];
             string leasing_Code_inline = (string)Session["leasing_Code_inline"];
-            string branch_id_inline = (string)Session["branch_id_inline"];
+            string Company_id_inline = (string)Session["Company_id_inline"];
             string zone_id_inline = (string)Session["zone_id_inline"];
 
             cls_mng = new Car_Leasings_Manager();
@@ -214,7 +214,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
                 link_Previous.Enabled = true;
 
-                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, branch_id_inline, zone_id_inline, 0, 20);
+                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 20);
 
                 Session["row_str"] = row_str;
 
@@ -224,7 +224,7 @@ namespace JKLWebBase_v2.Form_Leasings
             {
                 link_Previous.Enabled = false;
 
-                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, branch_id_inline, zone_id_inline, 0, 20);
+                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 20);
 
                 Session["row_str"] = 0;
 
@@ -260,23 +260,23 @@ namespace JKLWebBase_v2.Form_Leasings
 
         private string _getCheckedBranch()
         {
-            string branch_id_inline = "";
+            string Company_id_inline = "";
             int count = 1;
 
-            for (int i = 0; i < Branch_ChkBxL.Items.Count; i++)
+            for (int i = 0; i < Company_ChkBxL.Items.Count; i++)
             {
-                if (Branch_ChkBxL.Items[i].Selected && count == 1)
+                if (Company_ChkBxL.Items[i].Selected && count == 1)
                 {
-                    branch_id_inline += Branch_ChkBxL.Items[i].Value;
+                    Company_id_inline += Company_ChkBxL.Items[i].Value;
                     count++;
                 }
-                else if (Branch_ChkBxL.Items[i].Selected)
+                else if (Company_ChkBxL.Items[i].Selected)
                 {
-                    branch_id_inline += "," + Branch_ChkBxL.Items[i].Value;
+                    Company_id_inline += "," + Company_ChkBxL.Items[i].Value;
                     count++;
                 }
             }
-            return branch_id_inline;
+            return Company_id_inline;
         }
 
         private string _getCheckedZone()
@@ -327,11 +327,11 @@ namespace JKLWebBase_v2.Form_Leasings
         // สาขา
         private void _loadBrands()
         {
-            List<Base_Branchs> list_data = new Base_Branchs_Manager().getBranchs();
+            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys();
             for (int i = 0; i < list_data.Count; i++)
             {
-                Base_Branchs data = list_data[i];
-                Branch_ChkBxL.Items.Add(new ListItem(data.Branch_code + " ( " + data.Branch_N_name + " ) ", data.Branch_id.ToString()));
+                Base_Companys data = list_data[i];
+                Company_ChkBxL.Items.Add(new ListItem(data.Company_code + " ( " + data.Company_N_name + " ) ", data.Company_id.ToString()));
             }
         }
 
