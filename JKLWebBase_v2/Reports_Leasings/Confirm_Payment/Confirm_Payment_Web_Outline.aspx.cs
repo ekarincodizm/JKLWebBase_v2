@@ -63,7 +63,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Confirm_Payment
             {
 
                 con_cls.Open();
-                MySqlCommand cmd_cls = new MySqlCommand("r_leasings", con_cls);
+                MySqlCommand cmd_cls = new MySqlCommand("rpt_leasings", con_cls);
                 cmd_cls.CommandType = CommandType.StoredProcedure;
                 cmd_cls.Parameters.AddWithValue("@i_Leasing_id", cls.Leasing_id);
 
@@ -73,13 +73,15 @@ namespace JKLWebBase_v2.Reports_Leasings.Confirm_Payment
 
                 if (reader_cls.Read())
                 {
-                    Payment_Amount_TBx.Text = reader_cls.IsDBNull(13) ? defaultString : reader_cls.GetString(13);
-                    Car_Plate_TBx.Text = reader_cls.IsDBNull(31) ? defaultString : reader_cls.GetString(31);
-                    Car_Plate_TBx.Text += reader_cls.IsDBNull(32) ? defaultString : " " + reader_cls.GetString(32);
-                    Car_TBx.Text = reader_cls.IsDBNull(33) ? defaultString : reader_cls.GetString(33);
-                    Car_Brand_TBx.Text = reader_cls.IsDBNull(35) ? defaultString : reader_cls.GetString(35);
-                    Car_Engine_TBx.Text = reader_cls.IsDBNull(39) ? defaultString : reader_cls.GetString(39);
-                    Car_Chassis_TBx.Text = reader_cls.IsDBNull(42) ? defaultString : reader_cls.GetString(42);
+                    Payment_Amount_TBx.Text = reader_cls.IsDBNull(32) ? defaultString : reader_cls.GetString(32);
+                    Car_Plate_TBx.Text = reader_cls.IsDBNull(54) ? defaultString : reader_cls.GetString(54);
+                    Car_Plate_TBx.Text += reader_cls.IsDBNull(56) ? defaultString : " " + reader_cls.GetString(56);
+                    Car_TBx.Text = reader_cls.IsDBNull(57) ? defaultString : reader_cls.GetString(57);
+                    Car_Brand_TBx.Text = reader_cls.IsDBNull(61) ? defaultString : reader_cls.GetString(61);
+                    Car_Brand_TBx.Text += reader_cls.IsDBNull(60) ? defaultString : " (" + reader_cls.GetString(60) + ")";
+                    Car_Brand_TBx.Text += reader_cls.IsDBNull(62) ? defaultString : " " + reader_cls.GetString(62);
+                    Car_Engine_TBx.Text = reader_cls.IsDBNull(65) ? defaultString : reader_cls.GetString(65);
+                    Car_Chassis_TBx.Text = reader_cls.IsDBNull(68) ? defaultString : reader_cls.GetString(68);
                 }
             }
             catch (MySqlException ex)

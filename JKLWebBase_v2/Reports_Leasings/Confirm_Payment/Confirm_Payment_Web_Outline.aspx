@@ -8,13 +8,12 @@
     <div class="panel panel-primary">
         <div class="panel-body">
             <div class="row">
-                <div class="form-group col-xs-1">
-                    <asp:Label ID="Title_1_Lbl" runat="server">เนื่องด้วย ทาง
+                <div class="form-group col-xs-2">
+                    <asp:Label ID="Title_1_Lbl" runat="server">เนื่องด้วย ทางสำนักงานใจกว้าง
                         <asp:RequiredFieldValidator ID="RFV_Company_Name_DDl" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Company_Name_DDl" SetFocusOnError="true" ValidationGroup="Save_Validation" InitialValue="0"></asp:RequiredFieldValidator>
                     </asp:Label>
                 </div>
                 <div class="form-group col-xs-4">
-
                     <asp:DropDownList ID="Company_Name_DDl" runat="server" CssClass="form-control" OnSelectedIndexChanged="Company_Name_DDl_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 </div>
                 <div class="form-group col-xs-4">

@@ -3730,25 +3730,25 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Court_name, 
                         string PeReT, 
                         string TotalPaymentTime, 
-                        string Total_require, 
-                        string Vat_rate, 
-                        string Interest_rate, 
-                        string Total_period, 
-                        string Total_sum, 
-                        string Total_Interest, 
-                        string Total_Tax, 
-                        string Total_leasing, 
-                        string Total_Net_leasing, 
-                        string Period_cal, 
+                        double Total_require, 
+                        double Vat_rate, 
+                        double Interest_rate, 
+                        int Total_period, 
+                        double Total_sum, 
+                        double Total_Interest, 
+                        double Total_Tax, 
+                        double Total_leasing, 
+                        double Total_Net_leasing, 
+                        double Period_cal, 
                         string Period_interst, 
-                        string Period_tax, 
-                        string Period_pure, 
-                        string Period_payment, 
-                        string Period_require, 
+                        double Period_tax, 
+                        double Period_pure, 
+                        double Period_payment, 
+                        double Period_require, 
                         string Total_period_length, 
-                        string Total_period_lose, 
-                        string Total_period_left, 
-                        string Total_payment_left, 
+                        int Total_period_lose, 
+                        int Total_period_left, 
+                        double Total_payment_left, 
                         string Payment_schedule, 
                         string First_payment_date, 
                         string Car_register_date, 
@@ -3770,9 +3770,9 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Car_chassis_no_at, 
                         string Car_fual_type, 
                         string Car_used_id, 
-                        string Car_distance, 
+                        double Car_distance, 
                         string Car_next_register_date, 
-                        string Car_tax_value, 
+                        double Car_tax_value, 
                         string Car_credits, 
                         string Car_agent, 
                         string Car_old_owner, 
@@ -3796,7 +3796,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Cheque_bank, 
                         string Cheque_bank_branch, 
                         string Cheque_number, 
-                        string Cheque_sum, 
+                        double Cheque_sum, 
                         string Cheque_receive_date, 
                         string Guarantee, 
                         string Contract_status_id, 
@@ -4103,43 +4103,43 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnPeReT);
                 this.columnTotalPaymentTime = new global::System.Data.DataColumn("TotalPaymentTime", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalPaymentTime);
-                this.columnTotal_require = new global::System.Data.DataColumn("Total_require", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTotal_require = new global::System.Data.DataColumn("Total_require", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_require);
-                this.columnVat_rate = new global::System.Data.DataColumn("Vat_rate", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnVat_rate = new global::System.Data.DataColumn("Vat_rate", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVat_rate);
-                this.columnInterest_rate = new global::System.Data.DataColumn("Interest_rate", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnInterest_rate = new global::System.Data.DataColumn("Interest_rate", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInterest_rate);
-                this.columnTotal_period = new global::System.Data.DataColumn("Total_period", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTotal_period = new global::System.Data.DataColumn("Total_period", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_period);
-                this.columnTotal_sum = new global::System.Data.DataColumn("Total_sum", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTotal_sum = new global::System.Data.DataColumn("Total_sum", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_sum);
-                this.columnTotal_Interest = new global::System.Data.DataColumn("Total_Interest", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTotal_Interest = new global::System.Data.DataColumn("Total_Interest", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_Interest);
-                this.columnTotal_Tax = new global::System.Data.DataColumn("Total_Tax", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTotal_Tax = new global::System.Data.DataColumn("Total_Tax", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_Tax);
-                this.columnTotal_leasing = new global::System.Data.DataColumn("Total_leasing", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTotal_leasing = new global::System.Data.DataColumn("Total_leasing", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_leasing);
-                this.columnTotal_Net_leasing = new global::System.Data.DataColumn("Total_Net_leasing", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTotal_Net_leasing = new global::System.Data.DataColumn("Total_Net_leasing", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_Net_leasing);
-                this.columnPeriod_cal = new global::System.Data.DataColumn("Period_cal", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPeriod_cal = new global::System.Data.DataColumn("Period_cal", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriod_cal);
                 this.columnPeriod_interst = new global::System.Data.DataColumn("Period_interst", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriod_interst);
-                this.columnPeriod_tax = new global::System.Data.DataColumn("Period_tax", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPeriod_tax = new global::System.Data.DataColumn("Period_tax", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriod_tax);
-                this.columnPeriod_pure = new global::System.Data.DataColumn("Period_pure", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPeriod_pure = new global::System.Data.DataColumn("Period_pure", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriod_pure);
-                this.columnPeriod_payment = new global::System.Data.DataColumn("Period_payment", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPeriod_payment = new global::System.Data.DataColumn("Period_payment", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriod_payment);
-                this.columnPeriod_require = new global::System.Data.DataColumn("Period_require", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPeriod_require = new global::System.Data.DataColumn("Period_require", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriod_require);
                 this.columnTotal_period_length = new global::System.Data.DataColumn("Total_period_length", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_period_length);
-                this.columnTotal_period_lose = new global::System.Data.DataColumn("Total_period_lose", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTotal_period_lose = new global::System.Data.DataColumn("Total_period_lose", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_period_lose);
-                this.columnTotal_period_left = new global::System.Data.DataColumn("Total_period_left", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTotal_period_left = new global::System.Data.DataColumn("Total_period_left", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_period_left);
-                this.columnTotal_payment_left = new global::System.Data.DataColumn("Total_payment_left", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTotal_payment_left = new global::System.Data.DataColumn("Total_payment_left", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal_payment_left);
                 this.columnPayment_schedule = new global::System.Data.DataColumn("Payment_schedule", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPayment_schedule);
@@ -4183,11 +4183,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCar_fual_type);
                 this.columnCar_used_id = new global::System.Data.DataColumn("Car_used_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCar_used_id);
-                this.columnCar_distance = new global::System.Data.DataColumn("Car_distance", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCar_distance = new global::System.Data.DataColumn("Car_distance", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCar_distance);
                 this.columnCar_next_register_date = new global::System.Data.DataColumn("Car_next_register_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCar_next_register_date);
-                this.columnCar_tax_value = new global::System.Data.DataColumn("Car_tax_value", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCar_tax_value = new global::System.Data.DataColumn("Car_tax_value", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCar_tax_value);
                 this.columnCar_credits = new global::System.Data.DataColumn("Car_credits", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCar_credits);
@@ -4235,7 +4235,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCheque_bank_branch);
                 this.columnCheque_number = new global::System.Data.DataColumn("Cheque_number", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCheque_number);
-                this.columnCheque_sum = new global::System.Data.DataColumn("Cheque_sum", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCheque_sum = new global::System.Data.DataColumn("Cheque_sum", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCheque_sum);
                 this.columnCheque_receive_date = new global::System.Data.DataColumn("Cheque_receive_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCheque_receive_date);
@@ -19367,10 +19367,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Total_require {
+            public double Total_require {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Total_requireColumn]));
+                        return ((double)(this[this.tableLeasings.Total_requireColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Total_require\' in table \'Leasings\' is DBNull.", e);
@@ -19383,10 +19383,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Vat_rate {
+            public double Vat_rate {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Vat_rateColumn]));
+                        return ((double)(this[this.tableLeasings.Vat_rateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Vat_rate\' in table \'Leasings\' is DBNull.", e);
@@ -19399,10 +19399,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Interest_rate {
+            public double Interest_rate {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Interest_rateColumn]));
+                        return ((double)(this[this.tableLeasings.Interest_rateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Interest_rate\' in table \'Leasings\' is DBNull.", e);
@@ -19415,10 +19415,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Total_period {
+            public int Total_period {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Total_periodColumn]));
+                        return ((int)(this[this.tableLeasings.Total_periodColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Total_period\' in table \'Leasings\' is DBNull.", e);
@@ -19431,10 +19431,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Total_sum {
+            public double Total_sum {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Total_sumColumn]));
+                        return ((double)(this[this.tableLeasings.Total_sumColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Total_sum\' in table \'Leasings\' is DBNull.", e);
@@ -19447,10 +19447,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Total_Interest {
+            public double Total_Interest {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Total_InterestColumn]));
+                        return ((double)(this[this.tableLeasings.Total_InterestColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Total_Interest\' in table \'Leasings\' is DBNull.", e);
@@ -19463,10 +19463,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Total_Tax {
+            public double Total_Tax {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Total_TaxColumn]));
+                        return ((double)(this[this.tableLeasings.Total_TaxColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Total_Tax\' in table \'Leasings\' is DBNull.", e);
@@ -19479,10 +19479,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Total_leasing {
+            public double Total_leasing {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Total_leasingColumn]));
+                        return ((double)(this[this.tableLeasings.Total_leasingColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Total_leasing\' in table \'Leasings\' is DBNull.", e);
@@ -19495,10 +19495,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Total_Net_leasing {
+            public double Total_Net_leasing {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Total_Net_leasingColumn]));
+                        return ((double)(this[this.tableLeasings.Total_Net_leasingColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Total_Net_leasing\' in table \'Leasings\' is DBNull.", e);
@@ -19511,10 +19511,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Period_cal {
+            public double Period_cal {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Period_calColumn]));
+                        return ((double)(this[this.tableLeasings.Period_calColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Period_cal\' in table \'Leasings\' is DBNull.", e);
@@ -19543,10 +19543,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Period_tax {
+            public double Period_tax {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Period_taxColumn]));
+                        return ((double)(this[this.tableLeasings.Period_taxColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Period_tax\' in table \'Leasings\' is DBNull.", e);
@@ -19559,10 +19559,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Period_pure {
+            public double Period_pure {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Period_pureColumn]));
+                        return ((double)(this[this.tableLeasings.Period_pureColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Period_pure\' in table \'Leasings\' is DBNull.", e);
@@ -19575,10 +19575,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Period_payment {
+            public double Period_payment {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Period_paymentColumn]));
+                        return ((double)(this[this.tableLeasings.Period_paymentColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Period_payment\' in table \'Leasings\' is DBNull.", e);
@@ -19591,10 +19591,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Period_require {
+            public double Period_require {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Period_requireColumn]));
+                        return ((double)(this[this.tableLeasings.Period_requireColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Period_require\' in table \'Leasings\' is DBNull.", e);
@@ -19623,10 +19623,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Total_period_lose {
+            public int Total_period_lose {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Total_period_loseColumn]));
+                        return ((int)(this[this.tableLeasings.Total_period_loseColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Total_period_lose\' in table \'Leasings\' is DBNull.", e);
@@ -19639,10 +19639,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Total_period_left {
+            public int Total_period_left {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Total_period_leftColumn]));
+                        return ((int)(this[this.tableLeasings.Total_period_leftColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Total_period_left\' in table \'Leasings\' is DBNull.", e);
@@ -19655,10 +19655,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Total_payment_left {
+            public double Total_payment_left {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Total_payment_leftColumn]));
+                        return ((double)(this[this.tableLeasings.Total_payment_leftColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Total_payment_left\' in table \'Leasings\' is DBNull.", e);
@@ -20007,10 +20007,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Car_distance {
+            public double Car_distance {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Car_distanceColumn]));
+                        return ((double)(this[this.tableLeasings.Car_distanceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Car_distance\' in table \'Leasings\' is DBNull.", e);
@@ -20039,10 +20039,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Car_tax_value {
+            public double Car_tax_value {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Car_tax_valueColumn]));
+                        return ((double)(this[this.tableLeasings.Car_tax_valueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Car_tax_value\' in table \'Leasings\' is DBNull.", e);
@@ -20424,10 +20424,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cheque_sum {
+            public double Cheque_sum {
                 get {
                     try {
-                        return ((string)(this[this.tableLeasings.Cheque_sumColumn]));
+                        return ((double)(this[this.tableLeasings.Cheque_sumColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Cheque_sum\' in table \'Leasings\' is DBNull.", e);

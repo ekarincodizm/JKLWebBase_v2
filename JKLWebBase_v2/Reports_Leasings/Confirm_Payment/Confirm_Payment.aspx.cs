@@ -1,14 +1,11 @@
 ﻿using CrystalDecisions.Shared;
-using MySql.Data.MySqlClient;
 using System;
 using System.IO;
 using System.Web.UI;
-using System.Data;
-using System.Diagnostics;
 
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Leasings;
-using JKLWebBase_v2.Reports_Leasings.DataSet_Leasings;
+using System.Net;
 
 namespace JKLWebBase_v2.Reports_Leasings.Confirm_Payment
 {
@@ -77,14 +74,30 @@ namespace JKLWebBase_v2.Reports_Leasings.Confirm_Payment
                 Directory.CreateDirectory(mainDirectoryPath);
             }
 
+            string FilePath = "C:/ReportExport/" + mainDirectory + "/หนังสือยืนยันการชำระเงิน_" + cls.Deps_no + ".pdf";
+
+            if (File.Exists(FilePath))
+            {
+                File.Delete(FilePath);
+            }
+
             /// Export Report to PDF File with Save As Mode
             rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/หนังสือยืนยันการชำระเงิน_" + cls.Deps_no + ".pdf");
 
             /// Display PDF File to PDF Program
-            Process process = new Process();
-            process.StartInfo.UseShellExecute = true;
-            process.StartInfo.FileName = "C:/ReportExport/" + mainDirectory + "/หนังสือยืนยันการชำระเงิน_" + cls.Deps_no + ".pdf";
-            process.Start();
+            /// Process process = new Process();
+            /// process.StartInfo.UseShellExecute = true;
+            /// process.StartInfo.FileName = FilePath;
+            /// process.Start();
+
+            WebClient User = new WebClient();
+            byte[] FileBuffer = User.DownloadData(FilePath);
+            if (FileBuffer != null)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                Response.BinaryWrite(FileBuffer);
+            }
         }
     }
 }

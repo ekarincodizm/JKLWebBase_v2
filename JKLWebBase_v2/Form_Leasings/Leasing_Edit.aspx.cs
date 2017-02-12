@@ -59,6 +59,17 @@ namespace JKLWebBase_v2.Form_Leasings
 
             Total_Net_Leasing_TBx.Focus();
         }
+
+        protected void Tent_car_DDL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Tent_car_DDL.SelectedIndex > 1)
+            {
+                Car_agent_TBx.Text = Tent_car_DDL.SelectedItem.Text;
+
+                Car_Old_Owner_TBx.Focus();
+            }
+        }
+
         protected void Save_Btn_Click(object sender, EventArgs e)
         {
             _EditLeasings();

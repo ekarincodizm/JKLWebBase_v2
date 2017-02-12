@@ -41,12 +41,12 @@ namespace JKLWebBase_v2.Reports_Leasings.Withholding_Tax
                 MySqlCommand cmd_cpn = new MySqlCommand("rpt_withholding_tax", con_cpn);
                 cmd_cpn.CommandType = CommandType.StoredProcedure;
                 cmd_cpn.Parameters.AddWithValue("@i_Leasing_id", cls.Leasing_id);
-                MySqlDataReader reader_brn = cmd_cpn.ExecuteReader();
+                MySqlDataReader reader_cpn = cmd_cpn.ExecuteReader();
 
                 Leasing_Ds ls_ds = new Leasing_Ds();
                 ls_ds.Clear();
                 ls_ds.Tables["Leasings"].Load(reader_cls);
-                ls_ds.Tables["Agent_Commission"].Load(reader_brn);
+                ls_ds.Tables["Agent_Commission"].Load(reader_cpn);
 
 
                 Withholding_Tax rpt = new Withholding_Tax();

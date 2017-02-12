@@ -212,7 +212,7 @@
                     <div class="row">
                         <div class="form-group col-xs-4">
                             <asp:Label ID="Tent_car_Lbl" runat="server" >ชื่อเต้นท์รถ</asp:Label>
-                            <asp:DropDownList ID="Tent_car_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
+                            <asp:DropDownList ID="Tent_car_DDL" runat="server" CssClass="form-control" OnSelectedIndexChanged="Tent_car_DDL_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                         </div>
                         <div class="col-xs-4">
                             <asp:Label ID="Car_Credits_Lbl" runat="server" >สินเชื่อ</asp:Label>
