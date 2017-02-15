@@ -16,7 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" >
     <div class="container">
         <div class="row">
             <div class="col-md-5 col-md-offset-3">

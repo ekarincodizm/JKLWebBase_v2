@@ -113,7 +113,7 @@ namespace JKLWebBase_v2.Form_Leasings
         // ดึงข้อมูลรุ่นรถ
         private void _loadCarModels(int index)
         {
-            List<Base_Car_Models> list_data = new Base_Car_Models_Manager().getCarModels(index);
+            List<Base_Car_Models> list_data = new Base_Car_Models_Manager().getCarModels();
         }
 
         // ปีรถ
@@ -571,8 +571,6 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.bs_ls_stt.Contract_Status_id = 1;
 
             cls_mng.editCarLeasings(cls);
-
-
 
             Session["Leasings"] = cls;
         }

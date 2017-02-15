@@ -10,7 +10,6 @@ namespace JKLWebBase_v2.Managers_Base
     public class Base_Companys_Manager
     {
         private string error;
-        private List<Base_Companys> list_cpn = new List<Base_Companys>();
 
         public List<Base_Companys> getCompanys()
         {
@@ -25,6 +24,8 @@ namespace JKLWebBase_v2.Managers_Base
 
                 int defaultNum = 0;
                 string defaultString = "";
+
+                List<Base_Companys> list_cpn = new List<Base_Companys>();
 
                 while (reader.Read())
                 {
@@ -150,6 +151,8 @@ namespace JKLWebBase_v2.Managers_Base
                 int defaultNum = 0;
                 string defaultString = "";
 
+                List<Base_Companys> list_cpn = new List<Base_Companys>();
+
                 while (reader.Read())
                 {
                     Base_Companys bs_cpn = new Base_Companys();
@@ -212,6 +215,8 @@ namespace JKLWebBase_v2.Managers_Base
 
                 int defaultNum = 0;
                 string defaultString = "";
+
+                List<Base_Companys> list_cpn = new List<Base_Companys>();
 
                 while (reader.Read())
                 {

@@ -9,38 +9,43 @@ namespace JKLWebBase_v2.Managers_Base
     public class Base_Car_Models_Manager
     {
         private string error;
-        private List<Base_Car_Models> lcm = new List<Base_Car_Models>();
 
-        public List<Base_Car_Models> getCarModels(int car_brand_id)
+        public List<Base_Car_Models> getCarModels()
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM base_car_models WHERE Car_brand_id = " + car_brand_id;
+                string sql = "SELECT * FROM base_car_models";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
+
                 int defaultNum = 0;
                 string defaultString = "";
+
+                List<Base_Car_Models> list_bs_cmdl = new List<Base_Car_Models>();
+
                 while (reader.Read())
                 {
-                    Base_Car_Models cm = new Base_Car_Models();
-                    cm.car_model_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
-                    cm.car_model_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
-                    lcm.Add(cm);
+                    Base_Car_Models bs_cmdl = new Base_Car_Models();
+
+                    bs_cmdl.car_model_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
+                    bs_cmdl.car_model_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+
+                    list_bs_cmdl.Add(bs_cmdl);
                 }
 
-                return lcm;
+                return list_bs_cmdl;
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Base --> Car_Brand_Manager --> getCarBrands(int car_brand_id) ";
+                error = "MysqlException ==> Managers_Base --> Base_Car_Models_Manager --> getCarModels()";
                 Log_Error._writeErrorFile(error, ex);
                 return null;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Base --> Car_Brand_Manager --> getCarBrands(int car_brand_id) ";
+                error = "Exception ==> Managers_Base --> Base_Car_Models_Manager --> getCarModels()";
                 Log_Error._writeErrorFile(error, ex);
                 return null;
             }

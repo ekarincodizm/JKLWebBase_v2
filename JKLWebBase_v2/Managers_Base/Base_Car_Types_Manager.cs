@@ -9,7 +9,48 @@ namespace JKLWebBase_v2.Managers_Base
     public class Base_Car_Types_Manager
     {
         private string error;
-        private List<Base_Car_Types> lctp = new List<Base_Car_Types>();
+
+        public Base_Car_Types getCarTypes(int Car_type_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                con.Open();
+                string sql = "SELECT * FROM base_car_types WHERE Car_type_id = " + Car_type_id;
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                int defaultNum = 0;
+                string defaultString = "";
+
+                Base_Car_Types bs_c_type = new Base_Car_Types();
+
+                while (reader.Read())
+                {
+                    bs_c_type.car_type_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
+                    bs_c_type.car_type_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                }
+
+                return bs_c_type;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Car_Types_Manager --> getCarTypes() ";
+                Log_Error._writeErrorFile(error, ex);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Car_Types_Manager --> getCarTypes() ";
+                Log_Error._writeErrorFile(error, ex);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
 
         public List<Base_Car_Types> getCarTypes()
         {
@@ -20,17 +61,23 @@ namespace JKLWebBase_v2.Managers_Base
                 string sql = "SELECT * FROM base_car_types";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
+
                 int defaultNum = 0;
                 string defaultString = "";
+
+                List<Base_Car_Types> list_bs_c_type = new List<Base_Car_Types>();
+
                 while (reader.Read())
                 {
-                    Base_Car_Types ctp = new Base_Car_Types();
-                    ctp.car_type_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
-                    ctp.car_type_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
-                    lctp.Add(ctp);
+                    Base_Car_Types bs_c_type = new Base_Car_Types();
+
+                    bs_c_type.car_type_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
+                    bs_c_type.car_type_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+
+                    list_bs_c_type.Add(bs_c_type);
                 }
 
-                return lctp;
+                return list_bs_c_type;
             }
             catch (MySqlException ex)
             {

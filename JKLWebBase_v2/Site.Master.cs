@@ -74,7 +74,8 @@ namespace JKLWebBase_v2
         {
             if (!IsPostBack)
             {
-                Username_Lbl.Text = " IP Client Connect : " + Request.UserHostAddress + " | MAC : " + GetMACAddressServer();
+                Username_Lbl.Text = " IP Client Connect : " + Request.UserHostAddress + " | MAC : " + GetMACAddressFromClient() + " | IP : " + GetIPAddress();
+                Job_Position_Lbl.Text = Request.UserHostName + " : " + Request.LogonUserIdentity.ToString() + " : " + Request.Browser.ToString();
             }
         }
 
@@ -83,11 +84,28 @@ namespace JKLWebBase_v2
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
 
+        protected string GetIPAddress()
+        {
+            HttpContext context = HttpContext.Current;
+            string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+            if (!string.IsNullOrEmpty(ipAddress))
+            {
+                string[] addresses = ipAddress.Split(',');
+                if (addresses.Length != 0)
+                {
+                    return addresses[0];
+                }
+            }
+
+            return context.Request.ServerVariables["REMOTE_ADDR"];
+        }
+
         public string GetMACAddress()
         {
             ManagementObjectSearcher objMOS = new ManagementObjectSearcher("Win32_NetworkAdapterConfiguration");
             ManagementObjectCollection objMOC = objMOS.Get();
-            string MACAddress = String.Empty;
+            string MACAddress = string.Empty;
             foreach (ManagementObject objMO in objMOC)
             {
                 if (MACAddress == String.Empty) // only return MAC Address from first card   
@@ -121,10 +139,10 @@ namespace JKLWebBase_v2
             {
                 string userip = Request.UserHostAddress;
                 string strClientIP = Request.UserHostAddress.ToString().Trim();
-                Int32 ldest = inet_addr(strClientIP);
-                Int32 lhost = inet_addr("");
-                Int64 macinfo = new Int64();
-                Int32 len = 6;
+                int ldest = inet_addr(strClientIP);
+                int lhost = inet_addr("");
+                int macinfo = new int();
+                int len = 6;
                 int res = SendARP(ldest, 0, ref macinfo, ref len);
                 string mac_src = macinfo.ToString("X");
                 if (mac_src == "0")
@@ -166,9 +184,9 @@ namespace JKLWebBase_v2
         }
 
         [DllImport("Iphlpapi.dll")]
-        private static extern int SendARP(Int32 dest, Int32 host, ref Int64 mac, ref Int32 length);
+        private static extern int SendARP(int dest, int host, ref int mac, ref int length);
         [DllImport("Ws2_32.dll")]
-        private static extern Int32 inet_addr(string ip);
+        private static extern int inet_addr(string ip);
 
     }
 

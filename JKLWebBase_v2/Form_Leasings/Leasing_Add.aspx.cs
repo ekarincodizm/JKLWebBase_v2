@@ -100,7 +100,7 @@ namespace JKLWebBase_v2.Form_Leasings
         // ดึงข้อมูลรุ่นรถ
         private void _loadCarModels(int index)
         {
-            List<Base_Car_Models> list_data = new Base_Car_Models_Manager().getCarModels(index);
+            List<Base_Car_Models> list_data = new Base_Car_Models_Manager().getCarModels();
         }
 
         // ปีรถ

@@ -767,8 +767,8 @@ namespace JKLWebBase_v2.Managers_Leasings
             try
             {
                 /// <summary>
-                /// :: StoredProcedure :: [ i_car_leasings ] :: 
-                /// i_car_leasings ( IN i_Leasing_id VARCHAR(50), IN i_Deps_no VARCHAR(50), IN i_Leasing_no VARCHAR(50), IN i_Leasing_code_id INT(11),
+                /// :: StoredProcedure :: [ u_car_leasings ] :: 
+                /// u_car_leasings ( IN i_Leasing_id VARCHAR(50), IN i_Deps_no VARCHAR(50), IN i_Leasing_no VARCHAR(50), IN i_Leasing_code_id INT(11),
                 /// IN i_Leasing_date DATE, IN i_Company_id INT(11), IN i_Zone_id INT(11), IN i_Court_id INT(11),
                 /// IN i_PeReT VARCHAR(255), IN i_TotalPaymentTime INT(11), IN i_Total_require DOUBLE(10, 2), IN i_Vat_rate DOUBLE(10, 2),
                 /// IN i_Interest_rate DOUBLE(10, 2), IN i_Total_period INT(11), IN i_Total_sum DOUBLE(10, 2), IN i_Total_Interest DOUBLE(10, 2),

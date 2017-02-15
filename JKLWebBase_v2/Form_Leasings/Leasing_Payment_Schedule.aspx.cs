@@ -14,7 +14,7 @@ using JKLWebBase_v2.Managers_Leasings;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
-    public partial class Leasing_Payment_Schedule : System.Web.UI.Page
+    public partial class Leasing_Payment_Schedule : Page
     {
         Car_Leasings cls = new Car_Leasings();
         Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
