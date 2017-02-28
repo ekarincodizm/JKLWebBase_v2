@@ -80,16 +80,16 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
         public void ExportReport(Bill_Payment_Slip rpt, string leasing_id, string bill_no)
         {
             /* Create Main Folder for Detected Images of Contact Leasing  */
-            string mainDirectory = DateTime.Now.ToString("YYYY-MM-DD");
+            string mainDirectory = DateTime.Now.ToString("yyyy-MM-dd");
 
-            string mainDirectoryPath = "C:/Bill_Payment_Slip/" + mainDirectory;
+            string mainDirectoryPath = "C:/ReportExport/Bill_Payment_Slip/" + mainDirectory;
 
             if (!Directory.Exists(mainDirectoryPath))
             {
                 Directory.CreateDirectory(mainDirectoryPath);
             }
 
-            string FilePath = "C:/Bill_Payment_Slip/" + mainDirectory + "/" + bill_no + ".pdf";
+            string FilePath = "C:/ReportExport/Bill_Payment_Slip/" + mainDirectory + "/" + bill_no.Replace('/','-') + ".pdf";
 
             if (File.Exists(FilePath))
             {
@@ -97,7 +97,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
             }
 
             /// Export Report to PDF File with Save As Mode
-            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/Bill_Payment_Slip/" + mainDirectory + "/" + bill_no + ".pdf");
+            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/Bill_Payment_Slip/" + mainDirectory + "/" + bill_no.Replace('/', '-') + ".pdf");
 
             /// Display PDF File to PDF Program
             /// Process process = new Process();

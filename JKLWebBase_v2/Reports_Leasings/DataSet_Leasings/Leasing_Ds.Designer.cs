@@ -15525,6 +15525,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             private global::System.Data.DataColumn columnReal_Payment_Period;
             
+            private global::System.Data.DataColumn columnPeriod_fee;
+            
             private global::System.Data.DataColumn columnPeriod_track;
             
             private global::System.Data.DataColumn columnDiscount;
@@ -15532,6 +15534,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnReal_payment_fine;
             
             private global::System.Data.DataColumn columnReal_payment;
+            
+            private global::System.Data.DataColumn columnTotal_payment;
             
             private global::System.Data.DataColumn columnReal_payment_date;
             
@@ -15904,6 +15908,14 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Period_feeColumn {
+                get {
+                    return this.columnPeriod_fee;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Period_trackColumn {
                 get {
                     return this.columnPeriod_track;
@@ -15931,6 +15943,14 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             public global::System.Data.DataColumn Real_paymentColumn {
                 get {
                     return this.columnReal_payment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Total_paymentColumn {
+                get {
+                    return this.columnTotal_payment;
                 }
             }
             
@@ -16026,7 +16046,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Company_zipcode, 
                         string Zone_code, 
                         string Zone_name, 
-                        string Contract_status_id, 
+                        int Contract_status_id, 
                         string Contract_Status_name, 
                         string Cust_id, 
                         string Cust_Idcard, 
@@ -16045,10 +16065,12 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Cust_Home_tel, 
                         string Bill_no, 
                         string Real_Payment_Period, 
-                        string Period_track, 
-                        string Discount, 
-                        string Real_payment_fine, 
-                        string Real_payment, 
+                        double Period_fee, 
+                        double Period_track, 
+                        double Discount, 
+                        double Real_payment_fine, 
+                        double Real_payment, 
+                        double Total_payment, 
                         string Real_payment_date, 
                         string Payment_save_date, 
                         string Payment_With_Employee, 
@@ -16096,10 +16118,12 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         Cust_Home_tel,
                         Bill_no,
                         Real_Payment_Period,
+                        Period_fee,
                         Period_track,
                         Discount,
                         Real_payment_fine,
                         Real_payment,
+                        Total_payment,
                         Real_payment_date,
                         Payment_save_date,
                         Payment_With_Employee,
@@ -16167,10 +16191,12 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 this.columnCust_Home_tel = base.Columns["Cust_Home_tel"];
                 this.columnBill_no = base.Columns["Bill_no"];
                 this.columnReal_Payment_Period = base.Columns["Real_Payment_Period"];
+                this.columnPeriod_fee = base.Columns["Period_fee"];
                 this.columnPeriod_track = base.Columns["Period_track"];
                 this.columnDiscount = base.Columns["Discount"];
                 this.columnReal_payment_fine = base.Columns["Real_payment_fine"];
                 this.columnReal_payment = base.Columns["Real_payment"];
+                this.columnTotal_payment = base.Columns["Total_payment"];
                 this.columnReal_payment_date = base.Columns["Real_payment_date"];
                 this.columnPayment_save_date = base.Columns["Payment_save_date"];
                 this.columnPayment_With_Employee = base.Columns["Payment_With_Employee"];
@@ -16224,7 +16250,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnZone_code);
                 this.columnZone_name = new global::System.Data.DataColumn("Zone_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnZone_name);
-                this.columnContract_status_id = new global::System.Data.DataColumn("Contract_status_id", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnContract_status_id = new global::System.Data.DataColumn("Contract_status_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContract_status_id);
                 this.columnContract_Status_name = new global::System.Data.DataColumn("Contract_Status_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContract_Status_name);
@@ -16262,14 +16288,18 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnBill_no);
                 this.columnReal_Payment_Period = new global::System.Data.DataColumn("Real_Payment_Period", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReal_Payment_Period);
-                this.columnPeriod_track = new global::System.Data.DataColumn("Period_track", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPeriod_fee = new global::System.Data.DataColumn("Period_fee", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPeriod_fee);
+                this.columnPeriod_track = new global::System.Data.DataColumn("Period_track", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriod_track);
-                this.columnDiscount = new global::System.Data.DataColumn("Discount", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDiscount = new global::System.Data.DataColumn("Discount", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDiscount);
-                this.columnReal_payment_fine = new global::System.Data.DataColumn("Real_payment_fine", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnReal_payment_fine = new global::System.Data.DataColumn("Real_payment_fine", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReal_payment_fine);
-                this.columnReal_payment = new global::System.Data.DataColumn("Real_payment", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnReal_payment = new global::System.Data.DataColumn("Real_payment", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReal_payment);
+                this.columnTotal_payment = new global::System.Data.DataColumn("Total_payment", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_payment);
                 this.columnReal_payment_date = new global::System.Data.DataColumn("Real_payment_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReal_payment_date);
                 this.columnPayment_save_date = new global::System.Data.DataColumn("Payment_save_date", typeof(string), null, global::System.Data.MappingType.Element);
@@ -41305,10 +41335,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Contract_status_id {
+            public int Contract_status_id {
                 get {
                     try {
-                        return ((string)(this[this.tableBill_Payment_Slip.Contract_status_idColumn]));
+                        return ((int)(this[this.tableBill_Payment_Slip.Contract_status_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Contract_status_id\' in table \'Bill_Payment_Slip\' is DBNull." +
@@ -41617,10 +41647,26 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Period_track {
+            public double Period_fee {
                 get {
                     try {
-                        return ((string)(this[this.tableBill_Payment_Slip.Period_trackColumn]));
+                        return ((double)(this[this.tableBill_Payment_Slip.Period_feeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Period_fee\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Period_feeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Period_track {
+                get {
+                    try {
+                        return ((double)(this[this.tableBill_Payment_Slip.Period_trackColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Period_track\' in table \'Bill_Payment_Slip\' is DBNull.", e);
@@ -41633,10 +41679,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Discount {
+            public double Discount {
                 get {
                     try {
-                        return ((string)(this[this.tableBill_Payment_Slip.DiscountColumn]));
+                        return ((double)(this[this.tableBill_Payment_Slip.DiscountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Discount\' in table \'Bill_Payment_Slip\' is DBNull.", e);
@@ -41649,10 +41695,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Real_payment_fine {
+            public double Real_payment_fine {
                 get {
                     try {
-                        return ((string)(this[this.tableBill_Payment_Slip.Real_payment_fineColumn]));
+                        return ((double)(this[this.tableBill_Payment_Slip.Real_payment_fineColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Real_payment_fine\' in table \'Bill_Payment_Slip\' is DBNull.", e);
@@ -41665,10 +41711,10 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Real_payment {
+            public double Real_payment {
                 get {
                     try {
-                        return ((string)(this[this.tableBill_Payment_Slip.Real_paymentColumn]));
+                        return ((double)(this[this.tableBill_Payment_Slip.Real_paymentColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Real_payment\' in table \'Bill_Payment_Slip\' is DBNull.", e);
@@ -41676,6 +41722,22 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 }
                 set {
                     this[this.tableBill_Payment_Slip.Real_paymentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Total_payment {
+                get {
+                    try {
+                        return ((double)(this[this.tableBill_Payment_Slip.Total_paymentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_payment\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Total_paymentColumn] = value;
                 }
             }
             
@@ -42239,6 +42301,18 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPeriod_feeNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Period_feeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPeriod_feeNull() {
+                this[this.tableBill_Payment_Slip.Period_feeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPeriod_trackNull() {
                 return this.IsNull(this.tableBill_Payment_Slip.Period_trackColumn);
             }
@@ -42283,6 +42357,18 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetReal_paymentNull() {
                 this[this.tableBill_Payment_Slip.Real_paymentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotal_paymentNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Total_paymentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotal_paymentNull() {
+                this[this.tableBill_Payment_Slip.Total_paymentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
