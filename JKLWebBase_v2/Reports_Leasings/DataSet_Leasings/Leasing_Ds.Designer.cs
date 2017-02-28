@@ -40,6 +40,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
         
         private Agent_CommissionDataTable tableAgent_Commission;
         
+        private Bill_Payment_SlipDataTable tableBill_Payment_Slip;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -91,6 +93,9 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 }
                 if ((ds.Tables["Agent_Commission"] != null)) {
                     base.Tables.Add(new Agent_CommissionDataTable(ds.Tables["Agent_Commission"]));
+                }
+                if ((ds.Tables["Bill_Payment_Slip"] != null)) {
+                    base.Tables.Add(new Bill_Payment_SlipDataTable(ds.Tables["Bill_Payment_Slip"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -192,6 +197,16 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Bill_Payment_SlipDataTable Bill_Payment_Slip {
+            get {
+                return this.tableBill_Payment_Slip;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -281,6 +296,9 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 if ((ds.Tables["Agent_Commission"] != null)) {
                     base.Tables.Add(new Agent_CommissionDataTable(ds.Tables["Agent_Commission"]));
                 }
+                if ((ds.Tables["Bill_Payment_Slip"] != null)) {
+                    base.Tables.Add(new Bill_Payment_SlipDataTable(ds.Tables["Bill_Payment_Slip"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -362,6 +380,12 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                     this.tableAgent_Commission.InitVars();
                 }
             }
+            this.tableBill_Payment_Slip = ((Bill_Payment_SlipDataTable)(base.Tables["Bill_Payment_Slip"]));
+            if ((initTable == true)) {
+                if ((this.tableBill_Payment_Slip != null)) {
+                    this.tableBill_Payment_Slip.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -388,6 +412,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             base.Tables.Add(this.tableGuarantor_5);
             this.tableAgent_Commission = new Agent_CommissionDataTable();
             base.Tables.Add(this.tableAgent_Commission);
+            this.tableBill_Payment_Slip = new Bill_Payment_SlipDataTable();
+            base.Tables.Add(this.tableBill_Payment_Slip);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,6 +461,12 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeAgent_Commission() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeBill_Payment_Slip() {
             return false;
         }
         
@@ -516,6 +548,9 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void Agent_CommissionRowChangeEventHandler(object sender, Agent_CommissionRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void Bill_Payment_SlipRowChangeEventHandler(object sender, Bill_Payment_SlipRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -15361,6 +15396,974 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "Agent_CommissionDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Bill_Payment_SlipDataTable : global::System.Data.TypedTableBase<Bill_Payment_SlipRow> {
+            
+            private global::System.Data.DataColumn columnLeasing_id;
+            
+            private global::System.Data.DataColumn columnDeps_no;
+            
+            private global::System.Data.DataColumn columnLeasing_no;
+            
+            private global::System.Data.DataColumn columnLeasing_code_name;
+            
+            private global::System.Data.DataColumn columnLeasing_date;
+            
+            private global::System.Data.DataColumn columnCompany_code;
+            
+            private global::System.Data.DataColumn columnCompany_N_name;
+            
+            private global::System.Data.DataColumn columnCompany_F_name;
+            
+            private global::System.Data.DataColumn columnCompany_tax_id;
+            
+            private global::System.Data.DataColumn columnCompany_tax_subcode;
+            
+            private global::System.Data.DataColumn columnCompany_address_no;
+            
+            private global::System.Data.DataColumn columnCompany_vilage;
+            
+            private global::System.Data.DataColumn columnCompany_vilage_no;
+            
+            private global::System.Data.DataColumn columnCompany_alley;
+            
+            private global::System.Data.DataColumn columnCompany_road;
+            
+            private global::System.Data.DataColumn columnCompany_subdistrict;
+            
+            private global::System.Data.DataColumn columnCompany_district;
+            
+            private global::System.Data.DataColumn columnCompany_Province_name;
+            
+            private global::System.Data.DataColumn columnCompany_country;
+            
+            private global::System.Data.DataColumn columnCompany_zipcode;
+            
+            private global::System.Data.DataColumn columnZone_code;
+            
+            private global::System.Data.DataColumn columnZone_name;
+            
+            private global::System.Data.DataColumn columnContract_status_id;
+            
+            private global::System.Data.DataColumn columnContract_Status_name;
+            
+            private global::System.Data.DataColumn columnCust_id;
+            
+            private global::System.Data.DataColumn columnCust_Idcard;
+            
+            private global::System.Data.DataColumn columnCust_Fname;
+            
+            private global::System.Data.DataColumn columnCust_LName;
+            
+            private global::System.Data.DataColumn columnCust_Home_address_no;
+            
+            private global::System.Data.DataColumn columnCust_Home_vilage;
+            
+            private global::System.Data.DataColumn columnCust_Home_vilage_no;
+            
+            private global::System.Data.DataColumn columnCust_Home_alley;
+            
+            private global::System.Data.DataColumn columnCust_Home_road;
+            
+            private global::System.Data.DataColumn columnCust_Home_subdistrict;
+            
+            private global::System.Data.DataColumn columnCust_Home_district;
+            
+            private global::System.Data.DataColumn columnCust_Home_province_name;
+            
+            private global::System.Data.DataColumn columnCust_Home_country;
+            
+            private global::System.Data.DataColumn columnCust_Home_zipcode;
+            
+            private global::System.Data.DataColumn columnCust_Home_tel;
+            
+            private global::System.Data.DataColumn columnBill_no;
+            
+            private global::System.Data.DataColumn columnReal_Payment_Period;
+            
+            private global::System.Data.DataColumn columnPeriod_track;
+            
+            private global::System.Data.DataColumn columnDiscount;
+            
+            private global::System.Data.DataColumn columnReal_payment_fine;
+            
+            private global::System.Data.DataColumn columnReal_payment;
+            
+            private global::System.Data.DataColumn columnReal_payment_date;
+            
+            private global::System.Data.DataColumn columnPayment_save_date;
+            
+            private global::System.Data.DataColumn columnPayment_With_Employee;
+            
+            private global::System.Data.DataColumn columnPayment_At_Company;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Bill_Payment_SlipDataTable() {
+                this.TableName = "Bill_Payment_Slip";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Bill_Payment_SlipDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected Bill_Payment_SlipDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Leasing_idColumn {
+                get {
+                    return this.columnLeasing_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Deps_noColumn {
+                get {
+                    return this.columnDeps_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Leasing_noColumn {
+                get {
+                    return this.columnLeasing_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Leasing_code_nameColumn {
+                get {
+                    return this.columnLeasing_code_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Leasing_dateColumn {
+                get {
+                    return this.columnLeasing_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_codeColumn {
+                get {
+                    return this.columnCompany_code;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_N_nameColumn {
+                get {
+                    return this.columnCompany_N_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_F_nameColumn {
+                get {
+                    return this.columnCompany_F_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_tax_idColumn {
+                get {
+                    return this.columnCompany_tax_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_tax_subcodeColumn {
+                get {
+                    return this.columnCompany_tax_subcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_address_noColumn {
+                get {
+                    return this.columnCompany_address_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_vilageColumn {
+                get {
+                    return this.columnCompany_vilage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_vilage_noColumn {
+                get {
+                    return this.columnCompany_vilage_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_alleyColumn {
+                get {
+                    return this.columnCompany_alley;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_roadColumn {
+                get {
+                    return this.columnCompany_road;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_subdistrictColumn {
+                get {
+                    return this.columnCompany_subdistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_districtColumn {
+                get {
+                    return this.columnCompany_district;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_Province_nameColumn {
+                get {
+                    return this.columnCompany_Province_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_countryColumn {
+                get {
+                    return this.columnCompany_country;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Company_zipcodeColumn {
+                get {
+                    return this.columnCompany_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Zone_codeColumn {
+                get {
+                    return this.columnZone_code;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Zone_nameColumn {
+                get {
+                    return this.columnZone_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Contract_status_idColumn {
+                get {
+                    return this.columnContract_status_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Contract_Status_nameColumn {
+                get {
+                    return this.columnContract_Status_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_idColumn {
+                get {
+                    return this.columnCust_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_IdcardColumn {
+                get {
+                    return this.columnCust_Idcard;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_FnameColumn {
+                get {
+                    return this.columnCust_Fname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_LNameColumn {
+                get {
+                    return this.columnCust_LName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_address_noColumn {
+                get {
+                    return this.columnCust_Home_address_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_vilageColumn {
+                get {
+                    return this.columnCust_Home_vilage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_vilage_noColumn {
+                get {
+                    return this.columnCust_Home_vilage_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_alleyColumn {
+                get {
+                    return this.columnCust_Home_alley;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_roadColumn {
+                get {
+                    return this.columnCust_Home_road;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_subdistrictColumn {
+                get {
+                    return this.columnCust_Home_subdistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_districtColumn {
+                get {
+                    return this.columnCust_Home_district;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_province_nameColumn {
+                get {
+                    return this.columnCust_Home_province_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_countryColumn {
+                get {
+                    return this.columnCust_Home_country;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_zipcodeColumn {
+                get {
+                    return this.columnCust_Home_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Cust_Home_telColumn {
+                get {
+                    return this.columnCust_Home_tel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Bill_noColumn {
+                get {
+                    return this.columnBill_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Real_Payment_PeriodColumn {
+                get {
+                    return this.columnReal_Payment_Period;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Period_trackColumn {
+                get {
+                    return this.columnPeriod_track;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DiscountColumn {
+                get {
+                    return this.columnDiscount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Real_payment_fineColumn {
+                get {
+                    return this.columnReal_payment_fine;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Real_paymentColumn {
+                get {
+                    return this.columnReal_payment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Real_payment_dateColumn {
+                get {
+                    return this.columnReal_payment_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Payment_save_dateColumn {
+                get {
+                    return this.columnPayment_save_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Payment_With_EmployeeColumn {
+                get {
+                    return this.columnPayment_With_Employee;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Payment_At_CompanyColumn {
+                get {
+                    return this.columnPayment_At_Company;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Bill_Payment_SlipRow this[int index] {
+                get {
+                    return ((Bill_Payment_SlipRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Bill_Payment_SlipRowChangeEventHandler Bill_Payment_SlipRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Bill_Payment_SlipRowChangeEventHandler Bill_Payment_SlipRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Bill_Payment_SlipRowChangeEventHandler Bill_Payment_SlipRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event Bill_Payment_SlipRowChangeEventHandler Bill_Payment_SlipRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddBill_Payment_SlipRow(Bill_Payment_SlipRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Bill_Payment_SlipRow AddBill_Payment_SlipRow(
+                        string Leasing_id, 
+                        string Deps_no, 
+                        string Leasing_no, 
+                        string Leasing_code_name, 
+                        string Leasing_date, 
+                        string Company_code, 
+                        string Company_N_name, 
+                        string Company_F_name, 
+                        string Company_tax_id, 
+                        string Company_tax_subcode, 
+                        string Company_address_no, 
+                        string Company_vilage, 
+                        string Company_vilage_no, 
+                        string Company_alley, 
+                        string Company_road, 
+                        string Company_subdistrict, 
+                        string Company_district, 
+                        string Company_Province_name, 
+                        string Company_country, 
+                        string Company_zipcode, 
+                        string Zone_code, 
+                        string Zone_name, 
+                        string Contract_status_id, 
+                        string Contract_Status_name, 
+                        string Cust_id, 
+                        string Cust_Idcard, 
+                        string Cust_Fname, 
+                        string Cust_LName, 
+                        string Cust_Home_address_no, 
+                        string Cust_Home_vilage, 
+                        string Cust_Home_vilage_no, 
+                        string Cust_Home_alley, 
+                        string Cust_Home_road, 
+                        string Cust_Home_subdistrict, 
+                        string Cust_Home_district, 
+                        string Cust_Home_province_name, 
+                        string Cust_Home_country, 
+                        string Cust_Home_zipcode, 
+                        string Cust_Home_tel, 
+                        string Bill_no, 
+                        string Real_Payment_Period, 
+                        string Period_track, 
+                        string Discount, 
+                        string Real_payment_fine, 
+                        string Real_payment, 
+                        string Real_payment_date, 
+                        string Payment_save_date, 
+                        string Payment_With_Employee, 
+                        string Payment_At_Company) {
+                Bill_Payment_SlipRow rowBill_Payment_SlipRow = ((Bill_Payment_SlipRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Leasing_id,
+                        Deps_no,
+                        Leasing_no,
+                        Leasing_code_name,
+                        Leasing_date,
+                        Company_code,
+                        Company_N_name,
+                        Company_F_name,
+                        Company_tax_id,
+                        Company_tax_subcode,
+                        Company_address_no,
+                        Company_vilage,
+                        Company_vilage_no,
+                        Company_alley,
+                        Company_road,
+                        Company_subdistrict,
+                        Company_district,
+                        Company_Province_name,
+                        Company_country,
+                        Company_zipcode,
+                        Zone_code,
+                        Zone_name,
+                        Contract_status_id,
+                        Contract_Status_name,
+                        Cust_id,
+                        Cust_Idcard,
+                        Cust_Fname,
+                        Cust_LName,
+                        Cust_Home_address_no,
+                        Cust_Home_vilage,
+                        Cust_Home_vilage_no,
+                        Cust_Home_alley,
+                        Cust_Home_road,
+                        Cust_Home_subdistrict,
+                        Cust_Home_district,
+                        Cust_Home_province_name,
+                        Cust_Home_country,
+                        Cust_Home_zipcode,
+                        Cust_Home_tel,
+                        Bill_no,
+                        Real_Payment_Period,
+                        Period_track,
+                        Discount,
+                        Real_payment_fine,
+                        Real_payment,
+                        Real_payment_date,
+                        Payment_save_date,
+                        Payment_With_Employee,
+                        Payment_At_Company};
+                rowBill_Payment_SlipRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBill_Payment_SlipRow);
+                return rowBill_Payment_SlipRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Bill_Payment_SlipDataTable cln = ((Bill_Payment_SlipDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Bill_Payment_SlipDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnLeasing_id = base.Columns["Leasing_id"];
+                this.columnDeps_no = base.Columns["Deps_no"];
+                this.columnLeasing_no = base.Columns["Leasing_no"];
+                this.columnLeasing_code_name = base.Columns["Leasing_code_name"];
+                this.columnLeasing_date = base.Columns["Leasing_date"];
+                this.columnCompany_code = base.Columns["Company_code"];
+                this.columnCompany_N_name = base.Columns["Company_N_name"];
+                this.columnCompany_F_name = base.Columns["Company_F_name"];
+                this.columnCompany_tax_id = base.Columns["Company_tax_id"];
+                this.columnCompany_tax_subcode = base.Columns["Company_tax_subcode"];
+                this.columnCompany_address_no = base.Columns["Company_address_no"];
+                this.columnCompany_vilage = base.Columns["Company_vilage"];
+                this.columnCompany_vilage_no = base.Columns["Company_vilage_no"];
+                this.columnCompany_alley = base.Columns["Company_alley"];
+                this.columnCompany_road = base.Columns["Company_road"];
+                this.columnCompany_subdistrict = base.Columns["Company_subdistrict"];
+                this.columnCompany_district = base.Columns["Company_district"];
+                this.columnCompany_Province_name = base.Columns["Company_Province_name"];
+                this.columnCompany_country = base.Columns["Company_country"];
+                this.columnCompany_zipcode = base.Columns["Company_zipcode"];
+                this.columnZone_code = base.Columns["Zone_code"];
+                this.columnZone_name = base.Columns["Zone_name"];
+                this.columnContract_status_id = base.Columns["Contract_status_id"];
+                this.columnContract_Status_name = base.Columns["Contract_Status_name"];
+                this.columnCust_id = base.Columns["Cust_id"];
+                this.columnCust_Idcard = base.Columns["Cust_Idcard"];
+                this.columnCust_Fname = base.Columns["Cust_Fname"];
+                this.columnCust_LName = base.Columns["Cust_LName"];
+                this.columnCust_Home_address_no = base.Columns["Cust_Home_address_no"];
+                this.columnCust_Home_vilage = base.Columns["Cust_Home_vilage"];
+                this.columnCust_Home_vilage_no = base.Columns["Cust_Home_vilage_no"];
+                this.columnCust_Home_alley = base.Columns["Cust_Home_alley"];
+                this.columnCust_Home_road = base.Columns["Cust_Home_road"];
+                this.columnCust_Home_subdistrict = base.Columns["Cust_Home_subdistrict"];
+                this.columnCust_Home_district = base.Columns["Cust_Home_district"];
+                this.columnCust_Home_province_name = base.Columns["Cust_Home_province_name"];
+                this.columnCust_Home_country = base.Columns["Cust_Home_country"];
+                this.columnCust_Home_zipcode = base.Columns["Cust_Home_zipcode"];
+                this.columnCust_Home_tel = base.Columns["Cust_Home_tel"];
+                this.columnBill_no = base.Columns["Bill_no"];
+                this.columnReal_Payment_Period = base.Columns["Real_Payment_Period"];
+                this.columnPeriod_track = base.Columns["Period_track"];
+                this.columnDiscount = base.Columns["Discount"];
+                this.columnReal_payment_fine = base.Columns["Real_payment_fine"];
+                this.columnReal_payment = base.Columns["Real_payment"];
+                this.columnReal_payment_date = base.Columns["Real_payment_date"];
+                this.columnPayment_save_date = base.Columns["Payment_save_date"];
+                this.columnPayment_With_Employee = base.Columns["Payment_With_Employee"];
+                this.columnPayment_At_Company = base.Columns["Payment_At_Company"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnLeasing_id = new global::System.Data.DataColumn("Leasing_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeasing_id);
+                this.columnDeps_no = new global::System.Data.DataColumn("Deps_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDeps_no);
+                this.columnLeasing_no = new global::System.Data.DataColumn("Leasing_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeasing_no);
+                this.columnLeasing_code_name = new global::System.Data.DataColumn("Leasing_code_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeasing_code_name);
+                this.columnLeasing_date = new global::System.Data.DataColumn("Leasing_date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeasing_date);
+                this.columnCompany_code = new global::System.Data.DataColumn("Company_code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_code);
+                this.columnCompany_N_name = new global::System.Data.DataColumn("Company_N_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_N_name);
+                this.columnCompany_F_name = new global::System.Data.DataColumn("Company_F_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_F_name);
+                this.columnCompany_tax_id = new global::System.Data.DataColumn("Company_tax_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_tax_id);
+                this.columnCompany_tax_subcode = new global::System.Data.DataColumn("Company_tax_subcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_tax_subcode);
+                this.columnCompany_address_no = new global::System.Data.DataColumn("Company_address_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_address_no);
+                this.columnCompany_vilage = new global::System.Data.DataColumn("Company_vilage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_vilage);
+                this.columnCompany_vilage_no = new global::System.Data.DataColumn("Company_vilage_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_vilage_no);
+                this.columnCompany_alley = new global::System.Data.DataColumn("Company_alley", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_alley);
+                this.columnCompany_road = new global::System.Data.DataColumn("Company_road", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_road);
+                this.columnCompany_subdistrict = new global::System.Data.DataColumn("Company_subdistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_subdistrict);
+                this.columnCompany_district = new global::System.Data.DataColumn("Company_district", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_district);
+                this.columnCompany_Province_name = new global::System.Data.DataColumn("Company_Province_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_Province_name);
+                this.columnCompany_country = new global::System.Data.DataColumn("Company_country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_country);
+                this.columnCompany_zipcode = new global::System.Data.DataColumn("Company_zipcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompany_zipcode);
+                this.columnZone_code = new global::System.Data.DataColumn("Zone_code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZone_code);
+                this.columnZone_name = new global::System.Data.DataColumn("Zone_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZone_name);
+                this.columnContract_status_id = new global::System.Data.DataColumn("Contract_status_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContract_status_id);
+                this.columnContract_Status_name = new global::System.Data.DataColumn("Contract_Status_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContract_Status_name);
+                this.columnCust_id = new global::System.Data.DataColumn("Cust_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_id);
+                this.columnCust_Idcard = new global::System.Data.DataColumn("Cust_Idcard", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Idcard);
+                this.columnCust_Fname = new global::System.Data.DataColumn("Cust_Fname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Fname);
+                this.columnCust_LName = new global::System.Data.DataColumn("Cust_LName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_LName);
+                this.columnCust_Home_address_no = new global::System.Data.DataColumn("Cust_Home_address_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_address_no);
+                this.columnCust_Home_vilage = new global::System.Data.DataColumn("Cust_Home_vilage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_vilage);
+                this.columnCust_Home_vilage_no = new global::System.Data.DataColumn("Cust_Home_vilage_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_vilage_no);
+                this.columnCust_Home_alley = new global::System.Data.DataColumn("Cust_Home_alley", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_alley);
+                this.columnCust_Home_road = new global::System.Data.DataColumn("Cust_Home_road", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_road);
+                this.columnCust_Home_subdistrict = new global::System.Data.DataColumn("Cust_Home_subdistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_subdistrict);
+                this.columnCust_Home_district = new global::System.Data.DataColumn("Cust_Home_district", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_district);
+                this.columnCust_Home_province_name = new global::System.Data.DataColumn("Cust_Home_province_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_province_name);
+                this.columnCust_Home_country = new global::System.Data.DataColumn("Cust_Home_country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_country);
+                this.columnCust_Home_zipcode = new global::System.Data.DataColumn("Cust_Home_zipcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_zipcode);
+                this.columnCust_Home_tel = new global::System.Data.DataColumn("Cust_Home_tel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCust_Home_tel);
+                this.columnBill_no = new global::System.Data.DataColumn("Bill_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBill_no);
+                this.columnReal_Payment_Period = new global::System.Data.DataColumn("Real_Payment_Period", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReal_Payment_Period);
+                this.columnPeriod_track = new global::System.Data.DataColumn("Period_track", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPeriod_track);
+                this.columnDiscount = new global::System.Data.DataColumn("Discount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDiscount);
+                this.columnReal_payment_fine = new global::System.Data.DataColumn("Real_payment_fine", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReal_payment_fine);
+                this.columnReal_payment = new global::System.Data.DataColumn("Real_payment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReal_payment);
+                this.columnReal_payment_date = new global::System.Data.DataColumn("Real_payment_date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReal_payment_date);
+                this.columnPayment_save_date = new global::System.Data.DataColumn("Payment_save_date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_save_date);
+                this.columnPayment_With_Employee = new global::System.Data.DataColumn("Payment_With_Employee", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_With_Employee);
+                this.columnPayment_At_Company = new global::System.Data.DataColumn("Payment_At_Company", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_At_Company);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Bill_Payment_SlipRow NewBill_Payment_SlipRow() {
+                return ((Bill_Payment_SlipRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Bill_Payment_SlipRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Bill_Payment_SlipRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Bill_Payment_SlipRowChanged != null)) {
+                    this.Bill_Payment_SlipRowChanged(this, new Bill_Payment_SlipRowChangeEvent(((Bill_Payment_SlipRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Bill_Payment_SlipRowChanging != null)) {
+                    this.Bill_Payment_SlipRowChanging(this, new Bill_Payment_SlipRowChangeEvent(((Bill_Payment_SlipRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Bill_Payment_SlipRowDeleted != null)) {
+                    this.Bill_Payment_SlipRowDeleted(this, new Bill_Payment_SlipRowChangeEvent(((Bill_Payment_SlipRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Bill_Payment_SlipRowDeleting != null)) {
+                    this.Bill_Payment_SlipRowDeleting(this, new Bill_Payment_SlipRowChangeEvent(((Bill_Payment_SlipRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveBill_Payment_SlipRow(Bill_Payment_SlipRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Leasing_Ds ds = new Leasing_Ds();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Bill_Payment_SlipDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -39931,6 +40934,1407 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Bill_Payment_SlipRow : global::System.Data.DataRow {
+            
+            private Bill_Payment_SlipDataTable tableBill_Payment_Slip;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal Bill_Payment_SlipRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableBill_Payment_Slip = ((Bill_Payment_SlipDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Leasing_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Leasing_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_id\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Leasing_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Deps_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Deps_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Deps_no\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Deps_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Leasing_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Leasing_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_no\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Leasing_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Leasing_code_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Leasing_code_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_code_name\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Leasing_code_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Leasing_date {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Leasing_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_date\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Leasing_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_code {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_codeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_code\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_codeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_N_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_N_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_N_name\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_N_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_F_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_F_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_F_name\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_F_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_tax_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_tax_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_tax_id\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_tax_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_tax_subcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_tax_subcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_tax_subcode\' in table \'Bill_Payment_Slip\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_tax_subcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_address_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_address_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_address_no\' in table \'Bill_Payment_Slip\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_address_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_vilage {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_vilageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_vilage\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_vilageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_vilage_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_vilage_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_vilage_no\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_vilage_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_alley {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_alleyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_alley\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_alleyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_road {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_roadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_road\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_roadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_subdistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_subdistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_subdistrict\' in table \'Bill_Payment_Slip\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_subdistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_district {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_districtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_district\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_districtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_Province_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_Province_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_Province_name\' in table \'Bill_Payment_Slip\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_Province_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_country {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_countryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_country\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_countryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Company_zipcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Company_zipcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Company_zipcode\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Company_zipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Zone_code {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Zone_codeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Zone_code\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Zone_codeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Zone_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Zone_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Zone_name\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Zone_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Contract_status_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Contract_status_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Contract_status_id\' in table \'Bill_Payment_Slip\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Contract_status_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Contract_Status_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Contract_Status_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Contract_Status_name\' in table \'Bill_Payment_Slip\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Contract_Status_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_id {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_id\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Idcard {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_IdcardColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Idcard\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_IdcardColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Fname {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_FnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Fname\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_FnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_LName {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_LNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_LName\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_LNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_address_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_address_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_address_no\' in table \'Bill_Payment_Slip\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_address_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_vilage {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_vilageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_vilage\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_vilageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_vilage_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_vilage_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_vilage_no\' in table \'Bill_Payment_Slip\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_vilage_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_alley {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_alleyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_alley\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_alleyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_road {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_roadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_road\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_roadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_subdistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_subdistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_subdistrict\' in table \'Bill_Payment_Slip\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_subdistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_district {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_districtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_district\' in table \'Bill_Payment_Slip\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_districtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_province_name {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_province_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_province_name\' in table \'Bill_Payment_Slip\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_province_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_country {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_countryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_country\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_countryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_zipcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_zipcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_zipcode\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_zipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cust_Home_tel {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Cust_Home_telColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_tel\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Cust_Home_telColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Bill_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Bill_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Bill_no\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Bill_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Real_Payment_Period {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Real_Payment_PeriodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Real_Payment_Period\' in table \'Bill_Payment_Slip\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Real_Payment_PeriodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Period_track {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Period_trackColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Period_track\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Period_trackColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Discount {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.DiscountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Discount\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.DiscountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Real_payment_fine {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Real_payment_fineColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Real_payment_fine\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Real_payment_fineColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Real_payment {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Real_paymentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Real_payment\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Real_paymentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Real_payment_date {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Real_payment_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Real_payment_date\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Real_payment_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Payment_save_date {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Payment_save_dateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_save_date\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Payment_save_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Payment_With_Employee {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Payment_With_EmployeeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_With_Employee\' in table \'Bill_Payment_Slip\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Payment_With_EmployeeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Payment_At_Company {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Payment_At_CompanyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_At_Company\' in table \'Bill_Payment_Slip\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Payment_At_CompanyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeasing_idNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Leasing_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeasing_idNull() {
+                this[this.tableBill_Payment_Slip.Leasing_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDeps_noNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Deps_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDeps_noNull() {
+                this[this.tableBill_Payment_Slip.Deps_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeasing_noNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Leasing_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeasing_noNull() {
+                this[this.tableBill_Payment_Slip.Leasing_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeasing_code_nameNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Leasing_code_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeasing_code_nameNull() {
+                this[this.tableBill_Payment_Slip.Leasing_code_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeasing_dateNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Leasing_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeasing_dateNull() {
+                this[this.tableBill_Payment_Slip.Leasing_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_codeNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_codeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_codeNull() {
+                this[this.tableBill_Payment_Slip.Company_codeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_N_nameNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_N_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_N_nameNull() {
+                this[this.tableBill_Payment_Slip.Company_N_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_F_nameNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_F_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_F_nameNull() {
+                this[this.tableBill_Payment_Slip.Company_F_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_tax_idNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_tax_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_tax_idNull() {
+                this[this.tableBill_Payment_Slip.Company_tax_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_tax_subcodeNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_tax_subcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_tax_subcodeNull() {
+                this[this.tableBill_Payment_Slip.Company_tax_subcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_address_noNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_address_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_address_noNull() {
+                this[this.tableBill_Payment_Slip.Company_address_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_vilageNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_vilageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_vilageNull() {
+                this[this.tableBill_Payment_Slip.Company_vilageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_vilage_noNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_vilage_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_vilage_noNull() {
+                this[this.tableBill_Payment_Slip.Company_vilage_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_alleyNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_alleyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_alleyNull() {
+                this[this.tableBill_Payment_Slip.Company_alleyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_roadNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_roadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_roadNull() {
+                this[this.tableBill_Payment_Slip.Company_roadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_subdistrictNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_subdistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_subdistrictNull() {
+                this[this.tableBill_Payment_Slip.Company_subdistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_districtNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_districtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_districtNull() {
+                this[this.tableBill_Payment_Slip.Company_districtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_Province_nameNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_Province_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_Province_nameNull() {
+                this[this.tableBill_Payment_Slip.Company_Province_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_countryNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_countryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_countryNull() {
+                this[this.tableBill_Payment_Slip.Company_countryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompany_zipcodeNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Company_zipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompany_zipcodeNull() {
+                this[this.tableBill_Payment_Slip.Company_zipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsZone_codeNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Zone_codeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetZone_codeNull() {
+                this[this.tableBill_Payment_Slip.Zone_codeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsZone_nameNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Zone_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetZone_nameNull() {
+                this[this.tableBill_Payment_Slip.Zone_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsContract_status_idNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Contract_status_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetContract_status_idNull() {
+                this[this.tableBill_Payment_Slip.Contract_status_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsContract_Status_nameNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Contract_Status_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetContract_Status_nameNull() {
+                this[this.tableBill_Payment_Slip.Contract_Status_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_idNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_idNull() {
+                this[this.tableBill_Payment_Slip.Cust_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_IdcardNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_IdcardColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_IdcardNull() {
+                this[this.tableBill_Payment_Slip.Cust_IdcardColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_FnameNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_FnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_FnameNull() {
+                this[this.tableBill_Payment_Slip.Cust_FnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_LNameNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_LNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_LNameNull() {
+                this[this.tableBill_Payment_Slip.Cust_LNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_address_noNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_address_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_address_noNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_address_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_vilageNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_vilageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_vilageNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_vilageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_vilage_noNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_vilage_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_vilage_noNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_vilage_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_alleyNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_alleyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_alleyNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_alleyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_roadNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_roadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_roadNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_roadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_subdistrictNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_subdistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_subdistrictNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_subdistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_districtNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_districtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_districtNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_districtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_province_nameNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_province_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_province_nameNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_province_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_countryNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_countryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_countryNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_countryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_zipcodeNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_zipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_zipcodeNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_zipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCust_Home_telNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Cust_Home_telColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCust_Home_telNull() {
+                this[this.tableBill_Payment_Slip.Cust_Home_telColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBill_noNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Bill_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBill_noNull() {
+                this[this.tableBill_Payment_Slip.Bill_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReal_Payment_PeriodNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Real_Payment_PeriodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReal_Payment_PeriodNull() {
+                this[this.tableBill_Payment_Slip.Real_Payment_PeriodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPeriod_trackNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Period_trackColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPeriod_trackNull() {
+                this[this.tableBill_Payment_Slip.Period_trackColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDiscountNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.DiscountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDiscountNull() {
+                this[this.tableBill_Payment_Slip.DiscountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReal_payment_fineNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Real_payment_fineColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReal_payment_fineNull() {
+                this[this.tableBill_Payment_Slip.Real_payment_fineColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReal_paymentNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Real_paymentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReal_paymentNull() {
+                this[this.tableBill_Payment_Slip.Real_paymentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReal_payment_dateNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Real_payment_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReal_payment_dateNull() {
+                this[this.tableBill_Payment_Slip.Real_payment_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPayment_save_dateNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Payment_save_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPayment_save_dateNull() {
+                this[this.tableBill_Payment_Slip.Payment_save_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPayment_With_EmployeeNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Payment_With_EmployeeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPayment_With_EmployeeNull() {
+                this[this.tableBill_Payment_Slip.Payment_With_EmployeeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPayment_At_CompanyNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Payment_At_CompanyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPayment_At_CompanyNull() {
+                this[this.tableBill_Payment_Slip.Payment_At_CompanyColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -40188,6 +42592,40 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Agent_CommissionRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class Bill_Payment_SlipRowChangeEvent : global::System.EventArgs {
+            
+            private Bill_Payment_SlipRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Bill_Payment_SlipRowChangeEvent(Bill_Payment_SlipRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public Bill_Payment_SlipRow Row {
                 get {
                     return this.eventRow;
                 }

@@ -311,16 +311,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
             
             private global::System.Data.DataColumn columnPeriod_schedule;
             
-            private global::System.Data.DataColumn columnReal_payment;
-            
-            private global::System.Data.DataColumn columnReal_payment_date;
-            
-            private global::System.Data.DataColumn columnBill_no;
-            
-            private global::System.Data.DataColumn columnEmp_id;
-            
-            private global::System.Data.DataColumn columnPayment_Company_N_name;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public r_payment_scheduleDataTable() {
@@ -484,46 +474,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Real_paymentColumn {
-                get {
-                    return this.columnReal_payment;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Real_payment_dateColumn {
-                get {
-                    return this.columnReal_payment_date;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Bill_noColumn {
-                get {
-                    return this.columnBill_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Emp_idColumn {
-                get {
-                    return this.columnEmp_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Payment_Company_N_nameColumn {
-                get {
-                    return this.columnPayment_Company_N_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -575,12 +525,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
                         double Period_payment, 
                         double Total_payment_left, 
                         string Period_no, 
-                        string Period_schedule, 
-                        double Real_payment, 
-                        string Real_payment_date, 
-                        string Bill_no, 
-                        string Emp_id, 
-                        string Payment_Company_N_name) {
+                        string Period_schedule) {
                 r_payment_scheduleRow rowr_payment_scheduleRow = ((r_payment_scheduleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Leasings_id,
@@ -598,12 +543,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
                         Period_payment,
                         Total_payment_left,
                         Period_no,
-                        Period_schedule,
-                        Real_payment,
-                        Real_payment_date,
-                        Bill_no,
-                        Emp_id,
-                        Payment_Company_N_name};
+                        Period_schedule};
                 rowr_payment_scheduleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowr_payment_scheduleRow);
                 return rowr_payment_scheduleRow;
@@ -642,11 +582,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
                 this.columnTotal_payment_left = base.Columns["Total_payment_left"];
                 this.columnPeriod_no = base.Columns["Period_no"];
                 this.columnPeriod_schedule = base.Columns["Period_schedule"];
-                this.columnReal_payment = base.Columns["Real_payment"];
-                this.columnReal_payment_date = base.Columns["Real_payment_date"];
-                this.columnBill_no = base.Columns["Bill_no"];
-                this.columnEmp_id = base.Columns["Emp_id"];
-                this.columnPayment_Company_N_name = base.Columns["Payment_Company_N_name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -684,16 +619,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
                 base.Columns.Add(this.columnPeriod_no);
                 this.columnPeriod_schedule = new global::System.Data.DataColumn("Period_schedule", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriod_schedule);
-                this.columnReal_payment = new global::System.Data.DataColumn("Real_payment", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReal_payment);
-                this.columnReal_payment_date = new global::System.Data.DataColumn("Real_payment_date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReal_payment_date);
-                this.columnBill_no = new global::System.Data.DataColumn("Bill_no", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBill_no);
-                this.columnEmp_id = new global::System.Data.DataColumn("Emp_id", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEmp_id);
-                this.columnPayment_Company_N_name = new global::System.Data.DataColumn("Payment_Company_N_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPayment_Company_N_name);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1094,88 +1019,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Real_payment {
-                get {
-                    try {
-                        return ((double)(this[this.tabler_payment_schedule.Real_paymentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Real_payment\' in table \'r_payment_schedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabler_payment_schedule.Real_paymentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Real_payment_date {
-                get {
-                    try {
-                        return ((string)(this[this.tabler_payment_schedule.Real_payment_dateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Real_payment_date\' in table \'r_payment_schedule\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tabler_payment_schedule.Real_payment_dateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Bill_no {
-                get {
-                    try {
-                        return ((string)(this[this.tabler_payment_schedule.Bill_noColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Bill_no\' in table \'r_payment_schedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabler_payment_schedule.Bill_noColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Emp_id {
-                get {
-                    try {
-                        return ((string)(this[this.tabler_payment_schedule.Emp_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Emp_id\' in table \'r_payment_schedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabler_payment_schedule.Emp_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Payment_Company_N_name {
-                get {
-                    try {
-                        return ((string)(this[this.tabler_payment_schedule.Payment_Company_N_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_Company_N_name\' in table \'r_payment_schedule\' is DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tabler_payment_schedule.Payment_Company_N_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLeasings_idNull() {
                 return this.IsNull(this.tabler_payment_schedule.Leasings_idColumn);
             }
@@ -1364,66 +1207,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPeriod_scheduleNull() {
                 this[this.tabler_payment_schedule.Period_scheduleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsReal_paymentNull() {
-                return this.IsNull(this.tabler_payment_schedule.Real_paymentColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetReal_paymentNull() {
-                this[this.tabler_payment_schedule.Real_paymentColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsReal_payment_dateNull() {
-                return this.IsNull(this.tabler_payment_schedule.Real_payment_dateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetReal_payment_dateNull() {
-                this[this.tabler_payment_schedule.Real_payment_dateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsBill_noNull() {
-                return this.IsNull(this.tabler_payment_schedule.Bill_noColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetBill_noNull() {
-                this[this.tabler_payment_schedule.Bill_noColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsEmp_idNull() {
-                return this.IsNull(this.tabler_payment_schedule.Emp_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetEmp_idNull() {
-                this[this.tabler_payment_schedule.Emp_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPayment_Company_N_nameNull() {
-                return this.IsNull(this.tabler_payment_schedule.Payment_Company_N_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPayment_Company_N_nameNull() {
-                this[this.tabler_payment_schedule.Payment_Company_N_nameColumn] = global::System.Convert.DBNull;
             }
         }
         

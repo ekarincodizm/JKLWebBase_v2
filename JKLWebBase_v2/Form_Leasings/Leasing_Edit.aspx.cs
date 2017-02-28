@@ -338,7 +338,8 @@ namespace JKLWebBase_v2.Form_Leasings
         private void _CheckLeasingPayment(string Leasing_id)
         {
             Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
-            List<Car_Leasings_Payment> list_cls_pay = cls_mng.getPaymentScheduleById(Leasing_id);
+            Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
+            List<Car_Leasings_Payment> list_cls_pay = cls_pay_mng.getPaymentSchedule(Leasing_id);
 
             if (list_cls_pay.Count > 0)
             {

@@ -163,14 +163,16 @@
                                         <tr>
                                             <th style="width: 5%;">งวดที่</th>
                                             <th style="width: 10%;">กำหนดชำระ</th>
-                                            <th style="width: 10%;">ค่างวด (บาท)</th>
+                                            <th style="width: 9%;">ค่างวด (บาท)</th>
                                             <th style="width: 10%;">ยอดคงค้าง (บาท)</th>
                                             <th style="width: 10%;">ค่าปรับ (บาท)</th>
-                                            <th style="width: 10%;">วันที่ชำระจริง</th>
-                                            <th style="width: 10%;">ยอดชำระจริง (บาท)</th>
-                                            <th style="width: 15%;">ใบเสร็จ</th>
-                                            <th style="width: 5%;"></th>
-                                            <th style="width: 5%;"></th>
+                                            <th style="width: 10%;">วันที่ชำระ </th>
+                                            <th style="width: 10%;">ยอดชำระ (บาท)</th>
+                                            <th style="width: 10%;">ยอดชำระค่าปรับ (บาท)</th>
+                                            <th style="width: 14%;">ใบเสร็จ</th>
+                                            <th style="width: 4%;"></th>
+                                            <th style="width: 4%;"></th>
+                                            <th style="width: 4%;"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -182,22 +184,44 @@
                                                 for (int i = 0; i < list_cls_pay.Count; i++)
                                                 {
                                                     Car_Leasings_Payment cls_pay = list_cls_pay[i];
+
+                                                    string ogn_code = CryptographyCode.GenerateSHA512String(cls_pay.Bill_no);
+
+                                                    if (Convert.ToDateTime(cls_pay.Period_schedule) < DateTime.Now && cls_pay.Period_payment_status == -1)
+                                                    {
+                                        %>
+                                        <tr style="background-color: lightcoral;"">
+                                        <%          }
+                                                    else if (cls_pay.Period_payment_status == 1)
+                                                    {
+                                        %>
+                                        <tr style="background-color: lightyellow;"">
+                                        <%          }
+                                                    else if (cls_pay.Period_payment_status == 9)
+                                                    {
+                                        %>
+                                        <tr style="background-color: lightgreen;">
+                                        <%          }
+                                                    else
+                                                    {
                                         %>
                                         <tr>
+                                        <%          } %>
                                             <td><%= cls_pay.Period_no %>  </td>
                                             <td><%= DateTimeUtility.convertDateToPage(cls_pay.Period_schedule)  %>  </td>
                                             <td><%= cls_pay.Period_current.ToString("#,###.00") %>  </td>
-                                            <td><%= cls_pay.Total_payment_left == 0 ? "-" : cls_pay.Total_payment_left.ToString("#,###.00") %>  </td>
+                                            <td><%= cls_pay.Total_payment_left == 0 ? cls_pay.Total_Period_left.ToString("#,###.00") : cls_pay.Total_payment_left.ToString("#,###.00") %>  </td>
                                             <td><%= cls_pay.Period_fine.ToString("#,###.00") %>  </td>
                                             <td><%= string.IsNullOrEmpty(cls_pay.Real_payment_date)? "-" : DateTimeUtility.convertDateToPage(cls_pay.Real_payment_date) %>  </td>
-                                            <td><%= cls_pay.Real_payment == 0 ? "-" : cls_pay.Real_payment.ToString("#,###.00") %>  </td>
+                                            <td><%= cls_pay.Real_payment == 0 ? "0.00" : cls_pay.Real_payment.ToString("#,###.00") %>  </td>
+                                            <th><%= cls_pay.Real_payment_fine.ToString("#,###.00") %> </th>
                                             <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Bill_no %>  </td>
                                             <td>
                                                 <% 
                                                     if (!string.IsNullOrEmpty(cls_pay.Bill_no))
                                                     {
                                                 %>
-                                                <asp:HyperLink ID="Print_Bill_Payment_Slip" runat="server" Target="_blank" CssClass="btn btn-xs btn-info" NavigateUrl="/" data-toggle="tooltip" data-placement="top" title="พิมพ์ใบเสร็จ"><i class="fa fa-print fa-fw"></i></asp:HyperLink>
+                                                <a class="btn btn-xs btn-info" href="/Reports_Leasings/Bill_Payment_Slip/Bill_Payment_Slip_Prv?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>" target="_blank" data-toggle="tooltip" data-placement="top" title="พิมพ์ใบเสร็จ"><i class="fa fa-print fa-fw"></i></a>
                                                 <%  } %>
                                             </td>
                                             <td>
@@ -205,7 +229,15 @@
                                                     if (!string.IsNullOrEmpty(cls_pay.Bill_no))
                                                     {
                                                 %>
-                                                <asp:HyperLink ID="Edit_Bill_Payment_Slip" runat="server" Target="_blank" CssClass="btn btn-xs btn-warning" NavigateUrl="/" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit fa-fw"></i></asp:HyperLink>
+                                                <a class="btn btn-xs btn-warning" href="/" target="_blank" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit fa-fw"></i></a>
+                                                <%  } %>
+                                            </td>
+                                            <td>
+                                                <% 
+                                                    if (!string.IsNullOrEmpty(cls_pay.Bill_no))
+                                                    {
+                                                %>
+                                                <a class="btn btn-xs btn-danger" href="/" target="_blank" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>
                                                 <%  } %>
                                             </td>
                                         </tr>
@@ -229,8 +261,8 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-xs-10 col-md-offset-2">
-                            <asp:Label ID="Close_Leasing_Lbl" runat="server" Font-Bold="True"  Font-Size="36pt" ForeColor="Red" Font-Italic="True"> *** ปิดบัญชี *** </asp:Label>
+                        <div class="col-xs-9 col-md-offset-3">
+                            <asp:Label ID="Close_Leasing_Lbl" runat="server" Font-Bold="True" Font-Size="46pt" ForeColor="Red" Font-Italic="True"> *** ปิดบัญชี *** </asp:Label>
                         </div>
                     </div>
                     <div class="row">
@@ -342,44 +374,11 @@
 
                     <div class="row">
                         <div class="form-group col-xs-4">
-                            <asp:Label ID="Period_principle_Lbl" runat="server"> ค่างวด </asp:Label>
-                        </div>
-                        <div class="form-group col-xs-6">
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Period_principle_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#0066FF" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-xs-4">
-                            <asp:Label ID="Period_interst_Lbl" runat="server"> ค่าดอกเบี้ย </asp:Label>
-                        </div>
-                        <div class="form-group col-xs-6">
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Period_interst_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#6666FF" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-xs-4">
-                            <asp:Label ID="Period_vat_Lbl" runat="server"> ค่าภาษี </asp:Label>
-                        </div>
-                        <div class="form-group col-xs-6">
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Period_vat_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#006600" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-xs-4">
                             <asp:Label ID="Period_free_Lbl" runat="server"> ค่าธรรมเนียม </asp:Label>
                         </div>
                         <div class="form-group col-xs-6">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Period_free_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" ReadOnly="true"></asp:TextBox>
+                                <asp:TextBox ID="Period_free_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" TextMode="Number" ></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -390,7 +389,7 @@
                         </div>
                         <div class="form-group col-xs-6">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Period_track_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#996633" ReadOnly="true"></asp:TextBox>
+                                <asp:TextBox ID="Period_track_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#996633" TextMode="Number" ></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -419,7 +418,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-xs-4">
-                            <asp:Label ID="Cal_Period_Payment_Lbl" runat="server"> รวมทั้งหมด </asp:Label>
+                            <asp:Label ID="Cal_Period_Payment_Lbl" runat="server"> ยอดรวมค่างวด </asp:Label>
                         </div>
                         <div class="form-group col-xs-6">
                             <div class="form-group input-group">
@@ -433,14 +432,44 @@
 
                     <div class="row">
                         <div class="form-group col-xs-4">
-                            <asp:Label ID="Real_Payment_Lbl" runat="server"> ชำระเงินค่างวด </asp:Label>
+                            <asp:Label ID="Real_Payment_Lbl" runat="server"> ยอดชำระค่างวด </asp:Label>
                         </div>
                         <div class="form-group col-xs-6">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Real_Payment_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#009933" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox ID="Real_Payment_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#009933" TextMode="Number" ></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                             <asp:RequiredFieldValidator ID="RFV_Real_Payment_TBx" runat="server" ErrorMessage=" กรุณากรอกจำนวนเงิน " CssClass="text-danger" ControlToValidate="Real_Payment_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4">
+                            <asp:Label ID="Real_Payment_Fine_Lbl" runat="server"> ยอดชำระค่าปรับ </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Real_Payment_Fine_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#990000" TextMode="Number" ></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                            <asp:RequiredFieldValidator ID="RFV_Real_Payment_Fine_TBxx" runat="server" ErrorMessage=" กรุณากรอกจำนวนเงิน " CssClass="text-danger" ControlToValidate="Real_Payment_Fine_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4">
+                            <asp:Label ID="Real_Discount_Lbl" runat="server"> ส่วนลด </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Real_Discount_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#FF9900" TextMode="Number" ></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                            <asp:RequiredFieldValidator ID="RFV_Real_Discount_TBx" runat="server" ErrorMessage=" กรุณากรอกจำนวนเงิน " CssClass="text-danger" ControlToValidate="Real_Discount_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <asp:Label ID="Note_Lbl" runat="server" Font-Bold="True" Font-Size="18pt" ForeColor="#FF6600"> </asp:Label>
                         </div>
                     </div>
 

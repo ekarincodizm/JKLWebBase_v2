@@ -41,14 +41,20 @@
                         <table class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>งวดที่</th>
-                                    <th>วันที่กำหนดชำระ</th>
-                                    <th>ค่างวดที่ต้องชำระ (บาท)</th>
-                                    <th>ค่างวด (บาท)</th>
-                                    <th>มูลค่าต่องวด (บาท)</th>
-                                    <th>เงินต้นต่องวด (บาท)</th>
-                                    <th>ดอกเบี้ยต่องวด (บาท)</th>
-                                    <th>ภาษีต่องวด (บาท)</th>
+                                    <th style="width: 5%;">งวดที่</th>
+                                    <th style="width: 8%;">วันที่กำหนดชำระ</th>
+                                    <th style="width: 6%;">ค่างวดที่ต้องชำระ (บาท)</th>
+                                    <th style="width: 5%;">ค่างวด (บาท)</th>
+                                    <th style="width: 5%;">มูลค่าต่องวด (บาท)</th>
+                                    <th style="width: 6%;">เงินต้นต่องวด (บาท)</th>
+                                    <th style="width: 6%;">ดอกเบี้ยต่องวด (บาท)</th>
+                                    <th style="width: 6%;">ภาษีต่องวด (บาท)</th>
+                                    <th style="width: 5%;">ค่าปรับ (บาท)</th>
+                                    <th style="width: 5%;">ครั้งที่</th>
+                                    <th style="width: 8%;">วันที่ชำระ </th>
+                                    <th style="width: 5%;">ยอดชำระ (บาท)</th>
+                                    <th style="width: 6%;">ยอดชำระค่าปรับ (บาท)</th>
+                                    <th style="width: 15%;">ใบเสร็จ</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -58,8 +64,27 @@
                                     for (int i = 0; i < list_cls_pay.Count; i++)
                                     {
                                         Car_Leasings_Payment cls_pay = list_cls_pay[i];
+
+                                        if (Convert.ToDateTime(cls_pay.Period_schedule) < DateTime.Now && cls_pay.Period_payment_status == -1)
+                                        {
+                                %>
+                                <tr style="background-color: lightcoral;"">
+                                <%      }
+                                        else if (cls_pay.Period_payment_status == 1)
+                                        {
+                                %>
+                                <tr style="background-color: lightyellow;"">
+                                <%      }
+                                        else if (cls_pay.Period_payment_status == 9)
+                                        {
+                                %>
+                                <tr style="background-color: lightgreen;">
+                                <%      }
+                                        else
+                                        {
                                 %>
                                 <tr>
+                                <%      } %>
                                     <td><%= cls_pay.Period_no %> </td>
                                     <td><%= DateTimeUtility.convertDateToPage(cls_pay.Period_schedule) %> </td>
                                     <td><%= cls_pay.Period_current.ToString("#,###.00") %> </td>
@@ -68,6 +93,12 @@
                                     <td><%= cls_pay.Period_principle.ToString("#,###.00") %> </td>
                                     <td><%= cls_pay.Period_interst.ToString("#,###.00") %> </td>
                                     <td><%= cls_pay.Period_vat.ToString("#,###.00") %> </td>
+                                    <td><%= cls_pay.Period_fine.ToString("#,###.00") %>  </td>
+                                    <td><%= cls_pay.Count_payment == 0 ? "-" : cls_pay.Count_payment.ToString() %> </td>
+                                    <td><%= string.IsNullOrEmpty(cls_pay.Real_payment_date)? "-" : DateTimeUtility.convertDateToPage(cls_pay.Real_payment_date) %>  </td>
+                                    <td><%= cls_pay.Real_payment == 0 ? "0.00" : cls_pay.Real_payment.ToString("#,###.00") %>  </td>
+                                    <th><%= cls_pay.Real_payment_fine.ToString("#,###.00") %> </th>
+                                    <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Bill_no %>  </td>
                                 </tr>
                                 <% } %>
                             </tbody>
