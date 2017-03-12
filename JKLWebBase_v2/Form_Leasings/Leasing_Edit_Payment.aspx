@@ -1,4 +1,4 @@
-﻿<%@ Page Title="ชำระเงินค่างวด" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Payment.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Payment" %>
+﻿<%@ Page Title="ชำระเงินค่างวด" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Edit_Payment.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Edit_Payment" %>
 
 <%@ Import Namespace="JKLWebBase_v2.Class_Leasings" %>
 <%@ Import Namespace="JKLWebBase_v2.Managers_Leasings" %>
@@ -170,9 +170,6 @@
                                             <th style="width: 10%;">ยอดชำระ (บาท)</th>
                                             <th style="width: 10%;">ยอดชำระค่าปรับ (บาท)</th>
                                             <th style="width: 14%;">ใบเสร็จ</th>
-                                            <th style="width: 4%;"></th>
-                                            <th style="width: 4%;"></th>
-                                            <th style="width: 4%;"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -204,18 +201,18 @@
                                         %>
                                         <tr style="background-color: lightcoral;"">
                                         <%          }
-                                                    else if (cls_pay.Period_payment_status == 1)
-                                                    {
+                                            else if (cls_pay.Period_payment_status == 1)
+                                            {
                                         %>
                                         <tr style="background-color: lightyellow;"">
                                         <%          }
-                                                    else if (cls_pay.Period_payment_status == 9)
-                                                    {
+                                            else if (cls_pay.Period_payment_status == 9)
+                                            {
                                         %>
                                         <tr style="background-color: lightgreen;">
                                         <%          }
-                                                    else
-                                                    {
+                                            else
+                                            {
                                         %>
                                         <tr>
                                         <%          } %>
@@ -228,30 +225,6 @@
                                             <td><%= cls_pay.Real_payment == 0 ? "0.00" : cls_pay.Real_payment.ToString("#,###.00") %>  </td>
                                             <th><%= cls_pay.Real_payment_fine.ToString("#,###.00") %> </th>
                                             <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Bill_no %>  </td>
-                                            <td>
-                                                <% 
-                                                    if (!string.IsNullOrEmpty(cls_pay.Bill_no))
-                                                    {
-                                                %>
-                                                <a class="btn btn-xs btn-info" href="/Reports_Leasings/Bill_Payment_Slip/Bill_Payment_Slip_Prv?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>" target="_blank" data-toggle="tooltip" data-placement="top" title="พิมพ์ใบเสร็จ"><i class="fa fa-print fa-fw"></i></a>
-                                                <%  } %>
-                                            </td>
-                                            <td>
-                                                <% 
-                                                    if (!string.IsNullOrEmpty(cls_pay.Bill_no) && max_row == i)
-                                                    {
-                                                %>
-                                                <a class="btn btn-xs btn-warning" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>" target="_parent" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit fa-fw"></i></a>
-                                                <%  } %>
-                                            </td>
-                                            <td>
-                                                <% 
-                                                    if (!string.IsNullOrEmpty(cls_pay.Bill_no) && max_row == i)
-                                                    {
-                                                %>
-                                                <a class="btn btn-xs btn-danger" href="/Form_Leasings/Leasing_Remove_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>" target="_parent" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>
-                                                <%  } %>
-                                            </td>
                                         </tr>
                                         <%
                                                 }
@@ -269,12 +242,22 @@
         <div class="col-lg-4">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    ข้อมูลการชำระเงิน
+                    แก้ไขข้อมูลการชำระเงิน
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-9 col-md-offset-3">
                             <asp:Label ID="Close_Leasing_Lbl" runat="server" Font-Bold="True" Font-Size="46pt" ForeColor="Red" Font-Italic="True"> *** ปิดบัญชี *** </asp:Label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4">
+                            <asp:Label ID="Bill_No_Lbl" runat="server"> เลขที่ใบเสร็จ </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Bill_No_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ReadOnly="true"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -325,23 +308,7 @@
                             </script>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-xs-4">
-                            <asp:Label ID="Period_No_Lbl" runat="server"> งวดที่ </asp:Label>
-                        </div>
-                        <div class="col-xs-3">
-                            <asp:TextBox ID="Period_No_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="20pt" ForeColor="Red" ReadOnly="true"></asp:TextBox>
-                        </div>
-                        <div class="col-xs-1">
-                            <asp:Label ID="Total_Payment_Period_Lbl" runat="server"> รวม </asp:Label>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Total_Payment_Period_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="Red" ReadOnly="true"> </asp:TextBox>
-                                <span class="input-group-addon">งวด</span>
-                            </div>
-                        </div>
-                    </div>
+                        
                     <div class="row">
                         <div class="form-group col-xs-4">
                             <asp:Label ID="Total_payment_left_Lbl" runat="server"> ยอดคงค้างทั้งหมด </asp:Label>
@@ -349,17 +316,6 @@
                         <div class="form-group col-xs-6">
                             <div class="form-group input-group">
                                 <asp:TextBox ID="Total_payment_left_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#00CC00" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-xs-4">
-                            <asp:Label ID="Total_period_left_Lbl" runat="server"> ยอดขาดชำระทั้งหมด </asp:Label>
-                        </div>
-                        <div class="form-group col-xs-6">
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Total_period_left_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="Red" ReadOnly="true"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -376,9 +332,61 @@
                         </div>
                     </div>
 
+                    <hr />
+
                     <div class="row">
-                        <div class="col-xs-10 col-md-offset-2">
-                            <asp:Label ID="Cal_Status_Lbl" runat="server" Font-Bold="True" Font-Size="36pt" ForeColor="#FF6600"> *** คำนวนการปิดบัญชี *** </asp:Label>
+                        <div class="form-group col-xs-4">
+                            <asp:Label ID="Old_Period_fee_Lbl" runat="server"> ค่าธรรมเนียม </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Old_Period_fee_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" ReadOnly="true"  ></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4">
+                            <asp:Label ID="Old_Period_track_Lbl" runat="server"> ค่าติดตาม </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Old_Period_track_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#996633" ReadOnly="true"  ></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4">
+                            <asp:Label ID="Old_Real_Payment_Lbl" runat="server"> ยอดชำระค่างวด </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Old_Real_Payment_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#009933" ReadOnly="true"  ></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4">
+                            <asp:Label ID="Old_Real_Payment_Fine_Lbl" runat="server"> ยอดชำระค่าปรับ </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Old_Real_Payment_Fine_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#990000" ReadOnly="true"  ></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-4">
+                            <asp:Label ID="Old_Real_Discount_Lbl" runat="server"> ส่วนลด </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-6">
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Old_Real_Discount_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#FF9900" ReadOnly="true" ></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
                         </div>
                     </div>
 
@@ -386,11 +394,11 @@
 
                     <div class="row">
                         <div class="form-group col-xs-4">
-                            <asp:Label ID="Period_free_Lbl" runat="server"> ค่าธรรมเนียม </asp:Label>
+                            <asp:Label ID="Period_fee_Lbl" runat="server"> ค่าธรรมเนียม </asp:Label>
                         </div>
                         <div class="form-group col-xs-6">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Period_free_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox ID="Period_fee_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" TextMode="Number" ></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -406,42 +414,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-xs-4">
-                            <asp:Label ID="Period_fine_Lbl" runat="server"> ค่าปรับ </asp:Label>
-                        </div>
-                        <div class="form-group col-xs-6">
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Period_fine_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Red" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-xs-4">
-                            <asp:Label ID="Discount_Lbl" runat="server"> ส่วนลด </asp:Label>
-                        </div>
-                        <div class="form-group col-xs-6">
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Discount_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#CC6600" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-xs-4">
-                            <asp:Label ID="Cal_Period_Payment_Lbl" runat="server"> ยอดรวมค่างวด </asp:Label>
-                        </div>
-                        <div class="form-group col-xs-6">
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Cal_Period_Payment_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Red" Font-Underline="True" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr />
-
                     <div class="row">
                         <div class="form-group col-xs-4">
                             <asp:Label ID="Real_Payment_Lbl" runat="server"> ยอดชำระค่างวด </asp:Label>
@@ -489,10 +461,7 @@
 
                     <div class="row">
                         <div class="form-group col-xs-4">
-                            <asp:LinkButton ID="Payment_Btn" runat="server" CssClass="btn btn-sm btn-success btn-block" OnClick="Payment_Btn_Click" ValidationGroup="Save_Validation" CausesValidation="true"><i class="fa fa-save fa-fw"></i> ชำระเงิน </asp:LinkButton>
-                        </div>
-                        <div class="form-group col-xs-4">
-                            <asp:LinkButton ID="Calculate_Close_Leasing_Btn" runat="server" CssClass="btn btn-sm btn-warning btn-block" OnClick="Calculate_Close_Leasing_Btn_Click"><i class="fa fa-gears fa-fw"></i> คำนวนปิดบัญชี </asp:LinkButton>
+                            <asp:LinkButton ID="Save_Btn" runat="server" CssClass="btn btn-sm btn-success btn-block" OnClick="Save_Btn_Click" ValidationGroup="Save_Validation" CausesValidation="true"><i class="fa fa-save fa-fw"></i> บันทึกข้อมูล </asp:LinkButton>
                         </div>
                         <div class="form-group col-xs-4">
                             <asp:LinkButton ID="Back_Before_Page_Btn" runat="server" CssClass="btn btn-sm btn-info btn-block" OnClick="Back_Before_Page_Btn_Click"><i class="fa fa-arrow-circle-left fa-fw"></i> ย้อนกลับ  </asp:LinkButton>

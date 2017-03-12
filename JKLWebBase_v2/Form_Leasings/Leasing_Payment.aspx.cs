@@ -52,6 +52,8 @@ namespace JKLWebBase_v2.Form_Leasings
                     Cal_Status_Lbl.Visible = false;
 
                     _loadLeasingDetails(leasing_id, idcard);
+
+                    Session["ctm_leasing_payment"] = idcard;
                 }
             }
         }
@@ -474,7 +476,13 @@ namespace JKLWebBase_v2.Form_Leasings
             {
                 if (real_payment >= sum_payment_left)
                 {
-                    if (period_fine > 0 && real_payment_fine != period_fine)
+                    if(real_payment <= 0)
+                    {
+                        Note_Lbl.Text = "*** ระบุยอดชำระมากกว่า : 0.00 บาท ***";
+
+                        Real_Payment_TBx.Focus();
+                    }
+                    else if (period_fine > 0 && real_payment_fine != period_fine)
                     {
                         Note_Lbl.Text = "*** มียอดค่าปรับค้างชำระจำนวน :  " + period_fine.ToString("#,###.00") + " บาท ***";
 
@@ -507,7 +515,13 @@ namespace JKLWebBase_v2.Form_Leasings
                 }
                 else
                 {
-                    if (period_fine > 0 && real_payment_fine > period_fine)
+                    if (real_payment <= 0)
+                    {
+                        Note_Lbl.Text = "*** ระบุยอดชำระมากกว่า : 0.00 บาท ***";
+
+                        Real_Payment_TBx.Focus();
+                    }
+                    else if (period_fine > 0 && real_payment_fine > period_fine)
                     {
                         Note_Lbl.Text = "*** มียอดค่าปรับค้างชำระจำนวน :  " + period_fine.ToString("#,###.00") + " บาท ***";
 

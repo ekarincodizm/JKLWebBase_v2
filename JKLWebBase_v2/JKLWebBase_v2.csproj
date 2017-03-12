@@ -182,8 +182,46 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -273,6 +311,8 @@
   <ItemGroup>
     <Content Include="Form_Customer\Customer_Home_Photo_Remove.aspx" />
     <Content Include="Form_Leasings\Leasing_Car_Img_Remove.aspx" />
+    <Content Include="Form_Leasings\Leasing_Edit_Payment.aspx" />
+    <Content Include="Form_Leasings\Leasing_Remove_Payment.aspx" />
     <Content Include="Form_Leasings\Leasing_Search_Payment.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
@@ -529,6 +569,13 @@
     <Compile Include="Form_Leasings\Leasing_Edit_Agent.aspx.designer.cs">
       <DependentUpon>Leasing_Edit_Agent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Form_Leasings\Leasing_Edit_Payment.aspx.cs">
+      <DependentUpon>Leasing_Edit_Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Edit_Payment.aspx.designer.cs">
+      <DependentUpon>Leasing_Edit_Payment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Form_Leasings\Leasing_Payment.aspx.cs">
       <DependentUpon>Leasing_Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -542,6 +589,13 @@
     </Compile>
     <Compile Include="Form_Leasings\Leasing_Payment_Schedule.aspx.designer.cs">
       <DependentUpon>Leasing_Payment_Schedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Remove_Payment.aspx.cs">
+      <DependentUpon>Leasing_Remove_Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Leasings\Leasing_Remove_Payment.aspx.designer.cs">
+      <DependentUpon>Leasing_Remove_Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Leasings\Leasing_Search_Payment.aspx.cs">
       <DependentUpon>Leasing_Search_Payment.aspx</DependentUpon>
@@ -678,6 +732,7 @@
     <Compile Include="Managers_Leasings\Car_Leasings_Guarantor_Manager.cs" />
     <Compile Include="Managers_Leasings\Car_Leasings_Manager.cs" />
     <Compile Include="Managers_Leasings\Car_Leasings_Payment_Manager.cs" />
+    <Compile Include="Manager_Account\COM_Client_Manager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports_Leasings\Bill_Payment_Slip\Bill_Payment_Slip.cs">
