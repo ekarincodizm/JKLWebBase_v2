@@ -309,6 +309,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\THSarabunPSK.svg" />
+    <Content Include="Form_Account\Activity_Log.aspx" />
+    <Content Include="Form_Account\Activity_Login_Log.aspx" />
+    <Content Include="Form_Account\Computer_Client_Managerment.aspx" />
+    <Content Include="Form_Account\Employee_Add.aspx" />
+    <Content Include="Form_Account\Employee_Edit.aspx" />
+    <Content Include="Form_Account\Employee_Remove.aspx" />
+    <Content Include="Form_Account\Employee_Search.aspx" />
+    <Content Include="Form_Account\Employee_Status_List.aspx" />
+    <Content Include="Form_Account\Load_Data_From_MSSQL.aspx" />
+    <Content Include="Form_Base\Base_Company_Management.aspx" />
     <Content Include="Form_Customer\Customer_Home_Photo_Remove.aspx" />
     <Content Include="Form_Leasings\Leasing_Car_Img_Remove.aspx" />
     <Content Include="Form_Leasings\Leasing_Edit_Payment.aspx" />
@@ -383,6 +394,10 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="fonts\THSarabun.eot" />
+    <Content Include="fonts\THSarabun.woff2" />
+    <Content Include="fonts\THSarabunPSK.ttf" />
+    <Content Include="fonts\THSarabunPSK.woff" />
     <None Include="Properties\PublishProfiles\JKLWebBase.pubxml" />
     <Content Include="Reports_Leasings\Payment_Schedule\Payment_Schedule_Ds.xsc">
       <DependentUpon>Payment_Schedule_Ds.xsd</DependentUpon>
@@ -492,6 +507,76 @@
     <Compile Include="Class_Leasings\Car_Leasings_Guarator.cs" />
     <Compile Include="Class_Leasings\Car_Leasings_Payment.cs" />
     <Compile Include="Class_Leasings\Car_Leasings_Photo.cs" />
+    <Compile Include="Form_Account\Activity_Log.aspx.cs">
+      <DependentUpon>Activity_Log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Account\Activity_Log.aspx.designer.cs">
+      <DependentUpon>Activity_Log.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Account\Activity_Login_Log.aspx.cs">
+      <DependentUpon>Activity_Login_Log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Account\Activity_Login_Log.aspx.designer.cs">
+      <DependentUpon>Activity_Login_Log.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Account\Computer_Client_Managerment.aspx.cs">
+      <DependentUpon>Computer_Client_Managerment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Account\Computer_Client_Managerment.aspx.designer.cs">
+      <DependentUpon>Computer_Client_Managerment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Account\Employee_Add.aspx.cs">
+      <DependentUpon>Employee_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Account\Employee_Add.aspx.designer.cs">
+      <DependentUpon>Employee_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Account\Employee_Edit.aspx.cs">
+      <DependentUpon>Employee_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Account\Employee_Edit.aspx.designer.cs">
+      <DependentUpon>Employee_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Account\Employee_Remove.aspx.cs">
+      <DependentUpon>Employee_Remove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Account\Employee_Remove.aspx.designer.cs">
+      <DependentUpon>Employee_Remove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Account\Employee_Search.aspx.cs">
+      <DependentUpon>Employee_Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Account\Employee_Search.aspx.designer.cs">
+      <DependentUpon>Employee_Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Account\Employee_Status_List.aspx.cs">
+      <DependentUpon>Employee_Status_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Account\Employee_Status_List.aspx.designer.cs">
+      <DependentUpon>Employee_Status_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Account\Load_Data_From_MSSQL.aspx.cs">
+      <DependentUpon>Load_Data_From_MSSQL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Account\Load_Data_From_MSSQL.aspx.designer.cs">
+      <DependentUpon>Load_Data_From_MSSQL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Company_Management.aspx.cs">
+      <DependentUpon>Base_Company_Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Company_Management.aspx.designer.cs">
+      <DependentUpon>Base_Company_Management.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Form_Customer\Customer_Home_Photo.aspx.cs">
       <DependentUpon>Customer_Home_Photo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -930,7 +1015,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="aspnet_client\" />
-    <Folder Include="Form_Account\" />
     <Folder Include="Reports_Leasings\Leasings\" />
     <Folder Include="Reports_Leasings\Lost_Payment\" />
     <Folder Include="Reports_Leasings\Lost_Payment_Hurry\" />

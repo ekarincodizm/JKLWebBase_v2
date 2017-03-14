@@ -12,7 +12,7 @@
     <ul class="nav navbar-top-links navbar-left">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="~/">
-                <i class="fa fa-group fa-fw"></i> ผู้ติดต่อ <i class="fa fa-caret-down"></i>
+                <i class="fa fa-group fa-fw"></i>ผู้ติดต่อ <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li>
@@ -141,10 +141,64 @@
         </li>
     </ul>
 
-
     <ul class="nav navbar-top-links navbar-right">
         <li>
             <asp:LinkButton ID="link_Logout" runat="server" CssClass="logout" OnClick="link_Logout_Click"> <i class="fa fa-sign-out fa-fw"></i> Logout </asp:LinkButton>
         </li>
     </ul>
+
+    <asp:Panel ID="Account_Panel" runat="server">
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="~/">
+                    <i class="fa fa-cogs fa-fw"></i>จัดการระบบ  <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <asp:LinkButton ID="LinkButton7" runat="server"> <i class="fa fa-sitemap fa-fw"></i> จัดการ สาขา </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton28" runat="server"> <i class="fa fa-phone-square fa-fw"></i> จัดการ เขตบริการ </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton25" runat="server"> <i class="fa fa-car fa-fw"></i> จัดการ ยี่ห้อรถ </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton24" runat="server"> <i class="fa fa-legal fa-fw"></i> จัดการ ศาล </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton26" runat="server"> <i class="fa fa-barcode fa-fw"></i> จัดการ รหัสลิสซิ่ง </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton27" runat="server"> <i class="fa fa-language fa-fw"></i> จัดการ สัญชาติ และ เชื้อชาติ</asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton29" runat="server"> <i class="fa fa-calendar fa-fw"></i> จัดการ ระยะเวลาการชำระ</asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton31" runat="server"> <i class="fa fa-info-circle fa-fw"></i> จัดการ สถานะลิ่สซิ่ง</asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton30" runat="server"> <i class="fa fa-truck fa-fw"></i> จัดการ เต้นรถ </asp:LinkButton>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton3" runat="server"> <i class="fa fa-users fa-fw"></i> <i class="fa fa-search fa-fw"></i>  ค้นหาผู้ใช้งานระบบ </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton4" runat="server"> <i class="fa fa-users fa-fw"></i> <i class="fa fa-plus-circle fa-fw"></i> เพิ่มผู้ใช้งานระบบ </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton5" runat="server"> <i class="fa fa-users fa-fw"></i> <i class="fa fa-list-ul fa-fw"></i> แสดงสถานะผู้ใช้งาน </asp:LinkButton>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <asp:LinkButton ID="LinkButton6" runat="server"> <i class="fa fa-database fa-fw"></i> โหลดข้อมูลจาก DB MSSQL TO MySQL </asp:LinkButton>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        
+    </asp:Panel>
+
 </nav>

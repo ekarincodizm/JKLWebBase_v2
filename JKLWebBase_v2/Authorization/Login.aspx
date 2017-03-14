@@ -47,10 +47,10 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:TextBox runat="server" ID="Latitude_TBx" Height="0" Width="0"></asp:TextBox>
+            <asp:TextBox runat="server" ID="Latitude_TBx" ></asp:TextBox>
         </div>
         <div class="form-group">
-            <asp:TextBox runat="server" ID="Longitude_TBx" Height="0" Width="0"></asp:TextBox>
+            <asp:TextBox runat="server" ID="Longitude_TBx" ></asp:TextBox>
         </div>
     </form>
 
