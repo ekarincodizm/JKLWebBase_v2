@@ -112,7 +112,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
                 Car_Type_TBx.Text = cls.Car_type;
 
-                bs_cbrn = cbrn_mng.geCartBrandById(cls.bs_cbrn.car_brand_id);
+                bs_cbrn = cbrn_mng.getCarBrandById(cls.bs_cbrn.car_brand_id);
 
                 Car_Brand_TBx.Text = bs_cbrn.car_brand_name_th + " ( " + bs_cbrn.car_brand_name_eng + " )";
 
@@ -205,7 +205,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
                 Car_Type_TBx.Text = cls.Car_type;
 
-                bs_cbrn = cbrn_mng.geCartBrandById(cls.bs_cbrn.car_brand_id);
+                bs_cbrn = cbrn_mng.getCarBrandById(cls.bs_cbrn.car_brand_id);
 
                 Car_Brand_TBx.Text = bs_cbrn.car_brand_name_th + " ( " + bs_cbrn.car_brand_name_eng + " )";
 

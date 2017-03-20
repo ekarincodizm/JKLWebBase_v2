@@ -86,9 +86,137 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Logout_Click(object sender, EventArgs e)
         {
+            Session.RemoveAll();
+
             Response.Redirect("/Authorization/Login");
         }
 
+        protected void link_Company_Management_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
 
+            Response.Redirect("/Form_Base/Base_Company_Management");
+        }
+
+        protected void link_zone_management_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+
+            Response.Redirect("/Form_Base/Base_Zone_Service_Managenment");
+        }
+
+        protected void link_brand_management_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+
+            Response.Redirect("/Form_Base/Base_Car_Brands_Management");
+        }
+
+        protected void link_court_management_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+
+            Response.Redirect("/Form_Base/Base_Courts_Management");
+        }
+
+        protected void link_leasing_code_management_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+
+            Response.Redirect("/Form_Base/Base_Leasing_Code_Management");
+        }
+
+        protected void link_nationality_management_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+
+            Response.Redirect("/Form_Base/Base_Nationalitys_Management");
+        }
+
+        protected void link_origin_management_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+
+            Response.Redirect("/Form_Base/Base_Origins_Management");
+        }
+
+        protected void link_length_payment_management_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+
+            Response.Redirect("/Form_Base/Base_Total_Payment_Management");
+        }
+
+        protected void link_tents_management_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+
+            Response.Redirect("/Form_Base/Base_Tents_Car_Management");
+        }
+
+        protected void link_search_account_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void link_add_account_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void link_load_leasing_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void link_load_loan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

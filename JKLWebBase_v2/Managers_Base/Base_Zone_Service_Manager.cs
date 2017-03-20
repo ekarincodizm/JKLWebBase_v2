@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using JKLWebBase_v2.Global_Class;
@@ -92,6 +93,117 @@ namespace JKLWebBase_v2.Managers_Base
                 error = "Exception ==> Managers_Base --> Base_Zone_Service_Manager --> getZoneService() ";
                 Log_Error._writeErrorFile(error, ex);
                 return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool addZoneService(string i_Zone_code, string i_Zone_name)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `i_base_zone_service`(IN i_Zone_code VARCHAR(255), IN i_Zone_name VARCHAR(255))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_base_zone_service", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Zone_code", i_Zone_code);
+                cmd.Parameters.AddWithValue("@i_Zone_name", i_Zone_name);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Zone_Service_Manager --> addZoneService() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Zone_Service_Manager --> addZoneService() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool editZoneService(int i_Zone_id, string i_Zone_code, string i_Zone_name)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `u_base_zone_service`(IN i_Zone_id INT(11), IN i_Zone_code VARCHAR(255), IN i_Zone_name VARCHAR(255))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("u_base_zone_service", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Zone_id", i_Zone_id);
+                cmd.Parameters.AddWithValue("@i_Zone_code", i_Zone_code);
+                cmd.Parameters.AddWithValue("@i_Zone_name", i_Zone_name);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Zone_Service_Manager --> editZoneService() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Zone_Service_Manager --> editZoneService() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool removeZoneService(int i_Zone_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `d_base_zone_service`(IN i_Zone_id INT(11))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("d_base_zone_service", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Zone_id", i_Zone_id);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Zone_Service_Manager --> removeZoneService() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Zone_Service_Manager --> removeZoneService() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
             }
             finally
             {

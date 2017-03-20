@@ -49,9 +49,22 @@ namespace JKLWebBase_v2.Form_Leasings
                     string bill_no = code[2];
                     string idcard = (string)Session["ctm_leasing_payment"];
 
-                    Close_Leasing_Lbl.Visible = false;
+                    if (Request.Params["mode"] == "e")
+                    {
+                        Close_Leasing_Lbl.Visible = false;
 
-                    _loadLeasingDetails(leasing_id, idcard, bill_no);
+                        _loadLeasingDetails(leasing_id, idcard, bill_no);
+                    }
+                    else if(Request.Params["mode"] == "r")
+                    {
+                        Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
+
+                        cls_pay_mng.removePayment(leasing_id, bill_no);
+
+                        string ogn_code = CryptographyCode.GenerateSHA512String(leasing_id);
+
+                        Response.Redirect("/Form_Leasings/Leasing_Payment?code=" + CryptographyCode.EncodeTOAddressBar(ogn_code, leasing_id, idcard));
+                    }
                 }
             }
         }
@@ -100,7 +113,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             Car_Type_TBx.Text = cls.Car_type;
 
-            bs_cbrn = cbrn_mng.geCartBrandById(cls.bs_cbrn.car_brand_id);
+            bs_cbrn = cbrn_mng.getCarBrandById(cls.bs_cbrn.car_brand_id);
 
             Car_Brand_TBx.Text = bs_cbrn.car_brand_name_th + " ( " + bs_cbrn.car_brand_name_eng + " )";
 

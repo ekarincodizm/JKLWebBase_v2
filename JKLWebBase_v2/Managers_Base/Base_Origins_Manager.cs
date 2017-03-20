@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using JKLWebBase_v2.Global_Class;
@@ -92,6 +93,117 @@ namespace JKLWebBase_v2.Managers_Base
                 error = "Exception ==> Managers_Base --> Base_Origins_Manager --> getOrigins() ";
                 Log_Error._writeErrorFile(error, ex);
                 return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool addOrigin(string i_Origin_name_ENG, string i_Origin_name_TH)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `i_base_origins`(IN i_Origin_name_ENG VARCHAR(255), IN i_Origin_name_TH VARCHAR(255))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_base_origins", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Origin_name_ENG", i_Origin_name_ENG);
+                cmd.Parameters.AddWithValue("@i_Origin_name_TH", i_Origin_name_TH);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Origins_Manager --> addOrigin() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Origins_Manager --> addOrigin() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool editOrigin(int i_Origin_id, string i_Origin_name_ENG, string i_Origin_name_TH)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `u_base_origins`(IN i_Origin_id INT(11), IN i_Origin_name_ENG VARCHAR(255), IN i_Origin_name_TH VARCHAR(255))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("u_base_origins", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Origin_id", i_Origin_id);
+                cmd.Parameters.AddWithValue("@i_Origin_name_ENG", i_Origin_name_ENG);
+                cmd.Parameters.AddWithValue("@i_Origin_name_TH", i_Origin_name_TH);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Origins_Manager --> editOrigin() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Origins_Manager --> editOrigin() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool removeOrigin(int i_Origin_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `d_base_origins`(IN i_Origin_id INT(11))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("d_base_origins", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Origin_id", i_Origin_id);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Origins_Manager --> removeOrigin() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Origins_Manager --> removeOrigin() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
             }
             finally
             {

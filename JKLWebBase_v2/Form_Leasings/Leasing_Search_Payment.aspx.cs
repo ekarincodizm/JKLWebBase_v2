@@ -85,6 +85,18 @@ namespace JKLWebBase_v2.Form_Leasings
             }
         }
 
+        protected void Search_Btn_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Leasings");
+
+            _getLeasing();
+        }
+
+        /*******************************************************************************************************************************************************************************
+        ****************************************************                        Pageing System                              ********************************************************
+        ****************************************************                                                                    ********************************************************
+        *******************************************************************************************************************************************************************************/
+
         protected void link_Previous_Click(object sender, EventArgs e)
         {
             int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
@@ -95,14 +107,14 @@ namespace JKLWebBase_v2.Form_Leasings
 
                 Paging_DDL.SelectedValue = prev.ToString();
 
-                _getMoreDealer(prev);
+                _getMorePayment(prev);
             }
         }
         protected void Paging_DDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             int current_page = Convert.ToInt32(Paging_DDL.SelectedValue);
 
-            _getMoreDealer(current_page);
+            _getMorePayment(current_page);
         }
 
         protected void link_Next_Click(object sender, EventArgs e)
@@ -113,15 +125,9 @@ namespace JKLWebBase_v2.Form_Leasings
 
             Paging_DDL.SelectedValue = next.ToString();
 
-            _getMoreDealer(next);
+            _getMorePayment(next);
         }
 
-        protected void Search_Btn_Click(object sender, EventArgs e)
-        {
-            Session.Remove("List_Leasings");
-
-            _getLeasing();
-        }
 
         /*******************************************************************************************************************************************************************************
         ****************************************************                   Search Leasing Method                            ********************************************************
@@ -194,7 +200,7 @@ namespace JKLWebBase_v2.Form_Leasings
             }
         }
 
-        private void _getMoreDealer(int current_page)
+        private void _getMorePayment(int current_page)
         {
             string deposit_no = (string)Session["deposit_no"];
             string leasing_no = (string)Session["leasing_no"];
@@ -327,7 +333,7 @@ namespace JKLWebBase_v2.Form_Leasings
         // สาขา
         private void _loadBrands()
         {
-            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys();
+            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys(0, 0);
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Companys data = list_data[i];

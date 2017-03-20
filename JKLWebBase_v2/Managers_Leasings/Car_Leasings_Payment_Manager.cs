@@ -193,7 +193,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_Discount", cls_pay.Discount);
                 cmd.Parameters.AddWithValue("@i_Real_payment", cls_pay.Real_payment);
                 cmd.Parameters.AddWithValue("@i_Real_payment_date", cls_pay.Real_payment_date);
-                cmd.Parameters.AddWithValue("@i_Emp_id", cls_pay.acc_lgn.Employee_id);
+                cmd.Parameters.AddWithValue("@i_Account_id", cls_pay.acc_lgn.Employee_id);
                 cmd.Parameters.AddWithValue("@i_Company_Id", cls_pay.bs_cpn.Company_id);
                 cmd.Parameters.AddWithValue("@i_Type_Payment", type);
 
@@ -244,7 +244,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_Discount", cls_pay.Discount);
                 cmd.Parameters.AddWithValue("@i_Real_payment", cls_pay.Real_payment);
                 cmd.Parameters.AddWithValue("@i_Real_payment_date", cls_pay.Real_payment_date);
-                cmd.Parameters.AddWithValue("@i_Emp_id", cls_pay.acc_lgn.Employee_id);
+                cmd.Parameters.AddWithValue("@i_Account_id", cls_pay.acc_lgn.Employee_id);
                 cmd.Parameters.AddWithValue("@i_Company_Id", cls_pay.bs_cpn.Company_id);
 
                 cmd.ExecuteNonQuery();

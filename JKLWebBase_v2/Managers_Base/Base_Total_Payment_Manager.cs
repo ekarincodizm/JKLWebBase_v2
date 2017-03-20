@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using JKLWebBase_v2.Global_Class;
@@ -90,6 +91,115 @@ namespace JKLWebBase_v2.Managers_Base
                 error = "Exception ==> Managers_Base --> Base_Total_Payment_Manager --> getTotalPayment() ";
                 Log_Error._writeErrorFile(error, ex);
                 return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool addTotalPayment(string i_Total_payment_name)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `i_base_total_payment`(IN i_Total_payment_name VARCHAR(255))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_base_total_payment", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Total_payment_name", i_Total_payment_name);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Total_Payment_Manager --> addTotalPayment() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Total_Payment_Manager --> addTotalPayment() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool editTotalPayment(int i_Total_payment_id, string i_Total_payment_name)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `u_base_total_payment`(IN i_Total_payment_id INT(11), IN i_Total_payment_name VARCHAR(255))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("u_base_total_payment", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Total_payment_id", i_Total_payment_id);
+                cmd.Parameters.AddWithValue("@i_Total_payment_name", i_Total_payment_name);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Total_Payment_Manager --> editTotalPayment() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Total_Payment_Manager --> editTotalPayment() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool removeTotalPayment(int i_Total_payment_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `d_base_total_payment`(IN i_Total_payment_id INT(11))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("d_base_total_payment", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Total_payment_id", i_Total_payment_id);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Total_Payment_Manager --> removeTotalPayment() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Total_Payment_Manager --> removeTotalPayment() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
             }
             finally
             {

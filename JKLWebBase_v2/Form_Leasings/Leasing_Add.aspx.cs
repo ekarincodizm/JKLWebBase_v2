@@ -148,7 +148,7 @@ namespace JKLWebBase_v2.Form_Leasings
         // สาขา
         private void _loadBrands()
         {
-            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys();
+            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys(0, 0);
             Company_DDL.Items.Add(new ListItem("--------กรุณาเลือก--------", "0"));
             for (int i = 0; i < list_data.Count; i++)
             {

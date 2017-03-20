@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using JKLWebBase_v2.Global_Class;
@@ -16,7 +17,7 @@ namespace JKLWebBase_v2.Managers_Base
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM base_courts WHERE Court_id =" + Court_id;
+                string sql = "SELECT * FROM base_courts WHERE Court_id = " + Court_id;
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -25,7 +26,7 @@ namespace JKLWebBase_v2.Managers_Base
 
                 Base_Courts bs_ct = new Base_Courts();
 
-                while (reader.Read())
+                if (reader.Read())
                 {
                     bs_ct.Court_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
                     bs_ct.Court_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
@@ -90,6 +91,115 @@ namespace JKLWebBase_v2.Managers_Base
                 error = "Exception ==> Managers_Base --> Base_Courts_Manager --> getCourts() ";
                 Log_Error._writeErrorFile(error, ex);
                 return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool addCourts(string i_Court_name)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `i_base_courts`(IN i_Court_name VARCHAR(255))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_base_courts", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Court_name", i_Court_name);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Courts_Manager --> addCourts() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Courts_Manager --> addCourts() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool editCourts(int i_Court_id, string i_Court_name)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `u_base_courts`(IN i_Court_id INT(11), IN i_Court_name VARCHAR(255))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("u_base_courts", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Court_id", i_Court_id);
+                cmd.Parameters.AddWithValue("@i_Court_name", i_Court_name);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Courts_Manager --> editCourts() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Courts_Manager --> editCourts() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool removeCourts(int i_Court_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `d_base_courts`(IN i_Court_id INT(11))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("d_base_courts", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Court_id", i_Court_id);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Courts_Manager --> removeCourts() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Courts_Manager --> removeCourts() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
             }
             finally
             {

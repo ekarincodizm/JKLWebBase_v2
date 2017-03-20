@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using JKLWebBase_v2.Global_Class;
@@ -25,7 +26,7 @@ namespace JKLWebBase_v2.Managers_Base
 
                 Base_Home_Status bs_home_stt = new Base_Home_Status();
 
-                while (reader.Read())
+                if (reader.Read())
                 {
                     bs_home_stt.Home_status_id = reader.IsDBNull(0) ? defaultNum : reader.GetInt32(0);
                     bs_home_stt.Home_status_name = reader.IsDBNull(1) ? defaultString : reader.GetString(1);

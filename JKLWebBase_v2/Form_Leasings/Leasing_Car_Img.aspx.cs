@@ -16,7 +16,7 @@ using JKLWebBase_v2.Managers_Leasings;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
-    public partial class Leasing_Add_Car_Img : System.Web.UI.Page
+    public partial class Leasing_Add_Car_Img : Page
     {
         Customers ctm = new Customers();
         Car_Leasings cls = new Car_Leasings();

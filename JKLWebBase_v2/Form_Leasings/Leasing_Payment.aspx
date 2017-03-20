@@ -241,7 +241,7 @@
                                                     if (!string.IsNullOrEmpty(cls_pay.Bill_no) && max_row == i)
                                                     {
                                                 %>
-                                                <a class="btn btn-xs btn-warning" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>" target="_parent" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit fa-fw"></i></a>
+                                                <a class="btn btn-xs btn-warning" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>&mode=e" target="_parent" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit fa-fw"></i></a>
                                                 <%  } %>
                                             </td>
                                             <td>
@@ -249,7 +249,7 @@
                                                     if (!string.IsNullOrEmpty(cls_pay.Bill_no) && max_row == i)
                                                     {
                                                 %>
-                                                <a class="btn btn-xs btn-danger" href="/Form_Leasings/Leasing_Remove_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>" target="_parent" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>
+                                                <a class="btn btn-xs btn-danger" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>&mode=r" target="_parent" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>
                                                 <%  } %>
                                             </td>
                                         </tr>

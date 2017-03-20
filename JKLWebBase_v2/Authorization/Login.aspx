@@ -46,34 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <asp:TextBox runat="server" ID="Latitude_TBx" ></asp:TextBox>
-        </div>
-        <div class="form-group">
-            <asp:TextBox runat="server" ID="Longitude_TBx" ></asp:TextBox>
-        </div>
     </form>
-
-    <script type="text/javascript">
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        function showPosition(position) {
-
-            var lat = position.coords.latitude;
-            var long = position.coords.longitude;
-
-            document.getElementById("<%= Latitude_TBx.ClientID %>").value = lat;
-            document.getElementById("<%= Longitude_TBx.ClientID %>").value = long;
-
-        }
-    </script>
 
 </body>
 </html>

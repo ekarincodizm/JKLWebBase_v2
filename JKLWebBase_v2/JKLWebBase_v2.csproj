@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.2.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -312,18 +312,32 @@
     <Content Include="fonts\THSarabunPSK.svg" />
     <Content Include="Form_Account\Activity_Log.aspx" />
     <Content Include="Form_Account\Activity_Login_Log.aspx" />
-    <Content Include="Form_Account\Computer_Client_Managerment.aspx" />
-    <Content Include="Form_Account\Employee_Add.aspx" />
-    <Content Include="Form_Account\Employee_Edit.aspx" />
-    <Content Include="Form_Account\Employee_Remove.aspx" />
-    <Content Include="Form_Account\Employee_Search.aspx" />
-    <Content Include="Form_Account\Employee_Status_List.aspx" />
-    <Content Include="Form_Account\Load_Data_From_MSSQL.aspx" />
+    <Content Include="Form_Account\Account_Add.aspx" />
+    <Content Include="Form_Account\Account_Edit.aspx" />
+    <Content Include="Form_Account\Account_Search.aspx" />
+    <Content Include="Form_Account\Load_Data_Leasings_From_MSSQL.aspx" />
+    <Content Include="Form_Account\Load_Data_Loan_From_MSSQL.aspx" />
+    <Content Include="Form_Base\Base_Car_Brands_Edit.aspx" />
+    <Content Include="Form_Base\Base_Car_Brands_Management.aspx" />
+    <Content Include="Form_Base\Base_Company_Edit.aspx" />
     <Content Include="Form_Base\Base_Company_Management.aspx" />
+    <Content Include="Form_Base\Base_Courts_Edit.aspx" />
+    <Content Include="Form_Base\Base_Courts_Management.aspx" />
+    <Content Include="Form_Base\Base_Leasing_Code_Edit.aspx" />
+    <Content Include="Form_Base\Base_Leasing_Code_Management.aspx" />
+    <Content Include="Form_Base\Base_Nationalitys_Edit.aspx" />
+    <Content Include="Form_Base\Base_Nationalitys_Management.aspx" />
+    <Content Include="Form_Base\Base_Origins_Edit.aspx" />
+    <Content Include="Form_Base\Base_Origins_Management.aspx" />
+    <Content Include="Form_Base\Base_Tents_Car_Edit.aspx" />
+    <Content Include="Form_Base\Base_Tents_Car_Management.aspx" />
+    <Content Include="Form_Base\Base_Total_Payment_Edit.aspx" />
+    <Content Include="Form_Base\Base_Total_Payment_Management.aspx" />
+    <Content Include="Form_Base\Base_Zone_Service_Edit.aspx" />
+    <Content Include="Form_Base\Base_Zone_Service_Managenment.aspx" />
     <Content Include="Form_Customer\Customer_Home_Photo_Remove.aspx" />
     <Content Include="Form_Leasings\Leasing_Car_Img_Remove.aspx" />
     <Content Include="Form_Leasings\Leasing_Edit_Payment.aspx" />
-    <Content Include="Form_Leasings\Leasing_Remove_Payment.aspx" />
     <Content Include="Form_Leasings\Leasing_Search_Payment.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
@@ -484,7 +498,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Class_Account\Account_Level.cs" />
     <Compile Include="Class_Account\Account_Login.cs" />
-    <Compile Include="Class_Account\Computer_Clients.cs" />
     <Compile Include="Class_Base\Base_Leasing_Status.cs" />
     <Compile Include="Class_Base\Base_Person_Status.cs" />
     <Compile Include="Class_Base\Base_Total_Payment.cs" />
@@ -521,54 +534,61 @@
     <Compile Include="Form_Account\Activity_Login_Log.aspx.designer.cs">
       <DependentUpon>Activity_Login_Log.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Account\Computer_Client_Managerment.aspx.cs">
-      <DependentUpon>Computer_Client_Managerment.aspx</DependentUpon>
+    <Compile Include="Form_Account\Account_Add.aspx.cs">
+      <DependentUpon>Account_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Account\Computer_Client_Managerment.aspx.designer.cs">
-      <DependentUpon>Computer_Client_Managerment.aspx</DependentUpon>
+    <Compile Include="Form_Account\Account_Add.aspx.designer.cs">
+      <DependentUpon>Account_Add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Account\Employee_Add.aspx.cs">
-      <DependentUpon>Employee_Add.aspx</DependentUpon>
+    <Compile Include="Form_Account\Account_Edit.aspx.cs">
+      <DependentUpon>Account_Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Account\Employee_Add.aspx.designer.cs">
-      <DependentUpon>Employee_Add.aspx</DependentUpon>
+    <Compile Include="Form_Account\Account_Edit.aspx.designer.cs">
+      <DependentUpon>Account_Edit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Account\Employee_Edit.aspx.cs">
-      <DependentUpon>Employee_Edit.aspx</DependentUpon>
+    <Compile Include="Form_Account\Account_Search.aspx.cs">
+      <DependentUpon>Account_Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Account\Employee_Edit.aspx.designer.cs">
-      <DependentUpon>Employee_Edit.aspx</DependentUpon>
+    <Compile Include="Form_Account\Account_Search.aspx.designer.cs">
+      <DependentUpon>Account_Search.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Account\Employee_Remove.aspx.cs">
-      <DependentUpon>Employee_Remove.aspx</DependentUpon>
+    <Compile Include="Form_Account\Load_Data_Leasings_From_MSSQL.aspx.cs">
+      <DependentUpon>Load_Data_Leasings_From_MSSQL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Account\Employee_Remove.aspx.designer.cs">
-      <DependentUpon>Employee_Remove.aspx</DependentUpon>
+    <Compile Include="Form_Account\Load_Data_Leasings_From_MSSQL.aspx.designer.cs">
+      <DependentUpon>Load_Data_Leasings_From_MSSQL.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Account\Employee_Search.aspx.cs">
-      <DependentUpon>Employee_Search.aspx</DependentUpon>
+    <Compile Include="Form_Account\Load_Data_Loan_From_MSSQL.aspx.cs">
+      <DependentUpon>Load_Data_Loan_From_MSSQL.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Account\Employee_Search.aspx.designer.cs">
-      <DependentUpon>Employee_Search.aspx</DependentUpon>
+    <Compile Include="Form_Account\Load_Data_Loan_From_MSSQL.aspx.designer.cs">
+      <DependentUpon>Load_Data_Loan_From_MSSQL.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Account\Employee_Status_List.aspx.cs">
-      <DependentUpon>Employee_Status_List.aspx</DependentUpon>
+    <Compile Include="Form_Base\Base_Car_Brands_Edit.aspx.cs">
+      <DependentUpon>Base_Car_Brands_Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Account\Employee_Status_List.aspx.designer.cs">
-      <DependentUpon>Employee_Status_List.aspx</DependentUpon>
+    <Compile Include="Form_Base\Base_Car_Brands_Edit.aspx.designer.cs">
+      <DependentUpon>Base_Car_Brands_Edit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Form_Account\Load_Data_From_MSSQL.aspx.cs">
-      <DependentUpon>Load_Data_From_MSSQL.aspx</DependentUpon>
+    <Compile Include="Form_Base\Base_Car_Brands_Management.aspx.cs">
+      <DependentUpon>Base_Car_Brands_Management.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Account\Load_Data_From_MSSQL.aspx.designer.cs">
-      <DependentUpon>Load_Data_From_MSSQL.aspx</DependentUpon>
+    <Compile Include="Form_Base\Base_Car_Brands_Management.aspx.designer.cs">
+      <DependentUpon>Base_Car_Brands_Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Company_Edit.aspx.cs">
+      <DependentUpon>Base_Company_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Company_Edit.aspx.designer.cs">
+      <DependentUpon>Base_Company_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Base\Base_Company_Management.aspx.cs">
       <DependentUpon>Base_Company_Management.aspx</DependentUpon>
@@ -576,6 +596,104 @@
     </Compile>
     <Compile Include="Form_Base\Base_Company_Management.aspx.designer.cs">
       <DependentUpon>Base_Company_Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Courts_Edit.aspx.cs">
+      <DependentUpon>Base_Courts_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Courts_Edit.aspx.designer.cs">
+      <DependentUpon>Base_Courts_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Courts_Management.aspx.cs">
+      <DependentUpon>Base_Courts_Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Courts_Management.aspx.designer.cs">
+      <DependentUpon>Base_Courts_Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Leasing_Code_Edit.aspx.cs">
+      <DependentUpon>Base_Leasing_Code_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Leasing_Code_Edit.aspx.designer.cs">
+      <DependentUpon>Base_Leasing_Code_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Leasing_Code_Management.aspx.cs">
+      <DependentUpon>Base_Leasing_Code_Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Leasing_Code_Management.aspx.designer.cs">
+      <DependentUpon>Base_Leasing_Code_Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Nationalitys_Edit.aspx.cs">
+      <DependentUpon>Base_Nationalitys_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Nationalitys_Edit.aspx.designer.cs">
+      <DependentUpon>Base_Nationalitys_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Nationalitys_Management.aspx.cs">
+      <DependentUpon>Base_Nationalitys_Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Nationalitys_Management.aspx.designer.cs">
+      <DependentUpon>Base_Nationalitys_Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Origins_Edit.aspx.cs">
+      <DependentUpon>Base_Origins_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Origins_Edit.aspx.designer.cs">
+      <DependentUpon>Base_Origins_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Origins_Management.aspx.cs">
+      <DependentUpon>Base_Origins_Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Origins_Management.aspx.designer.cs">
+      <DependentUpon>Base_Origins_Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Tents_Car_Edit.aspx.cs">
+      <DependentUpon>Base_Tents_Car_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Tents_Car_Edit.aspx.designer.cs">
+      <DependentUpon>Base_Tents_Car_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Tents_Car_Management.aspx.cs">
+      <DependentUpon>Base_Tents_Car_Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Tents_Car_Management.aspx.designer.cs">
+      <DependentUpon>Base_Tents_Car_Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Total_Payment_Edit.aspx.cs">
+      <DependentUpon>Base_Total_Payment_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Total_Payment_Edit.aspx.designer.cs">
+      <DependentUpon>Base_Total_Payment_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Total_Payment_Management.aspx.cs">
+      <DependentUpon>Base_Total_Payment_Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Total_Payment_Management.aspx.designer.cs">
+      <DependentUpon>Base_Total_Payment_Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Zone_Service_Edit.aspx.cs">
+      <DependentUpon>Base_Zone_Service_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Zone_Service_Edit.aspx.designer.cs">
+      <DependentUpon>Base_Zone_Service_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Base\Base_Zone_Service_Managenment.aspx.cs">
+      <DependentUpon>Base_Zone_Service_Managenment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Base\Base_Zone_Service_Managenment.aspx.designer.cs">
+      <DependentUpon>Base_Zone_Service_Managenment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Customer\Customer_Home_Photo.aspx.cs">
       <DependentUpon>Customer_Home_Photo.aspx</DependentUpon>
@@ -674,13 +792,6 @@
     </Compile>
     <Compile Include="Form_Leasings\Leasing_Payment_Schedule.aspx.designer.cs">
       <DependentUpon>Leasing_Payment_Schedule.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Form_Leasings\Leasing_Remove_Payment.aspx.cs">
-      <DependentUpon>Leasing_Remove_Payment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Form_Leasings\Leasing_Remove_Payment.aspx.designer.cs">
-      <DependentUpon>Leasing_Remove_Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Leasings\Leasing_Search_Payment.aspx.cs">
       <DependentUpon>Leasing_Search_Payment.aspx</DependentUpon>
@@ -797,6 +908,7 @@
       <DependentUpon>Main_JKL_Form.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global_Class\RijndaelEnhanced.cs" />
+    <Compile Include="Managers_Base\Base_Colors_Manager.cs" />
     <Compile Include="Managers_Base\Base_Companys_Manager.cs" />
     <Compile Include="Managers_Base\Base_Car_Brand_Manager.cs" />
     <Compile Include="Managers_Base\Base_Car_Models_Manager.cs" />
@@ -817,7 +929,6 @@
     <Compile Include="Managers_Leasings\Car_Leasings_Guarantor_Manager.cs" />
     <Compile Include="Managers_Leasings\Car_Leasings_Manager.cs" />
     <Compile Include="Managers_Leasings\Car_Leasings_Payment_Manager.cs" />
-    <Compile Include="Manager_Account\COM_Client_Manager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports_Leasings\Bill_Payment_Slip\Bill_Payment_Slip.cs">
@@ -1015,6 +1126,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="aspnet_client\" />
+    <Folder Include="Manager_Account\" />
     <Folder Include="Reports_Leasings\Leasings\" />
     <Folder Include="Reports_Leasings\Lost_Payment\" />
     <Folder Include="Reports_Leasings\Lost_Payment_Hurry\" />
@@ -1109,8 +1221,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

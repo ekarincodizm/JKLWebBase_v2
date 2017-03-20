@@ -45,7 +45,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Confirm_Payment
 
         private void _loadCompany()
         {
-            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys();
+            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys(0, 0);
             Company_Name_DDl.Items.Add(new ListItem("--------  กรุณาเลือก  --------", "0"));
             for (int i = 0; i < list_data.Count; i++)
             {

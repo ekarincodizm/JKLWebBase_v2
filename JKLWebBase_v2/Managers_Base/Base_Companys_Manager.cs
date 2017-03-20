@@ -11,7 +11,149 @@ namespace JKLWebBase_v2.Managers_Base
     {
         private string error;
 
-        public List<Base_Companys> getCompanys()
+        public bool addCompany(Base_Companys bs_cpn)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE i_base_companys (IN i_Company_code VARCHAR(10), IN i_Company_N_name VARCHAR(255), IN i_Company_F_name VARCHAR(255), IN i_Company_tax_id VARCHAR(255), 
+                /// IN i_Company_tax_subcode VARCHAR(255), IN i_Company_address_no VARCHAR(255), IN i_Company_vilage VARCHAR(255), IN i_Company_vilage_no VARCHAR(255), 
+		        /// IN i_Company_alley VARCHAR(255), IN i_Company_road VARCHAR(255), IN i_Company_subdistrict VARCHAR(255), IN i_Company_district VARCHAR(255), IN i_Company_province_id INT(11), 
+		        /// IN i_Company_country VARCHAR(255), IN i_Company_zipcode VARCHAR(255), IN i_Company_tel VARCHAR(255)
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_base_companys", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Company_code", bs_cpn.Company_code);
+                cmd.Parameters.AddWithValue("@i_Company_N_name", bs_cpn.Company_N_name);
+                cmd.Parameters.AddWithValue("@i_Company_F_name", bs_cpn.Company_F_name);
+                cmd.Parameters.AddWithValue("@i_Company_tax_id", bs_cpn.Company_tax_id);
+                cmd.Parameters.AddWithValue("@i_Company_tax_subcode", bs_cpn.Company_tax_subcode);
+                cmd.Parameters.AddWithValue("@i_Company_address_no", bs_cpn.Company_address_no);
+                cmd.Parameters.AddWithValue("@i_Company_vilage", bs_cpn.Company_vilage);
+                cmd.Parameters.AddWithValue("@i_Company_vilage_no", bs_cpn.Company_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Company_alley", bs_cpn.Company_alley);
+                cmd.Parameters.AddWithValue("@i_Company_road", bs_cpn.Company_road);
+                cmd.Parameters.AddWithValue("@i_Company_subdistrict", bs_cpn.Company_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Company_district", bs_cpn.Company_district);
+                cmd.Parameters.AddWithValue("@i_Company_province_id", bs_cpn.Company_province_id);
+                cmd.Parameters.AddWithValue("@i_Company_country", bs_cpn.Company_country);
+                cmd.Parameters.AddWithValue("@i_Company_zipcode", bs_cpn.Company_zipcode);
+                cmd.Parameters.AddWithValue("@i_Company_tel", bs_cpn.Company_tel);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Companys_Manager --> addCompany() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Companys_Manager --> addCompany() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool editCompany(Base_Companys bs_cpn)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE u_base_companys (IN i_Company_id VARCHAR(10), IN i_Company_code VARCHAR(10), IN i_Company_N_name VARCHAR(255), IN i_Company_F_name VARCHAR(255), IN i_Company_tax_id VARCHAR(255), 
+                /// IN i_Company_tax_subcode VARCHAR(255), IN i_Company_address_no VARCHAR(255), IN i_Company_vilage VARCHAR(255), IN i_Company_vilage_no VARCHAR(255), 
+		        /// IN i_Company_alley VARCHAR(255), IN i_Company_road VARCHAR(255), IN i_Company_subdistrict VARCHAR(255), IN i_Company_district VARCHAR(255), IN i_Company_province_id INT(11), 
+		        /// IN i_Company_country VARCHAR(255), IN i_Company_zipcode VARCHAR(255), IN i_Company_tel VARCHAR(255)
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("u_base_companys", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Company_id", bs_cpn.Company_id);
+                cmd.Parameters.AddWithValue("@i_Company_code", bs_cpn.Company_code);
+                cmd.Parameters.AddWithValue("@i_Company_N_name", bs_cpn.Company_N_name);
+                cmd.Parameters.AddWithValue("@i_Company_F_name", bs_cpn.Company_F_name);
+                cmd.Parameters.AddWithValue("@i_Company_tax_id", bs_cpn.Company_tax_id);
+                cmd.Parameters.AddWithValue("@i_Company_tax_subcode", bs_cpn.Company_tax_subcode);
+                cmd.Parameters.AddWithValue("@i_Company_address_no", bs_cpn.Company_address_no);
+                cmd.Parameters.AddWithValue("@i_Company_vilage", bs_cpn.Company_vilage);
+                cmd.Parameters.AddWithValue("@i_Company_vilage_no", bs_cpn.Company_vilage_no);
+                cmd.Parameters.AddWithValue("@i_Company_alley", bs_cpn.Company_alley);
+                cmd.Parameters.AddWithValue("@i_Company_road", bs_cpn.Company_road);
+                cmd.Parameters.AddWithValue("@i_Company_subdistrict", bs_cpn.Company_subdistrict);
+                cmd.Parameters.AddWithValue("@i_Company_district", bs_cpn.Company_district);
+                cmd.Parameters.AddWithValue("@i_Company_province_id", bs_cpn.Company_province_id);
+                cmd.Parameters.AddWithValue("@i_Company_country", bs_cpn.Company_country);
+                cmd.Parameters.AddWithValue("@i_Company_zipcode", bs_cpn.Company_zipcode);
+                cmd.Parameters.AddWithValue("@i_Company_tel", bs_cpn.Company_tel);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Companys_Manager --> editCompany() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Companys_Manager --> editCompany() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool removeCompany(int i_Company_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE d_base_companys (IN i_Company_id INT(11))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("d_base_companys", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Company_id", i_Company_id);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Companys_Manager --> removeCompany() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Companys_Manager --> removeCompany() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public List<Base_Companys> getCompanys(int i_row_str, int i_row_limit)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
@@ -19,6 +161,8 @@ namespace JKLWebBase_v2.Managers_Base
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_companys", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_row_str", i_row_str);
+                cmd.Parameters.AddWithValue("@i_row_limit", i_row_limit);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 

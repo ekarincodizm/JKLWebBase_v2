@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using JKLWebBase_v2.Global_Class;
@@ -10,7 +11,116 @@ namespace JKLWebBase_v2.Managers_Base
     {
         private string error;
 
-        public Base_Car_Types getCarTypes(int Car_type_id)
+        public bool addCarTypes(string i_Car_type_name)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE i_base_car_type (IN i_Car_type_name VARCHAR(255))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_base_car_type", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Car_type_name", i_Car_type_name);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Car_Types_Manager --> addCarTypes() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Car_Types_Manager --> addCarTypes() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool editCarTypes(int i_Car_type_id, string i_Car_type_name)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `u_base_car_type`(IN i_Car_model_id INT(11), IN i_Car_model_name VARCHAR(255))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("u_base_car_type", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Car_type_id", i_Car_type_id);
+                cmd.Parameters.AddWithValue("@i_Car_type_name", i_Car_type_name);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Car_Types_Manager --> editCarTypes() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Car_Types_Manager --> editCarTypes() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        public bool removeCarTypes(int i_Car_type_id)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /// PROCEDURE `d_base_car_type`(IN i_Car_type_id INT(11))
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("d_base_car_type", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Car_type_id", i_Car_type_id);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Base --> Base_Car_Types_Manager --> removeCarTypes() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Base --> Base_Car_Types_Manager --> removeCarTypes() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+        
+        public Base_Car_Types getCarTypesById(int Car_type_id)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try

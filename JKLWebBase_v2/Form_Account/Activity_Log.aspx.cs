@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace JKLWebBase_v2.Form_Account
 {
-    public partial class Activity_Log : System.Web.UI.Page
+    public partial class Activity_Log : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

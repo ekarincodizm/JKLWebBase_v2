@@ -235,7 +235,6 @@
                             <td style="color: #ff0000;"><%= cls.Total_period_lose %></td>
                             <td >
                                 <a class="btn btn-xs btn-warning" href="Leasing_Edit_Customer?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, cls.ctm.Cust_Idcard) %>" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit" ></i></a>
-                                <a class="btn btn-xs btn-info" href="<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, "") %>" data-toggle="tooltip" data-placement="top" title="รายการเช่า - ซื้อ"><i class="fa fa-list-alt"></i></a>
                             </td>
                         </tr>
                         <% } %>

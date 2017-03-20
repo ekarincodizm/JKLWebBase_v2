@@ -15,7 +15,8 @@
         public string Leasing_code_road { get; set; }
         public string Leasing_code_subdistrict { get; set; }
         public string Leasing_code_district { get; set; }
-        public string Leasing_code_province { get; set; }
+        public int Leasing_code_province_id { get; set; }
+        public string Leasing_code_province_name { get; set; } /// ชื่อจังหวัด
         public string Leasing_code_country { get; set; }
         public string Leasing_code_zipcode { get; set; }
         public string Leasing_code_tel { get; set; }
