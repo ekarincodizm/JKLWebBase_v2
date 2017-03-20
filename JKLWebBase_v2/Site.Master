@@ -18,14 +18,13 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body >
-    <div style="background-color: #004d00; width: 100%; height: 100%; color: #fff;">
+<body>
+    <div style="background-color: #004d00; width: 100%; height: 100px; color: #fff; padding : 7px 0px 1px 0px; margin-bottom: 1px;">
         <div class="col-lg-6">
             <i class="fa fa-bank fa-3x"></i>
             <span style="font-size: 40pt;">JaiKwang Financial Management System </span>
         </div>
         <div class="col-lg-6">
-
             <p style="font-size: 12pt; text-align: right;">
                 ผู้ใช้งาน :
                 <asp:Label ID="Username_Lbl" runat="server" Enabled="false" Text="Test"> </asp:Label>
