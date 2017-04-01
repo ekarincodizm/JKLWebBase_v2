@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Principal;
-using System.Device.Location;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -11,6 +10,11 @@ using Microsoft.AspNet.Identity;
 using System.Management;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
+
+using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Manager_Account;
+using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Managers_Base;
 
 namespace JKLWebBase_v2
 {
@@ -73,10 +77,15 @@ namespace JKLWebBase_v2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
+            Base_Companys package_login = new Base_Companys();
+            Account_Login acc_lgn = new Account_Login();
 
-            }
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            Username_Lbl.Text = "ผู้ใช้งาน : " + acc_lgn.resu + " ( " + acc_lgn.Account_F_name + " )";
+            Job_Position_Lbl.Text = "ตำแหน่ง : " + acc_lgn.acc_lv.level_name_TH + " ( " + acc_lgn.acc_lv.level_name_ENG + " )";
+            Account_Status_Lbl.Text = "สถานะผู้ใช้งาน : " + package_login.Company_province_name;
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

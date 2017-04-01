@@ -21,7 +21,7 @@
         public string Company_zipcode { get; set; } /// รหัสไปรษณีย์
         public string Company_tel { get; set; } /// เบอร์์ติดต่อ
         public string Company_Save_date { get; set; } /// วันเวลาที่บันทึกข้อมูล
-
+        public string Company_package { get; set; } /// วันเวลาที่บันทึกข้อมูล
 
     }
 }

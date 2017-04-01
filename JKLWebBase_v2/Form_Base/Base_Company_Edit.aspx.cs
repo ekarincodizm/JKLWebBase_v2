@@ -94,6 +94,8 @@ namespace JKLWebBase_v2.Form_Base
             Company_contry_TBx.Text = bs_cpn.Company_country;
             Company_zipcode_TBx.Text = bs_cpn.Company_zipcode;
             Company_tel_TBx.Text = bs_cpn.Company_tel;
+
+            Package_TBx.Text = bs_cpn.Company_package;
         }
 
         private void _editCompany(string Company_id)

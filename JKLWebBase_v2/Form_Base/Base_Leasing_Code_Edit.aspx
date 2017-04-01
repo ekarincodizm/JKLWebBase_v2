@@ -78,10 +78,10 @@
             </div>
 
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <asp:LinkButton ID="Save_Btn" runat="server" CssClass="btn btn-sm btn-primary btn-block" OnClick="Save_Btn_Click"><i class="fa fa-save fa-fw"></i> บันทึก </asp:LinkButton>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <asp:LinkButton ID="Back_Btn" runat="server" CssClass="btn btn-sm btn-warning btn-block" OnClick="Back_Btn_Click"><i class="fa fa-arrow-circle-left fa-fw"></i> ย้อนกลับ </asp:LinkButton>
                 </div>
             </div>

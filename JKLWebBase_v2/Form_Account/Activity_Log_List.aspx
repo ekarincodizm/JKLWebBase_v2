@@ -1,11 +1,11 @@
-﻿<%@ Page Title="ข้อมูลการใช้งานระบบ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Activity_Log.aspx.cs" Inherits="JKLWebBase_v2.Form_Account.Activity_Log" %>
+﻿<%@ Page Title="ข้อมูลการใช้งานระบบ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Activity_Log_List.aspx.cs" Inherits="JKLWebBase_v2.Form_Account.Activity_Log_List" %>
 
 <%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h6> ข้อมูลการใช้งานระบบ </h6>
+            <h6> ข้อมูลการใช้งานระบบโดยรวม </h6>
         </div>
 
         <div class="panel-body">

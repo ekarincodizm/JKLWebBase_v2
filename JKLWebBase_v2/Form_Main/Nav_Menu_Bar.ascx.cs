@@ -86,9 +86,11 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_Logout_Click(object sender, EventArgs e)
         {
+            string package = (string)Session["lctn"];
+
             Session.RemoveAll();
 
-            Response.Redirect("/Authorization/Login");
+            Response.Redirect("/Authorization/Login?pack=" + package);
         }
 
         protected void link_Company_Management_Click(object sender, EventArgs e)
@@ -99,6 +101,7 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
             Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
             Response.Redirect("/Form_Base/Base_Company_Management");
         }
@@ -111,6 +114,7 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
             Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
             Response.Redirect("/Form_Base/Base_Zone_Service_Managenment");
         }
@@ -123,6 +127,7 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
             Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
             Response.Redirect("/Form_Base/Base_Car_Brands_Management");
         }
@@ -135,6 +140,7 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
             Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
             Response.Redirect("/Form_Base/Base_Courts_Management");
         }
@@ -147,6 +153,7 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
             Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
             Response.Redirect("/Form_Base/Base_Leasing_Code_Management");
         }
@@ -159,6 +166,7 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
             Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
             Response.Redirect("/Form_Base/Base_Nationalitys_Management");
         }
@@ -171,6 +179,7 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
             Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
             Response.Redirect("/Form_Base/Base_Origins_Management");
         }
@@ -183,6 +192,7 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
             Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
             Response.Redirect("/Form_Base/Base_Total_Payment_Management");
         }
@@ -195,18 +205,48 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Customer_Leasing");
             Session.Remove("Leasings");
             Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
             Response.Redirect("/Form_Base/Base_Tents_Car_Management");
         }
 
         protected void link_search_account_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
+            Response.Redirect("/Form_Account/Account_Search");
         }
 
         protected void link_add_account_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
+            Response.Redirect("/Form_Account/Account_Add");
+        }
+
+        protected void link_list_logs_Click(object sender, EventArgs e)
+        {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
+
+            Response.Redirect("/Form_Account/Activity_Log_List");
         }
 
         protected void link_load_leasing_Click(object sender, EventArgs e)
@@ -218,5 +258,7 @@ namespace JKLWebBase_v2.Form_Main
         {
 
         }
+
+
     }
 }

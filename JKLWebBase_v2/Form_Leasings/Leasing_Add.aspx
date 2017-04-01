@@ -716,7 +716,7 @@
 
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             <asp:LinkButton ID="Leasing_Add_Save_Btn" runat="server" CssClass="btn btn-md btn-primary btn-block" OnClick="Leasing_Add_Save_Btn_Click" ValidationGroup="Save_Validation" CausesValidation="true"><i class="fa fa-save fa-fw"></i>บันทึก</asp:LinkButton>
                         </div>
                     </div>

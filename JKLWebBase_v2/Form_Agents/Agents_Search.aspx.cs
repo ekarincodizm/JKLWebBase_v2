@@ -20,6 +20,8 @@ namespace JKLWebBase_v2.Form_Agents
         {
             Session.Remove("List_Agents");
 
+            Paging_DDL.Items.Clear();
+
             _GetAgent();
         }
 

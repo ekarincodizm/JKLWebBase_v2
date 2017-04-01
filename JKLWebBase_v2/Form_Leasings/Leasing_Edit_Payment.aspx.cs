@@ -168,6 +168,8 @@ namespace JKLWebBase_v2.Form_Leasings
 
                     total_payment_left = cls_pay.Total_payment_left;
                     total_payment_fine = cls_pay.Total_payment_fine;
+
+                    Session["old_company"] = cls_pay.bs_cpn.Company_id;
                 }
             }
 
@@ -226,8 +228,6 @@ namespace JKLWebBase_v2.Form_Leasings
             double real_payment_fine = string.IsNullOrEmpty(Real_Payment_Fine_TBx.Text) ? 0 : Convert.ToDouble(Real_Payment_Fine_TBx.Text);
             double real_discount = string.IsNullOrEmpty(Real_Discount_TBx.Text) ? 0 : Convert.ToDouble(Real_Discount_TBx.Text);
 
-            cls = cls_mng.getCarLeasingById(leasing_id);
-
             cls_pay.Leasing_id = leasing_id;
             cls_pay.Period_fee = real_period_fee;
             cls_pay.Period_track = real_period_track;
@@ -236,11 +236,17 @@ namespace JKLWebBase_v2.Form_Leasings
             cls_pay.Real_payment = real_payment;
             cls_pay.Real_payment_date = string.IsNullOrEmpty(Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Payment_Date_TBx.Text);
 
+            Base_Companys package_login = new Base_Companys();
+            Account_Login acc_lgn = new Account_Login();
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
             cls_pay.acc_lgn = new Account_Login();
-            cls_pay.acc_lgn.Employee_id = "";
+            cls_pay.acc_lgn.Account_id = acc_lgn.Account_id;
 
             cls_pay.bs_cpn = new Base_Companys();
-            cls_pay.bs_cpn.Company_id = 0;
+            cls_pay.bs_cpn.Company_id = (int)Session["old_company"];
 
             if(total_payment_left == 0)
             {
@@ -276,6 +282,8 @@ namespace JKLWebBase_v2.Form_Leasings
 
                     string ogn_code = CryptographyCode.GenerateSHA512String(leasing_id);
 
+                    Session.Remove("old_company");
+
                     Response.Redirect("/Form_Leasings/Leasing_Payment?code=" + CryptographyCode.EncodeTOAddressBar(ogn_code, leasing_id, idcard));
                 }
             }
@@ -306,6 +314,8 @@ namespace JKLWebBase_v2.Form_Leasings
                     cls_pay_mng.editPayment(cls_pay, bill_no);
 
                     string ogn_code = CryptographyCode.GenerateSHA512String(leasing_id);
+
+                    Session.Remove("old_company");
 
                     Response.Redirect("/Form_Leasings/Leasing_Payment?code=" + CryptographyCode.EncodeTOAddressBar(ogn_code, leasing_id, idcard));
                 }

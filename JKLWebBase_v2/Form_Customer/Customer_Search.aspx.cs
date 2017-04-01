@@ -24,6 +24,8 @@ namespace JKLWebBase_v2.Form_Customer
         {
             Session.Remove("List_Customers");
 
+            Paging_DDL.Items.Clear();
+
             _GetCustomer();
         }
 

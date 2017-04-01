@@ -31,13 +31,13 @@ namespace JKLWebBase_v2 {
         protected global::System.Web.UI.WebControls.Label Job_Position_Lbl;
         
         /// <summary>
-        /// Level_Access_Lbl control.
+        /// Account_Status_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Level_Access_Lbl;
+        protected global::System.Web.UI.WebControls.Label Account_Status_Lbl;
         
         /// <summary>
         /// nav_menu control.

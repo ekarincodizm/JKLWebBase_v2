@@ -13,5 +13,25 @@ namespace JKLWebBase_v2.Form_Account
         {
 
         }
+
+        protected void Search_Btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void link_Previous_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Paging_DDL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void link_Next_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

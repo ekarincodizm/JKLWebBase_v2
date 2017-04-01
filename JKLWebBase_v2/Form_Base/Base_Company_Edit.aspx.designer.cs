@@ -301,6 +301,24 @@ namespace JKLWebBase_v2.Form_Base {
         protected global::System.Web.UI.WebControls.TextBox Company_tel_TBx;
         
         /// <summary>
+        /// Package_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Package_Lbl;
+        
+        /// <summary>
+        /// Package_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Package_TBx;
+        
+        /// <summary>
         /// Save_Btn control.
         /// </summary>
         /// <remarks>

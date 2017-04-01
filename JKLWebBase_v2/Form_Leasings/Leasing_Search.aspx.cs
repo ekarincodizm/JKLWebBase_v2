@@ -118,6 +118,10 @@ namespace JKLWebBase_v2
 
         protected void Search_Btn_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Leasings");
+
+            Paging_DDL.Items.Clear();
+
             _getLeasing();
         }
 

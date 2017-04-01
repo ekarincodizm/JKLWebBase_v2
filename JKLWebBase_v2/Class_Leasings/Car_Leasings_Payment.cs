@@ -30,6 +30,8 @@ namespace JKLWebBase_v2.Class_Leasings
         public double Total_payment_left { get; set; } /// ค่างวดที่เหลือทั้งหมด
         public string Bill_no { get; set; } /// เลขที่ใบเสร็จ
         public string Real_payment_date { get; set; } /// วันที่ชำระจริง
+        public double INN { get; set; } /// ค่างวดที่เหลือทั้งหมด
+        public double TNC { get; set; } /// ค่างวดที่เหลือทั้งหมด
         public Account_Login acc_lgn { get; set; } /// พนักงานออกใบเสร็จ
         public Base_Companys bs_cpn { get; set; } /// สาขาที่ชำระเงิน
         public string Payment_save_date { get; set; } /// วันที่จ่ายเงินและบันทึกข้อมูล

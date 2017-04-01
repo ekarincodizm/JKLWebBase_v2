@@ -32,7 +32,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 _loadCarBrand();
                 _loadCarYear();
                 _loadCarUsed();
-                _loadBrands();
+                _loadCompanys();
                 _loadCourt();
                 _loadLeasingCode();
                 _loadPaymentSchedule();
@@ -160,7 +160,7 @@ namespace JKLWebBase_v2.Form_Leasings
         }
 
         // สาขา
-        private void _loadBrands()
+        private void _loadCompanys()
         {
             List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys(0, 0);
             Company_DDL.Items.Add(new ListItem("--------กรุณาเลือก--------", "0"));

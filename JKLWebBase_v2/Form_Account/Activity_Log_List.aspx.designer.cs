@@ -10,7 +10,7 @@
 namespace JKLWebBase_v2.Form_Account {
     
     
-    public partial class Activity_Log {
+    public partial class Activity_Log_List {
         
         /// <summary>
         /// Log_Date_Lbl control.

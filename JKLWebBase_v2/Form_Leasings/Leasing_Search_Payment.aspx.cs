@@ -19,7 +19,7 @@ namespace JKLWebBase_v2.Form_Leasings
         {
             if (!IsPostBack)
             {
-                _loadBrands();
+                _loadCompanys();
                 _loadLeasingCode();
                 _loadZoneService();
             }
@@ -88,6 +88,8 @@ namespace JKLWebBase_v2.Form_Leasings
         protected void Search_Btn_Click(object sender, EventArgs e)
         {
             Session.Remove("List_Leasings");
+
+            Paging_DDL.Items.Clear();
 
             _getLeasing();
         }
@@ -331,7 +333,7 @@ namespace JKLWebBase_v2.Form_Leasings
         }
 
         // สาขา
-        private void _loadBrands()
+        private void _loadCompanys()
         {
             List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys(0, 0);
             for (int i = 0; i < list_data.Count; i++)

@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h6> แก้ไขข้อมูลสำนักงาน </h6>
+            <h6>แก้ไขข้อมูลสำนักงาน </h6>
         </div>
 
         <div class="panel-body">
@@ -71,17 +71,24 @@
                     <asp:Label ID="Company_zipcode_Lbl" runat="server">รหัสไปรษณีย์</asp:Label>
                     <asp:TextBox ID="Company_zipcode_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                 </div>
-                 <div class="col-xs-2">
+                <div class="col-xs-2">
                     <asp:Label ID="Company_tel_Lbl" runat="server">เบอร์์ติดต่อ</asp:Label>
                     <asp:TextBox ID="Company_tel_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-1">
+                <div class="form-group col-xs-10">
+                    <asp:Label ID="Package_Lbl" runat="server"> package </asp:Label>
+                    <asp:TextBox ID="Package_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
                     <asp:LinkButton ID="Save_Btn" runat="server" CssClass="btn btn-sm btn-primary btn-block" OnClick="Save_Btn_Click"><i class="fa fa-save fa-fw"></i> บันทึก </asp:LinkButton>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <asp:LinkButton ID="Back_Btn" runat="server" CssClass="btn btn-sm btn-warning btn-block" OnClick="Back_Btn_Click"><i class="fa fa-arrow-circle-left fa-fw"></i> ย้อนกลับ </asp:LinkButton>
                 </div>
             </div>

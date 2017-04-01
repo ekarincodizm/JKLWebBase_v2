@@ -27,7 +27,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <asp:LinkButton ID="Search_Btn" runat="server" CssClass="btn btn-sm btn-primary btn-block" OnClick="Search_Btn_Click"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
                 </div>
             </div>

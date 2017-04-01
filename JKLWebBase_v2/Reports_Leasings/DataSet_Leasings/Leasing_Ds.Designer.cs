@@ -15541,7 +15541,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             private global::System.Data.DataColumn columnPayment_save_date;
             
-            private global::System.Data.DataColumn columnPayment_With_Employee;
+            private global::System.Data.DataColumn columnPayment_With_Account;
             
             private global::System.Data.DataColumn columnPayment_At_Company;
             
@@ -15972,9 +15972,9 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Payment_With_EmployeeColumn {
+            public global::System.Data.DataColumn Payment_With_AccountColumn {
                 get {
-                    return this.columnPayment_With_Employee;
+                    return this.columnPayment_With_Account;
                 }
             }
             
@@ -16073,7 +16073,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         double Total_payment, 
                         string Real_payment_date, 
                         string Payment_save_date, 
-                        string Payment_With_Employee, 
+                        string Payment_With_Account, 
                         string Payment_At_Company) {
                 Bill_Payment_SlipRow rowBill_Payment_SlipRow = ((Bill_Payment_SlipRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -16126,7 +16126,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         Total_payment,
                         Real_payment_date,
                         Payment_save_date,
-                        Payment_With_Employee,
+                        Payment_With_Account,
                         Payment_At_Company};
                 rowBill_Payment_SlipRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBill_Payment_SlipRow);
@@ -16199,7 +16199,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 this.columnTotal_payment = base.Columns["Total_payment"];
                 this.columnReal_payment_date = base.Columns["Real_payment_date"];
                 this.columnPayment_save_date = base.Columns["Payment_save_date"];
-                this.columnPayment_With_Employee = base.Columns["Payment_With_Employee"];
+                this.columnPayment_With_Account = base.Columns["Payment_With_Account"];
                 this.columnPayment_At_Company = base.Columns["Payment_At_Company"];
             }
             
@@ -16304,8 +16304,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnReal_payment_date);
                 this.columnPayment_save_date = new global::System.Data.DataColumn("Payment_save_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPayment_save_date);
-                this.columnPayment_With_Employee = new global::System.Data.DataColumn("Payment_With_Employee", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPayment_With_Employee);
+                this.columnPayment_With_Account = new global::System.Data.DataColumn("Payment_With_Account", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayment_With_Account);
                 this.columnPayment_At_Company = new global::System.Data.DataColumn("Payment_At_Company", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPayment_At_Company);
             }
@@ -41775,18 +41775,18 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Payment_With_Employee {
+            public string Payment_With_Account {
                 get {
                     try {
-                        return ((string)(this[this.tableBill_Payment_Slip.Payment_With_EmployeeColumn]));
+                        return ((string)(this[this.tableBill_Payment_Slip.Payment_With_AccountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_With_Employee\' in table \'Bill_Payment_Slip\' is DBNu" +
-                                "ll.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_With_Account\' in table \'Bill_Payment_Slip\' is DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tableBill_Payment_Slip.Payment_With_EmployeeColumn] = value;
+                    this[this.tableBill_Payment_Slip.Payment_With_AccountColumn] = value;
                 }
             }
             
@@ -42397,14 +42397,14 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPayment_With_EmployeeNull() {
-                return this.IsNull(this.tableBill_Payment_Slip.Payment_With_EmployeeColumn);
+            public bool IsPayment_With_AccountNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Payment_With_AccountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPayment_With_EmployeeNull() {
-                this[this.tableBill_Payment_Slip.Payment_With_EmployeeColumn] = global::System.Convert.DBNull;
+            public void SetPayment_With_AccountNull() {
+                this[this.tableBill_Payment_Slip.Payment_With_AccountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

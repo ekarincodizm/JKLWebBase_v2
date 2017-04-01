@@ -456,8 +456,6 @@ namespace JKLWebBase_v2.Form_Leasings
             double real_discount = string.IsNullOrEmpty(Real_Discount_TBx.Text) ? 0 : Convert.ToDouble(Real_Discount_TBx.Text);
             double sum_payment_left = total_payment_left;
 
-            cls = cls_mng.getCarLeasingById(leasing_id);
-
             cls_pay.Leasing_id = leasing_id;
             cls_pay.Period_fee = string.IsNullOrEmpty(Period_free_TBx.Text) ? 0.00 : Convert.ToDouble(Period_free_TBx.Text);
             cls_pay.Period_track = string.IsNullOrEmpty(Period_track_TBx.Text) ? 0.00 : Convert.ToDouble(Period_track_TBx.Text);
@@ -466,11 +464,17 @@ namespace JKLWebBase_v2.Form_Leasings
             cls_pay.Real_payment = Convert.ToDouble(Real_Payment_TBx.Text);
             cls_pay.Real_payment_date = string.IsNullOrEmpty(Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Payment_Date_TBx.Text);
 
+            Base_Companys package_login = new Base_Companys();
+            Account_Login acc_lgn = new Account_Login();
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
             cls_pay.acc_lgn = new Account_Login();
-            cls_pay.acc_lgn.Employee_id = "";
+            cls_pay.acc_lgn.Account_id = acc_lgn.Account_id;
 
             cls_pay.bs_cpn = new Base_Companys();
-            cls_pay.bs_cpn.Company_id = 0;
+            cls_pay.bs_cpn.Company_id = package_login.Company_id;
 
             if (Cal_Status_Lbl.Visible == false) /* กรณีจ่าค่างวดแบบธรรมดา */
             {

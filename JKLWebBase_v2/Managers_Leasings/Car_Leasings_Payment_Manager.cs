@@ -130,21 +130,23 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls_pay.Total_payment_left = reader.IsDBNull(21) ? defaultNum : reader.GetDouble(21);
                     cls_pay.Bill_no = reader.IsDBNull(22) ? defaultString : reader.GetString(22);
                     cls_pay.Real_payment_date = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
+                    cls_pay.INN = reader.IsDBNull(24) ? defaultNum : reader.GetDouble(24);
+                    cls_pay.TNC = reader.IsDBNull(25) ? defaultNum : reader.GetDouble(25);
 
                     cls_pay.acc_lgn = new Account_Login();
-                    cls_pay.acc_lgn.Employee_id = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
-                    cls_pay.acc_lgn.Employee_F_name = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
+                    cls_pay.acc_lgn.Account_id = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
+                    cls_pay.acc_lgn.Account_F_name = reader.IsDBNull(27) ? defaultString : reader.GetString(27);
 
                     cls_pay.bs_cpn = new Base_Companys();
-                    cls_pay.bs_cpn.Company_id = reader.IsDBNull(26) ? defaultNum : reader.GetInt32(26);
-                    cls_pay.bs_cpn.Company_N_name = reader.IsDBNull(27) ? defaultString : reader.GetString(27);
-                    cls_pay.bs_cpn.Company_F_name = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
-                    cls_pay.bs_cpn.Company_tax_id = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
-                    cls_pay.bs_cpn.Company_tax_subcode = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
-                    cls_pay.bs_cpn.Company_province_id= reader.IsDBNull(31) ? defaultNum : reader.GetInt32(31);
-                    cls_pay.bs_cpn.Company_province_name = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    cls_pay.bs_cpn.Company_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
+                    cls_pay.bs_cpn.Company_N_name = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    cls_pay.bs_cpn.Company_F_name = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    cls_pay.bs_cpn.Company_tax_id = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
+                    cls_pay.bs_cpn.Company_tax_subcode = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    cls_pay.bs_cpn.Company_province_id= reader.IsDBNull(33) ? defaultNum : reader.GetInt32(33);
+                    cls_pay.bs_cpn.Company_province_name = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
 
-                    cls_pay.Payment_save_date = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+                    cls_pay.Payment_save_date = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
 
                     list_cls_pay.Add(cls_pay);
                 }
@@ -193,7 +195,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_Discount", cls_pay.Discount);
                 cmd.Parameters.AddWithValue("@i_Real_payment", cls_pay.Real_payment);
                 cmd.Parameters.AddWithValue("@i_Real_payment_date", cls_pay.Real_payment_date);
-                cmd.Parameters.AddWithValue("@i_Account_id", cls_pay.acc_lgn.Employee_id);
+                cmd.Parameters.AddWithValue("@i_Account_id", cls_pay.acc_lgn.Account_id);
                 cmd.Parameters.AddWithValue("@i_Company_Id", cls_pay.bs_cpn.Company_id);
                 cmd.Parameters.AddWithValue("@i_Type_Payment", type);
 
@@ -244,7 +246,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_Discount", cls_pay.Discount);
                 cmd.Parameters.AddWithValue("@i_Real_payment", cls_pay.Real_payment);
                 cmd.Parameters.AddWithValue("@i_Real_payment_date", cls_pay.Real_payment_date);
-                cmd.Parameters.AddWithValue("@i_Account_id", cls_pay.acc_lgn.Employee_id);
+                cmd.Parameters.AddWithValue("@i_Account_id", cls_pay.acc_lgn.Account_id);
                 cmd.Parameters.AddWithValue("@i_Company_Id", cls_pay.bs_cpn.Company_id);
 
                 cmd.ExecuteNonQuery();
