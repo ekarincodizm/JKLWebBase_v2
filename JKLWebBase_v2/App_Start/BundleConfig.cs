@@ -41,6 +41,14 @@ namespace JKLWebBase_v2
                     Path = "~/Scripts/respond.min.js",
                     DebugPath = "~/Scripts/respond.js",
                 });
+
+            ScriptManager.ScriptResourceMapping.AddDefinition(
+                "datetimepicker",
+                new ScriptResourceDefinition
+                {
+                    Path = "~/Scripts/jquery.datetimepicker.full.js",
+                    DebugPath = "~/Scripts/jquery.datetimepicker.full.js",
+                });
         }
     }
 }

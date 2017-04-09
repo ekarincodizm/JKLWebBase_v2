@@ -7,81 +7,99 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Form_Main {
+namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily {
     
     
-    public partial class Main_JKL_Form {
+    public partial class Payment_Summary_Daily_Prv {
         
         /// <summary>
-        /// link_Payment_Leasings control.
+        /// Date_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Payment_Leasings;
+        protected global::System.Web.UI.WebControls.Label Date_Lbl;
         
         /// <summary>
-        /// link_Search_Leasings control.
+        /// Date_str_TBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Search_Leasings;
+        protected global::System.Web.UI.WebControls.TextBox Date_str_TBx;
         
         /// <summary>
-        /// link_Report_Form_Certified_Leasing_Outline control.
+        /// Date_end_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink link_Report_Form_Certified_Leasing_Outline;
+        protected global::System.Web.UI.WebControls.Label Date_end_Lbl;
         
         /// <summary>
-        /// link_Report_Payment_Daily_Leasings control.
+        /// Date_end_TBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Report_Payment_Daily_Leasings;
+        protected global::System.Web.UI.WebControls.TextBox Date_end_TBx;
         
         /// <summary>
-        /// link_Search_Customers control.
+        /// Comapnys_Panel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Search_Customers;
+        protected global::System.Web.UI.WebControls.Panel Comapnys_Panel;
         
         /// <summary>
-        /// link_Search_Agents control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Search_Agents;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// LinkButton5 control.
+        /// Company_ChkBxL_All control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton5;
+        protected global::System.Web.UI.WebControls.CheckBox Company_ChkBxL_All;
         
         /// <summary>
-        /// LinkButton4 control.
+        /// Company_ChkBxL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
+        protected global::System.Web.UI.WebControls.CheckBoxList Company_ChkBxL;
+        
+        /// <summary>
+        /// Export_Reported_mod_I_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Export_Reported_mod_I_Btn;
+        
+        /// <summary>
+        /// Export_Reported_mod_II_Btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Export_Reported_mod_II_Btn;
     }
 }

@@ -69,13 +69,13 @@
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li>
-                        <asp:LinkButton ID="link_report_leainsg_daily_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำวัน </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_leainsg_daily_payment" runat="server" OnClick="link_report_leainsg_daily_payment_Click"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำวัน </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="link_report_leainsg_month_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำเดือน </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_leainsg_monthly_payment" runat="server" OnClick="link_report_leainsg_monthly_payment_Click"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำเดือน </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="link_report_leainsg_year_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำปี </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_leainsg_yearly_payment" runat="server" OnClick="link_report_leainsg_yearly_payment_Click"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำปี </asp:LinkButton>
                     </li>
                     <li class="divider"></li>
                     <li>

@@ -85,7 +85,7 @@ namespace JKLWebBase_v2
 
             Username_Lbl.Text = "ผู้ใช้งาน : " + acc_lgn.resu + " ( " + acc_lgn.Account_F_name + " )";
             Job_Position_Lbl.Text = "ตำแหน่ง : " + acc_lgn.acc_lv.level_name_TH + " ( " + acc_lgn.acc_lv.level_name_ENG + " )";
-            Account_Status_Lbl.Text = "สถานะผู้ใช้งาน : " + package_login.Company_province_name;
+            Account_Status_Lbl.Text = "สถานะผู้ใช้งาน : " + package_login.Company_N_name;
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

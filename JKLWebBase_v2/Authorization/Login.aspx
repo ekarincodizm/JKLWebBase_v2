@@ -38,24 +38,6 @@
                     </div>
                 </div>
             </asp:Panel>
-
-            <asp:Panel ID="Alert_Danger_Panel" runat="server" Visible="false" CssClass="login-panel">
-                <div class="col-md-7 col-md-offset-3">
-                    <div class="alert alert-danger" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
-                        </button>
-                        <div class="modal-header">
-                            <h6 class="modal-title"><i class="fa fa-ban fa-fw"></i>!! แจ้งเตือน !! </h6>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                <asp:Label ID="alert_danger_Lbl" runat="server"> ชื่อผู้ใช้งาน ถูกระงับการใช้งานชั่วคราว กรุณาติดต่อเจ้าหน้าที่ฝ่าย IT </asp:Label>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </asp:Panel>
             <!-- Alert MessagesBox -->
 
             <asp:Panel ID="Login_panel" runat="server">
@@ -66,6 +48,9 @@
                                 <h3><strong><span class="fa fa-sign-in fa-fw"></span>เข้าสู่ระบบ JaiKwang Financial Management System </strong></h3>
                             </div>
                             <div class="panel-body">
+                                <p>
+                                    <asp:Label ID="alert_danger_Lbl" runat="server" Visible="false" ForeColor="Red"> ชื่อผู้ใช้งาน ถูกระงับการใช้งานชั่วคราว กรุณาติดต่อเจ้าหน้าที่ฝ่าย IT </asp:Label>
+                                </p>
                                 <fieldset>
                                     <div class="form-group">
                                         <asp:Label runat="server" CssClass="col-md-2 control-label"><h5> Username  </h5></asp:Label>

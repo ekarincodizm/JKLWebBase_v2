@@ -40,13 +40,13 @@ namespace JKLWebBase_v2 {
         protected global::System.Web.UI.WebControls.Label alert_warning_Lbl;
         
         /// <summary>
-        /// Alert_Danger_Panel control.
+        /// Login_panel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Alert_Danger_Panel;
+        protected global::System.Web.UI.WebControls.Panel Login_panel;
         
         /// <summary>
         /// alert_danger_Lbl control.
@@ -56,15 +56,6 @@ namespace JKLWebBase_v2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label alert_danger_Lbl;
-        
-        /// <summary>
-        /// Login_panel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Login_panel;
         
         /// <summary>
         /// Username_TBx control.

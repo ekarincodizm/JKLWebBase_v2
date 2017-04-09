@@ -161,7 +161,7 @@ namespace JKLWebBase_v2
                     Session["leasing_no"] = leasing_no;
                     Session["idcard"] = idcard;
                     Session["name"] = name;
-                    Session["date_str"] = deposit_no;
+                    Session["date_str"] = date_str;
                     Session["date_end"] = date_end;
                     Session["leasing_Code_inline"] = leasing_Code_inline;
                     Session["company_id_inline"] = Company_id_inline;
@@ -181,6 +181,8 @@ namespace JKLWebBase_v2
         private void _pageCount(int row)
         {
             int paging = row > 20 ? (row / 20) + 1 : 1;
+
+            Session["max_page"] = paging;
 
             for (int i = 1; i <= paging; i++)
             {
@@ -217,6 +219,9 @@ namespace JKLWebBase_v2
             string zone_id_inline = (string)Session["zone_id_inline"];
 
             cls_mng = new Car_Leasings_Manager();
+
+            int max_page = (int)Session["max_page"];
+            if (current_page == max_page) { link_Next.Enabled = false; }
 
             if (current_page > 1)
             {

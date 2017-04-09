@@ -123,17 +123,17 @@
                     <asp:Label ID="Label6" runat="server" CssClass="checkbox">รหัสสัญญา
                         <asp:CheckBox ID="Leasing_Code_ChkBx_All" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="Leasing_Code_ChkBx_All_CheckedChanged" AutoPostBack="true" />
                     </asp:Label>
-                    <asp:CheckBoxList ID="Leasing_Code_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="4">
+                    <asp:CheckBoxList ID="Leasing_Code_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="3">
                     </asp:CheckBoxList>
                 </div>
-                <div class="form-group col-xs-6">
+                <div class="form-group col-xs-5">
                     <asp:Label ID="Label1" runat="server" CssClass="checkbox">สาขา
                         <asp:CheckBox ID="Company_ChkBx_All" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="Company_ChkBx_All_CheckedChanged" AutoPostBack="true" />
                     </asp:Label>
-                    <asp:CheckBoxList ID="Company_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="6">
+                    <asp:CheckBoxList ID="Company_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="3">
                     </asp:CheckBoxList>
                 </div>
-                <div class="form-group col-xs-4">
+                <div class="form-group col-xs-5">
                     <asp:Label ID="Label2" runat="server" CssClass="checkbox">เขตบริการ
                         <asp:CheckBox ID="Zone_ChkBx_All" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="Zone_ChkBx_All_CheckedChanged" AutoPostBack="true" />
                     </asp:Label>

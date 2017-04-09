@@ -121,22 +121,22 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_daily_payment;
         
         /// <summary>
-        /// link_report_leainsg_month_payment control.
+        /// link_report_leainsg_monthly_payment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_month_payment;
+        protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_monthly_payment;
         
         /// <summary>
-        /// link_report_leainsg_year_payment control.
+        /// link_report_leainsg_yearly_payment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_year_payment;
+        protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_yearly_payment;
         
         /// <summary>
         /// link_report_leainsg_alert_payment control.

@@ -397,6 +397,8 @@
     <Content Include="Reports_Leasings\Leasing_KH2\Car_Leasing_KH2.aspx" />
     <Content Include="Reports_Leasings\Leasing_SH1\Car_Leasing_SH1.aspx" />
     <Content Include="Reports_Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx" />
+    <Content Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Export.aspx" />
+    <Content Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Prv.aspx" />
     <Content Include="Reports_Leasings\Withholding_Tax\Withholding_Tax_Prv.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -1090,6 +1092,32 @@
     <Compile Include="Reports_Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx.designer.cs">
       <DependentUpon>Payment_Schedule_Prv.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_mod_II.cs">
+      <DependentUpon>Payment_Summary_Daily_mod_II.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_mod_I.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payment_Summary_Daily_mod_I.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Export.aspx.cs">
+      <DependentUpon>Payment_Summary_Daily_Export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Export.aspx.designer.cs">
+      <DependentUpon>Payment_Summary_Daily_Export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Prv.aspx.cs">
+      <DependentUpon>Payment_Summary_Daily_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Prv.aspx.designer.cs">
+      <DependentUpon>Payment_Summary_Daily_Prv.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports_Leasings\Withholding_Tax\Withholding_Tax.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1129,12 +1157,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="aspnet_client\" />
-    <Folder Include="Reports_Leasings\Leasings\" />
     <Folder Include="Reports_Leasings\Lost_Payment\" />
     <Folder Include="Reports_Leasings\Lost_Payment_Hurry\" />
     <Folder Include="Reports_Leasings\Notification_Payment_Bondsman\" />
-    <Folder Include="Reports_Leasings\Payment_Summary_Daily\" />
-    <Folder Include="Reports_Leasings\Payment_Summary_Leagth\" />
     <Folder Include="Reports_Leasings\Payment_Summary_Monthly\" />
     <Folder Include="Reports_Leasings\Payment_Summary_Year\" />
   </ItemGroup>
@@ -1182,6 +1207,14 @@
     <EmbeddedResource Include="Reports_Leasings\Payment_Schedule\Payment_Schedule.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Payment_Schedule.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_mod_II.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payment_Summary_Daily_mod_II.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_mod_I.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payment_Summary_Daily_mod_I.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports_Leasings\Withholding_Tax\Withholding_Tax.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -48,7 +48,6 @@ namespace JKLWebBase_v2
 
             if (acc_lgn.Account_status == 1 && package_login != null)
             {
-                Alert_Danger_Panel.Visible = false;
                 Alert_Warning_Panel.Visible = false;
 
                 Session["Login"] = acc_lgn;
@@ -56,17 +55,23 @@ namespace JKLWebBase_v2
 
                 Response.Redirect("/Form_Main/Main_JKL_Form");
             }
-            else if (acc_lgn.Account_status == 0)
+            else if (acc_lgn.Account_status == 2)
             {
-                Alert_Danger_Panel.Visible = true;
+                alert_danger_Lbl.Visible = true;
 
-                alert_danger_Lbl.Text = "ชื่อผู้ใช้งาน "+ username + " ถูกระงับการใช้งานชั่วคราว กรุณาติดต่อเจ้าหน้าที่ฝ่าย IT";
+                alert_danger_Lbl.Text = " ** ชื่อผู้ใช้งาน ' " + username + " ' ถูกระงับการใช้งานชั่วคราว กรุณาติดต่อเจ้าหน้าที่ฝ่าย IT ** ";
+            }
+            else if (acc_lgn.Account_status == 3)
+            {
+                alert_danger_Lbl.Visible = true;
+
+                alert_danger_Lbl.Text = " ** ชื่อผู้ใช้งาน ' " + username + " ' ถูกระงับการใช้งานถาวร เนื่องจากพ้นสภาพพนักงาน ** ";
             }
             else
             {
-                Alert_Danger_Panel.Visible = true;
+                alert_danger_Lbl.Visible = true;
 
-                alert_danger_Lbl.Text = "ชื่อผู้ใช้งาน " + username + " ถูกระงับการใช้งานถาวร เนื่องจากพ้นสภาพพนักงาน";
+                alert_danger_Lbl.Text = "** ไม่พบข้อมูลผู้ใช้งาน หรือ ชื่อผู้ใช้งาน (Username) หรือ รหัสผ่านไม่ถูกต้อง (Password) กรุณาตรวจสอบ **";
             }
         }
     }
