@@ -1,9 +1,5 @@
 ﻿<%@ Page Title="รายงานสรุปชำระเงินประจำวัน" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Payment_Summary_Daily_Prv.aspx.cs" Inherits="JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily.Payment_Summary_Daily_Prv" %>
 
-<%@ Import Namespace="JKLWebBase_v2.Class_Leasings" %>
-<%@ Import Namespace="JKLWebBase_v2.Managers_Leasings" %>
-<%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
-
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">

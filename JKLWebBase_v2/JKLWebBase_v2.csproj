@@ -399,6 +399,10 @@
     <Content Include="Reports_Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx" />
     <Content Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Export.aspx" />
     <Content Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Prv.aspx" />
+    <Content Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_Export.aspx" />
+    <Content Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_Prv.aspx" />
+    <Content Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Export.aspx" />
+    <Content Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Prv.aspx" />
     <Content Include="Reports_Leasings\Withholding_Tax\Withholding_Tax_Prv.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -1118,6 +1122,58 @@
     <Compile Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Prv.aspx.designer.cs">
       <DependentUpon>Payment_Summary_Daily_Prv.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_Export.aspx.cs">
+      <DependentUpon>Payment_Summary_Monthly_Export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_Export.aspx.designer.cs">
+      <DependentUpon>Payment_Summary_Monthly_Export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_mod_I.cs">
+      <DependentUpon>Payment_Summary_Monthly_mod_I.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_mod_II.cs">
+      <DependentUpon>Payment_Summary_Monthly_mod_II.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_Prv.aspx.cs">
+      <DependentUpon>Payment_Summary_Monthly_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_Prv.aspx.designer.cs">
+      <DependentUpon>Payment_Summary_Monthly_Prv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Export.aspx.cs">
+      <DependentUpon>Payment_Summary_Yearly_Export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Export.aspx.designer.cs">
+      <DependentUpon>Payment_Summary_Yearly_Export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_mod_I.cs">
+      <DependentUpon>Payment_Summary_Yearly_mod_I.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_mod_II.cs">
+      <DependentUpon>Payment_Summary_Yearly_mod_II.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Prv.aspx.cs">
+      <DependentUpon>Payment_Summary_Yearly_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Prv.aspx.designer.cs">
+      <DependentUpon>Payment_Summary_Yearly_Prv.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports_Leasings\Withholding_Tax\Withholding_Tax.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1160,8 +1216,6 @@
     <Folder Include="Reports_Leasings\Lost_Payment\" />
     <Folder Include="Reports_Leasings\Lost_Payment_Hurry\" />
     <Folder Include="Reports_Leasings\Notification_Payment_Bondsman\" />
-    <Folder Include="Reports_Leasings\Payment_Summary_Monthly\" />
-    <Folder Include="Reports_Leasings\Payment_Summary_Year\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports_Leasings\Bill_Payment_Slip\Bill_Payment_Slip.rpt">
@@ -1215,6 +1269,22 @@
     <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_mod_I.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Payment_Summary_Daily_mod_I.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_mod_I.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payment_Summary_Monthly_mod_I.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_mod_II.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payment_Summary_Monthly_mod_II.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_mod_I.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payment_Summary_Yearly_mod_I.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_mod_II.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payment_Summary_Yearly_mod_II.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports_Leasings\Withholding_Tax\Withholding_Tax.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -122,5 +122,24 @@ namespace JKLWebBase_v2.Global_Class
                 return datetime;
             }
         }
+
+        public static string convertMonthToThai(string mm)
+        {
+            string mm_th = string.Empty;
+            if (mm == "01") { mm_th = "มกราคม"; }
+            else if (mm == "02") { mm_th = "กุมภาพันธ์"; }
+            else if (mm == "03") { mm_th = "มีนาคม"; }
+            else if (mm == "04") { mm_th = "เมษายน"; }
+            else if (mm == "05") { mm_th = "พฤษภาคม"; }
+            else if (mm == "06") { mm_th = "มิถุนายน"; }
+            else if (mm == "07") { mm_th = "กรกฎาคม"; }
+            else if (mm == "08") { mm_th = "สิงหาคม"; }
+            else if (mm == "09") { mm_th = "กันยายน"; }
+            else if (mm == "10") { mm_th = "ตุลาคม"; }
+            else if (mm == "11") { mm_th = "พฤศจิกายน"; }
+            else if (mm == "12") { mm_th = "ธันวาคม"; }
+
+            return mm_th;
+        }
     }
 }

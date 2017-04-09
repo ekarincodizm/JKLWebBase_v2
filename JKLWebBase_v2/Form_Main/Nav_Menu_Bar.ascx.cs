@@ -275,12 +275,29 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_report_leainsg_monthly_payment_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
+            Response.Redirect("/Reports_Leasings/Payment_Summary_Monthly/Payment_Summary_Monthly_Prv");
+            
         }
 
         protected void link_report_leainsg_yearly_payment_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
+            Response.Redirect("/Reports_Leasings/Payment_Summary_Yearly/Payment_Summary_Yearly_Prv");
         }
     }
 }

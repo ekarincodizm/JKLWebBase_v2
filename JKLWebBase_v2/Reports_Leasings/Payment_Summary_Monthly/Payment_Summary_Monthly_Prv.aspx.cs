@@ -10,9 +10,9 @@ using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Class_Account;
 
-namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
+namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Monthly
 {
-    public partial class Payment_Summary_Daily_Prv : Page
+    public partial class Payment_Summary_Monthly_Prv : Page
     {
         string error = string.Empty;
 
@@ -54,6 +54,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
             if (!IsPostBack)
             {
                 _loadCompanys();
+                _loadMonth();
+                _loadYear();
             }
         }
 
@@ -119,6 +121,36 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
             }
         }
 
+        // เดือน
+        private void _loadMonth()
+        {
+            Month_DDL.Items.Add(new ListItem("มกราคม", "01"));
+            Month_DDL.Items.Add(new ListItem("กุมภาพันธ์", "02"));
+            Month_DDL.Items.Add(new ListItem("มีนาคม", "03"));
+            Month_DDL.Items.Add(new ListItem("เมษายน", "04"));
+            Month_DDL.Items.Add(new ListItem("พฤษภาคม", "05"));
+            Month_DDL.Items.Add(new ListItem("มิถุนายน", "06"));
+            Month_DDL.Items.Add(new ListItem("กรกฎาคม", "07"));
+            Month_DDL.Items.Add(new ListItem("สิงหาคม", "08"));
+            Month_DDL.Items.Add(new ListItem("กันยายน", "09"));
+            Month_DDL.Items.Add(new ListItem("ตุลาคม", "10"));
+            Month_DDL.Items.Add(new ListItem("พฤศจิกายน", "11"));
+            Month_DDL.Items.Add(new ListItem("ธันวาคม", "12"));
+        }
+
+        // ปี
+        private void _loadYear()
+        {
+            int year_list = DateTime.Now.Year;
+            while (year_list >= 1957)
+            {
+                int year_th = year_list + 543; /// พ.ศ.
+                // int year_th = year_list; /// ค.ศ.
+                Year_DDL.Items.Add(new ListItem(year_th.ToString(), year_list.ToString()));
+                year_list--;
+            }
+        }
+
         /*******************************************************************************************************************************************************************************
         ****************************************************                   Export Data to PDF                               ********************************************************
         ****************************************************                                                                    ********************************************************
@@ -126,8 +158,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
 
         protected void Export_Reported_mod_I_Click(object sender, EventArgs e)
         {
-            string date_str = Date_str_TBx.Text == ""? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Date_str_TBx.Text);
-            string date_end = Date_end_TBx.Text == "" ? "" : DateTimeUtility.convertDateToMYSQL(Date_end_TBx.Text);
+            string month = Month_DDL.SelectedValue;
+            string year = Year_DDL.SelectedValue;
 
             Base_Companys package_login = new Base_Companys();
 
@@ -136,36 +168,36 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
             string Company_id_inline = _getCheckedCompany() == "" ? package_login.Company_id.ToString() : _getCheckedCompany();
             Session["Company_id_inline_rpt"] = Company_id_inline;
 
-            Session["date_str"] = date_str;
-            Session["date_end"] = date_str.Equals(date_end)? "" : date_end;
+            Session["month"] = month;
+            Session["year"] = year;
 
             Session["mode"] = 1;
 
             /// Response.Redirect("/Reports_Leasings/Payment_Summary_Daily/Payment_Summary_Daily_Export");
 
-            ClientScript.RegisterStartupScript(this.GetType(),"script", "<script type = 'text/javascript'> window.open('/Reports_Leasings/Payment_Summary_Daily/Payment_Summary_Daily_Export'); </script>");
+            ClientScript.RegisterStartupScript(this.GetType(), "script", "<script type = 'text/javascript'> window.open('/Reports_Leasings/Payment_Summary_Monthly/Payment_Summary_Monthly_Export'); </script>");
         }
 
         protected void Export_Reported_mod_II_Click(object sender, EventArgs e)
         {
-            string date_str = Date_str_TBx.Text == "" ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Date_str_TBx.Text);
-            string date_end = Date_end_TBx.Text == "" ? "" : DateTimeUtility.convertDateToMYSQL(Date_end_TBx.Text);
+            string month = Month_DDL.SelectedValue;
+            string year = Year_DDL.SelectedValue;
 
             Base_Companys package_login = new Base_Companys();
 
             package_login = (Base_Companys)Session["Package"];
 
-            string Company_id_inline = _getCheckedCompany() == "" ? package_login.Company_id.ToString() : _getCheckedCompany() ;
+            string Company_id_inline = _getCheckedCompany() == "" ? package_login.Company_id.ToString() : _getCheckedCompany();
             Session["Company_id_inline_rpt"] = Company_id_inline;
 
-            Session["date_str"] = date_str;
-            Session["date_end"] = date_str.Equals(date_end) ? "" : date_end;
+            Session["month"] = month;
+            Session["year"] = year;
 
             Session["mode"] = 2;
 
             /// Response.Redirect("/Reports_Leasings/Payment_Summary_Daily/Payment_Summary_Daily_Export");
 
-            ClientScript.RegisterStartupScript(this.GetType(), "script", "<script type = 'text/javascript'> window.open('/Reports_Leasings/Payment_Summary_Daily/Payment_Summary_Daily_Export'); </script>");
+            ClientScript.RegisterStartupScript(this.GetType(), "script", "<script type = 'text/javascript'> window.open('/Reports_Leasings/Payment_Summary_Monthly/Payment_Summary_Monthly_Export'); </script>");
         }
     }
 }
