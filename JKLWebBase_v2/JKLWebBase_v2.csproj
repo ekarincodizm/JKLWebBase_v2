@@ -396,6 +396,12 @@
     <Content Include="Reports_Leasings\Leasing_KH1\Car_Leasing_KH1.aspx" />
     <Content Include="Reports_Leasings\Leasing_KH2\Car_Leasing_KH2.aspx" />
     <Content Include="Reports_Leasings\Leasing_SH1\Car_Leasing_SH1.aspx" />
+    <Content Include="Reports_Leasings\Lost_Payment\Lost_Payment_Export.aspx" />
+    <Content Include="Reports_Leasings\Lost_Payment\Lost_Payment_Prv.aspx" />
+    <Content Include="Reports_Leasings\Lost_Payment_Hurry\Lost_Payment_Hurry_Export.aspx" />
+    <Content Include="Reports_Leasings\Lost_Payment_Hurry\Lost_Payment_Hurry_Prv.aspx" />
+    <Content Include="Reports_Leasings\Notification_Payment\Notification_Payment_Export.aspx" />
+    <Content Include="Reports_Leasings\Notification_Payment\Notification_Payment_Prv.aspx" />
     <Content Include="Reports_Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx" />
     <Content Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Export.aspx" />
     <Content Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Prv.aspx" />
@@ -1046,6 +1052,60 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports_Leasings\Lost_Payment\Lost_Payment.cs">
+      <DependentUpon>Lost_Payment.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports_Leasings\Lost_Payment\Lost_Payment_Export.aspx.cs">
+      <DependentUpon>Lost_Payment_Export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Lost_Payment\Lost_Payment_Export.aspx.designer.cs">
+      <DependentUpon>Lost_Payment_Export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Lost_Payment\Lost_Payment_Prv.aspx.cs">
+      <DependentUpon>Lost_Payment_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Lost_Payment\Lost_Payment_Prv.aspx.designer.cs">
+      <DependentUpon>Lost_Payment_Prv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Lost_Payment_Hurry\Lost_Payment_Hurry.cs">
+      <DependentUpon>Lost_Payment_Hurry.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports_Leasings\Lost_Payment_Hurry\Lost_Payment_Hurry_Export.aspx.cs">
+      <DependentUpon>Lost_Payment_Hurry_Export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Lost_Payment_Hurry\Lost_Payment_Hurry_Export.aspx.designer.cs">
+      <DependentUpon>Lost_Payment_Hurry_Export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Lost_Payment_Hurry\Lost_Payment_Hurry_Prv.aspx.cs">
+      <DependentUpon>Lost_Payment_Hurry_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Lost_Payment_Hurry\Lost_Payment_Hurry_Prv.aspx.designer.cs">
+      <DependentUpon>Lost_Payment_Hurry_Prv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Notification_Payment\Notification_Payment_Export.aspx.cs">
+      <DependentUpon>Notification_Payment_Export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Notification_Payment\Notification_Payment_Export.aspx.designer.cs">
+      <DependentUpon>Notification_Payment_Export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Notification_Payment\Notification_Payment_Prv.aspx.cs">
+      <DependentUpon>Notification_Payment_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Notification_Payment\Notification_Payment_Prv.aspx.designer.cs">
+      <DependentUpon>Notification_Payment_Prv.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports_Leasings\Notification_Payment\Notification_Payment.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1235,8 +1295,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="aspnet_client\" />
-    <Folder Include="Reports_Leasings\Lost_Payment\" />
-    <Folder Include="Reports_Leasings\Lost_Payment_Hurry\" />
     <Folder Include="Reports_Leasings\Notification_Payment_Bondsman\" />
   </ItemGroup>
   <ItemGroup>
@@ -1263,6 +1321,14 @@
     <EmbeddedResource Include="Reports_Leasings\Leasing_SH1\Car_Leasing_SH1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Car_Leasing_SH1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Lost_Payment\Lost_Payment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Lost_Payment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Lost_Payment_Hurry\Lost_Payment_Hurry.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Lost_Payment_Hurry.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports_Leasings\Notification_Payment\Notification_Payment.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
