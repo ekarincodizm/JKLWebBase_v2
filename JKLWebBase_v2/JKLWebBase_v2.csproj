@@ -403,6 +403,8 @@
     <Content Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_Prv.aspx" />
     <Content Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Export.aspx" />
     <Content Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Prv.aspx" />
+    <Content Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment_Export.aspx" />
+    <Content Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment_Prv.aspx" />
     <Content Include="Reports_Leasings\Withholding_Tax\Withholding_Tax_Prv.aspx" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -1174,6 +1176,26 @@
     <Compile Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Prv.aspx.designer.cs">
       <DependentUpon>Payment_Summary_Yearly_Prv.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Total_Balance_Payment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment_Export.aspx.cs">
+      <DependentUpon>Total_Balance_Payment_Export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment_Export.aspx.designer.cs">
+      <DependentUpon>Total_Balance_Payment_Export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment_Prv.aspx.cs">
+      <DependentUpon>Total_Balance_Payment_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment_Prv.aspx.designer.cs">
+      <DependentUpon>Total_Balance_Payment_Prv.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports_Leasings\Withholding_Tax\Withholding_Tax.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1285,6 +1307,10 @@
     <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_mod_II.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Payment_Summary_Yearly_mod_II.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Total_Balance_Payment.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports_Leasings\Withholding_Tax\Withholding_Tax.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

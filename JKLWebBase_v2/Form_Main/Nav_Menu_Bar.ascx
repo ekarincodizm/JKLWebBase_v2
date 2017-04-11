@@ -79,19 +79,19 @@
                     </li>
                     <li class="divider"></li>
                     <li>
+                        <asp:LinkButton ID="link_report_leainsg_lost_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานขาดชำระ </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="link_report_leainsg_intensive" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานขาดชำระเร่งรัด </asp:LinkButton>
+                    </li>
+                    <li>
                         <asp:LinkButton ID="link_report_leainsg_alert_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานแจ้งเตือนชำระค่างวด </asp:LinkButton>
                     </li>
                     <li>
                         <asp:LinkButton ID="link_report_leainsg_alert_payment_guarantor" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานแจ้งเตือนชำระค่างวด (ผู้ค้ำ) </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="link_report_leainsg_payment_left" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานค้างชำระ </asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="link_report_leainsg_lost_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานขาดชำระ </asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="link_report_leainsg_intensive" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานเร่งรัด </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_leainsg_payment_left" runat="server" OnClick="link_report_leainsg_payment_left_Click"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานลูกหนี้คงเหลือ </asp:LinkButton>
                     </li>
                 </ul>
             </li>

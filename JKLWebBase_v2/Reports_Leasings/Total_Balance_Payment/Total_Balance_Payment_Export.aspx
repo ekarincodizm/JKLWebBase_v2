@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Payment_Summary_Daily_Export.aspx.cs" Inherits="JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily.Payment_Summary_Daily_Export" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Total_Balance_Payment_Export.aspx.cs" Inherits="JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment.Total_Balance_Payment_Export" %>
 
 <%@ Register Assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
+
 
 <!DOCTYPE html>
 
@@ -10,9 +11,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <CR:CrystalReportViewer ID="CRV_Display_Report" runat="server" AutoDataBind="true" />
-    </div>
+        <div>
+            <CR:CrystalReportViewer ID="CRV_Display_Report" runat="server" AutoDataBind="true" />
+        </div>
     </form>
 </body>
 </html>

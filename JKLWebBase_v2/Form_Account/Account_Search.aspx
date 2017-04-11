@@ -12,33 +12,35 @@
 
         <div class="panel-body">
             <div class="row">
-                <div class="form-group col-xs-2">
+                <div class="form-group col-xs-3">
                     <asp:Label ID="Username_md_Lbl" runat="server"> ชื่อผู้ใช้งาน </asp:Label>
                     <asp:TextBox ID="Username_md_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Account_F_name_Lbl" runat="server"> ชื่อ - นามสกุล </asp:Label>
                     <asp:TextBox ID="Account_F_name_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Account_Idcard_Lbl" runat="server"> รหัสบัตรประชาชน </asp:Label>
                     <asp:TextBox ID="Account_Idcard_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
 
             <div class="row">
-                <div class="form-group col-xs-6">
+                <div class="form-group col-xs-12">
                     <asp:Label ID="Company_Lbl" runat="server" CssClass="checkbox">สาขา
                         <asp:CheckBox ID="Company_ChkBxL_All" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="Company_ChkBxL_All_CheckedChanged" AutoPostBack="true" />
                     </asp:Label>
-                    <asp:CheckBoxList ID="Company_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="6">
+                    <asp:CheckBoxList ID="Company_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="10">
                     </asp:CheckBoxList>
                 </div>
-                <div class="form-group col-xs-6">
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12">
                     <asp:Label ID="level_Lbl" runat="server" CssClass="checkbox">ตำแหน่ง
                         <asp:CheckBox ID="level_ChkBxL_ALL" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="level_ChkBxL_ALL_CheckedChanged" AutoPostBack="true" />
                     </asp:Label>
-                    <asp:CheckBoxList ID="level_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="3">
+                    <asp:CheckBoxList ID="level_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="4">
                     </asp:CheckBoxList>
                 </div>
             </div>

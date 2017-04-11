@@ -7,7 +7,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <asp:LinkButton ID="link_Payment_Leasings" runat="server" OnClick="link_Payment_Leasings_Click">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
@@ -24,7 +24,7 @@
                     </asp:LinkButton>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <asp:LinkButton ID="link_Search_Leasings" runat="server" OnClick="link_Search_Leasings_Click">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
@@ -40,8 +40,10 @@
                             </div>
                     </asp:LinkButton>
                 </div>
+            </div>
 
-                <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
                     <asp:HyperLink ID="link_Report_Form_Certified_Leasing_Outline" runat="server" NavigateUrl="/Reports_Leasings/Certified_Leasing/Certified_Leasing_Outline_Prv" Target="_blank">
                             <div class="panel panel-danger">
                                 <div class="panel-heading">
@@ -57,10 +59,8 @@
                             </div>
                     </asp:HyperLink>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <asp:LinkButton ID="link_Report_Payment_Daily_Leasings" runat="server" OnClick="link_Report_Payment_Daily_Leasings_Click">
                             <div class="panel panel-danger">
                                 <div class="panel-heading">
@@ -84,7 +84,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <asp:LinkButton ID="link_Search_Customers" runat="server" OnClick="link_Search_Customers_Click">
                     <div class="panel panel-warning">
                         <div class="panel-heading">
@@ -100,7 +100,7 @@
                     </div>
                     </asp:LinkButton>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <asp:LinkButton ID="link_Search_Agents" runat="server" OnClick="link_Search_Agents_Click">
                     <div class="panel panel-warning">
                         <div class="panel-heading">
@@ -125,7 +125,7 @@
         <div class="panel-body">
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <asp:LinkButton ID="LinkButton5" runat="server">
                     <div class="panel panel-success">
                         <div class="panel-heading">
@@ -142,7 +142,7 @@
                     </asp:LinkButton>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <asp:LinkButton ID="LinkButton4" runat="server">
                     <div class="panel panel-info">
                         <div class="panel-heading">

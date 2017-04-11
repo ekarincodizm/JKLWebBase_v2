@@ -12,23 +12,25 @@
 
         <div class="panel-body">
             <div class="row">
-                <div class="form-group col-xs-2">
+                <div class="form-group col-xs-3">
                     <asp:Label ID="Deps_No_Lbl" runat="server"> เลขที่ฝาก </asp:Label>
                     <asp:TextBox ID="Deps_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Leasing_No_Lbl" runat="server"> เลขที่สัญญา </asp:Label>
                     <asp:TextBox ID="Leasing_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Label3" runat="server"> รหัสบัตรประชาชน </asp:Label>
                     <asp:TextBox ID="Cust_Idcard_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Label4" runat="server"> ชื่อ-นามสกุล </asp:Label>
                     <asp:TextBox ID="Cust_Name_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-3">
                     <asp:Label ID="Leasing_Date_Lbl" runat="server"> วันที่ทำสัญญา </asp:Label>
                     <div class="form-group input-group" id="Leasing_Date_str">
                         <asp:TextBox ID="Leasing_Date_str_TBx" runat="server" CssClass="form-control"></asp:TextBox>
@@ -72,7 +74,7 @@
                         });
                     </script>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Leasing_Date_end_Lbl" runat="server"> ถึงวันที่ </asp:Label>
                     <div class="form-group input-group" id="Leasing_Date_end">
                         <asp:TextBox ID="Leasing_Date_end_TBx" runat="server" CssClass="form-control"></asp:TextBox>
@@ -119,25 +121,29 @@
             </div>
 
             <div class="row">
-                <div class="form-group col-xs-2">
+                <div class="form-group col-xs-12">
                     <asp:Label ID="Label6" runat="server" CssClass="checkbox">รหัสสัญญา
                         <asp:CheckBox ID="Leasing_Code_ChkBx_All" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="Leasing_Code_ChkBx_All_CheckedChanged" AutoPostBack="true" />
                     </asp:Label>
-                    <asp:CheckBoxList ID="Leasing_Code_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="3">
+                    <asp:CheckBoxList ID="Leasing_Code_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="10">
                     </asp:CheckBoxList>
                 </div>
-                <div class="form-group col-xs-5">
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12">
                     <asp:Label ID="Label1" runat="server" CssClass="checkbox">สาขา
                         <asp:CheckBox ID="Company_ChkBxL_All" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="Company_ChkBxL_All_CheckedChanged" AutoPostBack="true" />
                     </asp:Label>
-                    <asp:CheckBoxList ID="Company_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="3">
+                    <asp:CheckBoxList ID="Company_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="10">
                     </asp:CheckBoxList>
                 </div>
-                <div class="form-group col-xs-5">
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12">
                     <asp:Label ID="Label2" runat="server" CssClass="checkbox">เขตบริการ
                         <asp:CheckBox ID="Zone_ChkBx_All" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="Zone_ChkBx_All_CheckedChanged" AutoPostBack="true" />
                     </asp:Label>
-                    <asp:CheckBoxList ID="Zone_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="3">
+                    <asp:CheckBoxList ID="Zone_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="9">
                     </asp:CheckBoxList>
                 </div>
             </div>
@@ -183,58 +189,58 @@
                                 string ogn_code = CryptographyCode.GenerateSHA512String(cls.Leasing_id);
                         %>
                         <tr>
-                            <td >
+                            <td>
                                 <% 
                                     if (cls.bs_ls_stt.Contract_Status_id == 1)
                                     {
                                         Response.Write("<label class='label label-success' > " + cls.bs_ls_stt.Contract_Status_name + " </label>");
                                     }
-                                    else if(cls.bs_ls_stt.Contract_Status_id  == 2)
+                                    else if (cls.bs_ls_stt.Contract_Status_id == 2)
                                     {
                                         Response.Write("<label class='label label-warning' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.bs_ls_stt.Contract_Status_id  == 3)
+                                    else if (cls.bs_ls_stt.Contract_Status_id == 3)
                                     {
                                         Response.Write("<label class='label label-warning' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.bs_ls_stt.Contract_Status_id  == 4)
+                                    else if (cls.bs_ls_stt.Contract_Status_id == 4)
                                     {
                                         Response.Write("<label class='label label-danger' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.bs_ls_stt.Contract_Status_id  == 5)
+                                    else if (cls.bs_ls_stt.Contract_Status_id == 5)
                                     {
                                         Response.Write("<label class='label label-danger' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.bs_ls_stt.Contract_Status_id == 6)
+                                    else if (cls.bs_ls_stt.Contract_Status_id == 6)
                                     {
                                         Response.Write("<label class='label label-danger' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.bs_ls_stt.Contract_Status_id == 7)
+                                    else if (cls.bs_ls_stt.Contract_Status_id == 7)
                                     {
                                         Response.Write("<label class='label label-info' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.bs_ls_stt.Contract_Status_id == 8)
+                                    else if (cls.bs_ls_stt.Contract_Status_id == 8)
                                     {
                                         Response.Write("<label class='label label-info' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
-                                    else if(cls.bs_ls_stt.Contract_Status_id == 9)
+                                    else if (cls.bs_ls_stt.Contract_Status_id == 9)
                                     {
                                         Response.Write("<label class='label label-success' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
                                 %>
                             </td>
-                            <td ><%= cls.Deps_no %></td>
-                            <td ><%= cls.Leasing_no %></td>
-                            <td ><%= cls.ctm.Cust_Fname + " " + cls.ctm.Cust_LName %></td>
-                            <td ><%= DateTimeUtility.convertDateToPage(cls.Leasing_date) %></td>
+                            <td><%= cls.Deps_no %></td>
+                            <td><%= cls.Leasing_no %></td>
+                            <td><%= cls.ctm.Cust_Fname + " " + cls.ctm.Cust_LName %></td>
+                            <td><%= DateTimeUtility.convertDateToPage(cls.Leasing_date) %></td>
                             <td style="color: #2fba00;"><%= cls.Total_Net_leasing.ToString("#,###.00") %></td>
-                            <td ><%= cls.Total_period %></td>
-                            <td ><%= cls.Total_period_left %></td>
-                            <td ><%= cls.Period_payment.ToString("#,###.00") %></td>
-                            <td <%= cls.Total_payment_left == 0 ? "style='color: #2fba00;'" : "style='color: #ff0000;'" %> ><%= cls.Total_payment_left.ToString("#,###.00") %></td>
+                            <td><%= cls.Total_period %></td>
+                            <td><%= cls.Total_period_left %></td>
+                            <td><%= cls.Period_payment.ToString("#,###.00") %></td>
+                            <td <%= cls.Total_payment_left == 0 ? "style='color: #2fba00;'" : "style='color: #ff0000;'" %>><%= cls.Total_payment_left.ToString("#,###.00") %></td>
                             <td style="color: #ff0000;"><%= cls.Total_period_lose %></td>
-                            <td >
-                                <a class="btn btn-xs btn-warning" href="Leasing_Edit_Customer?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, cls.ctm.Cust_Idcard) %>" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit" ></i></a>
+                            <td>
+                                <a class="btn btn-xs btn-warning" href="Leasing_Edit_Customer?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, cls.ctm.Cust_Idcard) %>" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit"></i></a>
                             </td>
                         </tr>
                         <% } %>

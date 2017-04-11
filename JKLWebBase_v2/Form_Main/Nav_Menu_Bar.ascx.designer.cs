@@ -139,6 +139,24 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_yearly_payment;
         
         /// <summary>
+        /// link_report_leainsg_lost_payment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_lost_payment;
+        
+        /// <summary>
+        /// link_report_leainsg_intensive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_intensive;
+        
+        /// <summary>
         /// link_report_leainsg_alert_payment control.
         /// </summary>
         /// <remarks>
@@ -164,24 +182,6 @@ namespace JKLWebBase_v2.Form_Main {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_payment_left;
-        
-        /// <summary>
-        /// link_report_leainsg_lost_payment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_lost_payment;
-        
-        /// <summary>
-        /// link_report_leainsg_intensive control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_report_leainsg_intensive;
         
         /// <summary>
         /// Loan_Panel control.
