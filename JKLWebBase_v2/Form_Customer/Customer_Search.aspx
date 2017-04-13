@@ -12,15 +12,15 @@
 
         <div class="panel-body">
             <div class="row">
-                <div class="form-group col-xs-2">
+                <div class="form-group col-xs-3">
                     <asp:Label ID="Customer_Idcard_Lbl" runat="server"> รหัสบัตรประชาชน </asp:Label>
                     <asp:TextBox ID="Customer_Idcard_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Customer_Fname_Lbl" runat="server"> ชื่อ </asp:Label>
                     <asp:TextBox ID="Customer_Fname_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Customer_Lname_Lbl" runat="server"> นามสกุล </asp:Label>
                     <asp:TextBox ID="Customer_Lname_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>

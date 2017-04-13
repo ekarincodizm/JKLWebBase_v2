@@ -4,23 +4,25 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Alert MessagesBox -->
-    <asp:Panel ID="Alert_Warning_Panel" runat="server" Visible="false">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="alert alert-warning" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
-                </button>
-                <div class="modal-header">
-                    <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>!! แจ้งเตือน !! </h6>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <asp:Label ID="Alert_Id_Card_Lbl" runat="server"> ไม่พบเลขบัตรประชาชน . . . นี้ในระบบ </asp:Label>
-                    </p>
+    <div class="row">
+        <asp:Panel ID="Alert_Warning_Panel" runat="server" Visible="false">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="alert alert-warning" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                    </button>
+                    <div class="modal-header">
+                        <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>!! แจ้งเตือน !! </h6>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Label ID="Alert_Id_Card_Lbl" runat="server"> ไม่พบเลขบัตรประชาชน . . . นี้ในระบบ </asp:Label>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </asp:Panel>
+        </asp:Panel>
+    </div>
     <!-- Alert MessagesBox -->
 
     <div class="col-lg-12">
@@ -28,7 +30,7 @@
     </div>
 
     <!-- Tab MenuBar -->
-    <nav_menu_cust:Tab_Menu_Cust id="nav_tabs" runat="server" />
+    <nav_menu_cust:Tab_Menu_Cust ID="nav_tabs" runat="server" />
 
     <!-- ./Tab MenuBar -->
 
@@ -48,12 +50,12 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="form-group col-xs-2">
+                                    <div class="form-group col-xs-4">
                                         <asp:Label ID="Cust_idcard_Lbl" runat="server">เลขบัตรประชาชน
                                             <asp:RequiredFieldValidator ID="RFV_Cust_idcard_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Cust_idcard_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                         </asp:Label>
                                         <div class="form-group input-group">
-                                            <asp:TextBox ID="Cust_idcard_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
+                                            <asp:TextBox ID="Cust_idcard_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                             <asp:LinkButton ID="Cust_Search_Btn" runat="server" CssClass="input-group-addon search" OnClick="Cust_Search_Btn_Click"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
                                         </div>
                                     </div>
@@ -69,14 +71,17 @@
                                         </asp:Label>
                                         <asp:TextBox ID="Cust_LName_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Cust_Origin_Lbl" runat="server">เชื้อชาติ</asp:Label>
                                         <asp:DropDownList ID="Cust_Origin_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Cust_Nationality_Lbl" runat="server">สัญชาติ</asp:Label>
                                         <asp:DropDownList ID="Cust_Nationality_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
+                                </div>
+
+                                <div class="row">
                                     <div class="col-xs-2">
                                         <asp:Label ID="Cust_Idcard_start_Lbl" runat="server">วันที่ออกบัตร </asp:Label>
                                         <div class="form-group input-group" id="Cust_Idcard_start">
@@ -167,10 +172,7 @@
                                             });
                                         </script>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group col-xs-2">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Cust_B_date_Lbl" runat="server">วันเกิด
                                             <asp:RequiredFieldValidator ID="RFV_Cust_B_date_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Cust_B_date_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                         </asp:Label>
@@ -217,15 +219,18 @@
                                             });
                                         </script>
                                     </div>
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-6">
                                         <asp:Label ID="Cust_Idcard_without_Lbl" runat="server">ออกโดย</asp:Label>
                                         <asp:TextBox ID="Cust_Idcard_without_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-xs-2">
                                         <asp:Label ID="Cust_Tel_Lbl" runat="server">เบอร์โทรศัพท์</asp:Label>
                                         <asp:TextBox ID="Cust_Tel_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-4">
                                         <asp:Label ID="Cust_Email_Lbl" runat="server">อีเมล์</asp:Label>
                                         <asp:TextBox ID="Cust_Email_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
@@ -247,7 +252,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="form-group col-xs-2">
+                                        <div class="form-group col-xs-4">
                                             <asp:Label ID="Marry_idcard_Lbl" runat="server">รหัสบัตรประชาชน</asp:Label>
                                             <asp:TextBox ID="Marry_idcard_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                         </div>
@@ -259,19 +264,22 @@
                                             <asp:Label ID="Marry_Lname_Lbl" runat="server">นามสกุล</asp:Label>
                                             <asp:TextBox ID="Marry_Lname_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-1">
+                                        <div class="col-xs-2">
                                             <asp:Label ID="Marry_Origin_Lbl" runat="server">เชื้อชาติ</asp:Label>
                                             <asp:DropDownList ID="Marry_Origin_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                         </div>
-                                        <div class="col-xs-1">
+                                        <div class="col-xs-2">
                                             <asp:Label ID="Marry_Nationality_Lbl" runat="server">สัญชาติ</asp:Label>
                                             <asp:DropDownList ID="Marry_Nationality_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                         </div>
+                                    </div>
+
+                                    <div class="row">
                                         <div class="col-xs-1">
                                             <asp:Label ID="Marry_address_no_Lbl" runat="server">ที่อยู่ เลขที่</asp:Label>
                                             <asp:TextBox ID="Marry_address_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-1">
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_vilage_Lbl" runat="server">หมู่บ้าน</asp:Label>
                                             <asp:TextBox ID="Marry_vilage_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
@@ -279,46 +287,46 @@
                                             <asp:Label ID="Marry_vilage_no_Lbl" runat="server">หมู่ที่</asp:Label>
                                             <asp:TextBox ID="Marry_vilage_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-1">
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_alley_Lbl" runat="server">ซอย</asp:Label>
                                             <asp:TextBox ID="Marry_alley_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="form-group col-xs-2">
+                                        <div class="form-group col-xs-4">
                                             <asp:Label ID="Marry_road_Lbl" runat="server">ถนน</asp:Label>
                                             <asp:TextBox ID="Marry_road_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-2">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-xs-3">
                                             <asp:Label ID="Marry_subdistrict_Lbl" runat="server">ตำบล / แขวง</asp:Label>
                                             <asp:TextBox ID="Marry_subdistrict_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_district_Lbl" runat="server">อำเภอ / เขต</asp:Label>
                                             <asp:TextBox ID="Marry_district_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_province_Lbl" runat="server">จังหวัด </asp:Label>
                                             <asp:DropDownList ID="Marry_province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_country_Lbl" runat="server">ประเทศ</asp:Label>
                                             <asp:TextBox ID="Marry_country_TBx" runat="server" CssClass="form-control" Text="ประเทศไทย"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-2">
-                                            <asp:Label ID="Marry_zipcode_Lbl" runat="server">รหัสไปรษณีย์</asp:Label>
-                                            <asp:TextBox ID="Marry_zipcode_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
-                                        </div>
+
                                     </div>
 
                                     <div class="row">
                                         <div class="form-group col-xs-2">
+                                            <asp:Label ID="Marry_zipcode_Lbl" runat="server">รหัสไปรษณีย์</asp:Label>
+                                            <asp:TextBox ID="Marry_zipcode_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                                        </div>
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_job_Lbl" runat="server">อาชีพ</asp:Label>
                                             <asp:TextBox ID="Marry_job_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_job_position_Lbl" runat="server">ตำแหน่ง</asp:Label>
                                             <asp:TextBox ID="Marry_job_position_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
@@ -336,18 +344,18 @@
                                                 <span class="input-group-addon">บาท </span>
                                             </div>
                                         </div>
-                                        <div class="col-xs-4">
-                                            <asp:Label ID="Marry_job_local_name_Lbl" runat="server">ชื่อสถานประกอบการ (ที่ทำงาน)</asp:Label>
-                                            <asp:TextBox ID="Marry_job_local_name_TBx" runat="server" CssClass="form-control"></asp:TextBox>
-                                        </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="form-group col-xs-1">
-                                            <asp:Label ID="Marry_job_address_no_Lbl" runat="server">ที่อยู่ที่ทำงาน เลขที่</asp:Label>
-                                            <asp:TextBox ID="Marry_job_address_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                        <div class="form-group col-xs-4">
+                                            <asp:Label ID="Marry_job_local_name_Lbl" runat="server">ชื่อสถานประกอบการ (ที่ทำงาน)</asp:Label>
+                                            <asp:TextBox ID="Marry_job_local_name_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                         <div class="col-xs-1">
+                                            <asp:Label ID="Marry_job_address_no_Lbl" runat="server"> เลขที่</asp:Label>
+                                            <asp:TextBox ID="Marry_job_address_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_job_vilage_Lbl" runat="server">หมู่บ้าน</asp:Label>
                                             <asp:TextBox ID="Marry_job_vilage_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
@@ -355,34 +363,37 @@
                                             <asp:Label ID="Marry_job_vilage_no_Lbl" runat="server">หมู่ที่</asp:Label>
                                             <asp:TextBox ID="Marry_job_vilage_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-1">
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_job_alley_Lbl" runat="server">ซอย</asp:Label>
                                             <asp:TextBox ID="Marry_job_alley_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-2">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-xs-3">
                                             <asp:Label ID="Marry_job_road_Lbl" runat="server">ถนน</asp:Label>
                                             <asp:TextBox ID="Marry_job_road_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_job_subdistrict_Lbl" runat="server">ตำบล / แขวง</asp:Label>
                                             <asp:TextBox ID="Marry_job_subdistrict_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_job_district_Lbl" runat="server">อำเภอ / เขต</asp:Label>
                                             <asp:TextBox ID="Marry_job_district_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-3">
                                             <asp:Label ID="Marry_job_province_Lbl" runat="server">จังหวัด </asp:Label>
                                             <asp:DropDownList ID="Marry_job_province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="form-group col-xs-1">
+                                        <div class="form-group col-xs-2">
                                             <asp:Label ID="Marry_job_country_Lbl" runat="server">ประเทศ</asp:Label>
                                             <asp:TextBox ID="Marry_job_country_TBx" runat="server" CssClass="form-control" Text="ประเทศไทย"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-1">
+                                        <div class="col-xs-2">
                                             <asp:Label ID="Marry_job_zipcode_Lbl" runat="server">รหัสไปรษณีย์</asp:Label>
                                             <asp:TextBox ID="Marry_job_zipcode_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                         </div>
@@ -394,7 +405,7 @@
                                             <asp:Label ID="Marry_tel_Lbl" runat="server">มือถือ</asp:Label>
                                             <asp:TextBox ID="Marry_tel_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-4">
                                             <asp:Label ID="Marry_email_Lbl" runat="server">อีเมล์</asp:Label>
                                             <asp:TextBox ID="Marry_email_TBx" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
                                         </div>
@@ -411,13 +422,13 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="form-group col-xs-1">
+                                    <div class="form-group col-xs-2">
                                         <asp:Label ID="Home_Cust_Address_no_Lbl" runat="server">ที่อยู่ เลขที่
                                             <asp:RequiredFieldValidator ID="RFV_Home_Cust_Address_no_TBx" runat="server" ErrorMessage=" * " CssClass="text-danger" ControlToValidate="Home_Cust_Address_no_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                         </asp:Label>
                                         <asp:TextBox ID="Home_Cust_Address_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Home_Cust_Vilage_Lbl" runat="server">หมู่บ้าน</asp:Label>
                                         <asp:TextBox ID="Home_Cust_Vilage_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
@@ -425,21 +436,24 @@
                                         <asp:Label ID="Home_Cust_Vilage_no_Lbl" runat="server">หมู่ที่</asp:Label>
                                         <asp:TextBox ID="Home_Cust_Vilage_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Home_Cust_Alley_Lbl" runat="server">ซอย</asp:Label>
                                         <asp:TextBox ID="Home_Cust_Alley_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Home_Cust_Road_Lbl" runat="server">ถนน</asp:Label>
                                         <asp:TextBox ID="Home_Cust_Road_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-xs-3">
                                         <asp:Label ID="Home_Cust_Subdistrict_Lbl" runat="server">ตำบล / แขวง
                                             <asp:RequiredFieldValidator ID="RFV_Home_Cust_Subdistrict_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Home_Cust_Subdistrict_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                         </asp:Label>
                                         <asp:TextBox ID="Home_Cust_Subdistrict_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Home_Cust_District_Lbl" runat="server">อำเภอ / เขต
                                             <asp:RequiredFieldValidator ID="RFV_Home_Cust_District_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Home_Cust_District_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                         </asp:Label>
@@ -451,19 +465,19 @@
                                         </asp:Label>
                                         <asp:DropDownList ID="Home_Cust_Province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group col-xs-1">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Home_Cust_Country_Lbl" runat="server">ประเทศ</asp:Label>
                                         <asp:TextBox ID="Home_Cust_Country_TBx" runat="server" CssClass="form-control" Text="ประเทศไทย"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Home_Cust_Zipcode_Lbl" runat="server">รหัสไปรษณีย์
                                             <asp:RequiredFieldValidator ID="RFV_Home_Cust_Zipcode_TBx" runat="server" ErrorMessage=" * " CssClass="text-danger" ControlToValidate="Home_Cust_Zipcode_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                         </asp:Label>
                                         <asp:TextBox ID="Home_Cust_Zipcode_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                     </div>
+                                </div>
+
+                                <div class="row">
                                     <div class="col-xs-2">
                                         <asp:Label ID="Home_Cust_Tel_Lbl" runat="server">เบอร์ติดต่อ</asp:Label>
                                         <asp:TextBox ID="Home_Cust_Tel_TBx" runat="server" CssClass="form-control"></asp:TextBox>
@@ -496,11 +510,11 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="form-group col-xs-1">
+                                    <div class="form-group col-xs-2">
                                         <asp:Label ID="Idcard_Cust_Address_no_Lbl" runat="server">ที่อยู่ เลขที่ </asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_Address_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Idcard_Cust_Vilage_Lbl" runat="server">หมู่บ้าน</asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_Vilage_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
@@ -508,19 +522,22 @@
                                         <asp:Label ID="Idcard_Cust_Vilage_no_Lbl" runat="server">หมู่ที่</asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_Vilage_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Idcard_Cust_Alley_Lbl" runat="server">ซอย</asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_Alley_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Idcard_Cust_Road_Lbl" runat="server">ถนน</asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_Road_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-xs-3">
                                         <asp:Label ID="Idcard_Cust_Subdistrict_Lbl" runat="server">ตำบล / แขวง</asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_Subdistrict_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Idcard_Cust_District_Lbl" runat="server">อำเภอ / เขต</asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_District_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
@@ -528,18 +545,19 @@
                                         <asp:Label ID="Idcard_Cust_Province_Lbl" runat="server">จังหวัด</asp:Label>
                                         <asp:DropDownList ID="Idcard_Cust_Province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group col-xs-1">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Idcard_Cust_Country_Lbl" runat="server">ประเทศ</asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_Country_TBx" runat="server" CssClass="form-control" Text="ประเทศไทย"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Idcard_Cust_Zipcode_Lbl" runat="server">รหัสไปรษณีย์</asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_Zipcode_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="form-group col-xs-2">
                                         <asp:Label ID="Idcard_Cust_Tel_Lbl" runat="server">เบอร์ติดต่อ</asp:Label>
                                         <asp:TextBox ID="Idcard_Cust_Tel_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
@@ -561,11 +579,11 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="form-group col-xs-1">
+                                    <div class="form-group col-xs-2">
                                         <asp:Label ID="Current_Cust_Address_no_Lbl" runat="server">ที่อยู่ เลขที่</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Address_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Current_Cust_Vilage_Lbl" runat="server">หมู่บ้าน</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Vilage_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
@@ -573,19 +591,22 @@
                                         <asp:Label ID="Current_Cust_Vilage_no_Lbl" runat="server">หมู่ที่</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Vilage_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Current_Cust_Alley_Lbl" runat="server">ซอย</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Alley_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Current_Cust_Road_Lbl" runat="server">ถนน</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Road_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-xs-3">
                                         <asp:Label ID="Current_Cust_Subdistrict_Lbl" runat="server">ตำบล / แขวง</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Subdistrict_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Current_Cust_District_Lbl" runat="server">อำเภอ / เขต</asp:Label>
                                         <asp:TextBox ID="Current_Cust_District_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
@@ -593,18 +614,18 @@
                                         <asp:Label ID="Current_Cust_Province_Lbl" runat="server">จังหวัด</asp:Label>
                                         <asp:DropDownList ID="Current_Cust_Province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group col-xs-1">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Current_Cust_Country_Lbl" runat="server">ประเทศ</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Country_TBx" runat="server" CssClass="form-control" Text="ประเทศไทย"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Current_Cust_Zipcode_Lbl" runat="server">รหัสไปรษณีย์</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Zipcode_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-xs-2">
                                         <asp:Label ID="Current_Cust_Tel_Lbl" runat="server">เบอร์ติดต่อ</asp:Label>
                                         <asp:TextBox ID="Current_Cust_Tel_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
@@ -613,7 +634,6 @@
                                         <asp:DropDownList ID="Current_Cust_Home_status_id_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -625,15 +645,15 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="form-group col-xs-2">
+                                    <div class="form-group col-xs-4">
                                         <asp:Label ID="Cust_job_Lbl" runat="server">อาชีพ</asp:Label>
                                         <asp:TextBox ID="Cust_job_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-4">
                                         <asp:Label ID="Cust_job_position_Lbl" runat="server">ตำแหน่ง</asp:Label>
                                         <asp:TextBox ID="Cust_job_position_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Cust_job_long_Lbl" runat="server">อายุงาน</asp:Label>
                                         <div class="form-group input-group">
                                             <asp:TextBox ID="Cust_job_long_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
@@ -647,18 +667,18 @@
                                             <span class="input-group-addon">บาท </span>
                                         </div>
                                     </div>
-                                    <div class="col-xs-4">
-                                        <asp:Label ID="Cust_job_local_name_Lbl" runat="server">ชื่อสถานประกอบการ (ที่ทำงาน)</asp:Label>
-                                        <asp:TextBox ID="Cust_job_local_name_TBx" runat="server" CssClass="form-control"></asp:TextBox>
-                                    </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="form-group col-xs-1">
-                                        <asp:Label ID="Cust_job_address_no_Lbl" runat="server">ที่อยู่ที่ทำงาน เลขที่</asp:Label>
-                                        <asp:TextBox ID="Cust_job_address_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                    <div class="form-group col-xs-4">
+                                        <asp:Label ID="Cust_job_local_name_Lbl" runat="server">ชื่อสถานประกอบการ (ที่ทำงาน)</asp:Label>
+                                        <asp:TextBox ID="Cust_job_local_name_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="col-xs-1">
+                                        <asp:Label ID="Cust_job_address_no_Lbl" runat="server">เลขที่</asp:Label>
+                                        <asp:TextBox ID="Cust_job_address_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                    </div>
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Cust_job_vilage_Lbl" runat="server">หมู่บ้าน</asp:Label>
                                         <asp:TextBox ID="Cust_job_vilage_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
@@ -666,34 +686,37 @@
                                         <asp:Label ID="Cust_job_vilage_no_Lbl" runat="server">หมู่ที่</asp:Label>
                                         <asp:TextBox ID="Cust_job_vilage_no_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Cust_job_alley_Lbl" runat="server">ซอย</asp:Label>
                                         <asp:TextBox ID="Cust_job_alley_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-xs-3">
                                         <asp:Label ID="Cust_job_road_Lbl" runat="server">ถนน</asp:Label>
                                         <asp:TextBox ID="Cust_job_road_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Cust_job_subdistrict_Lbl" runat="server">ตำบล / แขวง</asp:Label>
                                         <asp:TextBox ID="Cust_job_subdistrict_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Cust_job_district_Lbl" runat="server">อำเภอ / เขต</asp:Label>
                                         <asp:TextBox ID="Cust_job_district_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:Label ID="Cust_job_province_Lbl" runat="server">จังหวัด</asp:Label>
                                         <asp:DropDownList ID="Cust_job_province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="form-group col-xs-1">
+                                    <div class="form-group col-xs-2">
                                         <asp:Label ID="Cust_job_contry_Lbl" runat="server">ประเทศ</asp:Label>
                                         <asp:TextBox ID="Cust_job_contry_TBx" runat="server" CssClass="form-control" Text="ประเทศไทย"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-1">
+                                    <div class="col-xs-2">
                                         <asp:Label ID="Cust_job_zipcode_Lbl" runat="server">รหัสไปรษณีย์</asp:Label>
                                         <asp:TextBox ID="Cust_job_zipcode_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                     </div>
@@ -701,7 +724,7 @@
                                         <asp:Label ID="Cust_job_tel_Lbl" runat="server">โทรศัพท์</asp:Label>
                                         <asp:TextBox ID="Cust_job_tel_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-6">
                                         <asp:Label ID="Cust_job_email_Lbl" runat="server">อีเมล์</asp:Label>
                                         <asp:TextBox ID="Cust_job_email_TBx" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
                                     </div>

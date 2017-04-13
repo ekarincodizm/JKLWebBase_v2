@@ -8,49 +8,55 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Alert MessagesBox -->
-    <asp:Panel ID="Alert_Danger_Panel" runat="server" Visible="false">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="alert alert-warning" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
-                </button>
-                <div class="modal-header">
-                    <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i> <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label> </h6>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <asp:Label ID="alert_danger_Lbl" runat="server"> </asp:Label>
-                    </p>
+    <div class="row">
+        <asp:Panel ID="Alert_Danger_Panel" runat="server" Visible="false">
+            <div class="col-md-7 col-md-offset-3">
+                <div class="alert alert-warning" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                    </button>
+                    <div class="modal-header">
+                        <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>
+                            <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label>
+                        </h6>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Label ID="alert_danger_Lbl" runat="server"> </asp:Label>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </asp:Panel>
+        </asp:Panel>
 
-    <asp:Panel ID="Alert_Success_Panel" runat="server" Visible="false">
-        <div class="col-md-6 col-md-offset-3">
-            <div class="alert alert-success" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
-                </button>
-                <div class="modal-header">
-                    <h6 class="modal-title"><i class="fa fa-thumbs-o-up fa-fw"></i> <asp:Label ID="alert_header_success_Lbl" runat="server"> </asp:Label> </h6>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <asp:Label ID="alert_success_Lbl" runat="server"> </asp:Label>
-                    </p>
+        <asp:Panel ID="Alert_Success_Panel" runat="server" Visible="false">
+            <div class="col-md-7 col-md-offset-3">
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                    </button>
+                    <div class="modal-header">
+                        <h6 class="modal-title"><i class="fa fa-thumbs-o-up fa-fw"></i>
+                            <asp:Label ID="alert_header_success_Lbl" runat="server"> </asp:Label>
+                        </h6>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Label ID="alert_success_Lbl" runat="server"> </asp:Label>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </asp:Panel>
+        </asp:Panel>
+    </div>
     <!-- Alert MessagesBox -->
 
     <div class="col-lg-12">
-        <h4 class="page-header"> เพิ่มรูปบ้าน </h4>
+        <h4 class="page-header">เพิ่มรูปบ้าน </h4>
     </div>
 
     <!-- Tab MenuBar -->
-    <nav_menu_cust:Tab_Menu_Cust id="nav_tabs" runat="server" />
+    <nav_menu_cust:Tab_Menu_Cust ID="nav_tabs" runat="server" />
 
     <!-- ./Tab MenuBar -->
 
@@ -162,29 +168,29 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                <%
-                    if (Session["list_ctm_photo"] != null)
-                    {
-                        List<Customers_Home_Photo> list_ctm_photo = (List<Customers_Home_Photo>)Session["list_ctm_photo"];
-                        int col = 1;
-                        for(int i = 0; i < list_ctm_photo.Count; i++)
+                    <%
+                        if (Session["list_ctm_photo"] != null)
                         {
-                            Customers_Home_Photo ctm_photo = list_ctm_photo[i];
+                            List<Customers_Home_Photo> list_ctm_photo = (List<Customers_Home_Photo>)Session["list_ctm_photo"];
+                            int col = 1;
+                            for (int i = 0; i < list_ctm_photo.Count; i++)
+                            {
+                                Customers_Home_Photo ctm_photo = list_ctm_photo[i];
 
-                            string ogn_code = CryptographyCode.GenerateSHA512String(ctm_photo.Cust_id);
-                        
-                %>
-                        <%= (i % 4) == 0 ? "<div class='row'>" : "" %>
-                        <div class="form-group col-xs-6 col-sm-3">
-                            <a class="btn btn-danger right" href="Customer_Home_Photo_Remove?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm_photo.Cust_id, ctm_photo.Home_img_num.ToString()) %>" data-toggle="tooltip" data-placement="left" title="ลบ"> <i class="fa fa-trash-o"></i> </a>
-                            <img alt="<%=ctm_photo.Home_img_old_name %>" src="<%= string.IsNullOrEmpty(ctm_photo.Home_img_path)? "../Images_web/default-img.jpg" : ctm_photo.Home_img_path %>" width="100%" height="250px"  />
-                        </div>
-                        <%= col == 4? "</div>" : "" %>
-                <%
-                            if (col == 4) { col = 1; } else { col++; }
+                                string ogn_code = CryptographyCode.GenerateSHA512String(ctm_photo.Cust_id);
+
+                    %>
+                    <%= (i % 4) == 0 ? "<div class='row'>" : "" %>
+                    <div class="form-group col-xs-6 col-sm-3">
+                        <a class="btn btn-danger right" href="Customer_Home_Photo_Remove?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, ctm_photo.Cust_id, ctm_photo.Home_img_num.ToString()) %>" data-toggle="tooltip" data-placement="left" title="ลบ"><i class="fa fa-trash-o"></i></a>
+                        <img alt="<%=ctm_photo.Home_img_old_name %>" src="<%= string.IsNullOrEmpty(ctm_photo.Home_img_path)? "../Images_web/default-img.jpg" : ctm_photo.Home_img_path %>" width="100%" height="200px" />
+                    </div>
+                    <%= col == 4? "</div>" : "" %>
+                    <%
+                                if (col == 4) { col = 1; } else { col++; }
+                            }
                         }
-                    }
-                %>
+                    %>
                 </div>
                 <!-- /.รูปบ้าน -->
 
