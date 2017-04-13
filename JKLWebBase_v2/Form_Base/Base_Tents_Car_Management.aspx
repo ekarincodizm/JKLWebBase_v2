@@ -12,11 +12,11 @@
 
         <div class="panel-body">
             <div class="row">
-                <div class="form-group col-xs-2">
+                <div class="form-group col-xs-3">
                     <asp:Label ID="Tent_name_Lbl" runat="server"> ชื่อเต็นท์รถ </asp:Label>
                     <asp:TextBox ID="Tent_name_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-5">
+                <div class="col-xs-9">
                     <asp:Label ID="Tent_local_Lbl" runat="server"> ที่อยู่เต็นท์รถ </asp:Label>
                     <asp:TextBox ID="Tent_local_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>

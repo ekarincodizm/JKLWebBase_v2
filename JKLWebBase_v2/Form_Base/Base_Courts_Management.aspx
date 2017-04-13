@@ -13,7 +13,7 @@
 
         <div class="panel-body">
             <div class="row">
-                <div class="form-group col-xs-2">
+                <div class="form-group col-xs-3">
                     <asp:Label ID="Value_1_Lbl" runat="server"> ชื่อศาลพิพากษา </asp:Label>
                     <asp:TextBox ID="Value_1_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>

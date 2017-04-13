@@ -12,11 +12,11 @@
 
         <div class="panel-body">
             <div class="row">
-                <div class="form-group col-xs-2">
+                <div class="form-group col-xs-3">
                     <asp:Label ID="Nationality_name_ENG_Lbl" runat="server"> ชื่อสัญชาติภาษาอังกฤษ </asp:Label>
                     <asp:TextBox ID="Nationality_name_ENG_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Nationality_name_TH_Lbl" runat="server"> ชื่อสัญชาติภาษาไทย </asp:Label>
                     <asp:TextBox ID="Nationality_name_TH_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>

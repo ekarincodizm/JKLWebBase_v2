@@ -8,11 +8,11 @@
 
         <div class="panel-body">
             <div class="row">
-                <div class="form-group col-xs-2">
+                <div class="form-group col-xs-3">
                     <asp:Label ID="Value_1_Lbl" runat="server"> ชื่อยี่ห้อรถภาษาอังกฤษ </asp:Label>
                     <asp:TextBox ID="Value_1_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Value_2_Lbl" runat="server"> ชื่อยี่ห้อรถภาษาไทย </asp:Label>
                     <asp:TextBox ID="Value_2_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
