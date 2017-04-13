@@ -12,22 +12,22 @@
 
         <div class="panel-body">
             <div class="row">
-                <div class="form-group col-xs-2">
+                <div class="form-group col-xs-3">
                     <asp:Label ID="Agent_Idcard_Lbl" runat="server"> รหัสบัตรประชาชน </asp:Label>
                     <asp:TextBox ID="Agent_Idcard_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Agent_Fname_Lbl" runat="server"> ชื่อ </asp:Label>
                     <asp:TextBox ID="Agent_Fname_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-2">
+                <div class="col-xs-3">
                     <asp:Label ID="Agent_Lname_Lbl" runat="server"> นามสกุล </asp:Label>
                     <asp:TextBox ID="Agent_Lname_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-xs-2">
                     <asp:LinkButton ID="Search_Btn" runat="server" CssClass="btn btn-sm btn-primary btn-block" OnClick="Search_Btn_Click"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
                 </div>
             </div>
