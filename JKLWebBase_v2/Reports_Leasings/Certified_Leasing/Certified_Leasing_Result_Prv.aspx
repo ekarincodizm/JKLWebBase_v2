@@ -8,7 +8,7 @@
     <div class="panel panel-primary">
         <div class="panel-body">
             <div class="row">
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Print_Date_Lbl" runat="server">วันที่
                         <asp:RequiredFieldValidator ID="RFV_Print_Date_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Print_Date_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
@@ -18,8 +18,9 @@
                     <asp:TextBox ID="Print_Date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
+
             <div class="row">
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Registrar_Lbl" runat="server">เรียน นายทะเบียน
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Print_Date_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
@@ -29,42 +30,45 @@
                     <asp:TextBox ID="Registrar_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
+
             <div class="row">
-                <div class="form-group col-xs-3">
+                <div class="form-group col-xs-4">
                     <asp:Label ID="Car_Lbl" runat="server">โดยหนังสือฉบับนี้ ทางห้างหุ้นส่วนจำกัดฯ ขอรับรองว่า รถ
                         <asp:RequiredFieldValidator ID="RFV_Car_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Car_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
                 </div>
-                <div class="form-group col-xs-9">
+                <div class="form-group col-xs-8">
                     <asp:TextBox ID="Car_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
+
             <div class="row">
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Model_Lbl" runat="server">รุ่น
                         <asp:RequiredFieldValidator ID="RFV_Model_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Model_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
                 </div>
-                <div class=" form-group col-xs-3">
+                <div class=" form-group col-xs-2">
                     <asp:TextBox ID="Model_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Car_Engine_Lbl" runat="server">หมายเลขเครื่องยนต์
                         <asp:RequiredFieldValidator ID="RFV_Car_Engine_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Car_Engine_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
                 </div>
-                <div class="form-group col-xs-3">
+                <div class="form-group col-xs-2">
                     <asp:TextBox ID="Car_Engine_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Car_Chassis_Lbl" runat="server">หมายเลขตัวรถ
                         <asp:RequiredFieldValidator ID="RFV_Car_Chassis_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Car_Chassis_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
                 </div>
-                <div class="form-group col-xs-3">
+                <div class="form-group col-xs-2">
                     <asp:TextBox ID="Car_Chassis_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-3">
                     <asp:Label ID="Ctm_Name_Lbl" runat="server">ซึ่ง ทางห้างหุ้นส่วนจำกัดฯ ได้ตกลงให้
@@ -83,6 +87,7 @@
                     <asp:TextBox ID="Ctm_Address_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-1">
                     <asp:Label ID="Ctm_Moo_Lbl" runat="server">หมู่ที่
@@ -117,6 +122,7 @@
                     <asp:TextBox ID="Ctm_Subdistrict_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-1">
                     <asp:Label ID="Ctm_District_Lbl" runat="server">อำเภอ
@@ -135,16 +141,17 @@
                     <asp:TextBox ID="Ctm_Province_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
+
             <div class="row">
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Car_II_Lbl" runat="server">เป็นผู้เช่า - ซื้อรถ
                         <asp:RequiredFieldValidator ID="RFV_Car_II_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Car_II_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
                 </div>
-                <div class=" form-group col-xs-8">
+                <div class=" form-group col-xs-6">
                     <asp:TextBox ID="Car_II_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Leasing_Date_Lbl" runat="server">คันดังกล่าวในวันที่
                         <asp:RequiredFieldValidator ID="RFV_Leasing_Date_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Leasing_Date_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
@@ -153,6 +160,7 @@
                     <asp:TextBox ID="Leasing_Date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-2 col-md-offset-2">
                     <asp:Label ID="Finance_Lbl" runat="server">ยอดจัดไฟแนนซ์
@@ -166,6 +174,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-2 col-md-offset-2">
                     <asp:Label ID="Interest_Lbl" runat="server">ดอกเบี้ย
@@ -179,6 +188,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-2 col-md-offset-2">
                     <asp:Label ID="Total_Finance_Lbl" runat="server">รวมยอดจัดไฟแนนซ์และดอกเบี้ย
@@ -192,6 +202,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-2 col-md-offset-2">
                     <asp:Label ID="Total_Period_Lbl" runat="server">แบ่งชำระเป็น
@@ -213,6 +224,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-2 col-md-offset-2">
                     <asp:Label ID="Period_Pay_Lbl" runat="server">ค่างวด
@@ -226,6 +238,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-2 col-md-offset-2">
                     <asp:Label ID="Period_Vat_Lbl" runat="server">ภาษีมูลค่าเพิ่ม
@@ -239,6 +252,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-2 col-md-offset-2">
                     <asp:Label ID="Total_Period_Payment_Lbl" runat="server">รวมค่างวดและภาษีมูลค่าเพิ่ม
@@ -254,12 +268,12 @@
             </div>
 
             <div class="row">
-                <div class="form-group col-xs-3">
+                <div class="form-group col-xs-4">
                     <asp:Label ID="For_Lbl" runat="server">เนื่องจากความจำเป็นในการจัดพิมพ์สัญญาเช่า - ซื้อเพื่อ
                         <asp:RequiredFieldValidator ID="RFV_For_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="For_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
                 </div>
-                <div class="form-group col-xs-9">
+                <div class="form-group col-xs-8">
                     <asp:TextBox ID="For_TBx" runat="server" CssClass="form-control" Text="จัดไฟแนนซ์"></asp:TextBox>
                 </div>
             </div>
@@ -269,10 +283,10 @@
                         <asp:RequiredFieldValidator ID="RFV_Car_III_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Car_III_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
                 </div>
-                <div class="form-group col-xs-8">
+                <div class="form-group col-xs-6">
                     <asp:TextBox ID="Car_III_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="form-group col-xs-3">
+                <div class="form-group col-xs-5">
                     <asp:Label ID="Sub_Car_III_Lbl" runat="server">คันดังกล่าว ห้างหุ้นส่วนจำกัดฯ ขอเสนอหนังสือฉบับนี้แทน พร้อมกันนี้ </asp:Label>
                 </div>
             </div>
@@ -282,10 +296,10 @@
                         <asp:RequiredFieldValidator ID="RFV_Ctm_Name_II_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Ctm_Name_II_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation" ></asp:RequiredFieldValidator>
                     </asp:Label>
                 </div>
-                <div class="form-group col-xs-7">
+                <div class="form-group col-xs-5">
                     <asp:TextBox ID="Ctm_Name_II_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="form-group col-xs-3">
+                <div class="form-group col-xs-5">
                     <asp:Label ID="Sub_Ctm_Name_II_Lbl" runat="server">( ผู้เช่า - ซื้อ ) ลงนามในท้ายหนังสือ เพื่อเป็นการยืนยันร่วมกัน </asp:Label>
                 </div>
             </div>

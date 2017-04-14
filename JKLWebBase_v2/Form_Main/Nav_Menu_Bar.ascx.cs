@@ -54,16 +54,6 @@ namespace JKLWebBase_v2.Form_Main
             Response.Redirect("/Form_Leasings/Leasing_Search_Payment");
         }
 
-        protected void link_Menu_Deposit_Search_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Form_Leasings/Leasing_Search");
-        }
-
-        protected void link_Menu_Deposit_Add_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Form_Leasings/Leasing_Add");
-        }
-
         protected void link_Menu_Leasing_Search_Click(object sender, EventArgs e)
         {
             Session.Remove("List_Leasings");

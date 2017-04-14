@@ -85,24 +85,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.TextBox Company_N_Name_TBx;
         
         /// <summary>
-        /// Company_F_Name_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Company_F_Name_Lbl;
-        
-        /// <summary>
-        /// Company_F_Name_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Company_F_Name_TBx;
-        
-        /// <summary>
         /// Zone_Name_Lbl control.
         /// </summary>
         /// <remarks>
@@ -119,6 +101,24 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Zone_Name_TBx;
+        
+        /// <summary>
+        /// Company_F_Name_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Company_F_Name_Lbl;
+        
+        /// <summary>
+        /// Company_F_Name_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Company_F_Name_TBx;
         
         /// <summary>
         /// Customer_Name_Lbl control.

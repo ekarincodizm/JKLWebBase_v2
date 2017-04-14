@@ -1,4 +1,4 @@
-﻿<%@ Page Title="ค้นหาสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Search_Payment.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Search_Payment" %>
+﻿<%@ Page Title="ค้นหาสัญญาเช่า-ซื้อ และ ชำระค่างวดเช่า - ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Search_Payment.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Search_Payment" %>
 
 <%@ Import Namespace="JKLWebBase_v2.Class_Leasings" %>
 <%@ Import Namespace="JKLWebBase_v2.Managers_Leasings" %>
@@ -7,7 +7,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h6>ค้นหาสัญญาเช่า-ซื้อ </h6>
+            <h6>ค้นหาสัญญาเช่า-ซื้อ และ ชำระค่างวดเช่า - ซื้อ </h6>
         </div>
 
         <div class="panel-body">
@@ -164,10 +164,10 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th style="width: 2%;">สถานะ </th>
-                            <th style="width: 8%;">เลขที่ฝาก </th>
-                            <th style="width: 8%;">เลขที่สัญญา </th>
-                            <th style="width: 25%;">ชื่อ - นามสกุล </th>
+                            <th style="width: 5%;">สถานะ </th>
+                            <th style="width: 10%;">เลขที่ฝาก </th>
+                            <th style="width: 12%;">เลขที่สัญญา </th>
+                            <th style="width: 16%;">ชื่อ - นามสกุล </th>
                             <th style="width: 8%;">วันที่ทำสัญญา </th>
                             <th style="width: 8%;">ยอดเช่า - ซื้อ </th>
                             <th style="width: 5%;">งวดทั้งหมด </th>
@@ -175,7 +175,7 @@
                             <th style="width: 5%;">ค่างวด</th>
                             <th style="width: 8%;">ยอดคงค้าง</th>
                             <th style="width: 8%;">ขาดชำระ (งวด)</th>
-                            <th style="width: 5%;"></th>
+                            <th style="width: 10%;"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -240,7 +240,7 @@
                             <td <%= cls.Total_payment_left == 0 ? "style='color: #2fba00;'" : "style='color: #ff0000;'" %>><%= cls.Total_payment_left.ToString("#,###.00") %></td>
                             <td style="color: #ff0000;"><%= cls.Total_period_lose %></td>
                             <td>
-                                <a class="btn btn-xs btn-success" href="Leasing_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, cls.ctm.Cust_Idcard) %>" data-toggle="tooltip" data-placement="top" title="ชำระค่างวด"><i class="fa fa-money"></i>ชำระค่างวด </a>
+                                <a class="btn btn-xs btn-success" href="Leasing_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, cls.ctm.Cust_Idcard) %>" data-toggle="tooltip" data-placement="top" title="ชำระค่างวด"><i class="fa fa-money fa-fw"></i> ชำระค่างวด </a>
                             </td>
                         </tr>
                         <% } %>

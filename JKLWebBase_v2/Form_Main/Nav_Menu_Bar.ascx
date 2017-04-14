@@ -45,13 +45,6 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <asp:LinkButton ID="link_Menu_Deposit_Search" runat="server" OnClick="link_Menu_Deposit_Search_Click"> <i class="fa fa-search fa-fw"></i> ค้นหาสัญญาฝาก </asp:LinkButton>
-                </li>
-                <li>
-                    <asp:LinkButton ID="link_Menu_Deposit_Add" runat="server" OnClick="link_Menu_Deposit_Add_Click"> <i class="fa fa-tag fa-fw"></i> เพิ่มสัญญาฝาก </asp:LinkButton>
-                </li>
-                <li class="divider"></li>
-                <li>
                     <asp:LinkButton ID="link_Menu_Leasing_Search" runat="server" OnClick="link_Menu_Leasing_Search_Click"> <i class="fa fa-search fa-fw"></i> ค้นหาสัญญาเช่า-ซื้อ </asp:LinkButton>
                 </li>
                 <li>

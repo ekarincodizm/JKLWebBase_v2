@@ -1615,33 +1615,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.TextBox Period_Cal_TBx;
         
         /// <summary>
-        /// Period_Payment_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Period_Payment_Lbl;
-        
-        /// <summary>
-        /// RFV_Period_Payment_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Period_Payment_TBx;
-        
-        /// <summary>
-        /// Period_Payment_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Period_Payment_TBx;
-        
-        /// <summary>
         /// Period_pure_Lbl control.
         /// </summary>
         /// <remarks>
@@ -1667,6 +1640,33 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Period_pure_TBx;
+        
+        /// <summary>
+        /// Period_Payment_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Period_Payment_Lbl;
+        
+        /// <summary>
+        /// RFV_Period_Payment_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Period_Payment_TBx;
+        
+        /// <summary>
+        /// Period_Payment_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Period_Payment_TBx;
         
         /// <summary>
         /// Save_Btn control.

@@ -67,24 +67,6 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_Menu_Pyament_Leasing;
         
         /// <summary>
-        /// link_Menu_Deposit_Search control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Deposit_Search;
-        
-        /// <summary>
-        /// link_Menu_Deposit_Add control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_Menu_Deposit_Add;
-        
-        /// <summary>
         /// link_Menu_Leasing_Search control.
         /// </summary>
         /// <remarks>

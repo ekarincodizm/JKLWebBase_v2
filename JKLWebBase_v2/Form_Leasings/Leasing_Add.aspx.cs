@@ -420,7 +420,7 @@ namespace JKLWebBase_v2.Form_Leasings
             // ข้อมูลเช็คและการโอน
             cls.Cheque_receiver = string.IsNullOrEmpty(Cheque_receiver_TBx.Text) ? "" : Cheque_receiver_TBx.Text;
             cls.Cheque_bank = string.IsNullOrEmpty(Cheque_bank_TBx.Text) ? "" : Cheque_bank_TBx.Text;
-            cls.Cheque_bank_branch = string.IsNullOrEmpty(Cheque_bank_Branch_TBx.Text) ? "" : Cheque_bank_Branch_TBx.Text;
+            cls.Cheque_bank_branch = string.IsNullOrEmpty(Cheque_bank_branch_TBx.Text) ? "" : Cheque_bank_branch_TBx.Text;
             cls.Cheque_number = string.IsNullOrEmpty(Cheque_number_TBx.Text) ? "" : Cheque_number_TBx.Text;
             cls.Cheque_sum = string.IsNullOrEmpty(Cheque_sum_TBx.Text) ? 0 : Convert.ToDouble(Cheque_sum_TBx.Text);
             cls.Cheque_receive_date = string.IsNullOrEmpty(Cheque_receive_date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);

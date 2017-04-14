@@ -33,21 +33,21 @@
                 <div class="form-group col-xs-3">
                     <asp:TextBox ID="Car_Brand_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Car_Plate_Lbl" runat="server"> หมายเลขทะเบียน </asp:Label>
                 </div>
-                <div class="form-group col-xs-3">
+                <div class="form-group col-xs-2">
                     <asp:TextBox ID="Car_Plate_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Car_Engine_Lbl" runat="server"> หมายเลขเครื่องยนต์ </asp:Label>
                 </div>
                 <div class="form-group col-xs-3">
                     <asp:TextBox ID="Car_Engine_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Car_Chassis_Lbl" runat="server"> หมายเลขตัวรถ </asp:Label>
                 </div>
                 <div class="form-group col-xs-3">
@@ -64,7 +64,7 @@
 
                     <asp:TextBox ID="Payment_To_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Payment_Amount_Lbl" runat="server">เป็นจำนวนเงิน
                         <asp:RequiredFieldValidator ID="RFV_Payment_Amount_TBx" runat="server" ErrorMessage=" ** " CssClass="text-danger" ControlToValidate="Payment_Amount_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                     </asp:Label>
@@ -78,10 +78,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-xs-1">
+                <div class="form-group col-xs-2">
                     <asp:Label ID="Address_Lbl" runat="server"> ที่อยู่สำนักงาน </asp:Label>
                 </div>
-                <div class="form-group col-xs-11">
+                <div class="form-group col-xs-10">
                     <asp:TextBox ID="Bottom_Address_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
