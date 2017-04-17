@@ -54,7 +54,7 @@ namespace JKLWebBase_v2
 
                 /// Acticity Logs System
                 ///  
-                string message = Messages_Logs._messageLogsAccess("ยินดีต้อนรับ : " + acc_lgn.Account_F_name, username, package_login.Company_N_name, 1);
+                string message = Messages_Logs._messageLogsAccess(acc_lgn.Account_F_name, acc_lgn.resu, package_login.Company_N_name, 1);
 
                 new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
@@ -70,7 +70,7 @@ namespace JKLWebBase_v2
 
                 /// Acticity Logs System
                 ///  
-                string message = Messages_Logs._messageLogsAccess("ตรวจพบการเข้าใช้งานระบบ ในขณะ ถูกระงับการใช้งานชั่วคราว", username+" : " + acc_lgn.Account_F_name, package_login.Company_N_name, 0);
+                string message = Messages_Logs._messageLogsWarning(acc_lgn.Account_F_name, "ตรวจพบการเข้าใช้งานระบบ ในขณะ ถูกระงับการใช้งานชั่วคราว", username, package_login.Company_N_name);
 
                 new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
@@ -84,7 +84,7 @@ namespace JKLWebBase_v2
 
                 /// Acticity Logs System
                 ///  
-                string message = Messages_Logs._messageLogsAccess("ตรวจพบการเข้าใช้งานระบบ ในขณะ ถูกระงับการใช้งานถาวร", username + " : " + acc_lgn.Account_F_name, package_login.Company_N_name, 0);
+                string message = Messages_Logs._messageLogsWarning(acc_lgn.Account_F_name, "ตรวจพบการเข้าใช้งานระบบ ในขณะ ถูกระงับการใช้งานถาวร", username, package_login.Company_N_name);
 
                 new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
@@ -98,7 +98,7 @@ namespace JKLWebBase_v2
 
                 /// Acticity Logs System
                 ///  
-                string message = Messages_Logs._messageLogsAccess("ตรวจพบการเข้าใช้งานระบบโดยใช้ ชื่อผู้ใช้งาน หรือรหัสผ่าน ไม่ตามที่กำหนด", username, package_login.Company_N_name, 0);
+                string message = Messages_Logs._messageLogsWarning(acc_lgn.Account_F_name, "ตรวจพบการเข้าใช้งานระบบโดยใช้ ชื่อผู้ใช้งาน หรือรหัสผ่าน ไม่ตามที่กำหนด", username, package_login.Company_N_name);
 
                 new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 

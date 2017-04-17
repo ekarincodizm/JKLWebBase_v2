@@ -139,7 +139,7 @@ namespace JKLWebBase_v2.Form_Main
 
             /// Acticity Logs System
             ///  
-            string message = Messages_Logs._messageLogsLogout("เสร็จสิ้นการใช้งานระบบ : " + acc_lgn.Account_F_name, acc_lgn.resu, package_login.Company_N_name, 1);
+            string message = Messages_Logs._messageLogsLogout(acc_lgn.Account_F_name, acc_lgn.resu, package_login.Company_N_name, 1);
 
             new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
