@@ -23,6 +23,8 @@ namespace JKLWebBase_v2
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -77,15 +79,12 @@ namespace JKLWebBase_v2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Base_Companys package_login = new Base_Companys();
-            Account_Login acc_lgn = new Account_Login();
-
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];
 
-            /*Username_Lbl.Text = "ผู้ใช้งาน : " + acc_lgn.resu + " ( " + acc_lgn.Account_F_name + " )";
+            Username_Lbl.Text = "ผู้ใช้งาน : " + acc_lgn.resu + " ( " + acc_lgn.Account_F_name + " )";
             Job_Position_Lbl.Text = "ตำแหน่ง : " + acc_lgn.acc_lv.level_name_TH + " ( " + acc_lgn.acc_lv.level_name_ENG + " )";
-            Account_Status_Lbl.Text = "สถานะผู้ใช้งาน : " + package_login.Company_N_name;*/
+            Account_Status_Lbl.Text = "สถานะผู้ใช้งาน : " + package_login.Company_N_name;
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

@@ -7,14 +7,17 @@ using System.Web.UI;
 using JKLWebBase_v2.Class_Customers;
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Managers_Customers;
-
+using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Form_Customer
 {
     public partial class Customer_Home_Photo : Page
     {
-        Customers ctm = new Customers();
-        Customers_Manager ctm_mng = new Customers_Manager();
+        private Customers ctm = new Customers();
+        private Customers_Manager ctm_mng = new Customers_Manager();
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
 
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -7,13 +7,12 @@ using JKLWebBase_v2.Class_Account;
 using JKLWebBase_v2.Manager_Account;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
-
+using JKLWebBase_v2.Global_Class;
 
 namespace JKLWebBase_v2
 {
     public partial class Login : Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -53,6 +52,14 @@ namespace JKLWebBase_v2
                 Session["Login"] = acc_lgn;
                 Session["Package"] = package_login;
 
+                /// Acticity Logs System
+                ///  
+                string message = Messages_Logs._messageLogsAccess("ยินดีต้อนรับ : " + acc_lgn.Account_F_name, username, package_login.Company_N_name, 1);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
+
                 Response.Redirect("/Form_Main/Main_JKL_Form");
             }
             else if (acc_lgn.Account_status == 2)
@@ -60,18 +67,42 @@ namespace JKLWebBase_v2
                 alert_danger_Lbl.Visible = true;
 
                 alert_danger_Lbl.Text = " ** ชื่อผู้ใช้งาน ' " + username + " ' ถูกระงับการใช้งานชั่วคราว กรุณาติดต่อเจ้าหน้าที่ฝ่าย IT ** ";
+
+                /// Acticity Logs System
+                ///  
+                string message = Messages_Logs._messageLogsAccess("ตรวจพบการเข้าใช้งานระบบ ในขณะ ถูกระงับการใช้งานชั่วคราว", username+" : " + acc_lgn.Account_F_name, package_login.Company_N_name, 0);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
             else if (acc_lgn.Account_status == 3)
             {
                 alert_danger_Lbl.Visible = true;
 
                 alert_danger_Lbl.Text = " ** ชื่อผู้ใช้งาน ' " + username + " ' ถูกระงับการใช้งานถาวร เนื่องจากพ้นสภาพพนักงาน ** ";
+
+                /// Acticity Logs System
+                ///  
+                string message = Messages_Logs._messageLogsAccess("ตรวจพบการเข้าใช้งานระบบ ในขณะ ถูกระงับการใช้งานถาวร", username + " : " + acc_lgn.Account_F_name, package_login.Company_N_name, 0);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
             else
             {
                 alert_danger_Lbl.Visible = true;
 
                 alert_danger_Lbl.Text = "** ไม่พบข้อมูลผู้ใช้งาน หรือ ชื่อผู้ใช้งาน (Username) หรือ รหัสผ่านไม่ถูกต้อง (Password) กรุณาตรวจสอบ **";
+
+                /// Acticity Logs System
+                ///  
+                string message = Messages_Logs._messageLogsAccess("ตรวจพบการเข้าใช้งานระบบโดยใช้ ชื่อผู้ใช้งาน หรือรหัสผ่าน ไม่ตามที่กำหนด", username, package_login.Company_N_name, 0);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
     }

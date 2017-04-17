@@ -17,6 +17,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
 {
     public partial class Lost_Payment_Hurry_Export : Page
     {
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
         string error = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -53,9 +55,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
             string zone_id_inline = (string)Session["zone_id_inline_rpt"];
 
             string report_header = " รายงานลูกค้าขาดชำระค่างวด (เร่งรัด) ";
-
-            Base_Companys package_login = new Base_Companys();
-            Account_Login acc_lgn = new Account_Login();
 
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];

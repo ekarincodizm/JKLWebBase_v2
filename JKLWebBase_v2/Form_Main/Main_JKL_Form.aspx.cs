@@ -1,12 +1,38 @@
-﻿using System;
+﻿using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Class_Base;
+using System;
 using System.Web.UI;
 
 namespace JKLWebBase_v2.Form_Main
 {
     public partial class Main_JKL_Form : Page
     {
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            if (acc_lgn.acc_lv.level_access < 7)
+            {
+                link_loan_payment_panel.Visible = false;
+                link_loan_search_panel.Visible = false;
+                link_Payment_Leasings_panel.Visible = false;
+                link_Report_Form_Certified_Leasing_Outline_panel.Visible = false;
+            }
+
+            if(acc_lgn.acc_lv.level_access == 4)
+            {
+                link_Payment_Leasings_panel.Visible = true;
+            }
+
+            if (acc_lgn.acc_lv.level_access < 4)
+            {
+                link_Report_Payment_Daily_Leasings_panel.Visible = false;
+            }
+
             Session.Remove("Customer");
         }
 

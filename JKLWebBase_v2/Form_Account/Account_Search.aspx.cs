@@ -13,8 +13,10 @@ namespace JKLWebBase_v2.Form_Account
 {
     public partial class Account_Search : Page
     {
-        Account_Manager acc_lgn_mng = new Account_Manager();
-        string error = string.Empty;
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
+        private Account_Manager acc_lgn_mng = new Account_Manager();
+        private string error = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {

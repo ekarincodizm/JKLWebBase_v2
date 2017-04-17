@@ -4,11 +4,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
+using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Form_Base
 {
     public partial class Base_Leasing_Code_Management : Page
     {
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

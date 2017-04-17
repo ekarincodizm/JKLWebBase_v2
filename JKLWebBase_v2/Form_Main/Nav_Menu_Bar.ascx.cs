@@ -1,12 +1,69 @@
-﻿using System;
+﻿using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Manager_Account;
+using System;
 using System.Web.UI;
 
 namespace JKLWebBase_v2.Form_Main
 {
     public partial class Nav_Menu_Bar : UserControl
     {
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            if (acc_lgn.acc_lv.level_access == 7)
+            {
+                link_load_leasing.Visible = false;
+                link_load_loan.Visible = false;
+            }
+
+            if(acc_lgn.acc_lv.level_access < 7)
+            {
+                Loan_Panel.Visible = false;
+                Loan_Report_Panel.Visible = false;
+                Account_Panel.Visible = false;
+                link_Menu_Pyament_Leasing.Visible = false;
+                link_Menu_Add_Customer.Visible = false;
+                link_Menu_Add_Agent.Visible = false;
+                link_Menu_Leasing_Add.Visible = false;
+            }
+
+            if (acc_lgn.acc_lv.level_access == 4)
+            {
+                link_Menu_Pyament_Leasing.Visible = true;
+                link_report_leainsg_lost_payment.Visible = false;
+                link_report_leainsg_intensive.Visible = false;
+                link_report_leainsg_alert_payment.Visible = false;
+                link_report_leainsg_alert_payment_guarantor.Visible = false;
+                link_report_leainsg_payment_left.Visible = false;
+            }
+
+            if (acc_lgn.acc_lv.level_access < 4)
+            {
+                Leasing_Report_Panel.Visible = false;
+            }
+
+            if (acc_lgn.acc_lv.level_access == 3)
+            {
+                Loan_Panel.Visible = true;
+                link_Menu_Add_Customer.Visible = true;
+                link_Menu_Add_Agent.Visible = true;
+                link_payment_loan.Visible = false;
+                link_loan_search.Visible = false;
+            }
+
+            if (acc_lgn.acc_lv.level_access == 2)
+            {
+                link_Menu_Add_Customer.Visible = true;
+                link_Menu_Add_Agent.Visible = true;
+                link_Menu_Leasing_Add.Visible = true;
+            }
 
         }
 
@@ -77,6 +134,16 @@ namespace JKLWebBase_v2.Form_Main
         protected void link_Logout_Click(object sender, EventArgs e)
         {
             string package = (string)Session["lctn"];
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            /// Acticity Logs System
+            ///  
+            string message = Messages_Logs._messageLogsLogout("เสร็จสิ้นการใช้งานระบบ : " + acc_lgn.Account_F_name, acc_lgn.resu, package_login.Company_N_name, 1);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
 
             Session.RemoveAll();
 

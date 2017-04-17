@@ -7,8 +7,9 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-6">
-                    <asp:LinkButton ID="link_Payment_Leasings" runat="server" OnClick="link_Payment_Leasings_Click">
+                <asp:Panel ID="link_Payment_Leasings_panel" runat="server">
+                    <div class="col-md-6">
+                        <asp:LinkButton ID="link_Payment_Leasings" runat="server" OnClick="link_Payment_Leasings_Click">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -21,8 +22,9 @@
                                     </div>
                                 </div>
                             </div>
-                    </asp:LinkButton>
-                </div>
+                        </asp:LinkButton>
+                    </div>
+                </asp:Panel>
 
                 <div class="col-md-6">
                     <asp:LinkButton ID="link_Search_Leasings" runat="server" OnClick="link_Search_Leasings_Click">
@@ -43,8 +45,9 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <asp:HyperLink ID="link_Report_Form_Certified_Leasing_Outline" runat="server" NavigateUrl="/Reports_Leasings/Certified_Leasing/Certified_Leasing_Outline_Prv" Target="_blank">
+                <asp:Panel ID="link_Report_Form_Certified_Leasing_Outline_panel" runat="server">
+                    <div class="col-md-6">
+                        <asp:HyperLink ID="link_Report_Form_Certified_Leasing_Outline" runat="server" NavigateUrl="/Reports_Leasings/Certified_Leasing/Certified_Leasing_Outline_Prv" Target="_blank">
                             <div class="panel panel-danger">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -57,11 +60,13 @@
                                     </div>
                                 </div>
                             </div>
-                    </asp:HyperLink>
-                </div>
+                        </asp:HyperLink>
+                    </div>
+                </asp:Panel>
 
-                <div class="col-md-6">
-                    <asp:LinkButton ID="link_Report_Payment_Daily_Leasings" runat="server" OnClick="link_Report_Payment_Daily_Leasings_Click">
+                <asp:Panel ID="link_Report_Payment_Daily_Leasings_panel" runat="server">
+                    <div class="col-md-6">
+                        <asp:LinkButton ID="link_Report_Payment_Daily_Leasings" runat="server" OnClick="link_Report_Payment_Daily_Leasings_Click">
                             <div class="panel panel-danger">
                                 <div class="panel-heading">
                                     <div class="row">
@@ -74,8 +79,10 @@
                                     </div>
                                 </div>
                             </div>
-                    </asp:LinkButton>
-                </div>
+                        </asp:LinkButton>
+                    </div>
+                </asp:Panel>
+
             </div>
         </div>
 
@@ -84,6 +91,7 @@
         </div>
         <div class="panel-body">
             <div class="row">
+
                 <div class="col-md-6">
                     <asp:LinkButton ID="link_Search_Customers" runat="server" OnClick="link_Search_Customers_Click">
                     <div class="panel panel-warning">
@@ -100,6 +108,7 @@
                     </div>
                     </asp:LinkButton>
                 </div>
+
                 <div class="col-md-6">
                     <asp:LinkButton ID="link_Search_Agents" runat="server" OnClick="link_Search_Agents_Click">
                     <div class="panel panel-warning">
@@ -123,10 +132,10 @@
             เงินกู้ ( LOAN )
         </div>
         <div class="panel-body">
-
             <div class="row">
-                <div class="col-md-6">
-                    <asp:LinkButton ID="LinkButton5" runat="server">
+                <asp:Panel ID="link_loan_payment_panel" runat="server">
+                    <div class="col-md-6">
+                        <asp:LinkButton ID="link_loan_payment" runat="server">
                     <div class="panel panel-success">
                         <div class="panel-heading">
                             <div class="row">
@@ -139,11 +148,13 @@
                             </div>
                         </div>
                     </div>
-                    </asp:LinkButton>
-                </div>
+                        </asp:LinkButton>
+                    </div>
+                </asp:Panel>
 
-                <div class="col-md-6">
-                    <asp:LinkButton ID="LinkButton4" runat="server">
+                <asp:Panel ID="link_loan_search_panel" runat="server">
+                    <div class="col-md-6">
+                        <asp:LinkButton ID="link_loan_search" runat="server">
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <div class="row">
@@ -156,10 +167,11 @@
                             </div>
                         </div>
                     </div>
-                    </asp:LinkButton>
-                </div>
-
+                        </asp:LinkButton>
+                    </div>
+                </asp:Panel>
             </div>
         </div>
+
     </div>
 </asp:Content>

@@ -4,16 +4,22 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
+using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Form_Base
 {
     public partial class Base_Total_Payment_Edit : Page
     {
-        Base_Total_Payment bs_class = new Base_Total_Payment();
-        Base_Total_Payment_Manager bs_mng = new Base_Total_Payment_Manager();
+        private Base_Total_Payment bs_class = new Base_Total_Payment();
+        private Base_Total_Payment_Manager bs_mng = new Base_Total_Payment_Manager();
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
             if (!IsPostBack)
             {
                 if (Request.Params["code"] != null)
@@ -69,6 +75,10 @@ namespace JKLWebBase_v2.Form_Base
 
                 _editData(id);
             }
+
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
 
             Response.Redirect("/Form_Base/Base_Total_Payment_Management");
         }

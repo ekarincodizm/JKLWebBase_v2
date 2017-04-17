@@ -13,6 +13,15 @@ namespace JKLWebBase_v2.Form_Main {
     public partial class Main_JKL_Form {
         
         /// <summary>
+        /// link_Payment_Leasings_panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel link_Payment_Leasings_panel;
+        
+        /// <summary>
         /// link_Payment_Leasings control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_Search_Leasings;
         
         /// <summary>
+        /// link_Report_Form_Certified_Leasing_Outline_panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel link_Report_Form_Certified_Leasing_Outline_panel;
+        
+        /// <summary>
         /// link_Report_Form_Certified_Leasing_Outline control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace JKLWebBase_v2.Form_Main {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink link_Report_Form_Certified_Leasing_Outline;
+        
+        /// <summary>
+        /// link_Report_Payment_Daily_Leasings_panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel link_Report_Payment_Daily_Leasings_panel;
         
         /// <summary>
         /// link_Report_Payment_Daily_Leasings control.
@@ -67,21 +94,39 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_Search_Agents;
         
         /// <summary>
-        /// LinkButton5 control.
+        /// link_loan_payment_panel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton5;
+        protected global::System.Web.UI.WebControls.Panel link_loan_payment_panel;
         
         /// <summary>
-        /// LinkButton4 control.
+        /// link_loan_payment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
+        protected global::System.Web.UI.WebControls.LinkButton link_loan_payment;
+        
+        /// <summary>
+        /// link_loan_search_panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel link_loan_search_panel;
+        
+        /// <summary>
+        /// link_loan_search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton link_loan_search;
     }
 }

@@ -34,7 +34,9 @@ namespace JKLWebBase_v2.Global_Class
             message += Environment.NewLine;
             message += "------------------------------------------------------------------------------------";
             message += Environment.NewLine;
+
             string path = mainDirectoryPath + "Error " + DateTimeUtility._dateToFile() + ".log";
+
             using (StreamWriter writer = new StreamWriter(path, true))
             {
                 writer.WriteLine(message);

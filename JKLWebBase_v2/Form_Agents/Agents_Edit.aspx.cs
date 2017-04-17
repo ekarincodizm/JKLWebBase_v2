@@ -7,7 +7,7 @@ using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Agents;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Agents;
-
+using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Form_Agents
 {
@@ -15,9 +15,19 @@ namespace JKLWebBase_v2.Form_Agents
     {
         Agents cag = new Agents();
         Agents_Manager cag_mng = new Agents_Manager();
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            if (acc_lgn.acc_lv.level_access < 7)
+            {
+                Agent_Add_Save_Btn.Visible = false;
+            }
+
             if (!IsPostBack)
             {
                 Session.Remove("List_Agents");

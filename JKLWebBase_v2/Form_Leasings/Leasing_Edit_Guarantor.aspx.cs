@@ -10,18 +10,28 @@ using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
 using JKLWebBase_v2.Managers_Leasings;
+using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
     public partial class Leasing_Edit_Guarantor : Page
     {
-        Customers ctm = new Customers();
-        Car_Leasings cls = new Car_Leasings();
-
-        int no_grt = 0; // number of Guarantor = ลำดับผู้ค้ำระกัน
+        private Customers ctm = new Customers();
+        private Car_Leasings cls = new Car_Leasings();
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
+        private int no_grt = 0; // number of Guarantor = ลำดับผู้ค้ำระกัน
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            if (acc_lgn.acc_lv.level_access < 7)
+            {
+                Save_Btn.Visible = false;
+            }
+
             if (!IsPostBack)
             {
                 _loadHomeStatus();

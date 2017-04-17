@@ -17,6 +17,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
 {
     public partial class Total_Balance_Payment_Export : Page
     {
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
         string error = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -39,9 +41,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
             {
                 report_header = " รายงานลูกหนี้คงเหลือ (ทั้งหมด)";
             }
-
-            Base_Companys package_login = new Base_Companys();
-            Account_Login acc_lgn = new Account_Login();
 
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];

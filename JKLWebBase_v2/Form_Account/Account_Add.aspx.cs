@@ -13,6 +13,9 @@ namespace JKLWebBase_v2.Form_Account
 {
     public partial class Account_Add : Page
     {
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -75,6 +78,18 @@ namespace JKLWebBase_v2.Form_Account
             Account_Manager acc_mng = new Account_Manager();
 
             acc_mng.addAccount(acc_lgn);
+
+            /// Acticity Logs System
+            ///  
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            string message = Messages_Logs._messageLogsAccess("ยินดีต้อนรับ : " + acc_lgn.Account_F_name, "", package_login.Company_N_name, 1);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
 
             Response.Redirect("/Form_Account/Account_Search");
         }

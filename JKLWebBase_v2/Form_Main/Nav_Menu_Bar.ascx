@@ -43,7 +43,6 @@
                 <li>
                     <asp:LinkButton ID="link_Menu_Pyament_Leasing" runat="server" OnClick="link_Menu_Pyament_Leasing_Click"> <i class="fa fa-money fa-fw"></i> ชำระค่างวดเช่า - ซื้อ  </asp:LinkButton>
                 </li>
-                <li class="divider"></li>
                 <li>
                     <asp:LinkButton ID="link_Menu_Leasing_Search" runat="server" OnClick="link_Menu_Leasing_Search_Click"> <i class="fa fa-search fa-fw"></i> ค้นหาสัญญาเช่า-ซื้อ </asp:LinkButton>
                 </li>
@@ -99,10 +98,13 @@
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li>
-                        <asp:LinkButton ID="LinkButton16" runat="server"> <i class="fa fa-search fa-fw"></i> ค้นหาสัญญาเงินกู้ </asp:LinkButton>
+                        <asp:LinkButton ID="link_payment_loan" runat="server"> <i class="fa fa-money fa-fw"></i> ชำระค่างวดเงินกู้ </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="LinkButton8" runat="server"> <i class="fa fa-credit-card fa-fw"></i> เพิ่มสัญญาเงินกู้ </asp:LinkButton>
+                        <asp:LinkButton ID="link_loan_search" runat="server"> <i class="fa fa-search fa-fw"></i> ค้นหาสัญญาเงินกู้ </asp:LinkButton>
+                    </li>
+                    <li>
+                        <asp:LinkButton ID="link_loan_add" runat="server"> <i class="fa fa-credit-card fa-fw"></i> เพิ่มสัญญาเงินกู้ </asp:LinkButton>
                     </li>
                 </ul>
             </li>
@@ -117,29 +119,29 @@
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li>
-                        <asp:LinkButton ID="LinkButton2" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำวัน </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_loan_daily_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำวัน </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="LinkButton17" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำเดือน </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_loan_monthly_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำเดือน </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="LinkButton18" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำปี </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_loan_yearly_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำปี </asp:LinkButton>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <asp:LinkButton ID="LinkButton19" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานแจ้งเตือนชำระค่างวด </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_loan_lost_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานขาดชำระ </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="LinkButton20" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานแจ้งเตือนชำระค่างวด (ผู้ค้ำ) </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_loan_intensive" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานเร่งรัด </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="LinkButton21" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานค้างชำระ </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_loan_alert_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานแจ้งเตือนชำระค่างวด </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="LinkButton22" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานขาดชำระ </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_loan_alert_payment_guarantor" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานแจ้งเตือนชำระค่างวด (ผู้ค้ำ) </asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton ID="LinkButton23" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานเร่งรัด </asp:LinkButton>
+                        <asp:LinkButton ID="link_report_loan_payment_left" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานค้างชำระ </asp:LinkButton>
                     </li>
                 </ul>
             </li>

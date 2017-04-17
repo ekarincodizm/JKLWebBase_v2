@@ -17,6 +17,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
 {
     public partial class Notification_Payment_Export : Page
     {
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
         string error = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -51,9 +53,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
             string leasing_Code_inline = (string)Session["leasing_Code_inline_rpt"];
             string Company_id_inline = (string)Session["Company_id_inline_rpt"];
             string zone_id_inline = (string)Session["zone_id_inline_rpt"];
-
-            Base_Companys package_login = new Base_Companys();
-            Account_Login acc_lgn = new Account_Login();
 
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];

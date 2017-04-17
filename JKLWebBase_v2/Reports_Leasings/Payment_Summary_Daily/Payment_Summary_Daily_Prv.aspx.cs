@@ -14,13 +14,13 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
 {
     public partial class Payment_Summary_Daily_Prv : Page
     {
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
+
         string error = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Base_Companys package_login = new Base_Companys();
-            Account_Login acc_lgn = new Account_Login();
-
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];
 
@@ -129,8 +129,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
             string date_str = Date_str_TBx.Text == ""? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Date_str_TBx.Text);
             string date_end = Date_end_TBx.Text == "" ? "" : DateTimeUtility.convertDateToMYSQL(Date_end_TBx.Text);
 
-            Base_Companys package_login = new Base_Companys();
-
             package_login = (Base_Companys)Session["Package"];
 
             string Company_id_inline = _getCheckedCompany() == "" ? package_login.Company_id.ToString() : _getCheckedCompany();
@@ -150,8 +148,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
         {
             string date_str = Date_str_TBx.Text == "" ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Date_str_TBx.Text);
             string date_end = Date_end_TBx.Text == "" ? "" : DateTimeUtility.convertDateToMYSQL(Date_end_TBx.Text);
-
-            Base_Companys package_login = new Base_Companys();
 
             package_login = (Base_Companys)Session["Package"];
 

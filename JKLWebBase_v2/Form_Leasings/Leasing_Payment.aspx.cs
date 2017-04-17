@@ -19,27 +19,32 @@ namespace JKLWebBase_v2.Form_Leasings
 {
     public partial class Leasing_Payment : Page
     {
-        Customers ctm = new Customers();
-        Car_Leasings cls = new Car_Leasings();
-        Base_Companys bs_cpn = new Base_Companys();
-        Base_Car_Brands bs_cbrn = new Base_Car_Brands();
-        TH_Provinces car_plt_pv = new TH_Provinces();
-        Base_Zone_Service bs_zn = new Base_Zone_Service();
-        Agents_Commission cag_com = new Agents_Commission();
-        Car_Leasings_Payment cls_pay = new Car_Leasings_Payment();
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
 
-        Agents_Manager cag_mng = new Agents_Manager();
-        Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
-        Base_Car_Brand_Manager cbrn_mng = new Base_Car_Brand_Manager();
-        TH_Provinces_Manager th_pv_mng = new TH_Provinces_Manager();
-        Base_Companys_Manager bs_cpn_mng = new Base_Companys_Manager();
-        Base_Zone_Service_Manager bs_zn_mng = new Base_Zone_Service_Manager();
-        Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
-        Car_Leasings_Customer_Manager cls_ctm_mng = new Car_Leasings_Customer_Manager();
+        private Customers ctm = new Customers();
+        private Car_Leasings cls = new Car_Leasings();
+        private Base_Companys bs_cpn = new Base_Companys();
+        private Base_Car_Brands bs_cbrn = new Base_Car_Brands();
+        private TH_Provinces car_plt_pv = new TH_Provinces();
+        private Base_Zone_Service bs_zn = new Base_Zone_Service();
+        private Agents_Commission cag_com = new Agents_Commission();
+        private Car_Leasings_Payment cls_pay = new Car_Leasings_Payment();
 
+        private Agents_Manager cag_mng = new Agents_Manager();
+        private Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
+        private Base_Car_Brand_Manager cbrn_mng = new Base_Car_Brand_Manager();
+        private TH_Provinces_Manager th_pv_mng = new TH_Provinces_Manager();
+        private Base_Companys_Manager bs_cpn_mng = new Base_Companys_Manager();
+        private Base_Zone_Service_Manager bs_zn_mng = new Base_Zone_Service_Manager();
+        private Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
+        private Car_Leasings_Customer_Manager cls_ctm_mng = new Car_Leasings_Customer_Manager();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
             if (!IsPostBack)
             {
                 if (Request.Params["code"] != null)

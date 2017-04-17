@@ -175,22 +175,31 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.Panel Loan_Panel;
         
         /// <summary>
-        /// LinkButton16 control.
+        /// link_payment_loan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton16;
+        protected global::System.Web.UI.WebControls.LinkButton link_payment_loan;
         
         /// <summary>
-        /// LinkButton8 control.
+        /// link_loan_search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton8;
+        protected global::System.Web.UI.WebControls.LinkButton link_loan_search;
+        
+        /// <summary>
+        /// link_loan_add control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton link_loan_add;
         
         /// <summary>
         /// Loan_Report_Panel control.
@@ -202,76 +211,76 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.Panel Loan_Report_Panel;
         
         /// <summary>
-        /// LinkButton2 control.
+        /// link_report_loan_daily_payment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
+        protected global::System.Web.UI.WebControls.LinkButton link_report_loan_daily_payment;
         
         /// <summary>
-        /// LinkButton17 control.
+        /// link_report_loan_monthly_payment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton17;
+        protected global::System.Web.UI.WebControls.LinkButton link_report_loan_monthly_payment;
         
         /// <summary>
-        /// LinkButton18 control.
+        /// link_report_loan_yearly_payment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton18;
+        protected global::System.Web.UI.WebControls.LinkButton link_report_loan_yearly_payment;
         
         /// <summary>
-        /// LinkButton19 control.
+        /// link_report_loan_lost_payment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton19;
+        protected global::System.Web.UI.WebControls.LinkButton link_report_loan_lost_payment;
         
         /// <summary>
-        /// LinkButton20 control.
+        /// link_report_loan_intensive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton20;
+        protected global::System.Web.UI.WebControls.LinkButton link_report_loan_intensive;
         
         /// <summary>
-        /// LinkButton21 control.
+        /// link_report_loan_alert_payment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton21;
+        protected global::System.Web.UI.WebControls.LinkButton link_report_loan_alert_payment;
         
         /// <summary>
-        /// LinkButton22 control.
+        /// link_report_loan_alert_payment_guarantor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton22;
+        protected global::System.Web.UI.WebControls.LinkButton link_report_loan_alert_payment_guarantor;
         
         /// <summary>
-        /// LinkButton23 control.
+        /// link_report_loan_payment_left control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton23;
+        protected global::System.Web.UI.WebControls.LinkButton link_report_loan_payment_left;
         
         /// <summary>
         /// link_Logout control.

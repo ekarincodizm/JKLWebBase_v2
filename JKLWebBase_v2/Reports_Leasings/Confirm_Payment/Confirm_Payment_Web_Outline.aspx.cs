@@ -1,4 +1,5 @@
-﻿using JKLWebBase_v2.Class_Base;
+﻿using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Managers_Base;
@@ -13,7 +14,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Confirm_Payment
 {
     public partial class Confirm_Payment_Web_Outline : Page
     {
-        Car_Leasings cls = new Car_Leasings();
+        private Car_Leasings cls = new Car_Leasings();
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
         private string error;
 
         protected void Page_Load(object sender, EventArgs e)

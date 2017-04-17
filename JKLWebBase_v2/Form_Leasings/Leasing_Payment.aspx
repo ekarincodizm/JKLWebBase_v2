@@ -3,6 +3,8 @@
 <%@ Import Namespace="JKLWebBase_v2.Class_Leasings" %>
 <%@ Import Namespace="JKLWebBase_v2.Managers_Leasings" %>
 <%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
+<%@ Import Namespace="JKLWebBase_v2.Class_Account" %>
+<%@ Import Namespace="JKLWebBase_v2.Class_Base" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
@@ -158,7 +160,10 @@
             </div>
         </div>
     </div>
-
+    <%
+        Base_Companys package_login = (Base_Companys)Session["Package"];
+        Account_Login acc_lgn = (Account_Login)Session["Login"];
+    %>
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-primary">
@@ -182,8 +187,13 @@
                                             <th style="width: 10%;">ยอดชำระค่าปรับ (บาท)</th>
                                             <th style="width: 14%;">ใบเสร็จ</th>
                                             <th style="width: 4%;"></th>
-                                            <th style="width: 4%;"></th>
-                                            <th style="width: 4%;"></th>
+                                            <%              
+                                                if (acc_lgn.acc_lv.level_access >= 7)
+                                                {
+                                            %>
+                                            < th style = "width: 4%;" ></ th >
+                                            < th style = "width: 4%;" ></ th >
+                                            <% }%>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -245,6 +255,10 @@
                                             <a class="btn btn-xs btn-info" href="/Reports_Leasings/Bill_Payment_Slip/Bill_Payment_Slip_Prv?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>" target="_blank" data-toggle="tooltip" data-placement="top" title="พิมพ์ใบเสร็จ"><i class="fa fa-print fa-fw"></i></a>
                                             <%  } %>
                                         </td>
+                                            <%              
+                                                if (acc_lgn.acc_lv.level_access >= 7)
+                                                {
+                                            %>
                                         <td>
                                             <% 
                                                 if (!string.IsNullOrEmpty(cls_pay.Bill_no) && max_row == i)
@@ -261,6 +275,7 @@
                                             <a class="btn btn-xs btn-danger" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>&mode=r" target="_parent" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>
                                             <%  } %>
                                         </td>
+                                            <% } %>
                                         </tr>
                                             <%
                                                     }

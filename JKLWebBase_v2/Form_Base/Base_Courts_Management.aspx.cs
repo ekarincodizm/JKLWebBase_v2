@@ -4,13 +4,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
-
+using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Form_Base
 {
     public partial class Base_Courts_Management : Page
     {
-        Base_Courts_Manager bs_mng = new Base_Courts_Manager();
+        private Base_Courts_Manager bs_mng = new Base_Courts_Manager();
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
 
         protected void Page_Load(object sender, EventArgs e)
         {

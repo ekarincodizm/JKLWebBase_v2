@@ -14,7 +14,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
 {
     public partial class Payment_Schedule_Prv : Page
     {
-        Car_Leasings cls = new Car_Leasings();
+        private Car_Leasings cls = new Car_Leasings();
         private string error;
 
         protected void Page_Load(object sender, EventArgs e)

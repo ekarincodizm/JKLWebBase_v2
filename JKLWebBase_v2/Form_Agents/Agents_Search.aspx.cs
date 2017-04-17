@@ -1,4 +1,6 @@
-﻿using JKLWebBase_v2.Class_Agents;
+﻿using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Class_Agents;
+using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Agents;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,8 @@ namespace JKLWebBase_v2.Form_Agents
     public partial class Agents_Search : Page
     {
         Agents_Manager dlr_mng = new Agents_Manager();
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
 
         protected void Page_Load(object sender, EventArgs e)
         {

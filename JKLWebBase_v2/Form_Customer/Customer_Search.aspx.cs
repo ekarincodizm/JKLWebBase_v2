@@ -7,13 +7,16 @@ using System.Data;
 using JKLWebBase_v2.Class_Customers;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
-
+using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Form_Customer
 {
     public partial class Customer_Search : Page
     {
-        Customers_Manager cust_mng = new Customers_Manager();
+        private Customers_Manager cust_mng = new Customers_Manager();
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,6 +30,9 @@ namespace JKLWebBase_v2.Form_Customer
             Paging_DDL.Items.Clear();
 
             _GetCustomer();
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
         }
 
         private void _GetCustomer()

@@ -11,17 +11,23 @@ using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
 using JKLWebBase_v2.Managers_Leasings;
+using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
     public partial class Leasing_Payment_Schedule : Page
     {
-        Car_Leasings cls = new Car_Leasings();
-        Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
-        Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
+        private Car_Leasings cls = new Car_Leasings();
+        private Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
+        private Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
             if (Session["Leasings"] != null)
             {
                 cls = (Car_Leasings)Session["Leasings"];

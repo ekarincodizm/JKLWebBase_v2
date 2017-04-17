@@ -13,9 +13,10 @@ namespace JKLWebBase_v2.Form_Account
 {
     public partial class Account_Edit : Page
     {
-        Account_Login acc_lgn = new Account_Login();
-        Account_Manager acc_mng = new Account_Manager();
-            
+        private Account_Login acc_lgn = new Account_Login();
+        private Account_Manager acc_mng = new Account_Manager();
+        private Base_Companys package_login = new Base_Companys();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

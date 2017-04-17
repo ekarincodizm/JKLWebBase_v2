@@ -15,22 +15,32 @@ using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
 using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Managers_Agents;
-
+using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
     public partial class Leasing_Edit_Customer : Page
     {
-        Customers ctm = new Customers();
-        Agents_Manager cag_mng = new Agents_Manager();
-        Customers_Manager ctm_mng = new Customers_Manager();
-        Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
-        Car_Leasings_Customer_Manager cls_ctm_mng = new Car_Leasings_Customer_Manager();
-        Car_Leasings_Guarantor_Manager cls_grt_mng = new Car_Leasings_Guarantor_Manager();
-        
+        private Customers ctm = new Customers();
+        private Agents_Manager cag_mng = new Agents_Manager();
+        private Customers_Manager ctm_mng = new Customers_Manager();
+        private Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
+        private Car_Leasings_Customer_Manager cls_ctm_mng = new Car_Leasings_Customer_Manager();
+        private Car_Leasings_Guarantor_Manager cls_grt_mng = new Car_Leasings_Guarantor_Manager();
+
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            if (acc_lgn.acc_lv.level_access < 7)
+            {
+                Save_Btn.Visible = false;
+            }
+
             if (!IsPostBack)
             {
                 _loadHomeStatus();

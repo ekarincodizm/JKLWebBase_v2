@@ -17,7 +17,10 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment
 {
     public partial class Lost_Payment_Export : Page
     {
-        string error = string.Empty;
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
+
+        private string error = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -53,9 +56,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment
             string zone_id_inline = (string)Session["zone_id_inline_rpt"];
 
             string report_header = " รายงานลูกค้าขาดชำระค่างวด ";
-
-            Base_Companys package_login = new Base_Companys();
-            Account_Login acc_lgn = new Account_Login();
 
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];

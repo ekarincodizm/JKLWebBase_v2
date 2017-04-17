@@ -1,15 +1,20 @@
-﻿using JKLWebBase_v2.Class_Agents;
-using JKLWebBase_v2.Class_Leasings;
-using JKLWebBase_v2.Class_Customers;
-using System;
+﻿using System;
 using System.Web.UI;
+using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Form_Main
 {
     public partial class Tabs_Menu_Leasings : UserControl
     {
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
             if (Session["Customer_Leasing"] != null && Session["Leasings"] == null)
             {
                 link_Customer_Add.Enabled = true;
@@ -48,6 +53,11 @@ namespace JKLWebBase_v2.Form_Main
                 link_Add_Guarantor_5.Enabled = false;
                 link_Add_Car_Img.Enabled = false;
                 link_List_Payment_Schedule.Enabled = false;
+            }
+
+            if (acc_lgn.acc_lv.level_access < 7)
+            {
+                link_Add_Car_Img.Visible = false;
             }
         }
 

@@ -14,13 +14,12 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly
 {
     public partial class Payment_Summary_Yearly_Prv : Page
     {
+        private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
         string error = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Base_Companys package_login = new Base_Companys();
-            Account_Login acc_lgn = new Account_Login();
-
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];
 
@@ -142,8 +141,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly
         {
             string year = Year_DDL.SelectedValue;
 
-            Base_Companys package_login = new Base_Companys();
-
             package_login = (Base_Companys)Session["Package"];
 
             string Company_id_inline = _getCheckedCompany() == "" ? package_login.Company_id.ToString() : _getCheckedCompany();
@@ -161,8 +158,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly
         protected void Export_Reported_mod_II_Click(object sender, EventArgs e)
         {
             string year = Year_DDL.SelectedValue;
-
-            Base_Companys package_login = new Base_Companys();
 
             package_login = (Base_Companys)Session["Package"];
 
