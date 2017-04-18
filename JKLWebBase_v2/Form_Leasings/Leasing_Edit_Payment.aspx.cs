@@ -14,6 +14,7 @@ using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Class_Agents;
 using JKLWebBase_v2.Managers_Agents;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
@@ -71,6 +72,18 @@ namespace JKLWebBase_v2.Form_Leasings
                         Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
 
                         cls_pay_mng.removePayment(leasing_id, bill_no);
+
+                        /// Acticity Logs System
+                        ///  
+
+                        package_login = (Base_Companys)Session["Package"];
+                        acc_lgn = (Account_Login)Session["Login"];
+
+                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ลบข้อมูลการจ่ายเงืน เลขที่ใบเสร็จ : " + bill_no, acc_lgn.resu, package_login.Company_N_name);
+
+                        new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                        /// Acticity Logs System
 
                         string ogn_code = CryptographyCode.GenerateSHA512String(leasing_id);
 
@@ -291,6 +304,18 @@ namespace JKLWebBase_v2.Form_Leasings
 
                     cls_pay_mng.editPayment(cls_pay, bill_no);
 
+                    /// Acticity Logs System
+                    ///  
+
+                    package_login = (Base_Companys)Session["Package"];
+                    acc_lgn = (Account_Login)Session["Login"];
+
+                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลการจ่ายเงืน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " เลขที่ใบเสร็จ : " + bill_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment +"] ["+ period_fine+"] ["+ real_discount+"] ", acc_lgn.resu, package_login.Company_N_name);
+
+                    new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                    /// Acticity Logs System
+
                     string ogn_code = CryptographyCode.GenerateSHA512String(leasing_id);
 
                     Session.Remove("old_company");
@@ -323,6 +348,18 @@ namespace JKLWebBase_v2.Form_Leasings
                     Note_Lbl.Text = "";
 
                     cls_pay_mng.editPayment(cls_pay, bill_no);
+
+                    /// Acticity Logs System
+                    ///  
+
+                    package_login = (Base_Companys)Session["Package"];
+                    acc_lgn = (Account_Login)Session["Login"];
+
+                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลการจ่ายเงืน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " เลขที่ใบเสร็จ : " + bill_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
+
+                    new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                    /// Acticity Logs System
 
                     string ogn_code = CryptographyCode.GenerateSHA512String(leasing_id);
 

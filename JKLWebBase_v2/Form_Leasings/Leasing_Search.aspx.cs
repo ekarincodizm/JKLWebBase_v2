@@ -9,6 +9,7 @@ using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2
 {
@@ -21,9 +22,6 @@ namespace JKLWebBase_v2
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
-
             if (!IsPostBack)
             {
                 _loadBrands();
@@ -129,6 +127,18 @@ namespace JKLWebBase_v2
             Paging_DDL.Items.Clear();
 
             _getLeasing();
+
+            /// Acticity Logs System
+            ///  
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ค้นหาสัญญาเช่า-ซื้อ ", acc_lgn.resu, package_login.Company_N_name);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
         }
 
         /*******************************************************************************************************************************************************************************

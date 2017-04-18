@@ -11,6 +11,7 @@ using JKLWebBase_v2.Class_Customers;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Agents;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
@@ -313,6 +314,18 @@ namespace JKLWebBase_v2.Form_Leasings
             cag_com = cag_mng.getAgentCommission(cag_com.cag.Agent_id, cls_tmp.Leasing_id);
 
             Session["Agents_Leasing"] = string.IsNullOrEmpty(cag_com.cag.Agent_id) ? null : cag_com;
+
+            /// Acticity Logs System
+            ///  
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลนายหน้า ในสัญญา : " + cls_tmp.Leasing_no + " เลขที่ฝาก : " + cls_tmp.Deps_no, acc_lgn.resu, package_login.Company_N_name);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
         }
     }
 }

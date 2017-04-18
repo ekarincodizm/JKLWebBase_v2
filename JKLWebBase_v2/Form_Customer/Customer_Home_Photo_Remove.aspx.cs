@@ -9,6 +9,7 @@ using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Managers_Customers;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Form_Customer
 {
@@ -47,6 +48,19 @@ namespace JKLWebBase_v2.Form_Customer
                         File.Delete(ctm_home_photo.Home_img_local_path);
                         ctm_mng.removeCustomersHomePhoto(ctm_home_photo.Cust_id, ctm_home_photo.Home_img_num);
                     }
+
+
+                    /// Acticity Logs System
+                    ///  
+
+                    package_login = (Base_Companys)Session["Package"];
+                    acc_lgn = (Account_Login)Session["Login"];
+
+                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ลบรูปบ้าน", acc_lgn.resu, package_login.Company_N_name);
+
+                    new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                    /// Acticity Logs System
 
                     Session["Remove_Message"] = 1;
                     Session["Class_Active_Customer"] = 2;

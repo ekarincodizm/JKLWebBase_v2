@@ -5,6 +5,8 @@ using System.Web.UI.WebControls;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Manager_Account;
+using JKLWebBase_v2.Global_Class;
 
 namespace JKLWebBase_v2.Form_Base
 {
@@ -56,6 +58,18 @@ namespace JKLWebBase_v2.Form_Base
                 string Origin_name_TH = string.IsNullOrEmpty(Origin_name_TH_TBx.Text) ? "" : Origin_name_TH_TBx.Text;
 
                 bs_ntn_mng.editOrigin(Convert.ToInt32(Origin_id), Origin_name_ENG, Origin_name_TH);
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลเชื้อชาติ ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
 
@@ -64,6 +78,18 @@ namespace JKLWebBase_v2.Form_Base
             if (Request.Params["mode"] == "r")
             {
                 bs_ntn_mng.removeOrigin(Convert.ToInt32(Origin_id));
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ลบข้อมูลเชื้อชาติ ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
 

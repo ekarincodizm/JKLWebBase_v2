@@ -5,6 +5,8 @@ using System.Web.UI.WebControls;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Form_Base
 {
@@ -52,6 +54,18 @@ namespace JKLWebBase_v2.Form_Base
                 string value_1 = string.IsNullOrEmpty(Value_1_TBx.Text) ? "" : Value_1_TBx.Text;
 
                 bs_mng.editCourts(Convert.ToInt32(id), value_1);
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลศาลพิพากษา ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
 
@@ -60,6 +74,18 @@ namespace JKLWebBase_v2.Form_Base
             if (Request.Params["mode"] == "r")
             {
                 bs_mng.removeCourts(Convert.ToInt32(id));
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ลบข้อมูลศาลพิพากษา ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
 

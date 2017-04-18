@@ -11,6 +11,7 @@ using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Customers;
 using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
@@ -938,6 +939,18 @@ namespace JKLWebBase_v2.Form_Leasings
             cls_grt_mng.editGuarantorsLeasing(cls_grt);
 
             Session["Guarantor_" + no_grt] = ctm;
+
+            /// Acticity Logs System
+            ///  
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลผู้ค้ำประกันคนที่ : " + no_grt + " ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no, acc_lgn.resu, package_login.Company_N_name);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
         }
     }
 }

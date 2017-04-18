@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h6> แก้ไขข้อมูลสัญชาติ </h6>
+            <h6> แก้ไขข้อมูลเชื้อชาติ </h6>
         </div>
 
         <div class="panel-body">

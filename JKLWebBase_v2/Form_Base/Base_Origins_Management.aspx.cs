@@ -5,6 +5,8 @@ using System.Web.UI.WebControls;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Form_Base
 {
@@ -17,6 +19,20 @@ namespace JKLWebBase_v2.Form_Base
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " จัดการข้อมูลเชื้อชาติ ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
+            }
 
             _GetOrigin();
         }
@@ -28,6 +44,18 @@ namespace JKLWebBase_v2.Form_Base
 
             bs_ntn_mng.addOrigin(Origin_name_ENG, Origin_name_TH);
 
+            /// Acticity Logs System
+            ///  
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เพิ่มข้อมูลเชื้อชาติ ", acc_lgn.resu, package_login.Company_N_name);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
+
             _clearDataAfterAdded();
 
             Page_Load(sender, e);
@@ -36,9 +64,6 @@ namespace JKLWebBase_v2.Form_Base
         private void _GetOrigin()
         {
             List<Base_Origins> list_data = bs_ntn_mng.getOrigins();
-
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
 
             Session["List_Base_Origin"] = list_data;
         }

@@ -106,6 +106,18 @@ namespace JKLWebBase_v2.Form_Account
             Paging_DDL.Items.Clear();
 
             _getData();
+
+            /// Acticity Logs System
+            ///  
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ค้นหาข้อมูลผู้ใช้งาน ", acc_lgn.resu, package_login.Company_N_name);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
         }
 
         /*******************************************************************************************************************************************************************************

@@ -1,6 +1,8 @@
 ﻿using JKLWebBase_v2.Class_Account;
 using JKLWebBase_v2.Class_Agents;
 using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Manager_Account;
 using JKLWebBase_v2.Managers_Agents;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,18 @@ namespace JKLWebBase_v2.Form_Agents
             Paging_DDL.Items.Clear();
 
             _GetAgent();
+
+            /// Acticity Logs System
+            ///  
+
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ค้นหาข้อมูลนายหน้า ", acc_lgn.resu, package_login.Company_N_name);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
         }
 
         private void _GetAgent()

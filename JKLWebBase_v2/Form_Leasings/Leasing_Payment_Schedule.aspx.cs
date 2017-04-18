@@ -25,9 +25,6 @@ namespace JKLWebBase_v2.Form_Leasings
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
-
             if (Session["Leasings"] != null)
             {
                 cls = (Car_Leasings)Session["Leasings"];

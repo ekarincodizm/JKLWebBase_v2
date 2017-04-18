@@ -9,6 +9,7 @@ using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Form_Base
 {
@@ -54,6 +55,7 @@ namespace JKLWebBase_v2.Form_Base
                 string Company_id = code[1];
 
                 _editCompany(Company_id);
+
             }
 
             Response.Redirect("/Form_Base/Base_Company_Management");
@@ -128,6 +130,19 @@ namespace JKLWebBase_v2.Form_Base
                 bs_cpn.Company_tel = string.IsNullOrEmpty(Company_tel_TBx.Text) ? "" : Company_tel_TBx.Text;
 
                 bs_cpn_mng.editCompany(bs_cpn);
+
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลสำนักงาน ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
 
@@ -136,6 +151,18 @@ namespace JKLWebBase_v2.Form_Base
             if (Request.Params["mode"] == "r")
             {
                 bs_cpn_mng.removeCompany(Convert.ToInt32(Company_id));
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ลบข้อมูลสำนักงาน ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
 

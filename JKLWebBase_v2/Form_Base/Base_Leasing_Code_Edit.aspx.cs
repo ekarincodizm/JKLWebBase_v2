@@ -5,6 +5,8 @@ using System.Web.UI.WebControls;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Form_Base
 {
@@ -109,6 +111,18 @@ namespace JKLWebBase_v2.Form_Base
                 bs_lscd.Leasing_code_tel = string.IsNullOrEmpty(Leasing_code_tel_TBx.Text) ? "" : Leasing_code_tel_TBx.Text;
 
                 bs_lscd_mng.editLeasingCode(bs_lscd);
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลรหัสลิสซิ่ง ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
 
@@ -117,6 +131,18 @@ namespace JKLWebBase_v2.Form_Base
             if (Request.Params["mode"] == "r")
             {
                 bs_lscd_mng.removeLeasingCode(Convert.ToInt32(Leasing_code_id));
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ลบข้อมูลรหัสลิสซิ่ง ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
 
