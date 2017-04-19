@@ -49,6 +49,33 @@ namespace JKLWebBase_v2.Form_Account {
         protected global::System.Web.UI.WebControls.TextBox Log_Date_end_TBx;
         
         /// <summary>
+        /// Company_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Company_Lbl;
+        
+        /// <summary>
+        /// Company_ChkBxL_All control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox Company_ChkBxL_All;
+        
+        /// <summary>
+        /// Company_ChkBxL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList Company_ChkBxL;
+        
+        /// <summary>
         /// Search_Btn control.
         /// </summary>
         /// <remarks>

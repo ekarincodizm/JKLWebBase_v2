@@ -1,11 +1,13 @@
-﻿<%@ Page Title="ข้อมูลการใช้งานระบบ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Activity_Log.aspx.cs" Inherits="JKLWebBase_v2.Form_Account.Activity_Log" %>
+﻿<%@ Page Title="ข้อมูลการใช้งานระบบ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Activity_Log_Prv.aspx.cs" Inherits="JKLWebBase_v2.Form_Account.Activity_Log_Prv" %>
 
 <%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
+<%@ Import Namespace="JKLWebBase_v2.Class_Account" %>
+<%@ Import Namespace="JKLWebBase_v2.Manager_Account" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h6> ข้อมูลการใช้งานระบบ </h6>
+            <h6>ข้อมูลการใช้งานระบบ </h6>
         </div>
 
         <div class="panel-body">
@@ -107,24 +109,36 @@
             </div>
 
             <hr>
-
+            <%
+                if (Session["List_Activity_Log"] != null)
+                {
+            %>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th style="width: 10%;">วัน เวลา </th>
-                            <th style="width: 70%;"> รายละเอียด </th>
-                            <th style="width: 10%;"> ชื่อผู้ใช้งาน </th>
-                            <th style="width: 10%;"> สาขา </th>
+                            <th style="width: 70%;">รายละเอียด </th>
+                            <th style="width: 10%;">ชื่อผู้ใช้งาน </th>
+                            <th style="width: 10%;">สาขา </th>
                         </tr>
                     </thead>
                     <tbody>
+                        <% 
+                            List<Activity_Log> list_data = (List<Activity_Log>)Session["List_Activity_Log"];
+
+                            for (int i = 0; i < list_data.Count; i++)
+                            {
+                                Activity_Log data = list_data[i];
+
+                        %>
                         <tr>
-                            <td > </td>
-                            <td > </td>
-                            <td > </td>
-                            <td > </td>
+                            <td><%= data.log_date %></td>
+                            <td><%= data.log_details %></td>
+                            <td><%= data.acc_lgn.Account_F_name + " ( " + data.acc_lgn.Account_N_Name + " ) " %></td>
+                            <td><%= data.bs_cpn.Company_N_name %></td>
                         </tr>
+                        <% } %>
                     </tbody>
                 </table>
             </div>
@@ -143,6 +157,9 @@
                     </li>
                 </ul>
             </nav>
+            <%  
+                }
+            %>
         </div>
 
     </div>

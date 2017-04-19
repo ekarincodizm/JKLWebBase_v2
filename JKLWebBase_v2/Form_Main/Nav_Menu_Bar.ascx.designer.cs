@@ -382,15 +382,6 @@ namespace JKLWebBase_v2.Form_Main {
         protected global::System.Web.UI.WebControls.LinkButton link_tents_management;
         
         /// <summary>
-        /// link_list_logs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_list_logs;
-        
-        /// <summary>
         /// link_search_account control.
         /// </summary>
         /// <remarks>
@@ -407,6 +398,15 @@ namespace JKLWebBase_v2.Form_Main {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton link_add_account;
+        
+        /// <summary>
+        /// link_list_logs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton link_list_logs;
         
         /// <summary>
         /// link_load_leasing control.

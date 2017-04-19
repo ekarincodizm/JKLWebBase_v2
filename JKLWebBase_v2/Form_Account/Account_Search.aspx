@@ -35,6 +35,7 @@
                     </asp:CheckBoxList>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-xs-12">
                     <asp:Label ID="level_Lbl" runat="server" CssClass="checkbox">ตำแหน่ง
@@ -107,7 +108,7 @@
                                 %>
                             </td>
                             <td>
-                                <a class="btn btn-xs btn-info" href="Activity_Log?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, acc_lgn.Account_id) %>" data-toggle="tooltip" data-placement="top" title="Logs"><i class="fa fa-list-alt fa-fw"></i></a>
+                                <a class="btn btn-xs btn-info" href="Activity_Log_Prv?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, acc_lgn.Account_id) %>" data-toggle="tooltip" data-placement="top" title="Logs"><i class="fa fa-list-alt fa-fw"></i></a>
                             </td>
                             <td>
                                 <a class="btn btn-xs btn-warning" href="Account_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, acc_lgn.Account_id) %>&mode=e" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit"></i></a>

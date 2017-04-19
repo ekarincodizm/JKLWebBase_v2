@@ -1,11 +1,13 @@
 ﻿<%@ Page Title="ข้อมูลการใช้งานระบบ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Activity_Log_List.aspx.cs" Inherits="JKLWebBase_v2.Form_Account.Activity_Log_List" %>
 
 <%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
+<%@ Import Namespace="JKLWebBase_v2.Class_Account" %>
+<%@ Import Namespace="JKLWebBase_v2.Manager_Account" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h6> ข้อมูลการใช้งานระบบโดยรวม </h6>
+            <h6>ข้อมูลการใช้งานระบบโดยรวม </h6>
         </div>
 
         <div class="panel-body">
@@ -101,30 +103,52 @@
             </div>
 
             <div class="row">
+                <div class="form-group col-xs-12">
+                    <asp:Label ID="Company_Lbl" runat="server" CssClass="checkbox">สาขา
+                        <asp:CheckBox ID="Company_ChkBxL_All" runat="server" Text="เลือกทั้งหมด" ForeColor="Red" OnCheckedChanged="Company_ChkBxL_All_CheckedChanged" AutoPostBack="true" />
+                    </asp:Label>
+                    <asp:CheckBoxList ID="Company_ChkBxL" runat="server" RepeatDirection="Horizontal" CssClass="checkbox" RepeatColumns="10">
+                    </asp:CheckBoxList>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-md-2">
                     <asp:LinkButton ID="Search_Btn" runat="server" CssClass="btn btn-sm btn-primary btn-block" OnClick="Search_Btn_Click"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
                 </div>
             </div>
 
             <hr>
-
+            <%
+                if (Session["List_Activity_Log"] != null)
+                {
+            %>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th style="width: 10%;">วัน เวลา </th>
-                            <th style="width: 70%;"> รายละเอียด </th>
-                            <th style="width: 10%;"> ชื่อผู้ใช้งาน </th>
-                            <th style="width: 10%;"> สาขา </th>
+                            <th style="width: 70%;">รายละเอียด </th>
+                            <th style="width: 10%;">ชื่อผู้ใช้งาน </th>
+                            <th style="width: 10%;">สาขา </th>
                         </tr>
                     </thead>
                     <tbody>
+                        <% 
+                            List<Activity_Log> list_data = (List<Activity_Log>)Session["List_Activity_Log"];
+
+                            for (int i = 0; i < list_data.Count; i++)
+                            {
+                                Activity_Log data = list_data[i];
+
+                        %>
                         <tr>
-                            <td > </td>
-                            <td > </td>
-                            <td > </td>
-                            <td > </td>
+                            <td><%= data.log_date %></td>
+                            <td><%= data.log_details %></td>
+                            <td><%= data.acc_lgn.Account_F_name + " ( " + data.acc_lgn.Account_N_Name + " ) " %></td>
+                            <td><%= data.bs_cpn.Company_N_name %></td>
                         </tr>
+                        <% } %>
                     </tbody>
                 </table>
             </div>
@@ -143,6 +167,9 @@
                     </li>
                 </ul>
             </nav>
+            <%  
+                }
+            %>
         </div>
 
     </div>

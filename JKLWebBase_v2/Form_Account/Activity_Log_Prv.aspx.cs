@@ -5,12 +5,14 @@ using JKLWebBase_v2.Manager_Account;
 using JKLWebBase_v2.Managers_Base;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace JKLWebBase_v2.Form_Account
 {
-    public partial class Activity_Log_List : Page
+    public partial class Activity_Log_Prv : Page
     {
         private string error = string.Empty;
         private Activity_Log_Manager act_log_mng = new Activity_Log_Manager();
@@ -19,29 +21,15 @@ namespace JKLWebBase_v2.Form_Account
         {
             if (!IsPostBack)
             {
-                _loadCompanys();
+                if (Request.Params["code"] != null)
+                {
+                    string[] code = Request.Params["code"].Split('U');
+                    string account_id = code[1];
+
+                    Session["Account_id_Log"] = account_id;
+                }
 
                 _getData();
-            }
-        }
-
-        protected void Company_ChkBxL_All_CheckedChanged(object sender, EventArgs e)
-        {
-            int count = Company_ChkBxL.Items.Count;
-
-            if (Company_ChkBxL_All.Checked)
-            {
-                for (int i = 0; i < count; i++)
-                {
-                    Company_ChkBxL.Items[i].Selected = true;
-                }
-            }
-            else
-            {
-                for (int i = 0; i < count; i++)
-                {
-                    Company_ChkBxL.Items[i].Selected = false;
-                }
             }
         }
 
@@ -83,49 +71,6 @@ namespace JKLWebBase_v2.Form_Account
         }
 
         /*******************************************************************************************************************************************************************************
-        ****************************************************                   Load Default Data to Form                        ********************************************************
-        ****************************************************                                                                    ********************************************************
-        *******************************************************************************************************************************************************************************/
-
-        // สาขา
-        private void _loadCompanys()
-        {
-            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys(0, 0);
-
-            for (int i = 0; i < list_data.Count; i++)
-            {
-                Base_Companys data = list_data[i];
-                Company_ChkBxL.Items.Add(new ListItem(data.Company_code + " ( " + data.Company_N_name + " ) ", data.Company_id.ToString()));
-            }
-        }
-
-        /*******************************************************************************************************************************************************************************
-        ****************************************************                   Get Value in CheckBoxList                        ********************************************************
-        ****************************************************                                                                    ********************************************************
-        *******************************************************************************************************************************************************************************/
-
-        private string _getCheckedCompany()
-        {
-            string Company_id_inline = "";
-            int count = 1;
-
-            for (int i = 0; i < Company_ChkBxL.Items.Count; i++)
-            {
-                if (Company_ChkBxL.Items[i].Selected && count == 1)
-                {
-                    Company_id_inline += Company_ChkBxL.Items[i].Value;
-                    count++;
-                }
-                else if (Company_ChkBxL.Items[i].Selected)
-                {
-                    Company_id_inline += "," + Company_ChkBxL.Items[i].Value;
-                    count++;
-                }
-            }
-            return Company_id_inline;
-        }
-
-        /*******************************************************************************************************************************************************************************
         ****************************************************                   Search Leasing Method                            ********************************************************
         ****************************************************                                                                    ********************************************************
         *******************************************************************************************************************************************************************************/
@@ -134,9 +79,9 @@ namespace JKLWebBase_v2.Form_Account
         {
             string date_str = Log_Date_str_TBx.Text == "" ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Log_Date_str_TBx.Text);
             string date_end = Log_Date_end_TBx.Text == "" ? "" : DateTimeUtility.convertDateToMYSQL(Log_Date_end_TBx.Text);
-            string Company_id_inline = _getCheckedCompany();
+            string account_id = (string)Session["Account_id_Log"];
 
-            List<Activity_Log> list_data_all = act_log_mng.listActivityLogs(date_str, date_end, "", Company_id_inline, 0, 0);
+            List<Activity_Log> list_data_all = act_log_mng.listActivityLogs(date_str, date_end, account_id, "", 0, 0);
 
             try
             {
@@ -144,18 +89,17 @@ namespace JKLWebBase_v2.Form_Account
 
                 _pageCount(row);
 
-                List<Activity_Log> list_data = act_log_mng.listActivityLogs(date_str, date_end, "", Company_id_inline, 0, 20);
+                List<Activity_Log> list_data = act_log_mng.listActivityLogs(date_str, date_end, account_id, "", 0, 20);
 
                 Session["date_str"] = date_str;
                 Session["date_end"] = date_str.Equals(date_end) ? "" : date_end;
-                Session["company_id_inline"] = Company_id_inline;
                 Session["row_str"] = 0;
 
                 Session["List_Activity_Log"] = list_data;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Activity_Log_List : Page --> _getData() ";
+                error = "Exception ==> Activity_Log_Prv : Page --> _getData() ";
                 Log_Error._writeErrorFile(error, ex);
             }
 
@@ -191,7 +135,8 @@ namespace JKLWebBase_v2.Form_Account
         {
             string date_str = (string)Session["date_str"];
             string date_end = (string)Session["date_end"];
-            string Company_id_inline = (string)Session["company_id_inline"];
+            string account_id = (string)Session["Account_id_Log"];
+
 
             if (current_page > 1)
             {
@@ -199,7 +144,7 @@ namespace JKLWebBase_v2.Form_Account
 
                 link_Previous.Enabled = true;
 
-                List<Activity_Log> list_data = act_log_mng.listActivityLogs(date_str, date_end, "", Company_id_inline, row_str, 20);
+                List<Activity_Log> list_data = act_log_mng.listActivityLogs(date_str, date_end, account_id, "", row_str, 20);
 
                 Session["row_str"] = row_str;
 
@@ -209,13 +154,12 @@ namespace JKLWebBase_v2.Form_Account
             {
                 link_Previous.Enabled = false;
 
-                List<Activity_Log> list_data = act_log_mng.listActivityLogs(date_str, date_end, "", Company_id_inline, 0, 20);
+                List<Activity_Log> list_data = act_log_mng.listActivityLogs(date_str, date_end, account_id, "", 0, 20);
 
                 Session["row_str"] = 0;
 
                 Session["List_Activity_Log"] = list_data;
             }
         }
-
     }
 }

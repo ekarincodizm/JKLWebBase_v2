@@ -7,7 +7,7 @@ namespace JKLWebBase_v2.Class_Account
         public string log_id { get; set; }
         public string log_date { get; set; }
         public string log_details { get; set; } 
-        public Account_Level acc_login { get; set; }
+        public Account_Login acc_lgn { get; set; }
         public Base_Companys bs_cpn { get; set; }
     }
 }

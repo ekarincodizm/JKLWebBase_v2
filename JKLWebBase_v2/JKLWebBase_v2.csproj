@@ -310,7 +310,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\THSarabunPSK.svg" />
-    <Content Include="Form_Account\Activity_Log.aspx" />
+    <Content Include="Form_Account\Activity_Log_Prv.aspx" />
     <Content Include="Form_Account\Account_Add.aspx" />
     <Content Include="Form_Account\Account_Edit.aspx" />
     <Content Include="Form_Account\Account_Search.aspx" />
@@ -535,12 +535,12 @@
     <Compile Include="Class_Leasings\Car_Leasings_Guarator.cs" />
     <Compile Include="Class_Leasings\Car_Leasings_Payment.cs" />
     <Compile Include="Class_Leasings\Car_Leasings_Photo.cs" />
-    <Compile Include="Form_Account\Activity_Log.aspx.cs">
-      <DependentUpon>Activity_Log.aspx</DependentUpon>
+    <Compile Include="Form_Account\Activity_Log_Prv.aspx.cs">
+      <DependentUpon>Activity_Log_Prv.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Form_Account\Activity_Log.aspx.designer.cs">
-      <DependentUpon>Activity_Log.aspx</DependentUpon>
+    <Compile Include="Form_Account\Activity_Log_Prv.aspx.designer.cs">
+      <DependentUpon>Activity_Log_Prv.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Account\Account_Add.aspx.cs">
       <DependentUpon>Account_Add.aspx</DependentUpon>
