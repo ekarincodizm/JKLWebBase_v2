@@ -13,7 +13,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="form-group col-md-3">
-                    <asp:Label ID="Log_Date_Lbl" runat="server"> วันที่ทำสัญญา </asp:Label>
+                    <asp:Label ID="Log_Date_Lbl" runat="server"> วันที่</asp:Label>
                     <div class="form-group input-group" id="Log_Date_str">
                         <asp:TextBox ID="Log_Date_str_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>

@@ -44,7 +44,7 @@ namespace JKLWebBase_v2.Global_Class
 
         public static string convertDateTime(string datetime)
         {
-            if (!datetime.Equals(""))
+            if (!string.IsNullOrEmpty(datetime))
             {
                 string[] dt = datetime.Split(' ');
                 string[] date = dt[0].Split('/');
@@ -70,7 +70,7 @@ namespace JKLWebBase_v2.Global_Class
 
         public static string convertDateToMYSQL(string datetime)
         {
-            if (!datetime.Equals(""))
+            if (!string.IsNullOrEmpty(datetime))
             {
                 string[] dt = datetime.Split(' ');
                 string[] date = dt[0].Split('/');
@@ -85,7 +85,7 @@ namespace JKLWebBase_v2.Global_Class
 
         public static string convertDateToPage(string datetime)
         {
-            if (!datetime.Equals(""))
+            if (!string.IsNullOrEmpty(datetime))
             {
                 if(datetime.IndexOf("/") > 0)
                 {

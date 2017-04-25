@@ -308,12 +308,28 @@ namespace JKLWebBase_v2.Form_Main
 
         protected void link_load_leasing_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
+            Response.Redirect("/Form_Account/Load_Data_Leasings_From_MSSQL");
         }
 
         protected void link_load_loan_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Customers");
+            Session.Remove("List_Leasings");
+            Session.Remove("List_Agents");
+            Session.Remove("Customer_Leasing");
+            Session.Remove("Leasings");
+            Session.Remove("Agent_Leasing");
+            Session.Remove("List_Account");
 
+            Response.Redirect("/Form_Account/Load_Data_Loan_From_MSSQL");
         }
 
         protected void link_report_leainsg_daily_payment_Click(object sender, EventArgs e)

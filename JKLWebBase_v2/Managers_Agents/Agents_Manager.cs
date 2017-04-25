@@ -196,6 +196,78 @@ namespace JKLWebBase_v2.Managers_Agents
             }
         }
 
+        public Agents getAgentByName(string i_Agent_Idcard, string i_Agent_fname, string i_Agent_lname)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_car_agents_by_name ] :: 
+                 * g_car_agents_by_name (in i_Agent_Idcard varchar(20), in i_Agent_fname varchar(255), in i_Agent_lname varchar(255))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_car_agents_by_name", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Agent_Idcard", i_Agent_Idcard);
+                cmd.Parameters.AddWithValue("@i_Agent_fname", i_Agent_fname);
+                cmd.Parameters.AddWithValue("@i_Agent_lname", i_Agent_lname);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Agents cag = new Agents();
+
+                if (reader.Read())
+                {
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    cag.Agent_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    cag.Agent_Fname = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    cag.Agent_Lname = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    cag.Agent_Idcard = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    cag.Agent_Address_no = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    cag.Agent_Vilage = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
+                    cag.Agent_Vilage_no = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+                    cag.Agent_Alley = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
+                    cag.Agent_Road = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
+                    cag.Agent_Subdistrict = reader.IsDBNull(9) ? defaultString : reader.GetString(9);
+                    cag.Agent_District = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
+
+                    cag.cag_pv = new TH_Provinces();
+                    cag.cag_pv.Province_id = reader.IsDBNull(11) ? defaultNum : reader.GetInt32(11);
+                    cag.cag_pv.Province_name = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+
+                    cag.Agent_Country = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    cag.Agent_Zipcode = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+                    cag.Agent_Status = reader.IsDBNull(15) ? defaultNum : reader.GetInt32(15);
+                    cag.Agent_Status_name = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+                    cag.Agent_save_date = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+
+                }
+
+                return cag;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Agents --> Car_Agents_Manager --> getAgentByName() ";
+                Log_Error._writeErrorFile(error, ex);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Agents --> Car_Agents_Manager --> getAgentByName() ";
+                Log_Error._writeErrorFile(error, ex);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
         public Agents_Commission getAgentCommission(string Agent_id, string Leasing_id)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
