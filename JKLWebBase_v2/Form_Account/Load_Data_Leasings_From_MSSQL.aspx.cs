@@ -508,7 +508,7 @@ namespace JKLWebBase_v2.Form_Account
                     cls.Car_used_id = reader.IsDBNull(31) ? defaultNum : _getCarUsed(reader.GetString(31));
                     cls.Car_distance = 0;
                     cls.Car_next_register_date = reader.IsDBNull(35) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(35).ToString());
-                    cls.Car_tax_value = reader.IsDBNull(37) ? defaultNum : Convert.ToDouble(reader.GetString(37) == "" ? "0" : reader.GetString(37));
+                    cls.Car_tax_value = reader.IsDBNull(37) ? defaultNum : Convert.ToDouble(reader.GetString(37) == "" || reader.GetString(37) == "-" ? "0" : reader.GetString(37));
                     cls.Car_credits = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
                     cls.Car_agent = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
                     cls.Car_old_owner = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
