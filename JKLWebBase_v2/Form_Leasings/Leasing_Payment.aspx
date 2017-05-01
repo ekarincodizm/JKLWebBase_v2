@@ -191,9 +191,9 @@
                                                 if (acc_lgn.acc_lv.level_access >= 7)
                                                 {
                                             %>
-                                            < th style = "width: 4%;" ></ th >
-                                            < th style = "width: 4%;" ></ th >
-                                            <% }%>
+                                            <th style="width: 4%;"></th>
+                                            <th style="width: 4%;"></th>
+                                            <% } %>
                                         </tr>
                                     </thead>
                                     <tbody>
