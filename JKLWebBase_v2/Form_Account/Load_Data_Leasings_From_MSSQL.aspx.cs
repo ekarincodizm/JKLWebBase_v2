@@ -68,6 +68,7 @@ namespace JKLWebBase_v2.Form_Account
             SqlConnection con = MSSQLConnection.connectionMSSQL();
 
             int row_index = 1;
+            int part = 1;
 
             try
             {
@@ -197,7 +198,16 @@ namespace JKLWebBase_v2.Form_Account
                     ctm.ctm_current_stt = new Base_Home_Status();
                     ctm.ctm_current_stt.Home_status_id = reader.IsDBNull(90) ? defaultNum : reader.GetString(90) == "4" ? 3 : reader.GetString(90) == "3'" ? 2 : Convert.ToInt32(reader.GetString(90));
 
-                    if (ctm_mng.addCustomers(ctm))
+
+                    if (row_index % 5000 == 0) { part++;  }
+
+                    Messages_Logs._writeSQLCodeInsertCustomerToMYSQL(ctm, part);
+
+                    Messages_TBx.Text += "Transfer Data Cusotmer Passed : " + row_index + Environment.NewLine;
+
+                    row_index++;
+
+                    /*if (ctm_mng.addCustomers(ctm))
                     {
                         Messages_TBx.Text += "Transfer Data Cusotmer Passed : " + row_index + Environment.NewLine;
 
@@ -206,7 +216,7 @@ namespace JKLWebBase_v2.Form_Account
                     else
                     {
                         break;
-                    }
+                    }*/
                 }
             }
             catch (SqlException ex)
@@ -235,6 +245,7 @@ namespace JKLWebBase_v2.Form_Account
             SqlConnection con = MSSQLConnection.connectionMSSQL();
 
             int row_index = 1;
+            int part = 1;
 
             try
             {
@@ -395,6 +406,7 @@ namespace JKLWebBase_v2.Form_Account
             SqlConnection con = MSSQLConnection.connectionMSSQL();
 
             int row_index = 1;
+            int part = 1;
 
             try
             {
@@ -538,7 +550,7 @@ namespace JKLWebBase_v2.Form_Account
                     cls.bs_ls_stt = new Base_Leasing_Status();
                     cls.bs_ls_stt.Contract_Status_id = 1;
 
-                    if (string.IsNullOrEmpty(cls_dup.Leasing_id))
+                    /*if (string.IsNullOrEmpty(cls_dup.Leasing_id))
                     {
                         if (cls_mng.addCarLeasings(cls))
                         {
@@ -561,7 +573,13 @@ namespace JKLWebBase_v2.Form_Account
                         }
                     }
 
-                    cls_ctm_mng.addCustomersLeasing(cls, ctm);
+                    cls_ctm_mng.addCustomersLeasing(cls, ctm);*/
+
+                    if (row_index % 5000 == 0) { part++; }
+
+                    Messages_Logs._writeSQLCodeInsertLeasingsToMYSQL(cls, part);
+
+                    Messages_Logs._writeSQLCodeInsertCustomerLeasingsToMYSQL(cls, ctm, part);
 
                     if (reader.GetDecimal(49) > 0)
                     {
@@ -584,7 +602,9 @@ namespace JKLWebBase_v2.Form_Account
                             cag.cag_pv = new TH_Provinces();
                             cag.cag_pv.Province_id = 39;
 
-                            cag_mng.addAgent(cag);
+                            //cag_mng.addAgent(cag);
+
+                            Messages_Logs._writeSQLCodeInsertAgentsToMYSQL(cag, part);
                         }
 
                         cag_com.cag = new Agents();
@@ -600,8 +620,9 @@ namespace JKLWebBase_v2.Form_Account
 
                         cag_com.Leasing_id = cls.Leasing_id;
 
-                        cag_mng.addAgentCommission(cag_com);
+                        //cag_mng.addAgentCommission(cag_com);
 
+                        Messages_Logs._writeSQLCodeInsertAgentsCommissionToMYSQL(cag_com, part);
                     }
 
                     Messages_TBx.Text += "Transfer Data Leasing Passed : " + row_index + Environment.NewLine;
@@ -637,6 +658,8 @@ namespace JKLWebBase_v2.Form_Account
             Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
 
             List<Car_Leasings> list_cls_all = cls_mng.getCarLeasing("", "", "", "", "", "", "", "", "", "", 0, 0);
+
+            int part = 1;
 
             for (int i = 0; i < list_cls_all.Count; i++)
             {
@@ -678,9 +701,16 @@ namespace JKLWebBase_v2.Form_Account
                         cls_pay.bs_cpn = new Base_Companys();
                         cls_pay.bs_cpn.Company_id = _getCompanys(reader.GetString(20));
 
+                        if (i % 1000 == 0) { part++; }
+
                         if (cls_pay.Discount <= 0)
                         {
-                            if (cls_pay_mng.addPayment_Mod_I(cls_pay, 1))
+                            
+                            Messages_Logs._writeSQLCodeInsertCarLeasingsPaymentToMYSQL(cls_pay, 1, part);
+
+                            Messages_TBx.Text += "Transfer Data Payment 1 Passed : " + row_index + Environment.NewLine;
+
+                            /*if (cls_pay_mng.addPayment_Mod_I(cls_pay, 1))
                             {
                                 Messages_TBx.Text += "Transfer Data Payment 1 Passed : " + row_index + Environment.NewLine;
 
@@ -689,11 +719,15 @@ namespace JKLWebBase_v2.Form_Account
                             else
                             {
                                 Messages_TBx.Text += "Transfer Data Payment 1 Failed : " + row_index + Environment.NewLine;
-                            }
+                            }*/
                         }
                         else
                         {
-                            if (cls_pay_mng.addPayment_Mod_I(cls_pay, 2))
+                            Messages_Logs._writeSQLCodeInsertCarLeasingsPaymentToMYSQL(cls_pay, 2, part);
+
+                            Messages_TBx.Text += "Transfer Data Payment 2 Passed : " + row_index + Environment.NewLine;
+
+                            /*if (cls_pay_mng.addPayment_Mod_I(cls_pay, 2))
                             {
                                 Messages_TBx.Text += "Transfer Data Payment 2 Passed : " + row_index + Environment.NewLine;
 
@@ -702,8 +736,10 @@ namespace JKLWebBase_v2.Form_Account
                             else
                             {
                                 Messages_TBx.Text += "Transfer Data Payment 2 Failed : " + row_index + Environment.NewLine;
-                            }
+                            }*/
                         }
+
+                        row_index++;
                     }
                 }
                 catch (SqlException ex)
@@ -737,6 +773,7 @@ namespace JKLWebBase_v2.Form_Account
             SqlConnection con = MSSQLConnection.connectionMSSQL();
 
             int row_index = 1;
+            int part = 1;
 
             try
             {
@@ -789,7 +826,15 @@ namespace JKLWebBase_v2.Form_Account
 
                     cls_grt.Guarantor_no = 1;
 
-                    if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
+                    if (row_index % 5000 == 0) { part++; }
+
+                    Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
+
+                    Messages_TBx.Text += "Transfer Data Guarantor 1 Passed : " + row_index + Environment.NewLine;
+
+                    row_index++;
+
+                    /*if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
                     {
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
@@ -819,7 +864,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             break;
                         }
-                    }
+                    }*/
                 }
             }
             catch (SqlException ex)
@@ -848,6 +893,7 @@ namespace JKLWebBase_v2.Form_Account
             SqlConnection con = MSSQLConnection.connectionMSSQL();
 
             int row_index = 1;
+            int part = 1;
 
             try
             {
@@ -900,7 +946,15 @@ namespace JKLWebBase_v2.Form_Account
 
                     cls_grt.Guarantor_no = 2;
 
-                    if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
+                    if (row_index % 5000 == 0) { part++; }
+
+                    Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
+
+                    Messages_TBx.Text += "Transfer Data Guarantor 2 Passed : " + row_index + Environment.NewLine;
+
+                    row_index++;
+
+                    /*if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
                     {
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
@@ -930,7 +984,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             break;
                         }
-                    }
+                    }*/
                 }
             }
             catch (SqlException ex)
@@ -959,6 +1013,7 @@ namespace JKLWebBase_v2.Form_Account
             SqlConnection con = MSSQLConnection.connectionMSSQL();
 
             int row_index = 1;
+            int part = 1;
 
             try
             {
@@ -1011,7 +1066,15 @@ namespace JKLWebBase_v2.Form_Account
 
                     cls_grt.Guarantor_no = 3;
 
-                    if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
+                    if (row_index % 5000 == 0) { part++; }
+
+                    Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
+
+                    Messages_TBx.Text += "Transfer Data Guarantor 3 Passed : " + row_index + Environment.NewLine;
+
+                    row_index++;
+
+                    /*if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
                     {
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
@@ -1041,7 +1104,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             break;
                         }
-                    }
+                    }*/
                 }
             }
             catch (SqlException ex)
