@@ -112,34 +112,40 @@ namespace JKLWebBase_v2.Form_Leasings
 
             ctm = cls_ctm_mng.getCustomersLeasing(leasing_id, idcard);
 
-            Customer_Name_TBx.Text = ctm.Cust_Fname + " " + ctm.Cust_LName;
-            Customer_Idcard_TBx.Text = ctm.Cust_Idcard.Length == 13 ? ctm.Cust_Idcard.Substring(0, 1) + "-" + ctm.Cust_Idcard.Substring(1, 4) + "-" + ctm.Cust_Idcard.Substring(5, 5) + "-" + ctm.Cust_Idcard.Substring(10, 2) + "-" + ctm.Cust_Idcard.Substring(12) : ctm.Cust_Idcard;
-            Customer_B_Date_TBx.Text = DateTimeUtility.convertDateToPage(ctm.Cust_B_date);
-            Customer_Age_TBx.Text = ctm.Cust_Age.ToString();
+            if (ctm != null)
+            {
+                Customer_Name_TBx.Text = ctm.Cust_Fname + " " + ctm.Cust_LName;
+                Customer_Idcard_TBx.Text = ctm.Cust_Idcard.Length == 13 ? ctm.Cust_Idcard.Substring(0, 1) + "-" + ctm.Cust_Idcard.Substring(1, 4) + "-" + ctm.Cust_Idcard.Substring(5, 5) + "-" + ctm.Cust_Idcard.Substring(10, 2) + "-" + ctm.Cust_Idcard.Substring(12) : ctm.Cust_Idcard;
+                //Customer_B_Date_TBx.Text = DateTimeUtility.convertDateToPage(ctm.Cust_B_date);
+                //Customer_Age_TBx.Text = ctm.Cust_Age.ToString();
 
-            Customer_H_Address_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Home_address_no) ? "" : ctm.Cust_Home_address_no;
-            Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_vilage_no) ? "" : ctm.Cust_Home_vilage_no.IndexOf('.') >= 1 ? ctm.Cust_Home_vilage_no.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_vilage_no : "";
-            Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_vilage) ? "" : ctm.Cust_Home_vilage.IndexOf('.') >= 1 ? ctm.Cust_Home_vilage.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_vilage : "";
-            Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_alley) ? "" : ctm.Cust_Home_alley.IndexOf('.') >= 1 ? ctm.Cust_Home_alley.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_alley : "";
-            Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_road) ? "" : ctm.Cust_Home_road.IndexOf('.') >= 1 ? ctm.Cust_Home_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_road : "";
-            Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_subdistrict) ? "" : ctm.Cust_Home_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Home_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_subdistrict : "";
-            Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_district) ? "" : ctm.Cust_Home_district.IndexOf('.') >= 1 ? ctm.Cust_Home_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_district : "";
-            Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.ctm_home_pv.Province_name) ? "" : " จ." + ctm.ctm_home_pv.Province_name;
+                Customer_H_Address_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Home_address_no) ? "" : ctm.Cust_Home_address_no;
+                Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_vilage_no) ? "" : ctm.Cust_Home_vilage_no.IndexOf('.') >= 1 ? ctm.Cust_Home_vilage_no.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_vilage_no : "";
+                Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_vilage) ? "" : ctm.Cust_Home_vilage.IndexOf('.') >= 1 ? ctm.Cust_Home_vilage.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_vilage : "";
+                Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_alley) ? "" : ctm.Cust_Home_alley.IndexOf('.') >= 1 ? ctm.Cust_Home_alley.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_alley : "";
+                Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_road) ? "" : ctm.Cust_Home_road.IndexOf('.') >= 1 ? ctm.Cust_Home_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_road : "";
+                Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_subdistrict) ? "" : ctm.Cust_Home_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Home_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_subdistrict : "";
+                Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_district) ? "" : ctm.Cust_Home_district.IndexOf('.') >= 1 ? ctm.Cust_Home_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_district : "";
+                Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.ctm_home_pv.Province_name) ? "" : " จ." + ctm.ctm_home_pv.Province_name;
 
-            Customer_C_Address_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Current_address_no) ? "" : ctm.Cust_Current_address_no;
-            Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_vilage_no) ? "" : ctm.Cust_Current_vilage_no.IndexOf('.') >= 1 ? ctm.Cust_Current_vilage_no.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_vilage_no : "";
-            Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_vilage) ? "" : ctm.Cust_Current_vilage.IndexOf('.') >= 1 ? ctm.Cust_Current_vilage.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_vilage : "";
-            Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_alley) ? "" : ctm.Cust_Current_alley.IndexOf('.') >= 1 ? ctm.Cust_Current_alley.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_alley : "";
-            Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_road) ? "" : ctm.Cust_Current_road.IndexOf('.') >= 1 ? ctm.Cust_Current_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_road : "";
-            Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_subdistrict) ? "" : ctm.Cust_Current_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Current_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_subdistrict : "";
-            Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_district) ? "" : ctm.Cust_Current_district.IndexOf('.') >= 1 ? ctm.Cust_Current_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_district : "";
-            Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.ctm_current_pv.Province_name) ? "" : " จ." + ctm.ctm_current_pv.Province_name;
+                Customer_C_Address_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Current_address_no) ? "" : ctm.Cust_Current_address_no;
+                Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_vilage_no) ? "" : ctm.Cust_Current_vilage_no.IndexOf('.') >= 1 ? ctm.Cust_Current_vilage_no.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_vilage_no : "";
+                Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_vilage) ? "" : ctm.Cust_Current_vilage.IndexOf('.') >= 1 ? ctm.Cust_Current_vilage.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_vilage : "";
+                Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_alley) ? "" : ctm.Cust_Current_alley.IndexOf('.') >= 1 ? ctm.Cust_Current_alley.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_alley : "";
+                Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_road) ? "" : ctm.Cust_Current_road.IndexOf('.') >= 1 ? ctm.Cust_Current_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_road : "";
+                Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_subdistrict) ? "" : ctm.Cust_Current_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Current_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_subdistrict : "";
+                Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_district) ? "" : ctm.Cust_Current_district.IndexOf('.') >= 1 ? ctm.Cust_Current_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_district : "";
+                Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.ctm_current_pv.Province_name) ? "" : " จ." + ctm.ctm_current_pv.Province_name;
+            }
 
             Car_Type_TBx.Text = cls.Car_type;
 
             bs_cbrn = cbrn_mng.getCarBrandById(cls.bs_cbrn.car_brand_id);
 
-            Car_Brand_TBx.Text = bs_cbrn.car_brand_name_th + " ( " + bs_cbrn.car_brand_name_eng + " )";
+            if (bs_cbrn != null)
+            {
+                Car_Brand_TBx.Text = bs_cbrn.car_brand_name_th + " ( " + bs_cbrn.car_brand_name_eng + " )";
+            }
 
             car_plt_pv = th_pv_mng.getProvinceById(cls.cls_plate_pv.Province_id);
 
@@ -161,7 +167,7 @@ namespace JKLWebBase_v2.Form_Leasings
             Frist_Payment_Date_TBx.Text = DateTimeUtility.convertDateToPage(cls.First_payment_date);
 
             Bill_No_TBx.Text = bill_no;
-
+            
             Period_fee_TBx.Text = "0.00";
             Period_track_TBx.Text = "0.00";
 
@@ -192,6 +198,8 @@ namespace JKLWebBase_v2.Form_Leasings
 
                     total_payment_left = cls_pay.Total_payment_left;
                     total_payment_fine = cls_pay.Total_payment_fine;
+
+                    Bill_No_Manual_Ref_TBx.Text = cls_pay.Bill_no_manual_ref;
 
                     Session["old_company"] = cls_pay.bs_cpn.Company_id;
                 }
@@ -259,6 +267,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls_pay.Discount = real_discount;
             cls_pay.Real_payment = real_payment;
             cls_pay.Real_payment_date = string.IsNullOrEmpty(Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Payment_Date_TBx.Text);
+            cls_pay.Bill_no_manual_ref = string.IsNullOrEmpty(Bill_No_Manual_Ref_TBx.Text) ? "" : Bill_No_Manual_Ref_TBx.Text;
 
             Base_Companys package_login = new Base_Companys();
             Account_Login acc_lgn = new Account_Login();

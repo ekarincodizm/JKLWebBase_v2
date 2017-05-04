@@ -67,6 +67,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("rpt_generals_leasing", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+
                 cmd.Parameters.AddWithValue("@i_Deps_no", deposit_no);
                 cmd.Parameters.AddWithValue("@i_Leasing_no", leasing_no);
                 cmd.Parameters.AddWithValue("@i_Cust_idcard", idcard);
@@ -91,7 +93,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
                 Lost_Payment_Hurry rpt = new Lost_Payment_Hurry();
                 rpt.SetDataSource(ls_ds);
                 rpt.SetParameterValue("Reported_By_User", "ออกโดย : " + acc_lgn.Account_F_name);
-                rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateToPage(DateTimeUtility._dateNOW()));
+                rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOW()));
                 rpt.SetParameterValue("Report_Header", report_header);
 
 

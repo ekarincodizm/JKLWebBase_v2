@@ -34,6 +34,7 @@ namespace JKLWebBase_v2.Class_Leasings
         public double TNC { get; set; } /// ค่างวดที่เหลือทั้งหมด
         public Account_Login acc_lgn { get; set; } /// พนักงานออกใบเสร็จ
         public Base_Companys bs_cpn { get; set; } /// สาขาที่ชำระเงิน
+        public string Bill_no_manual_ref { get; set; } /// เลขที่ใบเสร็จ
         public string Payment_save_date { get; set; } /// วันที่จ่ายเงินและบันทึกข้อมูล
     }
 }

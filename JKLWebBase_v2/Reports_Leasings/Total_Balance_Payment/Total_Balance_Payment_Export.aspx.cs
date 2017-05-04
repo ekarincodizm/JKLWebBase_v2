@@ -53,6 +53,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("rpt_generals_leasing", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+
                 cmd.Parameters.AddWithValue("@i_Deps_no", "");
                 cmd.Parameters.AddWithValue("@i_Leasing_no", "");
                 cmd.Parameters.AddWithValue("@i_Cust_idcard", "");
@@ -77,7 +79,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 Total_Balance_Payment rpt = new Total_Balance_Payment();
                 rpt.SetDataSource(ls_ds);
                 rpt.SetParameterValue("Reported_By_User", "ออกโดย : " + acc_lgn.Account_F_name);
-                rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateToPage(DateTimeUtility._dateNOW()));
+                rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOW()));
                 rpt.SetParameterValue("Report_Header", report_header);
 
 

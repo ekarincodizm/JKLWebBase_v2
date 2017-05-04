@@ -9,23 +9,11 @@
         <div class="col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    ข้อมูลสัญญา
+                    ข้อมูลทั่วไปสัญญา
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="form-group col-xs-2">
-                            <asp:Label ID="Leasing_Date_Lbl" runat="server"> วันที่ทำสัญญา </asp:Label>
-                            <asp:TextBox ID="Leasing_Date_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                        </div>
-                        <div class="col-xs-3">
-                            <asp:Label ID="Deps_No_Lbl" runat="server"> เลขที่รับฝาก </asp:Label>
-                            <asp:TextBox ID="Deps_No_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                        </div>
-                        <div class="col-xs-3">
-                            <asp:Label ID="Leasing_No_Lbl" runat="server"> เลขสัญญา </asp:Label>
-                            <asp:TextBox ID="Leasing_No_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                        </div>
-                        <div class="col-xs-2">
                             <asp:Label ID="Company_N_Name_Lbl" runat="server"> สาขา </asp:Label>
                             <asp:TextBox ID="Company_N_Name_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                         </div>
@@ -33,125 +21,127 @@
                             <asp:Label ID="Zone_Name_Lbl" runat="server"> เขต </asp:Label>
                             <asp:TextBox ID="Zone_Name_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-xs-8">
+                        <div class="col-xs-8">
                             <asp:Label ID="Company_F_Name_Lbl" runat="server"> ชื่อสำนักงาน </asp:Label>
                             <asp:TextBox ID="Company_F_Name_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                        </div>
-                        
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-xs-2">
-                            <asp:Label ID="Customer_Name_Lbl" runat="server"> ชื่อผู้ทำสัญญา </asp:Label>
-                            <asp:TextBox ID="Customer_Name_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                        </div>
-                        <div class="col-xs-2">
-                            <asp:Label ID="Customer_Idcard_Lbl" runat="server"> รหัสบัตรประชาชน </asp:Label>
-                            <asp:TextBox ID="Customer_Idcard_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                        </div>
-                        <div class="col-xs-2">
-                            <asp:Label ID="Customer_B_Date_Lbl" runat="server"> วันเกิด </asp:Label>
-                            <asp:TextBox ID="Customer_B_Date_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                        </div>
-                        <div class="col-xs-2">
-                            <asp:Label ID="Customer_Age_Lbl" runat="server"> อายุ </asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Customer_Age_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">ปี</span>
-                            </div>
-                        </div>
-                        <div class="col-xs-4">
-                            <asp:Label ID="Customer_H_Address_Lbl" runat="server"> ที่อยู่ตามทะเบียนบ้าน </asp:Label>
-                            <asp:TextBox ID="Customer_H_Address_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="form-group col-xs-6">
+                            <asp:Label ID="Customer_H_Address_Lbl" runat="server"> ที่อยู่ตามทะเบียนบ้าน </asp:Label>
+                            <asp:TextBox ID="Customer_H_Address_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                        </div>
+                        <div class="col-xs-6">
                             <asp:Label ID="Customer_C_Address_Lbl" runat="server"> ที่อยู่ปัจจุบัน</asp:Label>
                             <asp:TextBox ID="Customer_C_Address_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-xs-3">
+                        <div class="form-group col-xs-4">
                             <asp:Label ID="Car_Type_Lbl" runat="server"> รถ </asp:Label>
                             <asp:TextBox ID="Car_Type_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-2">
                             <asp:Label ID="Car_Brand_LBl" runat="server"> ยี่ห้อ </asp:Label>
                             <asp:TextBox ID="Car_Brand_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-2">
                             <asp:Label ID="Car_Plate_LBl" runat="server"> เลขทะเบียน </asp:Label>
                             <asp:TextBox ID="Car_Plate_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-2">
                             <asp:Label ID="Car_Chassis_No_LBl" runat="server"> เลขตัวรถ </asp:Label>
                             <asp:TextBox ID="Car_Chassis_No_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                        </div>
+                        <div class="col-xs-2">
+                            <asp:Label ID="Car_Engine_No_LBl" runat="server"> เลขเครื่องยนต์ </asp:Label>
+                            <asp:TextBox ID="Car_Engine_No_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-xs-3">
-                            <asp:Label ID="Car_Engine_No_LBl" runat="server"> เลขเครื่องยนต์ </asp:Label>
-                            <asp:TextBox ID="Car_Engine_No_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                        </div>
-                        <div class="col-xs-3">
-                            <asp:Label ID="Agent_Commission_Lbl" runat="server"> ค่านายหน้า </asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Agent_Commission_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
+                        <div class="form-group col-xs-2">
                             <asp:Label ID="Finance_Cost_Lbl" runat="server"> ยอดจัด </asp:Label>
                             <div class="form-group input-group">
                                 <asp:TextBox ID="Finance_Cost_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-2">
                             <asp:Label ID="Finance_Value_Lbl" runat="server"> มูลค่า </asp:Label>
                             <div class="form-group input-group">
                                 <asp:TextBox ID="Finance_Value_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-xs-3">
-                            <asp:Label ID="Leasing_Cost_Lbl" runat="server"> ยอดเช่า - ซื้อ </asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Leasing_Cost_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
                         <div class="col-xs-2">
-                            <asp:Label ID="Period_Amount_Lbl" runat="server"> จำนวนงวด </asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Period_Amount_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">งวด</span>
-                            </div>
-                        </div>
-                        <div class="col-xs-2 col-md-offset-1">
-                            <asp:Label ID="Period_Payment_Lbl" runat="server"> ค่างวด </asp:Label>
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Period_Payment_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                        <div class="col-xs-1 col-md-offset-1">
                             <asp:Label ID="Payment_Schedule_Lbl" runat="server"> ชำระทุกวันที่ </asp:Label>
                             <asp:TextBox ID="Payment_Schedule_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
                         </div>
                         <div class="col-xs-2">
                             <asp:Label ID="Frist_Payment_Date_Lbl" runat="server"> วันที่เริ่มชำระ </asp:Label>
                             <asp:TextBox ID="Frist_Payment_Date_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-heading">
+                    ข้อมูลสำคัญสัญญา
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group col-xs-2">
+                            <asp:Label ID="Customer_Name_Lbl" runat="server"> ชื่อผู้ทำสัญญา </asp:Label>
+                            <asp:TextBox ID="Customer_Name_TBx" runat="server" CssClass="form-control" ForeColor="#ff0000" ReadOnly="true"></asp:TextBox>
+                        </div>
+                        <div class="col-xs-2">
+                            <asp:Label ID="Customer_Idcard_Lbl" runat="server"> รหัสบัตรประชาชน </asp:Label>
+                            <asp:TextBox ID="Customer_Idcard_TBx" runat="server" CssClass="form-control" ForeColor="#ff0000" ReadOnly="true"></asp:TextBox>
+                        </div>
+                        <div class="col-xs-2">
+                            <asp:Label ID="Leasing_Date_Lbl" runat="server"> วันที่ทำสัญญา </asp:Label>
+                            <asp:TextBox ID="Leasing_Date_TBx" runat="server" CssClass="form-control" ForeColor="#ff0000" ReadOnly="true"></asp:TextBox>
+                        </div>
+                        <div class="col-xs-3">
+                            <asp:Label ID="Deps_No_Lbl" runat="server"> เลขที่รับฝาก </asp:Label>
+                            <asp:TextBox ID="Deps_No_TBx" runat="server" CssClass="form-control" ForeColor="#ff0000" ReadOnly="true"></asp:TextBox>
+                        </div>
+                        <div class="col-xs-3">
+                            <asp:Label ID="Leasing_No_Lbl" runat="server"> เลขสัญญา </asp:Label>
+                            <asp:TextBox ID="Leasing_No_TBx" runat="server" CssClass="form-control" ForeColor="#ff0000" ReadOnly="true"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-xs-2">
+                            <asp:Label ID="Leasing_Cost_Lbl" runat="server"> ยอดเช่า - ซื้อ </asp:Label>
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Leasing_Cost_TBx" runat="server" CssClass="form-control" ForeColor="#ff0000" ReadOnly="true"></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <asp:Label ID="Period_Payment_Lbl" runat="server"> ชำระงวดละ </asp:Label>
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Period_Payment_TBx" runat="server" CssClass="form-control" ForeColor="#ff0000" ReadOnly="true"></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <asp:Label ID="Period_Amount_Lbl" runat="server"> จำนวนงวด </asp:Label>
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Period_Amount_TBx" runat="server" CssClass="form-control" ForeColor="#ff0000" ReadOnly="true"></asp:TextBox>
+                                <span class="input-group-addon">งวด</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <asp:Label ID="Agent_Commission_Lbl" runat="server"> ค่านายหน้า </asp:Label>
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Agent_Commission_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -174,13 +164,12 @@
                                         <tr>
                                             <th style="width: 5%;">งวดที่</th>
                                             <th style="width: 10%;">กำหนดชำระ</th>
-                                            <th style="width: 9%;">ค่างวด (บาท)</th>
-                                            <th style="width: 10%;">ยอดคงค้าง (บาท)</th>
-                                            <th style="width: 10%;">ค่าปรับ (บาท)</th>
                                             <th style="width: 10%;">วันที่ชำระ </th>
+                                            <th style="width: 10%;">ค่าปรับ (บาท)</th>
                                             <th style="width: 10%;">ยอดชำระ (บาท)</th>
+                                            <th style="width: 10%;">ยอดคงค้าง (บาท)</th>
                                             <th style="width: 10%;">ยอดชำระค่าปรับ (บาท)</th>
-                                            <th style="width: 14%;">ใบเสร็จ</th>
+                                            <th style="width: 35%;">ใบเสร็จ</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -222,16 +211,15 @@
                                             else if (cls_pay.Period_payment_status == 9)
                                             {
                                             %>
-                                            <%= "style='background-color: lightgreen;'" %>
+                                            <%= cls_pay.Period_no % 2 == 0 ? "style='background-color: #ffb3d9;'"  : "style='background-color: lightgreen;'" %>
                                             <%          } %>
                                             >
                                             <td><%= cls_pay.Period_no %>  </td>
                                             <td><%= DateTimeUtility.convertDateToPage(cls_pay.Period_schedule)  %>  </td>
-                                            <td><%= cls_pay.Period_current.ToString("#,###.00") %>  </td>
-                                            <td><%= cls_pay.Total_payment_left == 0 ? cls_pay.Total_Period_left.ToString("#,###.00") : cls_pay.Total_payment_left.ToString("#,###.00") %>  </td>
-                                            <td><%= cls_pay.Period_fine.ToString("#,###.00") %>  </td>
                                             <td><%= string.IsNullOrEmpty(cls_pay.Real_payment_date)? "-" : DateTimeUtility.convertDateToPage(cls_pay.Real_payment_date) %>  </td>
+                                            <td><%= cls_pay.Period_fine.ToString("#,###.00") %>  </td>
                                             <td><%= cls_pay.Real_payment == 0 ? "0.00" : cls_pay.Real_payment.ToString("#,###.00") %>  </td>
+                                            <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Total_payment_left == 0 ? cls_pay.Total_Period_left.ToString("#,###.00") : cls_pay.Total_payment_left.ToString("#,###.00") %>  </td>
                                             <th><%= cls_pay.Real_payment_fine.ToString("#,###.00") %> </th>
                                             <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Bill_no %>  </td>
                                         </tr>
@@ -457,6 +445,15 @@
                                 <span class="input-group-addon">บาท</span>
                             </div>
                             <asp:RequiredFieldValidator ID="RFV_Real_Discount_TBx" runat="server" ErrorMessage=" กรุณากรอกจำนวนเงิน " CssClass="text-danger" ControlToValidate="Real_Discount_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-xs-5">
+                            <asp:Label ID="Bill_No_Manual_Ref_Lbl" runat="server"> เลขใบเสร็จ Ref. </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-7">
+                           <asp:TextBox ID="Bill_No_Manual_Ref_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="20pt" ForeColor="Red" ></asp:TextBox>
                         </div>
                     </div>
 

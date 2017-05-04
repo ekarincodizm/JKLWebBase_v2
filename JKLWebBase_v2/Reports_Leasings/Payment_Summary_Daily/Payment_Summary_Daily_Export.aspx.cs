@@ -63,6 +63,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("rpt_real_payment_daily", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+
                 cmd.Parameters.AddWithValue("@i_payment_str_date", date_str);
                 cmd.Parameters.AddWithValue("@i_payment_end_date", date_end);
                 cmd.Parameters.AddWithValue("@i_Company_id", Company_id_inline);
@@ -78,7 +80,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
                 Payment_Summary_Daily_mod_I rpt = new Payment_Summary_Daily_mod_I();
                 rpt.SetDataSource(ls_ds);
                 rpt.SetParameterValue("Reported_By_User", "ออกโดย : " + acc_lgn.Account_F_name);
-                rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateToPage(DateTimeUtility._dateNOW()));
+                rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOW()));
                 rpt.SetParameterValue("Report_Header", report_header);
 
 
@@ -171,6 +173,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("rpt_real_payment_daily", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+
                 cmd.Parameters.AddWithValue("@i_payment_str_date", date_str);
                 cmd.Parameters.AddWithValue("@i_payment_end_date", date_end);
                 cmd.Parameters.AddWithValue("@i_Company_id", Company_id_inline);
@@ -186,7 +190,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
                 Payment_Summary_Daily_mod_II rpt = new Payment_Summary_Daily_mod_II();
                 rpt.SetDataSource(ls_ds);
                 rpt.SetParameterValue("Reported_By_User", "ออกโดย : " + acc_lgn.Account_F_name);
-                rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateToPage(DateTimeUtility._dateNOW()));
+                rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOW()));
                 rpt.SetParameterValue("Report_Header", report_header);
 
                 CRV_Display_Report.ReportSource = rpt;

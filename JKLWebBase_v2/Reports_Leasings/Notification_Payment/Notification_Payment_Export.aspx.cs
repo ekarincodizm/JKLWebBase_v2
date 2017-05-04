@@ -65,6 +65,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("rpt_generals_leasing", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+
                 cmd.Parameters.AddWithValue("@i_Deps_no", deposit_no);
                 cmd.Parameters.AddWithValue("@i_Leasing_no", leasing_no);
                 cmd.Parameters.AddWithValue("@i_Cust_idcard", idcard);

@@ -82,8 +82,8 @@ namespace JKLWebBase_v2.Form_Agents
         // ประเภทนายหน้า
         private void _loadAgentstatus()
         {
-            Agent_status_DDL.Items.Add(new ListItem("บุคคลธรรมดา", "0"));
-            Agent_status_DDL.Items.Add(new ListItem("นิติบุคคล", "1"));
+            Agent_status_DDL.Items.Add(new ListItem("บุคคลธรรมดา", "1"));
+            Agent_status_DDL.Items.Add(new ListItem("นิติบุคคล", "2"));
         }
 
         /*******************************************************************************************************************************************************************************

@@ -13,60 +13,6 @@ namespace JKLWebBase_v2.Form_Leasings {
     public partial class Leasing_Payment {
         
         /// <summary>
-        /// Leasing_Date_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Leasing_Date_Lbl;
-        
-        /// <summary>
-        /// Leasing_Date_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Leasing_Date_TBx;
-        
-        /// <summary>
-        /// Deps_No_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Deps_No_Lbl;
-        
-        /// <summary>
-        /// Deps_No_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Deps_No_TBx;
-        
-        /// <summary>
-        /// Leasing_No_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Leasing_No_Lbl;
-        
-        /// <summary>
-        /// Leasing_No_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Leasing_No_TBx;
-        
-        /// <summary>
         /// Company_N_Name_Lbl control.
         /// </summary>
         /// <remarks>
@@ -119,78 +65,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Company_F_Name_TBx;
-        
-        /// <summary>
-        /// Customer_Name_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Customer_Name_Lbl;
-        
-        /// <summary>
-        /// Customer_Name_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Customer_Name_TBx;
-        
-        /// <summary>
-        /// Customer_Idcard_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Customer_Idcard_Lbl;
-        
-        /// <summary>
-        /// Customer_Idcard_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Customer_Idcard_TBx;
-        
-        /// <summary>
-        /// Customer_B_Date_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Customer_B_Date_Lbl;
-        
-        /// <summary>
-        /// Customer_B_Date_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Customer_B_Date_TBx;
-        
-        /// <summary>
-        /// Customer_Age_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Customer_Age_Lbl;
-        
-        /// <summary>
-        /// Customer_Age_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Customer_Age_TBx;
         
         /// <summary>
         /// Customer_H_Address_Lbl control.
@@ -319,24 +193,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.TextBox Car_Engine_No_TBx;
         
         /// <summary>
-        /// Agent_Commission_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Agent_Commission_Lbl;
-        
-        /// <summary>
-        /// Agent_Commission_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Agent_Commission_TBx;
-        
-        /// <summary>
         /// Finance_Cost_Lbl control.
         /// </summary>
         /// <remarks>
@@ -373,60 +229,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.TextBox Finance_Value_TBx;
         
         /// <summary>
-        /// Leasing_Cost_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Leasing_Cost_Lbl;
-        
-        /// <summary>
-        /// Leasing_Cost_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Leasing_Cost_TBx;
-        
-        /// <summary>
-        /// Period_Amount_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Period_Amount_Lbl;
-        
-        /// <summary>
-        /// Period_Amount_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Period_Amount_TBx;
-        
-        /// <summary>
-        /// Period_Payment_Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Period_Payment_Lbl;
-        
-        /// <summary>
-        /// Period_Payment_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Period_Payment_TBx;
-        
-        /// <summary>
         /// Payment_Schedule_Lbl control.
         /// </summary>
         /// <remarks>
@@ -461,6 +263,168 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Frist_Payment_Date_TBx;
+        
+        /// <summary>
+        /// Customer_Name_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Customer_Name_Lbl;
+        
+        /// <summary>
+        /// Customer_Name_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Customer_Name_TBx;
+        
+        /// <summary>
+        /// Customer_Idcard_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Customer_Idcard_Lbl;
+        
+        /// <summary>
+        /// Customer_Idcard_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Customer_Idcard_TBx;
+        
+        /// <summary>
+        /// Leasing_Date_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Leasing_Date_Lbl;
+        
+        /// <summary>
+        /// Leasing_Date_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Leasing_Date_TBx;
+        
+        /// <summary>
+        /// Deps_No_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Deps_No_Lbl;
+        
+        /// <summary>
+        /// Deps_No_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Deps_No_TBx;
+        
+        /// <summary>
+        /// Leasing_No_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Leasing_No_Lbl;
+        
+        /// <summary>
+        /// Leasing_No_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Leasing_No_TBx;
+        
+        /// <summary>
+        /// Leasing_Cost_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Leasing_Cost_Lbl;
+        
+        /// <summary>
+        /// Leasing_Cost_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Leasing_Cost_TBx;
+        
+        /// <summary>
+        /// Period_Payment_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Period_Payment_Lbl;
+        
+        /// <summary>
+        /// Period_Payment_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Period_Payment_TBx;
+        
+        /// <summary>
+        /// Period_Amount_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Period_Amount_Lbl;
+        
+        /// <summary>
+        /// Period_Amount_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Period_Amount_TBx;
+        
+        /// <summary>
+        /// Agent_Commission_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Agent_Commission_Lbl;
+        
+        /// <summary>
+        /// Agent_Commission_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Agent_Commission_TBx;
         
         /// <summary>
         /// Close_Leasing_Lbl control.
@@ -758,6 +722,24 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Real_Discount_TBx;
+        
+        /// <summary>
+        /// Bill_No_Manual_Ref_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Bill_No_Manual_Ref_Lbl;
+        
+        /// <summary>
+        /// Bill_No_Manual_Ref_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Bill_No_Manual_Ref_TBx;
         
         /// <summary>
         /// Note_Lbl control.

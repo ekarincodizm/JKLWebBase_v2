@@ -146,7 +146,8 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls_pay.bs_cpn.Company_province_id= reader.IsDBNull(33) ? defaultNum : reader.GetInt32(33);
                     cls_pay.bs_cpn.Company_province_name = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
 
-                    cls_pay.Payment_save_date = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
+                    cls_pay.Bill_no_manual_ref = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
+                    cls_pay.Payment_save_date = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
 
                     list_cls_pay.Add(cls_pay);
                 }
@@ -180,7 +181,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                  * :: StoredProcedure :: [ i_car_leasings_real_payment_mod_II ] :: 
                  * i_car_leasings_real_payment_mod_II (IN i_Leasing_id VARCHAR(50), IN i_Period_free DOUBLE(10,2), IN i_Period_track DOUBLE(10,2), 
 				 *		IN i_Total_payment_fine DOUBLE(10,2), IN i_Discount DOUBLE(10,2), IN i_Real_payment DOUBLE(10,2), 
-				 *		IN i_Real_payment_date DATE, IN i_Account_id VARCHAR(255), IN i_Company_Id INT(11), IN i_Type_Payment INT(11))
+				 *		IN i_Real_payment_date DATE, IN i_Account_id VARCHAR(255), IN i_Company_Id INT(11), IN i_Bill_no_manual_ref VARCHAR(255), IN i_Type_Payment INT(11))
                  * 
                  */
 
@@ -197,6 +198,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_Real_payment_date", cls_pay.Real_payment_date);
                 cmd.Parameters.AddWithValue("@i_Account_id", cls_pay.acc_lgn.Account_id);
                 cmd.Parameters.AddWithValue("@i_Company_Id", cls_pay.bs_cpn.Company_id);
+                cmd.Parameters.AddWithValue("@i_Bill_no_manual_ref", cls_pay.Bill_no_manual_ref);
                 cmd.Parameters.AddWithValue("@i_Type_Payment", type);
 
                 cmd.ExecuteNonQuery();
@@ -248,6 +250,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_Real_payment_date", cls_pay.Real_payment_date);
                 cmd.Parameters.AddWithValue("@i_Account_id", cls_pay.acc_lgn.Account_id);
                 cmd.Parameters.AddWithValue("@i_Company_Id", cls_pay.bs_cpn.Company_id);
+                cmd.Parameters.AddWithValue("@i_Bill_no_manual_ref", cls_pay.Bill_no_manual_ref);
                 cmd.Parameters.AddWithValue("@i_Type_Payment", type);
 
                 cmd.ExecuteNonQuery();
@@ -281,7 +284,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                  * :: StoredProcedure :: [ u_car_leasings_real_payment ] :: 
                  * u_car_leasings_real_payment (IN i_Leasing_id VARCHAR(50), IN i_Bill_no VARCHAR(255), IN i_Period_free DOUBLE(10,2), IN i_Period_track DOUBLE(10,2),
                  *                      IN i_Total_payment_fine DOUBLE(10,2), IN i_Discount DOUBLE(10,2), IN i_Real_payment DOUBLE(10,2), 
-				 *                      IN i_Real_payment_date DATE, IN i_Emp_id VARCHAR(255), IN i_Company_Id INT(11))
+				 *                      IN i_Real_payment_date DATE, IN i_Emp_id VARCHAR(255), IN i_Company_Id INT(11), IN i_Bill_no_manual_ref VARCHAR(255))
                  * 
                  */
 
@@ -299,6 +302,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_Real_payment_date", cls_pay.Real_payment_date);
                 cmd.Parameters.AddWithValue("@i_Account_id", cls_pay.acc_lgn.Account_id);
                 cmd.Parameters.AddWithValue("@i_Company_Id", cls_pay.bs_cpn.Company_id);
+                cmd.Parameters.AddWithValue("@i_Bill_no_manual_ref", cls_pay.Bill_no_manual_ref);
 
                 cmd.ExecuteNonQuery();
 

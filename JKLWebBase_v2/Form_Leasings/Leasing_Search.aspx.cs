@@ -245,7 +245,7 @@ namespace JKLWebBase_v2
 
                 link_Previous.Enabled = true;
 
-                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 20);
+                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, Company_id_inline, zone_id_inline, row_str, 20);
 
                 Session["row_str"] = row_str;
 

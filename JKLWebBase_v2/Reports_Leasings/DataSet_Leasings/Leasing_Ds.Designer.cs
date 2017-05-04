@@ -15593,6 +15593,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             private global::System.Data.DataColumn columnBill_no;
             
+            private global::System.Data.DataColumn columnBill_no_manual_ref;
+            
             private global::System.Data.DataColumn columnReal_Payment_Period;
             
             private global::System.Data.DataColumn columnPeriod_fee;
@@ -15970,6 +15972,14 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Bill_no_manual_refColumn {
+                get {
+                    return this.columnBill_no_manual_ref;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Real_Payment_PeriodColumn {
                 get {
                     return this.columnReal_Payment_Period;
@@ -16134,6 +16144,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Cust_Home_zipcode, 
                         string Cust_Home_tel, 
                         string Bill_no, 
+                        string Bill_no_manual_ref, 
                         string Real_Payment_Period, 
                         double Period_fee, 
                         double Period_track, 
@@ -16187,6 +16198,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         Cust_Home_zipcode,
                         Cust_Home_tel,
                         Bill_no,
+                        Bill_no_manual_ref,
                         Real_Payment_Period,
                         Period_fee,
                         Period_track,
@@ -16260,6 +16272,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 this.columnCust_Home_zipcode = base.Columns["Cust_Home_zipcode"];
                 this.columnCust_Home_tel = base.Columns["Cust_Home_tel"];
                 this.columnBill_no = base.Columns["Bill_no"];
+                this.columnBill_no_manual_ref = base.Columns["Bill_no_manual_ref"];
                 this.columnReal_Payment_Period = base.Columns["Real_Payment_Period"];
                 this.columnPeriod_fee = base.Columns["Period_fee"];
                 this.columnPeriod_track = base.Columns["Period_track"];
@@ -16356,6 +16369,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_Home_tel);
                 this.columnBill_no = new global::System.Data.DataColumn("Bill_no", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBill_no);
+                this.columnBill_no_manual_ref = new global::System.Data.DataColumn("Bill_no_manual_ref", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBill_no_manual_ref);
                 this.columnReal_Payment_Period = new global::System.Data.DataColumn("Real_Payment_Period", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReal_Payment_Period);
                 this.columnPeriod_fee = new global::System.Data.DataColumn("Period_fee", typeof(double), null, global::System.Data.MappingType.Element);
@@ -44806,6 +44821,23 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Bill_no_manual_ref {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Bill_no_manual_refColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Bill_no_manual_ref\' in table \'Bill_Payment_Slip\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Bill_no_manual_refColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Real_Payment_Period {
                 get {
                     try {
@@ -45461,6 +45493,18 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetBill_noNull() {
                 this[this.tableBill_Payment_Slip.Bill_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBill_no_manual_refNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Bill_no_manual_refColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBill_no_manual_refNull() {
+                this[this.tableBill_Payment_Slip.Bill_no_manual_refColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

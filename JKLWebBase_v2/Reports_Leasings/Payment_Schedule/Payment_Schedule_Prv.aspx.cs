@@ -48,6 +48,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("rpt_payment_schedule", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+
                 cmd.Parameters.AddWithValue("@i_Leasing_id", cls.Leasing_id);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -100,6 +102,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("rpt_payment_schedule", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+
                 cmd.Parameters.AddWithValue("@i_Leasing_id", cls.Leasing_id);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
