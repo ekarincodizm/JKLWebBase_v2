@@ -442,7 +442,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             this.DataSetName = "Leasing_Ds";
             this.Prefix = "";
             this.Namespace = "http://tempuri.org/Leasing_Ds.xsd";
-            this.EnforceConstraints = true;
+            this.EnforceConstraints = false;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableCustomers = new CustomersDataTable();
             base.Tables.Add(this.tableCustomers);
@@ -47261,11 +47261,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Leasing_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Leasing_idColumn]));
+                    if (this.IsLeasing_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_id\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Leasing_idColumn]));
                     }
                 }
                 set {
@@ -47277,11 +47277,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Deps_no {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Deps_noColumn]));
+                    if (this.IsDeps_noNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Deps_no\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Deps_noColumn]));
                     }
                 }
                 set {
@@ -47293,11 +47293,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Leasing_no {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Leasing_noColumn]));
+                    if (this.IsLeasing_noNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_no\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Leasing_noColumn]));
                     }
                 }
                 set {
@@ -47309,12 +47309,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Leasing_code_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Leasing_code_idColumn]));
+                    if (this.IsLeasing_code_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_code_id\' in table \'Report_General_Leasings\' is DBNu" +
-                                "ll.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Leasing_code_idColumn]));
                     }
                 }
                 set {
@@ -47326,12 +47325,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Leasing_code_name {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Leasing_code_nameColumn]));
+                    if (this.IsLeasing_code_nameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_code_name\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Leasing_code_nameColumn]));
                     }
                 }
                 set {
@@ -47343,12 +47341,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Leasing_date {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Leasing_dateColumn]));
+                    if (this.IsLeasing_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_date\' in table \'Report_General_Leasings\' is DBNull." +
-                                "", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Leasing_dateColumn]));
                     }
                 }
                 set {
@@ -47360,11 +47357,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_idColumn]));
+                    if (this.IsCompany_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_id\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_idColumn]));
                     }
                 }
                 set {
@@ -47393,12 +47390,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_N_name {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_N_nameColumn]));
+                    if (this.IsCompany_N_nameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_N_name\' in table \'Report_General_Leasings\' is DBNul" +
-                                "l.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_N_nameColumn]));
                     }
                 }
                 set {
@@ -47410,12 +47406,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_F_name {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_F_nameColumn]));
+                    if (this.IsCompany_F_nameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_F_name\' in table \'Report_General_Leasings\' is DBNul" +
-                                "l.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_F_nameColumn]));
                     }
                 }
                 set {
@@ -47427,12 +47422,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_tax_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_tax_idColumn]));
+                    if (this.IsCompany_tax_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_tax_id\' in table \'Report_General_Leasings\' is DBNul" +
-                                "l.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_tax_idColumn]));
                     }
                 }
                 set {
@@ -47444,12 +47438,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_tax_subcode {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_tax_subcodeColumn]));
+                    if (this.IsCompany_tax_subcodeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_tax_subcode\' in table \'Report_General_Leasings\' is " +
-                                "DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_tax_subcodeColumn]));
                     }
                 }
                 set {
@@ -47461,12 +47454,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_address_no {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_address_noColumn]));
+                    if (this.IsCompany_address_noNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_address_no\' in table \'Report_General_Leasings\' is D" +
-                                "BNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_address_noColumn]));
                     }
                 }
                 set {
@@ -47478,12 +47470,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_vilage {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_vilageColumn]));
+                    if (this.IsCompany_vilageNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_vilage\' in table \'Report_General_Leasings\' is DBNul" +
-                                "l.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_vilageColumn]));
                     }
                 }
                 set {
@@ -47495,12 +47486,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_vilage_no {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_vilage_noColumn]));
+                    if (this.IsCompany_vilage_noNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_vilage_no\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_vilage_noColumn]));
                     }
                 }
                 set {
@@ -47512,12 +47502,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_alley {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_alleyColumn]));
+                    if (this.IsCompany_alleyNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_alley\' in table \'Report_General_Leasings\' is DBNull" +
-                                ".", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_alleyColumn]));
                     }
                 }
                 set {
@@ -47529,12 +47518,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_road {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_roadColumn]));
+                    if (this.IsCompany_roadNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_road\' in table \'Report_General_Leasings\' is DBNull." +
-                                "", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_roadColumn]));
                     }
                 }
                 set {
@@ -47546,12 +47534,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_subdistrict {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_subdistrictColumn]));
+                    if (this.IsCompany_subdistrictNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_subdistrict\' in table \'Report_General_Leasings\' is " +
-                                "DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_subdistrictColumn]));
                     }
                 }
                 set {
@@ -47563,12 +47550,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_district {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_districtColumn]));
+                    if (this.IsCompany_districtNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_district\' in table \'Report_General_Leasings\' is DBN" +
-                                "ull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_districtColumn]));
                     }
                 }
                 set {
@@ -47580,12 +47566,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_Province_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_Province_idColumn]));
+                    if (this.IsCompany_Province_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_Province_id\' in table \'Report_General_Leasings\' is " +
-                                "DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_Province_idColumn]));
                     }
                 }
                 set {
@@ -47597,12 +47582,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_Province_name {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_Province_nameColumn]));
+                    if (this.IsCompany_Province_nameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_Province_name\' in table \'Report_General_Leasings\' i" +
-                                "s DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_Province_nameColumn]));
                     }
                 }
                 set {
@@ -47614,12 +47598,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_country {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_countryColumn]));
+                    if (this.IsCompany_countryNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_country\' in table \'Report_General_Leasings\' is DBNu" +
-                                "ll.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_countryColumn]));
                     }
                 }
                 set {
@@ -47631,12 +47614,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_zipcode {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_zipcodeColumn]));
+                    if (this.IsCompany_zipcodeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_zipcode\' in table \'Report_General_Leasings\' is DBNu" +
-                                "ll.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_zipcodeColumn]));
                     }
                 }
                 set {
@@ -47648,11 +47630,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_tel {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_telColumn]));
+                    if (this.IsCompany_telNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_tel\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_telColumn]));
                     }
                 }
                 set {
@@ -47664,12 +47646,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Company_Save_date {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Company_Save_dateColumn]));
+                    if (this.IsCompany_Save_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Company_Save_date\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Company_Save_dateColumn]));
                     }
                 }
                 set {
@@ -47681,11 +47662,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Zone_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Zone_idColumn]));
+                    if (this.IsZone_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Zone_id\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Zone_idColumn]));
                     }
                 }
                 set {
@@ -47697,11 +47678,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Zone_code {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Zone_codeColumn]));
+                    if (this.IsZone_codeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Zone_code\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Zone_codeColumn]));
                     }
                 }
                 set {
@@ -47713,11 +47694,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Zone_name {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Zone_nameColumn]));
+                    if (this.IsZone_nameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Zone_name\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Zone_nameColumn]));
                     }
                 }
                 set {
@@ -47729,11 +47710,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Court_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Court_idColumn]));
+                    if (this.IsCourt_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Court_id\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Court_idColumn]));
                     }
                 }
                 set {
@@ -47745,11 +47726,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Court_name {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Court_nameColumn]));
+                    if (this.IsCourt_nameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Court_name\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Court_nameColumn]));
                     }
                 }
                 set {
@@ -47761,11 +47742,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string PeReT {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.PeReTColumn]));
+                    if (this.IsPeReTNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PeReT\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.PeReTColumn]));
                     }
                 }
                 set {
@@ -47777,12 +47758,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string TotalPaymentTime {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.TotalPaymentTimeColumn]));
+                    if (this.IsTotalPaymentTimeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalPaymentTime\' in table \'Report_General_Leasings\' is DBN" +
-                                "ull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.TotalPaymentTimeColumn]));
                     }
                 }
                 set {
@@ -48043,12 +48023,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Total_period_length {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Total_period_lengthColumn]));
+                    if (this.IsTotal_period_lengthNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total_period_length\' in table \'Report_General_Leasings\' is " +
-                                "DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Total_period_lengthColumn]));
                     }
                 }
                 set {
@@ -48111,12 +48090,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Payment_schedule {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Payment_scheduleColumn]));
+                    if (this.IsPayment_scheduleNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Payment_schedule\' in table \'Report_General_Leasings\' is DBN" +
-                                "ull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Payment_scheduleColumn]));
                     }
                 }
                 set {
@@ -48128,12 +48106,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string First_payment_date {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.First_payment_dateColumn]));
+                    if (this.IsFirst_payment_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'First_payment_date\' in table \'Report_General_Leasings\' is D" +
-                                "BNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.First_payment_dateColumn]));
                     }
                 }
                 set {
@@ -48145,12 +48122,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_register_date {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_register_dateColumn]));
+                    if (this.IsCar_register_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_register_date\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_register_dateColumn]));
                     }
                 }
                 set {
@@ -48162,12 +48138,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_license_plate {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_license_plateColumn]));
+                    if (this.IsCar_license_plateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_license_plate\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_license_plateColumn]));
                     }
                 }
                 set {
@@ -48179,12 +48154,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_license_Province_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_license_Province_idColumn]));
+                    if (this.IsCar_license_Province_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_license_Province_id\' in table \'Report_General_Leasings\'" +
-                                " is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_license_Province_idColumn]));
                     }
                 }
                 set {
@@ -48196,12 +48170,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_license_Province_name {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_license_Province_nameColumn]));
+                    if (this.IsCar_license_Province_nameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_license_Province_name\' in table \'Report_General_Leasing" +
-                                "s\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_license_Province_nameColumn]));
                     }
                 }
                 set {
@@ -48229,11 +48202,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_feature {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_featureColumn]));
+                    if (this.IsCar_featureNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_feature\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_featureColumn]));
                     }
                 }
                 set {
@@ -48245,12 +48218,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_brand_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_brand_idColumn]));
+                    if (this.IsCar_brand_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_brand_id\' in table \'Report_General_Leasings\' is DBNull." +
-                                "", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_brand_idColumn]));
                     }
                 }
                 set {
@@ -48262,12 +48234,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_brand_name_eng {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_brand_name_engColumn]));
+                    if (this.IsCar_brand_name_engNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_brand_name_eng\' in table \'Report_General_Leasings\' is D" +
-                                "BNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_brand_name_engColumn]));
                     }
                 }
                 set {
@@ -48279,12 +48250,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_brand_name_th {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_brand_name_thColumn]));
+                    if (this.IsCar_brand_name_thNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_brand_name_th\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_brand_name_thColumn]));
                     }
                 }
                 set {
@@ -48296,11 +48266,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_model {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_modelColumn]));
+                    if (this.IsCar_modelNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_model\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_modelColumn]));
                     }
                 }
                 set {
@@ -48312,11 +48282,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_year {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_yearColumn]));
+                    if (this.IsCar_yearNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_year\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_yearColumn]));
                     }
                 }
                 set {
@@ -48328,11 +48298,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_color {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_colorColumn]));
+                    if (this.IsCar_colorNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_color\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_colorColumn]));
                     }
                 }
                 set {
@@ -48344,12 +48314,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_engine_no {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_engine_noColumn]));
+                    if (this.IsCar_engine_noNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_engine_no\' in table \'Report_General_Leasings\' is DBNull" +
-                                ".", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_engine_noColumn]));
                     }
                 }
                 set {
@@ -48361,12 +48330,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_engine_no_at {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_engine_no_atColumn]));
+                    if (this.IsCar_engine_no_atNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_engine_no_at\' in table \'Report_General_Leasings\' is DBN" +
-                                "ull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_engine_no_atColumn]));
                     }
                 }
                 set {
@@ -48378,12 +48346,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_engine_brand {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_engine_brandColumn]));
+                    if (this.IsCar_engine_brandNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_engine_brand\' in table \'Report_General_Leasings\' is DBN" +
-                                "ull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_engine_brandColumn]));
                     }
                 }
                 set {
@@ -48395,12 +48362,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_chassis_no {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_chassis_noColumn]));
+                    if (this.IsCar_chassis_noNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_chassis_no\' in table \'Report_General_Leasings\' is DBNul" +
-                                "l.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_chassis_noColumn]));
                     }
                 }
                 set {
@@ -48412,12 +48378,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_chassis_no_at {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_chassis_no_atColumn]));
+                    if (this.IsCar_chassis_no_atNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_chassis_no_at\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_chassis_no_atColumn]));
                     }
                 }
                 set {
@@ -48429,12 +48394,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_fual_type {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_fual_typeColumn]));
+                    if (this.IsCar_fual_typeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_fual_type\' in table \'Report_General_Leasings\' is DBNull" +
-                                ".", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_fual_typeColumn]));
                     }
                 }
                 set {
@@ -48446,11 +48410,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_used_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_used_idColumn]));
+                    if (this.IsCar_used_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_used_id\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_used_idColumn]));
                     }
                 }
                 set {
@@ -48479,12 +48443,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_next_register_date {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_next_register_dateColumn]));
+                    if (this.IsCar_next_register_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_next_register_date\' in table \'Report_General_Leasings\' " +
-                                "is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_next_register_dateColumn]));
                     }
                 }
                 set {
@@ -48513,11 +48476,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_credits {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_creditsColumn]));
+                    if (this.IsCar_creditsNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_credits\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_creditsColumn]));
                     }
                 }
                 set {
@@ -48529,11 +48492,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Car_agent {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Car_agentColumn]));
+                    if (this.IsCar_agentNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Car_agent\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Car_agentColumn]));
                     }
                 }
                 set {
@@ -48545,12 +48508,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cheque_receiver {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cheque_receiverColumn]));
+                    if (this.IsCheque_receiverNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cheque_receiver\' in table \'Report_General_Leasings\' is DBNu" +
-                                "ll.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cheque_receiverColumn]));
                     }
                 }
                 set {
@@ -48562,11 +48524,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cheque_bank {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cheque_bankColumn]));
+                    if (this.IsCheque_bankNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cheque_bank\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cheque_bankColumn]));
                     }
                 }
                 set {
@@ -48578,12 +48540,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cheque_bank_branch {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cheque_bank_branchColumn]));
+                    if (this.IsCheque_bank_branchNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cheque_bank_branch\' in table \'Report_General_Leasings\' is D" +
-                                "BNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cheque_bank_branchColumn]));
                     }
                 }
                 set {
@@ -48628,12 +48589,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cheque_receive_date {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cheque_receive_dateColumn]));
+                    if (this.IsCheque_receive_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cheque_receive_date\' in table \'Report_General_Leasings\' is " +
-                                "DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cheque_receive_dateColumn]));
                     }
                 }
                 set {
@@ -48645,11 +48605,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Guarantee {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.GuaranteeColumn]));
+                    if (this.IsGuaranteeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantee\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.GuaranteeColumn]));
                     }
                 }
                 set {
@@ -48661,12 +48621,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Contract_status_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Contract_status_idColumn]));
+                    if (this.IsContract_status_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Contract_status_id\' in table \'Report_General_Leasings\' is D" +
-                                "BNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Contract_status_idColumn]));
                     }
                 }
                 set {
@@ -48695,12 +48654,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Leasings_save_date {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Leasings_save_dateColumn]));
+                    if (this.IsLeasings_save_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Leasings_save_date\' in table \'Report_General_Leasings\' is D" +
-                                "BNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Leasings_save_dateColumn]));
                     }
                 }
                 set {
@@ -48712,11 +48670,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_idColumn]));
+                    if (this.IsCust_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_id\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_idColumn]));
                     }
                 }
                 set {
@@ -48776,11 +48734,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_B_date {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_B_dateColumn]));
+                    if (this.IsCust_B_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_B_date\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_B_dateColumn]));
                     }
                 }
                 set {
@@ -48792,11 +48750,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Age {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_AgeColumn]));
+                    if (this.IsCust_AgeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Age\' in table \'Report_General_Leasings\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_AgeColumn]));
                     }
                 }
                 set {
@@ -48825,12 +48783,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Idcard_start {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Idcard_startColumn]));
+                    if (this.IsCust_Idcard_startNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Idcard_start\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Idcard_startColumn]));
                     }
                 }
                 set {
@@ -48842,12 +48799,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Idcard_expire {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Idcard_expireColumn]));
+                    if (this.IsCust_Idcard_expireNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Idcard_expire\' in table \'Report_General_Leasings\' is D" +
-                                "BNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Idcard_expireColumn]));
                     }
                 }
                 set {
@@ -49010,12 +48966,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Home_province_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_province_idColumn]));
+                    if (this.IsCust_Home_province_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_province_id\' in table \'Report_General_Leasings\' i" +
-                                "s DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_province_idColumn]));
                     }
                 }
                 set {
@@ -49027,12 +48982,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Home_province_name {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_province_nameColumn]));
+                    if (this.IsCust_Home_province_nameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_province_name\' in table \'Report_General_Leasings\'" +
-                                " is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_province_nameColumn]));
                     }
                 }
                 set {
@@ -49044,12 +48998,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Home_country {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_countryColumn]));
+                    if (this.IsCust_Home_countryNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_country\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_countryColumn]));
                     }
                 }
                 set {
@@ -49061,12 +49014,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Home_zipcode {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_zipcodeColumn]));
+                    if (this.IsCust_Home_zipcodeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_zipcode\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_zipcodeColumn]));
                     }
                 }
                 set {
@@ -49078,12 +49030,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Home_tel {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_telColumn]));
+                    if (this.IsCust_Home_telNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_tel\' in table \'Report_General_Leasings\' is DBNull" +
-                                ".", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_telColumn]));
                     }
                 }
                 set {
@@ -49095,12 +49046,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Home_GPS_Latitude {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_GPS_LatitudeColumn]));
+                    if (this.IsCust_Home_GPS_LatitudeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_GPS_Latitude\' in table \'Report_General_Leasings\' " +
-                                "is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_GPS_LatitudeColumn]));
                     }
                 }
                 set {
@@ -49112,12 +49062,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Home_GPS_Longitude {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_GPS_LongitudeColumn]));
+                    if (this.IsCust_Home_GPS_LongitudeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_GPS_Longitude\' in table \'Report_General_Leasings\'" +
-                                " is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_GPS_LongitudeColumn]));
                     }
                 }
                 set {
@@ -49129,12 +49078,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Home_Status_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_Status_idColumn]));
+                    if (this.IsCust_Home_Status_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_Status_id\' in table \'Report_General_Leasings\' is " +
-                                "DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_Status_idColumn]));
                     }
                 }
                 set {
@@ -49146,12 +49094,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_Home_Status_name {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_Status_nameColumn]));
+                    if (this.IsCust_Home_Status_nameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Cust_Home_Status_name\' in table \'Report_General_Leasings\' i" +
-                                "s DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Cust_Home_Status_nameColumn]));
                     }
                 }
                 set {
@@ -49163,12 +49110,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Save_Data_Date {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.Save_Data_DateColumn]));
+                    if (this.IsSave_Data_DateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Save_Data_Date\' in table \'Report_General_Leasings\' is DBNul" +
-                                "l.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Save_Data_DateColumn]));
                     }
                 }
                 set {
@@ -49197,12 +49143,11 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string last_payment_date {
                 get {
-                    try {
-                        return ((string)(this[this.tableReport_General_Leasings.last_payment_dateColumn]));
+                    if (this.Islast_payment_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'last_payment_date\' in table \'Report_General_Leasings\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.last_payment_dateColumn]));
                     }
                 }
                 set {
