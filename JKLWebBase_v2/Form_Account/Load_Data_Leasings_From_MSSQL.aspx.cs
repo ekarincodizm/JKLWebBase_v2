@@ -313,7 +313,6 @@ namespace JKLWebBase_v2.Form_Account
             SqlConnection con = MSSQLConnection.connectionMSSQL();
 
             int row_index = 1;
-
             try
             {
                 con.Open();
@@ -476,7 +475,9 @@ namespace JKLWebBase_v2.Form_Account
                         cls.bs_ls_stt = new Base_Leasing_Status();
                         cls.bs_ls_stt.Contract_Status_id = 1;
 
-                        cls_mng.addCarLeasings(cls);
+                        //cls_mng.addCarLeasings(cls);
+
+                        Messages_Logs._writeSQLCodeInsertLeasingsToMYSQL(cls, 0);
 
                         Messages_TBx.Text += "Transfer Data Leasing No Customers Passed : " + row_index + Environment.NewLine;
 
@@ -573,6 +574,11 @@ namespace JKLWebBase_v2.Form_Account
                     cls.bs_ls_code.Leasing_code_id = reader.IsDBNull(14) ? defaultNum : _getLeasingCode(reader.GetString(14));
 
                     cls.Leasing_date = reader.IsDBNull(6) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(6).ToString());
+
+                    if (cls.Deps_no == "52060140")
+                    {
+                        cls.Leasing_date = "2009-08-13";
+                    }
 
                     cls.bs_cpn = new Base_Companys();
                     cls.bs_cpn.Company_id = reader.IsDBNull(10) ? defaultNum : _getCompanys(reader.GetString(10));
@@ -752,7 +758,6 @@ namespace JKLWebBase_v2.Form_Account
                         cag_com.Agent_num_code = defaultString;
                         cag_com.Agent_book_code = defaultString;
                         cag_com.Agent_date_print = null;
-                        cag_com.Agent_value_save_date = null;
 
                         cag_com.Leasing_id = cls.Leasing_id;
 
@@ -807,11 +812,15 @@ namespace JKLWebBase_v2.Form_Account
 
                 SqlConnection con = MSSQLConnection.connectionMSSQL();
 
+                if ((i + 1) % 100 == 0) { part++; }
+
+                string last_row = string.Empty;
+
                 try
                 {
                     con.Open();
 
-                    string sql = "  SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' ORDER BY scheduleno ";
+                    string sql = " SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' ORDER BY scheduleno ";
 
                     SqlCommand cmd = new SqlCommand(sql, con);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -837,14 +846,12 @@ namespace JKLWebBase_v2.Form_Account
                         cls_pay.bs_cpn = new Base_Companys();
                         cls_pay.bs_cpn.Company_id = _getCompanys(reader.GetString(20));
 
-                        if (i % 1000 == 0) { part++; }
-
                         if (cls_pay.Discount <= 0)
                         {
 
                             Messages_Logs._writeSQLCodeInsertCarLeasingsPaymentToMYSQL(cls_pay, 1, part);
 
-                            Messages_TBx.Text += "Transfer Data Payment 1 Passed : " + row_index + Environment.NewLine;
+                            last_row = cls_pay.Leasing_id;
 
                             /*if (cls_pay_mng.addPayment_Mod_I(cls_pay, 1))
                             {
@@ -861,7 +868,7 @@ namespace JKLWebBase_v2.Form_Account
                         {
                             Messages_Logs._writeSQLCodeInsertCarLeasingsPaymentToMYSQL(cls_pay, 2, part);
 
-                            Messages_TBx.Text += "Transfer Data Payment 2 Passed : " + row_index + Environment.NewLine;
+                            last_row = cls_pay.Leasing_id;
 
                             /*if (cls_pay_mng.addPayment_Mod_I(cls_pay, 2))
                             {
@@ -901,6 +908,10 @@ namespace JKLWebBase_v2.Form_Account
                     con.Close();
                     con.Dispose();
                 }
+
+                Messages_Logs._writeSQLCodeCalPeriodFineToMYSQL(last_row, part);
+
+                Messages_TBx.Text += "Transfer Data Payment Passed : " + i + Environment.NewLine;
             }
         }
 

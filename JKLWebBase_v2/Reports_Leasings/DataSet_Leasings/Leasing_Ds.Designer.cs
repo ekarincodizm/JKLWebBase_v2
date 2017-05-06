@@ -17844,8 +17844,6 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             private global::System.Data.DataColumn columnSave_Data_Date;
             
-            private global::System.Data.DataColumn columnOver_payment;
-            
             private global::System.Data.DataColumn columnSum_period_lost;
             
             private global::System.Data.DataColumn columnlast_payment_date;
@@ -18807,14 +18805,6 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Over_paymentColumn {
-                get {
-                    return this.columnOver_payment;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Sum_period_lostColumn {
                 get {
                     return this.columnSum_period_lost;
@@ -18990,7 +18980,6 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Cust_Home_Status_id, 
                         string Cust_Home_Status_name, 
                         string Save_Data_Date, 
-                        double Over_payment, 
                         double Sum_period_lost, 
                         string last_payment_date, 
                         string Expire_Alert) {
@@ -19111,7 +19100,6 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         Cust_Home_Status_id,
                         Cust_Home_Status_name,
                         Save_Data_Date,
-                        Over_payment,
                         Sum_period_lost,
                         last_payment_date,
                         Expire_Alert};
@@ -19252,7 +19240,6 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 this.columnCust_Home_Status_id = base.Columns["Cust_Home_Status_id"];
                 this.columnCust_Home_Status_name = base.Columns["Cust_Home_Status_name"];
                 this.columnSave_Data_Date = base.Columns["Save_Data_Date"];
-                this.columnOver_payment = base.Columns["Over_payment"];
                 this.columnSum_period_lost = base.Columns["Sum_period_lost"];
                 this.columnlast_payment_date = base.Columns["last_payment_date"];
                 this.columnExpire_Alert = base.Columns["Expire_Alert"];
@@ -19491,8 +19478,6 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnCust_Home_Status_name);
                 this.columnSave_Data_Date = new global::System.Data.DataColumn("Save_Data_Date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSave_Data_Date);
-                this.columnOver_payment = new global::System.Data.DataColumn("Over_payment", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOver_payment);
                 this.columnSum_period_lost = new global::System.Data.DataColumn("Sum_period_lost", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSum_period_lost);
                 this.columnlast_payment_date = new global::System.Data.DataColumn("last_payment_date", typeof(string), null, global::System.Data.MappingType.Element);
@@ -49193,23 +49178,6 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double Over_payment {
-                get {
-                    try {
-                        return ((double)(this[this.tableReport_General_Leasings.Over_paymentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Over_payment\' in table \'Report_General_Leasings\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableReport_General_Leasings.Over_paymentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public double Sum_period_lost {
                 get {
                     try {
@@ -50637,18 +50605,6 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetSave_Data_DateNull() {
                 this[this.tableReport_General_Leasings.Save_Data_DateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsOver_paymentNull() {
-                return this.IsNull(this.tableReport_General_Leasings.Over_paymentColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetOver_paymentNull() {
-                this[this.tableReport_General_Leasings.Over_paymentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

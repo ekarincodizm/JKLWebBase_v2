@@ -687,7 +687,6 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + cag_com.Agent_num_code + "'";
             message += ",'" + cag_com.Agent_book_code + "'";
             message += string.IsNullOrEmpty(cag_com.Agent_value_save_date) ? ",null" : ",'" + cag_com.Agent_date_print + "'";
-            message += string.IsNullOrEmpty(cag_com.Agent_value_save_date) ? ",null" : ",'" + cag_com.Agent_value_save_date + "'";
             message += ");";
             message += Environment.NewLine;
 
@@ -727,7 +726,38 @@ namespace JKLWebBase_v2.Global_Class
             message += string.IsNullOrEmpty(cls_pay.Real_payment_date) ? "," + null : ",'" + cls_pay.Real_payment_date + "'";
             message += ",'" + cls_pay.acc_lgn.Account_id + "'";
             message += "," + cls_pay.bs_cpn.Company_id + "";
+            message += ",'" + cls_pay.Bill_no_manual_ref + "'";
             message += "," + type + "";
+            message += ");";
+            message += Environment.NewLine;
+
+            string path = subDirectoryPath + "Code_INSERT_Car_Leasings_Payment_part_" + part + ".txt";
+
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine(message);
+                writer.Close();
+            }
+        }
+
+        public static void _writeSQLCodeCalPeriodFineToMYSQL(string Leasing_id, int part)
+        {
+            string mainDirectoryPath = "C:/SQL_Command/";
+
+            if (!Directory.Exists(mainDirectoryPath))
+            {
+                Directory.CreateDirectory(mainDirectoryPath);
+            }
+
+            string subDirectoryPath = mainDirectoryPath + "INSERT_Car_Leasings_Payment/";
+
+            if (!Directory.Exists(subDirectoryPath))
+            {
+                Directory.CreateDirectory(subDirectoryPath);
+            }
+
+            string message = "CALL cal_period_fine_by_id(";
+            message += "'" + Leasing_id + "'";
             message += ");";
             message += Environment.NewLine;
 

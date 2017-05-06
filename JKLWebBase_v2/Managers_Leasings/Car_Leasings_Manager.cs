@@ -352,6 +352,7 @@ namespace JKLWebBase_v2.Managers_Leasings
         public List<Car_Leasings> getCarLeasing(string i_Deps_no , string i_Leasing_no, string i_Cust_idcard, string i_Cust_Fname , string i_Cust_LName, string i_Leasing_date_str, string i_Leasing_date_end, string i_Leasing_code_id,  string i_Company_id, string i_Zone_id, int i_row_str, int i_row_limit)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
+            string error_2 = "";
             try
             {
                 /* 
@@ -396,6 +397,8 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls.bs_ls_code = new Base_Leasing_Code();
                     cls.bs_ls_code.Leasing_code_id = reader.IsDBNull(3) ? defaultNum : reader.GetInt32(3);
                     cls.bs_ls_code.Leasing_code_name = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+
+                    error_2 = cls.Deps_no + " : " + list_cls.Count;
 
                     cls.Leasing_date = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
 
@@ -685,7 +688,6 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls.ctm.Cust_save_date = reader.IsDBNull(225) ? defaultString : reader.GetString(225);
 
                     list_cls.Add(cls);
-
                 }
 
                 return list_cls;
