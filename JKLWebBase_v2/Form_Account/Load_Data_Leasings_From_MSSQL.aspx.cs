@@ -271,11 +271,11 @@ namespace JKLWebBase_v2.Form_Account
 
                     Messages_Logs._writeSQLCodeInsertCustomerToMYSQL(ctm, part);
 
-                    Messages_TBx.Text += "Transfer Data Cusotmer Passed : " + row_index + Environment.NewLine;
+                    //Messages_TBx.Text += "Transfer Data Cusotmer Passed : " + row_index + Environment.NewLine;
 
-                    row_index++;
+                    //row_index++;
 
-                    /*if (ctm_mng.addCustomers(ctm))
+                    if (ctm_mng.addCustomers(ctm))
                     {
                         Messages_TBx.Text += "Transfer Data Cusotmer Passed : " + row_index + Environment.NewLine;
 
@@ -284,7 +284,7 @@ namespace JKLWebBase_v2.Form_Account
                     else
                     {
                         break;
-                    }*/
+                    }
                 }
             }
             catch (SqlException ex)
@@ -475,7 +475,7 @@ namespace JKLWebBase_v2.Form_Account
                         cls.bs_ls_stt = new Base_Leasing_Status();
                         cls.bs_ls_stt.Contract_Status_id = 1;
 
-                        //cls_mng.addCarLeasings(cls);
+                        cls_mng.addCarLeasings(cls);
 
                         Messages_Logs._writeSQLCodeInsertLeasingsToMYSQL(cls, 0);
 
@@ -694,7 +694,7 @@ namespace JKLWebBase_v2.Form_Account
 
                     if (row_index % 5000 == 0) { part++; }
 
-                    /*if (cls_mng.addCarLeasings(cls))
+                    if (cls_mng.addCarLeasings(cls))
                     {
 
                     }
@@ -703,7 +703,7 @@ namespace JKLWebBase_v2.Form_Account
                         Messages_TBx.Text += "Transfer Data Leasing Add Failed SqlException : " + row_index + Environment.NewLine;
                     }
 
-                    cls_ctm_mng.addCustomersLeasing(cls, ctm);*/
+                    cls_ctm_mng.addCustomersLeasing(cls, ctm);
 
                     Messages_Logs._writeSQLCodeInsertLeasingsToMYSQL(cls, part);
 
@@ -740,7 +740,7 @@ namespace JKLWebBase_v2.Form_Account
                             cag.Agent_Zipcode = defaultString;
                             cag.Agent_Status = 1;
 
-                            //cag_mng.addAgent(cag);
+                            cag_mng.addAgent(cag);
 
                             Messages_Logs._writeSQLCodeInsertAgentsToMYSQL(cag, part);
                         }
@@ -761,7 +761,7 @@ namespace JKLWebBase_v2.Form_Account
 
                         cag_com.Leasing_id = cls.Leasing_id;
 
-                        //cag_mng.addAgentCommission(cag_com);
+                        cag_mng.addAgentCommission(cag_com);
 
                         Messages_Logs._writeSQLCodeInsertAgentsCommissionToMYSQL(cag_com, part);
                     }
@@ -844,6 +844,7 @@ namespace JKLWebBase_v2.Form_Account
                         cls_pay.acc_lgn = new Account_Login();
 
                         cls_pay.bs_cpn = new Base_Companys();
+
                         cls_pay.bs_cpn.Company_id = _getCompanys(reader.GetString(20));
 
                         if (cls_pay.Discount <= 0)
@@ -853,16 +854,14 @@ namespace JKLWebBase_v2.Form_Account
 
                             last_row = cls_pay.Leasing_id;
 
-                            /*if (cls_pay_mng.addPayment_Mod_I(cls_pay, 1))
+                            if (cls_pay_mng.addPayment_Mod_I(cls_pay, 1))
                             {
                                 Messages_TBx.Text += "Transfer Data Payment 1 Passed : " + row_index + Environment.NewLine;
-
-                                row_index++;
                             }
                             else
                             {
                                 Messages_TBx.Text += "Transfer Data Payment 1 Failed : " + row_index + Environment.NewLine;
-                            }*/
+                            }
                         }
                         else
                         {
@@ -870,16 +869,14 @@ namespace JKLWebBase_v2.Form_Account
 
                             last_row = cls_pay.Leasing_id;
 
-                            /*if (cls_pay_mng.addPayment_Mod_I(cls_pay, 2))
+                            if (cls_pay_mng.addPayment_Mod_I(cls_pay, 2))
                             {
                                 Messages_TBx.Text += "Transfer Data Payment 2 Passed : " + row_index + Environment.NewLine;
-
-                                row_index++;
                             }
                             else
                             {
                                 Messages_TBx.Text += "Transfer Data Payment 2 Failed : " + row_index + Environment.NewLine;
-                            }*/
+                            }
                         }
 
                         row_index++;
@@ -911,7 +908,15 @@ namespace JKLWebBase_v2.Form_Account
 
                 Messages_Logs._writeSQLCodeCalPeriodFineToMYSQL(last_row, part);
 
-                Messages_TBx.Text += "Transfer Data Payment Passed : " + i + Environment.NewLine;
+                if (cls_pay_mng.calculateFine(last_row))
+                {
+                    Messages_TBx.Text += "Transfer Data Payment Passed : " + i + Environment.NewLine;
+                }else
+                {
+                    break;
+                }
+
+                
             }
         }
 
@@ -986,11 +991,11 @@ namespace JKLWebBase_v2.Form_Account
 
                     Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
 
-                    Messages_TBx.Text += "Transfer Data Guarantor 1 Passed : " + row_index + Environment.NewLine;
+                    /*Messages_TBx.Text += "Transfer Data Guarantor 1 Passed : " + row_index + Environment.NewLine;
 
-                    row_index++;
+                    row_index++;*/
 
-                    /*if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
+                    if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
                     {
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
@@ -1020,7 +1025,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             break;
                         }
-                    }*/
+                    }
                 }
             }
             catch (SqlException ex)
@@ -1115,11 +1120,11 @@ namespace JKLWebBase_v2.Form_Account
 
                     Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
 
-                    Messages_TBx.Text += "Transfer Data Guarantor 2 Passed : " + row_index + Environment.NewLine;
+                    /*Messages_TBx.Text += "Transfer Data Guarantor 2 Passed : " + row_index + Environment.NewLine;
 
-                    row_index++;
+                    row_index++;*/
 
-                    /*if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
+                    if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
                     {
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
@@ -1149,7 +1154,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             break;
                         }
-                    }*/
+                    }
                 }
             }
             catch (SqlException ex)
@@ -1244,11 +1249,11 @@ namespace JKLWebBase_v2.Form_Account
 
                     Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
 
-                    Messages_TBx.Text += "Transfer Data Guarantor 3 Passed : " + row_index + Environment.NewLine;
+                    /*Messages_TBx.Text += "Transfer Data Guarantor 3 Passed : " + row_index + Environment.NewLine;
 
-                    row_index++;
+                    row_index++;*/
 
-                    /*if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
+                    if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
                     {
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
@@ -1278,7 +1283,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             break;
                         }
-                    }*/
+                    }
                 }
             }
             catch (SqlException ex)

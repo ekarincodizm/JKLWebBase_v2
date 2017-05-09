@@ -426,6 +426,7 @@
     <Content Include="fonts\THSarabun.woff2" />
     <Content Include="fonts\THSarabunPSK.ttf" />
     <Content Include="fonts\THSarabunPSK.woff" />
+    <None Include="Properties\PublishProfiles\JKLFTP.pubxml" />
     <None Include="Properties\PublishProfiles\JKLWebBase.pubxml" />
     <Content Include="Reports_Leasings\Payment_Schedule\Payment_Schedule_Ds.xsc">
       <DependentUpon>Payment_Schedule_Ds.xsd</DependentUpon>
@@ -433,6 +434,7 @@
     <Content Include="Reports_Leasings\DataSet_Leasings\Leasing_Ds.xsc">
       <DependentUpon>Leasing_Ds.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\Local_Build.pubxml" />
     <None Include="Reports_Leasings\DataSet_Leasings\Leasing_Ds.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
