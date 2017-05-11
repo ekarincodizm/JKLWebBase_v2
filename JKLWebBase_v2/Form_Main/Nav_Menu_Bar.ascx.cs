@@ -20,7 +20,6 @@ namespace JKLWebBase_v2.Form_Main
             if (acc_lgn.acc_lv.level_access == 7)
             {
                 link_load_leasing.Visible = false;
-                link_load_loan.Visible = false;
             }
 
             if(acc_lgn.acc_lv.level_access < 7)

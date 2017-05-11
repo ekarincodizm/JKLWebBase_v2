@@ -299,14 +299,5 @@ namespace JKLWebBase_v2.Form_Main {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton link_load_leasing;
-        
-        /// <summary>
-        /// link_load_loan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton link_load_loan;
     }
 }

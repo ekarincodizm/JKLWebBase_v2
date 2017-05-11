@@ -144,9 +144,6 @@
                     <li>
                         <asp:LinkButton ID="link_load_leasing" runat="server" OnClick="link_load_leasing_Click"> <i class="fa fa-database fa-fw"></i> โหลดข้อมูลลิสซิ่งจาก DB MSSQL TO DB MySQL </asp:LinkButton>
                     </li>
-                    <li>
-                        <asp:LinkButton ID="link_load_loan" runat="server" OnClick="link_load_loan_Click"> <i class="fa fa-database fa-fw"></i> โหลดข้อมูลเงินกู้จาก DB MSSQL TO DB MySQL </asp:LinkButton>
-                    </li>
                 </ul>
             </li>
         </ul>
