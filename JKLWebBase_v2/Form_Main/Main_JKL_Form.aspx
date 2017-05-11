@@ -128,50 +128,5 @@
             </div>
         </div>
 
-        <div class="panel-heading">
-            เงินกู้ ( LOAN )
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <asp:Panel ID="link_loan_payment_panel" runat="server">
-                    <div class="col-md-6">
-                        <asp:LinkButton ID="link_loan_payment" runat="server">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-money fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <h3> ชำระเงินกู้ </h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        </asp:LinkButton>
-                    </div>
-                </asp:Panel>
-
-                <asp:Panel ID="link_loan_search_panel" runat="server">
-                    <div class="col-md-6">
-                        <asp:LinkButton ID="link_loan_search" runat="server">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-credit-card fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <h3>  ค้นหาสัญญาเงินกู้ </h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        </asp:LinkButton>
-                    </div>
-                </asp:Panel>
-            </div>
-        </div>
-
     </div>
 </asp:Content>

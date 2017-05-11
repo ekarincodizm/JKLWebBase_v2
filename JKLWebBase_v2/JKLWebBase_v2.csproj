@@ -316,7 +316,6 @@
     <Content Include="Form_Account\Account_Search.aspx" />
     <Content Include="Form_Account\Activity_Log_List.aspx" />
     <Content Include="Form_Account\Load_Data_Leasings_From_MSSQL.aspx" />
-    <Content Include="Form_Account\Load_Data_Loan_From_MSSQL.aspx" />
     <Content Include="Form_Base\Base_Car_Brands_Edit.aspx" />
     <Content Include="Form_Base\Base_Car_Brands_Management.aspx" />
     <Content Include="Form_Base\Base_Company_Edit.aspx" />
@@ -578,13 +577,6 @@
     </Compile>
     <Compile Include="Form_Account\Load_Data_Leasings_From_MSSQL.aspx.designer.cs">
       <DependentUpon>Load_Data_Leasings_From_MSSQL.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Form_Account\Load_Data_Loan_From_MSSQL.aspx.cs">
-      <DependentUpon>Load_Data_Loan_From_MSSQL.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Form_Account\Load_Data_Loan_From_MSSQL.aspx.designer.cs">
-      <DependentUpon>Load_Data_Loan_From_MSSQL.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form_Base\Base_Car_Brands_Edit.aspx.cs">
       <DependentUpon>Base_Car_Brands_Edit.aspx</DependentUpon>

@@ -17,8 +17,6 @@ namespace JKLWebBase_v2.Form_Main
 
             if (acc_lgn.acc_lv.level_access < 7)
             {
-                link_loan_payment_panel.Visible = false;
-                link_loan_search_panel.Visible = false;
                 link_Payment_Leasings_panel.Visible = false;
                 link_Report_Form_Certified_Leasing_Outline_panel.Visible = false;
             }

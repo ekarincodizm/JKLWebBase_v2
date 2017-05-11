@@ -25,8 +25,6 @@ namespace JKLWebBase_v2.Form_Main
 
             if(acc_lgn.acc_lv.level_access < 7)
             {
-                Loan_Panel.Visible = false;
-                Loan_Report_Panel.Visible = false;
                 Account_Panel.Visible = false;
                 link_Menu_Pyament_Leasing.Visible = false;
                 link_Menu_Add_Customer.Visible = false;
@@ -51,11 +49,8 @@ namespace JKLWebBase_v2.Form_Main
 
             if (acc_lgn.acc_lv.level_access == 3)
             {
-                Loan_Panel.Visible = true;
                 link_Menu_Add_Customer.Visible = true;
                 link_Menu_Add_Agent.Visible = true;
-                link_payment_loan.Visible = false;
-                link_loan_search.Visible = false;
             }
 
             if (acc_lgn.acc_lv.level_access == 2)

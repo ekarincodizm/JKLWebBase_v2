@@ -90,64 +90,6 @@
         </ul>
     </asp:Panel>
 
-    <asp:Panel ID="Loan_Panel" runat="server">
-        <ul class="nav navbar-top-links navbar-left">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="~/">
-                    <i class="fa fa-credit-card fa-fw"></i>สัญญาเงินกู้  <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li>
-                        <asp:LinkButton ID="link_payment_loan" runat="server"> <i class="fa fa-money fa-fw"></i> ชำระค่างวดเงินกู้ </asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="link_loan_search" runat="server"> <i class="fa fa-search fa-fw"></i> ค้นหาสัญญาเงินกู้ </asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="link_loan_add" runat="server"> <i class="fa fa-credit-card fa-fw"></i> เพิ่มสัญญาเงินกู้ </asp:LinkButton>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </asp:Panel>
-
-    <asp:Panel ID="Loan_Report_Panel" runat="server">
-        <ul class="nav navbar-top-links navbar-left">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="~/">
-                    <i class="fa fa-file-text fa-fw"></i>รายงานเงินกู้  <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li>
-                        <asp:LinkButton ID="link_report_loan_daily_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำวัน </asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="link_report_loan_monthly_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำเดือน </asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="link_report_loan_yearly_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานสรุปชำระเงินประจำปี </asp:LinkButton>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <asp:LinkButton ID="link_report_loan_lost_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานขาดชำระ </asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="link_report_loan_intensive" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานเร่งรัด </asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="link_report_loan_alert_payment" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานแจ้งเตือนชำระค่างวด </asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="link_report_loan_alert_payment_guarantor" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานแจ้งเตือนชำระค่างวด (ผู้ค้ำ) </asp:LinkButton>
-                    </li>
-                    <li>
-                        <asp:LinkButton ID="link_report_loan_payment_left" runat="server"> <i class="fa fa-file-pdf-o fa-fw"></i> รายงานค้างชำระ </asp:LinkButton>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </asp:Panel>
-
     <ul class="nav navbar-top-links navbar-right">
         <li>
             <asp:LinkButton ID="link_Logout" runat="server" CssClass="logout" OnClick="link_Logout_Click"> <i class="fa fa-sign-out fa-fw"></i> Logout </asp:LinkButton>

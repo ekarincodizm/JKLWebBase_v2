@@ -16,6 +16,7 @@ using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Managers_Agents;
 using JKLWebBase_v2.Class_Agents;
 using JKLWebBase_v2.Class_Account;
+using System.Threading.Tasks;
 
 namespace JKLWebBase_v2.Form_Account
 {
@@ -812,7 +813,7 @@ namespace JKLWebBase_v2.Form_Account
 
                 SqlConnection con = MSSQLConnection.connectionMSSQL();
 
-                if ((i + 1) % 100 == 0) { part++; }
+                if ((i + 1) % 2000 == 0) { part++; }
 
                 string last_row = string.Empty;
 
@@ -823,6 +824,8 @@ namespace JKLWebBase_v2.Form_Account
                     string sql = " SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' ORDER BY scheduleno ";
 
                     SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.CommandTimeout = 0;
+
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -916,7 +919,9 @@ namespace JKLWebBase_v2.Form_Account
                     break;
                 }
 
-                
+                //Task.Delay(5000);
+
+                GC.Collect();
             }
         }
 

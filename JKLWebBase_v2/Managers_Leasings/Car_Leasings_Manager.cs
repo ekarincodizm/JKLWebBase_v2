@@ -366,6 +366,8 @@ namespace JKLWebBase_v2.Managers_Leasings
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_car_leasings", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+
                 cmd.Parameters.AddWithValue("@i_Deps_no", i_Deps_no);
                 cmd.Parameters.AddWithValue("@i_Leasing_no", i_Leasing_no);
                 cmd.Parameters.AddWithValue("@i_Cust_idcard", i_Cust_idcard);
