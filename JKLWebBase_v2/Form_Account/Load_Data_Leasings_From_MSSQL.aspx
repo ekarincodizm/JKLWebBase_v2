@@ -16,10 +16,6 @@
                             <div class="col-md-3">
                                 <asp:LinkButton ID="link_load_leasings" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="link_load_leasings_Click"> <i class="fa fa-download fa-fw"></i> โหลดข้อมูลสัญญาเช่า - ซื้อ </asp:LinkButton>
                             </div>
-                            <div class="col-md-3">
-                                <asp:LinkButton ID="link_load_paymnet" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="link_load_paymnet_Click"> <i class="fa fa-download fa-fw"></i> โหลดข้อมูลการชำระเงิน </asp:LinkButton>
-                            </div>
-
                         </div>
                     </div>
 
@@ -36,6 +32,65 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-grou col-md-3">
+                                <asp:LinkButton ID="link_load_paymnet" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="link_load_paymnet_Click"> <i class="fa fa-download fa-fw"></i> โหลดข้อมูลการชำระเงิน </asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <div class="form-group col-xs-3">
+                                <asp:Label ID="Recond_Amount_Lbl" runat="server"> จำนวนข้อมูลสัญญา (Rows) </asp:Label>
+                                <asp:TextBox ID="Recond_Amount_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <div class="col-xs-3">
+                                <asp:Label ID="Leasing_id_Lbl" runat="server"> ค้นหาตำแหน่งจาก รหัสสัญญา</asp:Label>
+                                <asp:TextBox ID="Leasing_id_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <div class="col-xs-3">
+                                <asp:Label ID="Index_of_Lbl" runat="server"> ตำแหน่ง รหัสสัญญา (i) </asp:Label>
+                                <asp:TextBox ID="Index_of_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group col-md-3">
+                                <asp:LinkButton ID="Search_Index_of_Btn" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="Search_Index_of_Btn_Click"> <i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group col-xs-3">
+                                <asp:Label ID="Part_Lbl" runat="server"> Part File </asp:Label>
+                                <asp:TextBox ID="Part_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <div class="col-xs-3">
+                                <asp:Label ID="Str_Row_Lbl" runat="server"> ตำแหน่งเริ่ม </asp:Label>
+                                <asp:TextBox ID="Str_Row_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <div class="col-xs-3">
+                                <asp:Label ID="End_Row_Lbl" runat="server"> ตำแหน่งสิ้นสุด </asp:Label>
+                                <asp:TextBox ID="End_Row_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group col-md-3">
+                                <asp:LinkButton ID="Start_Transfer_data_Btn" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="Start_Transfer_data_Btn_Click"> <i class="fa fa-download fa-fw"></i> เริ่มย้ายข้อมูล </asp:LinkButton>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

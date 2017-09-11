@@ -143,11 +143,10 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls_pay.bs_cpn.Company_F_name = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
                     cls_pay.bs_cpn.Company_tax_id = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
                     cls_pay.bs_cpn.Company_tax_subcode = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
-                    cls_pay.bs_cpn.Company_province_id= reader.IsDBNull(33) ? defaultNum : reader.GetInt32(33);
-                    cls_pay.bs_cpn.Company_province_name = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+                    cls_pay.bs_cpn.Company_province = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
 
-                    cls_pay.Bill_no_manual_ref = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
-                    cls_pay.Payment_save_date = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+                    cls_pay.Bill_no_manual_ref = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+                    cls_pay.Payment_save_date = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
 
                     list_cls_pay.Add(cls_pay);
                 }

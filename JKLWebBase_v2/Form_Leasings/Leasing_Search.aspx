@@ -20,13 +20,17 @@
                     <asp:Label ID="Leasing_No_Lbl" runat="server"> เลขที่สัญญา </asp:Label>
                     <asp:TextBox ID="Leasing_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-3">
-                    <asp:Label ID="Label3" runat="server"> รหัสบัตรประชาชน </asp:Label>
+                <div class="col-xs-2">
+                    <asp:Label ID="Cust_Idcard_Lbl" runat="server"> รหัสบัตรประชาชน </asp:Label>
                     <asp:TextBox ID="Cust_Idcard_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-3">
-                    <asp:Label ID="Label4" runat="server"> ชื่อ-นามสกุล </asp:Label>
-                    <asp:TextBox ID="Cust_Name_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                <div class="col-xs-2">
+                    <asp:Label ID="Cust_FName_Lbl" runat="server"> ชื่อ </asp:Label>
+                    <asp:TextBox ID="Cust_FName_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-xs-2">
+                    <asp:Label ID="Cust_LName_Lbl" runat="server"> นามสกุล </asp:Label>
+                    <asp:TextBox ID="Cust_LName_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
@@ -117,6 +121,10 @@
                             });
                         });
                     </script>
+                </div>
+                <div class="col-xs-3">
+                    <asp:Label ID="Car_Plate_Lbl" runat="server"> เลขทะเบียนรถ </asp:Label>
+                    <asp:TextBox ID="Car_Plate_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
 
@@ -232,7 +240,7 @@
                             <td><%= cls.Deps_no %></td>
                             <td><%= cls.Leasing_no %></td>
                             <td><%= cls.ctm.Cust_Fname + " " + cls.ctm.Cust_LName %></td>
-                            <td><%= DateTimeUtility.convertDateToPage(cls.Leasing_date) %></td>
+                            <td><%= DateTimeUtility.convertDateToPageRealServer(cls.Leasing_date) %></td>
                             <td style="color: #2fba00;"><%= cls.Total_Net_leasing.ToString("#,###.00") %></td>
                             <td><%= cls.Total_period %></td>
                             <td><%= cls.Total_period_left %></td>

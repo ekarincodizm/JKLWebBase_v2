@@ -91,16 +91,12 @@ namespace JKLWebBase_v2.Managers_Agents
                     cag.Agent_Road = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
                     cag.Agent_Subdistrict = reader.IsDBNull(9) ? defaultString : reader.GetString(9);
                     cag.Agent_District = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
-
-                    cag.cag_pv = new TH_Provinces();
-                    cag.cag_pv.Province_id = reader.IsDBNull(11) ? defaultNum : reader.GetInt32(11);
-                    cag.cag_pv.Province_name = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-
-                    cag.Agent_Country = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
-                    cag.Agent_Zipcode = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    cag.Agent_Status = reader.IsDBNull(15) ? defaultNum : reader.GetInt32(15);
-                    cag.Agent_Status_name = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    cag.Agent_save_date = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    cag.Agent_Province = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
+                    cag.Agent_Country = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+                    cag.Agent_Zipcode = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    cag.Agent_Status = reader.IsDBNull(14) ? defaultNum : reader.GetInt32(14);
+                    cag.Agent_Status_name = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    cag.Agent_save_date = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
 
                     list_cag.Add(cag);
                 }
@@ -162,16 +158,12 @@ namespace JKLWebBase_v2.Managers_Agents
                     cag.Agent_Road = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
                     cag.Agent_Subdistrict = reader.IsDBNull(9) ? defaultString : reader.GetString(9);
                     cag.Agent_District = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
-
-                    cag.cag_pv = new TH_Provinces();
-                    cag.cag_pv.Province_id = reader.IsDBNull(11) ? defaultNum : reader.GetInt32(11);
-                    cag.cag_pv.Province_name = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-
-                    cag.Agent_Country = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
-                    cag.Agent_Zipcode = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    cag.Agent_Status = reader.IsDBNull(15) ? defaultNum : reader.GetInt32(15);
-                    cag.Agent_Status_name = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    cag.Agent_save_date = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    cag.Agent_Province = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
+                    cag.Agent_Country = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+                    cag.Agent_Zipcode = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    cag.Agent_Status = reader.IsDBNull(14) ? defaultNum : reader.GetInt32(14);
+                    cag.Agent_Status_name = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    cag.Agent_save_date = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
 
                 }
 
@@ -234,16 +226,12 @@ namespace JKLWebBase_v2.Managers_Agents
                     cag.Agent_Road = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
                     cag.Agent_Subdistrict = reader.IsDBNull(9) ? defaultString : reader.GetString(9);
                     cag.Agent_District = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
-
-                    cag.cag_pv = new TH_Provinces();
-                    cag.cag_pv.Province_id = reader.IsDBNull(11) ? defaultNum : reader.GetInt32(11);
-                    cag.cag_pv.Province_name = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-
-                    cag.Agent_Country = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
-                    cag.Agent_Zipcode = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    cag.Agent_Status = reader.IsDBNull(15) ? defaultNum : reader.GetInt32(15);
-                    cag.Agent_Status_name = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    cag.Agent_save_date = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    cag.Agent_Province = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
+                    cag.Agent_Country = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+                    cag.Agent_Zipcode = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    cag.Agent_Status = reader.IsDBNull(14) ? defaultNum : reader.GetInt32(14);
+                    cag.Agent_Status_name = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    cag.Agent_save_date = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
 
                 }
 
@@ -306,26 +294,22 @@ namespace JKLWebBase_v2.Managers_Agents
                     cag_com.cag.Agent_Road = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
                     cag_com.cag.Agent_Subdistrict = reader.IsDBNull(9) ? defaultString : reader.GetString(9);
                     cag_com.cag.Agent_District = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
+                    cag_com.cag.Agent_Province = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
+                    cag_com.cag.Agent_Country = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+                    cag_com.cag.Agent_Zipcode = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    cag_com.cag.Agent_Status = reader.IsDBNull(14) ? defaultNum : reader.GetInt32(14);
+                    cag_com.cag.Agent_Status_name = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    cag_com.cag.Agent_save_date = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
 
-                    cag_com.cag.cag_pv = new TH_Provinces();
-                    cag_com.cag.cag_pv.Province_id = reader.IsDBNull(11) ? defaultNum : reader.GetInt32(11);
-                    cag_com.cag.cag_pv.Province_name = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-
-                    cag_com.cag.Agent_Country = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
-                    cag_com.cag.Agent_Zipcode = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    cag_com.cag.Agent_Status = reader.IsDBNull(15) ? defaultNum : reader.GetInt32(15);
-                    cag_com.cag.Agent_Status_name = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    cag_com.cag.Agent_save_date = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
-
-                    cag_com.Leasing_id = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
-                    cag_com.Agent_commission = reader.IsDBNull(19) ? defaultNum : reader.GetDouble(19);
-                    cag_com.Agent_percen = reader.IsDBNull(20) ? defaultNum : reader.GetDouble(20);
-                    cag_com.Agent_cash = reader.IsDBNull(21) ? defaultNum : reader.GetDouble(21);
-                    cag_com.Agent_net_com = reader.IsDBNull(22) ? defaultNum : reader.GetDouble(22);
-                    cag_com.Agent_num_code = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
-                    cag_com.Agent_book_code = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
-                    cag_com.Agent_date_print = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
-                    cag_com.Agent_value_save_date = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
+                    cag_com.Leasing_id = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    cag_com.Agent_commission = reader.IsDBNull(18) ? defaultNum : reader.GetDouble(18);
+                    cag_com.Agent_percen = reader.IsDBNull(19) ? defaultNum : reader.GetDouble(19);
+                    cag_com.Agent_cash = reader.IsDBNull(20) ? defaultNum : reader.GetDouble(20);
+                    cag_com.Agent_net_com = reader.IsDBNull(21) ? defaultNum : reader.GetDouble(21);
+                    cag_com.Agent_num_code = reader.IsDBNull(22) ? defaultString : reader.GetString(22);
+                    cag_com.Agent_book_code = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
+                    cag_com.Agent_date_print = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
+                    cag_com.Agent_value_save_date = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
 
                 }
 
@@ -379,7 +363,7 @@ namespace JKLWebBase_v2.Managers_Agents
                 cmd.Parameters.AddWithValue("@i_Agent_Road", cag.Agent_Road);
                 cmd.Parameters.AddWithValue("@i_Agent_Subdistrict", cag.Agent_Subdistrict);
                 cmd.Parameters.AddWithValue("@i_Agent_District", cag.Agent_District);
-                cmd.Parameters.AddWithValue("@i_Agent_Province_id", cag.cag_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Agent_Province", cag.Agent_Province);
                 cmd.Parameters.AddWithValue("@i_Agent_Country", cag.Agent_Country);
                 cmd.Parameters.AddWithValue("@i_Agent_Zipcode", cag.Agent_Zipcode);
                 cmd.Parameters.AddWithValue("@i_Agent_Status", cag.Agent_Status);
@@ -485,7 +469,7 @@ namespace JKLWebBase_v2.Managers_Agents
                 cmd.Parameters.AddWithValue("@i_Agent_Road", cag.Agent_Road);
                 cmd.Parameters.AddWithValue("@i_Agent_Subdistrict", cag.Agent_Subdistrict);
                 cmd.Parameters.AddWithValue("@i_Agent_District", cag.Agent_District);
-                cmd.Parameters.AddWithValue("@i_Agent_Province_id", cag.cag_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Agent_Province", cag.Agent_Province);
                 cmd.Parameters.AddWithValue("@i_Agent_Country", cag.Agent_Country);
                 cmd.Parameters.AddWithValue("@i_Agent_Zipcode", cag.Agent_Zipcode);
                 cmd.Parameters.AddWithValue("@i_Agent_Status", cag.Agent_Status);

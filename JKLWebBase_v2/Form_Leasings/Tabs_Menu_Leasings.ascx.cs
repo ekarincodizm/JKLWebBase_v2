@@ -28,6 +28,19 @@ namespace JKLWebBase_v2.Form_Main
                 link_Add_Car_Img.Enabled = false;
                 link_List_Payment_Schedule.Enabled = false;
             }
+            else if (Session["Customer_Leasing"] == null && Session["Leasings"] != null)
+            {
+                link_Customer_Add.Enabled = true;
+                link_Leasing_Add.Enabled = true;
+                link_Agents_Add.Enabled = false;
+                link_Add_Guarantor_1.Enabled = false;
+                link_Add_Guarantor_2.Enabled = false;
+                link_Add_Guarantor_3.Enabled = false;
+                link_Add_Guarantor_4.Enabled = false;
+                link_Add_Guarantor_5.Enabled = false;
+                link_Add_Car_Img.Enabled = false;
+                link_List_Payment_Schedule.Enabled = false;
+            }
             else if (Session["Customer_Leasing"] != null && Session["Leasings"] != null)
             {
                 link_Customer_Add.Enabled = true;

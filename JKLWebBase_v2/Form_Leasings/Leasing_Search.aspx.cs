@@ -151,19 +151,21 @@ namespace JKLWebBase_v2
             string deposit_no = Deps_No_TBx.Text;
             string leasing_no = Leasing_No_TBx.Text;
             string idcard = Cust_Idcard_TBx.Text;
-            string name = Cust_Name_TBx.Text.Trim(' ');
+            string fname = Cust_FName_TBx.Text.Trim(' ');
+            string lname = Cust_LName_TBx.Text.Trim(' ');
             string date_str = DateTimeUtility.convertDateToMYSQL(Leasing_Date_str_TBx.Text);
             string date_end = DateTimeUtility.convertDateToMYSQL(Leasing_Date_end_TBx.Text);
+            string car_plate = Car_Plate_TBx.Text;
             string leasing_Code_inline = _getCheckedLeasing_Code();
             string Company_id_inline = _getCheckedCompany();
             string zone_id_inline = _getCheckedZone();
 
-            if (!string.IsNullOrEmpty(deposit_no) || !string.IsNullOrEmpty(leasing_no) || !string.IsNullOrEmpty(idcard) || !string.IsNullOrEmpty(name) || !string.IsNullOrEmpty(date_str) ||
-                !string.IsNullOrEmpty(date_end) || !string.IsNullOrEmpty(leasing_Code_inline) || !string.IsNullOrEmpty(Company_id_inline) || !string.IsNullOrEmpty(zone_id_inline))
+            if (!string.IsNullOrEmpty(deposit_no) || !string.IsNullOrEmpty(leasing_no) || !string.IsNullOrEmpty(idcard) || !string.IsNullOrEmpty(fname) || !string.IsNullOrEmpty(lname) || !string.IsNullOrEmpty(date_str) ||
+                !string.IsNullOrEmpty(date_end) || !string.IsNullOrEmpty(car_plate) || !string.IsNullOrEmpty(leasing_Code_inline) || !string.IsNullOrEmpty(Company_id_inline) || !string.IsNullOrEmpty(zone_id_inline))
             {
                 cls_mng = new Car_Leasings_Manager();
 
-                List<Car_Leasings> list_cls_all = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 0);
+                List<Car_Leasings> list_cls_all = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, fname, lname, date_str, date_end, car_plate, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 0);
 
                 try
                 {
@@ -171,14 +173,16 @@ namespace JKLWebBase_v2
 
                     _pageCount(row);
 
-                    List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 20);
+                    List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, fname, lname, date_str, date_end, car_plate, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 20);
 
                     Session["deposit_no"] = deposit_no;
                     Session["leasing_no"] = leasing_no;
                     Session["idcard"] = idcard;
-                    Session["name"] = name;
+                    Session["fname"] = fname;
+                    Session["lname"] = lname;
                     Session["date_str"] = date_str;
                     Session["date_end"] = date_end;
+                    Session["car_plate"] = car_plate;
                     Session["leasing_Code_inline"] = leasing_Code_inline;
                     Session["company_id_inline"] = Company_id_inline;
                     Session["zone_id_inline"] = zone_id_inline;
@@ -227,9 +231,11 @@ namespace JKLWebBase_v2
             string deposit_no = (string)Session["deposit_no"];
             string leasing_no = (string)Session["leasing_no"];
             string idcard = (string)Session["idcard"];
-            string name = (string)Session["name"];
+            string fname = (string)Session["fname"];
+            string lname = (string)Session["lname"];
             string date_str = (string)Session["date_str"];
             string date_end = (string)Session["date_end"];
+            string car_plate = (string)Session["car_plate"];
             string leasing_Code_inline = (string)Session["leasing_Code_inline"];
             string Company_id_inline = (string)Session["company_id_inline"];
             string zone_id_inline = (string)Session["zone_id_inline"];
@@ -245,7 +251,7 @@ namespace JKLWebBase_v2
 
                 link_Previous.Enabled = true;
 
-                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, Company_id_inline, zone_id_inline, row_str, 20);
+                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, fname, lname, date_str, date_end, car_plate, leasing_Code_inline, Company_id_inline, zone_id_inline, row_str, 20);
 
                 Session["row_str"] = row_str;
 
@@ -255,7 +261,7 @@ namespace JKLWebBase_v2
             {
                 link_Previous.Enabled = false;
 
-                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, string.IsNullOrEmpty(name) ? "" : name.Split(' ')[0], name.IndexOf(' ') <= 0 ? "" : name.Split(' ')[1], date_str, date_end, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 20);
+                List<Car_Leasings> list_cls = cls_mng.getCarLeasing(deposit_no, leasing_no, idcard, fname, lname, date_str, date_end, car_plate, leasing_Code_inline, Company_id_inline, zone_id_inline, 0, 20);
 
                 Session["row_str"] = 0;
 

@@ -78,7 +78,7 @@ namespace JKLWebBase_v2.Form_Base
             Leasing_code_road_TBx.Text = bs_lscd.Leasing_code_road.IndexOf('.') >= 1 ? bs_lscd.Leasing_code_road.Split('.')[1] : "";
             Leasing_code_subdistrict_TBx.Text = bs_lscd.Leasing_code_subdistrict.IndexOf('.') >= 1 ? bs_lscd.Leasing_code_subdistrict.Split('.')[1] : "";
             Leasing_code_district_TBx.Text = bs_lscd.Leasing_code_district.IndexOf('.') >= 1 ? bs_lscd.Leasing_code_district.Split('.')[1] : "";
-            Leasing_code_province_DDL.SelectedValue = bs_lscd.Leasing_code_province_id.ToString();
+            Leasing_code_province_DDL.SelectedValue = bs_lscd.Leasing_code_province.IndexOf('.') >= 1 ? Thai_Province._getThaiProvinces(bs_lscd.Leasing_code_province.Split('.')[1]) : "";
             Leasing_code_contry_TBx.Text = bs_lscd.Leasing_code_country;
             Leasing_code_zipcode_TBx.Text = bs_lscd.Leasing_code_zipcode;
             Leasing_code_tel_TBx.Text = bs_lscd.Leasing_code_tel;
@@ -105,7 +105,7 @@ namespace JKLWebBase_v2.Form_Base
                 bs_lscd.Leasing_code_road = string.IsNullOrEmpty(Leasing_code_road_TBx.Text) ? "ถ.-" : "ถ." + Leasing_code_road_TBx.Text;
                 bs_lscd.Leasing_code_subdistrict = string.IsNullOrEmpty(Leasing_code_subdistrict_TBx.Text) ? "ต.-" : "ต." + Leasing_code_subdistrict_TBx.Text;
                 bs_lscd.Leasing_code_district = string.IsNullOrEmpty(Leasing_code_district_TBx.Text) ? "อ.-" : "อ." + Leasing_code_district_TBx.Text;
-                bs_lscd.Leasing_code_province_id = Leasing_code_province_DDL.SelectedIndex <= 0 ? 39 : Convert.ToInt32(Leasing_code_province_DDL.SelectedValue);
+                bs_lscd.Leasing_code_province = Leasing_code_province_DDL.SelectedIndex <= 0 ? "จ.-" : "จ." + Leasing_code_province_DDL.SelectedItem.Text;
                 bs_lscd.Leasing_code_country = string.IsNullOrEmpty(Leasing_code_contry_TBx.Text) ? "" : Leasing_code_contry_TBx.Text;
                 bs_lscd.Leasing_code_zipcode = string.IsNullOrEmpty(Leasing_code_zipcode_TBx.Text) ? "" : Leasing_code_zipcode_TBx.Text;
                 bs_lscd.Leasing_code_tel = string.IsNullOrEmpty(Leasing_code_tel_TBx.Text) ? "" : Leasing_code_tel_TBx.Text;

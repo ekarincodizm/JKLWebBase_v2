@@ -32,7 +32,7 @@ namespace JKLWebBase_v2.Class_Customers
         public string Cust_Marry_road { get; set; } /// ถนน
         public string Cust_Marry_subdistrict { get; set; } /// ตำบล / แขวง
         public string Cust_Marry_district { get; set; } /// อำเภอ / เขต
-        public TH_Provinces ctm_marry_pv { get; set; } /// จังหวัด
+        public string Cust_Marry_province { get; set; } /// จังหวัด
         public string Cust_Marry_country { get; set; } /// ประเทศ
         public string Cust_Marry_zipcode { get; set; } /// รหัสไปรษณีย์
         public string Cust_Marry_tel { get; set; } /// เบอร์โทรศัพท์ของคู่สมรส
@@ -49,7 +49,7 @@ namespace JKLWebBase_v2.Class_Customers
         public string Cust_Marry_job_road { get; set; } /// ถนน
         public string Cust_Marry_job_subdistrict { get; set; } /// ตำบล / แขวง
         public string Cust_Marry_job_district { get; set; } /// อำเภอ / เขต
-        public TH_Provinces ctm_marry_job_pv { get; set; } /// จังหวัด
+        public string Cust_Marry_job_province { get; set; } /// จังหวัด
         public string Cust_Marry_job_country { get; set; } /// ประเทศ
         public string Cust_Marry_job_zipcode { get; set; } /// รหัสไปรษณีย์
         public string Cust_Marry_job_tel { get; set; } /// เบอร์โทรศัพท์ที่ทำงานของคู่สมรส
@@ -65,7 +65,7 @@ namespace JKLWebBase_v2.Class_Customers
         public string Cust_Job_road { get; set; } /// ถนน
         public string Cust_Job_subdistrict { get; set; } /// ตำบล / แขวง
         public string Cust_Job_district { get; set; } /// อำเภอ / เขต
-        public TH_Provinces ctm_job_pv { get; set; } /// จังหวัด
+        public string Cust_Job_province { get; set; } /// จังหวัด
         public string Cust_Job_country { get; set; } /// ประเทศ
         public string Cust_Job_zipcode { get; set; } /// รหัสไปรษณีย์
         public string Cust_Job_tel { get; set; } /// เบอร์โทรศัพท์ที่ทำงาน
@@ -77,7 +77,7 @@ namespace JKLWebBase_v2.Class_Customers
         public string Cust_Home_road { get; set; } /// ถนน
         public string Cust_Home_subdistrict { get; set; } /// ตำบล / แขวง
         public string Cust_Home_district { get; set; } /// อำเภอ / เขต
-        public TH_Provinces ctm_home_pv { get; set; } /// จังหวัด
+        public string Cust_Home_province { get; set; } /// จังหวัด
         public string Cust_Home_country { get; set; } /// ประเทศ
         public string Cust_Home_zipcode { get; set; } /// รหัสไปรษณีย์
         public string Cust_Home_tel { get; set; } /// เบอร์โทรศัพท์
@@ -91,7 +91,7 @@ namespace JKLWebBase_v2.Class_Customers
         public string Cust_Idcard_road { get; set; } /// ถนน
         public string Cust_Idcard_subdistrict { get; set; } /// ตำบล / แขวง
         public string Cust_Idcard_district { get; set; } /// อำเภอ / เขต
-        public TH_Provinces ctm_idcard_pv { get; set; } /// จังหวัด
+        public string Cust_Idcard_province { get; set; } /// จังหวัด
         public string Cust_Idcard_country { get; set; } /// ประเทศ
         public string Cust_Idcard_zipcode { get; set; } /// รหัสไปรษณีย์
         public string Cust_Idcard_tel { get; set; } /// เบอร์โทรศัพท์
@@ -103,7 +103,7 @@ namespace JKLWebBase_v2.Class_Customers
         public string Cust_Current_road { get; set; } /// ถนน
         public string Cust_Current_subdistrict { get; set; } /// ตำบล / แขวง
         public string Cust_Current_district { get; set; } /// อำเภอ / เขต
-        public TH_Provinces ctm_current_pv { get; set; } /// จังหวัด
+        public string Cust_Current_province { get; set; } /// จังหวัด
         public string Cust_Current_country { get; set; } /// ประเทศ
         public string Cust_Current_zipcode { get; set; } /// รหัสไปรษณีย์
         public string Cust_Current_tel { get; set; } /// เบอร์โทรศัพท์

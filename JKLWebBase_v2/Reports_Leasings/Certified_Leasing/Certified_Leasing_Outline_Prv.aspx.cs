@@ -64,7 +64,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                         address += data.Company_road.Split('.')[1] == "-" ? "" : " " + data.Company_road;
                         address += data.Company_subdistrict.Split('.')[1] == "-" ? "" : " " + data.Company_subdistrict;
                         address += data.Company_district.Split('.')[1] == "-" ? "" : " " + data.Company_district;
-                        address += " จ." + data.Company_province_name;
+                        address += " จ." + data.Company_province;
 
                         Company_Address_TBx.Text = "สำนักงานใหญ่ : " + address;
                     }
@@ -77,7 +77,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                         address += data.Company_road.Split('.')[1] == "-" ? "" : " " + data.Company_road;
                         address += data.Company_subdistrict.Split('.')[1] == "-" ? "" : " " + data.Company_subdistrict;
                         address += data.Company_district.Split('.')[1] == "-" ? "" : " " + data.Company_district;
-                        address += " จ." + data.Company_province_name;
+                        address += " จ." + data.Company_province;
 
                         SubCompany_Address_1_TBx.Text = data.Company_N_name + " : " + address;
                     }
@@ -90,7 +90,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                         address += data.Company_road.Split('.')[1] == "-" ? "" : " " + data.Company_road;
                         address += data.Company_subdistrict.Split('.')[1] == "-" ? "" : " " + data.Company_subdistrict;
                         address += data.Company_district.Split('.')[1] == "-" ? "" : " " + data.Company_district;
-                        address += " จ." + data.Company_province_name;
+                        address += " จ." + data.Company_province;
 
                         SubCompany_Address_1_TBx.Text = data.Company_N_name + " : " + address;
                     }
@@ -103,7 +103,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                         address += data.Company_road.Split('.')[1] == "-" ? "" : " " + data.Company_road;
                         address += data.Company_subdistrict.Split('.')[1] == "-" ? "" : " " + data.Company_subdistrict;
                         address += data.Company_district.Split('.')[1] == "-" ? "" : " " + data.Company_district;
-                        address += " จ." + data.Company_province_name;
+                        address += " จ." + data.Company_province;
 
                         SubCompany_Address_1_TBx.Text = data.Company_N_name + " : " + address;
                     }

@@ -17,7 +17,7 @@ namespace JKLWebBase_v2.Class_Agents
         public string Agent_Road { get; set; } /// ถนน
         public string Agent_Subdistrict { get; set; } /// ตำบล
         public string Agent_District { get; set; } /// อำเภอ
-        public TH_Provinces cag_pv { get; set; } /// จังหวัด
+        public string Agent_Province { get; set; } /// จังหวัด
         public string Agent_Country { get; set; } /// ประเทศ
         public string Agent_Zipcode { get; set; } /// รหัสไปรษณีย์
         public int Agent_Status { get; set; } /// 0 = บุคคลธรรมดา, 1 = นิติบุคคล

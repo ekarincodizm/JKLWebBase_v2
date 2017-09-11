@@ -1,9 +1,9 @@
-﻿<%@ Page Title="รายงานลูกค่าขาดชำระค่างวด" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Lost_Payment_Prv.aspx.cs" Inherits="JKLWebBase_v2.Reports_Leasings.Lost_Payment.Lost_Payment_Prv" %>
+﻿<%@ Page Title="รายงานลูกค้าขาดชำระค่างวด" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Lost_Payment_Prv.aspx.cs" Inherits="JKLWebBase_v2.Reports_Leasings.Lost_Payment.Lost_Payment_Prv" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h6> รายงานลูกค่าขาดชำระค่างวด </h6>
+            <h6>รายงานลูกค้าขาดชำระค่างวด </h6>
         </div>
 
         <div class="panel-body">
@@ -16,13 +16,17 @@
                     <asp:Label ID="Leasing_No_Lbl" runat="server"> เลขที่สัญญา </asp:Label>
                     <asp:TextBox ID="Leasing_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-3">
-                    <asp:Label ID="Label3" runat="server"> รหัสบัตรประชาชน </asp:Label>
+                <div class="col-xs-2">
+                    <asp:Label ID="Cust_Idcard_Lbl" runat="server"> รหัสบัตรประชาชน </asp:Label>
                     <asp:TextBox ID="Cust_Idcard_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
-                <div class="col-xs-3">
-                    <asp:Label ID="Label4" runat="server"> ชื่อ-นามสกุล </asp:Label>
-                    <asp:TextBox ID="Cust_Name_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                <div class="col-xs-2">
+                    <asp:Label ID="Cust_FName_Lbl" runat="server"> ชื่อ </asp:Label>
+                    <asp:TextBox ID="Cust_FName_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-xs-2">
+                    <asp:Label ID="Cust_LName_Lbl" runat="server"> นามสกุล </asp:Label>
+                    <asp:TextBox ID="Cust_LName_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
@@ -123,6 +127,14 @@
                 <div class="col-xs-2">
                     <asp:Label ID="Lost_Payment_end_Lbl" runat="server"> ถึง </asp:Label>
                     <asp:TextBox ID="Lost_Payment_end_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                </div>
+                <div class="col-xs-2">
+                    <asp:Label ID="district_Lbl" runat="server"> อำเภอ / เขต</asp:Label>
+                    <asp:TextBox ID="district_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-xs-2">
+                    <asp:Label ID="province_Lbl" runat="server"> จังหวัด </asp:Label>
+                    <asp:TextBox ID="province_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
             <div class="row">

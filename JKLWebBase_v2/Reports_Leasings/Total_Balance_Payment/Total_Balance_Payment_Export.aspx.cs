@@ -25,6 +25,15 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
         {
             _loadReport();
 
+            Session.Remove("deposit_no_rpt");
+            Session.Remove("leasing_no_rpt");
+            Session.Remove("idcard_rpt");
+            Session.Remove("fname_rpt");
+            Session.Remove("lname_rpt");
+            Session.Remove("lost_str_rpt");
+            Session.Remove("lost_end_rpt");
+            Session.Remove("district_rpt");
+            Session.Remove("province_rpt");
             Session.Remove("leasing_Code_inline_rpt");
             Session.Remove("Company_id_inline_rpt");
             Session.Remove("zone_id_inline_rpt");
@@ -32,12 +41,22 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
 
         private void _loadReport()
         {
+            string deposit_no = (string)Session["deposit_no_rpt"];
+            string leasing_no = (string)Session["leasing_no_rpt"];
+            string idcard = (string)Session["idcard_rpt"];
+            string fname = (string)Session["fname_rpt"];
+            string lname = (string)Session["lname_rpt"];
+            string lost_str = (string)Session["lost_str_rpt"];
+            string lost_end = (string)Session["lost_end_rpt"];
+            string district = (string)Session["district_rpt"];
+            string province = (string)Session["province_rpt"];
             string leasing_Code_inline = (string)Session["leasing_Code_inline_rpt"];
             string Company_id_inline = (string)Session["Company_id_inline_rpt"];
             string zone_id_inline = (string)Session["zone_id_inline_rpt"];
             string report_header = " รายงานลูกหนี้คงเหลือ ";
 
-            if (leasing_Code_inline == "" && Company_id_inline == "" && zone_id_inline == "")
+            if (deposit_no == "" && leasing_no == "" && idcard == "" && fname == "" && lname == "" && lost_str == "0" && lost_end == "0" && 
+                district == "" && province == "" && leasing_Code_inline == "" && Company_id_inline == "" && zone_id_inline == "")
             {
                 report_header = " รายงานลูกหนี้คงเหลือ (ทั้งหมด)";
             }
@@ -51,22 +70,24 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
             {
 
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("rpt_generals_leasing", con);
+                MySqlCommand cmd = new MySqlCommand("rpt_total_balance", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandTimeout = 0;
 
-                cmd.Parameters.AddWithValue("@i_Deps_no", "");
-                cmd.Parameters.AddWithValue("@i_Leasing_no", "");
-                cmd.Parameters.AddWithValue("@i_Cust_idcard", "");
-                cmd.Parameters.AddWithValue("@i_Cust_Fname", "");
-                cmd.Parameters.AddWithValue("@i_Cust_LName", "");
+                cmd.Parameters.AddWithValue("@i_Deps_no", deposit_no);
+                cmd.Parameters.AddWithValue("@i_Leasing_no", leasing_no);
+                cmd.Parameters.AddWithValue("@i_Cust_idcard", idcard);
+                cmd.Parameters.AddWithValue("@i_Cust_Fname", fname);
+                cmd.Parameters.AddWithValue("@i_Cust_LName", lname);
                 cmd.Parameters.AddWithValue("@i_Leasing_date_str", "");
                 cmd.Parameters.AddWithValue("@i_Leasing_date_end", "");
                 cmd.Parameters.AddWithValue("@i_Leasing_code_id", leasing_Code_inline);
                 cmd.Parameters.AddWithValue("@i_Company_id", Company_id_inline);
                 cmd.Parameters.AddWithValue("@i_Zone_id", zone_id_inline);
-                cmd.Parameters.AddWithValue("@i_lost_str", 0);
-                cmd.Parameters.AddWithValue("@i_lost_end", 0);
+                cmd.Parameters.AddWithValue("@i_lost_str", lost_str);
+                cmd.Parameters.AddWithValue("@i_lost_end", lost_end);
+                cmd.Parameters.AddWithValue("@i_district", district);
+                cmd.Parameters.AddWithValue("@i_province", province);
                 cmd.Parameters.AddWithValue("@i_row_str", 0);
                 cmd.Parameters.AddWithValue("@i_row_limit", 0);
 
@@ -79,7 +100,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 Total_Balance_Payment rpt = new Total_Balance_Payment();
                 rpt.SetDataSource(ls_ds);
                 rpt.SetParameterValue("Reported_By_User", "ออกโดย : " + acc_lgn.Account_F_name);
-                rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOW()));
+                rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOWForServer()));
                 rpt.SetParameterValue("Report_Header", report_header);
 
 

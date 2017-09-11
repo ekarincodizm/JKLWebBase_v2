@@ -41,6 +41,22 @@ namespace JKLWebBase_v2.Global_Class
 
             return (int.Parse(date[2]) - 543) + "-" + date[1] + "-" + date[0];
         }
+        public static string _dateNOWForServer()
+        {
+            string[] dt = DateTime.Now.ToString().Split(' ');
+            string[] date = dt[0].Split('/');
+            if (int.Parse(date[0]) < 10)
+            {
+                date[0] = "0" + int.Parse(date[0]);
+            }
+            if (int.Parse(date[1]) < 10)
+            {
+                date[1] = "0" + int.Parse(date[1]);
+            }
+
+            return date[2] + "-" + date[1] + "-" + date[0];
+        }
+
         public static string _dateTimeNOW()
         {
             string[] dt = DateTime.Now.ToString().Split(' ');
@@ -55,6 +71,22 @@ namespace JKLWebBase_v2.Global_Class
             }
 
             return (int.Parse(date[2]) - 543) + "-" + date[1] + "-" + date[0] + " " + dt[1];
+        }
+
+        public static string _dateTimeNOWForServer()
+        {
+            string[] dt = DateTime.Now.ToString().Split(' ');
+            string[] date = dt[0].Split('/');
+            if (int.Parse(date[0]) < 10)
+            {
+                date[0] = "0" + int.Parse(date[0]);
+            }
+            if (int.Parse(date[1]) < 10)
+            {
+                date[1] = "0" + int.Parse(date[1]);
+            }
+
+            return date[2] + "-" + date[1] + "-" + date[0] + " " + dt[1];
         }
 
         public static string convertDateTime(string datetime)
@@ -91,6 +123,21 @@ namespace JKLWebBase_v2.Global_Class
                 string[] date = dt[0].Split('/');
 
                 return (int.Parse(date[2]) - 543) + "-" + date[1] + "-" + date[0];
+            }
+            else
+            {
+                return datetime;
+            }
+        }
+
+        public static string convertDateToMYSQLRealServer(string datetime)
+        {
+            if (!string.IsNullOrEmpty(datetime))
+            {
+                string[] dt = datetime.Split(' ');
+                string[] date = dt[0].Split('/');
+
+                return (int.Parse(date[2])) + "-" + date[0] + "-" + date[1];
             }
             else
             {
@@ -138,6 +185,47 @@ namespace JKLWebBase_v2.Global_Class
             }
         }
 
+        public static string convertDateToPageRealServer(string datetime)
+        {
+            if (!string.IsNullOrEmpty(datetime))
+            {
+                if (datetime.IndexOf("/") > 0)
+                {
+                    string[] dt = datetime.Split(' ');
+                    string[] date = dt[0].Split('/');
+                    if (int.Parse(date[0]) < 10)
+                    {
+                        date[0] = "0" + int.Parse(date[0]);
+                    }
+                    if (int.Parse(date[1]) < 10)
+                    {
+                        date[1] = "0" + int.Parse(date[1]);
+                    }
+                    datetime = date[0] + "/" + date[1] + "/" + (int.Parse(date[2]) + 543);
+                }
+                else if (datetime.IndexOf("-") > 0)
+                {
+                    string[] dt = datetime.Split(' ');
+                    string[] date = dt[0].Split('-');
+                    if (int.Parse(date[2]) < 10)
+                    {
+                        date[2] = "0" + int.Parse(date[2]);
+                    }
+                    if (int.Parse(date[1]) < 10)
+                    {
+                        date[1] = "0" + int.Parse(date[1]);
+                    }
+                    datetime = date[2] + "/" + date[1] + "/" + (int.Parse(date[0]) + 543);
+                }
+                return datetime;
+            }
+            else
+            {
+                return datetime;
+            }
+        }
+
+
         public static string convertDateTimeToPage(string datetime)
         {
             if (!string.IsNullOrEmpty(datetime))
@@ -156,6 +244,49 @@ namespace JKLWebBase_v2.Global_Class
                     }
 
                     datetime = date[0] + "/" + date[1] + "/" + date[2] + " " + dt[1];
+                }
+                else if (datetime.IndexOf("-") > 0)
+                {
+                    string[] dt = datetime.Split(' ');
+                    string[] date = dt[0].Split('-');
+                    if (int.Parse(date[2]) < 10)
+                    {
+                        date[2] = "0" + int.Parse(date[2]);
+                    }
+                    if (int.Parse(date[1]) < 10)
+                    {
+                        date[1] = "0" + int.Parse(date[1]);
+                    }
+
+                    datetime = date[2] + "/" + date[1] + "/" + (int.Parse(date[0]) + 543) + " " + dt[1];
+                }
+
+                return datetime;
+            }
+            else
+            {
+                return datetime;
+            }
+        }
+
+        public static string convertDateTimeToPageRealServer(string datetime)
+        {
+            if (!string.IsNullOrEmpty(datetime))
+            {
+                if (datetime.IndexOf("/") > 0)
+                {
+                    string[] dt = datetime.Split(' ');
+                    string[] date = dt[0].Split('/');
+                    if (int.Parse(date[0]) < 10)
+                    {
+                        date[0] = "0" + int.Parse(date[0]);
+                    }
+                    if (int.Parse(date[1]) < 10)
+                    {
+                        date[1] = "0" + int.Parse(date[1]);
+                    }
+
+                    datetime = date[0] + "/" + date[1] + "/" + (int.Parse(date[2]) + 543) + " " + dt[1];
                 }
                 else if (datetime.IndexOf("-") > 0)
                 {

@@ -277,7 +277,7 @@
                             <asp:TextBox ID="Car_Old_Owner_Idcard_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Car_old_owner_b_date_Lbl" runat="server">วันเกิด</asp:Label>
+                            <asp:Label ID="Car_old_owner_b_date_Lbl" runat="server">บัตรหมดอายุ</asp:Label>
                             <div class="form-group input-group" id="Car_Old_Owner_Idcard_Str">
                                 <asp:TextBox ID="Car_old_owner_b_date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                 <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>

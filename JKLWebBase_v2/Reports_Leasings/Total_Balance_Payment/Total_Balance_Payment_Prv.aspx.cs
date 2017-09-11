@@ -85,10 +85,27 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
 
         protected void Export_Reported_Btn_Click(object sender, EventArgs e)
         {
+            string deposit_no = string.IsNullOrEmpty(Deps_No_TBx.Text) ? "" : Deps_No_TBx.Text;
+            string leasing_no = string.IsNullOrEmpty(Leasing_No_TBx.Text) ? "" : Leasing_No_TBx.Text;
+            string idcard = string.IsNullOrEmpty(Cust_Idcard_TBx.Text) ? "" : Cust_Idcard_TBx.Text;
+            string fname = string.IsNullOrEmpty(Cust_FName_TBx.Text) ? "" : Cust_FName_TBx.Text;
+            string lname = string.IsNullOrEmpty(Cust_LName_TBx.Text) ? "" : Cust_LName_TBx.Text;
+            string lost_str = string.IsNullOrEmpty(Lost_Payment_str_TBx.Text) ? "0" : Lost_Payment_str_TBx.Text;
+            string lost_end = string.IsNullOrEmpty(Lost_Payment_end_TBx.Text) ? "0" : Lost_Payment_end_TBx.Text;
+            string district = string.IsNullOrEmpty(district_TBx.Text) ? "" : district_TBx.Text;
+            string province = string.IsNullOrEmpty(province_TBx.Text) ? "" : province_TBx.Text;
             string leasing_Code_inline = _getCheckedLeasing_Code();
             string Company_id_inline = _getCheckedBranch();
             string zone_id_inline = _getCheckedZone();
 
+            Session["deposit_no_rpt"] = deposit_no;
+            Session["leasing_no_rpt"] = leasing_no;
+            Session["idcard_rpt"] = idcard;
+            Session["fname_rpt"] = fname;
+            Session["lname_rpt"] = lname;
+            Session["lost_str_rpt"] = lost_str;
+            Session["lost_end_rpt"] = lost_end;
+            Session["district_rpt"] = district;
             Session["leasing_Code_inline_rpt"] = leasing_Code_inline;
             Session["Company_id_inline_rpt"] = Company_id_inline;
             Session["zone_id_inline_rpt"] = zone_id_inline;

@@ -58,7 +58,10 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
                 pay_schd_ds.Clear();
                 pay_schd_ds.Tables["r_payment_schedule"].Load(reader);
 
-                Payment_Schedule rpt = new Payment_Schedule();
+                /*Payment_Schedule rpt = new Payment_Schedule();
+                rpt.SetDataSource(pay_schd_ds);*/
+
+                Payment_Schedule_001 rpt = new Payment_Schedule_001();
                 rpt.SetDataSource(pay_schd_ds);
 
                 CRV_Payment_Schedule.ReportSource = rpt;
@@ -140,7 +143,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
             }
         }
 
-        public void ExportReport(Payment_Schedule rpt)
+        public void ExportReport(Payment_Schedule_001 rpt)
         {
             cls = (Car_Leasings)Session["Leasings"];
 

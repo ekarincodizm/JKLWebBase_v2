@@ -53,10 +53,10 @@
                         <tr>
                             <td><%= bs_data.Total_payment_name %></td>
                             <td style="text-align: center;">
-                                <a class="btn btn-xs btn-warning" href="/Form_Base/Base_Car_Brands_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, bs_data.Total_payment_id.ToString()) %>&mode=e" target="_parent" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit fa-fw"></i></a>
+                                <a class="btn btn-xs btn-warning" href="/Form_Base/Base_Total_Payment_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, bs_data.Total_payment_id.ToString()) %>&mode=e" target="_parent" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit fa-fw"></i></a>
                             </td>
                             <td style="text-align: center;">
-                                <a class="btn btn-xs btn-danger" href="/Form_Base/Base_Car_Brands_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, bs_data.Total_payment_id.ToString()) %>&mode=r" target="_parent" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>
+                                <a class="btn btn-xs btn-danger" href="/Form_Base/Base_Total_Payment_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, bs_data.Total_payment_id.ToString()) %>&mode=r" target="_parent" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>
                             </td>
                         </tr>
                         <% } %>

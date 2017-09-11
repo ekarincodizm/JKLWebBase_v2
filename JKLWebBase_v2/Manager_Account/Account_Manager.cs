@@ -67,17 +67,16 @@ namespace JKLWebBase_v2.Manager_Account
                     acc_lgn.bs_cpn.Company_road = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
                     acc_lgn.bs_cpn.Company_subdistrict = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
                     acc_lgn.bs_cpn.Company_district = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
-                    acc_lgn.bs_cpn.Company_province_id = reader.IsDBNull(27) ? defaultNum : reader.GetInt32(27);
-                    acc_lgn.bs_cpn.Company_province_name = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
-                    acc_lgn.bs_cpn.Company_country = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
-                    acc_lgn.bs_cpn.Company_zipcode = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
-                    acc_lgn.bs_cpn.Company_tel = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
-                    acc_lgn.bs_cpn.Company_Save_date = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    acc_lgn.bs_cpn.Company_province = reader.IsDBNull(27) ? defaultString : reader.GetString(27);
+                    acc_lgn.bs_cpn.Company_country = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
+                    acc_lgn.bs_cpn.Company_zipcode = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    acc_lgn.bs_cpn.Company_tel = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    acc_lgn.bs_cpn.Company_Save_date = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
 
-                    acc_lgn.resu = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
-                    acc_lgn.ssap = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
-                    acc_lgn.Account_status = reader.IsDBNull(35) ? defaultNum : reader.GetInt32(35);
-                    acc_lgn.Account_Save_Date = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+                    acc_lgn.resu = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    acc_lgn.ssap = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+                    acc_lgn.Account_status = reader.IsDBNull(34) ? defaultNum : reader.GetInt32(34);
+                    acc_lgn.Account_Save_Date = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
 
                 }
 
@@ -156,17 +155,16 @@ namespace JKLWebBase_v2.Manager_Account
                     acc_lgn.bs_cpn.Company_road = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
                     acc_lgn.bs_cpn.Company_subdistrict = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
                     acc_lgn.bs_cpn.Company_district = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
-                    acc_lgn.bs_cpn.Company_province_id = reader.IsDBNull(27) ? defaultNum : reader.GetInt32(27);
-                    acc_lgn.bs_cpn.Company_province_name = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
-                    acc_lgn.bs_cpn.Company_country = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
-                    acc_lgn.bs_cpn.Company_zipcode = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
-                    acc_lgn.bs_cpn.Company_tel = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
-                    acc_lgn.bs_cpn.Company_Save_date = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    acc_lgn.bs_cpn.Company_province= reader.IsDBNull(27) ? defaultString : reader.GetString(27);
+                    acc_lgn.bs_cpn.Company_country = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
+                    acc_lgn.bs_cpn.Company_zipcode = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    acc_lgn.bs_cpn.Company_tel = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    acc_lgn.bs_cpn.Company_Save_date = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
 
-                    acc_lgn.resu = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
-                    acc_lgn.ssap = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
-                    acc_lgn.Account_status = reader.IsDBNull(35) ? defaultNum : reader.GetInt32(35);
-                    acc_lgn.Account_Save_Date = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+                    acc_lgn.resu = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    acc_lgn.ssap = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+                    acc_lgn.Account_status = reader.IsDBNull(34) ? defaultNum : reader.GetInt32(34);
+                    acc_lgn.Account_Save_Date = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
 
                 }
 
@@ -254,17 +252,16 @@ namespace JKLWebBase_v2.Manager_Account
                     acc_lgn.bs_cpn.Company_road = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
                     acc_lgn.bs_cpn.Company_subdistrict = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
                     acc_lgn.bs_cpn.Company_district = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
-                    acc_lgn.bs_cpn.Company_province_id = reader.IsDBNull(27) ? defaultNum : reader.GetInt32(27);
-                    acc_lgn.bs_cpn.Company_province_name = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
-                    acc_lgn.bs_cpn.Company_country = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
-                    acc_lgn.bs_cpn.Company_zipcode = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
-                    acc_lgn.bs_cpn.Company_tel = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
-                    acc_lgn.bs_cpn.Company_Save_date = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    acc_lgn.bs_cpn.Company_province = reader.IsDBNull(27) ? defaultString : reader.GetString(27);
+                    acc_lgn.bs_cpn.Company_country = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
+                    acc_lgn.bs_cpn.Company_zipcode = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    acc_lgn.bs_cpn.Company_tel = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    acc_lgn.bs_cpn.Company_Save_date = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
 
-                    acc_lgn.resu = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
-                    acc_lgn.ssap = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
-                    acc_lgn.Account_status = reader.IsDBNull(35) ? defaultNum : reader.GetInt32(35);
-                    acc_lgn.Account_Save_Date = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+                    acc_lgn.resu = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    acc_lgn.ssap = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+                    acc_lgn.Account_status = reader.IsDBNull(34) ? defaultNum : reader.GetInt32(34);
+                    acc_lgn.Account_Save_Date = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
 
                     list_data.Add(acc_lgn);
                 }

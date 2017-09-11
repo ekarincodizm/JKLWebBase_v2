@@ -129,119 +129,98 @@ namespace JKLWebBase_v2.Managers_Customers
                     ctm.Cust_Marry_road = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
                     ctm.Cust_Marry_subdistrict = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
                     ctm.Cust_Marry_district = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+                    ctm.Cust_Marry_province = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
+                    ctm.Cust_Marry_country = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+                    ctm.Cust_Marry_zipcode = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
+                    ctm.Cust_Marry_tel = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
+                    ctm.Cust_Marry_email = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
 
-                    ctm.ctm_marry_pv = new TH_Provinces();
-                    ctm.ctm_marry_pv.Province_id = reader.IsDBNull(35) ? defaultNum : reader.GetInt32(35);
-                    ctm.ctm_marry_pv.Province_name = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+                    ctm.Cust_Marry_job = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
+                    ctm.Cust_Marry_job_position = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
+                    ctm.Cust_Marry_job_long = reader.IsDBNull(42) ? defaultNum : reader.GetInt32(42);
+                    ctm.Cust_Marry_job_salary = reader.IsDBNull(43) ? defaultNum : reader.GetDouble(43);
+                    ctm.Cust_Marry_job_local_name = reader.IsDBNull(44) ? defaultString : reader.GetString(44);
+                    ctm.Cust_Marry_job_address_no = reader.IsDBNull(45) ? defaultString : reader.GetString(45);
+                    ctm.Cust_Marry_job_vilage = reader.IsDBNull(46) ? defaultString : reader.GetString(46);
+                    ctm.Cust_Marry_job_vilage_no = reader.IsDBNull(47) ? defaultString : reader.GetString(47);
+                    ctm.Cust_Marry_job_alley = reader.IsDBNull(48) ? defaultString : reader.GetString(48);
+                    ctm.Cust_Marry_job_road = reader.IsDBNull(49) ? defaultString : reader.GetString(49);
+                    ctm.Cust_Marry_job_subdistrict = reader.IsDBNull(50) ? defaultString : reader.GetString(50);
+                    ctm.Cust_Marry_job_district = reader.IsDBNull(51) ? defaultString : reader.GetString(51);
+                    ctm.Cust_Marry_job_province = reader.IsDBNull(52) ? defaultString : reader.GetString(52);
+                    ctm.Cust_Marry_job_country = reader.IsDBNull(53) ? defaultString : reader.GetString(53);
+                    ctm.Cust_Marry_job_zipcode = reader.IsDBNull(54) ? defaultString : reader.GetString(54);
+                    ctm.Cust_Marry_job_tel = reader.IsDBNull(55) ? defaultString : reader.GetString(55);
 
-                    ctm.Cust_Marry_country = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
-                    ctm.Cust_Marry_zipcode = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
-                    ctm.Cust_Marry_tel = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
-                    ctm.Cust_Marry_email = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
-                    ctm.Cust_Marry_job = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
-                    ctm.Cust_Marry_job_position = reader.IsDBNull(42) ? defaultString : reader.GetString(42);
-                    ctm.Cust_Marry_job_long = reader.IsDBNull(43) ? defaultNum : reader.GetInt32(43);
-                    ctm.Cust_Marry_job_salary = reader.IsDBNull(44) ? defaultNum : reader.GetDouble(44);
-                    ctm.Cust_Marry_job_local_name = reader.IsDBNull(45) ? defaultString : reader.GetString(45);
-                    ctm.Cust_Marry_job_address_no = reader.IsDBNull(46) ? defaultString : reader.GetString(46);
-                    ctm.Cust_Marry_job_vilage = reader.IsDBNull(47) ? defaultString : reader.GetString(47);
-                    ctm.Cust_Marry_job_vilage_no = reader.IsDBNull(48) ? defaultString : reader.GetString(48);
-                    ctm.Cust_Marry_job_alley = reader.IsDBNull(49) ? defaultString : reader.GetString(49);
-                    ctm.Cust_Marry_job_road = reader.IsDBNull(50) ? defaultString : reader.GetString(50);
-                    ctm.Cust_Marry_job_subdistrict = reader.IsDBNull(51) ? defaultString : reader.GetString(51);
-                    ctm.Cust_Marry_job_district = reader.IsDBNull(52) ? defaultString : reader.GetString(52);
+                    ctm.Cust_Job = reader.IsDBNull(56) ? defaultString : reader.GetString(56);
+                    ctm.Cust_Job_position = reader.IsDBNull(57) ? defaultString : reader.GetString(57);
+                    ctm.Cust_Job_long = reader.IsDBNull(58) ? defaultNum : reader.GetInt32(58);
+                    ctm.Cust_Job_salary = reader.IsDBNull(59) ? defaultNum : reader.GetDouble(59);
+                    ctm.Cust_Job_local_name = reader.IsDBNull(60) ? defaultString : reader.GetString(60);
+                    ctm.Cust_Job_address_no = reader.IsDBNull(61) ? defaultString : reader.GetString(61);
+                    ctm.Cust_Job_vilage = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
+                    ctm.Cust_Job_vilage_no = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
+                    ctm.Cust_Job_alley = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
+                    ctm.Cust_Job_road = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
+                    ctm.Cust_Job_subdistrict = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
+                    ctm.Cust_Job_district = reader.IsDBNull(67) ? defaultString : reader.GetString(67);
+                    ctm.Cust_Job_province = reader.IsDBNull(68) ? defaultString : reader.GetString(68);
+                    ctm.Cust_Job_country = reader.IsDBNull(69) ? defaultString : reader.GetString(69);
+                    ctm.Cust_Job_zipcode = reader.IsDBNull(70) ? defaultString : reader.GetString(70);
+                    ctm.Cust_Job_tel = reader.IsDBNull(71) ? defaultString : reader.GetString(71);
+                    ctm.Cust_Job_email = reader.IsDBNull(72) ? defaultString : reader.GetString(72);
 
-                    ctm.ctm_marry_job_pv = new TH_Provinces();
-                    ctm.ctm_marry_pv.Province_id = reader.IsDBNull(53) ? defaultNum : reader.GetInt32(53);
-                    ctm.ctm_marry_pv.Province_name = reader.IsDBNull(54) ? defaultString : reader.GetString(54);
-
-                    ctm.Cust_Marry_job_country = reader.IsDBNull(55) ? defaultString : reader.GetString(55);
-                    ctm.Cust_Marry_job_zipcode = reader.IsDBNull(56) ? defaultString : reader.GetString(56);
-                    ctm.Cust_Marry_job_tel = reader.IsDBNull(57) ? defaultString : reader.GetString(57);
-                    ctm.Cust_Job = reader.IsDBNull(58) ? defaultString : reader.GetString(58);
-                    ctm.Cust_Job_position = reader.IsDBNull(59) ? defaultString : reader.GetString(59);
-                    ctm.Cust_Job_long = reader.IsDBNull(60) ? defaultNum : reader.GetInt32(60);
-                    ctm.Cust_Job_salary = reader.IsDBNull(61) ? defaultNum : reader.GetDouble(61);
-                    ctm.Cust_Job_local_name = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
-                    ctm.Cust_Job_address_no = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
-                    ctm.Cust_Job_vilage = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
-                    ctm.Cust_Job_vilage_no = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
-                    ctm.Cust_Job_alley = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
-                    ctm.Cust_Job_road = reader.IsDBNull(67) ? defaultString : reader.GetString(67);
-                    ctm.Cust_Job_subdistrict = reader.IsDBNull(68) ? defaultString : reader.GetString(68);
-                    ctm.Cust_Job_district = reader.IsDBNull(69) ? defaultString : reader.GetString(69);
-
-                    ctm.ctm_job_pv = new TH_Provinces();
-                    ctm.ctm_job_pv.Province_id = reader.IsDBNull(70) ? defaultNum : reader.GetInt32(70);
-                    ctm.ctm_job_pv.Province_name = reader.IsDBNull(71) ? defaultString : reader.GetString(71);
-
-                    ctm.Cust_Job_country = reader.IsDBNull(72) ? defaultString : reader.GetString(72);
-                    ctm.Cust_Job_zipcode = reader.IsDBNull(73) ? defaultString : reader.GetString(73);
-                    ctm.Cust_Job_tel = reader.IsDBNull(74) ? defaultString : reader.GetString(74);
-                    ctm.Cust_Job_email = reader.IsDBNull(75) ? defaultString : reader.GetString(75);
-                    ctm.Cust_Home_address_no = reader.IsDBNull(76) ? defaultString : reader.GetString(76);
-                    ctm.Cust_Home_vilage = reader.IsDBNull(77) ? defaultString : reader.GetString(77);
-                    ctm.Cust_Home_vilage_no = reader.IsDBNull(78) ? defaultString : reader.GetString(78);
-                    ctm.Cust_Home_alley = reader.IsDBNull(79) ? defaultString : reader.GetString(79);
-                    ctm.Cust_Home_road = reader.IsDBNull(80) ? defaultString : reader.GetString(80);
-                    ctm.Cust_Home_subdistrict = reader.IsDBNull(81) ? defaultString : reader.GetString(81);
-                    ctm.Cust_Home_district = reader.IsDBNull(82) ? defaultString : reader.GetString(82);
-
-                    ctm.ctm_home_pv = new TH_Provinces();
-                    ctm.ctm_home_pv.Province_id = reader.IsDBNull(83) ? defaultNum : reader.GetInt32(83);
-                    ctm.ctm_home_pv.Province_name = reader.IsDBNull(84) ? defaultString : reader.GetString(84);
-
-                    ctm.Cust_Home_country = reader.IsDBNull(85) ? defaultString : reader.GetString(85);
-                    ctm.Cust_Home_zipcode = reader.IsDBNull(86) ? defaultString : reader.GetString(86);
-                    ctm.Cust_Home_tel = reader.IsDBNull(87) ? defaultString : reader.GetString(87);
-                    ctm.Cust_Home_GPS_Latitude = reader.IsDBNull(88) ? defaultString : reader.GetString(88);
-                    ctm.Cust_Home_GPS_Longitude = reader.IsDBNull(89) ? defaultString : reader.GetString(89);
+                    ctm.Cust_Home_address_no = reader.IsDBNull(73) ? defaultString : reader.GetString(73);
+                    ctm.Cust_Home_vilage = reader.IsDBNull(74) ? defaultString : reader.GetString(74);
+                    ctm.Cust_Home_vilage_no = reader.IsDBNull(75) ? defaultString : reader.GetString(75);
+                    ctm.Cust_Home_alley = reader.IsDBNull(76) ? defaultString : reader.GetString(76);
+                    ctm.Cust_Home_road = reader.IsDBNull(77) ? defaultString : reader.GetString(77);
+                    ctm.Cust_Home_subdistrict = reader.IsDBNull(78) ? defaultString : reader.GetString(78);
+                    ctm.Cust_Home_district = reader.IsDBNull(79) ? defaultString : reader.GetString(79);
+                    ctm.Cust_Home_province = reader.IsDBNull(80) ? defaultString : reader.GetString(80);
+                    ctm.Cust_Home_country = reader.IsDBNull(81) ? defaultString : reader.GetString(81);
+                    ctm.Cust_Home_zipcode = reader.IsDBNull(82) ? defaultString : reader.GetString(82);
+                    ctm.Cust_Home_tel = reader.IsDBNull(83) ? defaultString : reader.GetString(83);
+                    ctm.Cust_Home_GPS_Latitude = reader.IsDBNull(84) ? defaultString : reader.GetString(84);
+                    ctm.Cust_Home_GPS_Longitude = reader.IsDBNull(85) ? defaultString : reader.GetString(85);
 
                     ctm.ctm_home_stt = new Base_Home_Status();
-                    ctm.ctm_home_stt.Home_status_id = reader.IsDBNull(90) ? defaultNum : reader.GetInt32(90);
-                    ctm.ctm_home_stt.Home_status_name = reader.IsDBNull(91) ? defaultString : reader.GetString(91);
+                    ctm.ctm_home_stt.Home_status_id = reader.IsDBNull(86) ? defaultNum : reader.GetInt32(86);
+                    ctm.ctm_home_stt.Home_status_name = reader.IsDBNull(87) ? defaultString : reader.GetString(87);
 
-                    ctm.Cust_Idcard_address_no = reader.IsDBNull(92) ? defaultString : reader.GetString(92);
-                    ctm.Cust_Idcard_vilage = reader.IsDBNull(93) ? defaultString : reader.GetString(93);
-                    ctm.Cust_Idcard_vilage_no = reader.IsDBNull(94) ? defaultString : reader.GetString(94);
-                    ctm.Cust_Idcard_alley = reader.IsDBNull(95) ? defaultString : reader.GetString(95);
-                    ctm.Cust_Idcard_road = reader.IsDBNull(96) ? defaultString : reader.GetString(96);
-                    ctm.Cust_Idcard_subdistrict = reader.IsDBNull(97) ? defaultString : reader.GetString(97);
-                    ctm.Cust_Idcard_district = reader.IsDBNull(98) ? defaultString : reader.GetString(98);
-
-                    ctm.ctm_idcard_pv = new TH_Provinces();
-                    ctm.ctm_idcard_pv.Province_id = reader.IsDBNull(99) ? defaultNum : reader.GetInt32(99);
-                    ctm.ctm_idcard_pv.Province_name = reader.IsDBNull(100) ? defaultString : reader.GetString(100);
-
-                    ctm.Cust_Idcard_country = reader.IsDBNull(101) ? defaultString : reader.GetString(101);
-                    ctm.Cust_Idcard_zipcode = reader.IsDBNull(102) ? defaultString : reader.GetString(102);
-                    ctm.Cust_Idcard_tel = reader.IsDBNull(103) ? defaultString : reader.GetString(103);
+                    ctm.Cust_Idcard_address_no = reader.IsDBNull(88) ? defaultString : reader.GetString(88);
+                    ctm.Cust_Idcard_vilage = reader.IsDBNull(89) ? defaultString : reader.GetString(89);
+                    ctm.Cust_Idcard_vilage_no = reader.IsDBNull(90) ? defaultString : reader.GetString(90);
+                    ctm.Cust_Idcard_alley = reader.IsDBNull(91) ? defaultString : reader.GetString(91);
+                    ctm.Cust_Idcard_road = reader.IsDBNull(92) ? defaultString : reader.GetString(92);
+                    ctm.Cust_Idcard_subdistrict = reader.IsDBNull(93) ? defaultString : reader.GetString(93);
+                    ctm.Cust_Idcard_district = reader.IsDBNull(94) ? defaultString : reader.GetString(94);
+                    ctm.Cust_Idcard_province = reader.IsDBNull(95) ? defaultString : reader.GetString(95);
+                    ctm.Cust_Idcard_country = reader.IsDBNull(96) ? defaultString : reader.GetString(96);
+                    ctm.Cust_Idcard_zipcode = reader.IsDBNull(97) ? defaultString : reader.GetString(97);
+                    ctm.Cust_Idcard_tel = reader.IsDBNull(98) ? defaultString : reader.GetString(98);
 
                     ctm.ctm_idcard_stt = new Base_Home_Status();
-                    ctm.ctm_idcard_stt.Home_status_id = reader.IsDBNull(104) ? defaultNum : reader.GetInt32(104);
-                    ctm.ctm_idcard_stt.Home_status_name = reader.IsDBNull(105) ? defaultString : reader.GetString(105);
+                    ctm.ctm_idcard_stt.Home_status_id = reader.IsDBNull(99) ? defaultNum : reader.GetInt32(99);
+                    ctm.ctm_idcard_stt.Home_status_name = reader.IsDBNull(100) ? defaultString : reader.GetString(100);
 
-                    ctm.Cust_Current_address_no = reader.IsDBNull(106) ? defaultString : reader.GetString(106);
-                    ctm.Cust_Current_vilage = reader.IsDBNull(107) ? defaultString : reader.GetString(107);
-                    ctm.Cust_Current_vilage_no = reader.IsDBNull(108) ? defaultString : reader.GetString(108);
-                    ctm.Cust_Current_alley = reader.IsDBNull(109) ? defaultString : reader.GetString(109);
-                    ctm.Cust_Current_road = reader.IsDBNull(110) ? defaultString : reader.GetString(110);
-                    ctm.Cust_Current_subdistrict = reader.IsDBNull(111) ? defaultString : reader.GetString(111);
-                    ctm.Cust_Current_district = reader.IsDBNull(112) ? defaultString : reader.GetString(112);
-
-                    ctm.ctm_current_pv = new TH_Provinces();
-                    ctm.ctm_current_pv.Province_id = reader.IsDBNull(113) ? defaultNum : reader.GetInt32(113);
-                    ctm.ctm_current_pv.Province_name = reader.IsDBNull(114) ? defaultString : reader.GetString(114);
-
-                    ctm.Cust_Current_country = reader.IsDBNull(115) ? defaultString : reader.GetString(115);
-                    ctm.Cust_Current_zipcode = reader.IsDBNull(116) ? defaultString : reader.GetString(116);
-                    ctm.Cust_Current_tel = reader.IsDBNull(117) ? defaultString : reader.GetString(117);
+                    ctm.Cust_Current_address_no = reader.IsDBNull(101) ? defaultString : reader.GetString(101);
+                    ctm.Cust_Current_vilage = reader.IsDBNull(102) ? defaultString : reader.GetString(102);
+                    ctm.Cust_Current_vilage_no = reader.IsDBNull(103) ? defaultString : reader.GetString(103);
+                    ctm.Cust_Current_alley = reader.IsDBNull(104) ? defaultString : reader.GetString(104);
+                    ctm.Cust_Current_road = reader.IsDBNull(105) ? defaultString : reader.GetString(105);
+                    ctm.Cust_Current_subdistrict = reader.IsDBNull(106) ? defaultString : reader.GetString(106);
+                    ctm.Cust_Current_district = reader.IsDBNull(107) ? defaultString : reader.GetString(107);
+                    ctm.Cust_Current_province = reader.IsDBNull(108) ? defaultString : reader.GetString(108);
+                    ctm.Cust_Current_country = reader.IsDBNull(109) ? defaultString : reader.GetString(109);
+                    ctm.Cust_Current_zipcode = reader.IsDBNull(110) ? defaultString : reader.GetString(110);
+                    ctm.Cust_Current_tel = reader.IsDBNull(111) ? defaultString : reader.GetString(111);
 
                     ctm.ctm_current_stt = new Base_Home_Status();
-                    ctm.ctm_current_stt.Home_status_id = reader.IsDBNull(118) ? defaultNum : reader.GetInt32(118);
-                    ctm.ctm_current_stt.Home_status_name = reader.IsDBNull(119) ? defaultString : reader.GetString(119);
+                    ctm.ctm_current_stt.Home_status_id = reader.IsDBNull(112) ? defaultNum : reader.GetInt32(112);
+                    ctm.ctm_current_stt.Home_status_name = reader.IsDBNull(113) ? defaultString : reader.GetString(113);
 
-                    ctm.Cust_save_date = reader.IsDBNull(120) ? defaultString : reader.GetString(120);
+                    ctm.Cust_save_date = reader.IsDBNull(114) ? defaultString : reader.GetString(114);
 
                     list_ctm.Add(ctm);
                 }
@@ -339,119 +318,98 @@ namespace JKLWebBase_v2.Managers_Customers
                     ctm.Cust_Marry_road = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
                     ctm.Cust_Marry_subdistrict = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
                     ctm.Cust_Marry_district = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+                    ctm.Cust_Marry_province = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
+                    ctm.Cust_Marry_country = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+                    ctm.Cust_Marry_zipcode = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
+                    ctm.Cust_Marry_tel = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
+                    ctm.Cust_Marry_email = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
 
-                    ctm.ctm_marry_pv = new TH_Provinces();
-                    ctm.ctm_marry_pv.Province_id = reader.IsDBNull(35) ? defaultNum : reader.GetInt32(35);
-                    ctm.ctm_marry_pv.Province_name = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+                    ctm.Cust_Marry_job = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
+                    ctm.Cust_Marry_job_position = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
+                    ctm.Cust_Marry_job_long = reader.IsDBNull(42) ? defaultNum : reader.GetInt32(42);
+                    ctm.Cust_Marry_job_salary = reader.IsDBNull(43) ? defaultNum : reader.GetDouble(43);
+                    ctm.Cust_Marry_job_local_name = reader.IsDBNull(44) ? defaultString : reader.GetString(44);
+                    ctm.Cust_Marry_job_address_no = reader.IsDBNull(45) ? defaultString : reader.GetString(45);
+                    ctm.Cust_Marry_job_vilage = reader.IsDBNull(46) ? defaultString : reader.GetString(46);
+                    ctm.Cust_Marry_job_vilage_no = reader.IsDBNull(47) ? defaultString : reader.GetString(47);
+                    ctm.Cust_Marry_job_alley = reader.IsDBNull(48) ? defaultString : reader.GetString(48);
+                    ctm.Cust_Marry_job_road = reader.IsDBNull(49) ? defaultString : reader.GetString(49);
+                    ctm.Cust_Marry_job_subdistrict = reader.IsDBNull(50) ? defaultString : reader.GetString(50);
+                    ctm.Cust_Marry_job_district = reader.IsDBNull(51) ? defaultString : reader.GetString(51);
+                    ctm.Cust_Marry_job_province = reader.IsDBNull(52) ? defaultString : reader.GetString(52);
+                    ctm.Cust_Marry_job_country = reader.IsDBNull(53) ? defaultString : reader.GetString(53);
+                    ctm.Cust_Marry_job_zipcode = reader.IsDBNull(54) ? defaultString : reader.GetString(54);
+                    ctm.Cust_Marry_job_tel = reader.IsDBNull(55) ? defaultString : reader.GetString(55);
 
-                    ctm.Cust_Marry_country = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
-                    ctm.Cust_Marry_zipcode = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
-                    ctm.Cust_Marry_tel = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
-                    ctm.Cust_Marry_email = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
-                    ctm.Cust_Marry_job = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
-                    ctm.Cust_Marry_job_position = reader.IsDBNull(42) ? defaultString : reader.GetString(42);
-                    ctm.Cust_Marry_job_long = reader.IsDBNull(43) ? defaultNum : reader.GetInt32(43);
-                    ctm.Cust_Marry_job_salary = reader.IsDBNull(44) ? defaultNum : reader.GetDouble(44);
-                    ctm.Cust_Marry_job_local_name = reader.IsDBNull(45) ? defaultString : reader.GetString(45);
-                    ctm.Cust_Marry_job_address_no = reader.IsDBNull(46) ? defaultString : reader.GetString(46);
-                    ctm.Cust_Marry_job_vilage = reader.IsDBNull(47) ? defaultString : reader.GetString(47);
-                    ctm.Cust_Marry_job_vilage_no = reader.IsDBNull(48) ? defaultString : reader.GetString(48);
-                    ctm.Cust_Marry_job_alley = reader.IsDBNull(49) ? defaultString : reader.GetString(49);
-                    ctm.Cust_Marry_job_road = reader.IsDBNull(50) ? defaultString : reader.GetString(50);
-                    ctm.Cust_Marry_job_subdistrict = reader.IsDBNull(51) ? defaultString : reader.GetString(51);
-                    ctm.Cust_Marry_job_district = reader.IsDBNull(52) ? defaultString : reader.GetString(52);
+                    ctm.Cust_Job = reader.IsDBNull(56) ? defaultString : reader.GetString(56);
+                    ctm.Cust_Job_position = reader.IsDBNull(57) ? defaultString : reader.GetString(57);
+                    ctm.Cust_Job_long = reader.IsDBNull(58) ? defaultNum : reader.GetInt32(58);
+                    ctm.Cust_Job_salary = reader.IsDBNull(59) ? defaultNum : reader.GetDouble(59);
+                    ctm.Cust_Job_local_name = reader.IsDBNull(60) ? defaultString : reader.GetString(60);
+                    ctm.Cust_Job_address_no = reader.IsDBNull(61) ? defaultString : reader.GetString(61);
+                    ctm.Cust_Job_vilage = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
+                    ctm.Cust_Job_vilage_no = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
+                    ctm.Cust_Job_alley = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
+                    ctm.Cust_Job_road = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
+                    ctm.Cust_Job_subdistrict = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
+                    ctm.Cust_Job_district = reader.IsDBNull(67) ? defaultString : reader.GetString(67);
+                    ctm.Cust_Job_province = reader.IsDBNull(68) ? defaultString : reader.GetString(68);
+                    ctm.Cust_Job_country = reader.IsDBNull(69) ? defaultString : reader.GetString(69);
+                    ctm.Cust_Job_zipcode = reader.IsDBNull(70) ? defaultString : reader.GetString(70);
+                    ctm.Cust_Job_tel = reader.IsDBNull(71) ? defaultString : reader.GetString(71);
+                    ctm.Cust_Job_email = reader.IsDBNull(72) ? defaultString : reader.GetString(72);
 
-                    ctm.ctm_marry_job_pv = new TH_Provinces();
-                    ctm.ctm_marry_job_pv.Province_id = reader.IsDBNull(53) ? defaultNum : reader.GetInt32(53);
-                    ctm.ctm_marry_job_pv.Province_name = reader.IsDBNull(54) ? defaultString : reader.GetString(54);
-
-                    ctm.Cust_Marry_job_country = reader.IsDBNull(55) ? defaultString : reader.GetString(55);
-                    ctm.Cust_Marry_job_zipcode = reader.IsDBNull(56) ? defaultString : reader.GetString(56);
-                    ctm.Cust_Marry_job_tel = reader.IsDBNull(57) ? defaultString : reader.GetString(57);
-                    ctm.Cust_Job = reader.IsDBNull(58) ? defaultString : reader.GetString(58);
-                    ctm.Cust_Job_position = reader.IsDBNull(59) ? defaultString : reader.GetString(59);
-                    ctm.Cust_Job_long = reader.IsDBNull(60) ? defaultNum : reader.GetInt32(60);
-                    ctm.Cust_Job_salary = reader.IsDBNull(61) ? defaultNum : reader.GetDouble(61);
-                    ctm.Cust_Job_local_name = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
-                    ctm.Cust_Job_address_no = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
-                    ctm.Cust_Job_vilage = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
-                    ctm.Cust_Job_vilage_no = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
-                    ctm.Cust_Job_alley = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
-                    ctm.Cust_Job_road = reader.IsDBNull(67) ? defaultString : reader.GetString(67);
-                    ctm.Cust_Job_subdistrict = reader.IsDBNull(68) ? defaultString : reader.GetString(68);
-                    ctm.Cust_Job_district = reader.IsDBNull(69) ? defaultString : reader.GetString(69);
-
-                    ctm.ctm_job_pv = new TH_Provinces();
-                    ctm.ctm_job_pv.Province_id = reader.IsDBNull(70) ? defaultNum : reader.GetInt32(70);
-                    ctm.ctm_job_pv.Province_name = reader.IsDBNull(71) ? defaultString : reader.GetString(71);
-
-                    ctm.Cust_Job_country = reader.IsDBNull(72) ? defaultString : reader.GetString(72);
-                    ctm.Cust_Job_zipcode = reader.IsDBNull(73) ? defaultString : reader.GetString(73);
-                    ctm.Cust_Job_tel = reader.IsDBNull(74) ? defaultString : reader.GetString(74);
-                    ctm.Cust_Job_email = reader.IsDBNull(75) ? defaultString : reader.GetString(75);
-                    ctm.Cust_Home_address_no = reader.IsDBNull(76) ? defaultString : reader.GetString(76);
-                    ctm.Cust_Home_vilage = reader.IsDBNull(77) ? defaultString : reader.GetString(77);
-                    ctm.Cust_Home_vilage_no = reader.IsDBNull(78) ? defaultString : reader.GetString(78);
-                    ctm.Cust_Home_alley = reader.IsDBNull(79) ? defaultString : reader.GetString(79);
-                    ctm.Cust_Home_road = reader.IsDBNull(80) ? defaultString : reader.GetString(80);
-                    ctm.Cust_Home_subdistrict = reader.IsDBNull(81) ? defaultString : reader.GetString(81);
-                    ctm.Cust_Home_district = reader.IsDBNull(82) ? defaultString : reader.GetString(82);
-
-                    ctm.ctm_home_pv = new TH_Provinces();
-                    ctm.ctm_home_pv.Province_id = reader.IsDBNull(83) ? defaultNum : reader.GetInt32(83);
-                    ctm.ctm_home_pv.Province_name = reader.IsDBNull(84) ? defaultString : reader.GetString(84);
-
-                    ctm.Cust_Home_country = reader.IsDBNull(85) ? defaultString : reader.GetString(85);
-                    ctm.Cust_Home_zipcode = reader.IsDBNull(86) ? defaultString : reader.GetString(86);
-                    ctm.Cust_Home_tel = reader.IsDBNull(87) ? defaultString : reader.GetString(87);
-                    ctm.Cust_Home_GPS_Latitude = reader.IsDBNull(88) ? defaultString : reader.GetString(88);
-                    ctm.Cust_Home_GPS_Longitude = reader.IsDBNull(89) ? defaultString : reader.GetString(89);
+                    ctm.Cust_Home_address_no = reader.IsDBNull(73) ? defaultString : reader.GetString(73);
+                    ctm.Cust_Home_vilage = reader.IsDBNull(74) ? defaultString : reader.GetString(74);
+                    ctm.Cust_Home_vilage_no = reader.IsDBNull(75) ? defaultString : reader.GetString(75);
+                    ctm.Cust_Home_alley = reader.IsDBNull(76) ? defaultString : reader.GetString(76);
+                    ctm.Cust_Home_road = reader.IsDBNull(77) ? defaultString : reader.GetString(77);
+                    ctm.Cust_Home_subdistrict = reader.IsDBNull(78) ? defaultString : reader.GetString(78);
+                    ctm.Cust_Home_district = reader.IsDBNull(79) ? defaultString : reader.GetString(79);
+                    ctm.Cust_Home_province = reader.IsDBNull(80) ? defaultString : reader.GetString(80);
+                    ctm.Cust_Home_country = reader.IsDBNull(81) ? defaultString : reader.GetString(81);
+                    ctm.Cust_Home_zipcode = reader.IsDBNull(82) ? defaultString : reader.GetString(82);
+                    ctm.Cust_Home_tel = reader.IsDBNull(83) ? defaultString : reader.GetString(83);
+                    ctm.Cust_Home_GPS_Latitude = reader.IsDBNull(84) ? defaultString : reader.GetString(84);
+                    ctm.Cust_Home_GPS_Longitude = reader.IsDBNull(85) ? defaultString : reader.GetString(85);
 
                     ctm.ctm_home_stt = new Base_Home_Status();
-                    ctm.ctm_home_stt.Home_status_id = reader.IsDBNull(90) ? defaultNum : reader.GetInt32(90);
-                    ctm.ctm_home_stt.Home_status_name = reader.IsDBNull(91) ? defaultString : reader.GetString(91);
+                    ctm.ctm_home_stt.Home_status_id = reader.IsDBNull(86) ? defaultNum : reader.GetInt32(86);
+                    ctm.ctm_home_stt.Home_status_name = reader.IsDBNull(87) ? defaultString : reader.GetString(87);
 
-                    ctm.Cust_Idcard_address_no = reader.IsDBNull(92) ? defaultString : reader.GetString(92);
-                    ctm.Cust_Idcard_vilage = reader.IsDBNull(93) ? defaultString : reader.GetString(93);
-                    ctm.Cust_Idcard_vilage_no = reader.IsDBNull(94) ? defaultString : reader.GetString(94);
-                    ctm.Cust_Idcard_alley = reader.IsDBNull(95) ? defaultString : reader.GetString(95);
-                    ctm.Cust_Idcard_road = reader.IsDBNull(96) ? defaultString : reader.GetString(96);
-                    ctm.Cust_Idcard_subdistrict = reader.IsDBNull(97) ? defaultString : reader.GetString(97);
-                    ctm.Cust_Idcard_district = reader.IsDBNull(98) ? defaultString : reader.GetString(98);
-
-                    ctm.ctm_idcard_pv = new TH_Provinces();
-                    ctm.ctm_idcard_pv.Province_id = reader.IsDBNull(99) ? defaultNum : reader.GetInt32(99);
-                    ctm.ctm_idcard_pv.Province_name = reader.IsDBNull(100) ? defaultString : reader.GetString(100);
-
-                    ctm.Cust_Idcard_country = reader.IsDBNull(101) ? defaultString : reader.GetString(101);
-                    ctm.Cust_Idcard_zipcode = reader.IsDBNull(102) ? defaultString : reader.GetString(102);
-                    ctm.Cust_Idcard_tel = reader.IsDBNull(103) ? defaultString : reader.GetString(103);
+                    ctm.Cust_Idcard_address_no = reader.IsDBNull(88) ? defaultString : reader.GetString(88);
+                    ctm.Cust_Idcard_vilage = reader.IsDBNull(89) ? defaultString : reader.GetString(89);
+                    ctm.Cust_Idcard_vilage_no = reader.IsDBNull(90) ? defaultString : reader.GetString(90);
+                    ctm.Cust_Idcard_alley = reader.IsDBNull(91) ? defaultString : reader.GetString(91);
+                    ctm.Cust_Idcard_road = reader.IsDBNull(92) ? defaultString : reader.GetString(92);
+                    ctm.Cust_Idcard_subdistrict = reader.IsDBNull(93) ? defaultString : reader.GetString(93);
+                    ctm.Cust_Idcard_district = reader.IsDBNull(94) ? defaultString : reader.GetString(94);
+                    ctm.Cust_Idcard_province = reader.IsDBNull(95) ? defaultString : reader.GetString(95);
+                    ctm.Cust_Idcard_country = reader.IsDBNull(96) ? defaultString : reader.GetString(96);
+                    ctm.Cust_Idcard_zipcode = reader.IsDBNull(97) ? defaultString : reader.GetString(97);
+                    ctm.Cust_Idcard_tel = reader.IsDBNull(98) ? defaultString : reader.GetString(98);
 
                     ctm.ctm_idcard_stt = new Base_Home_Status();
-                    ctm.ctm_idcard_stt.Home_status_id = reader.IsDBNull(104) ? defaultNum : reader.GetInt32(104);
-                    ctm.ctm_idcard_stt.Home_status_name = reader.IsDBNull(105) ? defaultString : reader.GetString(105);
+                    ctm.ctm_idcard_stt.Home_status_id = reader.IsDBNull(99) ? defaultNum : reader.GetInt32(99);
+                    ctm.ctm_idcard_stt.Home_status_name = reader.IsDBNull(100) ? defaultString : reader.GetString(100);
 
-                    ctm.Cust_Current_address_no = reader.IsDBNull(106) ? defaultString : reader.GetString(106);
-                    ctm.Cust_Current_vilage = reader.IsDBNull(107) ? defaultString : reader.GetString(107);
-                    ctm.Cust_Current_vilage_no = reader.IsDBNull(108) ? defaultString : reader.GetString(108);
-                    ctm.Cust_Current_alley = reader.IsDBNull(109) ? defaultString : reader.GetString(109);
-                    ctm.Cust_Current_road = reader.IsDBNull(110) ? defaultString : reader.GetString(110);
-                    ctm.Cust_Current_subdistrict = reader.IsDBNull(111) ? defaultString : reader.GetString(111);
-                    ctm.Cust_Current_district = reader.IsDBNull(112) ? defaultString : reader.GetString(112);
-
-                    ctm.ctm_current_pv = new TH_Provinces();
-                    ctm.ctm_current_pv.Province_id = reader.IsDBNull(113) ? defaultNum : reader.GetInt32(113);
-                    ctm.ctm_current_pv.Province_name = reader.IsDBNull(114) ? defaultString : reader.GetString(114);
-
-                    ctm.Cust_Current_country = reader.IsDBNull(115) ? defaultString : reader.GetString(115);
-                    ctm.Cust_Current_zipcode = reader.IsDBNull(116) ? defaultString : reader.GetString(116);
-                    ctm.Cust_Current_tel = reader.IsDBNull(117) ? defaultString : reader.GetString(117);
+                    ctm.Cust_Current_address_no = reader.IsDBNull(101) ? defaultString : reader.GetString(101);
+                    ctm.Cust_Current_vilage = reader.IsDBNull(102) ? defaultString : reader.GetString(102);
+                    ctm.Cust_Current_vilage_no = reader.IsDBNull(103) ? defaultString : reader.GetString(103);
+                    ctm.Cust_Current_alley = reader.IsDBNull(104) ? defaultString : reader.GetString(104);
+                    ctm.Cust_Current_road = reader.IsDBNull(105) ? defaultString : reader.GetString(105);
+                    ctm.Cust_Current_subdistrict = reader.IsDBNull(106) ? defaultString : reader.GetString(106);
+                    ctm.Cust_Current_district = reader.IsDBNull(107) ? defaultString : reader.GetString(107);
+                    ctm.Cust_Current_province = reader.IsDBNull(108) ? defaultString : reader.GetString(108);
+                    ctm.Cust_Current_country = reader.IsDBNull(109) ? defaultString : reader.GetString(109);
+                    ctm.Cust_Current_zipcode = reader.IsDBNull(110) ? defaultString : reader.GetString(110);
+                    ctm.Cust_Current_tel = reader.IsDBNull(111) ? defaultString : reader.GetString(111);
 
                     ctm.ctm_current_stt = new Base_Home_Status();
-                    ctm.ctm_current_stt.Home_status_id = reader.IsDBNull(118) ? defaultNum : reader.GetInt32(118);
-                    ctm.ctm_current_stt.Home_status_name = reader.IsDBNull(119) ? defaultString : reader.GetString(119);
+                    ctm.ctm_current_stt.Home_status_id = reader.IsDBNull(112) ? defaultNum : reader.GetInt32(112);
+                    ctm.ctm_current_stt.Home_status_name = reader.IsDBNull(113) ? defaultString : reader.GetString(113);
 
-                    ctm.Cust_save_date = reader.IsDBNull(120) ? defaultString : reader.GetString(120);
+                    ctm.Cust_save_date = reader.IsDBNull(114) ? defaultString : reader.GetString(114);
                 }
 
                 return ctm;
@@ -540,7 +498,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_road", ctm.Cust_Marry_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_subdistrict", ctm.Cust_Marry_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_district", ctm.Cust_Marry_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Marry_province_id", ctm.ctm_marry_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_province", ctm.Cust_Marry_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_country", ctm.Cust_Marry_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_zipcode", ctm.Cust_Marry_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_tel", ctm.Cust_Marry_tel);
@@ -557,7 +515,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_road", ctm.Cust_Marry_job_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_subdistrict", ctm.Cust_Marry_job_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_district", ctm.Cust_Marry_job_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_province_id", ctm.ctm_marry_job_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_province", ctm.Cust_Marry_job_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_country", ctm.Cust_Marry_job_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_zipcode", ctm.Cust_Marry_job_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_tel", ctm.Cust_Marry_job_tel);
@@ -573,7 +531,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Job_road", ctm.Cust_Job_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_subdistrict", ctm.Cust_Job_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_district", ctm.Cust_Job_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Job_province_id", ctm.ctm_job_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_province_id", ctm.Cust_Job_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_country", ctm.Cust_Job_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_zipcode", ctm.Cust_Job_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_tel", ctm.Cust_Job_tel);
@@ -585,7 +543,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Home_road", ctm.Cust_Home_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Home_subdistrict", ctm.Cust_Home_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Home_district", ctm.Cust_Home_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Home_province_id", ctm.ctm_home_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_province", ctm.Cust_Home_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Home_country", ctm.Cust_Home_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Home_zipcode", ctm.Cust_Home_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Home_tel", ctm.Cust_Home_tel);
@@ -599,7 +557,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_road", ctm.Cust_Idcard_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_subdistrict", ctm.Cust_Idcard_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_district", ctm.Cust_Idcard_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Idcard_province_id", ctm.ctm_idcard_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_province", ctm.Cust_Idcard_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_country", ctm.Cust_Idcard_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_zipcode", ctm.Cust_Idcard_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_tel", ctm.Cust_Idcard_tel);
@@ -611,7 +569,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Current_road", ctm.Cust_Current_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_subdistrict", ctm.Cust_Current_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_district", ctm.Cust_Current_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Current_province_id", ctm.ctm_current_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_province_id", ctm.Cust_Current_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_country", ctm.Cust_Current_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_zipcode", ctm.Cust_Current_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_tel", ctm.Cust_Current_tel);
@@ -705,7 +663,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_road", ctm.Cust_Marry_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_subdistrict", ctm.Cust_Marry_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_district", ctm.Cust_Marry_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Marry_province_id", ctm.ctm_marry_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_province", ctm.Cust_Marry_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_country", ctm.Cust_Marry_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_zipcode", ctm.Cust_Marry_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_tel", ctm.Cust_Marry_tel);
@@ -722,7 +680,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_road", ctm.Cust_Marry_job_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_subdistrict", ctm.Cust_Marry_job_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_district", ctm.Cust_Marry_job_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_province_id", ctm.ctm_marry_job_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Marry_job_province", ctm.Cust_Marry_job_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_country", ctm.Cust_Marry_job_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_zipcode", ctm.Cust_Marry_job_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Marry_job_tel", ctm.Cust_Marry_job_tel);
@@ -738,7 +696,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Job_road", ctm.Cust_Job_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_subdistrict", ctm.Cust_Job_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_district", ctm.Cust_Job_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Job_province_id", ctm.ctm_job_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_province_id", ctm.Cust_Job_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_country", ctm.Cust_Job_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_zipcode", ctm.Cust_Job_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_tel", ctm.Cust_Job_tel);
@@ -750,7 +708,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Home_road", ctm.Cust_Home_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Home_subdistrict", ctm.Cust_Home_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Home_district", ctm.Cust_Home_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Home_province_id", ctm.ctm_home_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Home_province", ctm.Cust_Home_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Home_country", ctm.Cust_Home_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Home_zipcode", ctm.Cust_Home_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Home_tel", ctm.Cust_Home_tel);
@@ -764,7 +722,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_road", ctm.Cust_Idcard_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_subdistrict", ctm.Cust_Idcard_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_district", ctm.Cust_Idcard_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Idcard_province_id", ctm.ctm_idcard_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Idcard_province", ctm.Cust_Idcard_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_country", ctm.Cust_Idcard_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_zipcode", ctm.Cust_Idcard_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Idcard_tel", ctm.Cust_Idcard_tel);
@@ -776,7 +734,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Current_road", ctm.Cust_Current_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_subdistrict", ctm.Cust_Current_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_district", ctm.Cust_Current_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Current_province_id", ctm.ctm_current_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_province", ctm.Cust_Current_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_country", ctm.Cust_Current_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_zipcode", ctm.Cust_Current_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_tel", ctm.Cust_Current_tel);

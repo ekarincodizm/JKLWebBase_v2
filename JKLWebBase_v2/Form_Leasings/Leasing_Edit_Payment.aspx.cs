@@ -27,7 +27,6 @@ namespace JKLWebBase_v2.Form_Leasings
         private Car_Leasings cls = new Car_Leasings();
         private Base_Companys bs_cpn = new Base_Companys();
         private Base_Car_Brands bs_cbrn = new Base_Car_Brands();
-        private TH_Provinces car_plt_pv = new TH_Provinces();
         private Base_Zone_Service bs_zn = new Base_Zone_Service();
         private Agents_Commission cag_com = new Agents_Commission();
         private Car_Leasings_Payment cls_pay = new Car_Leasings_Payment();
@@ -35,7 +34,6 @@ namespace JKLWebBase_v2.Form_Leasings
         private Agents_Manager cag_mng = new Agents_Manager();
         private Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
         private Base_Car_Brand_Manager cbrn_mng = new Base_Car_Brand_Manager();
-        private TH_Provinces_Manager th_pv_mng = new TH_Provinces_Manager();
         private Base_Companys_Manager bs_cpn_mng = new Base_Companys_Manager();
         private Base_Zone_Service_Manager bs_zn_mng = new Base_Zone_Service_Manager();
         private Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
@@ -97,7 +95,7 @@ namespace JKLWebBase_v2.Form_Leasings
         {
             cls = cls_mng.getCarLeasingById(leasing_id);
 
-            Leasing_Date_TBx.Text = DateTimeUtility.convertDateToPage(cls.Leasing_date);
+            Leasing_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls.Leasing_date);
             Deps_No_TBx.Text = cls.Deps_no;
             Leasing_No_TBx.Text = cls.Leasing_no;
 
@@ -126,7 +124,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_road) ? "" : ctm.Cust_Home_road.IndexOf('.') >= 1 ? ctm.Cust_Home_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_road : "";
                 Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_subdistrict) ? "" : ctm.Cust_Home_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Home_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_subdistrict : "";
                 Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_district) ? "" : ctm.Cust_Home_district.IndexOf('.') >= 1 ? ctm.Cust_Home_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_district : "";
-                Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.ctm_home_pv.Province_name) ? "" : " จ." + ctm.ctm_home_pv.Province_name;
+                Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_province) ? "" : ctm.Cust_Home_province.IndexOf('.') >= 1 ? ctm.Cust_Home_province.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_province : "";
 
                 Customer_C_Address_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Current_address_no) ? "" : ctm.Cust_Current_address_no;
                 Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_vilage_no) ? "" : ctm.Cust_Current_vilage_no.IndexOf('.') >= 1 ? ctm.Cust_Current_vilage_no.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_vilage_no : "";
@@ -135,7 +133,8 @@ namespace JKLWebBase_v2.Form_Leasings
                 Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_road) ? "" : ctm.Cust_Current_road.IndexOf('.') >= 1 ? ctm.Cust_Current_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_road : "";
                 Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_subdistrict) ? "" : ctm.Cust_Current_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Current_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_subdistrict : "";
                 Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_district) ? "" : ctm.Cust_Current_district.IndexOf('.') >= 1 ? ctm.Cust_Current_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_district : "";
-                Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.ctm_current_pv.Province_name) ? "" : " จ." + ctm.ctm_current_pv.Province_name;
+                Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_province) ? "" : ctm.Cust_Current_province.IndexOf('.') >= 1 ? ctm.Cust_Current_province.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_province : "";
+
             }
 
             Car_Type_TBx.Text = cls.Car_type;
@@ -147,9 +146,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 Car_Brand_TBx.Text = bs_cbrn.car_brand_name_th + " ( " + bs_cbrn.car_brand_name_eng + " )";
             }
 
-            car_plt_pv = th_pv_mng.getProvinceById(cls.cls_plate_pv.Province_id);
-
-            Car_Plate_TBx.Text = cls.Car_license_plate + " " + car_plt_pv.Province_name;
+            Car_Plate_TBx.Text = cls.Car_license_plate + " " + cls.Car_license_plate_province;
 
             Car_Chassis_No_TBx.Text = cls.Car_chassis_no;
             Car_Engine_No_TBx.Text = cls.Car_engine_no;
@@ -164,7 +161,7 @@ namespace JKLWebBase_v2.Form_Leasings
             Period_Amount_TBx.Text = cls.Total_period.ToString();
             Period_Payment_TBx.Text = cls.Period_payment.ToString("#,###.00");
             Payment_Schedule_TBx.Text = cls.Payment_schedule.ToString();
-            Frist_Payment_Date_TBx.Text = DateTimeUtility.convertDateToPage(cls.First_payment_date);
+            Frist_Payment_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls.First_payment_date);
 
             Bill_No_TBx.Text = bill_no;
             
@@ -188,7 +185,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
                 if (cls_pay.Bill_no == bill_no)
                 {
-                    Payment_Date_TBx.Text = DateTimeUtility.convertDateToPage(cls_pay.Real_payment_date);
+                    Payment_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls_pay.Real_payment_date);
 
                     total_fee += cls_pay.Period_fee;
                     total_track += cls_pay.Period_track;
@@ -266,7 +263,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls_pay.Total_payment_fine = real_payment_fine;
             cls_pay.Discount = real_discount;
             cls_pay.Real_payment = real_payment;
-            cls_pay.Real_payment_date = string.IsNullOrEmpty(Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Payment_Date_TBx.Text);
+            cls_pay.Real_payment_date = string.IsNullOrEmpty(Payment_Date_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Payment_Date_TBx.Text);
             cls_pay.Bill_no_manual_ref = string.IsNullOrEmpty(Bill_No_Manual_Ref_TBx.Text) ? "" : Bill_No_Manual_Ref_TBx.Text;
 
             Base_Companys package_login = new Base_Companys();

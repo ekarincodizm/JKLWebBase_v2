@@ -34,6 +34,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
             Session.Remove("date_end_rpt");
             Session.Remove("lost_str_rpt");
             Session.Remove("lost_end_rpt");
+            Session.Remove("district_rpt");
+            Session.Remove("province_rpt");
             Session.Remove("leasing_Code_inline_rpt");
             Session.Remove("Company_id_inline_rpt");
             Session.Remove("zone_id_inline_rpt");
@@ -50,6 +52,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
             string date_end = (string)Session["date_end_rpt"];
             string lost_str = (string)Session["lost_str_rpt"];
             string lost_end = (string)Session["lost_end_rpt"];
+            string district = (string)Session["district_rpt"];
+            string province = (string)Session["province_rpt"];
             string leasing_Code_inline = (string)Session["leasing_Code_inline_rpt"];
             string Company_id_inline = (string)Session["Company_id_inline_rpt"];
             string zone_id_inline = (string)Session["zone_id_inline_rpt"];
@@ -79,6 +83,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
                 cmd.Parameters.AddWithValue("@i_Zone_id", zone_id_inline);
                 cmd.Parameters.AddWithValue("@i_lost_str", lost_str);
                 cmd.Parameters.AddWithValue("@i_lost_end", lost_end);
+                cmd.Parameters.AddWithValue("@i_district", district);
+                cmd.Parameters.AddWithValue("@i_province", province);
                 cmd.Parameters.AddWithValue("@i_row_str", 0);
                 cmd.Parameters.AddWithValue("@i_row_limit", 0);
 

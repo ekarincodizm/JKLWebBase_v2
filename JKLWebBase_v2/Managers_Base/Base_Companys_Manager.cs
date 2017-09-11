@@ -37,7 +37,7 @@ namespace JKLWebBase_v2.Managers_Base
                 cmd.Parameters.AddWithValue("@i_Company_road", bs_cpn.Company_road);
                 cmd.Parameters.AddWithValue("@i_Company_subdistrict", bs_cpn.Company_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Company_district", bs_cpn.Company_district);
-                cmd.Parameters.AddWithValue("@i_Company_province_id", bs_cpn.Company_province_id);
+                cmd.Parameters.AddWithValue("@i_Company_province", bs_cpn.Company_province);
                 cmd.Parameters.AddWithValue("@i_Company_country", bs_cpn.Company_country);
                 cmd.Parameters.AddWithValue("@i_Company_zipcode", bs_cpn.Company_zipcode);
                 cmd.Parameters.AddWithValue("@i_Company_tel", bs_cpn.Company_tel);
@@ -92,7 +92,7 @@ namespace JKLWebBase_v2.Managers_Base
                 cmd.Parameters.AddWithValue("@i_Company_road", bs_cpn.Company_road);
                 cmd.Parameters.AddWithValue("@i_Company_subdistrict", bs_cpn.Company_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Company_district", bs_cpn.Company_district);
-                cmd.Parameters.AddWithValue("@i_Company_province_id", bs_cpn.Company_province_id);
+                cmd.Parameters.AddWithValue("@i_Company_province", bs_cpn.Company_province);
                 cmd.Parameters.AddWithValue("@i_Company_country", bs_cpn.Company_country);
                 cmd.Parameters.AddWithValue("@i_Company_zipcode", bs_cpn.Company_zipcode);
                 cmd.Parameters.AddWithValue("@i_Company_tel", bs_cpn.Company_tel);
@@ -190,13 +190,12 @@ namespace JKLWebBase_v2.Managers_Base
                     bs_cpn.Company_road = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
                     bs_cpn.Company_subdistrict = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
                     bs_cpn.Company_district = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                    bs_cpn.Company_province_id = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
-                    bs_cpn.Company_province_name = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    bs_cpn.Company_country = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
-                    bs_cpn.Company_zipcode = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    bs_cpn.Company_tel = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
-                    bs_cpn.Company_Save_date = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
-                    bs_cpn.Company_package = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    bs_cpn.Company_province = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    bs_cpn.Company_country = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+                    bs_cpn.Company_zipcode = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    bs_cpn.Company_tel = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+                    bs_cpn.Company_Save_date = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    bs_cpn.Company_package = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
 
                     list_cpn.Add(bs_cpn);
                 }
@@ -254,13 +253,12 @@ namespace JKLWebBase_v2.Managers_Base
                     bs_cpn.Company_road = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
                     bs_cpn.Company_subdistrict = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
                     bs_cpn.Company_district = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                    bs_cpn.Company_province_id = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
-                    bs_cpn.Company_province_name = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    bs_cpn.Company_country = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
-                    bs_cpn.Company_zipcode = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    bs_cpn.Company_tel = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
-                    bs_cpn.Company_Save_date = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
-                    bs_cpn.Company_package = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    bs_cpn.Company_province = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    bs_cpn.Company_country = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+                    bs_cpn.Company_zipcode = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    bs_cpn.Company_tel = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+                    bs_cpn.Company_Save_date = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    bs_cpn.Company_package = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
 
                 }
 
@@ -317,13 +315,12 @@ namespace JKLWebBase_v2.Managers_Base
                     bs_cpn.Company_road = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
                     bs_cpn.Company_subdistrict = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
                     bs_cpn.Company_district = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                    bs_cpn.Company_province_id = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
-                    bs_cpn.Company_province_name = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    bs_cpn.Company_country = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
-                    bs_cpn.Company_zipcode = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    bs_cpn.Company_tel = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
-                    bs_cpn.Company_Save_date = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
-                    bs_cpn.Company_package = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    bs_cpn.Company_province = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    bs_cpn.Company_country = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+                    bs_cpn.Company_zipcode = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    bs_cpn.Company_tel = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+                    bs_cpn.Company_Save_date = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    bs_cpn.Company_package = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
 
                 }
 
@@ -381,13 +378,12 @@ namespace JKLWebBase_v2.Managers_Base
                     bs_cpn.Company_road = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
                     bs_cpn.Company_subdistrict = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
                     bs_cpn.Company_district = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                    bs_cpn.Company_province_id = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
-                    bs_cpn.Company_province_name = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    bs_cpn.Company_country = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
-                    bs_cpn.Company_zipcode = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    bs_cpn.Company_tel = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
-                    bs_cpn.Company_Save_date = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
-                    bs_cpn.Company_package = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    bs_cpn.Company_province = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    bs_cpn.Company_country = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+                    bs_cpn.Company_zipcode = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    bs_cpn.Company_tel = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+                    bs_cpn.Company_Save_date = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    bs_cpn.Company_package = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
 
                     list_cpn.Add(bs_cpn);
                 }
@@ -447,13 +443,12 @@ namespace JKLWebBase_v2.Managers_Base
                     bs_cpn.Company_road = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
                     bs_cpn.Company_subdistrict = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
                     bs_cpn.Company_district = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                    bs_cpn.Company_province_id = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
-                    bs_cpn.Company_province_name = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
-                    bs_cpn.Company_country = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
-                    bs_cpn.Company_zipcode = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
-                    bs_cpn.Company_tel = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
-                    bs_cpn.Company_Save_date = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
-                    bs_cpn.Company_package = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    bs_cpn.Company_province = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    bs_cpn.Company_country = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+                    bs_cpn.Company_zipcode = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    bs_cpn.Company_tel = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+                    bs_cpn.Company_Save_date = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
+                    bs_cpn.Company_package = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
 
                     list_cpn.Add(bs_cpn);
                 }

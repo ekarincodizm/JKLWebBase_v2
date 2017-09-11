@@ -15,6 +15,7 @@ using JKLWebBase_v2.Class_Agents;
 using JKLWebBase_v2.Managers_Agents;
 using JKLWebBase_v2.Class_Account;
 using JKLWebBase_v2.Manager_Account;
+using System.Data.SqlClient;
 
 namespace JKLWebBase_v2.Form_Leasings
 {
@@ -27,7 +28,6 @@ namespace JKLWebBase_v2.Form_Leasings
         private Car_Leasings cls = new Car_Leasings();
         private Base_Companys bs_cpn = new Base_Companys();
         private Base_Car_Brands bs_cbrn = new Base_Car_Brands();
-        private TH_Provinces car_plt_pv = new TH_Provinces();
         private Base_Zone_Service bs_zn = new Base_Zone_Service();
         private Agents_Commission cag_com = new Agents_Commission();
         private Car_Leasings_Payment cls_pay = new Car_Leasings_Payment();
@@ -35,7 +35,6 @@ namespace JKLWebBase_v2.Form_Leasings
         private Agents_Manager cag_mng = new Agents_Manager();
         private Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
         private Base_Car_Brand_Manager cbrn_mng = new Base_Car_Brand_Manager();
-        private TH_Provinces_Manager th_pv_mng = new TH_Provinces_Manager();
         private Base_Companys_Manager bs_cpn_mng = new Base_Companys_Manager();
         private Base_Zone_Service_Manager bs_zn_mng = new Base_Zone_Service_Manager();
         private Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
@@ -57,11 +56,112 @@ namespace JKLWebBase_v2.Form_Leasings
                     Close_Leasing_Lbl.Visible = false;
                     Cal_Status_Lbl.Visible = false;
 
+                    _checkOldData(leasing_id);
+
                     _loadLeasingDetails(leasing_id, idcard);
 
                     Session["ctm_leasing_payment"] = idcard;
                 }
             }
+        }
+
+        private void _checkOldData(string leasing_id)
+        {
+            cls = cls_mng.getCarLeasingById(leasing_id);
+
+            string error = string.Empty;
+
+            SqlConnection con = MSSQLConnection.connectionMSSQL();
+
+            List<Car_Leasings_Payment> list_cls_pay_shd = cls_pay_mng.getPaymentSchedule(cls.Leasing_id);
+
+            Car_Leasings_Payment cls_pay_shd = list_cls_pay_shd[0];
+
+            if (cls_pay_shd.Period_payment_status == 0)
+            {
+
+                try
+                {
+                    con.Open();
+
+                    string sql = " SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' ORDER BY scheduleno ";
+
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.CommandTimeout = 0;
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        int defaultNum = 0;
+                        string defaultString = "";
+
+                        Car_Leasings_Payment cls_pay = new Car_Leasings_Payment();
+
+                        cls_pay.Leasing_id = cls.Leasing_id;
+                        cls_pay.Bill_no = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                        cls_pay.Period_fee = reader.IsDBNull(5) ? defaultNum : Convert.ToDouble(reader.GetDecimal(5));
+                        cls_pay.Period_track = reader.IsDBNull(7) ? defaultNum : Convert.ToDouble(reader.GetDecimal(7));
+                        cls_pay.Total_payment_fine = reader.IsDBNull(17) ? defaultNum : Convert.ToDouble(reader.GetDecimal(17));
+                        cls_pay.Discount = reader.IsDBNull(9) ? defaultNum : Convert.ToDouble(reader.GetDecimal(9));
+                        cls_pay.Real_payment = reader.IsDBNull(4) ? defaultNum : Convert.ToDouble(reader.GetDecimal(4));
+
+                        cls_pay.Real_payment_date = reader.IsDBNull(3) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(3).ToString()); // Real Server JKLFTP
+
+                        //cls_pay.Real_payment_date = reader.IsDBNull(3) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(3).ToString()); // Second Server JKLWebBase
+
+                        cls_pay.acc_lgn = new Account_Login();
+
+                        cls_pay.bs_cpn = new Base_Companys();
+
+                        cls_pay.bs_cpn.Company_id = _getCompanys(reader.GetString(20));
+
+                        if (cls_pay.Discount <= 0)
+                        {
+                            cls_pay_mng.addPayment_Mod_I(cls_pay, 1);
+                        }
+                        else
+                        {
+                            cls_pay_mng.addPayment_Mod_I(cls_pay, 2);
+                        }
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    error = "SqlException ==> Form_Leasings --> Leasing_Payment --> _checkOldData() ";
+                    Log_Error._writeErrorFile(error, ex);
+                }
+                catch (Exception ex)
+                {
+                    error = "Exception ==> Form_Leasings --> Leasing_Payment --> _checkOldData() ";
+                    Log_Error._writeErrorFile(error, ex);
+                }
+                finally
+                {
+                    con.Close();
+                    con.Dispose();
+                }
+            }
+
+            cls_pay_mng.calculateFine(cls.Leasing_id);
+
+        }
+
+        // สาขา
+        private int _getCompanys(string company)
+        {
+            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys(0, 0);
+            int result = 1;
+            for (int i = 0; i < list_data.Count; i++)
+            {
+                Base_Companys data = list_data[i];
+                if (data.Company_N_name == company || data.Company_code == company)
+                {
+                    result = data.Company_id;
+                }
+            }
+
+            return result;
         }
 
         private void _loadLeasingDetails(string leasing_id, string idcard)
@@ -77,7 +177,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 Calculate_Close_Leasing_Btn.Visible = false;
                 Back_Before_Page_Btn.Visible = false;
 
-                Leasing_Date_TBx.Text = DateTimeUtility.convertDateToPage(cls.Leasing_date);
+                Leasing_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls.Leasing_date);
 
                 Deps_No_TBx.Text = cls.Deps_no;
                 Leasing_No_TBx.Text = cls.Leasing_no;
@@ -107,7 +207,7 @@ namespace JKLWebBase_v2.Form_Leasings
                     Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_road) ? "" : ctm.Cust_Home_road.IndexOf('.') >= 1 ? ctm.Cust_Home_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_road : "";
                     Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_subdistrict) ? "" : ctm.Cust_Home_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Home_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_subdistrict : "";
                     Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_district) ? "" : ctm.Cust_Home_district.IndexOf('.') >= 1 ? ctm.Cust_Home_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_district : "";
-                    Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.ctm_home_pv.Province_name) ? "" : " จ." + ctm.ctm_home_pv.Province_name;
+                    Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_province) ? "" : ctm.Cust_Home_province.IndexOf('.') >= 1 ? ctm.Cust_Home_province.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_province : "";
 
                     Customer_C_Address_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Current_address_no) ? "" : ctm.Cust_Current_address_no;
                     Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_vilage_no) ? "" : ctm.Cust_Current_vilage_no.IndexOf('.') >= 1 ? ctm.Cust_Current_vilage_no.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_vilage_no : "";
@@ -116,7 +216,7 @@ namespace JKLWebBase_v2.Form_Leasings
                     Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_road) ? "" : ctm.Cust_Current_road.IndexOf('.') >= 1 ? ctm.Cust_Current_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_road : "";
                     Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_subdistrict) ? "" : ctm.Cust_Current_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Current_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_subdistrict : "";
                     Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_district) ? "" : ctm.Cust_Current_district.IndexOf('.') >= 1 ? ctm.Cust_Current_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_district : "";
-                    Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.ctm_current_pv.Province_name) ? "" : " จ." + ctm.ctm_current_pv.Province_name;
+                    Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_province) ? "" : ctm.Cust_Current_province.IndexOf('.') >= 1 ? ctm.Cust_Current_province.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_province : "";
 
                 }
 
@@ -129,9 +229,7 @@ namespace JKLWebBase_v2.Form_Leasings
                     Car_Brand_TBx.Text = bs_cbrn.car_brand_name_th + " ( " + bs_cbrn.car_brand_name_eng + " )";
                 }
 
-                car_plt_pv = th_pv_mng.getProvinceById(cls.cls_plate_pv.Province_id);
-
-                Car_Plate_TBx.Text = cls.Car_license_plate + " " + car_plt_pv.Province_name;
+                Car_Plate_TBx.Text = cls.Car_license_plate + " " + cls.Car_license_plate_province;
 
                 Car_Chassis_No_TBx.Text = cls.Car_chassis_no;
                 Car_Engine_No_TBx.Text = cls.Car_engine_no;
@@ -146,7 +244,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 Period_Amount_TBx.Text = cls.Total_period.ToString();
                 Period_Payment_TBx.Text = cls.Period_payment.ToString("#,###.00");
                 Payment_Schedule_TBx.Text = cls.Payment_schedule.ToString();
-                Frist_Payment_Date_TBx.Text = DateTimeUtility.convertDateToPage(cls.First_payment_date);
+                Frist_Payment_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls.First_payment_date);
 
                 Payment_Date_TBx.Enabled = false;
 
@@ -178,7 +276,7 @@ namespace JKLWebBase_v2.Form_Leasings
             }
             else
             {
-                Leasing_Date_TBx.Text = DateTimeUtility.convertDateToPage(cls.Leasing_date);
+                Leasing_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls.Leasing_date);
                 Deps_No_TBx.Text = cls.Deps_no;
                 Leasing_No_TBx.Text = cls.Leasing_no;
 
@@ -207,7 +305,7 @@ namespace JKLWebBase_v2.Form_Leasings
                     Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_road) ? "" : ctm.Cust_Home_road.IndexOf('.') >= 1 ? ctm.Cust_Home_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_road : "";
                     Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_subdistrict) ? "" : ctm.Cust_Home_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Home_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_subdistrict : "";
                     Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_district) ? "" : ctm.Cust_Home_district.IndexOf('.') >= 1 ? ctm.Cust_Home_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_district : "";
-                    Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.ctm_home_pv.Province_name) ? "" : " จ." + ctm.ctm_home_pv.Province_name;
+                    Customer_H_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Home_province) ? "" : ctm.Cust_Home_province.IndexOf('.') >= 1 ? ctm.Cust_Home_province.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Home_province : "";
 
                     Customer_C_Address_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Current_address_no) ? "" : ctm.Cust_Current_address_no;
                     Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_vilage_no) ? "" : ctm.Cust_Current_vilage_no.IndexOf('.') >= 1 ? ctm.Cust_Current_vilage_no.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_vilage_no : "";
@@ -216,7 +314,8 @@ namespace JKLWebBase_v2.Form_Leasings
                     Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_road) ? "" : ctm.Cust_Current_road.IndexOf('.') >= 1 ? ctm.Cust_Current_road.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_road : "";
                     Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_subdistrict) ? "" : ctm.Cust_Current_subdistrict.IndexOf('.') >= 1 ? ctm.Cust_Current_subdistrict.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_subdistrict : "";
                     Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_district) ? "" : ctm.Cust_Current_district.IndexOf('.') >= 1 ? ctm.Cust_Current_district.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_district : "";
-                    Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.ctm_current_pv.Province_name) ? "" : " จ." + ctm.ctm_current_pv.Province_name;
+                    Customer_C_Address_TBx.Text += string.IsNullOrEmpty(ctm.Cust_Current_province) ? "" : ctm.Cust_Current_province.IndexOf('.') >= 1 ? ctm.Cust_Current_province.Split('.')[1] == "-" ? "" : " " + ctm.Cust_Current_province : "";
+
                 }
 
                 Car_Type_TBx.Text = cls.Car_type;
@@ -228,9 +327,7 @@ namespace JKLWebBase_v2.Form_Leasings
                     Car_Brand_TBx.Text = bs_cbrn.car_brand_name_th + " ( " + bs_cbrn.car_brand_name_eng + " )";
                 }
 
-                car_plt_pv = th_pv_mng.getProvinceById(cls.cls_plate_pv.Province_id);
-
-                Car_Plate_TBx.Text = cls.Car_license_plate + " " + car_plt_pv.Province_name;
+                Car_Plate_TBx.Text = cls.Car_license_plate + " " + cls.Car_license_plate_province;
 
                 Car_Chassis_No_TBx.Text = cls.Car_chassis_no;
                 Car_Engine_No_TBx.Text = cls.Car_engine_no;
@@ -245,9 +342,9 @@ namespace JKLWebBase_v2.Form_Leasings
                 Period_Amount_TBx.Text = cls.Total_period.ToString();
                 Period_Payment_TBx.Text = cls.Period_payment.ToString("#,###.00");
                 Payment_Schedule_TBx.Text = cls.Payment_schedule.ToString();
-                Frist_Payment_Date_TBx.Text = DateTimeUtility.convertDateToPage(cls.First_payment_date);
+                Frist_Payment_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls.First_payment_date);
 
-                Payment_Date_TBx.Text = DateTimeUtility.convertDateToPage(DateTime.Now.ToString());
+                Payment_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(DateTime.Now.ToString());
 
                 Period_No_TBx.Text = cls.Total_period_length;
                 Total_Payment_Period_TBx.Text = cls.Total_period_lose == 0 ? "1" : cls.Total_period_lose.ToString();
@@ -481,7 +578,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls_pay.Total_payment_fine = Convert.ToDouble(Real_Payment_Fine_TBx.Text);
             cls_pay.Discount = Convert.ToDouble(Real_Discount_TBx.Text);
             cls_pay.Real_payment = Convert.ToDouble(Real_Payment_TBx.Text);
-            cls_pay.Real_payment_date = string.IsNullOrEmpty(Payment_Date_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Payment_Date_TBx.Text);
+            cls_pay.Real_payment_date = string.IsNullOrEmpty(Payment_Date_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Payment_Date_TBx.Text);
             cls_pay.Bill_no_manual_ref = string.IsNullOrEmpty(Bill_No_Manual_Ref_TBx.Text) ? "" : Bill_No_Manual_Ref_TBx.Text;
 
             Base_Companys package_login = new Base_Companys();

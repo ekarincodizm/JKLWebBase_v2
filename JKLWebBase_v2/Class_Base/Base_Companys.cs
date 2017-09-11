@@ -15,8 +15,7 @@
         public string Company_road { get; set; } /// ถนน
         public string Company_subdistrict { get; set; } /// ตำบล/แขวง
         public string Company_district { get; set; } /// อำเภอ/เขต
-        public int Company_province_id { get; set; } /// รหัสจังหวัด
-        public string Company_province_name { get; set; } /// ชื่อจังหวัด
+        public string Company_province { get; set; } /// รหัสจังหวัด
         public string Company_country { get; set; } /// ประเทศ
         public string Company_zipcode { get; set; } /// รหัสไปรษณีย์
         public string Company_tel { get; set; } /// เบอร์์ติดต่อ

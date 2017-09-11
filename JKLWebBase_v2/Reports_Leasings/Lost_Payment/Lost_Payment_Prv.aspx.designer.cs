@@ -49,13 +49,13 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment {
         protected global::System.Web.UI.WebControls.TextBox Leasing_No_TBx;
         
         /// <summary>
-        /// Label3 control.
+        /// Cust_Idcard_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label Cust_Idcard_Lbl;
         
         /// <summary>
         /// Cust_Idcard_TBx control.
@@ -67,22 +67,40 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment {
         protected global::System.Web.UI.WebControls.TextBox Cust_Idcard_TBx;
         
         /// <summary>
-        /// Label4 control.
+        /// Cust_FName_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label Cust_FName_Lbl;
         
         /// <summary>
-        /// Cust_Name_TBx control.
+        /// Cust_FName_TBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cust_Name_TBx;
+        protected global::System.Web.UI.WebControls.TextBox Cust_FName_TBx;
+        
+        /// <summary>
+        /// Cust_LName_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cust_LName_Lbl;
+        
+        /// <summary>
+        /// Cust_LName_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cust_LName_TBx;
         
         /// <summary>
         /// Leasing_Date_Lbl control.
@@ -155,6 +173,42 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Lost_Payment_end_TBx;
+        
+        /// <summary>
+        /// district_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label district_Lbl;
+        
+        /// <summary>
+        /// district_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox district_TBx;
+        
+        /// <summary>
+        /// province_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label province_Lbl;
+        
+        /// <summary>
+        /// province_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox province_TBx;
         
         /// <summary>
         /// Leasing_Code_Lbl control.

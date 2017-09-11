@@ -160,7 +160,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_road + "'";
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_subdistrict + "'";
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_district + "'";
-            message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : "," + ctm.ctm_marry_pv.Province_id + "";
+            message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_province + "'";
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_country + "'";
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_zipcode + "'";
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_tel + "'";
@@ -177,7 +177,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_job_road + "'";
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_job_subdistrict + "'";
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_job_district + "'";
-            message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : "," + ctm.ctm_marry_job_pv.Province_id + "";
+            message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_job_province + "'";
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_job_country + "'";
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_job_zipcode + "'";
             message += ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + ctm.Cust_Marry_job_tel + "'";
@@ -193,7 +193,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + ctm.Cust_Job_road + "'";
             message += ",'" + ctm.Cust_Job_subdistrict + "'";
             message += ",'" + ctm.Cust_Job_district + "'";
-            message += "," + ctm.ctm_job_pv.Province_id + "";
+            message += ",'" + ctm.Cust_Job_province + "'";
             message += ",'" + ctm.Cust_Job_country + "'";
             message += ",'" + ctm.Cust_Job_zipcode + "'";
             message += ",'" + ctm.Cust_Job_tel + "'";
@@ -205,7 +205,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + ctm.Cust_Home_road + "'";
             message += ",'" + ctm.Cust_Home_subdistrict + "'";
             message += ",'" + ctm.Cust_Home_district + "'";
-            message += "," + ctm.ctm_home_pv.Province_id + "";
+            message += ",'" + ctm.Cust_Home_province + "'";
             message += ",'" + ctm.Cust_Home_country + "'";
             message += ",'" + ctm.Cust_Home_zipcode + "'";
             message += ",'" + ctm.Cust_Home_tel + "'";
@@ -219,7 +219,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + ctm.Cust_Idcard_road + "'";
             message += ",'" + ctm.Cust_Idcard_subdistrict + "'";
             message += ",'" + ctm.Cust_Idcard_district + "'";
-            message += "," + ctm.ctm_idcard_pv.Province_id + "";
+            message += ",'" + ctm.Cust_Idcard_province + "'";
             message += ",'" + ctm.Cust_Idcard_country + "'";
             message += ",'" + ctm.Cust_Idcard_zipcode + "'";
             message += ",'" + ctm.Cust_Idcard_tel + "'";
@@ -231,7 +231,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + ctm.Cust_Current_road + "'";
             message += ",'" + ctm.Cust_Current_subdistrict + "'";
             message += ",'" + ctm.Cust_Current_district + "'";
-            message += "," + ctm.ctm_current_pv.Province_id + "";
+            message += ",'" + ctm.Cust_Current_province + "'";
             message += ",'" + ctm.Cust_Current_country + "'";
             message += ",'" + ctm.Cust_Current_zipcode + "'";
             message += ",'" + ctm.Cust_Current_tel + "'";
@@ -298,7 +298,7 @@ namespace JKLWebBase_v2.Global_Class
             message += string.IsNullOrEmpty(cls.First_payment_date)? ",null" : ",'" + cls.First_payment_date + "'";
             message += string.IsNullOrEmpty(cls.Car_register_date) ? ",null" : ",'" + cls.Car_register_date + "'";
             message += ",'" + cls.Car_license_plate + "'";
-            message += "," + cls.cls_plate_pv.Province_id + "";
+            message += ",'" + cls.Car_license_plate_province + "'";
             message += ",'" + cls.Car_type + "'";
             message += ",'" + cls.Car_feature + "'";
             message += "," + cls.bs_cbrn.car_brand_id + "";
@@ -328,7 +328,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + cls.Car_old_owner_road + "'";
             message += ",'" + cls.Car_old_owner_subdistrict + "'";
             message += ",'" + cls.Car_old_owner_district + "'";
-            message += "," + cls.cls_owner_pv.Province_id + "";
+            message += ",'" + cls.Car_old_owner_province + "'";
             message += ",'" + cls.Car_old_owner_contry + "'";
             message += ",'" + cls.Car_old_owner_zipcode + "'";
             message += "," + cls.tent_car.Tent_car_id + "";
@@ -396,7 +396,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + ctm.Cust_Marry_road + "'";
             message += ",'" + ctm.Cust_Marry_subdistrict + "'";
             message += ",'" + ctm.Cust_Marry_district + "'";
-            message += "," + ctm.ctm_marry_pv.Province_id + "";
+            message += ",'" + ctm.Cust_Marry_province + "'";
             message += ",'" + ctm.Cust_Marry_country + "'";
             message += ",'" + ctm.Cust_Marry_zipcode + "'";
             message += ",'" + ctm.Cust_Marry_tel + "'";
@@ -413,7 +413,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + ctm.Cust_Marry_job_road + "'";
             message += ",'" + ctm.Cust_Marry_job_subdistrict + "'";
             message += ",'" + ctm.Cust_Marry_job_district + "'";
-            message += "," + ctm.ctm_marry_job_pv.Province_id + "";
+            message += ",'" + ctm.Cust_Marry_job_province + "'";
             message += ",'" + ctm.Cust_Marry_job_country + "'";
             message += ",'" + ctm.Cust_Marry_job_zipcode + "'";
             message += ",'" + ctm.Cust_Marry_job_tel + "'";
@@ -429,7 +429,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + ctm.Cust_Job_road + "'";
             message += ",'" + ctm.Cust_Job_subdistrict + "'";
             message += ",'" + ctm.Cust_Job_district + "'";
-            message += "," + ctm.ctm_job_pv.Province_id + "";
+            message += ",'" + ctm.Cust_Job_province + "'";
             message += ",'" + ctm.Cust_Job_country + "'";
             message += ",'" + ctm.Cust_Job_zipcode + "'";
             message += ",'" + ctm.Cust_Job_tel + "'";
@@ -441,7 +441,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + ctm.Cust_Home_road + "'";
             message += ",'" + ctm.Cust_Home_subdistrict + "'";
             message += ",'" + ctm.Cust_Home_district + "'";
-            message += "," + ctm.ctm_home_pv.Province_id + "";
+            message += ",'" + ctm.Cust_Home_province + "'";
             message += ",'" + ctm.Cust_Home_country + "'";
             message += ",'" + ctm.Cust_Home_zipcode + "'";
             message += ",'" + ctm.Cust_Home_tel + "'";
@@ -455,7 +455,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + ctm.Cust_Idcard_road + "'";
             message += ",'" + ctm.Cust_Idcard_subdistrict + "'";
             message += ",'" + ctm.Cust_Idcard_district + "'";
-            message += "," + ctm.ctm_idcard_pv.Province_id + "";
+            message += ",'" + ctm.Cust_Idcard_province + "'";
             message += ",'" + ctm.Cust_Idcard_country + "'";
             message += ",'" + ctm.Cust_Idcard_zipcode + "'";
             message += ",'" + ctm.Cust_Idcard_tel + "'";
@@ -467,7 +467,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + ctm.Cust_Current_road + "'";
             message += ",'" + ctm.Cust_Current_subdistrict + "'";
             message += ",'" + ctm.Cust_Current_district + "'";
-            message += "," + ctm.ctm_current_pv.Province_id + "";
+            message += ",'" + ctm.Cust_Current_province + "'";
             message += ",'" + ctm.Cust_Current_country + "'";
             message += ",'" + ctm.Cust_Current_zipcode + "'";
             message += ",'" + ctm.Cust_Current_tel + "'";
@@ -529,7 +529,7 @@ namespace JKLWebBase_v2.Global_Class
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_road + "'";
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_subdistrict + "'";
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_district + "'";
-            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : "," + cls_grt.ctm.ctm_marry_pv.Province_id + "";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_province + "'";
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_country + "'";
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_zipcode + "'";
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_tel + "'";
@@ -546,7 +546,7 @@ namespace JKLWebBase_v2.Global_Class
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_road + "'";
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_subdistrict + "'";
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_district + "'";
-            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : "," + cls_grt.ctm.ctm_marry_job_pv.Province_id + "";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_province + "'";
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_country + "'";
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_zipcode + "'";
             message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_tel + "'";
@@ -562,7 +562,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + cls_grt.ctm.Cust_Job_road + "'";
             message += ",'" + cls_grt.ctm.Cust_Job_subdistrict + "'";
             message += ",'" + cls_grt.ctm.Cust_Job_district + "'";
-            message += "," + cls_grt.ctm.ctm_job_pv.Province_id + "";
+            message += ",'" + cls_grt.ctm.Cust_Job_province + "'";
             message += ",'" + cls_grt.ctm.Cust_Job_country + "'";
             message += ",'" + cls_grt.ctm.Cust_Job_zipcode + "'";
             message += ",'" + cls_grt.ctm.Cust_Job_tel + "'";
@@ -574,7 +574,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + cls_grt.ctm.Cust_Home_road + "'";
             message += ",'" + cls_grt.ctm.Cust_Home_subdistrict + "'";
             message += ",'" + cls_grt.ctm.Cust_Home_district + "'";
-            message += "," + cls_grt.ctm.ctm_home_pv.Province_id + "";
+            message += ",'" + cls_grt.ctm.Cust_Home_province + "'";
             message += ",'" + cls_grt.ctm.Cust_Home_country + "'";
             message += ",'" + cls_grt.ctm.Cust_Home_zipcode + "'";
             message += ",'" + cls_grt.ctm.Cust_Home_tel + "'";
@@ -588,7 +588,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + cls_grt.ctm.Cust_Idcard_road + "'";
             message += ",'" + cls_grt.ctm.Cust_Idcard_subdistrict + "'";
             message += ",'" + cls_grt.ctm.Cust_Idcard_district + "'";
-            message += "," + cls_grt.ctm.ctm_idcard_pv.Province_id + "";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_province + "'";
             message += ",'" + cls_grt.ctm.Cust_Idcard_country + "'";
             message += ",'" + cls_grt.ctm.Cust_Idcard_zipcode + "'";
             message += ",'" + cls_grt.ctm.Cust_Idcard_tel + "'";
@@ -600,7 +600,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + cls_grt.ctm.Cust_Current_road + "'";
             message += ",'" + cls_grt.ctm.Cust_Current_subdistrict + "'";
             message += ",'" + cls_grt.ctm.Cust_Current_district + "'";
-            message += "," + cls_grt.ctm.ctm_current_pv.Province_id + "";
+            message += ",'" + cls_grt.ctm.Cust_Current_province + "'";
             message += ",'" + cls_grt.ctm.Cust_Current_country + "'";
             message += ",'" + cls_grt.ctm.Cust_Current_zipcode + "'";
             message += ",'" + cls_grt.ctm.Cust_Current_tel + "'";
@@ -645,7 +645,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ",'" + cag.Agent_Road + "'";
             message += ",'" + cag.Agent_Subdistrict + "'";
             message += ",'" + cag.Agent_District + "'";
-            message += "," + cag.cag_pv.Province_id + "";
+            message += ",'" + cag.Agent_Province + "'";
             message += ",'" + cag.Agent_Country + "'";
             message += ",'" + cag.Agent_Zipcode + "'";
             message += ",'" + cag.Agent_Status + "'";

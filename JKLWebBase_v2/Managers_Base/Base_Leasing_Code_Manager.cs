@@ -41,7 +41,7 @@ namespace JKLWebBase_v2.Managers_Base
                     bs_ls_code.Leasing_code_road = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
                     bs_ls_code.Leasing_code_subdistrict = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
                     bs_ls_code.Leasing_code_district = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                    bs_ls_code.Leasing_code_province_id = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
+                    bs_ls_code.Leasing_code_province = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
                     bs_ls_code.Leasing_code_country = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
                     bs_ls_code.Leasing_code_zipcode = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
                     bs_ls_code.Leasing_code_tel = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
@@ -99,7 +99,7 @@ namespace JKLWebBase_v2.Managers_Base
                     bs_ls_code.Leasing_code_road = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
                     bs_ls_code.Leasing_code_subdistrict = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
                     bs_ls_code.Leasing_code_district = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                    bs_ls_code.Leasing_code_province_id = reader.IsDBNull(13) ? defaultNum : reader.GetInt32(13);
+                    bs_ls_code.Leasing_code_province = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
                     bs_ls_code.Leasing_code_country = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
                     bs_ls_code.Leasing_code_zipcode = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
                     bs_ls_code.Leasing_code_tel = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
@@ -156,7 +156,7 @@ namespace JKLWebBase_v2.Managers_Base
                 cmd.Parameters.AddWithValue("@i_Leasing_code_road", bs_ls_cd.Leasing_code_road);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_subdistrict", bs_ls_cd.Leasing_code_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_district", bs_ls_cd.Leasing_code_district);
-                cmd.Parameters.AddWithValue("@i_Leasing_code_province_id", bs_ls_cd.Leasing_code_province_id);
+                cmd.Parameters.AddWithValue("@i_Leasing_code_province", bs_ls_cd.Leasing_code_province);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_country", bs_ls_cd.Leasing_code_country);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_zipcode", bs_ls_cd.Leasing_code_zipcode);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_tel", bs_ls_cd.Leasing_code_tel);
@@ -212,7 +212,7 @@ namespace JKLWebBase_v2.Managers_Base
                 cmd.Parameters.AddWithValue("@i_Leasing_code_road", bs_ls_cd.Leasing_code_road);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_subdistrict", bs_ls_cd.Leasing_code_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_district", bs_ls_cd.Leasing_code_district);
-                cmd.Parameters.AddWithValue("@i_Leasing_code_province_id", bs_ls_cd.Leasing_code_province_id);
+                cmd.Parameters.AddWithValue("@i_Leasing_code_province", bs_ls_cd.Leasing_code_province);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_country", bs_ls_cd.Leasing_code_country);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_zipcode", bs_ls_cd.Leasing_code_zipcode);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_tel", bs_ls_cd.Leasing_code_tel);

@@ -108,8 +108,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Front_Card
                 ls_ds.Tables["Guarantor_4"].Load(reader_grt_4);
                 ls_ds.Tables["Guarantor_5"].Load(reader_grt_5);
                 ls_ds.Tables["Agent_Commission"].Load(reader_cpn);
-
-                Front_Card rpt = new Front_Card();
+                
+                /*Front_Card rpt = new Front_Card();*/
+                Front_Card_001 rpt = new Front_Card_001();
                 rpt.SetDataSource(ls_ds);
 
                 CRV_Front_Card.ReportSource = rpt;
@@ -152,7 +153,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Front_Card
             }
         }
 
-        public void ExportReport(Front_Card rpt)
+        public void ExportReport(Front_Card_001 rpt)
         {
             cls = (Car_Leasings)Session["Leasings"];
 

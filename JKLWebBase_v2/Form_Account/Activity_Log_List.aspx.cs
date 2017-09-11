@@ -132,8 +132,8 @@ namespace JKLWebBase_v2.Form_Account
 
         private void _getData()
         {
-            string date_str = Log_Date_str_TBx.Text == "" ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Log_Date_str_TBx.Text);
-            string date_end = Log_Date_end_TBx.Text == "" ? "" : DateTimeUtility.convertDateToMYSQL(Log_Date_end_TBx.Text);
+            string date_str = Log_Date_str_TBx.Text == "" ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQLRealServer(Log_Date_str_TBx.Text);
+            string date_end = Log_Date_end_TBx.Text == "" ? "" : DateTimeUtility.convertDateToMYSQLRealServer(Log_Date_end_TBx.Text);
             string Company_id_inline = _getCheckedCompany();
 
             List<Activity_Log> list_data_all = act_log_mng.listActivityLogs(date_str, date_end, "", Company_id_inline, 0, 0);

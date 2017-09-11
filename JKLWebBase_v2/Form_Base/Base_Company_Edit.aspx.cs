@@ -95,7 +95,7 @@ namespace JKLWebBase_v2.Form_Base
             Company_road_TBx.Text = bs_cpn.Company_road.IndexOf('.') >= 1 ? bs_cpn.Company_road.Split('.')[1] : "";
             Company_subdistrict_TBx.Text = bs_cpn.Company_subdistrict.IndexOf('.') >= 1 ? bs_cpn.Company_subdistrict.Split('.')[1] : "";
             Company_district_TBx.Text = bs_cpn.Company_district.IndexOf('.') >= 1 ? bs_cpn.Company_district.Split('.')[1] : "";
-            Company_province_DDL.SelectedValue = bs_cpn.Company_province_id.ToString();
+            Company_province_DDL.SelectedValue = bs_cpn.Company_province.IndexOf('.') >= 1 ? Thai_Province._getThaiProvinces(bs_cpn.Company_province.Split('.')[1]) : "";
             Company_contry_TBx.Text = bs_cpn.Company_country;
             Company_zipcode_TBx.Text = bs_cpn.Company_zipcode;
             Company_tel_TBx.Text = bs_cpn.Company_tel;
@@ -124,7 +124,7 @@ namespace JKLWebBase_v2.Form_Base
                 bs_cpn.Company_road = string.IsNullOrEmpty(Company_road_TBx.Text) ? "ถ.-" : "ถ." + Company_road_TBx.Text;
                 bs_cpn.Company_subdistrict = string.IsNullOrEmpty(Company_subdistrict_TBx.Text) ? "ต.-" : "ต." + Company_subdistrict_TBx.Text;
                 bs_cpn.Company_district = string.IsNullOrEmpty(Company_district_TBx.Text) ? "อ.-" : "อ." + Company_district_TBx.Text;
-                bs_cpn.Company_province_id = Company_province_DDL.SelectedIndex <= 0 ? 39 : Convert.ToInt32(Company_province_DDL.SelectedValue);
+                bs_cpn.Company_province = Company_province_DDL.SelectedIndex <= 0 ? "จ.-" : "จ." + Company_province_DDL.SelectedItem.Text;
                 bs_cpn.Company_country = string.IsNullOrEmpty(Company_contry_TBx.Text) ? "" : Company_contry_TBx.Text;
                 bs_cpn.Company_zipcode = string.IsNullOrEmpty(Company_zipcode_TBx.Text) ? "" : Company_zipcode_TBx.Text;
                 bs_cpn.Company_tel = string.IsNullOrEmpty(Company_tel_TBx.Text) ? "" : Company_tel_TBx.Text;

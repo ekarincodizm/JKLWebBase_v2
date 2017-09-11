@@ -56,7 +56,7 @@ namespace JKLWebBase_v2.Form_Base
             bs_cpn.Company_road = string.IsNullOrEmpty(Company_road_TBx.Text) ? "ถ.-" : "ถ." + Company_road_TBx.Text;
             bs_cpn.Company_subdistrict = string.IsNullOrEmpty(Company_subdistrict_TBx.Text) ? "ต.-" : "ต." + Company_subdistrict_TBx.Text;
             bs_cpn.Company_district = string.IsNullOrEmpty(Company_district_TBx.Text) ? "อ.-" : "อ." + Company_district_TBx.Text;
-            bs_cpn.Company_province_id = Company_province_DDL.SelectedIndex <= 0 ? 39 : Convert.ToInt32(Company_province_DDL.SelectedValue);
+            bs_cpn.Company_province = Company_province_DDL.SelectedIndex <= 0 ? "จ.-" : "จ.-" + Company_province_DDL.SelectedItem.Text;
             bs_cpn.Company_country = string.IsNullOrEmpty(Company_contry_TBx.Text) ? "" : Company_contry_TBx.Text;
             bs_cpn.Company_zipcode = string.IsNullOrEmpty(Company_zipcode_TBx.Text) ? "" : Company_zipcode_TBx.Text;
             bs_cpn.Company_tel = string.IsNullOrEmpty(Company_tel_TBx.Text) ? "" : Company_tel_TBx.Text;

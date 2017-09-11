@@ -126,7 +126,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
 
         protected void Export_Reported_mod_I_Click(object sender, EventArgs e)
         {
-            string date_str = Date_str_TBx.Text == ""? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Date_str_TBx.Text);
+            string date_str = Date_str_TBx.Text == ""? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Date_str_TBx.Text);
             string date_end = Date_end_TBx.Text == "" ? "" : DateTimeUtility.convertDateToMYSQL(Date_end_TBx.Text);
 
             package_login = (Base_Companys)Session["Package"];
@@ -146,7 +146,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
 
         protected void Export_Reported_mod_II_Click(object sender, EventArgs e)
         {
-            string date_str = Date_str_TBx.Text == "" ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Date_str_TBx.Text);
+            string date_str = Date_str_TBx.Text == "" ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Date_str_TBx.Text);
             string date_end = Date_end_TBx.Text == "" ? "" : DateTimeUtility.convertDateToMYSQL(Date_end_TBx.Text);
 
             package_login = (Base_Companys)Session["Package"];

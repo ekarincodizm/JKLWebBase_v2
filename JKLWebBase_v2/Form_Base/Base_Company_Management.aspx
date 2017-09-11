@@ -132,7 +132,7 @@
                                 Address += string.IsNullOrEmpty(bs_cpn.Company_road) ? "" : bs_cpn.Company_road.IndexOf('.') >= 1 ? bs_cpn.Company_road.Split('.')[1] == "-" ? "" : " " + bs_cpn.Company_road : "";
                                 Address += string.IsNullOrEmpty(bs_cpn.Company_subdistrict) ? "" : bs_cpn.Company_subdistrict.IndexOf('.') >= 1 ? bs_cpn.Company_subdistrict.Split('.')[1] == "-" ? "" : " " + bs_cpn.Company_subdistrict : "";
                                 Address += string.IsNullOrEmpty(bs_cpn.Company_district) ? "" : bs_cpn.Company_district.IndexOf('.') >= 1 ? bs_cpn.Company_district.Split('.')[1] == "-" ? "" : " " + bs_cpn.Company_district : "";
-                                Address += string.IsNullOrEmpty(bs_cpn.Company_province_name) ? "" : " จ." + bs_cpn.Company_province_name;
+                                Address += string.IsNullOrEmpty(bs_cpn.Company_province) ? "" : " จ." + bs_cpn.Company_province;
 
                                 string ogn_code = CryptographyCode.GenerateSHA512String(bs_cpn.Company_id.ToString());
                         %>

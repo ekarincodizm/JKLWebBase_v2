@@ -118,10 +118,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls.First_payment_date = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
                     cls.Car_register_date = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
                     cls.Car_license_plate = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
-
-                    cls.cls_plate_pv = new TH_Provinces();
-                    cls.cls_plate_pv.Province_id = reader.IsDBNull(33) ? defaultNum : reader.GetInt32(33);
-
+                    cls.Car_license_plate_province = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
                     cls.Car_type = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
                     cls.Car_feature = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
 
@@ -154,10 +151,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls.Car_old_owner_road = reader.IsDBNull(60) ? defaultString : reader.GetString(60);
                     cls.Car_old_owner_subdistrict = reader.IsDBNull(61) ? defaultString : reader.GetString(61);
                     cls.Car_old_owner_district = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
-
-                    cls.cls_owner_pv = new TH_Provinces();
-                    cls.cls_owner_pv.Province_id = reader.IsDBNull(63) ? defaultNum : reader.GetInt32(63);
-
+                    cls.Car_old_owner_province = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
                     cls.Car_old_owner_contry = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
                     cls.Car_old_owner_zipcode = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
 
@@ -268,10 +262,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls.First_payment_date = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
                     cls.Car_register_date = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
                     cls.Car_license_plate = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
-
-                    cls.cls_plate_pv = new TH_Provinces();
-                    cls.cls_plate_pv.Province_id = reader.IsDBNull(33) ? defaultNum : reader.GetInt32(33);
-
+                    cls.Car_license_plate_province = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
                     cls.Car_type = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
                     cls.Car_feature = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
 
@@ -304,10 +295,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls.Car_old_owner_road = reader.IsDBNull(60) ? defaultString : reader.GetString(60);
                     cls.Car_old_owner_subdistrict = reader.IsDBNull(61) ? defaultString : reader.GetString(61);
                     cls.Car_old_owner_district = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
-
-                    cls.cls_owner_pv = new TH_Provinces();
-                    cls.cls_owner_pv.Province_id = reader.IsDBNull(63) ? defaultNum : reader.GetInt32(63);
-
+                    cls.Car_old_owner_district = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
                     cls.Car_old_owner_contry = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
                     cls.Car_old_owner_zipcode = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
 
@@ -349,7 +337,7 @@ namespace JKLWebBase_v2.Managers_Leasings
             }
         }
 
-        public List<Car_Leasings> getCarLeasing(string i_Deps_no , string i_Leasing_no, string i_Cust_idcard, string i_Cust_Fname , string i_Cust_LName, string i_Leasing_date_str, string i_Leasing_date_end, string i_Leasing_code_id,  string i_Company_id, string i_Zone_id, int i_row_str, int i_row_limit)
+        public List<Car_Leasings> getCarLeasing(string i_Deps_no , string i_Leasing_no, string i_Cust_idcard, string i_Cust_Fname , string i_Cust_LName, string i_Leasing_date_str, string i_Leasing_date_end, string i_Car_license_plate, string i_Leasing_code_id,  string i_Company_id, string i_Zone_id, int i_row_str, int i_row_limit)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             string error_2 = "";
@@ -358,7 +346,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 /* 
                  * :: StoredProcedure :: [ g_car_leasings ] :: 
                  * g_car_leasings  (IN i_Deps_no varchar(50),       IN i_Leasing_no varchar(50),    IN i_Cust_idcard varchar(13),
-				 *                  IN i_Cust_Fname varchar(255),   IN i_Cust_LName varchar(255),   IN i_Leasing_date_str VARCHAR(20), IN i_Leasing_date_end VARCHAR(20), 
+				 *                  IN i_Cust_Fname varchar(255),   IN i_Cust_LName varchar(255),   IN i_Leasing_date_str VARCHAR(20), IN i_Leasing_date_end VARCHAR(20), IN i_Car_license_plate VARCHAR(255), 
 				 *		            IN i_Leasing_code_id VARCHAR(255),  IN i_Company_id VARCHAR(255), IN i_Zone_id VARCHAR(255), IN i_row_str INT(11), IN i_row_limit INT(11))
                  * 
                  */
@@ -375,6 +363,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_Cust_LName", i_Cust_LName);
                 cmd.Parameters.AddWithValue("@i_Leasing_date_str", i_Leasing_date_str);
                 cmd.Parameters.AddWithValue("@i_Leasing_date_end", i_Leasing_date_end);
+                cmd.Parameters.AddWithValue("@i_Car_license_plate", i_Car_license_plate);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_id", i_Leasing_code_id);
                 cmd.Parameters.AddWithValue("@i_Company_id", i_Company_id);
                 cmd.Parameters.AddWithValue("@i_Zone_id", i_Zone_id);
@@ -418,276 +407,245 @@ namespace JKLWebBase_v2.Managers_Leasings
                     cls.bs_cpn.Company_road = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
                     cls.bs_cpn.Company_subdistrict = reader.IsDBNull(17) ? defaultString : reader.GetString(17);
                     cls.bs_cpn.Company_district = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
-                    cls.bs_cpn.Company_province_id = reader.IsDBNull(19) ? defaultNum : reader.GetInt32(19);
-                    cls.bs_cpn.Company_province_name = reader.IsDBNull(20) ? defaultString : reader.GetString(20);
-                    cls.bs_cpn.Company_country = reader.IsDBNull(21) ? defaultString : reader.GetString(21);
-                    cls.bs_cpn.Company_zipcode = reader.IsDBNull(22) ? defaultString : reader.GetString(22);
-                    cls.bs_cpn.Company_tel = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
-                    cls.bs_cpn.Company_Save_date = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
+                    cls.bs_cpn.Company_province = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    cls.bs_cpn.Company_country = reader.IsDBNull(20) ? defaultString : reader.GetString(20);
+                    cls.bs_cpn.Company_zipcode = reader.IsDBNull(21) ? defaultString : reader.GetString(21);
+                    cls.bs_cpn.Company_tel = reader.IsDBNull(22) ? defaultString : reader.GetString(22);
+                    cls.bs_cpn.Company_Save_date = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
 
                     cls.bs_zn = new Base_Zone_Service();
-                    cls.bs_zn.Zone_id = reader.IsDBNull(25) ? defaultNum : reader.GetInt32(25);
-                    cls.bs_zn.Zone_code = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
-                    cls.bs_zn.Zone_name = reader.IsDBNull(27) ? defaultString : reader.GetString(27);
+                    cls.bs_zn.Zone_id = reader.IsDBNull(24) ? defaultNum : reader.GetInt32(24);
+                    cls.bs_zn.Zone_code = reader.IsDBNull(25) ? defaultString : reader.GetString(25);
+                    cls.bs_zn.Zone_name = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
 
                     cls.bs_ct = new Base_Courts();
-                    cls.bs_ct.Court_id = reader.IsDBNull(28) ? defaultNum : reader.GetInt32(28);
-                    cls.bs_ct.Court_name = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    cls.bs_ct.Court_id = reader.IsDBNull(27) ? defaultNum : reader.GetInt32(27);
+                    cls.bs_ct.Court_name = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
 
-                    cls.PeReT = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    cls.PeReT = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    cls.TotalPaymentTime = reader.IsDBNull(30) ? defaultNum : reader.GetInt32(30);
+                    cls.Total_require = reader.IsDBNull(31) ? defaultNum : reader.GetDouble(31);
+                    cls.Vat_rate = reader.IsDBNull(32) ? defaultNum : reader.GetDouble(32);
+                    cls.Interest_rate = reader.IsDBNull(33) ? defaultNum : reader.GetDouble(33);
+                    cls.Total_period = reader.IsDBNull(34) ? defaultNum : reader.GetInt32(34);
+                    cls.Total_sum = reader.IsDBNull(35) ? defaultNum : reader.GetDouble(35);
+                    cls.Total_Interest = reader.IsDBNull(36) ? defaultNum : reader.GetDouble(36);
+                    cls.Total_Tax = reader.IsDBNull(37) ? defaultNum : reader.GetDouble(37);
+                    cls.Total_leasing = reader.IsDBNull(38) ? defaultNum : reader.GetDouble(38);
+                    cls.Total_Net_leasing = reader.IsDBNull(39) ? defaultNum : reader.GetDouble(39);
+                    cls.Period_cal = reader.IsDBNull(40) ? defaultNum : reader.GetDouble(40);
+                    cls.Period_interst = reader.IsDBNull(41) ? defaultNum : reader.GetDouble(41);
+                    cls.Period_tax = reader.IsDBNull(42) ? defaultNum : reader.GetDouble(42);
+                    cls.Period_pure = reader.IsDBNull(43) ? defaultNum : reader.GetDouble(43);
+                    cls.Period_payment = reader.IsDBNull(44) ? defaultNum : reader.GetDouble(44);
+                    cls.Period_require = reader.IsDBNull(45) ? defaultNum : reader.GetDouble(45);
+                    cls.Total_period_length = reader.IsDBNull(46) ? defaultString : reader.GetString(46);
+                    cls.Total_period_lose = reader.IsDBNull(47) ? defaultNum : reader.GetInt32(47);
+                    cls.Total_period_left = reader.IsDBNull(48) ? defaultNum : reader.GetInt32(48);
+                    cls.Total_payment_left = reader.IsDBNull(49) ? defaultNum : reader.GetDouble(49);
+                    cls.Payment_schedule = reader.IsDBNull(50) ? defaultNum : reader.GetInt32(50);
+                    cls.First_payment_date = reader.IsDBNull(51) ? defaultString : reader.GetString(51);
+                    cls.Car_register_date = reader.IsDBNull(52) ? defaultString : reader.GetString(52);
+                    cls.Car_license_plate = reader.IsDBNull(53) ? defaultString : reader.GetString(53);
+                    cls.Car_license_plate_province= reader.IsDBNull(54) ? defaultString : reader.GetString(54);
 
-                    cls.TotalPaymentTime = reader.IsDBNull(31) ? defaultNum : reader.GetInt32(31);
-                    cls.Total_require = reader.IsDBNull(32) ? defaultNum : reader.GetDouble(32);
-                    cls.Vat_rate = reader.IsDBNull(33) ? defaultNum : reader.GetDouble(33);
-                    cls.Interest_rate = reader.IsDBNull(34) ? defaultNum : reader.GetDouble(34);
-                    cls.Total_period = reader.IsDBNull(35) ? defaultNum : reader.GetInt32(35);
-                    cls.Total_sum = reader.IsDBNull(36) ? defaultNum : reader.GetDouble(36);
-                    cls.Total_Interest = reader.IsDBNull(37) ? defaultNum : reader.GetDouble(37);
-                    cls.Total_Tax = reader.IsDBNull(38) ? defaultNum : reader.GetDouble(38);
-                    cls.Total_leasing = reader.IsDBNull(39) ? defaultNum : reader.GetDouble(39);
-                    cls.Total_Net_leasing = reader.IsDBNull(40) ? defaultNum : reader.GetDouble(40);
-                    cls.Period_cal = reader.IsDBNull(41) ? defaultNum : reader.GetDouble(41);
-                    cls.Period_interst = reader.IsDBNull(42) ? defaultNum : reader.GetDouble(42);
-                    cls.Period_tax = reader.IsDBNull(43) ? defaultNum : reader.GetDouble(43);
-                    cls.Period_pure = reader.IsDBNull(44) ? defaultNum : reader.GetDouble(44);
-                    cls.Period_payment = reader.IsDBNull(45) ? defaultNum : reader.GetDouble(45);
-                    cls.Period_require = reader.IsDBNull(46) ? defaultNum : reader.GetDouble(46);
-                    cls.Total_period_length = reader.IsDBNull(47) ? defaultString : reader.GetString(47);
-                    cls.Total_period_lose = reader.IsDBNull(48) ? defaultNum : reader.GetInt32(48);
-                    cls.Total_period_left = reader.IsDBNull(49) ? defaultNum : reader.GetInt32(49);
-                    cls.Total_payment_left = reader.IsDBNull(50) ? defaultNum : reader.GetDouble(50);
-                    cls.Payment_schedule = reader.IsDBNull(51) ? defaultNum : reader.GetInt32(51);
-                    cls.First_payment_date = reader.IsDBNull(52) ? defaultString : reader.GetString(52);
-                    cls.Car_register_date = reader.IsDBNull(53) ? defaultString : reader.GetString(53);
-                    cls.Car_license_plate = reader.IsDBNull(54) ? defaultString : reader.GetString(54);
-
-                    cls.cls_plate_pv = new TH_Provinces();
-                    cls.cls_plate_pv.Province_id = reader.IsDBNull(55) ? defaultNum : reader.GetInt32(55);
-                    cls.cls_plate_pv.Province_name = reader.IsDBNull(56) ? defaultString : reader.GetString(56);
-
-                    cls.Car_type = reader.IsDBNull(57) ? defaultString : reader.GetString(57);
-                    cls.Car_feature = reader.IsDBNull(58) ? defaultString : reader.GetString(58);
+                    cls.Car_type = reader.IsDBNull(55) ? defaultString : reader.GetString(55);
+                    cls.Car_feature = reader.IsDBNull(56) ? defaultString : reader.GetString(56);
 
                     cls.bs_cbrn = new Base_Car_Brands();
-                    cls.bs_cbrn.car_brand_id= reader.IsDBNull(59) ? defaultNum : reader.GetInt32(59);
-                    cls.bs_cbrn.car_brand_name_eng = reader.IsDBNull(60) ? defaultString : reader.GetString(60);
-                    cls.bs_cbrn.car_brand_name_th = reader.IsDBNull(61) ? defaultString : reader.GetString(61);
+                    cls.bs_cbrn.car_brand_id= reader.IsDBNull(57) ? defaultNum : reader.GetInt32(57);
+                    cls.bs_cbrn.car_brand_name_eng = reader.IsDBNull(58) ? defaultString : reader.GetString(58);
+                    cls.bs_cbrn.car_brand_name_th = reader.IsDBNull(59) ? defaultString : reader.GetString(59);
 
-                    cls.Car_model = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
-                    cls.Car_year = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
-                    cls.Car_color = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
-                    cls.Car_engine_no = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
-                    cls.Car_engine_no_at = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
-                    cls.Car_engine_brand = reader.IsDBNull(67) ? defaultString : reader.GetString(67);
-                    cls.Car_chassis_no = reader.IsDBNull(68) ? defaultString : reader.GetString(68);
-                    cls.Car_chassis_no_at = reader.IsDBNull(69) ? defaultString : reader.GetString(69);
-                    cls.Car_fual_type = reader.IsDBNull(70) ? defaultString : reader.GetString(70);
-                    cls.Car_gas_No = reader.IsDBNull(71) ? defaultString : reader.GetString(71);
-                    cls.Car_used_id = reader.IsDBNull(72) ? defaultNum : reader.GetInt32(72);
-                    cls.Car_distance = reader.IsDBNull(73) ? defaultNum : reader.GetDouble(73);
-                    cls.Car_next_register_date = reader.IsDBNull(74) ? defaultString : reader.GetString(74);
-                    cls.Car_tax_value = reader.IsDBNull(75) ? defaultNum : reader.GetDouble(75);
-                    cls.Car_credits = reader.IsDBNull(76) ? defaultString : reader.GetString(76);
-                    cls.Car_agent = reader.IsDBNull(77) ? defaultString : reader.GetString(77);
-                    cls.Car_old_owner = reader.IsDBNull(78) ? defaultString : reader.GetString(78);
-                    cls.Car_old_owner_idcard = reader.IsDBNull(79) ? defaultString : reader.GetString(79);
-                    cls.Car_old_owner_b_date = reader.IsDBNull(80) ? defaultString : reader.GetString(80);
-                    cls.Car_old_owner_address_no = reader.IsDBNull(81) ? defaultString : reader.GetString(81);
-                    cls.Car_old_owner_vilage = reader.IsDBNull(82) ? defaultString : reader.GetString(82);
-                    cls.Car_old_owner_vilage_no = reader.IsDBNull(83) ? defaultString : reader.GetString(83);
-                    cls.Car_old_owner_alley = reader.IsDBNull(84) ? defaultString : reader.GetString(84);
-                    cls.Car_old_owner_road = reader.IsDBNull(85) ? defaultString : reader.GetString(85);
-                    cls.Car_old_owner_subdistrict = reader.IsDBNull(86) ? defaultString : reader.GetString(86);
-                    cls.Car_old_owner_district = reader.IsDBNull(87) ? defaultString : reader.GetString(87);
-
-                    cls.cls_owner_pv = new TH_Provinces();
-                    cls.cls_owner_pv.Province_id = reader.IsDBNull(88) ? defaultNum : reader.GetInt32(88);
-                    cls.cls_owner_pv.Province_name = reader.IsDBNull(89) ? defaultString : reader.GetString(89);
-
-                    cls.Car_old_owner_contry = reader.IsDBNull(90) ? defaultString : reader.GetString(90);
-                    cls.Car_old_owner_zipcode = reader.IsDBNull(91) ? defaultString : reader.GetString(91);
+                    cls.Car_model = reader.IsDBNull(60) ? defaultString : reader.GetString(60);
+                    cls.Car_year = reader.IsDBNull(61) ? defaultString : reader.GetString(61);
+                    cls.Car_color = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
+                    cls.Car_engine_no = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
+                    cls.Car_engine_no_at = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
+                    cls.Car_engine_brand = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
+                    cls.Car_chassis_no = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
+                    cls.Car_chassis_no_at = reader.IsDBNull(67) ? defaultString : reader.GetString(67);
+                    cls.Car_fual_type = reader.IsDBNull(68) ? defaultString : reader.GetString(68);
+                    cls.Car_gas_No = reader.IsDBNull(69) ? defaultString : reader.GetString(69);
+                    cls.Car_used_id = reader.IsDBNull(70) ? defaultNum : reader.GetInt32(70);
+                    cls.Car_distance = reader.IsDBNull(71) ? defaultNum : reader.GetDouble(71);
+                    cls.Car_next_register_date = reader.IsDBNull(72) ? defaultString : reader.GetString(72);
+                    cls.Car_tax_value = reader.IsDBNull(73) ? defaultNum : reader.GetDouble(73);
+                    cls.Car_credits = reader.IsDBNull(74) ? defaultString : reader.GetString(74);
+                    cls.Car_agent = reader.IsDBNull(75) ? defaultString : reader.GetString(75);
+                    cls.Car_old_owner = reader.IsDBNull(76) ? defaultString : reader.GetString(76);
+                    cls.Car_old_owner_idcard = reader.IsDBNull(77) ? defaultString : reader.GetString(77);
+                    cls.Car_old_owner_b_date = reader.IsDBNull(78) ? defaultString : reader.GetString(78);
+                    cls.Car_old_owner_address_no = reader.IsDBNull(79) ? defaultString : reader.GetString(79);
+                    cls.Car_old_owner_vilage = reader.IsDBNull(80) ? defaultString : reader.GetString(80);
+                    cls.Car_old_owner_vilage_no = reader.IsDBNull(81) ? defaultString : reader.GetString(81);
+                    cls.Car_old_owner_alley = reader.IsDBNull(82) ? defaultString : reader.GetString(82);
+                    cls.Car_old_owner_road = reader.IsDBNull(83) ? defaultString : reader.GetString(83);
+                    cls.Car_old_owner_subdistrict = reader.IsDBNull(84) ? defaultString : reader.GetString(84);
+                    cls.Car_old_owner_district = reader.IsDBNull(85) ? defaultString : reader.GetString(85);
+                    cls.Car_old_owner_province = reader.IsDBNull(86) ? defaultString : reader.GetString(86);
+                    cls.Car_old_owner_contry = reader.IsDBNull(87) ? defaultString : reader.GetString(87);
+                    cls.Car_old_owner_zipcode = reader.IsDBNull(88) ? defaultString : reader.GetString(88);
 
                     cls.tent_car = new Base_Tents_Car();
-                    cls.tent_car.Tent_car_id = reader.IsDBNull(92) ? defaultNum : reader.GetInt32(92);
-                    cls.tent_car.Tent_name = reader.IsDBNull(93) ? defaultString : reader.GetString(93);
-                    cls.tent_car.Tent_local = reader.IsDBNull(94) ? defaultString : reader.GetString(94);
+                    cls.tent_car.Tent_car_id = reader.IsDBNull(89) ? defaultNum : reader.GetInt32(89);
+                    cls.tent_car.Tent_name = reader.IsDBNull(90) ? defaultString : reader.GetString(90);
+                    cls.tent_car.Tent_local = reader.IsDBNull(91) ? defaultString : reader.GetString(91);
 
-                    cls.Cheque_receiver = reader.IsDBNull(95) ? defaultString : reader.GetString(95);
-                    cls.Cheque_bank = reader.IsDBNull(96) ? defaultString : reader.GetString(96);
-                    cls.Cheque_bank_branch = reader.IsDBNull(97) ? defaultString : reader.GetString(97);
-                    cls.Cheque_number = reader.IsDBNull(98) ? defaultString : reader.GetString(98);
-                    cls.Cheque_sum = reader.IsDBNull(99) ? defaultNum : reader.GetDouble(99);
-                    cls.Cheque_receive_date = reader.IsDBNull(100) ? defaultString : reader.GetString(100);
-                    cls.Guarantee = reader.IsDBNull(101) ? defaultString : reader.GetString(101);
+                    cls.Cheque_receiver = reader.IsDBNull(92) ? defaultString : reader.GetString(92);
+                    cls.Cheque_bank = reader.IsDBNull(93) ? defaultString : reader.GetString(93);
+                    cls.Cheque_bank_branch = reader.IsDBNull(94) ? defaultString : reader.GetString(94);
+                    cls.Cheque_number = reader.IsDBNull(95) ? defaultString : reader.GetString(95);
+                    cls.Cheque_sum = reader.IsDBNull(96) ? defaultNum : reader.GetDouble(96);
+                    cls.Cheque_receive_date = reader.IsDBNull(97) ? defaultString : reader.GetString(97);
+                    cls.Guarantee = reader.IsDBNull(98) ? defaultString : reader.GetString(98);
 
                     cls.bs_ls_stt = new Base_Leasing_Status();
-                    cls.bs_ls_stt.Contract_Status_id = reader.IsDBNull(102) ? defaultNum : reader.GetInt32(102);
-                    cls.bs_ls_stt.Contract_Status_name = reader.IsDBNull(103) ? defaultString : reader.GetString(103);
+                    cls.bs_ls_stt.Contract_Status_id = reader.IsDBNull(99) ? defaultNum : reader.GetInt32(99);
+                    cls.bs_ls_stt.Contract_Status_name = reader.IsDBNull(100) ? defaultString : reader.GetString(100);
 
-                    cls.Leasings_save_date = reader.IsDBNull(104) ? defaultString : reader.GetString(104);
+                    cls.Leasings_save_date = reader.IsDBNull(101) ? defaultString : reader.GetString(101);
 
                     cls.ctm = new Customers();
-                    cls.ctm.Cust_id = reader.IsDBNull(105) ? defaultString : reader.GetString(105);
-                    cls.ctm.Cust_Idcard = reader.IsDBNull(106) ? defaultString : reader.GetString(106);
-                    cls.ctm.Cust_Fname = reader.IsDBNull(107) ? defaultString : reader.GetString(107);
-                    cls.ctm.Cust_LName = reader.IsDBNull(108) ? defaultString : reader.GetString(108);
-                    cls.ctm.Cust_B_date = reader.IsDBNull(109) ? defaultString : reader.GetString(109);
-                    cls.ctm.Cust_Age = reader.IsDBNull(110) ? defaultNum : reader.GetInt32(110);
-                    cls.ctm.Cust_Idcard_without = reader.IsDBNull(111) ? defaultString : reader.GetString(111);
-                    cls.ctm.Cust_Idcard_start = reader.IsDBNull(112) ? defaultString : reader.GetString(112);
-                    cls.ctm.Cust_Idcard_expire = reader.IsDBNull(113) ? defaultString : reader.GetString(113);
+                    cls.ctm.Cust_id = reader.IsDBNull(102) ? defaultString : reader.GetString(102);
+                    cls.ctm.Cust_Idcard = reader.IsDBNull(103) ? defaultString : reader.GetString(103);
+                    cls.ctm.Cust_Fname = reader.IsDBNull(104) ? defaultString : reader.GetString(104);
+                    cls.ctm.Cust_LName = reader.IsDBNull(105) ? defaultString : reader.GetString(105);
+                    cls.ctm.Cust_B_date = reader.IsDBNull(106) ? defaultString : reader.GetString(106);
+                    cls.ctm.Cust_Age = reader.IsDBNull(107) ? defaultNum : reader.GetInt32(107);
+                    cls.ctm.Cust_Idcard_without = reader.IsDBNull(108) ? defaultString : reader.GetString(108);
+                    cls.ctm.Cust_Idcard_start = reader.IsDBNull(109) ? defaultString : reader.GetString(109);
+                    cls.ctm.Cust_Idcard_expire = reader.IsDBNull(110) ? defaultString : reader.GetString(110);
 
                     cls.ctm.ctm_ntnlt = new Base_Nationalitys();
-                    cls.ctm.ctm_ntnlt.Nationality_id = reader.IsDBNull(114) ? defaultNum : reader.GetInt32(114);
-                    cls.ctm.ctm_ntnlt.Nationality_name_ENG = reader.IsDBNull(115) ? defaultString : reader.GetString(115);
-                    cls.ctm.ctm_ntnlt.Nationality_name_TH = reader.IsDBNull(116) ? defaultString : reader.GetString(116);
+                    cls.ctm.ctm_ntnlt.Nationality_id = reader.IsDBNull(111) ? defaultNum : reader.GetInt32(111);
+                    cls.ctm.ctm_ntnlt.Nationality_name_ENG = reader.IsDBNull(112) ? defaultString : reader.GetString(112);
+                    cls.ctm.ctm_ntnlt.Nationality_name_TH = reader.IsDBNull(113) ? defaultString : reader.GetString(113);
 
                     cls.ctm.ctm_org = new Base_Origins();
-                    cls.ctm.ctm_org.Origin_id = reader.IsDBNull(117) ? defaultNum : reader.GetInt32(117);
-                    cls.ctm.ctm_org.Origin_name_ENG  = reader.IsDBNull(118) ? defaultString : reader.GetString(118);
-                    cls.ctm.ctm_org.Origin_name_TH  = reader.IsDBNull(119) ? defaultString : reader.GetString(119);
+                    cls.ctm.ctm_org.Origin_id = reader.IsDBNull(114) ? defaultNum : reader.GetInt32(114);
+                    cls.ctm.ctm_org.Origin_name_ENG  = reader.IsDBNull(115) ? defaultString : reader.GetString(115);
+                    cls.ctm.ctm_org.Origin_name_TH  = reader.IsDBNull(116) ? defaultString : reader.GetString(116);
 
-                    cls.ctm.Cust_Tel = reader.IsDBNull(120) ? defaultString : reader.GetString(120);
-                    cls.ctm.Cust_Email = reader.IsDBNull(121) ? defaultString : reader.GetString(121);
+                    cls.ctm.Cust_Tel = reader.IsDBNull(117) ? defaultString : reader.GetString(117);
+                    cls.ctm.Cust_Email = reader.IsDBNull(118) ? defaultString : reader.GetString(118);
 
                     cls.ctm.ctm_pstt = new Base_Person_Status();
-                    cls.ctm.ctm_pstt.person_status_id = reader.IsDBNull(122) ? defaultNum : reader.GetInt32(122);
-                    cls.ctm.ctm_pstt.person_status_name = reader.IsDBNull(123) ? defaultString : reader.GetString(123);
+                    cls.ctm.ctm_pstt.person_status_id = reader.IsDBNull(119) ? defaultNum : reader.GetInt32(119);
+                    cls.ctm.ctm_pstt.person_status_name = reader.IsDBNull(120) ? defaultString : reader.GetString(120);
 
-                    cls.ctm.Cust_Marry_idcard = reader.IsDBNull(124) ? defaultString : reader.GetString(124);
-                    cls.ctm.Cust_Marry_Fname = reader.IsDBNull(125) ? defaultString : reader.GetString(125);
-                    cls.ctm.Cust_Marry_Lname = reader.IsDBNull(126) ? defaultString : reader.GetString(126);
+                    cls.ctm.Cust_Marry_idcard = reader.IsDBNull(121) ? defaultString : reader.GetString(121);
+                    cls.ctm.Cust_Marry_Fname = reader.IsDBNull(122) ? defaultString : reader.GetString(122);
+                    cls.ctm.Cust_Marry_Lname = reader.IsDBNull(123) ? defaultString : reader.GetString(123);
 
                     cls.ctm.ctm_marry_ntnlt = new Base_Nationalitys();
-                    cls.ctm.ctm_marry_ntnlt.Nationality_id = reader.IsDBNull(127) ? defaultNum : reader.GetInt32(127);
-                    cls.ctm.ctm_marry_ntnlt.Nationality_name_ENG  = reader.IsDBNull(128) ? defaultString : reader.GetString(128);
-                    cls.ctm.ctm_marry_ntnlt.Nationality_name_TH  = reader.IsDBNull(129) ? defaultString : reader.GetString(129);
+                    cls.ctm.ctm_marry_ntnlt.Nationality_id = reader.IsDBNull(124) ? defaultNum : reader.GetInt32(127);
+                    cls.ctm.ctm_marry_ntnlt.Nationality_name_ENG  = reader.IsDBNull(125) ? defaultString : reader.GetString(125);
+                    cls.ctm.ctm_marry_ntnlt.Nationality_name_TH  = reader.IsDBNull(126) ? defaultString : reader.GetString(126);
 
                     cls.ctm.ctm_marry_org = new Base_Origins();
-                    cls.ctm.ctm_marry_org.Origin_id = reader.IsDBNull(130) ? defaultNum : reader.GetInt32(130);
-                    cls.ctm.ctm_marry_org.Origin_name_ENG = reader.IsDBNull(131) ? defaultString : reader.GetString(131);
-                    cls.ctm.ctm_marry_org.Origin_name_TH  = reader.IsDBNull(132) ? defaultString : reader.GetString(132);
+                    cls.ctm.ctm_marry_org.Origin_id = reader.IsDBNull(127) ? defaultNum : reader.GetInt32(127);
+                    cls.ctm.ctm_marry_org.Origin_name_ENG = reader.IsDBNull(128) ? defaultString : reader.GetString(128);
+                    cls.ctm.ctm_marry_org.Origin_name_TH  = reader.IsDBNull(129) ? defaultString : reader.GetString(129);
 
-                    cls.ctm.Cust_Marry_Address_no = reader.IsDBNull(133) ? defaultString : reader.GetString(133);
-                    cls.ctm.Cust_Marry_vilage = reader.IsDBNull(134) ? defaultString : reader.GetString(134);
-                    cls.ctm.Cust_Marry_vilage_no = reader.IsDBNull(135) ? defaultString : reader.GetString(135);
-                    cls.ctm.Cust_Marry_alley = reader.IsDBNull(136) ? defaultString : reader.GetString(136);
-                    cls.ctm.Cust_Marry_road = reader.IsDBNull(137) ? defaultString : reader.GetString(137);
-                    cls.ctm.Cust_Marry_subdistrict = reader.IsDBNull(138) ? defaultString : reader.GetString(138);
-                    cls.ctm.Cust_Marry_district = reader.IsDBNull(139) ? defaultString : reader.GetString(139);
+                    cls.ctm.Cust_Marry_Address_no = reader.IsDBNull(130) ? defaultString : reader.GetString(130);
+                    cls.ctm.Cust_Marry_vilage = reader.IsDBNull(131) ? defaultString : reader.GetString(131);
+                    cls.ctm.Cust_Marry_vilage_no = reader.IsDBNull(132) ? defaultString : reader.GetString(132);
+                    cls.ctm.Cust_Marry_alley = reader.IsDBNull(133) ? defaultString : reader.GetString(133);
+                    cls.ctm.Cust_Marry_road = reader.IsDBNull(134) ? defaultString : reader.GetString(134);
+                    cls.ctm.Cust_Marry_subdistrict = reader.IsDBNull(135) ? defaultString : reader.GetString(135);
+                    cls.ctm.Cust_Marry_district = reader.IsDBNull(136) ? defaultString : reader.GetString(136);
+                    cls.ctm.Cust_Marry_province = reader.IsDBNull(137) ? defaultString : reader.GetString(137);
+                    cls.ctm.Cust_Marry_country = reader.IsDBNull(138) ? defaultString : reader.GetString(138);
+                    cls.ctm.Cust_Marry_zipcode = reader.IsDBNull(139) ? defaultString : reader.GetString(139);
+                    cls.ctm.Cust_Marry_tel = reader.IsDBNull(140) ? defaultString : reader.GetString(140);
+                    cls.ctm.Cust_Marry_email = reader.IsDBNull(141) ? defaultString : reader.GetString(141);
+                    cls.ctm.Cust_Marry_job = reader.IsDBNull(142) ? defaultString : reader.GetString(142);
+                    cls.ctm.Cust_Marry_job_position = reader.IsDBNull(143) ? defaultString : reader.GetString(143);
+                    cls.ctm.Cust_Marry_job_long = reader.IsDBNull(144) ? defaultNum : reader.GetInt32(144);
+                    cls.ctm.Cust_Marry_job_salary = reader.IsDBNull(145) ? defaultNum : reader.GetDouble(145);
+                    cls.ctm.Cust_Marry_job_local_name = reader.IsDBNull(146) ? defaultString : reader.GetString(146);
+                    cls.ctm.Cust_Marry_job_address_no = reader.IsDBNull(147) ? defaultString : reader.GetString(147);
+                    cls.ctm.Cust_Marry_job_vilage = reader.IsDBNull(148) ? defaultString : reader.GetString(148);
+                    cls.ctm.Cust_Marry_job_vilage_no = reader.IsDBNull(149) ? defaultString : reader.GetString(149);
+                    cls.ctm.Cust_Marry_job_alley = reader.IsDBNull(150) ? defaultString : reader.GetString(150);
+                    cls.ctm.Cust_Marry_job_road = reader.IsDBNull(151) ? defaultString : reader.GetString(151);
+                    cls.ctm.Cust_Marry_job_subdistrict = reader.IsDBNull(152) ? defaultString : reader.GetString(152);
+                    cls.ctm.Cust_Marry_job_district = reader.IsDBNull(153) ? defaultString : reader.GetString(153);
+                    cls.ctm.Cust_Marry_job_province = reader.IsDBNull(154) ? defaultString : reader.GetString(154);
+                    cls.ctm.Cust_Marry_job_country = reader.IsDBNull(155) ? defaultString : reader.GetString(155);
+                    cls.ctm.Cust_Marry_job_zipcode = reader.IsDBNull(156) ? defaultString : reader.GetString(156);
+                    cls.ctm.Cust_Marry_job_tel = reader.IsDBNull(157) ? defaultString : reader.GetString(157);
 
-                    cls.ctm.ctm_marry_pv = new TH_Provinces();
-                    cls.ctm.ctm_marry_pv.Province_id = reader.IsDBNull(140) ? defaultNum : reader.GetInt32(140);
-                    cls.ctm.ctm_marry_pv.Province_name  = reader.IsDBNull(141) ? defaultString : reader.GetString(141);
+                    cls.ctm.Cust_Job = reader.IsDBNull(158) ? defaultString : reader.GetString(158);
+                    cls.ctm.Cust_Job_position = reader.IsDBNull(159) ? defaultString : reader.GetString(159);
+                    cls.ctm.Cust_Job_long = reader.IsDBNull(160) ? defaultNum : reader.GetInt32(160);
+                    cls.ctm.Cust_Job_salary = reader.IsDBNull(161) ? defaultNum : reader.GetDouble(161);
+                    cls.ctm.Cust_Job_local_name = reader.IsDBNull(162) ? defaultString : reader.GetString(162);
+                    cls.ctm.Cust_Job_address_no = reader.IsDBNull(163) ? defaultString : reader.GetString(163);
+                    cls.ctm.Cust_Job_vilage = reader.IsDBNull(164) ? defaultString : reader.GetString(164);
+                    cls.ctm.Cust_Job_vilage_no = reader.IsDBNull(165) ? defaultString : reader.GetString(165);
+                    cls.ctm.Cust_Job_alley = reader.IsDBNull(166) ? defaultString : reader.GetString(166);
+                    cls.ctm.Cust_Job_road = reader.IsDBNull(167) ? defaultString : reader.GetString(167);
+                    cls.ctm.Cust_Job_subdistrict = reader.IsDBNull(168) ? defaultString : reader.GetString(168);
+                    cls.ctm.Cust_Job_district = reader.IsDBNull(169) ? defaultString : reader.GetString(169);
+                    cls.ctm.Cust_Job_province = reader.IsDBNull(170) ? defaultString : reader.GetString(170);
+                    cls.ctm.Cust_Job_country = reader.IsDBNull(171) ? defaultString : reader.GetString(171);
+                    cls.ctm.Cust_Job_zipcode = reader.IsDBNull(172) ? defaultString : reader.GetString(172);
+                    cls.ctm.Cust_Job_tel = reader.IsDBNull(173) ? defaultString : reader.GetString(173);
+                    cls.ctm.Cust_Job_email = reader.IsDBNull(174) ? defaultString : reader.GetString(174);
 
-                    cls.ctm.Cust_Marry_country = reader.IsDBNull(142) ? defaultString : reader.GetString(142);
-                    cls.ctm.Cust_Marry_zipcode = reader.IsDBNull(143) ? defaultString : reader.GetString(143);
-                    cls.ctm.Cust_Marry_tel = reader.IsDBNull(144) ? defaultString : reader.GetString(144);
-                    cls.ctm.Cust_Marry_email = reader.IsDBNull(145) ? defaultString : reader.GetString(145);
-                    cls.ctm.Cust_Marry_job = reader.IsDBNull(146) ? defaultString : reader.GetString(146);
-                    cls.ctm.Cust_Marry_job_position = reader.IsDBNull(147) ? defaultString : reader.GetString(147);
-                    cls.ctm.Cust_Marry_job_long = reader.IsDBNull(148) ? defaultNum : reader.GetInt32(148);
-                    cls.ctm.Cust_Marry_job_salary = reader.IsDBNull(149) ? defaultNum : reader.GetDouble(149);
-                    cls.ctm.Cust_Marry_job_local_name = reader.IsDBNull(150) ? defaultString : reader.GetString(150);
-                    cls.ctm.Cust_Marry_job_address_no = reader.IsDBNull(151) ? defaultString : reader.GetString(151);
-                    cls.ctm.Cust_Marry_job_vilage = reader.IsDBNull(152) ? defaultString : reader.GetString(152);
-                    cls.ctm.Cust_Marry_job_vilage_no = reader.IsDBNull(153) ? defaultString : reader.GetString(153);
-                    cls.ctm.Cust_Marry_job_alley = reader.IsDBNull(154) ? defaultString : reader.GetString(154);
-                    cls.ctm.Cust_Marry_job_road = reader.IsDBNull(155) ? defaultString : reader.GetString(155);
-                    cls.ctm.Cust_Marry_job_subdistrict = reader.IsDBNull(156) ? defaultString : reader.GetString(156);
-                    cls.ctm.Cust_Marry_job_district = reader.IsDBNull(157) ? defaultString : reader.GetString(157);
-
-                    cls.ctm.ctm_marry_job_pv = new TH_Provinces();
-                    cls.ctm.ctm_marry_job_pv.Province_id = reader.IsDBNull(158) ? defaultNum : reader.GetInt32(158);
-                    cls.ctm.ctm_marry_job_pv.Province_name = reader.IsDBNull(159) ? defaultString : reader.GetString(159);
-
-                    cls.ctm.Cust_Marry_job_country = reader.IsDBNull(160) ? defaultString : reader.GetString(160);
-                    cls.ctm.Cust_Marry_job_zipcode = reader.IsDBNull(161) ? defaultString : reader.GetString(161);
-                    cls.ctm.Cust_Marry_job_tel = reader.IsDBNull(162) ? defaultString : reader.GetString(162);
-                    cls.ctm.Cust_Job = reader.IsDBNull(163) ? defaultString : reader.GetString(163);
-                    cls.ctm.Cust_Job_position = reader.IsDBNull(164) ? defaultString : reader.GetString(164);
-                    cls.ctm.Cust_Job_long = reader.IsDBNull(165) ? defaultNum : reader.GetInt32(165);
-                    cls.ctm.Cust_Job_salary = reader.IsDBNull(166) ? defaultNum : reader.GetDouble(166);
-                    cls.ctm.Cust_Job_local_name = reader.IsDBNull(167) ? defaultString : reader.GetString(167);
-                    cls.ctm.Cust_Job_address_no = reader.IsDBNull(168) ? defaultString : reader.GetString(168);
-                    cls.ctm.Cust_Job_vilage = reader.IsDBNull(169) ? defaultString : reader.GetString(169);
-                    cls.ctm.Cust_Job_vilage_no = reader.IsDBNull(170) ? defaultString : reader.GetString(170);
-                    cls.ctm.Cust_Job_alley = reader.IsDBNull(171) ? defaultString : reader.GetString(171);
-                    cls.ctm.Cust_Job_road = reader.IsDBNull(172) ? defaultString : reader.GetString(172);
-                    cls.ctm.Cust_Job_subdistrict = reader.IsDBNull(173) ? defaultString : reader.GetString(173);
-                    cls.ctm.Cust_Job_district = reader.IsDBNull(174) ? defaultString : reader.GetString(174);
-
-                    cls.ctm.ctm_job_pv = new TH_Provinces();
-                    cls.ctm.ctm_job_pv.Province_id = reader.IsDBNull(175) ? defaultNum : reader.GetInt32(175);
-                    cls.ctm.ctm_job_pv.Province_name = reader.IsDBNull(176) ? defaultString : reader.GetString(176);
-
-                    cls.ctm.Cust_Job_country = reader.IsDBNull(177) ? defaultString : reader.GetString(177);
-                    cls.ctm.Cust_Job_zipcode = reader.IsDBNull(178) ? defaultString : reader.GetString(178);
-                    cls.ctm.Cust_Job_tel = reader.IsDBNull(179) ? defaultString : reader.GetString(179);
-                    cls.ctm.Cust_Job_email = reader.IsDBNull(180) ? defaultString : reader.GetString(180);
-                    cls.ctm.Cust_Home_address_no = reader.IsDBNull(181) ? defaultString : reader.GetString(181);
-                    cls.ctm.Cust_Home_vilage = reader.IsDBNull(182) ? defaultString : reader.GetString(182);
-                    cls.ctm.Cust_Home_vilage_no = reader.IsDBNull(183) ? defaultString : reader.GetString(183);
-                    cls.ctm.Cust_Home_alley = reader.IsDBNull(184) ? defaultString : reader.GetString(184);
-                    cls.ctm.Cust_Home_road = reader.IsDBNull(185) ? defaultString : reader.GetString(185);
-                    cls.ctm.Cust_Home_subdistrict = reader.IsDBNull(186) ? defaultString : reader.GetString(186);
-                    cls.ctm.Cust_Home_district = reader.IsDBNull(187) ? defaultString : reader.GetString(187);
-
-                    cls.ctm.ctm_home_pv = new TH_Provinces();
-                    cls.ctm.ctm_home_pv.Province_id = reader.IsDBNull(188) ? defaultNum : reader.GetInt32(188);
-                    cls.ctm.ctm_home_pv.Province_name = reader.IsDBNull(189) ? defaultString : reader.GetString(189);
-
-                    cls.ctm.Cust_Home_country = reader.IsDBNull(190) ? defaultString : reader.GetString(190);
-                    cls.ctm.Cust_Home_zipcode = reader.IsDBNull(191) ? defaultString : reader.GetString(191);
-                    cls.ctm.Cust_Home_tel = reader.IsDBNull(192) ? defaultString : reader.GetString(192);
-                    cls.ctm.Cust_Home_GPS_Latitude = reader.IsDBNull(193) ? defaultString : reader.GetString(193);
-                    cls.ctm.Cust_Home_GPS_Longitude = reader.IsDBNull(194) ? defaultString : reader.GetString(194);
+                    cls.ctm.Cust_Home_address_no = reader.IsDBNull(175) ? defaultString : reader.GetString(175);
+                    cls.ctm.Cust_Home_vilage = reader.IsDBNull(176) ? defaultString : reader.GetString(176);
+                    cls.ctm.Cust_Home_vilage_no = reader.IsDBNull(177) ? defaultString : reader.GetString(177);
+                    cls.ctm.Cust_Home_alley = reader.IsDBNull(178) ? defaultString : reader.GetString(178);
+                    cls.ctm.Cust_Home_road = reader.IsDBNull(179) ? defaultString : reader.GetString(179);
+                    cls.ctm.Cust_Home_subdistrict = reader.IsDBNull(180) ? defaultString : reader.GetString(180);
+                    cls.ctm.Cust_Home_district = reader.IsDBNull(181) ? defaultString : reader.GetString(181);
+                    cls.ctm.Cust_Home_province = reader.IsDBNull(182) ? defaultString : reader.GetString(182);
+                    cls.ctm.Cust_Home_country = reader.IsDBNull(183) ? defaultString : reader.GetString(183);
+                    cls.ctm.Cust_Home_zipcode = reader.IsDBNull(184) ? defaultString : reader.GetString(184);
+                    cls.ctm.Cust_Home_tel = reader.IsDBNull(185) ? defaultString : reader.GetString(185);
+                    cls.ctm.Cust_Home_GPS_Latitude = reader.IsDBNull(186) ? defaultString : reader.GetString(186);
+                    cls.ctm.Cust_Home_GPS_Longitude = reader.IsDBNull(187) ? defaultString : reader.GetString(187);
 
                     cls.ctm.ctm_home_stt = new Base_Home_Status();
-                    cls.ctm.ctm_home_stt.Home_status_id = reader.IsDBNull(195) ? defaultNum : reader.GetInt32(195);
-                    cls.ctm.ctm_home_stt.Home_status_name = reader.IsDBNull(196) ? defaultString : reader.GetString(196);
+                    cls.ctm.ctm_home_stt.Home_status_id = reader.IsDBNull(188) ? defaultNum : reader.GetInt32(188);
+                    cls.ctm.ctm_home_stt.Home_status_name = reader.IsDBNull(189) ? defaultString : reader.GetString(189);
 
-                    cls.ctm.Cust_Idcard_address_no = reader.IsDBNull(197) ? defaultString : reader.GetString(197);
-                    cls.ctm.Cust_Idcard_vilage = reader.IsDBNull(198) ? defaultString : reader.GetString(198);
-                    cls.ctm.Cust_Idcard_vilage_no = reader.IsDBNull(199) ? defaultString : reader.GetString(199);
-                    cls.ctm.Cust_Idcard_alley = reader.IsDBNull(200) ? defaultString : reader.GetString(200);
-                    cls.ctm.Cust_Idcard_road = reader.IsDBNull(201) ? defaultString : reader.GetString(201);
-                    cls.ctm.Cust_Idcard_subdistrict = reader.IsDBNull(202) ? defaultString : reader.GetString(202);
-                    cls.ctm.Cust_Idcard_district = reader.IsDBNull(203) ? defaultString : reader.GetString(203);
-
-                    cls.ctm.ctm_idcard_pv = new TH_Provinces();
-                    cls.ctm.ctm_idcard_pv.Province_id = reader.IsDBNull(204) ? defaultNum : reader.GetInt32(204);
-                    cls.ctm.ctm_idcard_pv.Province_name = reader.IsDBNull(205) ? defaultString : reader.GetString(205);
-
-                    cls.ctm.Cust_Idcard_country = reader.IsDBNull(206) ? defaultString : reader.GetString(206);
-                    cls.ctm.Cust_Idcard_zipcode = reader.IsDBNull(207) ? defaultString : reader.GetString(207);
-                    cls.ctm.Cust_Idcard_tel = reader.IsDBNull(208) ? defaultString : reader.GetString(208);
+                    cls.ctm.Cust_Idcard_address_no = reader.IsDBNull(190) ? defaultString : reader.GetString(190);
+                    cls.ctm.Cust_Idcard_vilage = reader.IsDBNull(191) ? defaultString : reader.GetString(191);
+                    cls.ctm.Cust_Idcard_vilage_no = reader.IsDBNull(192) ? defaultString : reader.GetString(192);
+                    cls.ctm.Cust_Idcard_alley = reader.IsDBNull(193) ? defaultString : reader.GetString(193);
+                    cls.ctm.Cust_Idcard_road = reader.IsDBNull(194) ? defaultString : reader.GetString(194);
+                    cls.ctm.Cust_Idcard_subdistrict = reader.IsDBNull(195) ? defaultString : reader.GetString(195);
+                    cls.ctm.Cust_Idcard_district = reader.IsDBNull(196) ? defaultString : reader.GetString(196);
+                    cls.ctm.Cust_Idcard_province = reader.IsDBNull(197) ? defaultString : reader.GetString(197);
+                    cls.ctm.Cust_Idcard_country = reader.IsDBNull(198) ? defaultString : reader.GetString(198);
+                    cls.ctm.Cust_Idcard_zipcode = reader.IsDBNull(199) ? defaultString : reader.GetString(199);
+                    cls.ctm.Cust_Idcard_tel = reader.IsDBNull(200) ? defaultString : reader.GetString(200);
 
                     cls.ctm.ctm_idcard_stt = new Base_Home_Status();
-                    cls.ctm.ctm_idcard_stt.Home_status_id = reader.IsDBNull(209) ? defaultNum : reader.GetInt32(209);
-                    cls.ctm.ctm_idcard_stt.Home_status_name = reader.IsDBNull(210) ? defaultString : reader.GetString(210);
+                    cls.ctm.ctm_idcard_stt.Home_status_id = reader.IsDBNull(201) ? defaultNum : reader.GetInt32(201);
+                    cls.ctm.ctm_idcard_stt.Home_status_name = reader.IsDBNull(202) ? defaultString : reader.GetString(202);
 
-                    cls.ctm.Cust_Current_address_no = reader.IsDBNull(211) ? defaultString : reader.GetString(211);
-                    cls.ctm.Cust_Current_vilage = reader.IsDBNull(212) ? defaultString : reader.GetString(212);
-                    cls.ctm.Cust_Current_vilage_no = reader.IsDBNull(213) ? defaultString : reader.GetString(213);
-                    cls.ctm.Cust_Current_alley = reader.IsDBNull(214) ? defaultString : reader.GetString(214);
-                    cls.ctm.Cust_Current_road = reader.IsDBNull(215) ? defaultString : reader.GetString(215);
-                    cls.ctm.Cust_Current_subdistrict = reader.IsDBNull(216) ? defaultString : reader.GetString(216);
-                    cls.ctm.Cust_Current_district = reader.IsDBNull(217) ? defaultString : reader.GetString(217);
-
-                    cls.ctm.ctm_current_pv = new TH_Provinces();
-                    cls.ctm.ctm_current_pv.Province_id = reader.IsDBNull(218) ? defaultNum : reader.GetInt32(218);
-                    cls.ctm.ctm_current_pv.Province_name = reader.IsDBNull(219) ? defaultString : reader.GetString(219);
-
-                    cls.ctm.Cust_Current_country = reader.IsDBNull(220) ? defaultString : reader.GetString(220);
-                    cls.ctm.Cust_Current_zipcode = reader.IsDBNull(221) ? defaultString : reader.GetString(221);
-                    cls.ctm.Cust_Current_tel = reader.IsDBNull(222) ? defaultString : reader.GetString(222);
+                    cls.ctm.Cust_Current_address_no = reader.IsDBNull(203) ? defaultString : reader.GetString(203);
+                    cls.ctm.Cust_Current_vilage = reader.IsDBNull(204) ? defaultString : reader.GetString(204);
+                    cls.ctm.Cust_Current_vilage_no = reader.IsDBNull(205) ? defaultString : reader.GetString(205);
+                    cls.ctm.Cust_Current_alley = reader.IsDBNull(206) ? defaultString : reader.GetString(206);
+                    cls.ctm.Cust_Current_road = reader.IsDBNull(207) ? defaultString : reader.GetString(207);
+                    cls.ctm.Cust_Current_subdistrict = reader.IsDBNull(208) ? defaultString : reader.GetString(208);
+                    cls.ctm.Cust_Current_district = reader.IsDBNull(209) ? defaultString : reader.GetString(209);
+                    cls.ctm.Cust_Current_province = reader.IsDBNull(210) ? defaultString : reader.GetString(210);
+                    cls.ctm.Cust_Current_country = reader.IsDBNull(211) ? defaultString : reader.GetString(211);
+                    cls.ctm.Cust_Current_zipcode = reader.IsDBNull(212) ? defaultString : reader.GetString(212);
+                    cls.ctm.Cust_Current_tel = reader.IsDBNull(213) ? defaultString : reader.GetString(213);
 
                     cls.ctm.ctm_current_stt = new Base_Home_Status();
-                    cls.ctm.ctm_current_stt.Home_status_id= reader.IsDBNull(223) ? defaultNum : reader.GetInt32(223);
-                    cls.ctm.ctm_current_stt.Home_status_name = reader.IsDBNull(224) ? defaultString : reader.GetString(224);
+                    cls.ctm.ctm_current_stt.Home_status_id= reader.IsDBNull(214) ? defaultNum : reader.GetInt32(214);
+                    cls.ctm.ctm_current_stt.Home_status_name = reader.IsDBNull(215) ? defaultString : reader.GetString(215);
 
-                    cls.ctm.Cust_save_date = reader.IsDBNull(225) ? defaultString : reader.GetString(225);
+                    cls.ctm.Cust_save_date = reader.IsDBNull(216) ? defaultString : reader.GetString(216);
 
                     list_cls.Add(cls);
                 }
@@ -777,7 +735,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_First_payment_date", cls.First_payment_date);
                 cmd.Parameters.AddWithValue("@i_Car_register_date", cls.Car_register_date);
                 cmd.Parameters.AddWithValue("@i_Car_license_plate", cls.Car_license_plate);
-                cmd.Parameters.AddWithValue("@i_Car_plate_province", cls.cls_plate_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Car_plate_province", cls.Car_license_plate_province);
                 cmd.Parameters.AddWithValue("@i_Car_type", cls.Car_type);
                 cmd.Parameters.AddWithValue("@i_Car_feature", cls.Car_feature);
                 cmd.Parameters.AddWithValue("@i_Car_brand", cls.bs_cbrn.car_brand_id);
@@ -807,7 +765,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_Car_old_owner_road", cls.Car_old_owner_road);
                 cmd.Parameters.AddWithValue("@i_Car_old_owner_subdistrict", cls.Car_old_owner_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Car_old_owner_district", cls.Car_old_owner_district);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_province_id", cls.cls_owner_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_province", cls.Car_old_owner_province);
                 cmd.Parameters.AddWithValue("@i_Car_old_owner_contry", cls.Car_old_owner_contry);
                 cmd.Parameters.AddWithValue("@i_Car_old_owner_zipcode", cls.Car_old_owner_zipcode);
                 cmd.Parameters.AddWithValue("@i_Tent_car_id", cls.tent_car.Tent_car_id);
@@ -907,7 +865,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_First_payment_date", cls.First_payment_date);
                 cmd.Parameters.AddWithValue("@i_Car_register_date", cls.Car_register_date);
                 cmd.Parameters.AddWithValue("@i_Car_license_plate", cls.Car_license_plate);
-                cmd.Parameters.AddWithValue("@i_Car_plate_province", cls.cls_plate_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Car_plate_province", cls.Car_license_plate_province);
                 cmd.Parameters.AddWithValue("@i_Car_type", cls.Car_type);
                 cmd.Parameters.AddWithValue("@i_Car_feature", cls.Car_feature);
                 cmd.Parameters.AddWithValue("@i_Car_brand", cls.bs_cbrn.car_brand_id);
@@ -937,7 +895,7 @@ namespace JKLWebBase_v2.Managers_Leasings
                 cmd.Parameters.AddWithValue("@i_Car_old_owner_road", cls.Car_old_owner_road);
                 cmd.Parameters.AddWithValue("@i_Car_old_owner_subdistrict", cls.Car_old_owner_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Car_old_owner_district", cls.Car_old_owner_district);
-                cmd.Parameters.AddWithValue("@i_Car_old_owner_province_id", cls.cls_owner_pv.Province_id);
+                cmd.Parameters.AddWithValue("@i_Car_old_owner_province", cls.Car_old_owner_province);
                 cmd.Parameters.AddWithValue("@i_Car_old_owner_contry", cls.Car_old_owner_contry);
                 cmd.Parameters.AddWithValue("@i_Car_old_owner_zipcode", cls.Car_old_owner_zipcode);
                 cmd.Parameters.AddWithValue("@i_Tent_car_id", cls.tent_car.Tent_car_id);

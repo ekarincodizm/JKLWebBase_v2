@@ -90,7 +90,7 @@
                             <td><%= acc_lgn.resu %></td>
                             <td><%= acc_lgn.Account_F_name %></td>
                             <td><%= acc_lgn.acc_lv.level_name_TH + " ( "  + acc_lgn.acc_lv.level_name_ENG + " )" %></td>
-                            <td><%= DateTimeUtility.convertDateToPage(acc_lgn.Account_Save_Date) %></td>
+                            <td><%= DateTimeUtility.convertDateToPageRealServer(acc_lgn.Account_Save_Date) %></td>
                             <td>
                                 <% 
                                     if (acc_lgn.Account_status == -1)

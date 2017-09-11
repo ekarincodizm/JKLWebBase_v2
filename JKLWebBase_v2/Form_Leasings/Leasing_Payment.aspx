@@ -228,8 +228,8 @@
                                         <%          } %>
                                         >
                                         <td><%= cls_pay.Period_no %>  </td>
-                                        <td><%= DateTimeUtility.convertDateToPage(cls_pay.Period_schedule)  %>  </td>
-                                        <td><%= string.IsNullOrEmpty(cls_pay.Real_payment_date)? "-" : DateTimeUtility.convertDateToPage(cls_pay.Real_payment_date) %>  </td>
+                                        <td><%= DateTimeUtility.convertDateToPageRealServer(cls_pay.Period_schedule)  %>  </td>
+                                        <td><%= string.IsNullOrEmpty(cls_pay.Real_payment_date)? "-" : DateTimeUtility.convertDateToPageRealServer(cls_pay.Real_payment_date) %>  </td>
                                         <td><%= cls_pay.Period_fine.ToString("#,###.00") %>  </td>
                                         <td><%= cls_pay.Real_payment == 0 ? "0.00" : cls_pay.Real_payment.ToString("#,###.00") %>  </td>
                                         <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Total_payment_left == 0 ? cls_pay.Total_Period_left.ToString("#,###.00") : cls_pay.Total_payment_left.ToString("#,###.00") %>  </td>

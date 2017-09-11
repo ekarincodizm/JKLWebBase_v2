@@ -123,7 +123,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Confirm_Payment
                     address += data.Company_road.Split('.')[1] == "-" ? "" : " " + data.Company_road;
                     address += data.Company_subdistrict.Split('.')[1] == "-" ? "" : " " + data.Company_subdistrict;
                     address += data.Company_district.Split('.')[1] == "-" ? "" : " " + data.Company_district;
-                    address += " จ." + data.Company_province_name;
+                    address += " จ." + data.Company_province;
 
                     Bottom_Address_TBx.Text = data.Company_F_name + " ( สำนักงานใหญ่ ) : " + address;
                 }
@@ -136,7 +136,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Confirm_Payment
                     address += data.Company_road.Split('.')[1] == "-" ? "" : " " + data.Company_road;
                     address += data.Company_subdistrict.Split('.')[1] == "-" ? "" : " " + data.Company_subdistrict;
                     address += data.Company_district.Split('.')[1] == "-" ? "" : " " + data.Company_district;
-                    address += " จ." + data.Company_province_name;
+                    address += " จ." + data.Company_province;
 
                     Bottom_Address_TBx.Text = data.Company_F_name + " ( " + data.Company_N_name + " ) : " + address;
                 }

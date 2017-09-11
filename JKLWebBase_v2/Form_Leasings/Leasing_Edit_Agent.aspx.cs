@@ -189,7 +189,7 @@ namespace JKLWebBase_v2.Form_Leasings
             Agent_road_TBx.Text = string.IsNullOrEmpty(cag.Agent_Road) ? "" : cag.Agent_Road.IndexOf('.') >= 1 ? cag.Agent_Road.Split('.')[1] : "";
             Agent_subdistrict_TBx.Text = string.IsNullOrEmpty(cag.Agent_Subdistrict) ? "" : cag.Agent_Subdistrict.IndexOf('.') >= 1 ? cag.Agent_Subdistrict.Split('.')[1] : "";
             Agent_district_TBx.Text = string.IsNullOrEmpty(cag.Agent_District) ? "" : cag.Agent_District.IndexOf('.') >= 1 ? cag.Agent_District.Split('.')[1] : "";
-            Agent_province_DDL.SelectedValue = string.IsNullOrEmpty(cag.cag_pv.Province_id.ToString()) ? "" : cag.cag_pv.Province_id.ToString();
+            Agent_province_DDL.SelectedValue = string.IsNullOrEmpty(cag.Agent_Province) ? "0" : cag.Agent_Province.IndexOf('.') >= 1 ? Thai_Province._getThaiProvinces(cag.Agent_Province.Split('.')[1]) : "0";
             Agent_country_TBx.Text = cag.Agent_Country;
             Agent_zipcode_TBx.Text = cag.Agent_Zipcode;
         }
@@ -202,7 +202,7 @@ namespace JKLWebBase_v2.Form_Leasings
             Agent_net_com_TBx.Text = cag_com.Agent_net_com.ToString("#,###.00");
             Agent_com_code_TBx.Text = cag_com.Agent_num_code;
             Agent_bookcode_TBx.Text = cag_com.Agent_book_code;
-            Agent_date_print_TBx.Text = DateTimeUtility.convertDateToPage(cag_com.Agent_value_save_date);
+            Agent_date_print_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cag_com.Agent_value_save_date);
         }
 
         /*******************************************************************************************************************************************************************************
@@ -259,10 +259,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 cag.Agent_Road = string.IsNullOrEmpty(Agent_road_TBx.Text) ? "ถ.-" : "ถ." + Agent_road_TBx.Text;
                 cag.Agent_Subdistrict = string.IsNullOrEmpty(Agent_subdistrict_TBx.Text) ? "ต.-" : "ต." + Agent_subdistrict_TBx.Text;
                 cag.Agent_District = string.IsNullOrEmpty(Agent_district_TBx.Text) ? "อ.-" : "อ." + Agent_district_TBx.Text;
-
-                cag.cag_pv = new TH_Provinces();
-                cag.cag_pv.Province_id = Agent_province_DDL.SelectedIndex <= 0 ? 39 : Convert.ToInt32(Agent_province_DDL.SelectedValue);
-
+                cag.Agent_Province = Agent_province_DDL.SelectedIndex <= 0 ? "จ.-" : "จ." + Agent_province_DDL.SelectedItem.Text;
                 cag.Agent_Country = string.IsNullOrEmpty(Agent_country_TBx.Text) ? "" : Agent_country_TBx.Text;
                 cag.Agent_Zipcode = string.IsNullOrEmpty(Agent_zipcode_TBx.Text) ? "" : Agent_zipcode_TBx.Text;
 
@@ -282,10 +279,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 cag.Agent_Road = string.IsNullOrEmpty(Agent_road_TBx.Text) ? "ถ.-" : "ถ." + Agent_road_TBx.Text;
                 cag.Agent_Subdistrict = string.IsNullOrEmpty(Agent_subdistrict_TBx.Text) ? "ต.-" : "ต." + Agent_subdistrict_TBx.Text;
                 cag.Agent_District = string.IsNullOrEmpty(Agent_district_TBx.Text) ? "อ.-" : "อ." + Agent_district_TBx.Text;
-
-                cag.cag_pv = new TH_Provinces();
-                cag.cag_pv.Province_id = Agent_province_DDL.SelectedIndex <= 0 ? 39 : Convert.ToInt32(Agent_province_DDL.SelectedValue);
-
+                cag.Agent_Province = Agent_province_DDL.SelectedIndex <= 0 ? "จ.-" : "จ." + Agent_province_DDL.SelectedItem.Text;
                 cag.Agent_Country = string.IsNullOrEmpty(Agent_country_TBx.Text) ? "" : Agent_country_TBx.Text;
                 cag.Agent_Zipcode = string.IsNullOrEmpty(Agent_zipcode_TBx.Text) ? "" : Agent_zipcode_TBx.Text;
 
@@ -307,7 +301,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cag_com.Agent_net_com = string.IsNullOrEmpty(Agent_net_com_TBx.Text) ? 0 : Convert.ToDouble(Agent_net_com_TBx.Text);
             cag_com.Agent_num_code = string.IsNullOrEmpty(Agent_com_code_TBx.Text) ? "" : Agent_com_code_TBx.Text;
             cag_com.Agent_book_code = string.IsNullOrEmpty(Agent_bookcode_TBx.Text) ? "" : Agent_bookcode_TBx.Text;
-            cag_com.Agent_date_print = string.IsNullOrEmpty(Agent_date_print_TBx.Text) ? DateTimeUtility._dateNOW() : DateTimeUtility.convertDateToMYSQL(Agent_date_print_TBx.Text);
+            cag_com.Agent_date_print = string.IsNullOrEmpty(Agent_date_print_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Agent_date_print_TBx.Text);
 
             cag_mng.editAgentCommission(cag_com);
 

@@ -86,7 +86,7 @@
                                 <tr>
                                 <%      } %>
                                     <td><%= cls_pay.Period_no %> </td>
-                                    <td><%= DateTimeUtility.convertDateToPage(cls_pay.Period_schedule) %> </td>
+                                    <td><%= DateTimeUtility.convertDateToPageRealServer(cls_pay.Period_schedule) %> </td>
                                     <td><%= cls_pay.Period_current.ToString("#,###.00") %> </td>
                                     <td><%= cls_pay.Period_cash.ToString("#,###.00") %> </td>
                                     <td><%= cls_pay.Period_value.ToString("#,###.00") %> </td>
@@ -95,7 +95,7 @@
                                     <td><%= cls_pay.Period_vat.ToString("#,###.00") %> </td>
                                     <td><%= cls_pay.Period_fine.ToString("#,###.00") %>  </td>
                                     <td><%= cls_pay.Count_payment == 0 ? "-" : cls_pay.Count_payment.ToString() %> </td>
-                                    <td><%= string.IsNullOrEmpty(cls_pay.Real_payment_date)? "-" : DateTimeUtility.convertDateToPage(cls_pay.Real_payment_date) %>  </td>
+                                    <td><%= string.IsNullOrEmpty(cls_pay.Real_payment_date)? "-" : DateTimeUtility.convertDateToPageRealServer(cls_pay.Real_payment_date) %>  </td>
                                     <td><%= cls_pay.Real_payment == 0 ? "0.00" : cls_pay.Real_payment.ToString("#,###.00") %>  </td>
                                     <th><%= cls_pay.Real_payment_fine.ToString("#,###.00") %> </th>
                                     <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Bill_no %>  </td>

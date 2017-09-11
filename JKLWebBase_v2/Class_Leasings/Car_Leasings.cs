@@ -39,7 +39,7 @@ namespace JKLWebBase_v2.Class_Leasings
         public string First_payment_date { get; set; } /// วันที่เริ่มชำระ
         public string Car_register_date { get; set; } /// วันที่จัดทะเบียน
         public string Car_license_plate { get; set; } /// เลขทะเบียนรถ
-        public TH_Provinces cls_plate_pv { get; set; } /// เลขทะเบียนรถจังหวัด
+        public string Car_license_plate_province { get; set; } /// เลขทะเบียนรถจังหวัด
         public string Car_type { get; set; } /// ประเภทรถ
         public string Car_feature { get; set; } /// ลักษณะ
         public Base_Car_Brands bs_cbrn { get; set; } /// ยี่ห้อรถ
@@ -69,7 +69,7 @@ namespace JKLWebBase_v2.Class_Leasings
         public string Car_old_owner_road { get; set; } /// ถนน
         public string Car_old_owner_subdistrict { get; set; } /// ตำบล
         public string Car_old_owner_district { get; set; } /// อำเภอ
-        public TH_Provinces cls_owner_pv { get; set; } /// จังหวัด
+        public string Car_old_owner_province { get; set; } /// จังหวัด
         public string Car_old_owner_contry { get; set; } /// ประเทศ
         public string Car_old_owner_zipcode { get; set; } /// รหัสไปรษณีย์
         public Base_Tents_Car tent_car { get; set; } /// รหัสเต็นท์รถ
