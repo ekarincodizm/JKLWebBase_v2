@@ -869,6 +869,7 @@
     </Compile>
     <Compile Include="Global_Class\CryptographyCode.cs" />
     <Compile Include="Global_Class\DateTimeUtility.cs" />
+    <Compile Include="Global_Class\General_Functions.cs" />
     <Compile Include="Global_Class\Log_Error.cs" />
     <Compile Include="Global_Class\Messages_Logs.cs" />
     <Compile Include="Global_Class\MSSQLConnection.cs" />

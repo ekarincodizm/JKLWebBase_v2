@@ -531,7 +531,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Job_road", ctm.Cust_Job_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_subdistrict", ctm.Cust_Job_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_district", ctm.Cust_Job_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Job_province_id", ctm.Cust_Job_province);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_province", ctm.Cust_Job_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_country", ctm.Cust_Job_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_zipcode", ctm.Cust_Job_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_tel", ctm.Cust_Job_tel);
@@ -569,7 +569,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Current_road", ctm.Cust_Current_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_subdistrict", ctm.Cust_Current_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_district", ctm.Cust_Current_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Current_province_id", ctm.Cust_Current_province);
+                cmd.Parameters.AddWithValue("@i_Cust_Current_province", ctm.Cust_Current_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_country", ctm.Cust_Current_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_zipcode", ctm.Cust_Current_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Current_tel", ctm.Cust_Current_tel);
@@ -696,7 +696,7 @@ namespace JKLWebBase_v2.Managers_Customers
                 cmd.Parameters.AddWithValue("@i_Cust_Job_road", ctm.Cust_Job_road);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_subdistrict", ctm.Cust_Job_subdistrict);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_district", ctm.Cust_Job_district);
-                cmd.Parameters.AddWithValue("@i_Cust_Job_province_id", ctm.Cust_Job_province);
+                cmd.Parameters.AddWithValue("@i_Cust_Job_province", ctm.Cust_Job_province);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_country", ctm.Cust_Job_country);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_zipcode", ctm.Cust_Job_zipcode);
                 cmd.Parameters.AddWithValue("@i_Cust_Job_tel", ctm.Cust_Job_tel);

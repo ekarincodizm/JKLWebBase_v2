@@ -603,7 +603,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
                         Real_Payment_TBx.Focus();
                     }
-                    else if (period_fine > 0 && real_payment_fine != period_fine)
+                    /*else if (period_fine > 0 && real_payment_fine != period_fine)
                     {
                         Note_Lbl.Text = "*** มียอดค่าปรับค้างชำระจำนวน :  " + period_fine.ToString("#,###.00") + " บาท ***";
 
@@ -614,7 +614,7 @@ namespace JKLWebBase_v2.Form_Leasings
                         Note_Lbl.Text = "*** ไม่มียอดค่าปรับค้างชำระกรุณาใส่ 0 ในช่องชำระค่าปรับ ***";
 
                         Real_Payment_Fine_TBx.Focus();
-                    }
+                    }*/
                     else if (discount == 0 && real_discount != 0)
                     {
                         Note_Lbl.Text = "*** ไม่มียอดส่วนลดกรุณาใส่ 0 ในช่องส่วนลด ***";
@@ -642,7 +642,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
                         Real_Payment_TBx.Focus();
                     }
-                    else if (period_fine > 0 && real_payment_fine > period_fine)
+                    /*else if (period_fine > 0 && real_payment_fine > period_fine)
                     {
                         Note_Lbl.Text = "*** มียอดค่าปรับค้างชำระจำนวน :  " + period_fine.ToString("#,###.00") + " บาท ***";
 
@@ -653,7 +653,7 @@ namespace JKLWebBase_v2.Form_Leasings
                         Note_Lbl.Text = "*** ไม่มียอดค่าปรับค้างชำระกรุณาใส่ 0 ในช่องชำระค่าปรับ ***";
 
                         Real_Payment_Fine_TBx.Focus();
-                    }
+                    }*/
                     else if (discount == 0 && real_discount != 0)
                     {
                         Note_Lbl.Text = "*** ไม่มียอดส่วนลดกรุณาใส่ 0 ในช่องส่วนลด ***";

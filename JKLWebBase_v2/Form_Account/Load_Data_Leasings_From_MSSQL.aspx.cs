@@ -574,7 +574,9 @@ namespace JKLWebBase_v2.Form_Account
                     cls.bs_ls_code = new Base_Leasing_Code();
                     cls.bs_ls_code.Leasing_code_id = reader.IsDBNull(14) ? defaultNum : _getLeasingCode(reader.GetString(14));
 
-                    cls.Leasing_date = reader.IsDBNull(6) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(6).ToString());
+                    cls.Leasing_date = reader.IsDBNull(6) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(6).ToString()); // Server JKLFTP
+
+                    //cls.Leasing_date = reader.IsDBNull(6) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(6).ToString()); // Server JKLWebBase
 
                     if (cls.Deps_no == "52060140")
                     {
@@ -675,14 +677,14 @@ namespace JKLWebBase_v2.Form_Account
 
                     //cls.Car_old_owner_b_date = reader.IsDBNull(42) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(42).ToString()); // Server JKLWebBase
 
-                    cls.Car_old_owner_address_no = defaultString;
+                    cls.Car_old_owner_address_no = reader.IsDBNull(43) ? defaultString : General_Functions._getAddressNo(reader.GetString(43));
                     cls.Car_old_owner_vilage = defaultString;
-                    cls.Car_old_owner_vilage_no = defaultString;
+                    cls.Car_old_owner_vilage_no = reader.IsDBNull(43) ? defaultString : General_Functions._getVilageNo(reader.GetString(43));
                     cls.Car_old_owner_alley = defaultString;
                     cls.Car_old_owner_road = defaultString;
-                    cls.Car_old_owner_subdistrict = reader.IsDBNull(43) ? defaultString : reader.GetString(43);
-                    cls.Car_old_owner_district = defaultString;
-                    cls.Car_old_owner_province = "จ.-";
+                    cls.Car_old_owner_subdistrict = reader.IsDBNull(43) ? defaultString : General_Functions._getSubdistrict(reader.GetString(43));
+                    cls.Car_old_owner_district = reader.IsDBNull(43) ? defaultString : General_Functions._getDistrict(reader.GetString(43));
+                    cls.Car_old_owner_province = reader.IsDBNull(43) ? defaultString : General_Functions._getProvince(reader.GetString(43));
                     cls.Car_old_owner_contry = "ประเทศไทย";
                     cls.Car_old_owner_zipcode = defaultString;
 
@@ -737,14 +739,14 @@ namespace JKLWebBase_v2.Form_Account
                             cag.Agent_Fname = reader.GetString(51);
                             cag.Agent_Lname = reader.GetString(52);
                             cag.Agent_Idcard = reader.GetString(50);
-                            cag.Agent_Address_no = defaultString;
+                            cag.Agent_Address_no = reader.IsDBNull(53) ? defaultString : General_Functions._getAddressNo(reader.GetString(53));
                             cag.Agent_Vilage = defaultString;
-                            cag.Agent_Vilage_no = defaultString;
+                            cag.Agent_Vilage_no = reader.IsDBNull(53) ? defaultString : General_Functions._getVilageNo(reader.GetString(53));
                             cag.Agent_Alley = defaultString;
                             cag.Agent_Road = defaultString;
-                            cag.Agent_Subdistrict = reader.GetString(53);
-                            cag.Agent_District = defaultString;
-                            cag.Agent_Province = "จ.-";
+                            cag.Agent_Subdistrict = reader.IsDBNull(53) ? defaultString : General_Functions._getSubdistrict(reader.GetString(53));
+                            cag.Agent_District = reader.IsDBNull(53) ? defaultString : General_Functions._getDistrict(reader.GetString(53));
+                            cag.Agent_Province = reader.IsDBNull(53) ? defaultString : General_Functions._getProvince(reader.GetString(53));
                             cag.Agent_Country = "ประเทศไทย";
                             cag.Agent_Zipcode = defaultString;
                             cag.Agent_Status = 1;

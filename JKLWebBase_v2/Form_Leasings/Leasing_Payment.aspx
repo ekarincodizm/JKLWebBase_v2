@@ -209,66 +209,65 @@
 
                                                     string ogn_code = CryptographyCode.GenerateSHA512String(cls_pay.Bill_no);
                                         %>
-                                        <tr 
-                                        <% 
-                                        if (Convert.ToDateTime(cls_pay.Period_schedule) < DateTime.Now && cls_pay.Period_payment_status == -1)
-                                        { 
-                                        %>
-                                        <%= "style='background-color: lightcoral;'" %>
-                                        <%          }
-                                        else if (cls_pay.Period_payment_status == 1)
-                                        {
-                                        %>
-                                        <%= "style='background-color: lightyellow;'" %>
-                                        <%          }
-                                        else if (cls_pay.Period_payment_status == 9)
-                                        {
-                                        %>
-                                        <%= cls_pay.Period_no % 2 == 0 ? "style='background-color: #ffb3d9;'"  : "style='background-color: lightgreen;'" %>
-                                        <%          } %>
-                                        >
-                                        <td><%= cls_pay.Period_no %>  </td>
-                                        <td><%= DateTimeUtility.convertDateToPageRealServer(cls_pay.Period_schedule)  %>  </td>
-                                        <td><%= string.IsNullOrEmpty(cls_pay.Real_payment_date)? "-" : DateTimeUtility.convertDateToPageRealServer(cls_pay.Real_payment_date) %>  </td>
-                                        <td><%= cls_pay.Period_fine.ToString("#,###.00") %>  </td>
-                                        <td><%= cls_pay.Real_payment == 0 ? "0.00" : cls_pay.Real_payment.ToString("#,###.00") %>  </td>
-                                        <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Total_payment_left == 0 ? cls_pay.Total_Period_left.ToString("#,###.00") : cls_pay.Total_payment_left.ToString("#,###.00") %>  </td>
-                                        <th><%= cls_pay.Real_payment_fine.ToString("#,###.00") %> </th>
-                                        <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Bill_no %>  </td>
-                                        <td>
+                                        <tr
                                             <% 
-                                                if (!string.IsNullOrEmpty(cls_pay.Bill_no))
-                                                {
-                                            %>
-                                            <a class="btn btn-xs btn-info" href="/Reports_Leasings/Bill_Payment_Slip/Bill_Payment_Slip_Prv?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>" target="_blank" data-toggle="tooltip" data-placement="top" title="พิมพ์ใบเสร็จ"><i class="fa fa-print fa-fw"></i></a>
-                                            <%  } %>
-                                        </td>
+                                            if (Convert.ToDateTime(cls_pay.Period_schedule) < DateTime.Now && cls_pay.Period_payment_status == -1)
+                                            {
+                                        %>
+                                            <%= "style='background-color: lightcoral;'" %>
+                                            <%          }
+                                            else if (cls_pay.Period_payment_status == 1)
+                                            {
+                                        %>
+                                            <%= "style='background-color: lightyellow;'" %>
+                                            <%          }
+                                            else if (cls_pay.Period_payment_status == 9)
+                                            {
+                                        %>
+                                            <%= cls_pay.Period_no % 2 == 0 ? "style='background-color: #ffb3d9;'"  : "style='background-color: lightgreen;'" %>
+                                            <%          } %>>
+                                            <td><%= cls_pay.Period_no %>  </td>
+                                            <td><%= DateTimeUtility.convertDateToPageRealServer(cls_pay.Period_schedule)  %>  </td>
+                                            <td><%= string.IsNullOrEmpty(cls_pay.Real_payment_date)? "-" : DateTimeUtility.convertDateToPageRealServer(cls_pay.Real_payment_date) %>  </td>
+                                            <td><%= cls_pay.Period_fine.ToString("#,###.00") %>  </td>
+                                            <td><%= cls_pay.Real_payment == 0 ? "0.00" : cls_pay.Real_payment.ToString("#,###.00") %>  </td>
+                                            <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Total_payment_left == 0 ? cls_pay.Total_Period_left.ToString("#,###.00") : cls_pay.Total_payment_left.ToString("#,###.00") %>  </td>
+                                            <th><%= cls_pay.Real_payment_fine.ToString("#,###.00") %> </th>
+                                            <td><%= string.IsNullOrEmpty(cls_pay.Bill_no)? "-" : cls_pay.Bill_no %>  </td>
+                                            <td>
+                                                <% 
+                                                    if (!string.IsNullOrEmpty(cls_pay.Bill_no))
+                                                    {
+                                                %>
+                                                <a class="btn btn-xs btn-info" href="/Reports_Leasings/Bill_Payment_Slip/Bill_Payment_Slip_Prv?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>" target="_blank" data-toggle="tooltip" data-placement="top" title="พิมพ์ใบเสร็จ"><i class="fa fa-print fa-fw"></i></a>
+                                                <%  } %>
+                                            </td>
                                             <%              
                                                 if (acc_lgn.acc_lv.level_access >= 7)
                                                 {
                                             %>
-                                        <td>
-                                            <% 
-                                                if (!string.IsNullOrEmpty(cls_pay.Bill_no) && max_row == i)
-                                                {
-                                            %>
-                                            <a class="btn btn-xs btn-warning" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>&mode=e" target="_parent" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit fa-fw"></i></a>
-                                            <%  } %>
-                                        </td>
-                                        <td>
-                                            <% 
-                                                if (!string.IsNullOrEmpty(cls_pay.Bill_no) && max_row == i)
-                                                {
-                                            %>
-                                            <a class="btn btn-xs btn-danger" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>&mode=r" target="_parent" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>
-                                            <%  } %>
-                                        </td>
+                                            <td>
+                                                <% 
+                                                    if (!string.IsNullOrEmpty(cls_pay.Bill_no) && max_row == i)
+                                                    {
+                                                %>
+                                                <a class="btn btn-xs btn-warning" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>&mode=e" target="_parent" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit fa-fw"></i></a>
+                                                <%  } %>
+                                            </td>
+                                            <td>
+                                                <% 
+                                                    if (!string.IsNullOrEmpty(cls_pay.Bill_no) && max_row == i)
+                                                    {
+                                                %>
+                                                <a class="btn btn-xs btn-danger" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>&mode=r" target="_parent" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>
+                                                <%  } %>
+                                            </td>
                                             <% } %>
                                         </tr>
-                                            <%
-                                                    }
+                                        <%
                                                 }
-                                            %>
+                                            }
+                                        %>
                                     </tbody>
                                 </table>
                             </div>
@@ -398,28 +397,7 @@
 
                     <hr />
 
-                    <div class="row">
-                        <div class="form-group col-xs-5">
-                            <asp:Label ID="Period_free_Lbl" runat="server"> ค่าธรรมเนียม </asp:Label>
-                        </div>
-                        <div class="form-group col-xs-7">
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Period_free_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" TextMode="Number"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-xs-5">
-                            <asp:Label ID="Period_track_Lbl" runat="server"> ค่าติดตาม </asp:Label>
-                        </div>
-                        <div class="form-group col-xs-7">
-                            <div class="form-group input-group">
-                                <asp:TextBox ID="Period_track_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#996633" TextMode="Number"></asp:TextBox>
-                                <span class="input-group-addon">บาท</span>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row">
                         <div class="form-group col-xs-5">
                             <asp:Label ID="Period_fine_Lbl" runat="server"> ค่าปรับ </asp:Label>
@@ -456,6 +434,28 @@
 
                     <hr />
 
+                    <div class="row">
+                        <div class="form-group col-xs-5">
+                            <asp:Label ID="Period_free_Lbl" runat="server"> ยอดชำระค่าธรรมเนียม </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-7">
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Period_free_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" TextMode="Number"></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-5">
+                            <asp:Label ID="Period_track_Lbl" runat="server"> ยอดชำระค่าติดตาม </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-7">
+                            <div class="form-group input-group">
+                                <asp:TextBox ID="Period_track_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#996633" TextMode="Number"></asp:TextBox>
+                                <span class="input-group-addon">บาท</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="form-group col-xs-5">
                             <asp:Label ID="Real_Payment_Lbl" runat="server"> ยอดชำระค่างวด </asp:Label>
@@ -499,7 +499,7 @@
                             <asp:Label ID="Bill_No_Manual_Ref_Lbl" runat="server"> เลขใบเสร็จ Ref. </asp:Label>
                         </div>
                         <div class="form-group col-xs-7">
-                           <asp:TextBox ID="Bill_No_Manual_Ref_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="20pt" ForeColor="Red" ></asp:TextBox>
+                            <asp:TextBox ID="Bill_No_Manual_Ref_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="20pt" ForeColor="Red"></asp:TextBox>
                         </div>
                     </div>
 
