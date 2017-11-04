@@ -1213,6 +1213,12 @@
     <Compile Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Prv.aspx.designer.cs">
       <DependentUpon>Payment_Summary_Daily_Prv.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_mod_I_001.cs">
+      <DependentUpon>Payment_Summary_Monthly_mod_I_001.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_Export.aspx.cs">
       <DependentUpon>Payment_Summary_Monthly_Export.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1238,6 +1244,12 @@
     </Compile>
     <Compile Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_Prv.aspx.designer.cs">
       <DependentUpon>Payment_Summary_Monthly_Prv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_mod_I_001.cs">
+      <DependentUpon>Payment_Summary_Yearly_mod_I_001.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Export.aspx.cs">
       <DependentUpon>Payment_Summary_Yearly_Export.aspx</DependentUpon>
@@ -1403,6 +1415,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Payment_Summary_Daily_mod_I.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_mod_I_001.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payment_Summary_Monthly_mod_I_001.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_mod_I.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Payment_Summary_Monthly_mod_I.cs</LastGenOutput>
@@ -1410,6 +1426,10 @@
     <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Monthly\Payment_Summary_Monthly_mod_II.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Payment_Summary_Monthly_mod_II.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_mod_I_001.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payment_Summary_Yearly_mod_I_001.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_mod_I.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
