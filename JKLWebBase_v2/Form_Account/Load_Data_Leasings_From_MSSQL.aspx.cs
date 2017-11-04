@@ -677,14 +677,14 @@ namespace JKLWebBase_v2.Form_Account
 
                     //cls.Car_old_owner_b_date = reader.IsDBNull(42) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(42).ToString()); // Server JKLWebBase
 
-                    cls.Car_old_owner_address_no = reader.IsDBNull(43) ? defaultString : General_Functions._getAddressNo(reader.GetString(43));
+                    cls.Car_old_owner_address_no = defaultString;
                     cls.Car_old_owner_vilage = defaultString;
-                    cls.Car_old_owner_vilage_no = reader.IsDBNull(43) ? defaultString : General_Functions._getVilageNo(reader.GetString(43));
+                    cls.Car_old_owner_vilage_no = defaultString;
                     cls.Car_old_owner_alley = defaultString;
                     cls.Car_old_owner_road = defaultString;
-                    cls.Car_old_owner_subdistrict = reader.IsDBNull(43) ? defaultString : General_Functions._getSubdistrict(reader.GetString(43));
-                    cls.Car_old_owner_district = reader.IsDBNull(43) ? defaultString : General_Functions._getDistrict(reader.GetString(43));
-                    cls.Car_old_owner_province = reader.IsDBNull(43) ? defaultString : General_Functions._getProvince(reader.GetString(43));
+                    cls.Car_old_owner_subdistrict = reader.IsDBNull(43) ? defaultString : reader.GetString(43);
+                    cls.Car_old_owner_district = defaultString;
+                    cls.Car_old_owner_province = defaultString;
                     cls.Car_old_owner_contry = "ประเทศไทย";
                     cls.Car_old_owner_zipcode = defaultString;
 
@@ -739,14 +739,14 @@ namespace JKLWebBase_v2.Form_Account
                             cag.Agent_Fname = reader.GetString(51);
                             cag.Agent_Lname = reader.GetString(52);
                             cag.Agent_Idcard = reader.GetString(50);
-                            cag.Agent_Address_no = reader.IsDBNull(53) ? defaultString : General_Functions._getAddressNo(reader.GetString(53));
+                            cag.Agent_Address_no = defaultString;
                             cag.Agent_Vilage = defaultString;
-                            cag.Agent_Vilage_no = reader.IsDBNull(53) ? defaultString : General_Functions._getVilageNo(reader.GetString(53));
+                            cag.Agent_Vilage_no = defaultString;
                             cag.Agent_Alley = defaultString;
                             cag.Agent_Road = defaultString;
-                            cag.Agent_Subdistrict = reader.IsDBNull(53) ? defaultString : General_Functions._getSubdistrict(reader.GetString(53));
-                            cag.Agent_District = reader.IsDBNull(53) ? defaultString : General_Functions._getDistrict(reader.GetString(53));
-                            cag.Agent_Province = reader.IsDBNull(53) ? defaultString : General_Functions._getProvince(reader.GetString(53));
+                            cag.Agent_Subdistrict = reader.IsDBNull(53) ? defaultString : reader.GetString(53);
+                            cag.Agent_District = defaultString;
+                            cag.Agent_Province = defaultString;
                             cag.Agent_Country = "ประเทศไทย";
                             cag.Agent_Zipcode = defaultString;
                             cag.Agent_Status = 1;
@@ -904,7 +904,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             cls_pay.bs_cpn = new Base_Companys();
 
-                            cls_pay.bs_cpn.Company_id = _getCompanys(reader.GetString(20));
+                            cls_pay.bs_cpn.Company_id = _MatchCompanys(reader.GetString(2));
 
                             if (cls_pay.Discount <= 0)
                             {
@@ -1565,6 +1565,33 @@ namespace JKLWebBase_v2.Form_Account
             return result;
         }
 
+
+        private int _MatchCompanys(string company)
+        {
+            List<Base_Companys> list_data = new Base_Companys_Manager().getCompanys(0, 0);
+
+            int result = 1;
+
+            if (company != "-" && company != "")
+            {
+                if(company.IndexOf("-") >= 1)
+                {
+                    string com_code = company.Split('-')[0];
+
+                    for (int i = 0; i < list_data.Count; i++)
+                    {
+                        Base_Companys data = list_data[i];
+
+                        if (data.Company_N_name == com_code || data.Company_code == com_code)
+                        {
+                            result = data.Company_id;
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
 
     }
 }

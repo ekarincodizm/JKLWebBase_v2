@@ -292,12 +292,12 @@ namespace JKLWebBase_v2.Form_Leasings
 
                     Real_Payment_TBx.Focus();
                 }
-                else if (period_fine == 0 && old_payment_fine != 0)
+               /* else if (period_fine == 0 && old_payment_fine != 0)
                 {
                     Note_Lbl.Text = "*** ระบุยอดชำระค่าปรับ :  " + old_payment_fine.ToString("#,###.00") + " บาท ***";
 
                     Real_Payment_Fine_TBx.Focus();
-                }
+                }*/
                 else if (old_discount != 0)
                 {
                     Note_Lbl.Text = "*** ระบุยอดส่วนลด :  " + old_discount.ToString("#,###.00") + " บาท ***";
@@ -337,12 +337,12 @@ namespace JKLWebBase_v2.Form_Leasings
 
                     Real_Payment_TBx.Focus();
                 }
-                else if(real_payment > total_payment_left && real_payment > 0)
+                /*else if(real_payment > total_payment_left && real_payment > 0)
                 {
                     Note_Lbl.Text = "*** ยอดชำระเกินกว่ายอดคงค้าง :  " + total_payment_left.ToString("#,###.00") + " บาท ***";
 
                     Real_Payment_TBx.Focus();
-                }
+                }*/
                 else if (old_discount == 0 && real_discount != 0)
                 {
                     Note_Lbl.Text = "*** ไม่มียอดส่วนลดกรุณาใส่ 0 ในช่องส่วนลด ***";

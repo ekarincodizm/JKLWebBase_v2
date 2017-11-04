@@ -1,4 +1,6 @@
-﻿namespace JKLWebBase_v2.Global_Class
+﻿using System;
+
+namespace JKLWebBase_v2.Global_Class
 {
     public class General_Functions
     {
@@ -6,11 +8,13 @@
         {
             string addressno = string.Empty;
 
-            if (txtAddress != "")
+            if (txtAddress.Trim() != "" && txtAddress.Trim() != "-" && txtAddress.Trim().Substring(0, 1) != "ไ" && txtAddress.Trim().Substring(0, 1) != "ป" &&
+                txtAddress.Trim().Substring(0, 1) != "*" && txtAddress.Trim().Substring(0, 1) != "ร")
             {
                 string[] address = txtAddress.Trim().Split(' ');
 
                 addressno = address[0];
+
             }
 
             return addressno;
@@ -20,7 +24,8 @@
         {
             string vilageno = string.Empty;
 
-            if (txtAddress != "")
+            if (txtAddress.Trim() != "" && txtAddress.Trim() != "-" && txtAddress.Trim().Substring(0, 1) != "ไ" && txtAddress.Trim().Substring(0, 1) != "ป" &&
+                txtAddress.Trim().Substring(0, 1) != "*" && txtAddress.Trim().Substring(0, 1) != "ร")
             {
                 string[] address = txtAddress.Trim().Split(' ');
 
@@ -39,7 +44,8 @@
         {
             string subdistict = string.Empty;
 
-            if (txtAddress != "")
+            if (txtAddress.Trim() != "" && txtAddress.Trim() != "-" && txtAddress.Trim().Substring(0, 1) != "ไ" && txtAddress.Trim().Substring(0, 1) != "ป" &&
+                txtAddress.Trim().Substring(0, 1) != "*" && txtAddress.Trim().Substring(0, 1) != "ร")
             {
                 string[] address = txtAddress.Trim().Split(' ');
 
@@ -47,7 +53,7 @@
 
                 subdistict = address[index];
             }
-            
+
             return subdistict;
         }
 
@@ -55,7 +61,8 @@
         {
             string distict = string.Empty;
 
-            if (txtAddress != "")
+            if (txtAddress.Trim() != "" && txtAddress.Trim() != "-" && txtAddress.Trim().Substring(0, 1) != "ไ" && txtAddress.Trim().Substring(0, 1) != "ป" &&
+                txtAddress.Trim().Substring(0, 1) != "*" && txtAddress.Trim().Substring(0, 1) != "ร")
             {
                 string[] address = txtAddress.Trim().Split(' ');
 
@@ -71,8 +78,10 @@
         {
             string province = string.Empty;
 
-            if (txtAddress != "")
+            if (txtAddress.Trim() != "" && txtAddress.Trim() != "-" && txtAddress.Trim().Substring(0, 1) != "ไ" && txtAddress.Trim().Substring(0,1) != "ป" &&
+                txtAddress.Trim().Substring(0, 1) != "*" && txtAddress.Trim().Substring(0, 1) != "ร")
             {
+
                 string[] address = txtAddress.Trim().Split(' ');
 
                 int index = address.Length - 1;

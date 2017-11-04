@@ -512,7 +512,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             total_payment_fine = payment_fine - real_payment_fine;
 
-            Total_payment_fine_TBx.Text = total_payment_fine.ToString("#,###.00");
+            Total_payment_fine_TBx.Text = total_payment_fine <= 0 ? "0.00" : total_payment_fine.ToString("#,###.00");
 
             Total_period_left_TBx.Text = (total_lost - real_payment).ToString("#,###.00");
             Period_fine_TBx.Text = total_payment_fine.ToString("#,###.00");
