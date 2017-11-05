@@ -57,8 +57,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
 
             bool chk_all = false;
 
-            if (deposit_no == "" && leasing_no == "" && idcard == "" && fname == "" && lname == "" && lost_str == "0" && lost_end == "0" && 
-                district == "" && province == "" && leasing_Code_inline == "" && Company_id_inline == "" && zone_id_inline == "")
+            if (leasing_Code_inline == "" && Company_id_inline == "" && zone_id_inline == "")
             {
                 report_header = " รายงานลูกหนี้คงเหลือ (ทั้งหมด)";
 
