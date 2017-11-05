@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="รายงานแจ้งเตือนชำระค่างวด" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Notification_Payment_Prv.aspx.cs" Inherits="JKLWebBase_v2.Reports_Leasings.Notification_Payment.Notification_Payment_Prv" %>
 
+<%@ Import Namespace="JKLWebBase_v2.Class_Leasings" %>
+<%@ Import Namespace="JKLWebBase_v2.Managers_Leasings" %>
+<%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">
@@ -166,10 +170,69 @@
             </div>
 
             <div class="row">
-                <div class="col-md-3">
-                    <asp:LinkButton ID="Export_Reported_Btn" runat="server" CssClass="btn btn-sm btn-success btn-block" OnClick="Export_Reported_Btn_Click"><i class="fa fa-print fa-fw"></i> ออกรายงาน </asp:LinkButton>
+                <div class="col-md-2">
+                    <asp:LinkButton ID="Search_Btn" runat="server" CssClass="btn btn-sm btn-primary btn-block" OnClick="Search_Btn_Click"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
+                </div>
+                <div class="col-md-2">
+                    <asp:LinkButton ID="Export_Reported_Btn" runat="server" CssClass="btn btn-sm btn-success btn-block" OnClick="Export_Reported_Btn_Click"><i class="fa fa-print fa-fw"></i> ออกรายงานทั้งหมด </asp:LinkButton>
                 </div>
             </div>
+
+            <hr>
+
+            <%
+                if (Session["List_Leasings"] != null)
+                {
+            %>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;"> # </th>
+                            <th style="width: 10%;">เลขที่ฝาก </th>
+                            <th style="width: 10%;">เลขที่สัญญา </th>
+                            <th style="width: 25%;">ชื่อ - นามสกุล </th>
+                            <th style="width: 10%;">ยอดเช่า - ซื้อ </th>
+                            <th style="width: 5%;">งวดทั้งหมด </th>
+                            <th style="width: 5%;">งวดคงเหลือ </th>
+                            <th style="width: 10%;">ยอดคงค้าง</th>
+                            <th style="width: 10%;">ขาดชำระ (งวด)</th>
+                            <th style="width: 10%;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% 
+                            List<Car_Leasings> list_cust = (List<Car_Leasings>)Session["List_Leasings"];
+
+                            for (int i = 0; i < list_cust.Count; i++)
+                            {
+                                Car_Leasings cls = list_cust[i];
+
+                                string ogn_code = CryptographyCode.GenerateSHA512String(cls.Leasing_id);
+                        %>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= cls.Deps_no %></td>
+                            <td><%= cls.Leasing_no %></td>
+                            <td><%= cls.ctm.Cust_Fname + " " + cls.ctm.Cust_LName %></td>
+                            <td style="color: #2fba00;"><%= cls.Total_Net_leasing.ToString("#,###.00") %></td>
+                            <td><%= cls.Total_period %></td>
+                            <td><%= cls.Total_period_left %></td>
+                            <td <%= cls.Total_payment_left == 0 ? "style='color: #2fba00;'" : "style='color: #ff0000;'" %>><%= cls.Total_payment_left.ToString("#,###.00") %></td>
+                            <td style="color: #ff0000;"><%= cls.Total_period_lose %></td>
+                            <td>
+                                <a class="btn btn-xs btn-success" href="Notification_Payment_Export?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Deps_no) %>" target="_blank" data-toggle="tooltip" data-placement="top" title="ออกรายงาน"><i class="fa fa-print fa-fw"></i>ออกรายงาน</a>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+
+            <%  
+                }
+            %>
+
         </div>
     </div>
 </asp:Content>

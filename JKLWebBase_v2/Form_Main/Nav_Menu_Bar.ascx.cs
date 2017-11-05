@@ -429,7 +429,7 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Agent_Leasing");
             Session.Remove("List_Account");
 
-            Response.Redirect("/Reports_Leasings/Notification_Payment_Bondsman/Notification_Payment_Bondsman_Prv");
+            Response.Redirect("/Reports_Leasings/Notification_Payment_Guarantor/Notification_Payment_Guarantor_Prv");
         }
     }
 }

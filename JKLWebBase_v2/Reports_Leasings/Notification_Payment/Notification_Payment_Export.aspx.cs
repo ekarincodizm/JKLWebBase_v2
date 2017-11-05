@@ -23,7 +23,20 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _loadReport();
+            if (!IsPostBack)
+            {
+                if (Request.Params["code"] != null)
+                {
+                    string[] code = Request.Params["code"].Split('U');
+                    string deposit_no = code[1];
+
+                    _loadReport(deposit_no);
+                }
+                else
+                {
+                    _loadReport();
+                }
+            }
 
             Session.Remove("deposit_no_rpt");
             Session.Remove("leasing_no_rpt");
@@ -85,6 +98,72 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
                 cmd.Parameters.AddWithValue("@i_lost_end", lost_end);
                 cmd.Parameters.AddWithValue("@i_district", district);
                 cmd.Parameters.AddWithValue("@i_province", province);
+                cmd.Parameters.AddWithValue("@i_row_str", 0);
+                cmd.Parameters.AddWithValue("@i_row_limit", 0);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Leasing_Ds ls_ds = new Leasing_Ds();
+                ls_ds.Clear();
+                ls_ds.Tables["Report_General_Leasings"].Load(reader);
+
+                Notification_Payment rpt = new Notification_Payment();
+                rpt.SetDataSource(ls_ds);
+
+
+                CRV_Display_Report.ReportSource = rpt;
+
+                /// Export Report to PDF File with Save As Mode
+                /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "หน้าการ์ด_" + cls.Deps_no);
+                /// Response.End();
+
+                ExportReport_Mod_I(rpt);
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Notification_Payment_Export --> _loadReport() ";
+                Log_Error._writeErrorFile(error, ex);
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Notification_Payment_Export --> _loadReport() ";
+                Log_Error._writeErrorFile(error, ex);
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+        private void _loadReport(string deposit_no)
+        {
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
+
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("rpt_generals_leasing", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+
+                cmd.Parameters.AddWithValue("@i_Deps_no", deposit_no);
+                cmd.Parameters.AddWithValue("@i_Leasing_no", "");
+                cmd.Parameters.AddWithValue("@i_Cust_idcard", "");
+                cmd.Parameters.AddWithValue("@i_Cust_Fname", "");
+                cmd.Parameters.AddWithValue("@i_Cust_LName", "");
+                cmd.Parameters.AddWithValue("@i_Leasing_date_str", "");
+                cmd.Parameters.AddWithValue("@i_Leasing_date_end", "");
+                cmd.Parameters.AddWithValue("@i_Leasing_code_id", "");
+                cmd.Parameters.AddWithValue("@i_Company_id", "");
+                cmd.Parameters.AddWithValue("@i_Zone_id", "");
+                cmd.Parameters.AddWithValue("@i_lost_str", 0);
+                cmd.Parameters.AddWithValue("@i_lost_end", 0);
+                cmd.Parameters.AddWithValue("@i_district", "");
+                cmd.Parameters.AddWithValue("@i_province", "");
                 cmd.Parameters.AddWithValue("@i_row_str", 0);
                 cmd.Parameters.AddWithValue("@i_row_limit", 0);
 

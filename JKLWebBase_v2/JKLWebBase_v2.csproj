@@ -409,6 +409,8 @@
     <Content Include="Reports_Leasings\Lost_Payment_Hurry\Lost_Payment_Hurry_Prv.aspx" />
     <Content Include="Reports_Leasings\Notification_Payment\Notification_Payment_Export.aspx" />
     <Content Include="Reports_Leasings\Notification_Payment\Notification_Payment_Prv.aspx" />
+    <Content Include="Reports_Leasings\Notification_Payment_Guarantor\Notification_Payment_Guarantor_Export.aspx" />
+    <Content Include="Reports_Leasings\Notification_Payment_Guarantor\Notification_Payment_Guarantor_Prv.aspx" />
     <Content Include="Reports_Leasings\Payment_Schedule\Payment_Schedule_Prv.aspx" />
     <Content Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Export.aspx" />
     <Content Include="Reports_Leasings\Payment_Summary_Daily\Payment_Summary_Daily_Prv.aspx" />
@@ -1142,6 +1144,26 @@
     <Compile Include="Reports_Leasings\Notification_Payment\Notification_Payment_Prv.aspx.designer.cs">
       <DependentUpon>Notification_Payment_Prv.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports_Leasings\Notification_Payment_Guarantor\Notification_Payment_Guarantor.cs">
+      <DependentUpon>Notification_Payment_Guarantor.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports_Leasings\Notification_Payment_Guarantor\Notification_Payment_Guarantor_Export.aspx.cs">
+      <DependentUpon>Notification_Payment_Guarantor_Export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Notification_Payment_Guarantor\Notification_Payment_Guarantor_Export.aspx.designer.cs">
+      <DependentUpon>Notification_Payment_Guarantor_Export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports_Leasings\Notification_Payment_Guarantor\Notification_Payment_Guarantor_Prv.aspx.cs">
+      <DependentUpon>Notification_Payment_Guarantor_Prv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports_Leasings\Notification_Payment_Guarantor\Notification_Payment_Guarantor_Prv.aspx.designer.cs">
+      <DependentUpon>Notification_Payment_Guarantor_Prv.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports_Leasings\Payment_Schedule\Payment_Schedule_001.cs">
       <DependentUpon>Payment_Schedule_001.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1277,6 +1299,12 @@
     <Compile Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_Prv.aspx.designer.cs">
       <DependentUpon>Payment_Summary_Yearly_Prv.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment_All.cs">
+      <DependentUpon>Total_Balance_Payment_All.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1336,7 +1364,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="aspnet_client\" />
-    <Folder Include="Reports_Leasings\Notification_Payment_Bondsman\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports_Leasings\Bill_Payment_Slip\Bill_Payment_Slip.rpt">
@@ -1386,6 +1413,10 @@
     <EmbeddedResource Include="Reports_Leasings\Notification_Payment\Notification_Payment.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Notification_Payment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Notification_Payment_Guarantor\Notification_Payment_Guarantor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Notification_Payment_Guarantor.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports_Leasings\Payment_Schedule\Payment_Schedule_001.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1438,6 +1469,10 @@
     <EmbeddedResource Include="Reports_Leasings\Payment_Summary_Yearly\Payment_Summary_Yearly_mod_II.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Payment_Summary_Yearly_mod_II.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment_All.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Total_Balance_Payment_All.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports_Leasings\Total_Balance_Payment\Total_Balance_Payment.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

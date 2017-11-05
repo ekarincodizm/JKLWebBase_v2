@@ -62,32 +62,54 @@ namespace JKLWebBase_v2.Form_Leasings
                     string[] code = Request.Params["code"].Split('U');
                     string leasing_id = code[1];
                     string idcard = code[2];
+                    string Leasing_no = code[3];
 
-                    ctm = cls_ctm_mng.getCustomersLeasing(leasing_id, idcard);
-
-                    if (ctm != null) { Session["Customer_Leasing"] = ctm; }
-
-                    Car_Leasings cls = cls_mng.getCarLeasingById(leasing_id);
-
-                    if (cls != null) { Session["Leasings"] = cls; }        
-
-                    Agents_Commission cag_com = cag_mng.getAgentCommission("", cls.Leasing_id);
-
-                    if (cag_com.cag != null) { Session["Agents_Leasing"] = cag_com; }
-  
-                    List<Car_Leasings_Guarator> list_cls_bsm = cls_grt_mng.getAllGuarantors(cls.Leasing_id, "", "");
-
-                    for (int i = 1; i <= 5; i++)
+                    if (Request.Params["mode"] == "e")
                     {
-                        if(list_cls_bsm.Count > 0 && i <= list_cls_bsm.Count)
+                        ctm = cls_ctm_mng.getCustomersLeasing(leasing_id, idcard);
+
+                        if (ctm != null) { Session["Customer_Leasing"] = ctm; }
+
+                        Car_Leasings cls = cls_mng.getCarLeasingById(leasing_id);
+
+                        if (cls != null) { Session["Leasings"] = cls; }
+
+                        Agents_Commission cag_com = cag_mng.getAgentCommission("", cls.Leasing_id);
+
+                        if (cag_com.cag != null) { Session["Agents_Leasing"] = cag_com; }
+
+                        List<Car_Leasings_Guarator> list_cls_bsm = cls_grt_mng.getAllGuarantors(cls.Leasing_id, "", "");
+
+                        for (int i = 1; i <= 5; i++)
                         {
-                            Car_Leasings_Guarator cls_bsm = list_cls_bsm[i - 1];
+                            if (list_cls_bsm.Count > 0 && i <= list_cls_bsm.Count)
+                            {
+                                Car_Leasings_Guarator cls_bsm = list_cls_bsm[i - 1];
 
-                            Session["Guarantor_" + cls_bsm.Guarantor_no] = ctm_mng.getCustomersByIdCard(cls_bsm.ctm.Cust_Idcard);
+                                Session["Guarantor_" + cls_bsm.Guarantor_no] = ctm_mng.getCustomersByIdCard(cls_bsm.ctm.Cust_Idcard);
+                            }
                         }
-                    }
 
-                    _GetCustomer(ctm);
+                        _GetCustomer(ctm);
+                    }
+                    else if (Request.Params["mode"] == "r")
+                    {
+                        cls_mng.removeCarLeasings(leasing_id);
+
+                        /// Acticity Logs System
+                        ///  
+
+                        package_login = (Base_Companys)Session["Package"];
+                        acc_lgn = (Account_Login)Session["Login"];
+
+                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ลบข้อมูลสัญญาฝาก : " + idcard + " เลขสัญญา : " + Leasing_no, acc_lgn.resu, package_login.Company_N_name);
+
+                        new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                        /// Acticity Logs System
+
+                        Response.Redirect("/Form_Leasings/Leasing_Search");
+                    }
                 }
                 else
                 {

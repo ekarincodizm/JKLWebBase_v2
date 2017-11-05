@@ -690,7 +690,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 {
                     Note_Lbl.Text = "*** ไม่สามารถปิดบัญชีได้ เนื่องจาก ยอดชำระไม่ตรงกับที่ระบบคำนวนได้  " + cal_payment.ToString("#,###.00") + " บาท ***";
                 }
-                else if (period_fine > 0 && real_payment_fine != period_fine)
+                /*else if (period_fine > 0 && real_payment_fine != period_fine)
                 {
                     Note_Lbl.Text = "*** มียอดค่าปรับค้างชำระจำนวน :  " + period_fine.ToString("#,###.00") + " บาท ***";
 
@@ -713,7 +713,7 @@ namespace JKLWebBase_v2.Form_Leasings
                     Note_Lbl.Text = "*** กรุณมระบุยอดส่วนลดจำนวน :  " + discount.ToString("#,###.00") + " บาท ***";
 
                     Real_Discount_TBx.Focus();
-                }
+                }*/
                 else
                 {
                     Note_Lbl.Text = "";

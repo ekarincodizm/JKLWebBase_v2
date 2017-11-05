@@ -469,9 +469,7 @@
                             <asp:DropDownList ID="Leasing_Code_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Leasing_No_Lbl" runat="server">เลขที่สัญญา
-                                <asp:RequiredFieldValidator ID="RFV_Leasing_No_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Leasing_No_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Leasing_No_Lbl" runat="server">เลขที่สัญญา </asp:Label>
                             <asp:TextBox ID="Leasing_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">

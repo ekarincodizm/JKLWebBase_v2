@@ -40,22 +40,49 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly {
         protected global::System.Web.UI.WebControls.Panel Comapnys_Panel;
         
         /// <summary>
-        /// Label1 control.
+        /// Leasing_Code_Lbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label Leasing_Code_Lbl;
         
         /// <summary>
-        /// Company_ChkBxL_All control.
+        /// Leasing_Code_ChkBx_All control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Company_ChkBxL_All;
+        protected global::System.Web.UI.WebControls.CheckBox Leasing_Code_ChkBx_All;
+        
+        /// <summary>
+        /// Leasing_Code_ChkBxL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList Leasing_Code_ChkBxL;
+        
+        /// <summary>
+        /// Company_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Company_Lbl;
+        
+        /// <summary>
+        /// Company_ChkBx_All control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox Company_ChkBx_All;
         
         /// <summary>
         /// Company_ChkBxL control.
@@ -65,6 +92,33 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList Company_ChkBxL;
+        
+        /// <summary>
+        /// Zone_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Zone_Lbl;
+        
+        /// <summary>
+        /// Zone_ChkBx_All control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox Zone_ChkBx_All;
+        
+        /// <summary>
+        /// Zone_ChkBxL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList Zone_ChkBxL;
         
         /// <summary>
         /// Export_Reported_mod_I_Btn control.

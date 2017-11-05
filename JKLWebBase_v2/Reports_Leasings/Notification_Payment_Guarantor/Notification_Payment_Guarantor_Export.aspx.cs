@@ -13,9 +13,9 @@ using JKLWebBase_v2.Reports_Leasings.DataSet_Leasings;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Account;
 
-namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
+namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment_Guarantor
 {
-    public partial class Total_Balance_Payment_Export : Page
+    public partial class Notification_Payment_Guarantor_Export : Page
     {
         private Base_Companys package_login = new Base_Companys();
         private Account_Login acc_lgn = new Account_Login();
@@ -23,13 +23,28 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _loadReport();
+            if (!IsPostBack)
+            {
+                if (Request.Params["code"] != null)
+                {
+                    string[] code = Request.Params["code"].Split('U');
+                    string deposit_no = code[1];
+
+                    _loadReport(deposit_no);
+                }
+                else
+                {
+                    _loadReport();
+                }
+            }
 
             Session.Remove("deposit_no_rpt");
             Session.Remove("leasing_no_rpt");
             Session.Remove("idcard_rpt");
             Session.Remove("fname_rpt");
             Session.Remove("lname_rpt");
+            Session.Remove("date_str_rpt");
+            Session.Remove("date_end_rpt");
             Session.Remove("lost_str_rpt");
             Session.Remove("lost_end_rpt");
             Session.Remove("district_rpt");
@@ -46,6 +61,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
             string idcard = (string)Session["idcard_rpt"];
             string fname = (string)Session["fname_rpt"];
             string lname = (string)Session["lname_rpt"];
+            string date_str = (string)Session["date_str_rpt"];
+            string date_end = (string)Session["date_end_rpt"];
             string lost_str = (string)Session["lost_str_rpt"];
             string lost_end = (string)Session["lost_end_rpt"];
             string district = (string)Session["district_rpt"];
@@ -53,17 +70,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
             string leasing_Code_inline = (string)Session["leasing_Code_inline_rpt"];
             string Company_id_inline = (string)Session["Company_id_inline_rpt"];
             string zone_id_inline = (string)Session["zone_id_inline_rpt"];
-            string report_header = " รายงานลูกหนี้คงเหลือ ";
-
-            bool chk_all = false;
-
-            if (deposit_no == "" && leasing_no == "" && idcard == "" && fname == "" && lname == "" && lost_str == "0" && lost_end == "0" && 
-                district == "" && province == "" && leasing_Code_inline == "" && Company_id_inline == "" && zone_id_inline == "")
-            {
-                report_header = " รายงานลูกหนี้คงเหลือ (ทั้งหมด)";
-
-                chk_all = true;
-            }
 
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];
@@ -74,7 +80,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
             {
 
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("rpt_total_balance", con);
+                MySqlCommand cmd = new MySqlCommand("rpt_notification_guarantor", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandTimeout = 0;
 
@@ -83,8 +89,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 cmd.Parameters.AddWithValue("@i_Cust_idcard", idcard);
                 cmd.Parameters.AddWithValue("@i_Cust_Fname", fname);
                 cmd.Parameters.AddWithValue("@i_Cust_LName", lname);
-                cmd.Parameters.AddWithValue("@i_Leasing_date_str", "");
-                cmd.Parameters.AddWithValue("@i_Leasing_date_end", "");
+                cmd.Parameters.AddWithValue("@i_Leasing_date_str", date_str);
+                cmd.Parameters.AddWithValue("@i_Leasing_date_end", date_end);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_id", leasing_Code_inline);
                 cmd.Parameters.AddWithValue("@i_Company_id", Company_id_inline);
                 cmd.Parameters.AddWithValue("@i_Zone_id", zone_id_inline);
@@ -101,50 +107,26 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 ls_ds.Clear();
                 ls_ds.Tables["Report_General_Leasings"].Load(reader);
 
-                if (chk_all)
-                {
-                    Total_Balance_Payment_All rpt = new Total_Balance_Payment_All();
-                    rpt.SetDataSource(ls_ds);
-                    rpt.SetParameterValue("Reported_By_User", "ออกโดย : " + acc_lgn.Account_F_name);
-                    rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOWForServer()));
-                    rpt.SetParameterValue("Report_Header", report_header);
+                Notification_Payment_Guarantor rpt = new Notification_Payment_Guarantor();
+                rpt.SetDataSource(ls_ds);
 
 
-                    CRV_Display_Report.ReportSource = rpt;
+                CRV_Display_Report.ReportSource = rpt;
 
-                    /// Export Report to PDF File with Save As Mode
-                    /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "หน้าการ์ด_" + cls.Deps_no);
-                    /// Response.End();
+                /// Export Report to PDF File with Save As Mode
+                /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "หน้าการ์ด_" + cls.Deps_no);
+                /// Response.End();
 
-                    ExportReport_Mod_II(rpt);
-                }
-                else
-                {
-                    Total_Balance_Payment rpt = new Total_Balance_Payment();
-                    rpt.SetDataSource(ls_ds);
-                    rpt.SetParameterValue("Reported_By_User", "ออกโดย : " + acc_lgn.Account_F_name);
-                    rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOWForServer()));
-                    rpt.SetParameterValue("Report_Header", report_header);
-
-
-                    CRV_Display_Report.ReportSource = rpt;
-
-                    /// Export Report to PDF File with Save As Mode
-                    /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "หน้าการ์ด_" + cls.Deps_no);
-                    /// Response.End();
-
-                    ExportReport_Mod_I(rpt);
-                }
-                
+                ExportReport_Mod_I(rpt);
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Total_Balance_Payment_Export --> _loadReport() ";
+                error = "MysqlException ==> Notification_Payment_Export --> _loadReport() ";
                 Log_Error._writeErrorFile(error, ex);
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Total_Balance_Payment_Export --> _loadReport() ";
+                error = "Exception ==> Notification_Payment_Export --> _loadReport() ";
                 Log_Error._writeErrorFile(error, ex);
             }
             finally
@@ -154,48 +136,76 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
             }
         }
 
-        public void ExportReport_Mod_I(Total_Balance_Payment rpt)
+        private void _loadReport(string deposit_no)
         {
-            /* Create Main Folder for Detected Images of Contact Leasing  */
-            string mainDirectory = "Total_Balance_Payment";
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
 
-            string mainDirectoryPath = "C:/ReportExport/" + mainDirectory;
+            MySqlConnection con = MySQLConnection.connectionMySQL();
 
-            if (!Directory.Exists(mainDirectoryPath))
+            try
             {
-                Directory.CreateDirectory(mainDirectoryPath);
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("rpt_notification_guarantor", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandTimeout = 0;
+
+                cmd.Parameters.AddWithValue("@i_Deps_no", deposit_no);
+                cmd.Parameters.AddWithValue("@i_Leasing_no", "");
+                cmd.Parameters.AddWithValue("@i_Cust_idcard", "");
+                cmd.Parameters.AddWithValue("@i_Cust_Fname", "");
+                cmd.Parameters.AddWithValue("@i_Cust_LName", "");
+                cmd.Parameters.AddWithValue("@i_Leasing_date_str", "");
+                cmd.Parameters.AddWithValue("@i_Leasing_date_end", "");
+                cmd.Parameters.AddWithValue("@i_Leasing_code_id", "");
+                cmd.Parameters.AddWithValue("@i_Company_id", "");
+                cmd.Parameters.AddWithValue("@i_Zone_id", "");
+                cmd.Parameters.AddWithValue("@i_lost_str", 0);
+                cmd.Parameters.AddWithValue("@i_lost_end", 0);
+                cmd.Parameters.AddWithValue("@i_district", "");
+                cmd.Parameters.AddWithValue("@i_province", "");
+                cmd.Parameters.AddWithValue("@i_row_str", 0);
+                cmd.Parameters.AddWithValue("@i_row_limit", 0);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Leasing_Ds ls_ds = new Leasing_Ds();
+                ls_ds.Clear();
+                ls_ds.Tables["Report_General_Leasings"].Load(reader);
+
+                Notification_Payment_Guarantor rpt = new Notification_Payment_Guarantor();
+                rpt.SetDataSource(ls_ds);
+
+
+                CRV_Display_Report.ReportSource = rpt;
+
+                /// Export Report to PDF File with Save As Mode
+                /// rpt.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "หน้าการ์ด_" + cls.Deps_no);
+                /// Response.End();
+
+                ExportReport_Mod_I(rpt);
             }
-
-            string FilePath = "C:/ReportExport/" + mainDirectory + "/รายงานลูกหนี้คงค้าง_" + DateTimeUtility._dateToFile() + ".pdf";
-
-            if (File.Exists(FilePath))
+            catch (MySqlException ex)
             {
-                File.Delete(FilePath);
+                error = "MysqlException ==> Notification_Payment_Export --> _loadReport() ";
+                Log_Error._writeErrorFile(error, ex);
             }
-
-            /// Export Report to PDF File with Save As Mode
-            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/รายงานลูกหนี้คงค้าง_" + DateTimeUtility._dateToFile() + ".pdf");
-
-            /// Display PDF File to PDF Program
-            /// Process process = new Process();
-            /// process.StartInfo.UseShellExecute = true;
-            /// process.StartInfo.FileName = FilePath;
-            /// process.Start();
-
-            WebClient User = new WebClient();
-            Byte[] FileBuffer = User.DownloadData(FilePath);
-            if (FileBuffer != null)
+            catch (Exception ex)
             {
-                Response.ContentType = "application/pdf";
-                Response.AddHeader("content-length", FileBuffer.Length.ToString());
-                Response.BinaryWrite(FileBuffer);
+                error = "Exception ==> Notification_Payment_Export --> _loadReport() ";
+                Log_Error._writeErrorFile(error, ex);
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
             }
         }
 
-        public void ExportReport_Mod_II(Total_Balance_Payment_All rpt)
+        public void ExportReport_Mod_I(Notification_Payment_Guarantor rpt)
         {
             /* Create Main Folder for Detected Images of Contact Leasing  */
-            string mainDirectory = "Total_Balance_Payment";
+            string mainDirectory = "Notification_Payment_Guarantor";
 
             string mainDirectoryPath = "C:/ReportExport/" + mainDirectory;
 
@@ -204,7 +214,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 Directory.CreateDirectory(mainDirectoryPath);
             }
 
-            string FilePath = "C:/ReportExport/" + mainDirectory + "/รายงานลูกหนี้คงค้างทั้งหมด_" + DateTimeUtility._dateToFile() + ".pdf";
+            string FilePath = "C:/ReportExport/" + mainDirectory + "/รายงานแจ้งเตือนค่างวดผู้ค้ำ_" + DateTimeUtility._dateToFile() + ".pdf";
 
             if (File.Exists(FilePath))
             {
@@ -212,7 +222,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
             }
 
             /// Export Report to PDF File with Save As Mode
-            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/รายงานลูกหนี้คงค้างทั้งหมด_" + DateTimeUtility._dateToFile() + ".pdf");
+            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/" + mainDirectory + "/รายงานแจ้งเตือนค่างวดผู้ค้ำ_" + DateTimeUtility._dateToFile() + ".pdf");
 
             /// Display PDF File to PDF Program
             /// Process process = new Process();

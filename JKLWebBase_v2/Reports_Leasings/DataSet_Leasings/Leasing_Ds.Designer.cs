@@ -9292,6 +9292,62 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             private global::System.Data.DataColumn columnExpire_Alert;
             
+            private global::System.Data.DataColumn columnGuarantor_no;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_id;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Idcard;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Fname;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_LName;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_B_date;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Age;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Idcard_without;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Idcard_start;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Idcard_expire;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Tel;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Email;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_address_no;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_vilage;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_vilage_no;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_alley;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_road;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_subdistrict;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_district;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_province;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_country;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_zipcode;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_tel;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_GPS_Latitude;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_GPS_Longitude;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_Status_id;
+            
+            private global::System.Data.DataColumn columnGuarantor_Cust_Home_Status_name;
+            
+            private global::System.Data.DataColumn columnGuarantor_Save_Data_Date;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public Report_General_LeasingsDataTable() {
@@ -10247,6 +10303,230 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_noColumn {
+                get {
+                    return this.columnGuarantor_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_idColumn {
+                get {
+                    return this.columnGuarantor_Cust_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_IdcardColumn {
+                get {
+                    return this.columnGuarantor_Cust_Idcard;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_FnameColumn {
+                get {
+                    return this.columnGuarantor_Cust_Fname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_LNameColumn {
+                get {
+                    return this.columnGuarantor_Cust_LName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_B_dateColumn {
+                get {
+                    return this.columnGuarantor_Cust_B_date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_AgeColumn {
+                get {
+                    return this.columnGuarantor_Cust_Age;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Idcard_withoutColumn {
+                get {
+                    return this.columnGuarantor_Cust_Idcard_without;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Idcard_startColumn {
+                get {
+                    return this.columnGuarantor_Cust_Idcard_start;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Idcard_expireColumn {
+                get {
+                    return this.columnGuarantor_Cust_Idcard_expire;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_TelColumn {
+                get {
+                    return this.columnGuarantor_Cust_Tel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_EmailColumn {
+                get {
+                    return this.columnGuarantor_Cust_Email;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_address_noColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_address_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_vilageColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_vilage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_vilage_noColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_vilage_no;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_alleyColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_alley;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_roadColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_road;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_subdistrictColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_subdistrict;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_districtColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_district;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_provinceColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_province;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_countryColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_country;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_zipcodeColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_zipcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_telColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_tel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_GPS_LatitudeColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_GPS_Latitude;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_GPS_LongitudeColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_GPS_Longitude;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_Status_idColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_Status_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Cust_Home_Status_nameColumn {
+                get {
+                    return this.columnGuarantor_Cust_Home_Status_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Guarantor_Save_Data_DateColumn {
+                get {
+                    return this.columnGuarantor_Save_Data_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -10397,7 +10677,35 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Save_Data_Date, 
                         double Sum_period_lost, 
                         string last_payment_date, 
-                        string Expire_Alert) {
+                        string Expire_Alert, 
+                        string Guarantor_no, 
+                        string Guarantor_Cust_id, 
+                        string Guarantor_Cust_Idcard, 
+                        string Guarantor_Cust_Fname, 
+                        string Guarantor_Cust_LName, 
+                        string Guarantor_Cust_B_date, 
+                        string Guarantor_Cust_Age, 
+                        string Guarantor_Cust_Idcard_without, 
+                        string Guarantor_Cust_Idcard_start, 
+                        string Guarantor_Cust_Idcard_expire, 
+                        string Guarantor_Cust_Tel, 
+                        string Guarantor_Cust_Email, 
+                        string Guarantor_Cust_Home_address_no, 
+                        string Guarantor_Cust_Home_vilage, 
+                        string Guarantor_Cust_Home_vilage_no, 
+                        string Guarantor_Cust_Home_alley, 
+                        string Guarantor_Cust_Home_road, 
+                        string Guarantor_Cust_Home_subdistrict, 
+                        string Guarantor_Cust_Home_district, 
+                        string Guarantor_Cust_Home_province, 
+                        string Guarantor_Cust_Home_country, 
+                        string Guarantor_Cust_Home_zipcode, 
+                        string Guarantor_Cust_Home_tel, 
+                        string Guarantor_Cust_Home_GPS_Latitude, 
+                        string Guarantor_Cust_Home_GPS_Longitude, 
+                        string Guarantor_Cust_Home_Status_id, 
+                        string Guarantor_Cust_Home_Status_name, 
+                        string Guarantor_Save_Data_Date) {
                 Report_General_LeasingsRow rowReport_General_LeasingsRow = ((Report_General_LeasingsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Leasing_id,
@@ -10514,7 +10822,35 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         Save_Data_Date,
                         Sum_period_lost,
                         last_payment_date,
-                        Expire_Alert};
+                        Expire_Alert,
+                        Guarantor_no,
+                        Guarantor_Cust_id,
+                        Guarantor_Cust_Idcard,
+                        Guarantor_Cust_Fname,
+                        Guarantor_Cust_LName,
+                        Guarantor_Cust_B_date,
+                        Guarantor_Cust_Age,
+                        Guarantor_Cust_Idcard_without,
+                        Guarantor_Cust_Idcard_start,
+                        Guarantor_Cust_Idcard_expire,
+                        Guarantor_Cust_Tel,
+                        Guarantor_Cust_Email,
+                        Guarantor_Cust_Home_address_no,
+                        Guarantor_Cust_Home_vilage,
+                        Guarantor_Cust_Home_vilage_no,
+                        Guarantor_Cust_Home_alley,
+                        Guarantor_Cust_Home_road,
+                        Guarantor_Cust_Home_subdistrict,
+                        Guarantor_Cust_Home_district,
+                        Guarantor_Cust_Home_province,
+                        Guarantor_Cust_Home_country,
+                        Guarantor_Cust_Home_zipcode,
+                        Guarantor_Cust_Home_tel,
+                        Guarantor_Cust_Home_GPS_Latitude,
+                        Guarantor_Cust_Home_GPS_Longitude,
+                        Guarantor_Cust_Home_Status_id,
+                        Guarantor_Cust_Home_Status_name,
+                        Guarantor_Save_Data_Date};
                 rowReport_General_LeasingsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReport_General_LeasingsRow);
                 return rowReport_General_LeasingsRow;
@@ -10652,6 +10988,34 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 this.columnSum_period_lost = base.Columns["Sum_period_lost"];
                 this.columnlast_payment_date = base.Columns["last_payment_date"];
                 this.columnExpire_Alert = base.Columns["Expire_Alert"];
+                this.columnGuarantor_no = base.Columns["Guarantor_no"];
+                this.columnGuarantor_Cust_id = base.Columns["Guarantor_Cust_id"];
+                this.columnGuarantor_Cust_Idcard = base.Columns["Guarantor_Cust_Idcard"];
+                this.columnGuarantor_Cust_Fname = base.Columns["Guarantor_Cust_Fname"];
+                this.columnGuarantor_Cust_LName = base.Columns["Guarantor_Cust_LName"];
+                this.columnGuarantor_Cust_B_date = base.Columns["Guarantor_Cust_B_date"];
+                this.columnGuarantor_Cust_Age = base.Columns["Guarantor_Cust_Age"];
+                this.columnGuarantor_Cust_Idcard_without = base.Columns["Guarantor_Cust_Idcard_without"];
+                this.columnGuarantor_Cust_Idcard_start = base.Columns["Guarantor_Cust_Idcard_start"];
+                this.columnGuarantor_Cust_Idcard_expire = base.Columns["Guarantor_Cust_Idcard_expire"];
+                this.columnGuarantor_Cust_Tel = base.Columns["Guarantor_Cust_Tel"];
+                this.columnGuarantor_Cust_Email = base.Columns["Guarantor_Cust_Email"];
+                this.columnGuarantor_Cust_Home_address_no = base.Columns["Guarantor_Cust_Home_address_no"];
+                this.columnGuarantor_Cust_Home_vilage = base.Columns["Guarantor_Cust_Home_vilage"];
+                this.columnGuarantor_Cust_Home_vilage_no = base.Columns["Guarantor_Cust_Home_vilage_no"];
+                this.columnGuarantor_Cust_Home_alley = base.Columns["Guarantor_Cust_Home_alley"];
+                this.columnGuarantor_Cust_Home_road = base.Columns["Guarantor_Cust_Home_road"];
+                this.columnGuarantor_Cust_Home_subdistrict = base.Columns["Guarantor_Cust_Home_subdistrict"];
+                this.columnGuarantor_Cust_Home_district = base.Columns["Guarantor_Cust_Home_district"];
+                this.columnGuarantor_Cust_Home_province = base.Columns["Guarantor_Cust_Home_province"];
+                this.columnGuarantor_Cust_Home_country = base.Columns["Guarantor_Cust_Home_country"];
+                this.columnGuarantor_Cust_Home_zipcode = base.Columns["Guarantor_Cust_Home_zipcode"];
+                this.columnGuarantor_Cust_Home_tel = base.Columns["Guarantor_Cust_Home_tel"];
+                this.columnGuarantor_Cust_Home_GPS_Latitude = base.Columns["Guarantor_Cust_Home_GPS_Latitude"];
+                this.columnGuarantor_Cust_Home_GPS_Longitude = base.Columns["Guarantor_Cust_Home_GPS_Longitude"];
+                this.columnGuarantor_Cust_Home_Status_id = base.Columns["Guarantor_Cust_Home_Status_id"];
+                this.columnGuarantor_Cust_Home_Status_name = base.Columns["Guarantor_Cust_Home_Status_name"];
+                this.columnGuarantor_Save_Data_Date = base.Columns["Guarantor_Save_Data_Date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10887,6 +11251,89 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnlast_payment_date);
                 this.columnExpire_Alert = new global::System.Data.DataColumn("Expire_Alert", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExpire_Alert);
+                this.columnGuarantor_no = new global::System.Data.DataColumn("Guarantor_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_no);
+                this.columnGuarantor_Cust_id = new global::System.Data.DataColumn("Guarantor_Cust_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_id);
+                this.columnGuarantor_Cust_Idcard = new global::System.Data.DataColumn("Guarantor_Cust_Idcard", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Idcard);
+                this.columnGuarantor_Cust_Fname = new global::System.Data.DataColumn("Guarantor_Cust_Fname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Fname);
+                this.columnGuarantor_Cust_LName = new global::System.Data.DataColumn("Guarantor_Cust_LName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_LName);
+                this.columnGuarantor_Cust_B_date = new global::System.Data.DataColumn("Guarantor_Cust_B_date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_B_date);
+                this.columnGuarantor_Cust_Age = new global::System.Data.DataColumn("Guarantor_Cust_Age", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Age);
+                this.columnGuarantor_Cust_Idcard_without = new global::System.Data.DataColumn("Guarantor_Cust_Idcard_without", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Idcard_without);
+                this.columnGuarantor_Cust_Idcard_start = new global::System.Data.DataColumn("Guarantor_Cust_Idcard_start", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Idcard_start);
+                this.columnGuarantor_Cust_Idcard_expire = new global::System.Data.DataColumn("Guarantor_Cust_Idcard_expire", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Idcard_expire);
+                this.columnGuarantor_Cust_Tel = new global::System.Data.DataColumn("Guarantor_Cust_Tel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Tel);
+                this.columnGuarantor_Cust_Email = new global::System.Data.DataColumn("Guarantor_Cust_Email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Email);
+                this.columnGuarantor_Cust_Home_address_no = new global::System.Data.DataColumn("Guarantor_Cust_Home_address_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_address_no);
+                this.columnGuarantor_Cust_Home_vilage = new global::System.Data.DataColumn("Guarantor_Cust_Home_vilage", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_vilage);
+                this.columnGuarantor_Cust_Home_vilage_no = new global::System.Data.DataColumn("Guarantor_Cust_Home_vilage_no", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_vilage_no);
+                this.columnGuarantor_Cust_Home_alley = new global::System.Data.DataColumn("Guarantor_Cust_Home_alley", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_alley);
+                this.columnGuarantor_Cust_Home_road = new global::System.Data.DataColumn("Guarantor_Cust_Home_road", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_road);
+                this.columnGuarantor_Cust_Home_subdistrict = new global::System.Data.DataColumn("Guarantor_Cust_Home_subdistrict", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_subdistrict);
+                this.columnGuarantor_Cust_Home_district = new global::System.Data.DataColumn("Guarantor_Cust_Home_district", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_district);
+                this.columnGuarantor_Cust_Home_province = new global::System.Data.DataColumn("Guarantor_Cust_Home_province", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_province);
+                this.columnGuarantor_Cust_Home_country = new global::System.Data.DataColumn("Guarantor_Cust_Home_country", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_country);
+                this.columnGuarantor_Cust_Home_zipcode = new global::System.Data.DataColumn("Guarantor_Cust_Home_zipcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_zipcode);
+                this.columnGuarantor_Cust_Home_tel = new global::System.Data.DataColumn("Guarantor_Cust_Home_tel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_tel);
+                this.columnGuarantor_Cust_Home_GPS_Latitude = new global::System.Data.DataColumn("Guarantor_Cust_Home_GPS_Latitude", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_GPS_Latitude);
+                this.columnGuarantor_Cust_Home_GPS_Longitude = new global::System.Data.DataColumn("Guarantor_Cust_Home_GPS_Longitude", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_GPS_Longitude);
+                this.columnGuarantor_Cust_Home_Status_id = new global::System.Data.DataColumn("Guarantor_Cust_Home_Status_id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_Status_id);
+                this.columnGuarantor_Cust_Home_Status_name = new global::System.Data.DataColumn("Guarantor_Cust_Home_Status_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Cust_Home_Status_name);
+                this.columnGuarantor_Save_Data_Date = new global::System.Data.DataColumn("Guarantor_Save_Data_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGuarantor_Save_Data_Date);
+                this.columnGuarantor_Cust_id.Caption = "Cust_id";
+                this.columnGuarantor_Cust_Idcard.Caption = "Cust_Idcard";
+                this.columnGuarantor_Cust_Fname.Caption = "Cust_Fname";
+                this.columnGuarantor_Cust_LName.Caption = "Cust_LName";
+                this.columnGuarantor_Cust_B_date.Caption = "Cust_B_date";
+                this.columnGuarantor_Cust_Age.Caption = "Cust_Age";
+                this.columnGuarantor_Cust_Idcard_without.Caption = "Cust_Idcard_without";
+                this.columnGuarantor_Cust_Idcard_start.Caption = "Cust_Idcard_start";
+                this.columnGuarantor_Cust_Idcard_expire.Caption = "Cust_Idcard_expire";
+                this.columnGuarantor_Cust_Tel.Caption = "Cust_Tel";
+                this.columnGuarantor_Cust_Email.Caption = "Cust_Email";
+                this.columnGuarantor_Cust_Home_address_no.Caption = "Cust_Home_address_no";
+                this.columnGuarantor_Cust_Home_vilage.Caption = "Cust_Home_vilage";
+                this.columnGuarantor_Cust_Home_vilage_no.Caption = "Cust_Home_vilage_no";
+                this.columnGuarantor_Cust_Home_alley.Caption = "Cust_Home_alley";
+                this.columnGuarantor_Cust_Home_road.Caption = "Cust_Home_road";
+                this.columnGuarantor_Cust_Home_subdistrict.Caption = "Cust_Home_subdistrict";
+                this.columnGuarantor_Cust_Home_district.Caption = "Cust_Home_district";
+                this.columnGuarantor_Cust_Home_province.Caption = "Cust_Home_province";
+                this.columnGuarantor_Cust_Home_country.Caption = "Cust_Home_country";
+                this.columnGuarantor_Cust_Home_zipcode.Caption = "Cust_Home_zipcode";
+                this.columnGuarantor_Cust_Home_tel.Caption = "Cust_Home_tel";
+                this.columnGuarantor_Cust_Home_GPS_Latitude.Caption = "Cust_Home_GPS_Latitude";
+                this.columnGuarantor_Cust_Home_GPS_Longitude.Caption = "Cust_Home_GPS_Longitude";
+                this.columnGuarantor_Cust_Home_Status_id.Caption = "Cust_Home_Status_id";
+                this.columnGuarantor_Cust_Home_Status_name.Caption = "Cust_Home_Status_name";
+                this.columnGuarantor_Save_Data_Date.Caption = "Save_Data_Date";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34107,6 +34554,468 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_no\' in table \'Report_General_Leasings\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_id {
+                get {
+                    if (this.IsGuarantor_Cust_idNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_idColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Idcard {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_IdcardColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Idcard\' in table \'Report_General_Leasings\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_IdcardColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Fname {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_FnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Fname\' in table \'Report_General_Leasings\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_FnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_LName {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_LNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_LName\' in table \'Report_General_Leasings\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_LNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_B_date {
+                get {
+                    if (this.IsGuarantor_Cust_B_dateNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_B_dateColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_B_dateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Age {
+                get {
+                    if (this.IsGuarantor_Cust_AgeNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_AgeColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_AgeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Idcard_without {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Idcard_withoutColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Idcard_without\' in table \'Report_General_Lea" +
+                                "sings\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Idcard_withoutColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Idcard_start {
+                get {
+                    if (this.IsGuarantor_Cust_Idcard_startNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Idcard_startColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Idcard_startColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Idcard_expire {
+                get {
+                    if (this.IsGuarantor_Cust_Idcard_expireNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Idcard_expireColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Idcard_expireColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Tel {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_TelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Tel\' in table \'Report_General_Leasings\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_TelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Email {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_EmailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Email\' in table \'Report_General_Leasings\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_EmailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_address_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_address_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Home_address_no\' in table \'Report_General_Le" +
+                                "asings\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_address_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_vilage {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_vilageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Home_vilage\' in table \'Report_General_Leasin" +
+                                "gs\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_vilageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_vilage_no {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_vilage_noColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Home_vilage_no\' in table \'Report_General_Lea" +
+                                "sings\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_vilage_noColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_alley {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_alleyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Home_alley\' in table \'Report_General_Leasing" +
+                                "s\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_alleyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_road {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_roadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Home_road\' in table \'Report_General_Leasings" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_roadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_subdistrict {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_subdistrictColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Home_subdistrict\' in table \'Report_General_L" +
+                                "easings\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_subdistrictColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_district {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_districtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Guarantor_Cust_Home_district\' in table \'Report_General_Leas" +
+                                "ings\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_districtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_province {
+                get {
+                    if (this.IsGuarantor_Cust_Home_provinceNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_provinceColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_provinceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_country {
+                get {
+                    if (this.IsGuarantor_Cust_Home_countryNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_countryColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_countryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_zipcode {
+                get {
+                    if (this.IsGuarantor_Cust_Home_zipcodeNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_zipcodeColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_zipcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_tel {
+                get {
+                    if (this.IsGuarantor_Cust_Home_telNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_telColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_telColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_GPS_Latitude {
+                get {
+                    if (this.IsGuarantor_Cust_Home_GPS_LatitudeNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_GPS_LatitudeColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_GPS_LatitudeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_GPS_Longitude {
+                get {
+                    if (this.IsGuarantor_Cust_Home_GPS_LongitudeNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_GPS_LongitudeColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_GPS_LongitudeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_Status_id {
+                get {
+                    if (this.IsGuarantor_Cust_Home_Status_idNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_Status_idColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_Status_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Cust_Home_Status_name {
+                get {
+                    if (this.IsGuarantor_Cust_Home_Status_nameNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Cust_Home_Status_nameColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Cust_Home_Status_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Guarantor_Save_Data_Date {
+                get {
+                    if (this.IsGuarantor_Save_Data_DateNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableReport_General_Leasings.Guarantor_Save_Data_DateColumn]));
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Guarantor_Save_Data_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLeasing_idNull() {
                 return this.IsNull(this.tableReport_General_Leasings.Leasing_idColumn);
             }
@@ -35483,6 +36392,342 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetExpire_AlertNull() {
                 this[this.tableReport_General_Leasings.Expire_AlertColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_noNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_noNull() {
+                this[this.tableReport_General_Leasings.Guarantor_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_idNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_idNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_IdcardNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_IdcardColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_IdcardNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_IdcardColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_FnameNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_FnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_FnameNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_FnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_LNameNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_LNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_LNameNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_LNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_B_dateNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_B_dateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_B_dateNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_B_dateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_AgeNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_AgeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_AgeNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_AgeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Idcard_withoutNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Idcard_withoutColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Idcard_withoutNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Idcard_withoutColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Idcard_startNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Idcard_startColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Idcard_startNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Idcard_startColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Idcard_expireNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Idcard_expireColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Idcard_expireNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Idcard_expireColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_TelNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_TelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_TelNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_TelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_EmailNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_EmailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_EmailNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_EmailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_address_noNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_address_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_address_noNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_address_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_vilageNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_vilageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_vilageNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_vilageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_vilage_noNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_vilage_noColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_vilage_noNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_vilage_noColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_alleyNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_alleyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_alleyNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_alleyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_roadNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_roadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_roadNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_roadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_subdistrictNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_subdistrictColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_subdistrictNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_subdistrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_districtNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_districtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_districtNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_districtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_provinceNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_provinceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_provinceNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_provinceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_countryNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_countryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_countryNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_countryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_zipcodeNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_zipcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_zipcodeNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_zipcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_telNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_telColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_telNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_telColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_GPS_LatitudeNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_GPS_LatitudeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_GPS_LatitudeNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_GPS_LatitudeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_GPS_LongitudeNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_GPS_LongitudeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_GPS_LongitudeNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_GPS_LongitudeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_Status_idNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_Status_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_Status_idNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_Status_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Cust_Home_Status_nameNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Cust_Home_Status_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Cust_Home_Status_nameNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Cust_Home_Status_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGuarantor_Save_Data_DateNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Guarantor_Save_Data_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGuarantor_Save_Data_DateNull() {
+                this[this.tableReport_General_Leasings.Guarantor_Save_Data_DateColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -182,6 +182,12 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                     count++;
                 }
             }
+
+            if (Leasing_Code_ChkBx_All.Checked == true)
+            {
+                leasing_Code_inline = "";
+            }
+
             return leasing_Code_inline;
         }
 
@@ -203,6 +209,12 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                     count++;
                 }
             }
+
+            if (Company_ChkBx_All.Checked == true)
+            {
+                Company_id_inline = "";
+            }
+
             return Company_id_inline;
         }
 
@@ -224,6 +236,12 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                     count++;
                 }
             }
+
+            if (Zone_ChkBx_All.Checked == true)
+            {
+                zone_id_inline = "";
+            }
+
             return zone_id_inline;
         }
     }

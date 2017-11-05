@@ -135,8 +135,8 @@ namespace JKLWebBase_v2.Form_Leasings
             int year_list = DateTime.Now.Year;
             while (year_list >= 1957)
             {
-                // int year_th = year_list + 543; // พ.ศ.
-                int year_th = year_list; // ค.ศ.
+                int year_th = year_list + 543; // พ.ศ.
+                // int year_th = year_list; // ค.ศ.
                 Car_Year_DDL.Items.Add(new ListItem(year_th.ToString(), year_list.ToString()));
                 year_list--;
             }

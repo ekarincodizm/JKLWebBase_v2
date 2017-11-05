@@ -11,9 +11,9 @@ using System.Data;
 using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Class_Leasings;
 
-namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
+namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment_Guarantor
 {
-    public partial class Notification_Payment_Prv : Page
+    public partial class Notification_Payment_Guarantor_Prv : Page
     {
         private Base_Companys package_login = new Base_Companys();
         private Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment {
+namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment_Guarantor {
     
     
-    public partial class Notification_Payment_Prv {
+    public partial class Notification_Payment_Guarantor_Prv {
         
         /// <summary>
         /// Deps_No_Lbl control.

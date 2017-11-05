@@ -35,6 +35,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
             Session.Remove("date_str");
             Session.Remove("date_end");
             Session.Remove("Company_id_inline_rpt");
+            Session.Remove("leasing_Code_inline_rpt");
+            Session.Remove("zone_id_inline_rpt");
         }
 
         private void _loadReport_mod_I()
@@ -42,6 +44,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
             string date_str = (string)Session["date_str"];
             string date_end = (string)Session["date_end"];
             string Company_id_inline = (string)Session["Company_id_inline_rpt"];
+            string leasing_Code_inline = (string)Session["leasing_Code_inline_rpt"];
+            string zone_id_inline = (string)Session["zone_id_inline_rpt"];
+
             string report_header = "รายงานการชำระเงิน 1 ประจำวันที่ " + DateTimeUtility.convertDateToPage(date_str);
 
             if(date_end != "")
@@ -67,7 +72,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
 
                 cmd.Parameters.AddWithValue("@i_payment_str_date", date_str);
                 cmd.Parameters.AddWithValue("@i_payment_end_date", date_end);
+                cmd.Parameters.AddWithValue("@i_Leasing_code_id", leasing_Code_inline);
                 cmd.Parameters.AddWithValue("@i_Company_id", Company_id_inline);
+                cmd.Parameters.AddWithValue("@i_Zone_id", zone_id_inline);
                 cmd.Parameters.AddWithValue("@i_row_str", 0);
                 cmd.Parameters.AddWithValue("@i_row_limit", 0);
 
