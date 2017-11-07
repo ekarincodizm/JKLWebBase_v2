@@ -392,7 +392,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.First_payment_date = string.IsNullOrEmpty(First_Payment_Date_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(First_Payment_Date_TBx.Text);
 
             // ข้อมูลรถ
-            cls.Car_register_date = string.IsNullOrEmpty(Car_Register_Date_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Car_Register_Date_TBx.Text);
+            cls.Car_register_date = string.IsNullOrEmpty(Car_Register_Date_TBx.Text) ? null : DateTimeUtility.convertDateToMYSQL(Car_Register_Date_TBx.Text);
             cls.Car_license_plate = string.IsNullOrEmpty(Car_Plate_TBx.Text) ? "" : Car_Plate_TBx.Text;
             cls.Car_license_plate_province = Car_Plate_Province_DDL.SelectedIndex <= 0 ? "จ.-" : "จ." + Car_Plate_Province_DDL.SelectedItem.Text;
 
@@ -414,7 +414,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Car_gas_No = string.IsNullOrEmpty(Car_Gas_No_TBx.Text) ? "" : Car_Gas_No_TBx.Text;
             cls.Car_used_id = Car_Used_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Car_Used_DDL.SelectedValue);
             cls.Car_distance = string.IsNullOrEmpty(Car_Distance_TBx.Text) ? 0 : Convert.ToInt32(Car_Distance_TBx.Text);
-            cls.Car_next_register_date = string.IsNullOrEmpty(Car_Next_Register_Date_TBx.Text) ? DateTime.Now.ToString() : DateTimeUtility.convertDateToMYSQL(Car_Next_Register_Date_TBx.Text);
+            cls.Car_next_register_date = string.IsNullOrEmpty(Car_Next_Register_Date_TBx.Text) ? null : DateTimeUtility.convertDateToMYSQL(Car_Next_Register_Date_TBx.Text);
             cls.Car_tax_value = string.IsNullOrEmpty(Car_Tax_Value_TBx.Text) ? 0 : Convert.ToDouble(Car_Tax_Value_TBx.Text);
             cls.Car_credits = string.IsNullOrEmpty(Car_Credits_TBx.Text) ? "" : Car_Credits_TBx.Text;
             cls.Car_agent = string.IsNullOrEmpty(Car_agent_TBx.Text) ? "" : Car_agent_TBx.Text;
@@ -422,7 +422,7 @@ namespace JKLWebBase_v2.Form_Leasings
             // ข้อมูลเจ้าของรถเดิม
             cls.Car_old_owner = string.IsNullOrEmpty(Car_Old_Owner_TBx.Text) ? "" : Car_Old_Owner_TBx.Text;
             cls.Car_old_owner_idcard = string.IsNullOrEmpty(Car_Old_Owner_Idcard_TBx.Text) ? "" : Car_Old_Owner_Idcard_TBx.Text;
-            cls.Car_old_owner_b_date = string.IsNullOrEmpty(Car_old_owner_b_date_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Car_old_owner_b_date_TBx.Text);
+            cls.Car_old_owner_b_date = string.IsNullOrEmpty(Car_old_owner_b_date_TBx.Text) ? null : DateTimeUtility.convertDateToMYSQL(Car_old_owner_b_date_TBx.Text);
             cls.Car_old_owner_address_no = string.IsNullOrEmpty(Car_Old_Owner_Address_No_TBx.Text) ? "" : Car_Old_Owner_Address_No_TBx.Text;
             cls.Car_old_owner_vilage = string.IsNullOrEmpty(Car_Old_Owner_Vilage_TBx.Text) ? "บ.-" : "บ." + Car_Old_Owner_Vilage_TBx.Text;
             cls.Car_old_owner_vilage_no = string.IsNullOrEmpty(Car_Old_Owner_Vilage_No_TBx.Text) ? "ม.-" : "ม." + Car_Old_Owner_Vilage_No_TBx.Text;
@@ -443,7 +443,7 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.Cheque_bank_branch = string.IsNullOrEmpty(Cheque_bank_branch_TBx.Text) ? "" : Cheque_bank_branch_TBx.Text;
             cls.Cheque_number = string.IsNullOrEmpty(Cheque_number_TBx.Text) ? "" : Cheque_number_TBx.Text;
             cls.Cheque_sum = string.IsNullOrEmpty(Cheque_sum_TBx.Text) ? 0 : Convert.ToDouble(Cheque_sum_TBx.Text);
-            cls.Cheque_receive_date = string.IsNullOrEmpty(Cheque_receive_date_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);
+            cls.Cheque_receive_date = string.IsNullOrEmpty(Cheque_receive_date_TBx.Text) ? null : DateTimeUtility.convertDateToMYSQL(Cheque_receive_date_TBx.Text);
             cls.Guarantee = string.IsNullOrEmpty(Guarantee_TBx.Text) ? "" : Guarantee_TBx.Text;
 
             cls.bs_ls_stt = new Base_Leasing_Status();

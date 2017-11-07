@@ -181,9 +181,7 @@
                                         </script>
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:Label ID="Cust_B_date_Lbl" runat="server">วันเกิด
-                                            <asp:RequiredFieldValidator ID="RFV_Cust_B_date_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Cust_B_date_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                                        </asp:Label>
+                                        <asp:Label ID="Cust_B_date_Lbl" runat="server">วันเกิด </asp:Label>
                                         <div class="form-group input-group date" id="Cust_B_date">
                                             <asp:TextBox ID="Cust_B_date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                                             <span class="input-group-addon date"><i class="fa fa-calendar fa-fw"></i></span>

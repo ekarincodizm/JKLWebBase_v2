@@ -211,15 +211,6 @@ namespace JKLWebBase_v2.Form_Customer {
         protected global::System.Web.UI.WebControls.Label Cust_B_date_Lbl;
         
         /// <summary>
-        /// RFV_Cust_B_date_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Cust_B_date_TBx;
-        
-        /// <summary>
         /// Cust_B_date_TBx control.
         /// </summary>
         /// <remarks>
