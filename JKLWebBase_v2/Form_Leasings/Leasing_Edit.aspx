@@ -89,18 +89,14 @@
                             <asp:DropDownList ID="Car_Plate_Province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Car_Type_Lbl" runat="server">ประเภท
-                                <asp:RequiredFieldValidator ID="RFV_Car_Type_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Type_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Type_Lbl" runat="server">ประเภท </asp:Label>
                             <asp:TextBox ID="Car_Type_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="form-group col-xs-3">
-                            <asp:Label ID="Car_Feature_Lbl" runat="server">ลักษณะ
-                                <asp:RequiredFieldValidator ID="RFV_Car_Feature_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Feature_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Feature_Lbl" runat="server">ลักษณะ </asp:Label>
                             <asp:TextBox ID="Car_Feature_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
@@ -110,9 +106,7 @@
                             <asp:DropDownList ID="Car_Brand_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Car_Model_Lbl" runat="server">แบบ
-                                <asp:RequiredFieldValidator ID="RFV_Car_Model_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Model_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Model_Lbl" runat="server">แบบ </asp:Label>
                             <asp:TextBox ID="Car_Model_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
@@ -123,9 +117,7 @@
 
                     <div class="row">
                         <div class="form-group col-xs-3">
-                            <asp:Label ID="Car_Color_Lbl" runat="server">สีรถ
-                                <asp:RequiredFieldValidator ID="RFV_Car_Color_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Color_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Color_Lbl" runat="server">สีรถ </asp:Label>
                             <asp:TextBox ID="Car_Color_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
@@ -135,15 +127,11 @@
                             <asp:TextBox ID="Chassis_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Chassis_No_At_Lbl" runat="server">เลขตัวถังรถอยู่ที่
-                                <asp:RequiredFieldValidator ID="RFV_Chassis_No_At_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Chassis_No_At_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Chassis_No_At_Lbl" runat="server">เลขตัวถังรถอยู่ที่ </asp:Label>
                             <asp:TextBox ID="Chassis_No_At_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Engine_Brand_Lbl" runat="server">ยี่ห้อเครื่องยนต์
-                                <asp:RequiredFieldValidator ID="RFV_Engine_Brand_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Engine_Brand_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Engine_Brand_Lbl" runat="server">ยี่ห้อเครื่องยนต์ </asp:Label>
                             <asp:TextBox ID="Engine_Brand_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
@@ -156,15 +144,11 @@
                             <asp:TextBox ID="Engine_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Engine_No_At_Lbl" runat="server">เลขเครื่องยนต์อยู่ที่
-                                <asp:RequiredFieldValidator ID="RFV_Engine_No_At_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Engine_No_At_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Engine_No_At_Lbl" runat="server">เลขเครื่องยนต์อยู่ที่ </asp:Label>
                             <asp:TextBox ID="Engine_No_At_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Car_Fuel_Type_Lbl" runat="server">เชื้อเพลิง
-                                <asp:RequiredFieldValidator ID="RFV_Car_Fuel_Type_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Fuel_Type_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Fuel_Type_Lbl" runat="server">เชื้อเพลิง </asp:Label>
                             <asp:TextBox ID="Car_Fuel_Type_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">

@@ -81,18 +81,14 @@
                             <asp:DropDownList ID="Car_Plate_Province_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Car_Type_Lbl" runat="server">ประเภท
-                                <asp:RequiredFieldValidator ID="RFV_Car_Type_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Type_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Type_Lbl" runat="server">ประเภท </asp:Label>
                             <asp:TextBox ID="Car_Type_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="form-group col-xs-3">
-                            <asp:Label ID="Car_Feature_Lbl" runat="server">ลักษณะ
-                                <asp:RequiredFieldValidator ID="RFV_Car_Feature_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Feature_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Feature_Lbl" runat="server">ลักษณะ </asp:Label>
                             <asp:TextBox ID="Car_Feature_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
@@ -102,9 +98,7 @@
                             <asp:DropDownList ID="Car_Brand_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Car_Model_Lbl" runat="server">แบบ
-                                <asp:RequiredFieldValidator ID="RFV_Car_Model_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Model_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Model_Lbl" runat="server">แบบ </asp:Label>
                             <asp:TextBox ID="Car_Model_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
@@ -115,9 +109,7 @@
 
                     <div class="row">
                         <div class="form-group col-xs-3">
-                            <asp:Label ID="Car_Color_Lbl" runat="server">สีรถ
-                                <asp:RequiredFieldValidator ID="RFV_Car_Color_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Color_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Color_Lbl" runat="server">สีรถ </asp:Label>
                             <asp:TextBox ID="Car_Color_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
@@ -127,15 +119,11 @@
                             <asp:TextBox ID="Chassis_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Chassis_No_At_Lbl" runat="server">เลขตัวถังรถอยู่ที่
-                                <asp:RequiredFieldValidator ID="RFV_Chassis_No_At_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Chassis_No_At_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Chassis_No_At_Lbl" runat="server">เลขตัวถังรถอยู่ที่ </asp:Label>
                             <asp:TextBox ID="Chassis_No_At_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Engine_Brand_Lbl" runat="server">ยี่ห้อเครื่องยนต์
-                                <asp:RequiredFieldValidator ID="RFV_Engine_Brand_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Engine_Brand_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Engine_Brand_Lbl" runat="server">ยี่ห้อเครื่องยนต์ </asp:Label>
                             <asp:TextBox ID="Engine_Brand_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
@@ -148,15 +136,11 @@
                             <asp:TextBox ID="Engine_No_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Engine_No_At_Lbl" runat="server">เลขเครื่องยนต์อยู่ที่
-                                <asp:RequiredFieldValidator ID="RFV_Engine_No_At_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Engine_No_At_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Engine_No_At_Lbl" runat="server">เลขเครื่องยนต์อยู่ที่ </asp:Label>
                             <asp:TextBox ID="Engine_No_At_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Car_Fuel_Type_Lbl" runat="server">เชื้อเพลิง
-                                <asp:RequiredFieldValidator ID="RFV_Car_Fuel_Type_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Fuel_Type_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Fuel_Type_Lbl" runat="server">เชื้อเพลิง </asp:Label>
                             <asp:TextBox ID="Car_Fuel_Type_TBx" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                         <div class="col-xs-3">
@@ -173,9 +157,7 @@
                             <asp:DropDownList ID="Car_Used_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                         </div>
                         <div class="col-xs-3">
-                            <asp:Label ID="Car_Distance_Lbl" runat="server">ระยะทาง
-                                <asp:RequiredFieldValidator ID="RFV_Car_Distance_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Car_Distance_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
-                            </asp:Label>
+                            <asp:Label ID="Car_Distance_Lbl" runat="server">ระยะทาง </asp:Label>
                             <div class="form-group input-group">
                                 <asp:TextBox ID="Car_Distance_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
                                 <span class="input-group-addon">กิโลเมตร</span>
@@ -568,13 +550,13 @@
                                     <div class="row">
                                         <div class="form-group col-xs-3">
                                             <asp:Label ID="Payment_Schedule_Lbl" runat="server">กำหนดชำระทุกวันที่
-                                            <asp:RequiredFieldValidator ID="RFV_Payment_Schedule_DDL" runat="server" ErrorMessage=" กรุณาเลือก " CssClass="text-danger" ControlToValidate="Payment_Schedule_DDL" SetFocusOnError="true" ValidationGroup="Save_Validation" InitialValue="0"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Payment_Schedule_DDL" runat="server" ErrorMessage=" กรุณาเลือก " CssClass="text-danger" ControlToValidate="Payment_Schedule_DDL" SetFocusOnError="true" ValidationGroup="Save_Validation" InitialValue="0"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <asp:DropDownList ID="Payment_Schedule_DDL" runat="server" CssClass="form-control"></asp:DropDownList>
                                         </div>
                                         <div class="col-xs-3">
                                             <asp:Label ID="First_Payment_Date_Lbl" runat="server">วันที่เริ่มชำระ
-                                            <asp:RequiredFieldValidator ID="RFV_First_Payment_Date_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="First_Payment_Date_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_First_Payment_Date_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="First_Payment_Date_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group" id="First_Payment_Date">
                                                 <asp:TextBox ID="First_Payment_Date_TBx" runat="server" CssClass="form-control"></asp:TextBox>
@@ -620,7 +602,7 @@
                                         </div>
                                         <div class="col-xs-3">
                                             <asp:Label ID="Total_Require_Lbl" runat="server">ยอดจัด / เงินต้น
-                                            <asp:RequiredFieldValidator ID="RFV_Total_Require_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Total_Require_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Total_Require_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Total_Require_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Total_Require_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
@@ -629,7 +611,7 @@
                                         </div>
                                         <div class="col-xs-3">
                                             <asp:Label ID="Interest_Rate_Lbl" runat="server">อัตราดอกเบี้ย
-                                            <asp:RequiredFieldValidator ID="RFV_Interest_Rate_TBx" runat="server" ErrorMessage=" * " CssClass="text-danger" ControlToValidate="Interest_Rate_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Interest_Rate_TBx" runat="server" ErrorMessage=" * " CssClass="text-danger" ControlToValidate="Interest_Rate_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Interest_Rate_TBx" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
@@ -641,7 +623,7 @@
                                     <div class="row">
                                         <div class="col-xs-3">
                                             <asp:Label ID="Vat_Lbl" runat="server">ภาษีมูลค่าเพิ่ม
-                                            <asp:RequiredFieldValidator ID="RFV_Vat_TBx" runat="server" ErrorMessage=" * " CssClass="text-danger" ControlToValidate="Vat_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Vat_TBx" runat="server" ErrorMessage=" * " CssClass="text-danger" ControlToValidate="Vat_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Vat_TBx" runat="server" CssClass="form-control" TextMode="Number" Text="7"></asp:TextBox>
@@ -650,7 +632,7 @@
                                         </div>
                                         <div class="col-xs-3">
                                             <asp:Label ID="Total_Period_Lbl" runat="server">ระยะเวลา / จำนวนงวด
-                                            <asp:RequiredFieldValidator ID="RFV_Total_Period_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Total_Period_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Total_Period_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Total_Period_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Total_Period_TBx" runat="server" CssClass="form-control" TextMode="Number" OnTextChanged="Total_Period_TBx_TextChanged" AutoPostBack="true"></asp:TextBox>
@@ -677,7 +659,7 @@
                                     <div class="row">
                                         <div class="form-group col-xs-6">
                                             <asp:Label ID="Total_Sum_Lbl" runat="server">มูลค่า
-                                            <asp:RequiredFieldValidator ID="RFV_Total_Sum_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Total_Sum_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Total_Sum_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Total_Sum_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Total_Sum_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -686,7 +668,7 @@
                                         </div>
                                         <div class="form-group col-xs-6">
                                             <asp:Label ID="Total_Interest_Lbl" runat="server">ดอกเบี้ย
-                                            <asp:RequiredFieldValidator ID="RFV_Total_Interest_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Total_Interest_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Total_Interest_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Total_Interest_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Total_Interest_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -698,7 +680,7 @@
                                     <div class="row">
                                         <div class="form-group col-xs-6">
                                             <asp:Label ID="Total_Tax_Lbl" runat="server">ภาษี
-                                            <asp:RequiredFieldValidator ID="RFV_Total_Tax_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Total_Tax_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Total_Tax_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Total_Tax_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Total_Tax_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -707,7 +689,7 @@
                                         </div>
                                         <div class="form-group col-xs-6">
                                             <asp:Label ID="Total_Leasing_Lbl" runat="server">ยอดเช่า-ซื้อ
-                                            <asp:RequiredFieldValidator ID="RFV_Total_Leasing_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Total_Leasing_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Total_Leasing_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Total_Leasing_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Total_Leasing_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -719,7 +701,7 @@
                                     <div class="row">
                                         <div class="form-group col-xs-7">
                                             <asp:Label ID="Total_Net_Leasing_Lbl" runat="server">ยอดเช่า-ซื้อสุทธิ (ชำระจริง)
-                                            <asp:RequiredFieldValidator ID="RFV_Total_Net_Leasing_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Total_Net_Leasing_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Total_Net_Leasing_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Total_Net_Leasing_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Total_Net_Leasing_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -741,7 +723,7 @@
                                     <div class="row">
                                         <div class="form-group col-xs-6">
                                             <asp:Label ID="Period_require_Lbl" runat="server">เงินต้น / งวด
-                                            <asp:RequiredFieldValidator ID="RFV_Period_require_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_require_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Period_require_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_require_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Period_require_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -751,7 +733,7 @@
 
                                         <div class="form-group col-xs-6">
                                             <asp:Label ID="Period_interst_Lbl" runat="server">ดอกเบี้ย / งวด
-                                            <asp:RequiredFieldValidator ID="RFV_Period_interst_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_interst_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Period_interst_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_interst_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Period_interst_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -763,7 +745,7 @@
                                     <div class="row">
                                         <div class="form-group col-xs-6">
                                             <asp:Label ID="Period_tax_Lbl" runat="server">ภาษี / งวด
-                                            <asp:RequiredFieldValidator ID="RFV_Period_tax_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_tax_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Period_tax_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_tax_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Period_tax_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -772,7 +754,7 @@
                                         </div>
                                         <div class="form-group col-xs-6">
                                             <asp:Label ID="Period_Cal_Lbl" runat="server">มูลค่า / งวด
-                                            <asp:RequiredFieldValidator ID="RFV_Period_Cal_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_Cal_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Period_Cal_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_Cal_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Period_Cal_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -784,7 +766,7 @@
                                     <div class="row">
                                         <div class="form-group col-xs-5">
                                             <asp:Label ID="Period_pure_Lbl" runat="server">ค่างวด
-                                            <asp:RequiredFieldValidator ID="RFV_Period_pure_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_pure_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Period_pure_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_pure_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Period_pure_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
@@ -793,7 +775,7 @@
                                         </div>
                                         <div class="form-group col-xs-7">
                                             <asp:Label ID="Period_Payment_Lbl" runat="server">ค่างวดสุทธิ (ชำระจริง)
-                                            <asp:RequiredFieldValidator ID="RFV_Period_Payment_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_Payment_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RFV_Period_Payment_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูลและคำนวณ " CssClass="text-danger" ControlToValidate="Period_Payment_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                                             </asp:Label>
                                             <div class="form-group input-group">
                                                 <asp:TextBox ID="Period_Payment_TBx" runat="server" CssClass="form-control" ReadOnly="true"></asp:TextBox>
