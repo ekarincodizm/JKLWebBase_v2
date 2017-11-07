@@ -301,7 +301,7 @@ namespace JKLWebBase_v2.Form_Leasings
             // ข้อมูลรถ
             Car_Register_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls_tmp.Car_register_date);
             Car_Plate_TBx.Text = cls_tmp.Car_license_plate;
-            Car_Plate_Province_DDL.SelectedValue = Thai_Province._getThaiProvinces(cls_tmp.Car_license_plate_province);
+            Car_Plate_Province_DDL.SelectedValue = cls_tmp.Car_license_plate_province.IndexOf('.') >= 1 ? Thai_Province._getThaiProvinces(cls_tmp.Car_license_plate_province.Split('.')[1]) : "0";
             Car_Type_TBx.Text = cls_tmp.Car_type;
             Car_Feature_TBx.Text = cls_tmp.Car_feature;
             Car_Brand_DDL.SelectedValue = cls_tmp.bs_cbrn.car_brand_id.ToString();

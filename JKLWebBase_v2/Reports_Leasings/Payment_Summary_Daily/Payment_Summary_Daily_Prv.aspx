@@ -1,4 +1,4 @@
-﻿<%@ page title="รายงานสรุปชำระเงินประจำวัน" language="C#" masterpagefile="~/Site.Master" autoeventwireup="true" codebehind="Payment_Summary_Daily_Prv.aspx.cs" inherits="JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily.Payment_Summary_Daily_Prv" %>
+﻿<%@ Page title="รายงานสรุปชำระเงินประจำวัน" language="C#" masterpagefile="~/Site.Master" autoeventwireup="true" codebehind="Payment_Summary_Daily_Prv.aspx.cs" inherits="JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily.Payment_Summary_Daily_Prv" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
