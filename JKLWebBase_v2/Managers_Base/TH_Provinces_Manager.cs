@@ -105,7 +105,7 @@ namespace JKLWebBase_v2.Managers_Base
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM th_provinces";
+                string sql = "SELECT * FROM th_provinces ORDER BY Province_name";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
 

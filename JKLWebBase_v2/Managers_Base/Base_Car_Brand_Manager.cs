@@ -171,7 +171,7 @@ namespace JKLWebBase_v2.Managers_Base
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM base_car_brands";
+                string sql = "SELECT * FROM base_car_brands ORDER BY car_brand_name_eng";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
 

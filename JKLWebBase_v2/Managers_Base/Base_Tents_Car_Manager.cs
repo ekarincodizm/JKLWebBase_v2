@@ -60,7 +60,7 @@ namespace JKLWebBase_v2.Managers_Base
             try
             {
                 con.Open();
-                string sql = "SELECT * FROM base_tents_car";
+                string sql = "SELECT * FROM base_tents_car ORDER BY Tent_name";
                 MySqlCommand cmd = new MySqlCommand(sql, con);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
