@@ -748,11 +748,11 @@ namespace JKLWebBase_v2.Form_Leasings
                 ctm.Cust_Idcard = string.IsNullOrEmpty(Cust_idcard_TBx.Text) ? "" : Cust_idcard_TBx.Text;
                 ctm.Cust_Fname = string.IsNullOrEmpty(Cust_Fname_TBx.Text) ? "" : Cust_Fname_TBx.Text;
                 ctm.Cust_LName = string.IsNullOrEmpty(Cust_LName_TBx.Text) ? "" : Cust_LName_TBx.Text;
-                ctm.Cust_B_date = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Cust_B_date_TBx.Text);
+                ctm.Cust_B_date = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? null : DateTimeUtility.convertDateToMYSQL(Cust_B_date_TBx.Text);
                 ctm.Cust_Age = string.IsNullOrEmpty(Cust_B_date_TBx.Text) ? 0 : DateTime.Now.Year - (Convert.ToInt32(Cust_B_date_TBx.Text.Split('/')[2].ToString()) - 543);
                 ctm.Cust_Idcard_without = string.IsNullOrEmpty(Cust_Idcard_without_TBx.Text) ? "" : Cust_Idcard_without_TBx.Text;
-                ctm.Cust_Idcard_start = string.IsNullOrEmpty(Cust_Idcard_start_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_start_TBx.Text);
-                ctm.Cust_Idcard_expire = string.IsNullOrEmpty(Cust_Idcard_expire_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_expire_TBx.Text);
+                ctm.Cust_Idcard_start = string.IsNullOrEmpty(Cust_Idcard_start_TBx.Text) ? null : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_start_TBx.Text);
+                ctm.Cust_Idcard_expire = string.IsNullOrEmpty(Cust_Idcard_expire_TBx.Text) ? null : DateTimeUtility.convertDateToMYSQL(Cust_Idcard_expire_TBx.Text);
 
                 ctm.ctm_ntnlt = new Base_Nationalitys();
                 ctm.ctm_ntnlt.Nationality_id = Cust_Nationality_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Cust_Nationality_DDL.SelectedValue);

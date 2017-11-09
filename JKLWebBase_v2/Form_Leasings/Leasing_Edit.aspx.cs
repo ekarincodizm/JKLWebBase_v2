@@ -299,7 +299,7 @@ namespace JKLWebBase_v2.Form_Leasings
             First_Payment_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls_tmp.First_payment_date);
 
             // ข้อมูลรถ
-            Car_Register_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls_tmp.Car_register_date);
+            Car_Register_Date_TBx.Text = string.IsNullOrEmpty(Car_Register_Date_TBx.Text) ? null : DateTimeUtility.convertDateToPageRealServer(cls_tmp.Car_register_date);
             Car_Plate_TBx.Text = cls_tmp.Car_license_plate;
             Car_Plate_Province_DDL.SelectedValue = cls_tmp.Car_license_plate_province.IndexOf('.') >= 1 ? Thai_Province._getThaiProvinces(cls_tmp.Car_license_plate_province.Split('.')[1]) : "0";
             Car_Type_TBx.Text = cls_tmp.Car_type;
@@ -317,14 +317,14 @@ namespace JKLWebBase_v2.Form_Leasings
             Car_Gas_No_TBx.Text = cls_tmp.Car_gas_No;
             Car_Used_DDL.SelectedValue = cls_tmp.Car_used_id.ToString();
             Car_Distance_TBx.Text = cls_tmp.Car_distance.ToString();
-            Car_Next_Register_Date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls_tmp.Car_next_register_date);
+            Car_Next_Register_Date_TBx.Text = string.IsNullOrEmpty(Car_Next_Register_Date_TBx.Text) ? null : DateTimeUtility.convertDateToPageRealServer(cls_tmp.Car_next_register_date);
             Car_Tax_Value_TBx.Text = cls_tmp.Car_tax_value.ToString();
             Car_Credits_TBx.Text = cls_tmp.Car_credits;
             Car_agent_TBx.Text = cls_tmp.Car_agent;
 
             Car_Old_Owner_TBx.Text = cls_tmp.Car_old_owner;
             Car_Old_Owner_Idcard_TBx.Text = cls_tmp.Car_old_owner_idcard;
-            Car_old_owner_b_date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls_tmp.Car_old_owner_b_date);
+            Car_old_owner_b_date_TBx.Text = string.IsNullOrEmpty(Car_old_owner_b_date_TBx.Text) ? null : DateTimeUtility.convertDateToPageRealServer(cls_tmp.Car_old_owner_b_date);
             Car_Old_Owner_Address_No_TBx.Text = cls_tmp.Car_old_owner_address_no;
             Car_Old_Owner_Vilage_TBx.Text = cls_tmp.Car_old_owner_vilage.IndexOf('.') >= 1 ? cls_tmp.Car_old_owner_vilage.Split('.')[1] : "";
             Car_Old_Owner_Vilage_No_TBx.Text = cls_tmp.Car_old_owner_vilage_no.IndexOf('.') >= 1 ? cls_tmp.Car_old_owner_vilage_no.Split('.')[1] : "";
@@ -342,7 +342,7 @@ namespace JKLWebBase_v2.Form_Leasings
             Cheque_bank_branch_TBx.Text = cls_tmp.Cheque_bank_branch;
             Cheque_number_TBx.Text = cls_tmp.Cheque_number;
             Cheque_sum_TBx.Text = cls_tmp.Cheque_sum.ToString("#,##0.00");
-            Cheque_receive_date_TBx.Text = DateTimeUtility.convertDateToPageRealServer(cls_tmp.Cheque_receive_date);
+            Cheque_receive_date_TBx.Text = string.IsNullOrEmpty(Cheque_receive_date_TBx.Text) ? null : DateTimeUtility.convertDateToPageRealServer(cls_tmp.Cheque_receive_date);
 
             _CheckLeasingPayment(Leasing_id);
         }
