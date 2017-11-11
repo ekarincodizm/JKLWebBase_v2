@@ -187,7 +187,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
 
                 cmd.Parameters.AddWithValue("@i_payment_str_date", date_str);
                 cmd.Parameters.AddWithValue("@i_payment_end_date", date_end);
-                cmd.Parameters.AddWithValue("@i_Company_id", Company_id_inline);
                 cmd.Parameters.AddWithValue("@i_Leasing_code_id", leasing_Code_inline);
                 cmd.Parameters.AddWithValue("@i_Company_id", Company_id_inline);
                 cmd.Parameters.AddWithValue("@i_Zone_id", zone_id_inline);
