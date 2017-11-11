@@ -239,7 +239,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ");";
             message += Environment.NewLine;
 
-            string path = subDirectoryPath + "Code_INSERT_Customer_" + DateTimeUtility._dateNOW() + "_part_" + part + ".txt";
+            string path = subDirectoryPath + "Code_INSERT_Customer_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
@@ -370,7 +370,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ");";
             message += Environment.NewLine;
 
-            string path = subDirectoryPath + "Code_UPDATE_Customer_" + DateTimeUtility._dateNOW() + "_part_" + part + ".txt";
+            string path = subDirectoryPath + "Code_UPDATE_Customer_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
@@ -474,7 +474,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ");";
             message += Environment.NewLine;
 
-            string path = subDirectoryPath + "Code_INSERT_Leasings_" + DateTimeUtility._dateNOW() + "_part_" + part + ".txt";
+            string path = subDirectoryPath + "Code_INSERT_Leasings_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
@@ -606,7 +606,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ");";
             message += Environment.NewLine;
 
-            string path = subDirectoryPath + "Code_INSERT_Leasings_Customer_" + DateTimeUtility._dateNOW() + "_part_" + part + ".txt";
+            string path = subDirectoryPath + "Code_INSERT_Leasings_Customer_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
@@ -739,7 +739,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ");";
             message += Environment.NewLine;
 
-            string path = subDirectoryPath + "Code_INSERT_Leasings_Guarantor_" + cls_grt.Guarantor_no + "_" + DateTimeUtility._dateNOW() + "_part_" + part + ".txt";
+            string path = subDirectoryPath + "Code_INSERT_Leasings_Guarantor_" + cls_grt.Guarantor_no + "_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
@@ -783,7 +783,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ");";
             message += Environment.NewLine;
 
-            string path = subDirectoryPath + "Code_INSERT_Agents_" + DateTimeUtility._dateNOW() + "_part_" + part + ".txt";
+            string path = subDirectoryPath + "Code_INSERT_Agents_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
@@ -821,7 +821,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ");";
             message += Environment.NewLine;
 
-            string path = subDirectoryPath + "Code_INSERT_Agents_Commission_" + DateTimeUtility._dateNOW() + "_part_" + part + ".txt";
+            string path = subDirectoryPath + "Code_INSERT_Agents_Commission_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
@@ -862,7 +862,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ");";
             message += Environment.NewLine;
 
-            string path = subDirectoryPath + "Code_INSERT_Car_Leasings_Payment_" + DateTimeUtility._dateNOW() + "_part_" + part + ".txt";
+            string path = subDirectoryPath + "Code_INSERT_Car_Leasings_Payment_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
@@ -892,7 +892,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ");";
             message += Environment.NewLine;
 
-            string path = subDirectoryPath + "Code_INSERT_Car_Leasings_Payment_" + DateTimeUtility._dateNOW() + "_part_" + part + ".txt";
+            string path = subDirectoryPath + "Code_INSERT_Car_Leasings_Payment_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {
