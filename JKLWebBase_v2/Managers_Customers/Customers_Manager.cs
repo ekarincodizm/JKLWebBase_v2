@@ -245,7 +245,7 @@ namespace JKLWebBase_v2.Managers_Customers
             }
         }
 
-        public Customers getCustomer(string idcard, string fname, string lname, int i_row_str, int i_row_limit)
+        public Customers getOnceCustomer(string idcard, string fname, string lname, int i_row_str, int i_row_limit)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
@@ -269,7 +269,7 @@ namespace JKLWebBase_v2.Managers_Customers
 
                 Customers ctm = new Customers();
 
-                while (reader.Read())
+                if (reader.Read())
                 {
                     int defaultNum = 0;
                     string defaultString = "";
