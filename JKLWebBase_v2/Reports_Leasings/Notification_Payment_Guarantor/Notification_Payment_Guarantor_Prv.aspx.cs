@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
-using MySql.Data.MySqlClient;
-using System.Data;
 using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Class_Leasings;
 

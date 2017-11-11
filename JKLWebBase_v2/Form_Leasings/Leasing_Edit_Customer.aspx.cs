@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Text;
 
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;

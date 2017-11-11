@@ -5,10 +5,7 @@ using System.Net;
 using System.IO;
 using System.Web.UI;
 using System.Data;
-
-using JKLWebBase_v2.Class_Customers;
 using JKLWebBase_v2.Global_Class;
-using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Reports_Leasings.DataSet_Leasings;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Account;

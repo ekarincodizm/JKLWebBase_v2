@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
 
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Customers;
@@ -16,7 +13,6 @@ using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Managers_Agents;
 using JKLWebBase_v2.Class_Agents;
 using JKLWebBase_v2.Class_Account;
-using System.Threading.Tasks;
 
 namespace JKLWebBase_v2.Form_Account
 {

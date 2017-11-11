@@ -324,7 +324,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             Car_Old_Owner_TBx.Text = cls_tmp.Car_old_owner;
             Car_Old_Owner_Idcard_TBx.Text = cls_tmp.Car_old_owner_idcard;
-            Car_old_owner_b_date_TBx.Text = string.IsNullOrEmpty(Car_old_owner_b_date_TBx.Text) ? "" : DateTimeUtility.convertDateToPageRealServer(cls_tmp.Car_old_owner_b_date);
+            Car_old_owner_b_date_TBx.Text = string.IsNullOrEmpty(cls_tmp.Car_old_owner_b_date) ? "" : DateTimeUtility.convertDateToPageRealServer(cls_tmp.Car_old_owner_b_date);
             Car_Old_Owner_Address_No_TBx.Text = cls_tmp.Car_old_owner_address_no;
             Car_Old_Owner_Vilage_TBx.Text = cls_tmp.Car_old_owner_vilage.IndexOf('.') >= 1 ? cls_tmp.Car_old_owner_vilage.Split('.')[1] : "";
             Car_Old_Owner_Vilage_No_TBx.Text = cls_tmp.Car_old_owner_vilage_no.IndexOf('.') >= 1 ? cls_tmp.Car_old_owner_vilage_no.Split('.')[1] : "";
@@ -341,7 +341,7 @@ namespace JKLWebBase_v2.Form_Leasings
             Cheque_bank_TBx.Text = cls_tmp.Cheque_bank;
             Cheque_bank_branch_TBx.Text = cls_tmp.Cheque_bank_branch;
             Cheque_number_TBx.Text = cls_tmp.Cheque_number;
-            Cheque_sum_TBx.Text = cls_tmp.Cheque_sum.ToString("#,##0.00");
+            Cheque_sum_TBx.Text = cls_tmp.Cheque_sum.ToString();
             Cheque_receive_date_TBx.Text = string.IsNullOrEmpty(cls_tmp.Cheque_receive_date) ? "" : DateTimeUtility.convertDateToPageRealServer(cls_tmp.Cheque_receive_date);
 
             _CheckLeasingPayment(Leasing_id);

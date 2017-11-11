@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using MySql.Data.MySqlClient;
 
 namespace JKLWebBase_v2.Global_Class

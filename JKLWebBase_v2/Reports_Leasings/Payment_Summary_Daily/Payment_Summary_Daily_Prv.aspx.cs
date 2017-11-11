@@ -5,9 +5,7 @@ using System.Collections.Generic;
 
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;
-using JKLWebBase_v2.Class_Leasings;
 using JKLWebBase_v2.Managers_Base;
-using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Class_Account;
 
 namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily

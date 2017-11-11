@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Drawing;
 
 using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;

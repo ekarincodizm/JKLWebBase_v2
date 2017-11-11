@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JKLWebBase_v2.Global_Class
+﻿namespace JKLWebBase_v2.Global_Class
 {
     public class General_Functions
     {

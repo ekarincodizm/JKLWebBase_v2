@@ -2,8 +2,6 @@
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections.Generic;
-
-using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
 

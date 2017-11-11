@@ -245,6 +245,197 @@ namespace JKLWebBase_v2.Managers_Customers
             }
         }
 
+        public Customers getCustomer(string idcard, string fname, string lname, int i_row_str, int i_row_limit)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                /* 
+                 * :: StoredProcedure :: [ g_customers ] :: 
+                 * g_customers (in i_Cust_idcard varchar(30), in i_Cust_Fname varchar(255), in i_Cust_LName varchar(255), IN i_row_str INT(11), IN i_row_limit INT(11))
+                 * 
+                 */
+
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("g_customers", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@i_Cust_idcard", idcard);
+                cmd.Parameters.AddWithValue("@i_Cust_Fname", fname);
+                cmd.Parameters.AddWithValue("@i_Cust_LName", lname);
+                cmd.Parameters.AddWithValue("@i_row_str", 0);
+                cmd.Parameters.AddWithValue("@i_row_limit", 0);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Customers ctm = new Customers();
+
+                while (reader.Read())
+                {
+                    int defaultNum = 0;
+                    string defaultString = "";
+
+                    ctm.Cust_id = reader.IsDBNull(0) ? defaultString : reader.GetString(0);
+                    ctm.Cust_Idcard = reader.IsDBNull(1) ? defaultString : reader.GetString(1);
+                    ctm.Cust_Fname = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                    ctm.Cust_LName = reader.IsDBNull(3) ? defaultString : reader.GetString(3);
+                    ctm.Cust_B_date = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    ctm.Cust_Age = reader.IsDBNull(5) ? defaultNum : reader.GetInt32(5);
+                    ctm.Cust_Idcard_without = reader.IsDBNull(6) ? defaultString : reader.GetString(6);
+                    ctm.Cust_Idcard_start = reader.IsDBNull(7) ? defaultString : reader.GetString(7);
+                    ctm.Cust_Idcard_expire = reader.IsDBNull(8) ? defaultString : reader.GetString(8);
+
+                    ctm.ctm_ntnlt = new Base_Nationalitys();
+                    ctm.ctm_ntnlt.Nationality_id = reader.IsDBNull(9) ? defaultNum : reader.GetInt32(9);
+                    ctm.ctm_ntnlt.Nationality_name_ENG = reader.IsDBNull(10) ? defaultString : reader.GetString(10);
+                    ctm.ctm_ntnlt.Nationality_name_TH = reader.IsDBNull(11) ? defaultString : reader.GetString(11);
+
+                    ctm.ctm_org = new Base_Origins();
+                    ctm.ctm_org.Origin_id = reader.IsDBNull(12) ? defaultNum : reader.GetInt32(12);
+                    ctm.ctm_org.Origin_name_ENG = reader.IsDBNull(13) ? defaultString : reader.GetString(13);
+                    ctm.ctm_org.Origin_name_TH = reader.IsDBNull(14) ? defaultString : reader.GetString(14);
+
+                    ctm.Cust_Tel = reader.IsDBNull(15) ? defaultString : reader.GetString(15);
+                    ctm.Cust_Email = reader.IsDBNull(16) ? defaultString : reader.GetString(16);
+
+                    ctm.ctm_pstt = new Base_Person_Status();
+                    ctm.ctm_pstt.person_status_id = reader.IsDBNull(17) ? defaultNum : reader.GetInt32(17);
+                    ctm.ctm_pstt.person_status_name = reader.IsDBNull(18) ? defaultString : reader.GetString(18);
+
+                    ctm.Cust_Marry_idcard = reader.IsDBNull(19) ? defaultString : reader.GetString(19);
+                    ctm.Cust_Marry_Fname = reader.IsDBNull(20) ? defaultString : reader.GetString(20);
+                    ctm.Cust_Marry_Lname = reader.IsDBNull(21) ? defaultString : reader.GetString(21);
+
+                    ctm.ctm_marry_ntnlt = new Base_Nationalitys();
+                    ctm.ctm_marry_ntnlt.Nationality_id = reader.IsDBNull(22) ? defaultNum : reader.GetInt32(22);
+                    ctm.ctm_marry_ntnlt.Nationality_name_ENG = reader.IsDBNull(23) ? defaultString : reader.GetString(23);
+                    ctm.ctm_marry_ntnlt.Nationality_name_TH = reader.IsDBNull(24) ? defaultString : reader.GetString(24);
+
+                    ctm.ctm_marry_org = new Base_Origins();
+                    ctm.ctm_marry_org.Origin_id = reader.IsDBNull(25) ? defaultNum : reader.GetInt32(25);
+                    ctm.ctm_marry_org.Origin_name_ENG = reader.IsDBNull(26) ? defaultString : reader.GetString(26);
+                    ctm.ctm_marry_org.Origin_name_TH = reader.IsDBNull(27) ? defaultString : reader.GetString(27);
+
+                    ctm.Cust_Marry_Address_no = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
+                    ctm.Cust_Marry_vilage = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    ctm.Cust_Marry_vilage_no = reader.IsDBNull(30) ? defaultString : reader.GetString(30);
+                    ctm.Cust_Marry_alley = reader.IsDBNull(31) ? defaultString : reader.GetString(31);
+                    ctm.Cust_Marry_road = reader.IsDBNull(32) ? defaultString : reader.GetString(32);
+                    ctm.Cust_Marry_subdistrict = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+                    ctm.Cust_Marry_district = reader.IsDBNull(34) ? defaultString : reader.GetString(34);
+                    ctm.Cust_Marry_province = reader.IsDBNull(35) ? defaultString : reader.GetString(35);
+                    ctm.Cust_Marry_country = reader.IsDBNull(36) ? defaultString : reader.GetString(36);
+                    ctm.Cust_Marry_zipcode = reader.IsDBNull(37) ? defaultString : reader.GetString(37);
+                    ctm.Cust_Marry_tel = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
+                    ctm.Cust_Marry_email = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
+
+                    ctm.Cust_Marry_job = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
+                    ctm.Cust_Marry_job_position = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
+                    ctm.Cust_Marry_job_long = reader.IsDBNull(42) ? defaultNum : reader.GetInt32(42);
+                    ctm.Cust_Marry_job_salary = reader.IsDBNull(43) ? defaultNum : reader.GetDouble(43);
+                    ctm.Cust_Marry_job_local_name = reader.IsDBNull(44) ? defaultString : reader.GetString(44);
+                    ctm.Cust_Marry_job_address_no = reader.IsDBNull(45) ? defaultString : reader.GetString(45);
+                    ctm.Cust_Marry_job_vilage = reader.IsDBNull(46) ? defaultString : reader.GetString(46);
+                    ctm.Cust_Marry_job_vilage_no = reader.IsDBNull(47) ? defaultString : reader.GetString(47);
+                    ctm.Cust_Marry_job_alley = reader.IsDBNull(48) ? defaultString : reader.GetString(48);
+                    ctm.Cust_Marry_job_road = reader.IsDBNull(49) ? defaultString : reader.GetString(49);
+                    ctm.Cust_Marry_job_subdistrict = reader.IsDBNull(50) ? defaultString : reader.GetString(50);
+                    ctm.Cust_Marry_job_district = reader.IsDBNull(51) ? defaultString : reader.GetString(51);
+                    ctm.Cust_Marry_job_province = reader.IsDBNull(52) ? defaultString : reader.GetString(52);
+                    ctm.Cust_Marry_job_country = reader.IsDBNull(53) ? defaultString : reader.GetString(53);
+                    ctm.Cust_Marry_job_zipcode = reader.IsDBNull(54) ? defaultString : reader.GetString(54);
+                    ctm.Cust_Marry_job_tel = reader.IsDBNull(55) ? defaultString : reader.GetString(55);
+
+                    ctm.Cust_Job = reader.IsDBNull(56) ? defaultString : reader.GetString(56);
+                    ctm.Cust_Job_position = reader.IsDBNull(57) ? defaultString : reader.GetString(57);
+                    ctm.Cust_Job_long = reader.IsDBNull(58) ? defaultNum : reader.GetInt32(58);
+                    ctm.Cust_Job_salary = reader.IsDBNull(59) ? defaultNum : reader.GetDouble(59);
+                    ctm.Cust_Job_local_name = reader.IsDBNull(60) ? defaultString : reader.GetString(60);
+                    ctm.Cust_Job_address_no = reader.IsDBNull(61) ? defaultString : reader.GetString(61);
+                    ctm.Cust_Job_vilage = reader.IsDBNull(62) ? defaultString : reader.GetString(62);
+                    ctm.Cust_Job_vilage_no = reader.IsDBNull(63) ? defaultString : reader.GetString(63);
+                    ctm.Cust_Job_alley = reader.IsDBNull(64) ? defaultString : reader.GetString(64);
+                    ctm.Cust_Job_road = reader.IsDBNull(65) ? defaultString : reader.GetString(65);
+                    ctm.Cust_Job_subdistrict = reader.IsDBNull(66) ? defaultString : reader.GetString(66);
+                    ctm.Cust_Job_district = reader.IsDBNull(67) ? defaultString : reader.GetString(67);
+                    ctm.Cust_Job_province = reader.IsDBNull(68) ? defaultString : reader.GetString(68);
+                    ctm.Cust_Job_country = reader.IsDBNull(69) ? defaultString : reader.GetString(69);
+                    ctm.Cust_Job_zipcode = reader.IsDBNull(70) ? defaultString : reader.GetString(70);
+                    ctm.Cust_Job_tel = reader.IsDBNull(71) ? defaultString : reader.GetString(71);
+                    ctm.Cust_Job_email = reader.IsDBNull(72) ? defaultString : reader.GetString(72);
+
+                    ctm.Cust_Home_address_no = reader.IsDBNull(73) ? defaultString : reader.GetString(73);
+                    ctm.Cust_Home_vilage = reader.IsDBNull(74) ? defaultString : reader.GetString(74);
+                    ctm.Cust_Home_vilage_no = reader.IsDBNull(75) ? defaultString : reader.GetString(75);
+                    ctm.Cust_Home_alley = reader.IsDBNull(76) ? defaultString : reader.GetString(76);
+                    ctm.Cust_Home_road = reader.IsDBNull(77) ? defaultString : reader.GetString(77);
+                    ctm.Cust_Home_subdistrict = reader.IsDBNull(78) ? defaultString : reader.GetString(78);
+                    ctm.Cust_Home_district = reader.IsDBNull(79) ? defaultString : reader.GetString(79);
+                    ctm.Cust_Home_province = reader.IsDBNull(80) ? defaultString : reader.GetString(80);
+                    ctm.Cust_Home_country = reader.IsDBNull(81) ? defaultString : reader.GetString(81);
+                    ctm.Cust_Home_zipcode = reader.IsDBNull(82) ? defaultString : reader.GetString(82);
+                    ctm.Cust_Home_tel = reader.IsDBNull(83) ? defaultString : reader.GetString(83);
+                    ctm.Cust_Home_GPS_Latitude = reader.IsDBNull(84) ? defaultString : reader.GetString(84);
+                    ctm.Cust_Home_GPS_Longitude = reader.IsDBNull(85) ? defaultString : reader.GetString(85);
+
+                    ctm.ctm_home_stt = new Base_Home_Status();
+                    ctm.ctm_home_stt.Home_status_id = reader.IsDBNull(86) ? defaultNum : reader.GetInt32(86);
+                    ctm.ctm_home_stt.Home_status_name = reader.IsDBNull(87) ? defaultString : reader.GetString(87);
+
+                    ctm.Cust_Idcard_address_no = reader.IsDBNull(88) ? defaultString : reader.GetString(88);
+                    ctm.Cust_Idcard_vilage = reader.IsDBNull(89) ? defaultString : reader.GetString(89);
+                    ctm.Cust_Idcard_vilage_no = reader.IsDBNull(90) ? defaultString : reader.GetString(90);
+                    ctm.Cust_Idcard_alley = reader.IsDBNull(91) ? defaultString : reader.GetString(91);
+                    ctm.Cust_Idcard_road = reader.IsDBNull(92) ? defaultString : reader.GetString(92);
+                    ctm.Cust_Idcard_subdistrict = reader.IsDBNull(93) ? defaultString : reader.GetString(93);
+                    ctm.Cust_Idcard_district = reader.IsDBNull(94) ? defaultString : reader.GetString(94);
+                    ctm.Cust_Idcard_province = reader.IsDBNull(95) ? defaultString : reader.GetString(95);
+                    ctm.Cust_Idcard_country = reader.IsDBNull(96) ? defaultString : reader.GetString(96);
+                    ctm.Cust_Idcard_zipcode = reader.IsDBNull(97) ? defaultString : reader.GetString(97);
+                    ctm.Cust_Idcard_tel = reader.IsDBNull(98) ? defaultString : reader.GetString(98);
+
+                    ctm.ctm_idcard_stt = new Base_Home_Status();
+                    ctm.ctm_idcard_stt.Home_status_id = reader.IsDBNull(99) ? defaultNum : reader.GetInt32(99);
+                    ctm.ctm_idcard_stt.Home_status_name = reader.IsDBNull(100) ? defaultString : reader.GetString(100);
+
+                    ctm.Cust_Current_address_no = reader.IsDBNull(101) ? defaultString : reader.GetString(101);
+                    ctm.Cust_Current_vilage = reader.IsDBNull(102) ? defaultString : reader.GetString(102);
+                    ctm.Cust_Current_vilage_no = reader.IsDBNull(103) ? defaultString : reader.GetString(103);
+                    ctm.Cust_Current_alley = reader.IsDBNull(104) ? defaultString : reader.GetString(104);
+                    ctm.Cust_Current_road = reader.IsDBNull(105) ? defaultString : reader.GetString(105);
+                    ctm.Cust_Current_subdistrict = reader.IsDBNull(106) ? defaultString : reader.GetString(106);
+                    ctm.Cust_Current_district = reader.IsDBNull(107) ? defaultString : reader.GetString(107);
+                    ctm.Cust_Current_province = reader.IsDBNull(108) ? defaultString : reader.GetString(108);
+                    ctm.Cust_Current_country = reader.IsDBNull(109) ? defaultString : reader.GetString(109);
+                    ctm.Cust_Current_zipcode = reader.IsDBNull(110) ? defaultString : reader.GetString(110);
+                    ctm.Cust_Current_tel = reader.IsDBNull(111) ? defaultString : reader.GetString(111);
+
+                    ctm.ctm_current_stt = new Base_Home_Status();
+                    ctm.ctm_current_stt.Home_status_id = reader.IsDBNull(112) ? defaultNum : reader.GetInt32(112);
+                    ctm.ctm_current_stt.Home_status_name = reader.IsDBNull(113) ? defaultString : reader.GetString(113);
+
+                    ctm.Cust_save_date = reader.IsDBNull(114) ? defaultString : reader.GetString(114);
+                }
+
+                return ctm;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Customers --> Customers_Manager --> getCustomers() ";
+                Log_Error._writeErrorFile(error, ex);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Customers --> Customers_Manager --> getCustomers() ";
+                Log_Error._writeErrorFile(error, ex);
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public Customers getCustomersByIdCard(string idcard)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
