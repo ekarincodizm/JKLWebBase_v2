@@ -257,7 +257,7 @@ namespace JKLWebBase_v2.Managers_Customers
                  */
 
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("g_customers", con);
+                MySqlCommand cmd = new MySqlCommand("g_customers_by_transfer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@i_Cust_idcard", idcard);
                 cmd.Parameters.AddWithValue("@i_Cust_Fname", fname);

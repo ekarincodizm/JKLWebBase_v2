@@ -262,7 +262,7 @@ namespace JKLWebBase_v2.Form_Account
 
                         if (ctm_mng.addCustomers(ctm))
                         {
-                            Messages_TBx.Text += "Transfer Data Cusotmer Passed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Add Data Customer Passed : " + row_index + Environment.NewLine;
 
                             row_index++;
                         }
@@ -279,7 +279,7 @@ namespace JKLWebBase_v2.Form_Account
 
                         if (ctm_mng.editCustomers(ctm))
                         {
-                            Messages_TBx.Text += "Update Data Cusotmer : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Update Data Customer Passed : " + row_index + Environment.NewLine;
 
                             row_index++;
                         }
@@ -495,7 +495,7 @@ namespace JKLWebBase_v2.Form_Account
 
                         Messages_Logs._writeSQLCodeInsertLeasingsToMYSQL(cls, 0);
 
-                        Messages_TBx.Text += "Transfer Data Leasing No Customers Passed : " + row_index + Environment.NewLine;
+                        Messages_TBx.Text += "Transfer Add Data Leasing No Customers Passed : " + row_index + Environment.NewLine;
 
                         row_index++;
                     }
@@ -736,7 +736,7 @@ namespace JKLWebBase_v2.Form_Account
                         }
                         else
                         {
-                            Messages_TBx.Text += "Transfer Data Leasing Add Failed SqlException : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Add Data Leasing Failed : " + row_index + Environment.NewLine;
                         }
 
                         cls_ctm_mng.addCustomersLeasing(cls, ctm);
@@ -799,7 +799,7 @@ namespace JKLWebBase_v2.Form_Account
                             Messages_Logs._writeSQLCodeInsertAgentsCommissionToMYSQL(cag_com, part);
                         }
 
-                        Messages_TBx.Text += "Transfer Data Leasing Passed : " + row_index + Environment.NewLine;
+                        Messages_TBx.Text += "Transfer Add Data Leasing Passed : " + row_index + Environment.NewLine;
 
                         row_index++;
                     }
@@ -917,13 +917,13 @@ namespace JKLWebBase_v2.Form_Account
                     {
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 1 Edit Passed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Update Data Guarantor 1 Passed : " + row_index + Environment.NewLine;
 
                             row_index++;
                         }
                         else
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 1 Edit Failed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Update Data Guarantor 1 Failed : " + row_index + Environment.NewLine;
 
                             break;
                         }
@@ -933,13 +933,13 @@ namespace JKLWebBase_v2.Form_Account
 
                         if (cls_grt_mng.addGuarantorsLeasing(cls_grt))
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 1 Add Passed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Add Data Guarantor 1 Passed : " + row_index + Environment.NewLine;
 
                             row_index++;
                         }
                         else
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 1 Edit Failed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Add Data Guarantor 1 Failed : " + row_index + Environment.NewLine;
 
                             break;
                         }
@@ -1057,13 +1057,13 @@ namespace JKLWebBase_v2.Form_Account
                     {
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 2 Edit Passed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Update Data Guarantor 2 Passed : " + row_index + Environment.NewLine;
 
                             row_index++;
                         }
                         else
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 2 Edit Failed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Update Data Guarantor 2 Failed : " + row_index + Environment.NewLine;
 
                             break;
                         }
@@ -1073,13 +1073,13 @@ namespace JKLWebBase_v2.Form_Account
 
                         if (cls_grt_mng.addGuarantorsLeasing(cls_grt))
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 2 Add Passed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Add Data Guarantor 2 Passed : " + row_index + Environment.NewLine;
 
                             row_index++;
                         }
                         else
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 2 Edit Failed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Add Data Guarantor 2 Failed : " + row_index + Environment.NewLine;
 
                             break;
                         }
@@ -1197,13 +1197,13 @@ namespace JKLWebBase_v2.Form_Account
                     {
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 3 Edit Passed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Update Data Guarantor 3 Passed : " + row_index + Environment.NewLine;
 
                             row_index++;
                         }
                         else
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 3 Edit Failed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Update Data Guarantor 3 Failed : " + row_index + Environment.NewLine;
 
                             break;
                         }
@@ -1213,13 +1213,13 @@ namespace JKLWebBase_v2.Form_Account
 
                         if (cls_grt_mng.addGuarantorsLeasing(cls_grt))
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 3 Add Passed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Add Data Guarantor 3 Passed : " + row_index + Environment.NewLine;
 
                             row_index++;
                         }
                         else
                         {
-                            Messages_TBx.Text += "Transfer Data Guarantor 3 Edit Failed : " + row_index + Environment.NewLine;
+                            Messages_TBx.Text += "Transfer Add Data Guarantor 3 Failed : " + row_index + Environment.NewLine;
 
                             break;
                         }
