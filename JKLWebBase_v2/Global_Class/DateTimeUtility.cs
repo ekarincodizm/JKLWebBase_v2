@@ -75,7 +75,7 @@ namespace JKLWebBase_v2.Global_Class
 
         public static string _dateTimeNOWForServer()
         {
-            string[] dt = DateTime.Now.ToString().Split(' ');
+            string[] dt = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss").Split(' ');
             string[] date = dt[0].Split('/');
             if (int.Parse(date[0]) < 10)
             {
@@ -258,7 +258,7 @@ namespace JKLWebBase_v2.Global_Class
                         date[1] = "0" + int.Parse(date[1]);
                     }
 
-                    datetime = date[1] + "/" + date[2] + "/" + (int.Parse(date[0]) + 543) + " " + dt[1];
+                    datetime = date[2] + "/" + date[1] + "/" + (int.Parse(date[0]) + 543) + " " + dt[1];
                 }
 
                 return datetime;
