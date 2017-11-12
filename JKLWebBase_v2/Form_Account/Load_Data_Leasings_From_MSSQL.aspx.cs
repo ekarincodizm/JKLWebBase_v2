@@ -125,9 +125,6 @@ namespace JKLWebBase_v2.Form_Account
                     ctm.Cust_Idcard_start = reader.IsDBNull(7) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(7).ToString()); // Server JKLFTP
                     ctm.Cust_Idcard_expire = reader.IsDBNull(8) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(8).ToString()); // Server JKLFTP
 
-                    //ctm.Cust_Idcard_start = reader.IsDBNull(7) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(7).ToString()); // Second Server JKLWebBase
-                    //ctm.Cust_Idcard_expire = reader.IsDBNull(8) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(8).ToString()); // Second Server JKLWebBase
-
                     ctm.ctm_ntnlt = new Base_Nationalitys();
                     ctm.ctm_ntnlt.Nationality_id = 1;
 
@@ -250,10 +247,6 @@ namespace JKLWebBase_v2.Form_Account
 
                     if (row_index % 5000 == 0) { part++; }
 
-                    //Messages_TBx.Text += "Transfer Data Cusotmer Passed : " + row_index + Environment.NewLine;
-
-                    //row_index++;
-
                     Customers chk_ctm = ctm_mng.getOnceCustomer(ctm.Cust_Idcard, ctm.Cust_Fname, ctm.Cust_LName, 0, 0);
 
                     if (string.IsNullOrEmpty(chk_ctm.Cust_id))
@@ -365,9 +358,6 @@ namespace JKLWebBase_v2.Form_Account
                         cls.bs_ls_code.Leasing_code_id = reader.IsDBNull(14) ? defaultNum : _getLeasingCode(reader.GetString(14));
 
                         cls.Leasing_date = reader.IsDBNull(6) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(6).ToString()); // Server JKLFTP
-
-                        //cls.Leasing_date = reader.IsDBNull(6) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(6).ToString()); // Server JKLWebBase
-
                         cls.bs_cpn = new Base_Companys();
                         cls.bs_cpn.Company_id = reader.IsDBNull(10) ? defaultNum : _getCompanys(reader.GetString(10));
 
@@ -422,9 +412,6 @@ namespace JKLWebBase_v2.Form_Account
                         cls.First_payment_date = reader.IsDBNull(9) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(9).ToString()); // Server JKLFTP
                         cls.Car_register_date = reader.IsDBNull(36) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(36).ToString()); // Server JKLFTP
 
-                        //cls.First_payment_date = reader.IsDBNull(9) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(9).ToString()); // Server JKLWebBase
-                        //cls.Car_register_date = reader.IsDBNull(36) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(36).ToString()); // Server JKLWebBase
-
                         cls.Car_license_plate = reader.IsDBNull(30) ? null : reader.GetString(30);
                         cls.Car_license_plate_province = "จ.-";
 
@@ -449,8 +436,6 @@ namespace JKLWebBase_v2.Form_Account
 
                         cls.Car_next_register_date = reader.IsDBNull(35) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(35).ToString()); // Server JKLFTP
 
-                        //cls.Car_next_register_date = reader.IsDBNull(35) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(35).ToString()); // Server JKLWebBase
-
                         cls.Car_tax_value = reader.IsDBNull(37) ? defaultNum : Convert.ToDouble(reader.GetString(37) == "" ? "0" : reader.GetString(37));
                         cls.Car_credits = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
                         cls.Car_agent = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
@@ -459,8 +444,6 @@ namespace JKLWebBase_v2.Form_Account
                         cls.Car_old_owner_idcard = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
 
                         cls.Car_old_owner_b_date = reader.IsDBNull(42) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(42).ToString()); // Server JKLFTP
-
-                        //cls.Car_old_owner_b_date = reader.IsDBNull(42) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(42).ToString()); // Server JKLWebBase
 
                         cls.Car_old_owner_address_no = defaultString;
                         cls.Car_old_owner_vilage = defaultString;
@@ -483,8 +466,6 @@ namespace JKLWebBase_v2.Form_Account
                         cls.Cheque_sum = reader.IsDBNull(46) ? defaultNum : Convert.ToDouble(reader.GetDecimal(46));
 
                         cls.Cheque_receive_date = reader.IsDBNull(44) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(44).ToString()); // Server JKLFTP
-
-                        //cls.Cheque_receive_date = reader.IsDBNull(44) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(44).ToString()); // Server JKLWebBase
 
                         cls.Guarantee = defaultString;
 
@@ -582,8 +563,6 @@ namespace JKLWebBase_v2.Form_Account
                             ctm.Cust_Idcard_start = string.IsNullOrEmpty(ctm.Cust_Idcard_start) ? null : DateTimeUtility.convertDateToMYSQLRealServer(ctm.Cust_Idcard_start); // Server JKLFTP
                             ctm.Cust_Idcard_expire = string.IsNullOrEmpty(ctm.Cust_Idcard_expire) ? null : DateTimeUtility.convertDateToMYSQLRealServer(ctm.Cust_Idcard_expire); // Server JKLFTP
 
-                            //ctm.Cust_Idcard_start = ctm.Cust_Idcard_start == "" ? null : DateTimeUtility.convertDateToMYSQL(ctm.Cust_Idcard_start);  // Server JKLWebBase
-                            //ctm.Cust_Idcard_expire = ctm.Cust_Idcard_expire == "" ? null : DateTimeUtility.convertDateToMYSQL(ctm.Cust_Idcard_expire);  // Server JKLWebBase
                         }
 
                         Car_Leasings cls = new Car_Leasings();
@@ -659,9 +638,6 @@ namespace JKLWebBase_v2.Form_Account
                         cls.First_payment_date = reader.IsDBNull(9) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(9).ToString()); // Server JKLFTP
                         cls.Car_register_date = reader.IsDBNull(36) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(36).ToString()); // Server JKLFTP
 
-                        //cls.First_payment_date = reader.IsDBNull(9) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(9).ToString());  // Server JKLWebBase
-                        //cls.Car_register_date = reader.IsDBNull(36) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(36).ToString());  // Server JKLWebBase
-
                         cls.Car_license_plate = reader.IsDBNull(30) ? null : reader.GetString(30);
                         cls.Car_license_plate_province = "จ.-";
 
@@ -686,8 +662,6 @@ namespace JKLWebBase_v2.Form_Account
 
                         cls.Car_next_register_date = reader.IsDBNull(35) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(35).ToString()); // Server JKLFTP
 
-                        //cls.Car_next_register_date = reader.IsDBNull(35) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(35).ToString()); // Server JKLWebBase
-
                         cls.Car_tax_value = reader.IsDBNull(37) ? defaultNum : reader.GetString(37) == "" || reader.GetString(37) == "-" ? defaultNum : Convert.ToDouble(reader.GetString(37));
                         cls.Car_credits = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
                         cls.Car_agent = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
@@ -696,8 +670,6 @@ namespace JKLWebBase_v2.Form_Account
                         cls.Car_old_owner_idcard = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
 
                         cls.Car_old_owner_b_date = reader.IsDBNull(42) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(42).ToString()); // Server JKLFTP
-
-                        //cls.Car_old_owner_b_date = reader.IsDBNull(42) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(42).ToString()); // Server JKLWebBase
 
                         cls.Car_old_owner_address_no = defaultString;
                         cls.Car_old_owner_vilage = defaultString;
@@ -871,9 +843,6 @@ namespace JKLWebBase_v2.Form_Account
 
                         ctm.Cust_Idcard_start = string.IsNullOrEmpty(ctm.Cust_Idcard_start) ? null : DateTimeUtility.convertDateToMYSQLRealServer(ctm.Cust_Idcard_start);
                         ctm.Cust_Idcard_expire = string.IsNullOrEmpty(ctm.Cust_Idcard_expire) ? null : DateTimeUtility.convertDateToMYSQLRealServer(ctm.Cust_Idcard_expire);
-
-                        //ctm.Cust_Idcard_start = ctm.Cust_Idcard_start == "" ? null : DateTimeUtility.convertDateToMYSQL(ctm.Cust_Idcard_start);
-                        //ctm.Cust_Idcard_expire = ctm.Cust_Idcard_expire == "" ? null : DateTimeUtility.convertDateToMYSQL(ctm.Cust_Idcard_expire);
                     }
 
                     Car_Leasings cls = new Car_Leasings();
@@ -887,14 +856,6 @@ namespace JKLWebBase_v2.Form_Account
                     cls.Car_old_owner_b_date = string.IsNullOrEmpty(cls.Car_old_owner_b_date) ? null : DateTimeUtility.convertDateToMYSQLRealServer(cls.Car_old_owner_b_date);
                     cls.Cheque_receive_date = string.IsNullOrEmpty(cls.Cheque_receive_date) ? null : DateTimeUtility.convertDateToMYSQLRealServer(cls.Cheque_receive_date);
 
-                    /// Server JKLWebBase
-                    /*cls.Leasing_date = cls.Leasing_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Leasing_date);
-                    cls.First_payment_date = cls.First_payment_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.First_payment_date);
-                    cls.Car_register_date = cls.Car_register_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Car_register_date);
-                    cls.Car_next_register_date = cls.Car_next_register_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Car_next_register_date);
-                    cls.Car_old_owner_b_date = cls.Car_old_owner_b_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Car_old_owner_b_date);
-                    cls.Cheque_receive_date = cls.Cheque_receive_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Cheque_receive_date);*/
-
                     Car_Leasings_Guarator cls_grt = new Car_Leasings_Guarator();
 
                     cls_grt.cls = new Car_Leasings();
@@ -907,14 +868,10 @@ namespace JKLWebBase_v2.Form_Account
 
                     if (row_index % 5000 == 0) { part++; }
 
-                    Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
-
-                    /*Messages_TBx.Text += "Transfer Data Guarantor 1 Passed : " + row_index + Environment.NewLine;
-
-                    row_index++;*/
-
                     if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
                     {
+                        Messages_Logs._writeSQLCodeUpdateGuarantorLeasingsToMYSQL(cls_grt, part);
+
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
                             Messages_TBx.Text += "Transfer Update Data Guarantor 1 Passed : " + row_index + Environment.NewLine;
@@ -930,6 +887,7 @@ namespace JKLWebBase_v2.Form_Account
                     }
                     else
                     {
+                        Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
 
                         if (cls_grt_mng.addGuarantorsLeasing(cls_grt))
                         {
@@ -1011,9 +969,6 @@ namespace JKLWebBase_v2.Form_Account
 
                         ctm.Cust_Idcard_start = string.IsNullOrEmpty(ctm.Cust_Idcard_start) ? null : DateTimeUtility.convertDateToMYSQLRealServer(ctm.Cust_Idcard_start);
                         ctm.Cust_Idcard_expire = string.IsNullOrEmpty(ctm.Cust_Idcard_expire) ? null : DateTimeUtility.convertDateToMYSQLRealServer(ctm.Cust_Idcard_expire);
-
-                        //ctm.Cust_Idcard_start = ctm.Cust_Idcard_start == "" ? null : DateTimeUtility.convertDateToMYSQL(ctm.Cust_Idcard_start);
-                        //ctm.Cust_Idcard_expire = ctm.Cust_Idcard_expire == "" ? null : DateTimeUtility.convertDateToMYSQL(ctm.Cust_Idcard_expire);
                     }
 
                     Car_Leasings cls = new Car_Leasings();
@@ -1027,14 +982,6 @@ namespace JKLWebBase_v2.Form_Account
                     cls.Car_old_owner_b_date = string.IsNullOrEmpty(cls.Car_old_owner_b_date) ? null : DateTimeUtility.convertDateToMYSQLRealServer(cls.Car_old_owner_b_date);
                     cls.Cheque_receive_date = string.IsNullOrEmpty(cls.Cheque_receive_date) ? null : DateTimeUtility.convertDateToMYSQLRealServer(cls.Cheque_receive_date);
 
-                    /// Server JKLWebBase
-                    /*cls.Leasing_date = cls.Leasing_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Leasing_date);
-                    cls.First_payment_date = cls.First_payment_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.First_payment_date);
-                    cls.Car_register_date = cls.Car_register_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Car_register_date);
-                    cls.Car_next_register_date = cls.Car_next_register_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Car_next_register_date);
-                    cls.Car_old_owner_b_date = cls.Car_old_owner_b_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Car_old_owner_b_date);
-                    cls.Cheque_receive_date = cls.Cheque_receive_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Cheque_receive_date);*/
-
                     Car_Leasings_Guarator cls_grt = new Car_Leasings_Guarator();
 
                     cls_grt.cls = new Car_Leasings();
@@ -1047,14 +994,10 @@ namespace JKLWebBase_v2.Form_Account
 
                     if (row_index % 5000 == 0) { part++; }
 
-                    Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
-
-                    /*Messages_TBx.Text += "Transfer Data Guarantor 2 Passed : " + row_index + Environment.NewLine;
-
-                    row_index++;*/
-
                     if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
                     {
+                        Messages_Logs._writeSQLCodeUpdateGuarantorLeasingsToMYSQL(cls_grt, part);
+
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
                             Messages_TBx.Text += "Transfer Update Data Guarantor 2 Passed : " + row_index + Environment.NewLine;
@@ -1070,6 +1013,7 @@ namespace JKLWebBase_v2.Form_Account
                     }
                     else
                     {
+                        Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
 
                         if (cls_grt_mng.addGuarantorsLeasing(cls_grt))
                         {
@@ -1152,8 +1096,6 @@ namespace JKLWebBase_v2.Form_Account
                         ctm.Cust_Idcard_start = string.IsNullOrEmpty(ctm.Cust_Idcard_start) ? null : DateTimeUtility.convertDateToMYSQLRealServer(ctm.Cust_Idcard_start);
                         ctm.Cust_Idcard_expire = string.IsNullOrEmpty(ctm.Cust_Idcard_expire) ? null : DateTimeUtility.convertDateToMYSQLRealServer(ctm.Cust_Idcard_expire);
 
-                        //ctm.Cust_Idcard_start = ctm.Cust_Idcard_start == "" ? null : DateTimeUtility.convertDateToMYSQL(ctm.Cust_Idcard_start);
-                        //ctm.Cust_Idcard_expire = ctm.Cust_Idcard_expire == "" ? null : DateTimeUtility.convertDateToMYSQL(ctm.Cust_Idcard_expire);
                     }
 
                     Car_Leasings cls = new Car_Leasings();
@@ -1167,14 +1109,6 @@ namespace JKLWebBase_v2.Form_Account
                     cls.Car_old_owner_b_date = string.IsNullOrEmpty(cls.Car_old_owner_b_date) ? null : DateTimeUtility.convertDateToMYSQLRealServer(cls.Car_old_owner_b_date);
                     cls.Cheque_receive_date = string.IsNullOrEmpty(cls.Cheque_receive_date) ? null : DateTimeUtility.convertDateToMYSQLRealServer(cls.Cheque_receive_date);
 
-                    /// Server JKLWebBase
-                    /*cls.Leasing_date = cls.Leasing_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Leasing_date);
-                    cls.First_payment_date = cls.First_payment_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.First_payment_date);
-                    cls.Car_register_date = cls.Car_register_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Car_register_date);
-                    cls.Car_next_register_date = cls.Car_next_register_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Car_next_register_date);
-                    cls.Car_old_owner_b_date = cls.Car_old_owner_b_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Car_old_owner_b_date);
-                    cls.Cheque_receive_date = cls.Cheque_receive_date == "" ? null : DateTimeUtility.convertDateToMYSQL(cls.Cheque_receive_date);*/
-
                     Car_Leasings_Guarator cls_grt = new Car_Leasings_Guarator();
 
                     cls_grt.cls = new Car_Leasings();
@@ -1187,14 +1121,10 @@ namespace JKLWebBase_v2.Form_Account
 
                     if (row_index % 5000 == 0) { part++; }
 
-                    Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
-
-                    /*Messages_TBx.Text += "Transfer Data Guarantor 3 Passed : " + row_index + Environment.NewLine;
-
-                    row_index++;*/
-
                     if (cls_grt_mng.checkDuplicateGuarantor(cls.Leasing_id, ctm.Cust_id, ctm.Cust_Idcard))
                     {
+                        Messages_Logs._writeSQLCodeUpdateGuarantorLeasingsToMYSQL(cls_grt, part);
+
                         if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
                         {
                             Messages_TBx.Text += "Transfer Update Data Guarantor 3 Passed : " + row_index + Environment.NewLine;
@@ -1210,6 +1140,7 @@ namespace JKLWebBase_v2.Form_Account
                     }
                     else
                     {
+                        Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
 
                         if (cls_grt_mng.addGuarantorsLeasing(cls_grt))
                         {
@@ -1339,10 +1270,7 @@ namespace JKLWebBase_v2.Form_Account
                             cls_pay.Discount = reader.IsDBNull(9) ? defaultNum : Convert.ToDouble(reader.GetDecimal(9));
                             cls_pay.Real_payment = reader.IsDBNull(4) ? defaultNum : Convert.ToDouble(reader.GetDecimal(4));
 
-                            cls_pay.Real_payment_date = reader.IsDBNull(3) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(3).ToString()); // Real Server JKLFTP
-
-                            //cls_pay.Real_payment_date = reader.IsDBNull(3) ? null : DateTimeUtility.convertDateToMYSQL(reader.GetDateTime(3).ToString()); // Second Server JKLWebBase
-
+                            cls_pay.Real_payment_date = reader.IsDBNull(3) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(3).ToString());
                             cls_pay.acc_lgn = new Account_Login();
 
                             cls_pay.bs_cpn = new Base_Companys();

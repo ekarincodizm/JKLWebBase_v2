@@ -582,7 +582,7 @@ namespace JKLWebBase_v2.Managers_Leasings
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Leasings --> Car_Leasings_Guarantor_Manager --> editGuarantorsLeasing( ";
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Guarantor_Manager --> editGuarantorsLeasing() ";
                 Log_Error._writeErrorFile(error, ex);
                 return false;
             }

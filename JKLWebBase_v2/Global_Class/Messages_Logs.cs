@@ -748,6 +748,139 @@ namespace JKLWebBase_v2.Global_Class
             }
         }
 
+        public static void _writeSQLCodeUpdateGuarantorLeasingsToMYSQL(Car_Leasings_Guarator cls_grt, int part)
+        {
+            string mainDirectoryPath = "C:/SQL_Command/";
+
+            if (!Directory.Exists(mainDirectoryPath))
+            {
+                Directory.CreateDirectory(mainDirectoryPath);
+            }
+
+            string subDirectoryPath = mainDirectoryPath + "UPDATE_Leasings_Guarantor_" + cls_grt.Guarantor_no + "/";
+
+            if (!Directory.Exists(subDirectoryPath))
+            {
+                Directory.CreateDirectory(subDirectoryPath);
+            }
+
+            string message = "CALL u_car_leasings_guarantor(";
+            message += "'" + cls_grt.cls.Leasing_id + "'";
+            message += "," + cls_grt.Guarantor_no + "";
+            message += ",'" + cls_grt.ctm.Cust_id + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard + "'";
+            message += ",'" + cls_grt.ctm.Cust_Fname + "'";
+            message += ",'" + cls_grt.ctm.Cust_LName + "'";
+            message += string.IsNullOrEmpty(cls_grt.ctm.Cust_B_date) ? ",null" : ",'" + cls_grt.ctm.Cust_B_date + "'";
+            message += "," + cls_grt.ctm.Cust_Age + "";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_without + "'";
+            message += string.IsNullOrEmpty(cls_grt.ctm.Cust_Idcard_expire) ? ",null" : ",'" + cls_grt.ctm.Cust_Idcard_start + "'";
+            message += string.IsNullOrEmpty(cls_grt.ctm.Cust_Idcard_expire) ? ",null" : ",'" + cls_grt.ctm.Cust_Idcard_expire + "'";
+            message += "," + cls_grt.ctm.ctm_ntnlt.Nationality_id + "";
+            message += "," + cls_grt.ctm.ctm_org.Origin_id + "";
+            message += ",'" + cls_grt.ctm.Cust_Tel + "'";
+            message += ",'" + cls_grt.ctm.Cust_Email + "'";
+            message += "," + cls_grt.ctm.ctm_pstt.person_status_id + "";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_idcard + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_Fname + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_Lname + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : "," + cls_grt.ctm.ctm_marry_ntnlt.Nationality_id + "";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : "," + cls_grt.ctm.ctm_marry_org.Origin_id + "";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_Address_no + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_vilage + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_vilage_no + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_alley + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_road + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_subdistrict + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_district + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_province + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_country + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_zipcode + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_tel + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_email + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_position + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : "," + cls_grt.ctm.Cust_Marry_job_long + "";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : "," + cls_grt.ctm.Cust_Marry_job_salary + "";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_local_name + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_address_no + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_vilage + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_vilage_no + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_alley + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_road + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_subdistrict + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_district + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_province + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_country + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_zipcode + "'";
+            message += cls_grt.ctm.ctm_pstt.person_status_id != 2 ? ",null" : ",'" + cls_grt.ctm.Cust_Marry_job_tel + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job.Trim() + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_position.Trim() + "'";
+            message += "," + cls_grt.ctm.Cust_Job_long + "";
+            message += "," + cls_grt.ctm.Cust_Job_salary + "";
+            message += ",'" + cls_grt.ctm.Cust_Job_local_name.Trim() + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_address_no + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_vilage + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_vilage_no + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_alley + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_road + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_subdistrict + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_district + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_province + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_country + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_zipcode + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_tel + "'";
+            message += ",'" + cls_grt.ctm.Cust_Job_email + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_address_no + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_vilage + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_vilage_no + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_alley + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_road + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_subdistrict + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_district + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_province + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_country + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_zipcode + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_tel + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_GPS_Latitude + "'";
+            message += ",'" + cls_grt.ctm.Cust_Home_GPS_Longitude + "'";
+            message += "," + cls_grt.ctm.ctm_home_stt.Home_status_id + "";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_address_no + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_vilage + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_vilage_no + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_alley + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_road + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_subdistrict + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_district + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_province + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_country + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_zipcode + "'";
+            message += ",'" + cls_grt.ctm.Cust_Idcard_tel + "'";
+            message += "," + cls_grt.ctm.ctm_idcard_stt.Home_status_id + "";
+            message += ",'" + cls_grt.ctm.Cust_Current_address_no + "'";
+            message += ",'" + cls_grt.ctm.Cust_Current_vilage + "'";
+            message += ",'" + cls_grt.ctm.Cust_Current_vilage_no + "'";
+            message += ",'" + cls_grt.ctm.Cust_Current_alley + "'";
+            message += ",'" + cls_grt.ctm.Cust_Current_road + "'";
+            message += ",'" + cls_grt.ctm.Cust_Current_subdistrict + "'";
+            message += ",'" + cls_grt.ctm.Cust_Current_district + "'";
+            message += ",'" + cls_grt.ctm.Cust_Current_province + "'";
+            message += ",'" + cls_grt.ctm.Cust_Current_country + "'";
+            message += ",'" + cls_grt.ctm.Cust_Current_zipcode + "'";
+            message += ",'" + cls_grt.ctm.Cust_Current_tel + "'";
+            message += "," + cls_grt.ctm.ctm_current_stt.Home_status_id + "";
+            message += ");";
+            message += Environment.NewLine;
+
+            string path = subDirectoryPath + "Code_UPDATE_Leasings_Guarantor_" + cls_grt.Guarantor_no + "_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
+
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine(message);
+                writer.Close();
+            }
+        }
+
         public static void _writeSQLCodeInsertAgentsToMYSQL(Agents cag, int part)
         {
             string mainDirectoryPath = "C:/SQL_Command/";
