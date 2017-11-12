@@ -258,7 +258,7 @@ namespace JKLWebBase_v2.Global_Class
                         date[1] = "0" + int.Parse(date[1]);
                     }
 
-                    datetime = date[2] + "/" + date[1] + "/" + (int.Parse(date[0]) + 543) + " " + dt[1];
+                    datetime = date[1] + "/" + date[2] + "/" + (int.Parse(date[0]) + 543) + " " + dt[1];
                 }
 
                 return datetime;
