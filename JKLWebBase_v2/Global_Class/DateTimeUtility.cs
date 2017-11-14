@@ -43,7 +43,7 @@ namespace JKLWebBase_v2.Global_Class
         }
         public static string _dateNOWForServer()
         {
-            string[] dt = DateTime.Now.ToString().Split(' ');
+            string[] dt = DateTime.Now.ToString("dd/MM/yyyy").Split(' ');
             string[] date = dt[0].Split('/');
             if (int.Parse(date[0]) < 10)
             {

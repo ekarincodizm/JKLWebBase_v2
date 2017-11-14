@@ -312,10 +312,10 @@ namespace JKLWebBase_v2.Form_Leasings
             Cust_idcard_TBx.Text = ctm.Cust_Idcard;
             Cust_Fname_TBx.Text = ctm.Cust_Fname;
             Cust_LName_TBx.Text = ctm.Cust_LName;
-            Cust_B_date_TBx.Text = string.IsNullOrEmpty(ctm.Cust_B_date) ? "" : DateTimeUtility.convertDateToPageRealServer(ctm.Cust_B_date.Split(' ')[0]);
+            Cust_B_date_TBx.Text = string.IsNullOrEmpty(ctm.Cust_B_date) ? "" : DateTimeUtility.convertDateToPageRealServer(ctm.Cust_B_date);
             Cust_Idcard_without_TBx.Text = ctm.Cust_Idcard_without;
-            Cust_Idcard_start_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Idcard_start) ? "" : DateTimeUtility.convertDateToPageRealServer(ctm.Cust_Idcard_start.Split(' ')[0]);
-            Cust_Idcard_expire_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Idcard_expire) ? "" : DateTimeUtility.convertDateToPageRealServer(ctm.Cust_Idcard_expire.Split(' ')[0]);
+            Cust_Idcard_start_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Idcard_start) ? "" : DateTimeUtility.convertDateToPageRealServer(ctm.Cust_Idcard_start);
+            Cust_Idcard_expire_TBx.Text = string.IsNullOrEmpty(ctm.Cust_Idcard_expire) ? "" : DateTimeUtility.convertDateToPageRealServer(ctm.Cust_Idcard_expire);
             Cust_Nationality_DDL.SelectedValue = ctm.ctm_ntnlt.Nationality_id.ToString();
             Cust_Origin_DDL.SelectedValue = ctm.ctm_org.Origin_id.ToString();
             Cust_Tel_TBx.Text = ctm.Cust_Tel;
