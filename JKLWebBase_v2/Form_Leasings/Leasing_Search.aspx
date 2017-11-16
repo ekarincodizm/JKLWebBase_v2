@@ -169,6 +169,8 @@
             <%
                 if (Session["List_Leasings"] != null)
                 {
+                    Base_Companys package_login = (Base_Companys)Session["Package"];
+                    Account_Login acc_lgn = (Account_Login)Session["Login"];
             %>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
@@ -186,13 +188,16 @@
                             <th style="width: 8%;">ยอดคงค้าง</th>
                             <th style="width: 8%;">ขาดชำระ (งวด)</th>
                             <th style="width: 5%;"></th>
+                            <%              
+                                if (acc_lgn.acc_lv.level_access >= 7)
+                                {
+                            %>
+                            <th style="width: 5%;"></th>
+                            <%  } %>
                         </tr>
                     </thead>
                     <tbody>
                         <% 
-                            Base_Companys package_login = (Base_Companys)Session["Package"];
-                            Account_Login acc_lgn = (Account_Login)Session["Login"];
-
                             List<Car_Leasings> list_cust = (List<Car_Leasings>)Session["List_Leasings"];
 
                             for (int i = 0; i < list_cust.Count; i++)
@@ -255,14 +260,15 @@
                             
                             <td>
                                 <a class="btn btn-xs btn-warning" href="Leasing_Edit_Customer?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, cls.ctm.Cust_Idcard) %>&mode=e" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit fa-fw"></i></a>
+                            </td>
                             <%              
                                 if (acc_lgn.acc_lv.level_access >= 7)
                                 {
                             %>
+                            <td>
                                 <a class="btn btn-xs btn-danger" href="Leasing_Edit_Customer?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, cls.Deps_no, cls.Leasing_no) %>&mode=r" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash fa-fw"></i></a>
-                            <%  } %>
                             </td>
-                             
+                            <%  } %>
                         </tr>
                         <% } %>
                     </tbody>
