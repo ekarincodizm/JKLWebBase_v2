@@ -876,7 +876,7 @@ namespace JKLWebBase_v2.Form_Account
                 con.Open();
                 string sql = "  SELECT  cntr.personID AS idcard_00, cntr.fName AS Fname_01, cntr.lName AS Lname_02, cnt.cntID AS cntID_03, cnt.cntNoTemp AS Deps_No_04, cnt.cntNo AS Leasing_no_05";
                 sql += "        FROM    dbo.Contract AS cnt INNER JOIN";
-                sql += "                dbo.ContractRef AS cnt_ref ON cnt.cntID = cnt_ref.cntID AND cnt_ref.refNo = 1 LEFT OUTER JOIN";
+                sql += "                dbo.ContractRef AS cnt_ref ON cnt.cntID = cnt_ref.cntID AND cnt_ref.refNo = "+ Guarantor_no + " LEFT OUTER JOIN";
                 sql += "                dbo.Contractor AS cntr ON cnt_ref.personID = cntr.personID LEFT OUTER JOIN";
                 sql += "                dbo.Car AS car ON cnt.cntID = car.cntID AND car.personID = cntr.personID LEFT OUTER JOIN";
                 sql += "                dbo.Address AS add_c ON cntr.personID = add_c.personID AND add_c.addressType = 'C' LEFT OUTER JOIN";
