@@ -911,7 +911,7 @@ namespace JKLWebBase_v2.Form_Account
 
                     Car_Leasings cls = new Car_Leasings();
 
-                    cls = cls_mng.getCarLeasingByDepsNo(reader.GetString(4), reader.GetString(5));
+                    cls = cls_mng.getCarLeasingByDepsNo(reader.GetString(4),"");
 
                     cls.Leasing_date = string.IsNullOrEmpty(cls.Leasing_date) ? null : DateTimeUtility.convertDateToMYSQLRealServer(cls.Leasing_date);
                     cls.First_payment_date = string.IsNullOrEmpty(cls.First_payment_date) ? null : DateTimeUtility.convertDateToMYSQLRealServer(cls.First_payment_date);
