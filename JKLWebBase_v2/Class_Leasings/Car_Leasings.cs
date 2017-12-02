@@ -81,6 +81,7 @@ namespace JKLWebBase_v2.Class_Leasings
         public string Cheque_receive_date { get; set; } /// วันที่รับเช็ค / โอน
         public string Guarantee { get; set; } /// หลักประกันในการค้ำประกัน
         public Base_Leasing_Status bs_ls_stt { get; set; } /// สถานะสัญญา
+        public string Leasing_Comment { get; set; } /// หมายเหตุ
         public string Leasings_save_date { get; set; } /// วันที่บันทึกข้อมูล
         public Customers ctm { get; set; } /// ผู้ทำสัญญา
         public List<Car_Leasings_Guarator> list_cls_grt { get; set; } /// ผู้ค้ำประกัน

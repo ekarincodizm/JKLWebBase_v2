@@ -1,8 +1,8 @@
-﻿<%@ Page Title="ชำระเงินค่างวด" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Edit_Payment.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Edit_Payment" %>
+﻿<%@ page title="ชำระเงินค่างวด" language="C#" masterpagefile="~/Site.Master" autoeventwireup="true" codebehind="Leasing_Edit_Payment.aspx.cs" inherits="JKLWebBase_v2.Form_Leasings.Leasing_Edit_Payment" %>
 
-<%@ Import Namespace="JKLWebBase_v2.Class_Leasings" %>
-<%@ Import Namespace="JKLWebBase_v2.Managers_Leasings" %>
-<%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
+<%@ import namespace="JKLWebBase_v2.Class_Leasings" %>
+<%@ import namespace="JKLWebBase_v2.Managers_Leasings" %>
+<%@ import namespace="JKLWebBase_v2.Global_Class" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
@@ -195,11 +195,11 @@
                                                     Car_Leasings_Payment cls_pay = list_cls_pay[i];
 
                                                     string ogn_code = CryptographyCode.GenerateSHA512String(cls_pay.Bill_no);
-                                            %>
-                                            <tr 
+                                        %>
+                                        <tr
                                             <% 
                                             if (Convert.ToDateTime(cls_pay.Period_schedule) < DateTime.Now && cls_pay.Period_payment_status == -1)
-                                            { 
+                                            {
                                             %>
                                             <%= "style='background-color: lightcoral;'" %>
                                             <%          }
@@ -212,8 +212,7 @@
                                             {
                                             %>
                                             <%= cls_pay.Period_no % 2 == 0 ? "style='background-color: #ffb3d9;'"  : "style='background-color: lightgreen;'" %>
-                                            <%          } %>
-                                            >
+                                            <%          } %>>
                                             <td><%= cls_pay.Period_no %>  </td>
                                             <td><%= DateTimeUtility.convertDateToPageRealServer(cls_pay.Period_schedule)  %>  </td>
                                             <td><%= string.IsNullOrEmpty(cls_pay.Real_payment_date)? "-" : DateTimeUtility.convertDateToPageRealServer(cls_pay.Real_payment_date) %>  </td>
@@ -245,6 +244,14 @@
                     <div class="row">
                         <div class="col-xs-9 col-md-offset-3">
                             <asp:Label ID="Close_Leasing_Lbl" runat="server" Font-Bold="True" Font-Size="46pt" ForeColor="Red" Font-Italic="True"> *** ปิดบัญชี *** </asp:Label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-5">
+                            <asp:Label ID="Leasing_Comments" runat="server" Font-Bold="True" Font-Size="24pt" ForeColor="Red" Font-Italic="True"> ** หมายเหตุ ** :  </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-7">
+                            <asp:Label ID="Leasing_Comments_Lbl" runat="server" Font-Bold="True" Font-Size="24pt" ForeColor="Red" Font-Italic="True">  </asp:Label>
                         </div>
                     </div>
                     <div class="row">
@@ -305,7 +312,7 @@
                             </script>
                         </div>
                     </div>
-                        
+
                     <div class="row">
                         <div class="form-group col-xs-5">
                             <asp:Label ID="Total_payment_left_Lbl" runat="server"> ยอดคงค้างทั้งหมด </asp:Label>
@@ -337,7 +344,7 @@
                         </div>
                         <div class="form-group col-xs-7">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Old_Period_fee_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" ReadOnly="true"  ></asp:TextBox>
+                                <asp:TextBox ID="Old_Period_fee_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" ReadOnly="true"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -348,7 +355,7 @@
                         </div>
                         <div class="form-group col-xs-7">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Old_Period_track_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#996633" ReadOnly="true"  ></asp:TextBox>
+                                <asp:TextBox ID="Old_Period_track_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#996633" ReadOnly="true"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -359,7 +366,7 @@
                         </div>
                         <div class="form-group col-xs-7">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Old_Real_Payment_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#009933" ReadOnly="true"  ></asp:TextBox>
+                                <asp:TextBox ID="Old_Real_Payment_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#009933" ReadOnly="true"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -370,7 +377,7 @@
                         </div>
                         <div class="form-group col-xs-7">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Old_Real_Payment_Fine_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#990000" ReadOnly="true"  ></asp:TextBox>
+                                <asp:TextBox ID="Old_Real_Payment_Fine_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#990000" ReadOnly="true"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -381,7 +388,7 @@
                         </div>
                         <div class="form-group col-xs-7">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Old_Real_Discount_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#FF9900" ReadOnly="true" ></asp:TextBox>
+                                <asp:TextBox ID="Old_Real_Discount_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#FF9900" ReadOnly="true"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -395,7 +402,7 @@
                         </div>
                         <div class="form-group col-xs-7">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Period_fee_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox ID="Period_fee_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="Fuchsia" TextMode="Number"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -406,7 +413,7 @@
                         </div>
                         <div class="form-group col-xs-7">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Period_track_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#996633" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox ID="Period_track_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Italic="True" Font-Size="24pt" ForeColor="#996633" TextMode="Number"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                         </div>
@@ -417,7 +424,7 @@
                         </div>
                         <div class="form-group col-xs-7">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Real_Payment_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#009933" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox ID="Real_Payment_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#009933" TextMode="Number"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                             <asp:RequiredFieldValidator ID="RFV_Real_Payment_TBx" runat="server" ErrorMessage=" กรุณากรอกจำนวนเงิน " CssClass="text-danger" ControlToValidate="Real_Payment_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
@@ -429,7 +436,7 @@
                         </div>
                         <div class="form-group col-xs-7">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Real_Payment_Fine_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#990000" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox ID="Real_Payment_Fine_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#990000" TextMode="Number"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                             <asp:RequiredFieldValidator ID="RFV_Real_Payment_Fine_TBxx" runat="server" ErrorMessage=" กรุณากรอกจำนวนเงิน " CssClass="text-danger" ControlToValidate="Real_Payment_Fine_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
@@ -441,7 +448,7 @@
                         </div>
                         <div class="form-group col-xs-7">
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Real_Discount_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#FF9900" TextMode="Number" ></asp:TextBox>
+                                <asp:TextBox ID="Real_Discount_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="24pt" ForeColor="#FF9900" TextMode="Number"></asp:TextBox>
                                 <span class="input-group-addon">บาท</span>
                             </div>
                             <asp:RequiredFieldValidator ID="RFV_Real_Discount_TBx" runat="server" ErrorMessage=" กรุณากรอกจำนวนเงิน " CssClass="text-danger" ControlToValidate="Real_Discount_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
@@ -453,7 +460,7 @@
                             <asp:Label ID="Bill_No_Manual_Ref_Lbl" runat="server"> เลขใบเสร็จ Ref. </asp:Label>
                         </div>
                         <div class="form-group col-xs-7">
-                           <asp:TextBox ID="Bill_No_Manual_Ref_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="20pt" ForeColor="Red" ></asp:TextBox>
+                            <asp:TextBox ID="Bill_No_Manual_Ref_TBx" runat="server" CssClass="form-control" Font-Bold="True" Font-Size="20pt" ForeColor="Red"></asp:TextBox>
                         </div>
                     </div>
 

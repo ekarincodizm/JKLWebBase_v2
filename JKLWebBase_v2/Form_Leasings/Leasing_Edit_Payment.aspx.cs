@@ -96,6 +96,8 @@ namespace JKLWebBase_v2.Form_Leasings
             Deps_No_TBx.Text = cls.Deps_no;
             Leasing_No_TBx.Text = cls.Leasing_no;
 
+            Leasing_Comments_Lbl.Text = cls.Leasing_Comment;
+
             bs_cpn = bs_cpn_mng.getCompanysById(cls.bs_cpn.Company_id.ToString());
 
             Company_N_Name_TBx.Text = bs_cpn.Company_N_name;

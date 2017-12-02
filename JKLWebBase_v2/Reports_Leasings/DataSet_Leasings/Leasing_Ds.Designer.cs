@@ -2802,6 +2802,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             private global::System.Data.DataColumn columnContract_Status_name;
             
+            private global::System.Data.DataColumn columnLeasing_Comments;
+            
             private global::System.Data.DataColumn columnLeasings_save_date;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3639,6 +3641,14 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Leasing_CommentsColumn {
+                get {
+                    return this.columnLeasing_Comments;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Leasings_save_dateColumn {
                 get {
                     return this.columnLeasings_save_date;
@@ -3783,6 +3793,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Guarantee, 
                         string Contract_status_id, 
                         string Contract_Status_name, 
+                        string Leasing_Comments, 
                         string Leasings_save_date) {
                 LeasingsRow rowLeasingsRow = ((LeasingsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -3886,6 +3897,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         Guarantee,
                         Contract_status_id,
                         Contract_Status_name,
+                        Leasing_Comments,
                         Leasings_save_date};
                 rowLeasingsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLeasingsRow);
@@ -4009,6 +4021,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 this.columnGuarantee = base.Columns["Guarantee"];
                 this.columnContract_status_id = base.Columns["Contract_status_id"];
                 this.columnContract_Status_name = base.Columns["Contract_Status_name"];
+                this.columnLeasing_Comments = base.Columns["Leasing_Comments"];
                 this.columnLeasings_save_date = base.Columns["Leasings_save_date"];
             }
             
@@ -4215,6 +4228,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnContract_status_id);
                 this.columnContract_Status_name = new global::System.Data.DataColumn("Contract_Status_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContract_Status_name);
+                this.columnLeasing_Comments = new global::System.Data.DataColumn("Leasing_Comments", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeasing_Comments);
                 this.columnLeasings_save_date = new global::System.Data.DataColumn("Leasings_save_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLeasings_save_date);
             }
@@ -7009,6 +7024,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             private global::System.Data.DataColumn columnContract_Status_name;
             
+            private global::System.Data.DataColumn columnLeasing_Comments;
+            
             private global::System.Data.DataColumn columnCust_id;
             
             private global::System.Data.DataColumn columnCust_Idcard;
@@ -7287,6 +7304,14 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             public global::System.Data.DataColumn Contract_Status_nameColumn {
                 get {
                     return this.columnContract_Status_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Leasing_CommentsColumn {
+                get {
+                    return this.columnLeasing_Comments;
                 }
             }
             
@@ -7576,6 +7601,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Zone_name, 
                         int Contract_status_id, 
                         string Contract_Status_name, 
+                        string Leasing_Comments, 
                         string Cust_id, 
                         string Cust_Idcard, 
                         string Cust_Fname, 
@@ -7630,6 +7656,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         Zone_name,
                         Contract_status_id,
                         Contract_Status_name,
+                        Leasing_Comments,
                         Cust_id,
                         Cust_Idcard,
                         Cust_Fname,
@@ -7704,6 +7731,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 this.columnZone_name = base.Columns["Zone_name"];
                 this.columnContract_status_id = base.Columns["Contract_status_id"];
                 this.columnContract_Status_name = base.Columns["Contract_Status_name"];
+                this.columnLeasing_Comments = base.Columns["Leasing_Comments"];
                 this.columnCust_id = base.Columns["Cust_id"];
                 this.columnCust_Idcard = base.Columns["Cust_Idcard"];
                 this.columnCust_Fname = base.Columns["Cust_Fname"];
@@ -7785,6 +7813,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnContract_status_id);
                 this.columnContract_Status_name = new global::System.Data.DataColumn("Contract_Status_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContract_Status_name);
+                this.columnLeasing_Comments = new global::System.Data.DataColumn("Leasing_Comments", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeasing_Comments);
                 this.columnCust_id = new global::System.Data.DataColumn("Cust_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_id);
                 this.columnCust_Idcard = new global::System.Data.DataColumn("Cust_Idcard", typeof(string), null, global::System.Data.MappingType.Element);
@@ -8027,6 +8057,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnContract_status_id;
             
             private global::System.Data.DataColumn columnContract_Status_name;
+            
+            private global::System.Data.DataColumn columnLeasing_Comments;
             
             private global::System.Data.DataColumn columnCust_id;
             
@@ -8339,6 +8371,14 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Leasing_CommentsColumn {
+                get {
+                    return this.columnLeasing_Comments;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Cust_idColumn {
                 get {
                     return this.columnCust_id;
@@ -8642,6 +8682,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Zone_name, 
                         int Contract_status_id, 
                         string Contract_Status_name, 
+                        string Leasing_Comments, 
                         string Cust_id, 
                         string Cust_Idcard, 
                         string Cust_Fname, 
@@ -8701,6 +8742,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         Zone_name,
                         Contract_status_id,
                         Contract_Status_name,
+                        Leasing_Comments,
                         Cust_id,
                         Cust_Idcard,
                         Cust_Fname,
@@ -8780,6 +8822,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 this.columnZone_name = base.Columns["Zone_name"];
                 this.columnContract_status_id = base.Columns["Contract_status_id"];
                 this.columnContract_Status_name = base.Columns["Contract_Status_name"];
+                this.columnLeasing_Comments = base.Columns["Leasing_Comments"];
                 this.columnCust_id = base.Columns["Cust_id"];
                 this.columnCust_Idcard = base.Columns["Cust_Idcard"];
                 this.columnCust_Fname = base.Columns["Cust_Fname"];
@@ -8869,6 +8912,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnContract_status_id);
                 this.columnContract_Status_name = new global::System.Data.DataColumn("Contract_Status_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContract_Status_name);
+                this.columnLeasing_Comments = new global::System.Data.DataColumn("Leasing_Comments", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeasing_Comments);
                 this.columnCust_id = new global::System.Data.DataColumn("Cust_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCust_id);
                 this.columnCust_Idcard = new global::System.Data.DataColumn("Cust_Idcard", typeof(string), null, global::System.Data.MappingType.Element);
@@ -9229,6 +9274,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             private global::System.Data.DataColumn columnContract_status_id;
             
             private global::System.Data.DataColumn columnContract_Status_name;
+            
+            private global::System.Data.DataColumn columnLeasing_Comments;
             
             private global::System.Data.DataColumn columnLeasings_save_date;
             
@@ -10055,6 +10102,14 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Leasing_CommentsColumn {
+                get {
+                    return this.columnLeasing_Comments;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Leasings_save_dateColumn {
                 get {
                     return this.columnLeasings_save_date;
@@ -10647,6 +10702,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         string Guarantee, 
                         string Contract_status_id, 
                         string Contract_Status_name, 
+                        string Leasing_Comments, 
                         string Leasings_save_date, 
                         string Cust_id, 
                         string Cust_Idcard, 
@@ -10792,6 +10848,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                         Guarantee,
                         Contract_status_id,
                         Contract_Status_name,
+                        Leasing_Comments,
                         Leasings_save_date,
                         Cust_id,
                         Cust_Idcard,
@@ -10957,6 +11014,7 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 this.columnGuarantee = base.Columns["Guarantee"];
                 this.columnContract_status_id = base.Columns["Contract_status_id"];
                 this.columnContract_Status_name = base.Columns["Contract_Status_name"];
+                this.columnLeasing_Comments = base.Columns["Leasing_Comments"];
                 this.columnLeasings_save_date = base.Columns["Leasings_save_date"];
                 this.columnCust_id = base.Columns["Cust_id"];
                 this.columnCust_Idcard = base.Columns["Cust_Idcard"];
@@ -11189,6 +11247,8 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 base.Columns.Add(this.columnContract_status_id);
                 this.columnContract_Status_name = new global::System.Data.DataColumn("Contract_Status_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContract_Status_name);
+                this.columnLeasing_Comments = new global::System.Data.DataColumn("Leasing_Comments", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeasing_Comments);
                 this.columnLeasings_save_date = new global::System.Data.DataColumn("Leasings_save_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLeasings_save_date);
                 this.columnCust_id = new global::System.Data.DataColumn("Cust_id", typeof(string), null, global::System.Data.MappingType.Element);
@@ -24295,6 +24355,22 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Leasing_Comments {
+                get {
+                    try {
+                        return ((string)(this[this.tableLeasings.Leasing_CommentsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_Comments\' in table \'Leasings\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLeasings.Leasing_CommentsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Leasings_save_date {
                 get {
                     try {
@@ -25507,6 +25583,18 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetContract_Status_nameNull() {
                 this[this.tableLeasings.Contract_Status_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeasing_CommentsNull() {
+                return this.IsNull(this.tableLeasings.Leasing_CommentsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeasing_CommentsNull() {
+                this[this.tableLeasings.Leasing_CommentsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -29975,6 +30063,22 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Leasing_Comments {
+                get {
+                    try {
+                        return ((string)(this[this.tableBill_Payment_Slip.Leasing_CommentsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_Comments\' in table \'Bill_Payment_Slip\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBill_Payment_Slip.Leasing_CommentsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Cust_id {
                 get {
                     try {
@@ -30716,6 +30820,18 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetContract_Status_nameNull() {
                 this[this.tableBill_Payment_Slip.Contract_Status_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeasing_CommentsNull() {
+                return this.IsNull(this.tableBill_Payment_Slip.Leasing_CommentsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeasing_CommentsNull() {
+                this[this.tableBill_Payment_Slip.Leasing_CommentsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -31499,6 +31615,22 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 }
                 set {
                     this[this.tableReport_Payments.Contract_Status_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Leasing_Comments {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_Payments.Leasing_CommentsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_Comments\' in table \'Report_Payments\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_Payments.Leasing_CommentsColumn] = value;
                 }
             }
             
@@ -32308,6 +32440,18 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetContract_Status_nameNull() {
                 this[this.tableReport_Payments.Contract_Status_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeasing_CommentsNull() {
+                return this.IsNull(this.tableReport_Payments.Leasing_CommentsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeasing_CommentsNull() {
+                this[this.tableReport_Payments.Leasing_CommentsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -34043,6 +34187,23 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
                 }
                 set {
                     this[this.tableReport_General_Leasings.Contract_Status_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Leasing_Comments {
+                get {
+                    try {
+                        return ((string)(this[this.tableReport_General_Leasings.Leasing_CommentsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_Comments\' in table \'Report_General_Leasings\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReport_General_Leasings.Leasing_CommentsColumn] = value;
                 }
             }
             
@@ -36020,6 +36181,18 @@ namespace JKLWebBase_v2.Reports_Leasings.DataSet_Leasings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetContract_Status_nameNull() {
                 this[this.tableReport_General_Leasings.Contract_Status_nameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeasing_CommentsNull() {
+                return this.IsNull(this.tableReport_General_Leasings.Leasing_CommentsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeasing_CommentsNull() {
+                this[this.tableReport_General_Leasings.Leasing_CommentsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

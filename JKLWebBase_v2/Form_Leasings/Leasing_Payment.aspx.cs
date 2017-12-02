@@ -165,6 +165,8 @@ namespace JKLWebBase_v2.Form_Leasings
         {
             cls = cls_mng.getCarLeasingById(leasing_id);
 
+            Leasing_Comments_Lbl.Text = cls.Leasing_Comment;
+
             if (cls.Total_payment_left == 0)
             {
                 Close_Leasing_Lbl.Visible = true;

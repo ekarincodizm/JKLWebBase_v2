@@ -1,18 +1,18 @@
-﻿<%@ Page Title="เพิ่มสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Add" %>
+﻿<%@ page title="เพิ่มสัญญาเช่า-ซื้อ" language="C#" masterpagefile="~/Site.Master" autoeventwireup="true" codebehind="Leasing_Add.aspx.cs" inherits="JKLWebBase_v2.Form_Leasings.Leasing_Add" %>
 
-<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="Tabs_Menu_Leasings.ascx" %>
+<%@ register tagprefix="nav_menu" tagname="Tab_Menu" src="Tabs_Menu_Leasings.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-lg-12">
-        <h4 class="page-header"> เพิ่มข้อมูลสัญญาเช่า-ซื้อ </h4>
+        <h4 class="page-header">เพิ่มข้อมูลสัญญาเช่า-ซื้อ </h4>
     </div>
 
     <!-- Tab MenuBar -->
-    <nav_menu:Tab_Menu id="nav_tabs" runat="server" />
+    <nav_menu:Tab_Menu ID="nav_tabs" runat="server" />
 
     <!-- ./Tab MenuBar -->
 
-   <div class="row">
+    <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-primary">
 
@@ -21,6 +21,23 @@
                     ข้อมูลรถ
                 </div>
                 <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-red">
+                                <div class="panel-heading">
+                                    ** หมายเหตุ **
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="form-group col-xs-12">
+                                            <asp:Label ID="Leasing_Comment_Lbl" runat="server"> หมายเหตุ </asp:Label>
+                                            <asp:TextBox ID="Leasing_Comment_TBx" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="form-group col-xs-3">
                             <asp:Label ID="Car_Register_Date_Lbl" runat="server">วันที่จดทะเบียน
@@ -799,7 +816,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

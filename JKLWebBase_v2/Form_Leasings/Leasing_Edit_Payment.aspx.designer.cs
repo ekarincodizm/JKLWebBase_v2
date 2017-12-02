@@ -436,6 +436,24 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Close_Leasing_Lbl;
         
         /// <summary>
+        /// Leasing_Comments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Leasing_Comments;
+        
+        /// <summary>
+        /// Leasing_Comments_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Leasing_Comments_Lbl;
+        
+        /// <summary>
         /// Bill_No_Lbl control.
         /// </summary>
         /// <remarks>

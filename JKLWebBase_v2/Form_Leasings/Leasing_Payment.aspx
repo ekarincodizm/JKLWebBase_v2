@@ -290,6 +290,14 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-xs-5">
+                            <asp:Label ID="Leasing_Comments" runat="server" Font-Bold="True" Font-Size="24pt" ForeColor="Red" Font-Italic="True"> ** หมายเหตุ ** :  </asp:Label>
+                        </div>
+                        <div class="form-group col-xs-7">
+                            <asp:Label ID="Leasing_Comments_Lbl" runat="server" Font-Bold="True" Font-Size="24pt" ForeColor="Red" Font-Italic="True">  </asp:Label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-5">
                             <asp:Label ID="Payment_Date_Lbl" runat="server"> วันที่ชำระเงิน </asp:Label>
                         </div>
                         <div class="form-group col-xs-7">

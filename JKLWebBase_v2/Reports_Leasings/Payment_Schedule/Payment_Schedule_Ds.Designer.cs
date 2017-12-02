@@ -311,6 +311,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
             
             private global::System.Data.DataColumn columnPeriod_schedule;
             
+            private global::System.Data.DataColumn columnLeasing_Comments;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public r_payment_scheduleDataTable() {
@@ -474,6 +476,14 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Leasing_CommentsColumn {
+                get {
+                    return this.columnLeasing_Comments;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -525,7 +535,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
                         double Period_payment, 
                         double Total_payment_left, 
                         string Period_no, 
-                        string Period_schedule) {
+                        string Period_schedule, 
+                        string Leasing_Comments) {
                 r_payment_scheduleRow rowr_payment_scheduleRow = ((r_payment_scheduleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Leasings_id,
@@ -543,7 +554,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
                         Period_payment,
                         Total_payment_left,
                         Period_no,
-                        Period_schedule};
+                        Period_schedule,
+                        Leasing_Comments};
                 rowr_payment_scheduleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowr_payment_scheduleRow);
                 return rowr_payment_scheduleRow;
@@ -582,6 +594,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
                 this.columnTotal_payment_left = base.Columns["Total_payment_left"];
                 this.columnPeriod_no = base.Columns["Period_no"];
                 this.columnPeriod_schedule = base.Columns["Period_schedule"];
+                this.columnLeasing_Comments = base.Columns["Leasing_Comments"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -619,6 +632,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
                 base.Columns.Add(this.columnPeriod_no);
                 this.columnPeriod_schedule = new global::System.Data.DataColumn("Period_schedule", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPeriod_schedule);
+                this.columnLeasing_Comments = new global::System.Data.DataColumn("Leasing_Comments", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeasing_Comments);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1019,6 +1034,22 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Leasing_Comments {
+                get {
+                    try {
+                        return ((string)(this[this.tabler_payment_schedule.Leasing_CommentsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Leasing_Comments\' in table \'r_payment_schedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabler_payment_schedule.Leasing_CommentsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLeasings_idNull() {
                 return this.IsNull(this.tabler_payment_schedule.Leasings_idColumn);
             }
@@ -1207,6 +1238,18 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPeriod_scheduleNull() {
                 this[this.tabler_payment_schedule.Period_scheduleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeasing_CommentsNull() {
+                return this.IsNull(this.tabler_payment_schedule.Leasing_CommentsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeasing_CommentsNull() {
+                this[this.tabler_payment_schedule.Leasing_CommentsColumn] = global::System.Convert.DBNull;
             }
         }
         

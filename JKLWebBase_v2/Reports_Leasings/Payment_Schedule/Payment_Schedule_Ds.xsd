@@ -5,7 +5,7 @@
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="jkl_db_iiConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="jkl_db_iiConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.jkl_db_iiConnectionString.ConnectionString" Provider="MySql.Data.MySqlClient" />
-          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="MySQLConnection" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="MySQLConnection (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.MySQLConnection.ConnectionString" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="MySQLConnection" IsAppSettingsProperty="true" Modifier="Assembly" Name="MySQLConnection (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.MySQLConnection.ConnectionString" Provider="MySql.Data.MySqlClient" />
         </Connections>
         <Tables />
         <Sources />
@@ -15,7 +15,7 @@
   <xs:element name="Payment_Schedule_Ds" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Payment_Schedule_Ds" msprop:Generator_UserDSName="Payment_Schedule_Ds">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="r_payment_schedule" msprop:Generator_TableClassName="r_payment_scheduleDataTable" msprop:Generator_TableVarName="tabler_payment_schedule" msprop:Generator_RowChangedName="r_payment_scheduleRowChanged" msprop:Generator_TablePropName="r_payment_schedule" msprop:Generator_RowDeletingName="r_payment_scheduleRowDeleting" msprop:Generator_RowChangingName="r_payment_scheduleRowChanging" msprop:Generator_RowEvHandlerName="r_payment_scheduleRowChangeEventHandler" msprop:Generator_RowDeletedName="r_payment_scheduleRowDeleted" msprop:Generator_RowClassName="r_payment_scheduleRow" msprop:Generator_UserTableName="r_payment_schedule" msprop:Generator_RowEvArgName="r_payment_scheduleRowChangeEvent">
+        <xs:element name="r_payment_schedule" msprop:Generator_TableClassName="r_payment_scheduleDataTable" msprop:Generator_TableVarName="tabler_payment_schedule" msprop:Generator_TablePropName="r_payment_schedule" msprop:Generator_RowDeletingName="r_payment_scheduleRowDeleting" msprop:Generator_RowChangingName="r_payment_scheduleRowChanging" msprop:Generator_RowEvHandlerName="r_payment_scheduleRowChangeEventHandler" msprop:Generator_RowDeletedName="r_payment_scheduleRowDeleted" msprop:Generator_UserTableName="r_payment_schedule" msprop:Generator_RowChangedName="r_payment_scheduleRowChanged" msprop:Generator_RowEvArgName="r_payment_scheduleRowChangeEvent" msprop:Generator_RowClassName="r_payment_scheduleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Leasings_id" msprop:Generator_ColumnVarNameInTable="columnLeasings_id" msprop:Generator_ColumnPropNameInRow="Leasings_id" msprop:Generator_ColumnPropNameInTable="Leasings_idColumn" msprop:Generator_UserColumnName="Leasings_id" type="xs:string" minOccurs="0" />
@@ -34,6 +34,7 @@
               <xs:element name="Total_payment_left" msprop:Generator_ColumnVarNameInTable="columnTotal_payment_left" msprop:Generator_ColumnPropNameInRow="Total_payment_left" msprop:Generator_ColumnPropNameInTable="Total_payment_leftColumn" msprop:Generator_UserColumnName="Total_payment_left" type="xs:double" minOccurs="0" />
               <xs:element name="Period_no" msprop:Generator_ColumnVarNameInTable="columnPeriod_no" msprop:Generator_ColumnPropNameInRow="Period_no" msprop:Generator_ColumnPropNameInTable="Period_noColumn" msprop:Generator_UserColumnName="Period_no" type="xs:string" minOccurs="0" />
               <xs:element name="Period_schedule" msprop:Generator_ColumnVarNameInTable="columnPeriod_schedule" msprop:Generator_ColumnPropNameInRow="Period_schedule" msprop:Generator_ColumnPropNameInTable="Period_scheduleColumn" msprop:Generator_UserColumnName="Period_schedule" type="xs:string" minOccurs="0" />
+              <xs:element name="Leasing_Comments" msprop:Generator_ColumnVarNameInTable="columnLeasing_Comments" msprop:Generator_ColumnPropNameInRow="Leasing_Comments" msprop:Generator_ColumnPropNameInTable="Leasing_CommentsColumn" msprop:Generator_UserColumnName="Leasing_Comments" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

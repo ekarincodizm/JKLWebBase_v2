@@ -344,6 +344,8 @@ namespace JKLWebBase_v2.Form_Leasings
             Cheque_sum_TBx.Text = cls_tmp.Cheque_sum.ToString();
             Cheque_receive_date_TBx.Text = string.IsNullOrEmpty(cls_tmp.Cheque_receive_date) ? "" : DateTimeUtility.convertDateToPageRealServer(cls_tmp.Cheque_receive_date);
 
+            Leasing_Comment_TBx.Text = cls_tmp.Leasing_Comment;
+
             _CheckLeasingPayment(Leasing_id);
         }
 
@@ -577,6 +579,8 @@ namespace JKLWebBase_v2.Form_Leasings
 
             cls.bs_ls_stt = new Base_Leasing_Status();
             cls.bs_ls_stt.Contract_Status_id = 1;
+
+            cls.Leasing_Comment = string.IsNullOrEmpty(Leasing_Comment_TBx.Text) ? "" : Leasing_Comment_TBx.Text;
 
             cls_mng.editCarLeasings(cls);
 

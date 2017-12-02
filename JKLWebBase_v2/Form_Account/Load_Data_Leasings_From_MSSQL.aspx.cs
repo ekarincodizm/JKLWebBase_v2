@@ -263,6 +263,8 @@ namespace JKLWebBase_v2.Form_Account
 
                         Messages_Logs._writeSQLCodeUpdateCustomerToMYSQL(ctm, part);
                     }
+
+                    row_index++;
                 }
             }
             catch (SqlException ex)
@@ -943,6 +945,8 @@ namespace JKLWebBase_v2.Form_Account
 
                         Messages_Logs._writeSQLCodeInsertGuarantorLeasingsToMYSQL(cls_grt, part);
                     }
+
+                    row_index++;
                 }
             }
             catch (SqlException ex)

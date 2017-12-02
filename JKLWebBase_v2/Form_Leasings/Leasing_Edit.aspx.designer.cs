@@ -31,6 +31,24 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::JKLWebBase_v2.Form_Main.Tabs_Menu_Leasings nav_tabs;
         
         /// <summary>
+        /// Leasing_Comment_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Leasing_Comment_Lbl;
+        
+        /// <summary>
+        /// Leasing_Comment_TBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Leasing_Comment_TBx;
+        
+        /// <summary>
         /// Car_Register_Date_Lbl control.
         /// </summary>
         /// <remarks>

@@ -449,6 +449,8 @@ namespace JKLWebBase_v2.Form_Leasings
             cls.bs_ls_stt = new Base_Leasing_Status();
             cls.bs_ls_stt.Contract_Status_id = 1;
 
+            cls.Leasing_Comment = string.IsNullOrEmpty(Leasing_Comment_TBx.Text) ? "" : Leasing_Comment_TBx.Text;
+
             cls_mng.addCarLeasings(cls);
 
             cls_ctm_mng.addCustomersLeasing(cls, ctm);
