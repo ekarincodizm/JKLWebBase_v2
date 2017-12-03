@@ -16,11 +16,6 @@ namespace JKLWebBase_v2.Managers_Base
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE i_base_companys (IN i_Company_code VARCHAR(10), IN i_Company_N_name VARCHAR(255), IN i_Company_F_name VARCHAR(255), IN i_Company_tax_id VARCHAR(255), 
-                /// IN i_Company_tax_subcode VARCHAR(255), IN i_Company_address_no VARCHAR(255), IN i_Company_vilage VARCHAR(255), IN i_Company_vilage_no VARCHAR(255), 
-                /// IN i_Company_alley VARCHAR(255), IN i_Company_road VARCHAR(255), IN i_Company_subdistrict VARCHAR(255), IN i_Company_district VARCHAR(255), IN i_Company_province_id INT(11), 
-                /// IN i_Company_country VARCHAR(255), IN i_Company_zipcode VARCHAR(255), IN i_Company_tel VARCHAR(255)
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_base_companys", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -70,11 +65,6 @@ namespace JKLWebBase_v2.Managers_Base
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE u_base_companys (IN i_Company_id VARCHAR(10), IN i_Company_code VARCHAR(10), IN i_Company_N_name VARCHAR(255), IN i_Company_F_name VARCHAR(255), IN i_Company_tax_id VARCHAR(255), 
-                /// IN i_Company_tax_subcode VARCHAR(255), IN i_Company_address_no VARCHAR(255), IN i_Company_vilage VARCHAR(255), IN i_Company_vilage_no VARCHAR(255), 
-                /// IN i_Company_alley VARCHAR(255), IN i_Company_road VARCHAR(255), IN i_Company_subdistrict VARCHAR(255), IN i_Company_district VARCHAR(255), IN i_Company_province_id INT(11), 
-                /// IN i_Company_country VARCHAR(255), IN i_Company_zipcode VARCHAR(255), IN i_Company_tel VARCHAR(255)
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("u_base_companys", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -125,8 +115,6 @@ namespace JKLWebBase_v2.Managers_Base
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE d_base_companys (IN i_Company_id INT(11))
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("d_base_companys", con);
                 cmd.CommandType = CommandType.StoredProcedure;

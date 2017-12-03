@@ -19,12 +19,6 @@ namespace JKLWebBase_v2.Managers_Leasings
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_car_leasings_payment ] :: 
-                 * g_car_leasings_payment (in i_Leasing_id varchar(50))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_car_leasings_payment", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -83,12 +77,6 @@ namespace JKLWebBase_v2.Managers_Leasings
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_car_leasings_payment_info ] :: 
-                 * g_car_leasings_payment_info (in i_Leasing_id varchar(50))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_car_leasings_payment_info", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -175,12 +163,6 @@ namespace JKLWebBase_v2.Managers_Leasings
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_car_leasings_payment_info ] :: 
-                 * g_car_leasings_payment_info (in i_Leasing_id varchar(50))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_car_leasings_payment_info_by_bill", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -264,14 +246,6 @@ namespace JKLWebBase_v2.Managers_Leasings
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ i_car_leasings_real_payment_mod_II ] :: 
-                 * i_car_leasings_real_payment_mod_II (IN i_Leasing_id VARCHAR(50), IN i_Period_free DOUBLE(10,2), IN i_Period_track DOUBLE(10,2), 
-				 *		IN i_Total_payment_fine DOUBLE(10,2), IN i_Discount DOUBLE(10,2), IN i_Real_payment DOUBLE(10,2), 
-				 *		IN i_Real_payment_date DATE, IN i_Account_id VARCHAR(255), IN i_Company_Id INT(11), IN i_Bill_no_manual_ref VARCHAR(255), IN i_Type_Payment INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_car_leasings_real_payment_mod_II", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -315,14 +289,6 @@ namespace JKLWebBase_v2.Managers_Leasings
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ i_car_leasings_real_payment_mod_I ] :: 
-                 * i_car_leasings_real_payment_mod_I (IN i_Leasing_id VARCHAR(50), IN i_Period_free DOUBLE(10,2), IN i_Period_track DOUBLE(10,2), 
-				 *		IN i_Total_payment_fine DOUBLE(10,2), IN i_Discount DOUBLE(10,2), IN i_Real_payment DOUBLE(10,2), IN i_Bill_no VARCHAR(255),
-				 *		IN i_Real_payment_date DATE, IN i_Account_id VARCHAR(255), IN i_Company_Id INT(11), IN i_Type_Payment INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_car_leasings_real_payment_mod_I", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -367,14 +333,6 @@ namespace JKLWebBase_v2.Managers_Leasings
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ u_car_leasings_real_payment ] :: 
-                 * u_car_leasings_real_payment (IN i_Leasing_id VARCHAR(50), IN i_Bill_no VARCHAR(255), IN i_Period_free DOUBLE(10,2), IN i_Period_track DOUBLE(10,2),
-                 *                      IN i_Total_payment_fine DOUBLE(10,2), IN i_Discount DOUBLE(10,2), IN i_Real_payment DOUBLE(10,2), 
-				 *                      IN i_Real_payment_date DATE, IN i_Emp_id VARCHAR(255), IN i_Company_Id INT(11), IN i_Bill_no_manual_ref VARCHAR(255))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("u_car_leasings_real_payment", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -418,12 +376,6 @@ namespace JKLWebBase_v2.Managers_Leasings
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ d_car_leasing_real_payment ] :: 
-                 * `d_car_leasing_real_payment`(IN i_Leasing_id VARCHAR(50), IN i_Bill_no VARCHAR(255))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("d_car_leasing_real_payment", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -458,14 +410,6 @@ namespace JKLWebBase_v2.Managers_Leasings
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ i_car_leasings_real_payment_mod_I ] :: 
-                 * i_car_leasings_real_payment_mod_I (IN i_Leasing_id VARCHAR(50), IN i_Period_free DOUBLE(10,2), IN i_Period_track DOUBLE(10,2), 
-				 *		IN i_Total_payment_fine DOUBLE(10,2), IN i_Discount DOUBLE(10,2), IN i_Real_payment DOUBLE(10,2), IN i_Bill_no VARCHAR(255),
-				 *		IN i_Real_payment_date DATE, IN i_Account_id VARCHAR(255), IN i_Company_Id INT(11), IN i_Type_Payment INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("cal_period_fine_by_id", con);
                 cmd.CommandType = CommandType.StoredProcedure;

@@ -133,13 +133,6 @@ namespace JKLWebBase_v2.Managers_Base
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE `i_base_leasing_code`(IN i_Leasing_code_name VARCHAR(255), IN i_Leasing_code_S_Name VARCHAR(255), IN i_Leasing_code_F_Name VARCHAR(255),
-                /// IN i_Leasing_code_Tax_id VARCHAR(255), IN i_Leasing_code_Tax_subcode VARCHAR(255), IN i_Leasing_code_address_no VARCHAR(255),
-				///	IN i_Leasing_code_vilage VARCHAR(255), IN i_Leasing_code_vilage_no VARCHAR(255), IN i_Leasing_code_alley VARCHAR(255),
-				///	IN i_Leasing_code_road VARCHAR(255), IN i_Leasing_code_subdistrict VARCHAR(255), IN i_Leasing_code_district VARCHAR(255),
-				///	IN i_Leasing_code_province_id INT(11), IN i_Leasing_code_country VARCHAR(255), IN i_Leasing_code_zipcode VARCHAR(255),
-				///	IN i_Leasing_code_tel VARCHAR(255))
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_base_leasing_code", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -189,12 +182,6 @@ namespace JKLWebBase_v2.Managers_Base
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE `u_base_leasing_code`(IN i_Leasing_code_id INT(11), IN i_Leasing_code_name VARCHAR(255), IN i_Leasing_code_S_Name VARCHAR(255), IN i_Leasing_code_F_Name VARCHAR(255),
-                /// IN i_Leasing_code_Tax_id VARCHAR(255), IN i_Leasing_code_Tax_subcode VARCHAR(255), IN i_Leasing_code_address_no VARCHAR(255),
-                ///	IN i_Leasing_code_vilage VARCHAR(255), IN i_Leasing_code_vilage_no VARCHAR(255), IN i_Leasing_code_alley VARCHAR(255),
-                ///	IN i_Leasing_code_road VARCHAR(255), IN i_Leasing_code_subdistrict VARCHAR(255), IN i_Leasing_code_district VARCHAR(255),
-                ///	IN i_Leasing_code_province_id INT(11), IN i_Leasing_code_country VARCHAR(255), IN i_Leasing_code_zipcode VARCHAR(255),
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("u_base_leasing_code", con);
                 cmd.CommandType = CommandType.StoredProcedure;

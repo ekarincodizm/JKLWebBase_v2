@@ -55,12 +55,6 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_customers ] :: 
-                 * g_customers (in i_Cust_idcard varchar(30), in i_Cust_Fname varchar(255), in i_Cust_LName varchar(255), IN i_row_str INT(11), IN i_row_limit INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_customers", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -250,12 +244,6 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_customers ] :: 
-                 * g_customers (in i_Cust_idcard varchar(30), in i_Cust_Fname varchar(255), in i_Cust_LName varchar(255), IN i_row_str INT(11), IN i_row_limit INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_customers_by_transfer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -441,12 +429,6 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_customers_by_idcard ] :: 
-                 * g_customers_by_idcard (in i_Cust_idcard varchar(13))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_customers_by_idcard", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -628,37 +610,6 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ i_customers ] :: 
-                 * i_customers ( IN i_Cust_id VARCHAR(50), IN i_Cust_Idcard VARCHAR(20), IN i_Cust_Fname VARCHAR(255), IN i_Cust_LName VARCHAR(255),
-	             *   IN i_Cust_B_date DATE, IN i_Cust_Age INT(11), IN i_Cust_Idcard_without VARCHAR(255), IN i_Cust_Idcard_start DATE,
-	             *   IN i_Cust_Idcard_expire DATE, IN i_Cust_Nationality_id INT(11), IN i_Cust_Origin_id INT(11), IN i_Cust_Tel VARCHAR(255),
-	             *   IN i_Cust_Email VARCHAR(255), IN i_Cust_Status_id INT(11), IN i_Cust_Marry_idcard VARCHAR(20), IN i_Cust_Marry_Fname VARCHAR(255),
-	             *   IN i_Cust_Marry_Lname VARCHAR(255), IN i_Cust_Marry_Nationality INT(11), IN i_Cust_Marry_Origin INT(11), IN i_Cust_Marry_Address_no VARCHAR(255),
-	             *   IN i_Cust_Marry_vilage VARCHAR(255), IN i_Cust_Marry_vilage_no VARCHAR(255), IN i_Cust_Marry_alley VARCHAR(255), IN i_Cust_Marry_road VARCHAR(255),
-	             *   IN i_Cust_Marry_subdistrict VARCHAR(255), IN i_Cust_Marry_district VARCHAR(255), IN i_Cust_Marry_province_id INT(11), IN i_Cust_Marry_country VARCHAR(255),
-	             *   IN i_Cust_Marry_zipcode VARCHAR(255), IN i_Cust_Marry_tel VARCHAR(255), IN i_Cust_Marry_email VARCHAR(255), IN i_Cust_Marry_job VARCHAR(255),
-	             *   IN i_Cust_Marry_job_position VARCHAR(255), IN i_Cust_Marry_job_long INT(11), IN i_Cust_Marry_job_salary DOUBLE(10,2), IN i_Cust_Marry_job_local_name VARCHAR(255),
-	             *   IN i_Cust_Marry_job_address_no VARCHAR(255), IN i_Cust_Marry_job_vilage VARCHAR(255), IN i_Cust_Marry_job_vilage_no VARCHAR(255), IN i_Cust_Marry_job_alley VARCHAR(255),
-	             *   IN i_Cust_Marry_job_road VARCHAR(255), IN i_Cust_Marry_job_subdistrict VARCHAR(255), IN i_Cust_Marry_job_district VARCHAR(255), IN i_Cust_Marry_job_province_id INT(11),
-	             *   IN i_Cust_Marry_job_zipcode VARCHAR(255), IN i_Cust_Marry_job_tel VARCHAR(255), IN i_Cust_Job VARCHAR(255), IN i_Cust_Job_position VARCHAR(255),
-	             *   IN i_Cust_Job_long INT(11), IN i_Cust_Job_salary DOUBLE(10,2), IN i_Cust_Job_local_name VARCHAR(255), IN i_Cust_Job_address_no VARCHAR(255),
-	             *   IN i_Cust_Job_vilage VARCHAR(255), IN i_Cust_Job_vilage_no VARCHAR(255), IN i_Cust_Job_alley VARCHAR(255), IN i_Cust_Job_road VARCHAR(255),
-	             *   IN i_Cust_Job_subdistrict VARCHAR(255), IN i_Cust_Job_district VARCHAR(255), IN i_Cust_Job_province_id INT(11), IN i_Cust_Job_country VARCHAR(255),
-	             *   IN i_Cust_Job_zipcode VARCHAR(255), IN i_Cust_Job_tel VARCHAR(255), IN i_Cust_Job_email VARCHAR(255), IN i_Cust_Home_address_no VARCHAR(255),
-	             *   IN i_Cust_Home_vilage VARCHAR(255), IN i_Cust_Home_vilage_no VARCHAR(255), IN i_Cust_Home_alley VARCHAR(255), IN i_Cust_Home_road VARCHAR(255),
-	             *   IN i_Cust_Home_subdistrict VARCHAR(255), IN i_Cust_Home_district VARCHAR(255), IN i_Cust_Home_province_id INT(11), IN i_Cust_Home_country VARCHAR(255),
-	             *   IN i_Cust_Home_zipcode VARCHAR(255), IN i_Cust_Home_tel VARCHAR(255), IN i_Cust_Home_GPS_Latitude VARCHAR(255), IN i_Cust_Home_GPS_Longitude VARCHAR(255),
-	             *   IN i_Cust_Home_Status_id INT(11), IN i_Cust_Idcard_address_no VARCHAR(255), IN i_Cust_Idcard_vilage VARCHAR(255), IN i_Cust_Idcard_vilage_no VARCHAR(255),
-	             *   IN i_Cust_Idcard_alley VARCHAR(255), IN i_Cust_Idcard_road VARCHAR(255), IN i_Cust_Idcard_subdistrict VARCHAR(255), IN i_Cust_Idcard_district VARCHAR(255),
-	             *   IN i_Cust_Idcard_province_id INT(11), IN i_Cust_Idcard_country VARCHAR(255), IN i_Cust_Idcard_zipcode VARCHAR(255), IN i_Cust_Idcard_tel VARCHAR(255),
-	             *   IN i_Cust_Idcard_Status_id INT(11), IN i_Cust_Current_address_no VARCHAR(255), IN i_Cust_Current_vilage VARCHAR(255), IN i_Cust_Current_vilage_no VARCHAR(255),
-	             *   IN i_Cust_Current_alley VARCHAR(255), IN i_Cust_Current_road VARCHAR(255), IN i_Cust_Current_subdistrict VARCHAR(255), IN i_Cust_Current_district VARCHAR(255),
-	             *   IN i_Cust_Current_province_id INT(11), IN i_Cust_Current_country VARCHAR(255), IN i_Cust_Current_zipcode VARCHAR(255), IN i_Cust_Current_tel VARCHAR(255),
-	             *   IN i_Cust_Current_Status_id INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_customers", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -793,37 +744,6 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ u_customers ] :: 
-                 * u_customers ( IN i_Cust_id VARCHAR(50), IN i_Cust_Idcard VARCHAR(20), IN i_Cust_Fname VARCHAR(255), IN i_Cust_LName VARCHAR(255),
-	             *   IN i_Cust_B_date DATE, IN i_Cust_Age INT(11), IN i_Cust_Idcard_without VARCHAR(255), IN i_Cust_Idcard_start DATE,
-	             *   IN i_Cust_Idcard_expire DATE, IN i_Cust_Nationality_id INT(11), IN i_Cust_Origin_id INT(11), IN i_Cust_Tel VARCHAR(255),
-	             *   IN i_Cust_Email VARCHAR(255), IN i_Cust_Status_id INT(11), IN i_Cust_Marry_idcard VARCHAR(20), IN i_Cust_Marry_Fname VARCHAR(255),
-	             *   IN i_Cust_Marry_Lname VARCHAR(255), IN i_Cust_Marry_Nationality INT(11), IN i_Cust_Marry_Origin INT(11), IN i_Cust_Marry_Address_no VARCHAR(255),
-	             *   IN i_Cust_Marry_vilage VARCHAR(255), IN i_Cust_Marry_vilage_no VARCHAR(255), IN i_Cust_Marry_alley VARCHAR(255), IN i_Cust_Marry_road VARCHAR(255),
-	             *   IN i_Cust_Marry_subdistrict VARCHAR(255), IN i_Cust_Marry_district VARCHAR(255), IN i_Cust_Marry_province_id INT(11), IN i_Cust_Marry_country VARCHAR(255),
-	             *   IN i_Cust_Marry_zipcode VARCHAR(255), IN i_Cust_Marry_tel VARCHAR(255), IN i_Cust_Marry_email VARCHAR(255), IN i_Cust_Marry_job VARCHAR(255),
-	             *   IN i_Cust_Marry_job_position VARCHAR(255), IN i_Cust_Marry_job_long INT(11), IN i_Cust_Marry_job_salary DOUBLE(10,2), IN i_Cust_Marry_job_local_name VARCHAR(255),
-	             *   IN i_Cust_Marry_job_address_no VARCHAR(255), IN i_Cust_Marry_job_vilage VARCHAR(255), IN i_Cust_Marry_job_vilage_no VARCHAR(255), IN i_Cust_Marry_job_alley VARCHAR(255),
-	             *   IN i_Cust_Marry_job_road VARCHAR(255), IN i_Cust_Marry_job_subdistrict VARCHAR(255), IN i_Cust_Marry_job_district VARCHAR(255), IN i_Cust_Marry_job_province_id INT(11),
-	             *   IN i_Cust_Marry_job_zipcode VARCHAR(255), IN i_Cust_Marry_job_tel VARCHAR(255), IN i_Cust_Job VARCHAR(255), IN i_Cust_Job_position VARCHAR(255),
-	             *   IN i_Cust_Job_long INT(11), IN i_Cust_Job_salary DOUBLE(10,2), IN i_Cust_Job_local_name VARCHAR(255), IN i_Cust_Job_address_no VARCHAR(255),
-	             *   IN i_Cust_Job_vilage VARCHAR(255), IN i_Cust_Job_vilage_no VARCHAR(255), IN i_Cust_Job_alley VARCHAR(255), IN i_Cust_Job_road VARCHAR(255),
-	             *   IN i_Cust_Job_subdistrict VARCHAR(255), IN i_Cust_Job_district VARCHAR(255), IN i_Cust_Job_province_id INT(11), IN i_Cust_Job_country VARCHAR(255),
-	             *   IN i_Cust_Job_zipcode VARCHAR(255), IN i_Cust_Job_tel VARCHAR(255), IN i_Cust_Job_email VARCHAR(255), IN i_Cust_Home_address_no VARCHAR(255),
-	             *   IN i_Cust_Home_vilage VARCHAR(255), IN i_Cust_Home_vilage_no VARCHAR(255), IN i_Cust_Home_alley VARCHAR(255), IN i_Cust_Home_road VARCHAR(255),
-	             *   IN i_Cust_Home_subdistrict VARCHAR(255), IN i_Cust_Home_district VARCHAR(255), IN i_Cust_Home_province_id INT(11), IN i_Cust_Home_country VARCHAR(255),
-	             *   IN i_Cust_Home_zipcode VARCHAR(255), IN i_Cust_Home_tel VARCHAR(255), IN i_Cust_Home_GPS_Latitude VARCHAR(255), IN i_Cust_Home_GPS_Longitude VARCHAR(255),
-	             *   IN i_Cust_Home_Status_id INT(11), IN i_Cust_Idcard_address_no VARCHAR(255), IN i_Cust_Idcard_vilage VARCHAR(255), IN i_Cust_Idcard_vilage_no VARCHAR(255),
-	             *   IN i_Cust_Idcard_alley VARCHAR(255), IN i_Cust_Idcard_road VARCHAR(255), IN i_Cust_Idcard_subdistrict VARCHAR(255), IN i_Cust_Idcard_district VARCHAR(255),
-	             *   IN i_Cust_Idcard_province_id INT(11), IN i_Cust_Idcard_country VARCHAR(255), IN i_Cust_Idcard_zipcode VARCHAR(255), IN i_Cust_Idcard_tel VARCHAR(255),
-	             *   IN i_Cust_Idcard_Status_id INT(11), IN i_Cust_Current_address_no VARCHAR(255), IN i_Cust_Current_vilage VARCHAR(255), IN i_Cust_Current_vilage_no VARCHAR(255),
-	             *   IN i_Cust_Current_alley VARCHAR(255), IN i_Cust_Current_road VARCHAR(255), IN i_Cust_Current_subdistrict VARCHAR(255), IN i_Cust_Current_district VARCHAR(255),
-	             *   IN i_Cust_Current_province_id INT(11), IN i_Cust_Current_country VARCHAR(255), IN i_Cust_Current_zipcode VARCHAR(255), IN i_Cust_Current_tel VARCHAR(255),
-	             *   IN i_Cust_Current_Status_id INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("u_customers", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -994,12 +914,6 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_customers_home_photo_lastnumber_by_id ] :: 
-                 * g_customers_home_photo_lastnumber_by_id (IN i_Cust_id varchar(50))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_customers_home_photo_lastnumber_by_id", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -1039,12 +953,6 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_customers_home_photo ] :: 
-                 * g_customers_home_photo (IN i_Cust_id varchar(50))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_customers_home_photo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -1098,12 +1006,6 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_customers_home_photo_for_remove ] :: 
-                 * g_customers_home_photo_for_remove (IN i_Cust_id varchar(50), IN i_Home_img_num INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_customers_home_photo_for_remove", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -1154,13 +1056,6 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ i_customers_home_photo ] :: 
-                 * i_customers_home_photo   (in i_Cust_id varchar(50),       in i_Home_img_num int(11),      in i_Home_img_old_name text,    in i_Home_img_path text, 
-				 *					                in i_Home_img_full_path text,   in i_Home_img_local_path text)
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_customers_home_photo", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -1199,12 +1094,6 @@ namespace JKLWebBase_v2.Managers_Customers
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ d_customers_home_photo ] :: 
-                 * d_customers_home_photo (IN i_Cust_id varchar(50), IN i_Home_img_num INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("d_customers_home_photo", con);
                 cmd.CommandType = CommandType.StoredProcedure;

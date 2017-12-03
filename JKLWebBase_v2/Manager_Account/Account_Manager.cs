@@ -14,8 +14,6 @@ namespace JKLWebBase_v2.Manager_Account
 
         public Account_Login getLogin(string i_Username_md, string i_Password_md)
         {
-            /// PROCEDURE `g_account_login_by_id`(IN i_Account_id VARCHAR(255))
-
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
@@ -103,8 +101,6 @@ namespace JKLWebBase_v2.Manager_Account
 
         public Account_Login getAccount(string i_Account_id)
         {
-            /// PROCEDURE `g_account_login_by_id`(IN i_Account_id VARCHAR(255))
-
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
@@ -191,9 +187,6 @@ namespace JKLWebBase_v2.Manager_Account
 
         public List<Account_Login> listAccount(string i_Username_md, string i_Account_F_name, string i_Account_Idcard, string i_level_id, string i_Company_id, int i_row_str, int i_row_limit)
         {
-            /// PROCEDURE `g_account_login_list`(IN i_Username_md VARCHAR(255), IN i_Account_F_name VARCHAR(255), IN i_Account_Idcard VARCHAR(255),
-            /// IN i_level_id VARCHAR(255), IN i_Company_id VARCHAR(255), IN i_row_str INT(11), IN i_row_limit INT(11))
-
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
@@ -292,10 +285,6 @@ namespace JKLWebBase_v2.Manager_Account
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE `i_account_login`(IN i_Username_md VARCHAR(255), IN i_Password_md VARCHAR(255), IN i_level_id VARCHAR(255), IN i_Account_Idcard VARCHAR(255),
-                /// IN i_Account_F_name VARCHAR(255), IN i_Account_N_Name VARCHAR(255), IN i_Account_Address_pri VARCHAR(255), IN i_Account_Tel VARCHAR(255), 
-				///	IN i_Account_Email VARCHAR(255), IN i_Company_id int(11))
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_account_login", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -339,10 +328,6 @@ namespace JKLWebBase_v2.Manager_Account
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE `u_account_login`(IN i_Account_id VARCHAR(255), IN i_Username_md VARCHAR(255), IN i_Password_md VARCHAR(255), IN i_level_id VARCHAR(255), IN i_Account_Idcard VARCHAR(255),
-                /// IN i_Account_F_name VARCHAR(255), IN i_Account_N_Name VARCHAR(255), IN i_Account_Address_pri VARCHAR(255), IN i_Account_Tel VARCHAR(255), 
-				///	IN i_Account_Email VARCHAR(255), IN i_Company_id int(11), IN i_Account_status INT(1))
-                
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("u_account_login", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -388,8 +373,6 @@ namespace JKLWebBase_v2.Manager_Account
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE `d_account_login`(IN i_Account_id VARCHAR(255))
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("d_account_login", con);
                 cmd.CommandType = CommandType.StoredProcedure;

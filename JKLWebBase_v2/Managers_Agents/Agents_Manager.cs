@@ -53,12 +53,6 @@ namespace JKLWebBase_v2.Managers_Agents
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_car_Agents ] :: 
-                 * g_car_Agents (in i_Agent_idcard varchar(20), in i_Agent_fname varchar(255), in i_Agent_lname varchar(255), IN i_row_str INT(11), IN i_row_limit INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_car_agents", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -126,12 +120,6 @@ namespace JKLWebBase_v2.Managers_Agents
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_car_Agents_by_idcard ] :: 
-                 * g_car_Agents_by_idcard (in i_Agent_idcard varchar(50))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_car_agents_by_idcard", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -192,12 +180,6 @@ namespace JKLWebBase_v2.Managers_Agents
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_car_agents_by_name ] :: 
-                 * g_car_agents_by_name (in i_Agent_Idcard varchar(20), in i_Agent_fname varchar(255), in i_Agent_lname varchar(255))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_car_agents_by_name", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -260,12 +242,6 @@ namespace JKLWebBase_v2.Managers_Agents
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ g_car_Agents_values ] :: 
-                 * g_car_Agents_values(in i_Agent_id varchar(50), in i_Leasing_id varchar(50))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_car_agents_commission", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -338,15 +314,6 @@ namespace JKLWebBase_v2.Managers_Agents
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ i_car_agents ] :: 
-                 * i_car_agents (  IN i_Agent_id VARCHAR(50), IN i_Agent_Fname VARCHAR(255), IN i_Agent_Lname VARCHAR(255), IN i_Agent_Idcard VARCHAR(20),
-	             *   IN i_Agent_Address_no VARCHAR(255), IN i_Agent_Vilage VARCHAR(255), IN i_Agent_Vilage_no VARCHAR(255), IN i_Agent_Alley VARCHAR(255),
-	             *   IN i_Agent_Road VARCHAR(255), IN i_Agent_Subdistrict VARCHAR(255), IN i_Agent_District VARCHAR(255), IN i_Agent_Province_id INT(11),
-	             *   IN i_Agent_Country VARCHAR(255), IN i_Agent_Zipcode VARCHAR(255), IN i_Agent_Status INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_car_agents", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -394,14 +361,6 @@ namespace JKLWebBase_v2.Managers_Agents
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ i_car_agents_commission ] :: 
-                 * i_car_agents_commission ( IN i_Leasing_id VARCHAR(50), IN i_Agent_id VARCHAR(50), IN i_Agent_commission DOUBLE(10,2), IN i_Agent_percen DOUBLE(10,2),
-	             *   IN i_Agent_cash DOUBLE(10,2), IN i_Agent_net_com DOUBLE(10,2), IN i_Agent_num_code VARCHAR(50), IN i_Agent_book_code VARCHAR(50),
-	             *   IN i_Agent_date_print DATE)
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_car_agents_commission", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -444,15 +403,6 @@ namespace JKLWebBase_v2.Managers_Agents
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ u_car_agents ] :: 
-                 * u_car_agents ( IN i_Agent_id VARCHAR(50), IN i_Agent_Fname VARCHAR(255), IN i_Agent_Lname VARCHAR(255), IN i_Agent_Idcard VARCHAR(20),
-	             *   IN i_Agent_Address_no VARCHAR(255), IN i_Agent_Vilage VARCHAR(255), IN i_Agent_Vilage_no VARCHAR(255), IN i_Agent_Alley VARCHAR(255),
-	             *   IN i_Agent_Road VARCHAR(255), IN i_Agent_Subdistrict VARCHAR(255), IN i_Agent_District VARCHAR(255), IN i_Agent_Province_id INT(11),
-	             *   IN i_Agent_Country VARCHAR(255), IN i_Agent_Zipcode VARCHAR(255), IN i_Agent_Status INT(11))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("u_car_agents", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -500,14 +450,6 @@ namespace JKLWebBase_v2.Managers_Agents
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ u_car_agents_commission ] :: 
-                 * u_car_agents_commission ( IN i_Leasing_id VARCHAR(50), IN i_Agent_id VARCHAR(50), IN i_Agent_commission DOUBLE(10,2), IN i_Agent_percen DOUBLE(10,2),
-	             *   IN i_Agent_cash DOUBLE(10,2), IN i_Agent_net_com DOUBLE(10,2), IN i_Agent_num_code VARCHAR(50), IN i_Agent_book_code VARCHAR(50),
-	             *   IN i_Agent_date_print DATE)
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("u_car_agents_commission", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -550,12 +492,6 @@ namespace JKLWebBase_v2.Managers_Agents
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /* 
-                 * :: StoredProcedure :: [ d_car_agents_commission ] :: 
-                 * d_car_agents_commission (IN i_Leasing_id VARCHAR(50))
-                 * 
-                 */
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("d_car_agents_commission", con);
                 cmd.CommandType = CommandType.StoredProcedure;

@@ -106,8 +106,6 @@ namespace JKLWebBase_v2.Managers_Base
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE `i_base_nationalitys`(IN i_Nationality_name_ENG VARCHAR(255), IN i_Nationality_name_TH VARCHAR(255))
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_base_nationalitys", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -143,8 +141,6 @@ namespace JKLWebBase_v2.Managers_Base
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE `u_base_nationalitys`(IN i_Nationality_id INT(11), IN i_Nationality_name_ENG VARCHAR(255), IN i_Nationality_name_TH VARCHAR(255))
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("u_base_car_type", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -181,8 +177,6 @@ namespace JKLWebBase_v2.Managers_Base
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE `d_base_nationalitys`(IN i_Nationality_id INT(11))
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("d_base_nationalitys", con);
                 cmd.CommandType = CommandType.StoredProcedure;

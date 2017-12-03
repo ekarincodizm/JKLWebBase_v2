@@ -17,8 +17,6 @@ namespace JKLWebBase_v2.Manager_Account
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
-                /// PROCEDURE `i_activity_log` (IN i_log_details TEXT, IN i_Account_id VARCHAR(255), IN i_Company_id INT(11))
-
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("i_activity_log", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -52,9 +50,6 @@ namespace JKLWebBase_v2.Manager_Account
 
         public List<Activity_Log> listActivityLogs(string i_log_date_str, string i_log_date_end, string i_Account_id, string i_Company_id, int i_row_str, int i_row_limit)
         {
-            /// PROCEDURE 'g_activity_logs' (IN i_log_date_str VARCHAR(255), IN i_log_date_end VARCHAR(255), IN i_Account_id VARCHAR(255),
-            /// IN i_Company_id VARCHAR(255), i_row_str INT(11), IN i_row_limit INT(11))
-
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
             {
