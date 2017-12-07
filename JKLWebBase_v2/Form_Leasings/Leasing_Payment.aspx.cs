@@ -669,9 +669,6 @@ namespace JKLWebBase_v2.Form_Leasings
                         /// Acticity Logs System
                         ///  
 
-                        package_login = (Base_Companys)Session["Package"];
-                        acc_lgn = (Account_Login)Session["Login"];
-
                         string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงืน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
 
                         new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
@@ -722,9 +719,6 @@ namespace JKLWebBase_v2.Form_Leasings
 
                     /// Acticity Logs System
                     ///  
-
-                    package_login = (Base_Companys)Session["Package"];
-                    acc_lgn = (Account_Login)Session["Login"];
 
                     string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงืนแบบคำนวนการปิดบัญชี ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
 

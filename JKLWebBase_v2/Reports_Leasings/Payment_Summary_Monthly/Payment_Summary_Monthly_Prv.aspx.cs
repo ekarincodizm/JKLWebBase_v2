@@ -35,7 +35,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Monthly
                 Export_Reported_mod_I_Btn.Visible = true;
                 Export_Reported_mod_II_Btn.Visible = true;
             }
-            else if (acc_lgn.acc_lv.level_access <= 3)
+            else if (acc_lgn.acc_lv.level_access <= 4)
             {
                 Export_Reported_mod_I_Btn.Visible = true;
                 Export_Reported_mod_II_Btn.Visible = false;
