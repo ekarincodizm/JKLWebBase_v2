@@ -3,6 +3,7 @@
 <%@ Import Namespace="JKLWebBase_v2.Class_Account" %>
 <%@ Import Namespace="JKLWebBase_v2.Manager_Account" %>
 <%@ Import Namespace="JKLWebBase_v2.Global_Class" %>
+<%@ Import Namespace="JKLWebBase_v2.Class_Base" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
@@ -57,6 +58,8 @@
             <%
                 if (Session["List_Account"] != null)
                 {
+                    Base_Companys package_login = (Base_Companys)Session["Package"];
+                    Account_Login acc_lgn_lv = (Account_Login)Session["Login"];
             %>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
@@ -68,7 +71,9 @@
                             <th style="width: 20%;">ตำแหน่ง </th>
                             <th style="width: 10%;">วันที่</th>
                             <th style="width: 10%;">สถานะ</th>
+                            <% if (acc_lgn_lv.acc_lv.level_access == 9) { %>
                             <th style="width: 5%;"></th>
+                            <% } %>
                             <th style="width: 5%;"></th>
                             <th style="width: 5%;"></th>
                         </tr>
@@ -107,9 +112,11 @@
                                     }
                                 %>
                             </td>
+                            <% if (acc_lgn_lv.acc_lv.level_access == 9) { %>
                             <td>
                                 <a class="btn btn-xs btn-info" href="Activity_Log_Prv?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, acc_lgn.Account_id) %>" data-toggle="tooltip" data-placement="top" title="Logs"><i class="fa fa-list-alt fa-fw"></i></a>
                             </td>
+                            <% } %>
                             <td>
                                 <a class="btn btn-xs btn-warning" href="Account_Edit?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, acc_lgn.Account_id) %>&mode=e" data-toggle="tooltip" data-placement="top" title="แก้ไข"><i class="fa fa-edit"></i></a>
                             </td>

@@ -71,7 +71,7 @@ namespace JKLWebBase_v2.Form_Leasings
                         /// Acticity Logs System
                         ///
 
-                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ลบข้อมูลการจ่ายเงืน เลขที่ใบเสร็จ : " + bill_no, acc_lgn.resu, package_login.Company_N_name);
+                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ลบข้อมูลการจ่ายเงิน เลขที่ใบเสร็จ : " + bill_no, acc_lgn.resu, package_login.Company_N_name);
 
                         new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
@@ -238,6 +238,8 @@ namespace JKLWebBase_v2.Form_Leasings
             string bill_no = code[2];
             string idcard = (string)Session["ctm_leasing_payment"];
 
+            cls = cls_mng.getCarLeasingById(leasing_id);
+
             double total_payment_left = string.IsNullOrEmpty(Total_payment_left_TBx.Text) ? 0 : Convert.ToDouble(Total_payment_left_TBx.Text);
             double period_fine = string.IsNullOrEmpty(Total_payment_fine_TBx.Text) ? 0 : Convert.ToDouble(Total_payment_fine_TBx.Text);
 
@@ -308,7 +310,8 @@ namespace JKLWebBase_v2.Form_Leasings
 
                     /// Acticity Logs System
                     ///  
-                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลการจ่ายเงืน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " เลขที่ใบเสร็จ : " + bill_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment +"] ["+ period_fine+"] ["+ real_discount+"] ", acc_lgn.resu, package_login.Company_N_name);
+
+                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " เลขที่ใบเสร็จ : " + bill_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment +"] ["+ period_fine+"] ["+ real_discount+"] ", acc_lgn.resu, package_login.Company_N_name);
 
                     new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
@@ -350,7 +353,7 @@ namespace JKLWebBase_v2.Form_Leasings
                     /// Acticity Logs System
                     ///  
 
-                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลการจ่ายเงืน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " เลขที่ใบเสร็จ : " + bill_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
+                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " เลขที่ใบเสร็จ : " + bill_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
 
                     new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 

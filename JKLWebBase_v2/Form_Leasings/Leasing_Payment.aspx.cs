@@ -563,6 +563,8 @@ namespace JKLWebBase_v2.Form_Leasings
             string leasing_id = code[1];
             string idcard = code[2];
 
+            cls = cls_mng.getCarLeasingById(leasing_id);
+
             double real_payment = string.IsNullOrEmpty(Real_Payment_TBx.Text) ? 0 : Convert.ToDouble(Real_Payment_TBx.Text);
             double cal_payment = string.IsNullOrEmpty(Cal_Period_Payment_TBx.Text) ? 0 : Convert.ToDouble(Cal_Period_Payment_TBx.Text);
             double total_payment_left = string.IsNullOrEmpty(Total_payment_left_TBx.Text) ? 0 : Convert.ToDouble(Total_payment_left_TBx.Text);
@@ -669,7 +671,7 @@ namespace JKLWebBase_v2.Form_Leasings
                         /// Acticity Logs System
                         ///  
 
-                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงืน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
+                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
 
                         new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
@@ -720,7 +722,7 @@ namespace JKLWebBase_v2.Form_Leasings
                     /// Acticity Logs System
                     ///  
 
-                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงืนแบบคำนวนการปิดบัญชี ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
+                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงินแบบคำนวนการปิดบัญชี ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
 
                     new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 

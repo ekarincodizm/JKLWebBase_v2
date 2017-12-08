@@ -8,12 +8,15 @@ using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Managers_Leasings;
 using JKLWebBase_v2.Class_Leasings;
+using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
 {
     public partial class Notification_Payment_Prv : Page
     {
         private Base_Companys package_login = new Base_Companys();
+        private Account_Login acc_lgn = new Account_Login();
         private Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
         string error = string.Empty;
 
@@ -26,6 +29,18 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
                 _loadZoneService();
 
                 Export_Reported_Btn.Visible = false;
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เข้าหน้าออกรายงานขาดชำระ ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
 

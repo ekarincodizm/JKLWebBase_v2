@@ -79,6 +79,10 @@ namespace JKLWebBase_v2.Form_Account
 
         protected void Search_Btn_Click(object sender, EventArgs e)
         {
+            Session.Remove("List_Activity_Log");
+
+            Paging_DDL.Items.Clear();
+
             _getData();
         }
 

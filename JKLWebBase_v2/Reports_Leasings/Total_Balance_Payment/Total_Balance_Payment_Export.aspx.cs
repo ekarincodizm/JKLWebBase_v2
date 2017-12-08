@@ -9,6 +9,7 @@ using JKLWebBase_v2.Global_Class;
 using JKLWebBase_v2.Reports_Leasings.DataSet_Leasings;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
 {
@@ -148,6 +149,15 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 con.Close();
                 con.Dispose();
             }
+
+            /// Acticity Logs System
+            ///  
+
+            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ออก" + report_header, acc_lgn.resu, package_login.Company_N_name);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
         }
 
         public void ExportReport_Mod_I(Total_Balance_Payment rpt)

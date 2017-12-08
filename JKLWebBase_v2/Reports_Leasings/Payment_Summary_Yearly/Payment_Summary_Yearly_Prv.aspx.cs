@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Class_Account;
+using JKLWebBase_v2.Global_Class;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly
 {
@@ -52,6 +54,15 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly
                 _loadLeasingCode();
                 _loadZoneService();
                 _loadYear();
+
+                /// Acticity Logs System
+                ///  
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เข้าหน้าออกรายงานประจำปี ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
             }
         }
 

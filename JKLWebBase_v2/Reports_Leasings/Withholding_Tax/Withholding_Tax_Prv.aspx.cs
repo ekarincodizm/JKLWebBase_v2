@@ -11,6 +11,7 @@ using JKLWebBase_v2.Reports_Leasings.DataSet_Leasings;
 using System.Net;
 using JKLWebBase_v2.Class_Account;
 using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Manager_Account;
 
 namespace JKLWebBase_v2.Reports_Leasings.Withholding_Tax
 {
@@ -28,6 +29,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Withholding_Tax
         private void _loadReport()
         {
             cls = (Car_Leasings)Session["Leasings"];
+            package_login = (Base_Companys)Session["Package"];
+            acc_lgn = (Account_Login)Session["Login"];
 
             MySqlConnection con_cls = MySQLConnection.connectionMySQL();
             MySqlConnection con_cpn = MySQLConnection.connectionMySQL();
@@ -81,6 +84,15 @@ namespace JKLWebBase_v2.Reports_Leasings.Withholding_Tax
                 con_cls.Dispose();
                 con_cpn.Dispose();
             }
+
+            /// Acticity Logs System
+            ///  
+
+            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ออกรายงานลูกค้าคงเหลือ " , acc_lgn.resu, package_login.Company_N_name);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
         }
 
         public void ExportReport(Withholding_Tax rpt)
