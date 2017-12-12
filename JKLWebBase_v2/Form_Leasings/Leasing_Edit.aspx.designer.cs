@@ -58,15 +58,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Car_Register_Date_Lbl;
         
         /// <summary>
-        /// RFV_Car_Register_Date_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Car_Register_Date_TBx;
-        
-        /// <summary>
         /// Car_Register_Date_TBx control.
         /// </summary>
         /// <remarks>
@@ -85,15 +76,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Car_Plate_Lbl;
         
         /// <summary>
-        /// RFV_Car_Plate_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Car_Plate_TBx;
-        
-        /// <summary>
         /// Car_Plate_TBx control.
         /// </summary>
         /// <remarks>
@@ -110,15 +92,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Car_Plate_Province_Lbl;
-        
-        /// <summary>
-        /// RFV_Car_Plate_Province_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Car_Plate_Province_DDL;
         
         /// <summary>
         /// Car_Plate_Province_DDL control.
@@ -173,15 +146,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Car_brand_Lbl;
-        
-        /// <summary>
-        /// RFV_Car_Brand_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Car_Brand_DDL;
         
         /// <summary>
         /// Car_Brand_DDL control.
@@ -256,15 +220,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Chassis_No_Lbl;
         
         /// <summary>
-        /// RFV_Chassis_No_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Chassis_No_TBx;
-        
-        /// <summary>
         /// Chassis_No_TBx control.
         /// </summary>
         /// <remarks>
@@ -317,15 +272,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Engine_No_Lbl;
-        
-        /// <summary>
-        /// RFV_Engine_No_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Engine_No_TBx;
         
         /// <summary>
         /// Engine_No_TBx control.
@@ -400,15 +346,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Car_Used_Lbl;
         
         /// <summary>
-        /// RFV_Car_Used_DDL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Car_Used_DDL;
-        
-        /// <summary>
         /// Car_Used_DDL control.
         /// </summary>
         /// <remarks>
@@ -427,15 +364,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         protected global::System.Web.UI.WebControls.Label Car_Distance_Lbl;
         
         /// <summary>
-        /// RFV_Car_Distance_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Car_Distance_TBx;
-        
-        /// <summary>
         /// Car_Distance_TBx control.
         /// </summary>
         /// <remarks>
@@ -452,15 +380,6 @@ namespace JKLWebBase_v2.Form_Leasings {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Car_Next_Register_Date_Lbl;
-        
-        /// <summary>
-        /// RFV_Car_Next_Register_Date_TBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV_Car_Next_Register_Date_TBx;
         
         /// <summary>
         /// Car_Next_Register_Date_TBx control.
