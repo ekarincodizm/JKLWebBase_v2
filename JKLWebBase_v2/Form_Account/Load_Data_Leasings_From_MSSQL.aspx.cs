@@ -1071,7 +1071,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             cls_pay.bs_cpn.Company_id = _MatchCompanys(reader.GetString(2));
 
-                            Car_Leasings_Payment chk_cls_pay = cls_pay_mng.getRealPaymentInfofromBill(cls_pay.Bill_no);
+                            Car_Leasings_Payment chk_cls_pay = cls_pay_mng.getRealPaymentInfofromBill(cls_pay.Leasing_id, cls_pay.Bill_no, cls_pay.Real_payment_date);
 
                             if (string.IsNullOrEmpty(chk_cls_pay.Bill_no))
                             {

@@ -158,7 +158,7 @@ namespace JKLWebBase_v2.Managers_Leasings
             }
         }
 
-        public Car_Leasings_Payment getRealPaymentInfofromBill(string bill_no)
+        public Car_Leasings_Payment getRealPaymentInfofromBill(string i_Leasing_id, string i_Bill_no, string i_Real_payment_date)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();
             try
@@ -166,7 +166,9 @@ namespace JKLWebBase_v2.Managers_Leasings
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("g_car_leasings_payment_info_by_bill", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@i_Bill_no", bill_no);
+                cmd.Parameters.AddWithValue("@i_Leasing_id", i_Leasing_id);
+                cmd.Parameters.AddWithValue("@i_Bill_no", i_Bill_no);
+                cmd.Parameters.AddWithValue("@i_Real_payment_date", i_Real_payment_date);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 

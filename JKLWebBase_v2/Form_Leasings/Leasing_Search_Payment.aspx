@@ -239,7 +239,7 @@
                             </td>
                             <td><%= cls.Deps_no %></td>
                             <td><%= cls.Leasing_no %></td>
-                            <td><%= cls.ctm.Cust_Fname + " " + cls.ctm.Cust_LName %></td>
+                            <td><%= cls.ctm.Cust_Fname + " " + cls.ctm.Cust_LName + " " + cls.Leasing_Comment %></td>
                             <td><%= DateTimeUtility.convertDateToPageRealServer(cls.Leasing_date) %></td>
                             <td style="color: #2fba00;"><%= cls.Total_Net_leasing.ToString("#,###.00") %></td>
                             <td><%= cls.Total_period %></td>
