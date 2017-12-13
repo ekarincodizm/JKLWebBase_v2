@@ -10,6 +10,8 @@ using JKLWebBase_v2.Reports_Leasings.DataSet_Leasings;
 using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Class_Account;
 using JKLWebBase_v2.Manager_Account;
+using System.Collections.Generic;
+using JKLWebBase_v2.Managers_Base;
 
 namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
 {
@@ -58,6 +60,49 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
 
             string report_header = " รายงานลูกค้าขาดชำระค่างวด (เร่งรัด) ";
 
+            string report_case = "ค้นหา : ";
+
+            if (!string.IsNullOrEmpty(lost_str) && string.IsNullOrEmpty(lost_end))
+            {
+                report_case = report_case + " [ ขาด " + lost_str + " ] ";
+            }
+            else if (string.IsNullOrEmpty(lost_str) && !string.IsNullOrEmpty(lost_end))
+            {
+                report_case = report_case + " [ ขาด " + lost_end + " ] ";
+            }
+            else if (!string.IsNullOrEmpty(lost_str) && !string.IsNullOrEmpty(lost_end))
+            {
+                report_case = report_case + " [ ขาด " + lost_str + " - " + lost_end + " ] ";
+            }
+
+            if (!string.IsNullOrEmpty(district))
+            {
+                report_case = report_case + " [ " + district + " ] ";
+            }
+
+            if (!string.IsNullOrEmpty(province))
+            {
+                report_case = report_case + " [ " + province + " ] ";
+            }
+
+            if (!string.IsNullOrEmpty(leasing_Code_inline))
+            {
+                string[] lsc = leasing_Code_inline.Split(',');
+
+                List<Base_Leasing_Code> list_data = new Base_Leasing_Code_Manager().getLeasingCode();
+
+                for (int lsc_index = 0; lsc_index < lsc.Length; lsc_index++)
+                {
+                    for (int i = 0; i < list_data.Count; i++)
+                    {
+                        if (lsc[lsc_index] == list_data[i].Leasing_code_id.ToString())
+                        {
+                            report_case = report_case + " [ " + list_data[i].Leasing_code_name + " ] ";
+                        }
+                    }
+                }
+            }
+
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];
 
@@ -99,7 +144,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
                 rpt.SetParameterValue("Reported_By_User", "ออกโดย : " + acc_lgn.Account_F_name);
                 rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOWForServer()));
                 rpt.SetParameterValue("Report_Header", report_header);
-
+                rpt.SetParameterValue("Report_Case", "");
 
                 CRV_Display_Report.ReportSource = rpt;
 
