@@ -619,7 +619,7 @@ namespace JKLWebBase_v2.Form_Account
                     cls.Total_period_left = Convert.ToInt32(period);
                     cls.Total_payment_left = Total_Net_Leasing;
 
-                    cls.Payment_schedule = reader.IsDBNull(8) ? defaultNum : Convert.ToInt32(reader.GetString(8)) > 25? 25 : Convert.ToInt32(reader.GetString(8)) ;
+                    cls.Payment_schedule = reader.IsDBNull(8) ? defaultNum : Convert.ToInt32(reader.GetString(8)) ;
 
                     cls.First_payment_date = reader.IsDBNull(9) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(9).ToString()); // Server JKLFTP
                     cls.Car_register_date = reader.IsDBNull(36) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(36).ToString()); // Server JKLFTP
@@ -769,11 +769,22 @@ namespace JKLWebBase_v2.Form_Account
 
                         cls_mng.editCarLeasings(cls);
 
-                        cls_ctm_mng.editCustomersLeasing(cls, ctm);
-
                         Messages_Logs._writeSQLCodeUpdateLeasingsToMYSQL(cls, part);
 
-                        Messages_Logs._writeSQLCodeUpdateCustomerLeasingsToMYSQL(cls, ctm, part);
+                        Customers chk_ctm = cls_ctm_mng.getCustomersLeasing(cls.Leasing_id, ctm.Cust_Idcard);
+
+                        if (string.IsNullOrEmpty(chk_ctm.Cust_Idcard))
+                        {
+                            cls_ctm_mng.addCustomersLeasing(cls, ctm);
+
+                            Messages_Logs._writeSQLCodeInsertCustomerLeasingsToMYSQL(cls, ctm, part);
+                        }
+                        else
+                        {
+                            cls_ctm_mng.editCustomersLeasing(cls, ctm);
+
+                            Messages_Logs._writeSQLCodeUpdateCustomerLeasingsToMYSQL(cls, ctm, part);
+                        }
 
                         if (reader.GetDecimal(49) > 0)
                         {
