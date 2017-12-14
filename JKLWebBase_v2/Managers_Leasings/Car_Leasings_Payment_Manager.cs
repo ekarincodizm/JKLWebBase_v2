@@ -439,5 +439,36 @@ namespace JKLWebBase_v2.Managers_Leasings
                 con.Close();
             }
         }
+
+        public bool calculateAllPeriodFine()
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("cal_period_fine", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasing_Payment_Manager --> calculateAllPeriodFine() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Payment_Manager --> calculateAllPeriodFine() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

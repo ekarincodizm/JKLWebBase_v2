@@ -147,7 +147,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment
                 rpt.SetParameterValue("Report_Header", report_header);
                 rpt.SetParameterValue("Report_Case", report_case);
 
-
                 CRV_Display_Report.ReportSource = rpt;
 
                 /// Export Report to PDF File with Save As Mode

@@ -1,7 +1,9 @@
 ﻿using JKLWebBase_v2.Class_Account;
 using JKLWebBase_v2.Class_Base;
+using JKLWebBase_v2.Global_Class;
 using System;
 using System.Web.UI;
+using JKLWebBase_v2.Managers_Leasings;
 
 namespace JKLWebBase_v2.Form_Main
 {
@@ -9,6 +11,7 @@ namespace JKLWebBase_v2.Form_Main
     {
         private Base_Companys package_login = new Base_Companys();
         private Account_Login acc_lgn = new Account_Login();
+        private Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +24,7 @@ namespace JKLWebBase_v2.Form_Main
                 link_Report_Form_Certified_Leasing_Outline_panel.Visible = false;
             }
 
-            if(acc_lgn.acc_lv.level_access == 4)
+            if (acc_lgn.acc_lv.level_access == 4)
             {
                 link_Payment_Leasings_panel.Visible = true;
             }
@@ -29,6 +32,19 @@ namespace JKLWebBase_v2.Form_Main
             if (acc_lgn.acc_lv.level_access < 4)
             {
                 link_Report_Payment_Daily_Leasings_panel.Visible = false;
+            }
+
+            if (!IsPostBack)
+            {
+                if (acc_lgn.acc_lv.level_access >= 7)
+                {
+                    string start_cal = DateTimeUtility._dateTimeNOWForServer().Split(' ')[1].Split(':')[0];
+
+                    if (start_cal == "9" || start_cal == "09")
+                    {
+                        cls_pay_mng.calculateAllPeriodFine();
+                    }
+                }
             }
 
             Session.Remove("Customer");

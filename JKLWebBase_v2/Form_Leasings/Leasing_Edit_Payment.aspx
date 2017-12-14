@@ -201,17 +201,17 @@
                                             if (Convert.ToDateTime(cls_pay.Period_schedule) < DateTime.Now && cls_pay.Period_payment_status == -1)
                                             {
                                             %>
-                                            <%= "style='background-color: #cc0000;'" %>
+                                            <%= "style='background-color: #cc0000; color: #fffff;'" %>
                                             <%          }
                                             else if (cls_pay.Period_payment_status == 1)
                                             {
                                             %>
-                                            <%= "style='background-color: lightyellow;'" %>
+                                            <%= "style='background-color: lightyellow; color: #808080;'" %>
                                             <%          }
                                             else if (cls_pay.Period_payment_status == 9)
                                             {
                                             %>
-                                            <%= cls_pay.Period_no % 2 == 0 ? "style='background-color: #ffff80;'"  : "style='background-color: #99e6ff;'" %>
+                                            <%= cls_pay.Period_no % 2 == 0 ? "style='background-color: #ffff80; color: #808080;'"  : "style='background-color: #99e6ff; color: #808080;'" %>
                                             <%          } %>>
                                             <td><%= cls_pay.Period_no %>  </td>
                                             <td><%= DateTimeUtility.convertDateToPageRealServer(cls_pay.Period_schedule)  %>  </td>

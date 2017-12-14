@@ -54,6 +54,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
                 
                 Bill_Payment_Slip rpt = new Bill_Payment_Slip();
                 rpt.SetDataSource(ls_ds);
+                rpt.SetParameterValue("Print_Bill_Date", DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOWForServer()));
 
                 CRV_Display_Report.ReportSource = rpt;
 

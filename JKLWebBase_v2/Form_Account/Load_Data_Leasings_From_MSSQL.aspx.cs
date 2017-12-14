@@ -619,7 +619,7 @@ namespace JKLWebBase_v2.Form_Account
                     cls.Total_period_left = Convert.ToInt32(period);
                     cls.Total_payment_left = Total_Net_Leasing;
 
-                    cls.Payment_schedule = reader.IsDBNull(8) ? defaultNum : Convert.ToInt32(reader.GetString(8));
+                    cls.Payment_schedule = reader.IsDBNull(8) ? defaultNum : Convert.ToInt32(reader.GetString(8)) > 25? 25 : Convert.ToInt32(reader.GetString(8)) ;
 
                     cls.First_payment_date = reader.IsDBNull(9) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(9).ToString()); // Server JKLFTP
                     cls.Car_register_date = reader.IsDBNull(36) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(36).ToString()); // Server JKLFTP
@@ -1058,7 +1058,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             cls_pay.Leasing_id = cls.Leasing_id;
                             cls_pay.Bill_no = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
-                            cls_pay.Period_fee = reader.IsDBNull(5) ? defaultNum : Convert.ToDouble(reader.GetDecimal(5));
+                            cls_pay.Period_fee = defaultNum;
                             cls_pay.Period_track = reader.IsDBNull(7) ? defaultNum : Convert.ToDouble(reader.GetDecimal(7));
                             cls_pay.Total_payment_fine = reader.IsDBNull(17) ? defaultNum : Convert.ToDouble(reader.GetDecimal(17));
                             cls_pay.Discount = reader.IsDBNull(9) ? defaultNum : Convert.ToDouble(reader.GetDecimal(9));

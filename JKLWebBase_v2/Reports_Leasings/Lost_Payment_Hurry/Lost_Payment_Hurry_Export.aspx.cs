@@ -144,7 +144,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
                 rpt.SetParameterValue("Reported_By_User", "ออกโดย : " + acc_lgn.Account_F_name);
                 rpt.SetParameterValue("Reported_Print_Date", "วันที่พิมพ์ : " + DateTimeUtility.convertDateTimeToPage(DateTimeUtility._dateTimeNOWForServer()));
                 rpt.SetParameterValue("Report_Header", report_header);
-                rpt.SetParameterValue("Report_Case", "");
+                rpt.SetParameterValue("Report_Case", report_case);
 
                 CRV_Display_Report.ReportSource = rpt;
 

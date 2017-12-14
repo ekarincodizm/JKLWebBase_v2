@@ -8,6 +8,7 @@ using JKLWebBase_v2.Class_Base;
 using JKLWebBase_v2.Managers_Base;
 using JKLWebBase_v2.Class_Account;
 using JKLWebBase_v2.Manager_Account;
+using JKLWebBase_v2.Managers_Leasings;
 
 namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
 {
@@ -15,6 +16,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
     {
         private Base_Companys package_login = new Base_Companys();
         private Account_Login acc_lgn = new Account_Login();
+        private Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,6 +37,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
                 new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
                 /// Acticity Logs System
+
+                cls_pay_mng.calculateAllPeriodFine();
             }
         }
 
