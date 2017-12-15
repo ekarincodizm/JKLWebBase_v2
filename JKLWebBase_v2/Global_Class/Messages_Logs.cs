@@ -471,6 +471,7 @@ namespace JKLWebBase_v2.Global_Class
             message += string.IsNullOrEmpty(cls.Cheque_receive_date) ? ",null" : ",'" + cls.Cheque_receive_date + "'";
             message += ",'" + cls.Guarantee + "'";
             message += "," + cls.bs_ls_stt.Contract_Status_id + "";
+            message += ",'" + cls.Leasing_Comment + "'";
             message += ");";
             message += Environment.NewLine;
 
@@ -575,6 +576,7 @@ namespace JKLWebBase_v2.Global_Class
             message += string.IsNullOrEmpty(cls.Cheque_receive_date) ? ",null" : ",'" + cls.Cheque_receive_date + "'";
             message += ",'" + cls.Guarantee + "'";
             message += "," + cls.bs_ls_stt.Contract_Status_id + "";
+            message += ",'" + cls.Leasing_Comment + "'";
             message += ");";
             message += Environment.NewLine;
 
