@@ -626,6 +626,12 @@ namespace JKLWebBase_v2.Form_Account
                     cls.Payment_schedule = reader.IsDBNull(8) ? defaultNum : Convert.ToInt32(reader.GetString(8)) ;
 
                     cls.First_payment_date = reader.IsDBNull(9) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(9).ToString()); // Server JKLFTP
+
+                    if (cls.Deps_no == "46120431")
+                    {
+                        cls.First_payment_date = "2004-01-05";
+                    }
+
                     cls.Car_register_date = reader.IsDBNull(36) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(36).ToString()); // Server JKLFTP
 
                     cls.Car_license_plate = reader.IsDBNull(30) ? null : reader.GetString(30);
