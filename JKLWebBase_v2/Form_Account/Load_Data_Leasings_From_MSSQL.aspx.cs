@@ -285,9 +285,9 @@ namespace JKLWebBase_v2.Form_Account
             {
                 con.Close();
                 con.Dispose();
-            }
 
-            Messages_TBx.Text = "END TRANSFER DATAS CUSTOMER " + Environment.NewLine;
+                Messages_TBx.Text = "END TRANSFER DATAS CUSTOMER " + Environment.NewLine;
+            }
         }
 
         private void _loadLeasing_no_customer()
@@ -317,7 +317,11 @@ namespace JKLWebBase_v2.Form_Account
                 sql += "                dbo.Address AS add_n ON cntr.personID = add_n.personID AND add_n.addressType = 'N' LEFT OUTER JOIN ";
                 sql += "                dbo.Address AS add_job ON cntr.personID = add_job.personID AND add_job.addressType = 'O' LEFT OUTER JOIN ";
                 sql += "                dbo.Address AS add_marry ON cntr.personID = add_marry.personID AND add_marry.addressType = 'M' ";
-                sql += "        WHERE   (cntr.personID IS NULL)  ";
+                sql += "        WHERE   cnt.cntNoTemp = '471251' OR cnt.cntNoTemp = '521094' OR ";
+                sql += "        cnt.cntNoTemp = '47400066' OR cnt.cntNoTemp = '48050043' OR cnt.cntNoTemp = '48060086' OR cnt.cntNoTemp = '48070052' OR ";
+                sql += "        cnt.cntNoTemp = '48110087' OR cnt.cntNoTemp = '51120158' OR cnt.cntNoTemp = '52100071' OR cnt.cntNoTemp = '53070176' OR ";
+                sql += "        cnt.cntNoTemp = '54060034' OR cnt.cntNoTemp = '54070030' OR cnt.cntNoTemp = '56070157' OR cnt.cntNoTemp = '56080147' OR ";
+                sql += "        cnt.cntNoTemp = '047-12-51' ";
 
                 SqlCommand cmd = new SqlCommand(sql, con);
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -486,9 +490,9 @@ namespace JKLWebBase_v2.Form_Account
             {
                 con.Close();
                 con.Dispose();
-            }
 
-            Messages_TBx.Text = "END TRANSFER DATAS LEASING NO CUSTOMER " + Environment.NewLine;
+                Messages_TBx.Text = "END TRANSFER DATAS LEASING NO CUSTOMER " + Environment.NewLine;
+            }
         }
 
         private void _loadLeasings()
@@ -771,20 +775,9 @@ namespace JKLWebBase_v2.Form_Account
 
                         Messages_Logs._writeSQLCodeUpdateLeasingsToMYSQL(cls, part);
 
-                        Customers chk_ctm = cls_ctm_mng.getCustomersLeasing(cls.Leasing_id, ctm.Cust_Idcard);
+                        cls_ctm_mng.editCustomersLeasing(cls, ctm);
 
-                        if (string.IsNullOrEmpty(chk_ctm.Cust_Idcard))
-                        {
-                            cls_ctm_mng.addCustomersLeasing(cls, ctm);
-
-                            Messages_Logs._writeSQLCodeInsertCustomerLeasingsToMYSQL(cls, ctm, part);
-                        }
-                        else
-                        {
-                            cls_ctm_mng.editCustomersLeasing(cls, ctm);
-
-                            Messages_Logs._writeSQLCodeUpdateCustomerLeasingsToMYSQL(cls, ctm, part);
-                        }
+                        Messages_Logs._writeSQLCodeUpdateCustomerLeasingsToMYSQL(cls, ctm, part);
 
                         if (reader.GetDecimal(49) > 0)
                         {
@@ -870,9 +863,9 @@ namespace JKLWebBase_v2.Form_Account
             {
                 con.Close();
                 con.Dispose();
-            }
 
-            Messages_TBx.Text = "END TRANSFER DATAS LEASING " + Environment.NewLine;
+                Messages_TBx.Text = "END TRANSFER DATAS LEASING " + Environment.NewLine;
+            }
         }
 
         private void _loadGuarantor(int Guarantor_no)
@@ -978,9 +971,9 @@ namespace JKLWebBase_v2.Form_Account
             {
                 con.Close();
                 con.Dispose();
-            }
 
-            Messages_TBx.Text = "END TRANSFER DATAS GUARANTOR " + Guarantor_no + Environment.NewLine;
+                Messages_TBx.Text = "END TRANSFER DATAS GUARANTOR " + Guarantor_no + Environment.NewLine;
+            }
         }
 
         protected void Search_Index_of_Btn_Click(object sender, EventArgs e)

@@ -34,7 +34,7 @@ namespace JKLWebBase_v2.Form_Main
                 link_Report_Payment_Daily_Leasings_panel.Visible = false;
             }
 
-            if (!IsPostBack)
+            /*if (!IsPostBack)
             {
                 if (acc_lgn.acc_lv.level_access >= 7)
                 {
@@ -45,7 +45,7 @@ namespace JKLWebBase_v2.Form_Main
                         cls_pay_mng.calculateAllPeriodFine();
                     }
                 }
-            }
+            }*/
 
             Session.Remove("Customer");
         }

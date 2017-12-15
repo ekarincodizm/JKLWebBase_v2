@@ -38,7 +38,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
 
                 /// Acticity Logs System
 
-                cls_pay_mng.calculateAllPeriodFine();
+                //cls_pay_mng.calculateAllPeriodFine();
             }
         }
 
