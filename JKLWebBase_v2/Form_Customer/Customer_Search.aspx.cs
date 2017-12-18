@@ -75,6 +75,8 @@ namespace JKLWebBase_v2.Form_Customer
         {
             int paging = row > 20 ? (row / 20) : 1;
 
+            Session["max_page"] = paging;
+
             for (int i = 1; i <= paging; i++)
             {
                 Paging_DDL.Items.Add(new ListItem("" + i, "" + i));
@@ -158,6 +160,9 @@ namespace JKLWebBase_v2.Form_Customer
 
                 Session["List_Customers"] = list_cust;
             }
+
+            int max_page = (int)Session["max_page"];
+            if (current_page == max_page) { link_Next.Enabled = false; }
         }
     }
 }

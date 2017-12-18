@@ -242,9 +242,6 @@ namespace JKLWebBase_v2
 
             cls_mng = new Car_Leasings_Manager();
 
-            int max_page = (int)Session["max_page"];
-            if (current_page == max_page) { link_Next.Enabled = false; }
-
             if (current_page > 1)
             {
                 int row_str = (current_page - 1) * 20;
@@ -267,6 +264,9 @@ namespace JKLWebBase_v2
 
                 Session["List_Leasings"] = list_cls;
             }
+
+            int max_page = (int)Session["max_page"];
+            if (current_page == max_page) { link_Next.Enabled = false; }
         }
 
         /*******************************************************************************************************************************************************************************

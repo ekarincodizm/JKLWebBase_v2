@@ -172,11 +172,16 @@ namespace JKLWebBase_v2.Form_Base
 
                 Session["List_Customers"] = list_data;
             }
+
+            int max_page = (int)Session["max_page"];
+            if (current_page == max_page) { link_Next.Enabled = false; }
         }
 
         private void _pageCount(int row)
         {
             int paging = row > 20 ? (row / 20) + 1 : 1;
+
+            Session["max_page"] = paging;
 
             for (int i = 1; i <= paging; i++)
             {
