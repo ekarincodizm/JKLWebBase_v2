@@ -103,9 +103,9 @@ namespace JKLWebBase_v2.Form_Account
         {
             List<Account_Level> list_data = new Account_Manager().listAccountLevel();
             Account_status_DDL.Items.Add(new ListItem("ปกติ", "1"));
-            Account_status_DDL.Items.Add(new ListItem("ลาออก", "-1"));
-            Account_status_DDL.Items.Add(new ListItem("ห้ามใช้งาน", "0"));
-            
+            Account_status_DDL.Items.Add(new ListItem("ห้ามใช้งานชั่วคราว", "2"));
+            Account_status_DDL.Items.Add(new ListItem("ลาออก", "0"));
+            Account_status_DDL.Items.Add(new ListItem("ไล่ออก", "3"));
         }
 
         protected void Save_Btn_Click(object sender, EventArgs e)
