@@ -214,7 +214,7 @@
                                             if (Convert.ToDateTime(cls_pay.Period_schedule) < DateTime.Now && cls_pay.Period_payment_status == -1)
                                             {
                                         %>
-                                            <%= "style='background-color: #cc0000; color: #fffff;'" %>
+                                            <%= "style='background-color: #cc0000; color: #ffffff;'" %>
                                             <%          }
                                             else if (cls_pay.Period_payment_status == 1)
                                             {

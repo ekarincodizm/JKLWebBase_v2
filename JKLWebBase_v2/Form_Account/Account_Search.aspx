@@ -98,13 +98,13 @@
                             <td><%= DateTimeUtility.convertDateToPageRealServer(acc_lgn.Account_Save_Date) %></td>
                             <td>
                                 <% 
-                                    if (acc_lgn.Account_status == -1)
+                                    if (acc_lgn.Account_status == 3 || acc_lgn.Account_status == 0)
                                     {
                                         Response.Write("<label class='label label-danger' > ลาออก </label>");
                                     }
-                                    else if (acc_lgn.Account_status == 0)
+                                    else if (acc_lgn.Account_status == 2)
                                     {
-                                        Response.Write("<label class='label label-danger' > ห้ามใช้งาน </label>");
+                                        Response.Write("<label class='label label-warning' > ห้ามใช้งานชั่วคราว </label>");
                                     }
                                     else if (acc_lgn.Account_status == 1)
                                     {
