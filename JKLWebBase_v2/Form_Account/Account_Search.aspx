@@ -98,9 +98,13 @@
                             <td><%= DateTimeUtility.convertDateToPageRealServer(acc_lgn.Account_Save_Date) %></td>
                             <td>
                                 <% 
-                                    if (acc_lgn.Account_status == 3 || acc_lgn.Account_status == 0)
+                                    if (acc_lgn.Account_status == 3)
                                     {
-                                        Response.Write("<label class='label label-danger' > ลาออก </label>");
+                                        Response.Write("<label class='label label-danger' > ไล่ออก </label>");
+                                    }
+                                    else if (acc_lgn.Account_status == 0)
+                                    {
+                                        Response.Write("<label class='label label-info' > ลาออก </label>");
                                     }
                                     else if (acc_lgn.Account_status == 2)
                                     {
