@@ -317,7 +317,7 @@ namespace JKLWebBase_v2.Form_Account
                 sql += "                dbo.Address AS add_n ON cntr.personID = add_n.personID AND add_n.addressType = 'N' LEFT OUTER JOIN ";
                 sql += "                dbo.Address AS add_job ON cntr.personID = add_job.personID AND add_job.addressType = 'O' LEFT OUTER JOIN ";
                 sql += "                dbo.Address AS add_marry ON cntr.personID = add_marry.personID AND add_marry.addressType = 'M' ";
-                sql += "        WHERE   cnt.cntNoTemp = '471251' OR cnt.cntNoTemp = '521094' OR ";
+                sql += "        WHERE   cnt.cntNoTemp = '0471251' OR cnt.cntNoTemp = '521094' OR ";
                 sql += "        cnt.cntNoTemp = '47400066' OR cnt.cntNoTemp = '48050043' OR cnt.cntNoTemp = '48060086' OR cnt.cntNoTemp = '48070052' OR ";
                 sql += "        cnt.cntNoTemp = '48110087' OR cnt.cntNoTemp = '51120158' OR cnt.cntNoTemp = '52100071' OR cnt.cntNoTemp = '53070176' OR ";
                 sql += "        cnt.cntNoTemp = '54060034' OR cnt.cntNoTemp = '54070030' OR cnt.cntNoTemp = '56070157' OR cnt.cntNoTemp = '56080147' OR ";
