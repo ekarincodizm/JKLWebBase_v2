@@ -345,17 +345,17 @@ namespace JKLWebBase_v2.Form_Account
                         cls.Leasing_no = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
 
                         cls.bs_ls_code = new Base_Leasing_Code();
-                        cls.bs_ls_code.Leasing_code_id = reader.IsDBNull(14) ? defaultNum : _getLeasingCode(reader.GetString(14));
+                        cls.bs_ls_code.Leasing_code_id = reader.IsDBNull(14) ? 1 : _getLeasingCode(reader.GetString(14));
 
                         cls.Leasing_date = reader.IsDBNull(6) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(6).ToString()); // Server JKLFTP
                         cls.bs_cpn = new Base_Companys();
-                        cls.bs_cpn.Company_id = reader.IsDBNull(10) ? defaultNum : _getCompanys(reader.GetString(10));
+                        cls.bs_cpn.Company_id = reader.IsDBNull(10) ? 1 : _getCompanys(reader.GetString(10));
 
                         cls.bs_zn = new Base_Zone_Service();
-                        cls.bs_zn.Zone_id = reader.IsDBNull(13) ? defaultNum : _getZoneService(reader.GetString(13));
+                        cls.bs_zn.Zone_id = reader.IsDBNull(13) ? 1 : _getZoneService(reader.GetString(13));
 
                         cls.bs_ct = new Base_Courts();
-                        cls.bs_ct.Court_id = reader.IsDBNull(11) ? defaultNum : _getCourt(reader.GetString(11));
+                        cls.bs_ct.Court_id = reader.IsDBNull(11) ? 1 : _getCourt(reader.GetString(11));
 
                         cls.PeReT = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
                         cls.TotalPaymentTime = 1;
@@ -563,7 +563,7 @@ namespace JKLWebBase_v2.Form_Account
                     cls.Leasing_no = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
 
                     cls.bs_ls_code = new Base_Leasing_Code();
-                    cls.bs_ls_code.Leasing_code_id = reader.IsDBNull(14) ? defaultNum : _getLeasingCode(reader.GetString(14));
+                    cls.bs_ls_code.Leasing_code_id = reader.IsDBNull(14) ? 1 : _getLeasingCode(reader.GetString(14));
 
                     cls.Leasing_date = reader.IsDBNull(6) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(6).ToString()); // Server JKLFTP
 
@@ -573,15 +573,19 @@ namespace JKLWebBase_v2.Form_Account
                     {
                         cls.Leasing_date = "2009-08-13";
                     }
+                    else if (cls.Deps_no == "52120052")
+                    {
+                        cls.Leasing_date = "2010-1-08";
+                    }
 
                     cls.bs_cpn = new Base_Companys();
-                    cls.bs_cpn.Company_id = reader.IsDBNull(10) ? defaultNum : _getCompanys(reader.GetString(10));
+                    cls.bs_cpn.Company_id = reader.IsDBNull(10) ? 1 : _getCompanys(reader.GetString(10));
 
                     cls.bs_zn = new Base_Zone_Service();
-                    cls.bs_zn.Zone_id = reader.IsDBNull(13) ? defaultNum : _getZoneService(reader.GetString(13));
+                    cls.bs_zn.Zone_id = reader.IsDBNull(13) ? 1 : _getZoneService(reader.GetString(13));
 
                     cls.bs_ct = new Base_Courts();
-                    cls.bs_ct.Court_id = reader.IsDBNull(11) ? defaultNum : _getCourt(reader.GetString(11));
+                    cls.bs_ct.Court_id = reader.IsDBNull(11) ? 1 : _getCourt(reader.GetString(11));
 
                     cls.PeReT = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
                     cls.TotalPaymentTime = 1;
@@ -698,7 +702,7 @@ namespace JKLWebBase_v2.Form_Account
 
                     if (row_index % 5000 == 0) { part++; }
 
-                    if (string.IsNullOrEmpty(chk_cls.Leasing_id)) /// กรณีค้นหาจากเลขฝากแล้วไม่เจอ
+                    if (string.IsNullOrEmpty(chk_cls.Deps_no)) /// กรณีค้นหาจากเลขฝากแล้วไม่เจอ
                     {
                         cls_mng.addCarLeasings(cls);
 
@@ -773,7 +777,7 @@ namespace JKLWebBase_v2.Form_Account
 
                         row_index++;
                     }
-                    else  /// กรณีค้นหาจากเลขฝากแล้วเจอให้ทำการแก้ไขข้อมูล
+                    else if (string.IsNullOrEmpty(chk_cls.Leasing_no))  /// กรณีค้นหาจากเลขฝากเจอ แล้วเลขสัญญาเดิมเป็นค่าว่าง ให้ทำการแก้ไขข้อมูล
                     {
                         cls.Leasing_id = chk_cls.Leasing_id;
 
@@ -845,6 +849,156 @@ namespace JKLWebBase_v2.Form_Account
 
                             Messages_Logs._writeSQLCodeUpdateAgentsCommissionToMYSQL(cag_com, part);
                         }
+
+                        row_index++;
+                    }
+                    else if (chk_cls.Leasing_no == cls.Leasing_no)  /// กรณีค้นหาจากเลขฝากเจอ แล้วเลขสัญญาเดิมเหมือนกัน ให้ทำการแก้ไขข้อมูล
+                    {
+                        cls.Leasing_id = chk_cls.Leasing_id;
+
+                        cls_mng.editCarLeasings(cls);
+
+                        Messages_Logs._writeSQLCodeUpdateLeasingsToMYSQL(cls, part);
+
+                        cls_ctm_mng.editCustomersLeasing(cls, ctm);
+
+                        Messages_Logs._writeSQLCodeUpdateCustomerLeasingsToMYSQL(cls, ctm, part);
+
+                        if (reader.GetDecimal(49) > 0)
+                        {
+                            Agents_Commission cag_com = new Agents_Commission();
+
+                            Agents cag = new Agents();
+
+                            Agents chk_cag = cag_mng.getAgentByName(reader.GetString(50), reader.GetString(51), reader.GetString(52));
+
+                            cag.Agent_id = cag_mng.generateAgentID();
+                            cag.Agent_Fname = reader.GetString(51);
+                            cag.Agent_Lname = reader.GetString(52);
+                            cag.Agent_Idcard = reader.GetString(50);
+                            cag.Agent_Address_no = defaultString;
+                            cag.Agent_Vilage = defaultString;
+                            cag.Agent_Vilage_no = defaultString;
+                            cag.Agent_Alley = defaultString;
+                            cag.Agent_Road = defaultString;
+                            cag.Agent_Subdistrict = reader.IsDBNull(53) ? defaultString : reader.GetString(53);
+                            cag.Agent_District = defaultString;
+                            cag.Agent_Province = defaultString;
+                            cag.Agent_Country = "ประเทศไทย";
+                            cag.Agent_Zipcode = defaultString;
+                            cag.Agent_Status = 1;
+
+                            if (string.IsNullOrEmpty(chk_cag.Agent_id))
+                            {
+                                cag_mng.addAgent(cag);
+
+                                Messages_Logs._writeSQLCodeInsertAgentsToMYSQL(cag, part);
+
+                            }
+                            else
+                            {
+                                cag.Agent_id = chk_cag.Agent_id;
+
+                                cag_mng.editAgent(cag);
+
+                                Messages_Logs._writeSQLCodeUpdateAgentsToMYSQL(cag, part);
+                            }
+
+                            cag_com.cag = new Agents();
+                            cag_com.cag = cag;
+
+                            double commission = Convert.ToDouble(reader.GetDecimal(49)); ; // ค่านายหน้า
+                            double loss_com = Math.Ceiling(commission * (3 / 100)); // ค่าหัก ณ ที่จ่าย
+
+                            cag_com.Agent_commission = commission;
+                            cag_com.Agent_percen = 3; // % หัก ณ ที่จ่าย
+                            cag_com.Agent_cash = loss_com;
+                            cag_com.Agent_net_com = (commission - loss_com);
+                            cag_com.Agent_num_code = defaultString;
+                            cag_com.Agent_book_code = defaultString;
+                            cag_com.Agent_date_print = null;
+
+                            cag_com.Leasing_id = cls.Leasing_id;
+
+                            cag_mng.editAgentCommission(cag_com);
+
+                            Messages_Logs._writeSQLCodeUpdateAgentsCommissionToMYSQL(cag_com, part);
+                        }
+
+                        row_index++;
+                    }
+                    else
+                    {
+                        cls_mng.addCarLeasings(cls);
+
+                        cls_ctm_mng.addCustomersLeasing(cls, ctm);
+
+                        Messages_Logs._writeSQLCodeInsertLeasingsToMYSQL(cls, part);
+
+                        Messages_Logs._writeSQLCodeInsertCustomerLeasingsToMYSQL(cls, ctm, part);
+
+                        if (reader.GetDecimal(49) > 0)
+                        {
+                            Agents_Commission cag_com = new Agents_Commission();
+
+                            Agents cag = new Agents();
+
+                            Agents chk_cag = cag_mng.getAgentByName(reader.GetString(50), reader.GetString(51), reader.GetString(52));
+
+                            cag.Agent_id = cag_mng.generateAgentID();
+                            cag.Agent_Fname = reader.GetString(51);
+                            cag.Agent_Lname = reader.GetString(52);
+                            cag.Agent_Idcard = reader.GetString(50);
+                            cag.Agent_Address_no = defaultString;
+                            cag.Agent_Vilage = defaultString;
+                            cag.Agent_Vilage_no = defaultString;
+                            cag.Agent_Alley = defaultString;
+                            cag.Agent_Road = defaultString;
+                            cag.Agent_Subdistrict = reader.IsDBNull(53) ? defaultString : reader.GetString(53);
+                            cag.Agent_District = defaultString;
+                            cag.Agent_Province = defaultString;
+                            cag.Agent_Country = "ประเทศไทย";
+                            cag.Agent_Zipcode = defaultString;
+                            cag.Agent_Status = 1;
+
+                            if (string.IsNullOrEmpty(chk_cag.Agent_id))
+                            {
+                                cag_mng.addAgent(cag);
+
+                                Messages_Logs._writeSQLCodeInsertAgentsToMYSQL(cag, part);
+
+                            }
+                            else
+                            {
+                                cag.Agent_id = chk_cag.Agent_id;
+
+                                cag_mng.editAgent(cag);
+
+                                Messages_Logs._writeSQLCodeUpdateAgentsToMYSQL(cag, part);
+                            }
+
+                            cag_com.cag = new Agents();
+                            cag_com.cag = cag;
+
+                            double commission = Convert.ToDouble(reader.GetDecimal(49)); ; // ค่านายหน้า
+                            double loss_com = Math.Ceiling(commission * (3 / 100)); // ค่าหัก ณ ที่จ่าย
+
+                            cag_com.Agent_commission = commission;
+                            cag_com.Agent_percen = 3; // % หัก ณ ที่จ่าย
+                            cag_com.Agent_cash = loss_com;
+                            cag_com.Agent_net_com = (commission - loss_com);
+                            cag_com.Agent_num_code = defaultString;
+                            cag_com.Agent_book_code = defaultString;
+                            cag_com.Agent_date_print = null;
+
+                            cag_com.Leasing_id = cls.Leasing_id;
+
+                            cag_mng.addAgentCommission(cag_com);
+
+                            Messages_Logs._writeSQLCodeInsertAgentsCommissionToMYSQL(cag_com, part);
+                        }
+
+                        Messages_TBx.Text += "Transfer Add Data Leasing Passed : " + row_index + Environment.NewLine;
 
                         row_index++;
                     }
@@ -1052,7 +1206,7 @@ namespace JKLWebBase_v2.Form_Account
                     {
                         con.Open();
 
-                        string sql = " SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' ORDER BY scheduleno ";
+                        string sql = " SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' AND cntNo = '"+ cls.Leasing_no + "' ORDER BY scheduleno ";
 
                         SqlCommand cmd = new SqlCommand(sql, con);
                         cmd.CommandTimeout = 0;
