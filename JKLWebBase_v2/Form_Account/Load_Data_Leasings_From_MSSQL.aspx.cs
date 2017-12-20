@@ -1416,7 +1416,7 @@ namespace JKLWebBase_v2.Form_Account
         private int _getLeasingCode(string Leasing_code_name)
         {
             List<Base_Leasing_Code> list_data = new Base_Leasing_Code_Manager().getLeasingCode();
-            int result = 0;
+            int result = 1;
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Leasing_Code data = list_data[i];
@@ -1449,7 +1449,7 @@ namespace JKLWebBase_v2.Form_Account
         private int _getZoneService(string zone)
         {
             List<Base_Zone_Service> list_data = new Base_Zone_Service_Manager().getZoneService();
-            int result = 0;
+            int result = 1;
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Zone_Service data = list_data[i];
@@ -1470,7 +1470,7 @@ namespace JKLWebBase_v2.Form_Account
         private int _getCourt(string Court_name)
         {
             List<Base_Courts> list_data = new Base_Courts_Manager().getCourts();
-            int result = 0;
+            int result = 2;
             for (int i = 0; i < list_data.Count; i++)
             {
                 Base_Courts data = list_data[i];
