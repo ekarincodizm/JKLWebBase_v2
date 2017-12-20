@@ -336,132 +336,132 @@ namespace JKLWebBase_v2.Form_Account
 
                     Car_Leasings cls = new Car_Leasings();
 
-                    cls = cls_mng.getCarLeasingByDepsNo(reader.GetString(4), "");
+                    Car_Leasings chk_cls = cls_mng.getCarLeasingByDepsNo(reader.GetString(4), "");
 
-                    if (string.IsNullOrEmpty(cls.Leasing_id))
+                    cls.Leasing_id = cls_mng.generateLeasingID();
+                    cls.Deps_no = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
+                    cls.Leasing_no = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
+
+                    cls.bs_ls_code = new Base_Leasing_Code();
+                    cls.bs_ls_code.Leasing_code_id = reader.IsDBNull(14) ? 1 : _getLeasingCode(reader.GetString(14));
+
+                    cls.Leasing_date = reader.IsDBNull(6) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(6).ToString()); // Server JKLFTP
+                    cls.bs_cpn = new Base_Companys();
+                    cls.bs_cpn.Company_id = reader.IsDBNull(10) ? 1 : _getCompanys(reader.GetString(10));
+
+                    cls.bs_zn = new Base_Zone_Service();
+                    cls.bs_zn.Zone_id = reader.IsDBNull(13) ? 1 : _getZoneService(reader.GetString(13));
+
+                    cls.bs_ct = new Base_Courts();
+                    cls.bs_ct.Court_id = reader.IsDBNull(11) ? 1 : _getCourt(reader.GetString(11));
+
+                    cls.PeReT = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
+                    cls.TotalPaymentTime = 1;
+
+                    double require = reader.IsDBNull(15) ? 0 : Convert.ToDouble(reader.GetDecimal(15)); // ยอดจัด / เงินต้น
+                    double interest_rate = reader.IsDBNull(17) ? 0 : Convert.ToDouble(reader.GetDecimal(17)); // อัตราดอกเบี้ย
+                    double period = reader.IsDBNull(7) ? 0 : Convert.ToDouble(reader.GetInt16(7)); // ระยะเวลา / จำนวนงวด 
+                    double vat_rate = 7; // อัตราภาษีมูลค่าเพิ่ม
+
+                    double interate = require * ((interest_rate / 100) * (period / 12));  /*  ดอกเบี้ย   = ยอดจัด * (อัตราดอกเบี้ย  * ระยะเวลา) */
+                    double vat = (require + interate) * (vat_rate / 100); /* ภาษี = (ยอดจัด + ดอกเบี้ย ) * (อัตราภาษีมูลค่าเพิ่ม / 100) */
+                    double finance = require + interate; /* มูลค่า = ยอดจัด + ดอกเบี้ย */
+                    double totalFinance = require + interate + vat; /* ยอดเช่า-ซื้อ   = ยอดจัด +  ดอกเบี้ย + ภาษี */
+                    double interateTime = interate / period; /* ดอกเบี้ยต่องวด  = ยอดดอกเบี้ย / ระยะเวลา */
+                    double payPerTimeTotal = totalFinance / period; /* ค่างวด = ยอดเช่า-ซื้อ  / ระยะเวลา */
+                    double payPerTime = payPerTimeTotal * (100 / (100 + vat_rate)); /* มูลค่าต่องวด = ค่างวด * ( 100 / 100 + อัตราภาษีมูลค่าเพิ่ม) */
+                    double taxpermonth = payPerTimeTotal - payPerTime; /* ภาษีต่องวด = ค่างวด  - มูลค่าต่องวด */
+                    double periodPayment = Math.Ceiling(payPerTimeTotal); /* ค่างวดสุทธิ = ปรับทศนิยม(ค่างวด) */
+                    double Period_require = require / period; /* เงินต้นต่องวด = ยอดจัด / ระยะเวลา */
+                    double Period_interst = periodPayment - Period_require - taxpermonth; /* ดอกเบี้ย / งวด = ค่างวดสุทธิ - เงินต้นต่องวด - ภาษีต่องวด */
+                    double Total_Net_Leasing = periodPayment * period; /* ยอดเช่า-ซื้อสุทธิ = ค่างวดสุทธิ * ระยะเวลา  */
+
+                    cls.Total_require = require;
+                    cls.Vat_rate = vat_rate;
+                    cls.Interest_rate = interest_rate;
+                    cls.Total_period = Convert.ToInt32(period);
+                    cls.Total_sum = finance;
+                    cls.Total_Interest = interate;
+                    cls.Total_Tax = vat;
+                    cls.Total_leasing = totalFinance;
+                    cls.Total_Net_leasing = Total_Net_Leasing;
+                    cls.Period_cal = payPerTime;
+                    cls.Period_interst = Period_interst;
+                    cls.Period_tax = taxpermonth;
+                    cls.Period_pure = payPerTimeTotal;
+                    cls.Period_payment = periodPayment;
+                    cls.Period_require = Period_require;
+
+                    cls.Total_period_left = Convert.ToInt32(period);
+                    cls.Total_payment_left = Total_Net_Leasing;
+
+                    cls.Payment_schedule = reader.IsDBNull(8) ? defaultNum : Convert.ToInt32(reader.GetString(8));
+
+                    cls.First_payment_date = reader.IsDBNull(9) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(9).ToString()); // Server JKLFTP
+                    cls.Car_register_date = reader.IsDBNull(36) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(36).ToString()); // Server JKLFTP
+
+                    cls.Car_license_plate = reader.IsDBNull(30) ? null : reader.GetString(30);
+                    cls.Car_license_plate_province = "จ.-";
+
+                    cls.Car_type = reader.IsDBNull(27) ? null : reader.GetString(27);
+                    cls.Car_feature = defaultString;
+
+                    cls.bs_cbrn = new Base_Car_Brands();
+                    cls.bs_cbrn.car_brand_id = reader.IsDBNull(26) ? defaultNum : _getCarBrand(reader.GetString(26));
+
+                    cls.Car_model = defaultString;
+                    cls.Car_year = reader.IsDBNull(34) ? defaultString : (Convert.ToInt32(reader.GetString(34)) - 543).ToString();
+                    cls.Car_color = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
+                    cls.Car_engine_no = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
+                    cls.Car_engine_no_at = defaultString;
+                    cls.Car_engine_brand = defaultString;
+                    cls.Car_chassis_no = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
+                    cls.Car_chassis_no_at = defaultString;
+                    cls.Car_fual_type = defaultString;
+                    cls.Car_gas_No = defaultString;
+                    cls.Car_used_id = reader.IsDBNull(31) ? defaultNum : _getCarUsed(reader.GetString(31));
+                    cls.Car_distance = 0;
+
+                    cls.Car_next_register_date = reader.IsDBNull(35) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(35).ToString()); // Server JKLFTP
+
+                    cls.Car_tax_value = reader.IsDBNull(37) ? defaultNum : Convert.ToDouble(reader.GetString(37) == "" ? "0" : reader.GetString(37));
+                    cls.Car_credits = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
+                    cls.Car_agent = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
+
+                    cls.Car_old_owner = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
+                    cls.Car_old_owner_idcard = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
+
+                    cls.Car_old_owner_b_date = reader.IsDBNull(42) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(42).ToString()); // Server JKLFTP
+
+                    cls.Car_old_owner_address_no = defaultString;
+                    cls.Car_old_owner_vilage = defaultString;
+                    cls.Car_old_owner_vilage_no = defaultString;
+                    cls.Car_old_owner_alley = defaultString;
+                    cls.Car_old_owner_road = defaultString;
+                    cls.Car_old_owner_subdistrict = reader.IsDBNull(43) ? defaultString : reader.GetString(43);
+                    cls.Car_old_owner_district = defaultString;
+                    cls.Car_old_owner_province = "จ.-";
+                    cls.Car_old_owner_contry = "ประเทศไทย";
+                    cls.Car_old_owner_zipcode = defaultString;
+
+                    cls.tent_car = new Base_Tents_Car();
+                    cls.tent_car.Tent_car_id = defaultNum;
+
+                    cls.Cheque_receiver = reader.IsDBNull(47) ? defaultString : reader.GetString(47);
+                    cls.Cheque_bank = reader.IsDBNull(48) ? defaultString : reader.GetString(48);
+                    cls.Cheque_bank_branch = defaultString;
+                    cls.Cheque_number = reader.IsDBNull(45) ? defaultString : reader.GetString(45);
+                    cls.Cheque_sum = reader.IsDBNull(46) ? defaultNum : Convert.ToDouble(reader.GetDecimal(46));
+
+                    cls.Cheque_receive_date = reader.IsDBNull(44) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(44).ToString()); // Server JKLFTP
+
+                    cls.Guarantee = defaultString;
+
+                    cls.bs_ls_stt = new Base_Leasing_Status();
+                    cls.bs_ls_stt.Contract_Status_id = 1;
+
+                    if (string.IsNullOrEmpty(chk_cls.Deps_no)) /// กรณีค้นหาจากเลขฝากแล้วไม่เจอ
                     {
-                        cls.Leasing_id = cls_mng.generateLeasingID();
-                        cls.Deps_no = reader.IsDBNull(4) ? defaultString : reader.GetString(4);
-                        cls.Leasing_no = reader.IsDBNull(5) ? defaultString : reader.GetString(5);
-
-                        cls.bs_ls_code = new Base_Leasing_Code();
-                        cls.bs_ls_code.Leasing_code_id = reader.IsDBNull(14) ? 1 : _getLeasingCode(reader.GetString(14));
-
-                        cls.Leasing_date = reader.IsDBNull(6) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(6).ToString()); // Server JKLFTP
-                        cls.bs_cpn = new Base_Companys();
-                        cls.bs_cpn.Company_id = reader.IsDBNull(10) ? 1 : _getCompanys(reader.GetString(10));
-
-                        cls.bs_zn = new Base_Zone_Service();
-                        cls.bs_zn.Zone_id = reader.IsDBNull(13) ? 1 : _getZoneService(reader.GetString(13));
-
-                        cls.bs_ct = new Base_Courts();
-                        cls.bs_ct.Court_id = reader.IsDBNull(11) ? 1 : _getCourt(reader.GetString(11));
-
-                        cls.PeReT = reader.IsDBNull(12) ? defaultString : reader.GetString(12);
-                        cls.TotalPaymentTime = 1;
-
-                        double require = reader.IsDBNull(15) ? 0 : Convert.ToDouble(reader.GetDecimal(15)); // ยอดจัด / เงินต้น
-                        double interest_rate = reader.IsDBNull(17) ? 0 : Convert.ToDouble(reader.GetDecimal(17)); // อัตราดอกเบี้ย
-                        double period = reader.IsDBNull(7) ? 0 : Convert.ToDouble(reader.GetInt16(7)); // ระยะเวลา / จำนวนงวด 
-                        double vat_rate = 7; // อัตราภาษีมูลค่าเพิ่ม
-
-                        double interate = require * ((interest_rate / 100) * (period / 12));  /*  ดอกเบี้ย   = ยอดจัด * (อัตราดอกเบี้ย  * ระยะเวลา) */
-                        double vat = (require + interate) * (vat_rate / 100); /* ภาษี = (ยอดจัด + ดอกเบี้ย ) * (อัตราภาษีมูลค่าเพิ่ม / 100) */
-                        double finance = require + interate; /* มูลค่า = ยอดจัด + ดอกเบี้ย */
-                        double totalFinance = require + interate + vat; /* ยอดเช่า-ซื้อ   = ยอดจัด +  ดอกเบี้ย + ภาษี */
-                        double interateTime = interate / period; /* ดอกเบี้ยต่องวด  = ยอดดอกเบี้ย / ระยะเวลา */
-                        double payPerTimeTotal = totalFinance / period; /* ค่างวด = ยอดเช่า-ซื้อ  / ระยะเวลา */
-                        double payPerTime = payPerTimeTotal * (100 / (100 + vat_rate)); /* มูลค่าต่องวด = ค่างวด * ( 100 / 100 + อัตราภาษีมูลค่าเพิ่ม) */
-                        double taxpermonth = payPerTimeTotal - payPerTime; /* ภาษีต่องวด = ค่างวด  - มูลค่าต่องวด */
-                        double periodPayment = Math.Ceiling(payPerTimeTotal); /* ค่างวดสุทธิ = ปรับทศนิยม(ค่างวด) */
-                        double Period_require = require / period; /* เงินต้นต่องวด = ยอดจัด / ระยะเวลา */
-                        double Period_interst = periodPayment - Period_require - taxpermonth; /* ดอกเบี้ย / งวด = ค่างวดสุทธิ - เงินต้นต่องวด - ภาษีต่องวด */
-                        double Total_Net_Leasing = periodPayment * period; /* ยอดเช่า-ซื้อสุทธิ = ค่างวดสุทธิ * ระยะเวลา  */
-
-                        cls.Total_require = require;
-                        cls.Vat_rate = vat_rate;
-                        cls.Interest_rate = interest_rate;
-                        cls.Total_period = Convert.ToInt32(period);
-                        cls.Total_sum = finance;
-                        cls.Total_Interest = interate;
-                        cls.Total_Tax = vat;
-                        cls.Total_leasing = totalFinance;
-                        cls.Total_Net_leasing = Total_Net_Leasing;
-                        cls.Period_cal = payPerTime;
-                        cls.Period_interst = Period_interst;
-                        cls.Period_tax = taxpermonth;
-                        cls.Period_pure = payPerTimeTotal;
-                        cls.Period_payment = periodPayment;
-                        cls.Period_require = Period_require;
-
-                        cls.Total_period_left = Convert.ToInt32(period);
-                        cls.Total_payment_left = Total_Net_Leasing;
-
-                        cls.Payment_schedule = reader.IsDBNull(8) ? defaultNum : Convert.ToInt32(reader.GetString(8));
-
-                        cls.First_payment_date = reader.IsDBNull(9) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(9).ToString()); // Server JKLFTP
-                        cls.Car_register_date = reader.IsDBNull(36) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(36).ToString()); // Server JKLFTP
-
-                        cls.Car_license_plate = reader.IsDBNull(30) ? null : reader.GetString(30);
-                        cls.Car_license_plate_province = "จ.-";
-
-                        cls.Car_type = reader.IsDBNull(27) ? null : reader.GetString(27);
-                        cls.Car_feature = defaultString;
-
-                        cls.bs_cbrn = new Base_Car_Brands();
-                        cls.bs_cbrn.car_brand_id = reader.IsDBNull(26) ? defaultNum : _getCarBrand(reader.GetString(26));
-
-                        cls.Car_model = defaultString;
-                        cls.Car_year = reader.IsDBNull(34) ? defaultString : (Convert.ToInt32(reader.GetString(34)) - 543).ToString();
-                        cls.Car_color = reader.IsDBNull(33) ? defaultString : reader.GetString(33);
-                        cls.Car_engine_no = reader.IsDBNull(28) ? defaultString : reader.GetString(28);
-                        cls.Car_engine_no_at = defaultString;
-                        cls.Car_engine_brand = defaultString;
-                        cls.Car_chassis_no = reader.IsDBNull(29) ? defaultString : reader.GetString(29);
-                        cls.Car_chassis_no_at = defaultString;
-                        cls.Car_fual_type = defaultString;
-                        cls.Car_gas_No = defaultString;
-                        cls.Car_used_id = reader.IsDBNull(31) ? defaultNum : _getCarUsed(reader.GetString(31));
-                        cls.Car_distance = 0;
-
-                        cls.Car_next_register_date = reader.IsDBNull(35) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(35).ToString()); // Server JKLFTP
-
-                        cls.Car_tax_value = reader.IsDBNull(37) ? defaultNum : Convert.ToDouble(reader.GetString(37) == "" ? "0" : reader.GetString(37));
-                        cls.Car_credits = reader.IsDBNull(38) ? defaultString : reader.GetString(38);
-                        cls.Car_agent = reader.IsDBNull(39) ? defaultString : reader.GetString(39);
-
-                        cls.Car_old_owner = reader.IsDBNull(40) ? defaultString : reader.GetString(40);
-                        cls.Car_old_owner_idcard = reader.IsDBNull(41) ? defaultString : reader.GetString(41);
-
-                        cls.Car_old_owner_b_date = reader.IsDBNull(42) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(42).ToString()); // Server JKLFTP
-
-                        cls.Car_old_owner_address_no = defaultString;
-                        cls.Car_old_owner_vilage = defaultString;
-                        cls.Car_old_owner_vilage_no = defaultString;
-                        cls.Car_old_owner_alley = defaultString;
-                        cls.Car_old_owner_road = defaultString;
-                        cls.Car_old_owner_subdistrict = reader.IsDBNull(43) ? defaultString : reader.GetString(43);
-                        cls.Car_old_owner_district = defaultString;
-                        cls.Car_old_owner_province = "จ.-";
-                        cls.Car_old_owner_contry = "ประเทศไทย";
-                        cls.Car_old_owner_zipcode = defaultString;
-
-                        cls.tent_car = new Base_Tents_Car();
-                        cls.tent_car.Tent_car_id = defaultNum;
-
-                        cls.Cheque_receiver = reader.IsDBNull(47) ? defaultString : reader.GetString(47);
-                        cls.Cheque_bank = reader.IsDBNull(48) ? defaultString : reader.GetString(48);
-                        cls.Cheque_bank_branch = defaultString;
-                        cls.Cheque_number = reader.IsDBNull(45) ? defaultString : reader.GetString(45);
-                        cls.Cheque_sum = reader.IsDBNull(46) ? defaultNum : Convert.ToDouble(reader.GetDecimal(46));
-
-                        cls.Cheque_receive_date = reader.IsDBNull(44) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(44).ToString()); // Server JKLFTP
-
-                        cls.Guarantee = defaultString;
-
-                        cls.bs_ls_stt = new Base_Leasing_Status();
-                        cls.bs_ls_stt.Contract_Status_id = 1;
-
                         cls_mng.addCarLeasings(cls);
 
                         Messages_Logs._writeSQLCodeInsertLeasingsToMYSQL(cls, 0);
@@ -469,6 +469,41 @@ namespace JKLWebBase_v2.Form_Account
                         Messages_TBx.Text += "Transfer Add Data Leasing No Customers Passed : " + row_index + Environment.NewLine;
 
                         row_index++;
+                    }
+                    else if (string.IsNullOrEmpty(chk_cls.Leasing_no))  /// กรณีค้นหาจากเลขฝากเจอ แล้วเลขสัญญาเดิมเป็นค่าว่าง ให้ทำการแก้ไขข้อมูล
+                    {
+                        cls.Leasing_id = chk_cls.Leasing_id;
+
+                        cls_mng.editCarLeasings(cls);
+
+                        Messages_Logs._writeSQLCodeUpdateLeasingsToMYSQL(cls, 0);
+
+                        Messages_TBx.Text += "Transfer Add Data Leasing No Customers Passed : " + row_index + Environment.NewLine;
+
+                        row_index++;
+                    }
+                    else if (chk_cls.Leasing_no == cls.Leasing_no)  /// กรณีค้นหาจากเลขฝากเจอ แล้วเลขสัญญาเดิมเหมือนกัน ให้ทำการแก้ไขข้อมูล
+                    {
+                        cls.Leasing_id = chk_cls.Leasing_id;
+
+                        cls_mng.editCarLeasings(cls);
+
+                        Messages_Logs._writeSQLCodeUpdateLeasingsToMYSQL(cls, 0);
+
+                        Messages_TBx.Text += "Transfer Add Data Leasing No Customers Passed : " + row_index + Environment.NewLine;
+
+                        row_index++;
+                    }
+                    else
+                    {
+                        cls_mng.addCarLeasings(cls);
+
+                        Messages_Logs._writeSQLCodeInsertLeasingsToMYSQL(cls, 0);
+
+                        Messages_TBx.Text += "Transfer Add Data Leasing No Customers Passed : " + row_index + Environment.NewLine;
+
+                        row_index++;
+
                     }
                 }
             }
@@ -627,7 +662,7 @@ namespace JKLWebBase_v2.Form_Account
                     cls.Total_period_left = Convert.ToInt32(period);
                     cls.Total_payment_left = Total_Net_Leasing;
 
-                    cls.Payment_schedule = reader.IsDBNull(8) ? defaultNum : Convert.ToInt32(reader.GetString(8)) ;
+                    cls.Payment_schedule = reader.IsDBNull(8) ? defaultNum : Convert.ToInt32(reader.GetString(8));
 
                     cls.First_payment_date = reader.IsDBNull(9) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(9).ToString()); // Server JKLFTP
 
@@ -706,9 +741,9 @@ namespace JKLWebBase_v2.Form_Account
                     {
                         cls_mng.addCarLeasings(cls);
 
-                        cls_ctm_mng.addCustomersLeasing(cls, ctm);
-
                         Messages_Logs._writeSQLCodeInsertLeasingsToMYSQL(cls, part);
+
+                        cls_ctm_mng.addCustomersLeasing(cls, ctm);
 
                         Messages_Logs._writeSQLCodeInsertCustomerLeasingsToMYSQL(cls, ctm, part);
 
@@ -931,9 +966,9 @@ namespace JKLWebBase_v2.Form_Account
                     {
                         cls_mng.addCarLeasings(cls);
 
-                        cls_ctm_mng.addCustomersLeasing(cls, ctm);
-
                         Messages_Logs._writeSQLCodeInsertLeasingsToMYSQL(cls, part);
+
+                        cls_ctm_mng.addCustomersLeasing(cls, ctm);
 
                         Messages_Logs._writeSQLCodeInsertCustomerLeasingsToMYSQL(cls, ctm, part);
 
@@ -1040,7 +1075,7 @@ namespace JKLWebBase_v2.Form_Account
                 con.Open();
                 string sql = "  SELECT  cntr.personID AS idcard_00, cntr.fName AS Fname_01, cntr.lName AS Lname_02, cnt.cntID AS cntID_03, cnt.cntNoTemp AS Deps_No_04, cnt.cntNo AS Leasing_no_05";
                 sql += "        FROM    dbo.Contract AS cnt INNER JOIN";
-                sql += "                dbo.ContractRef AS cnt_ref ON cnt.cntID = cnt_ref.cntID AND cnt_ref.refNo = "+ Guarantor_no + " LEFT OUTER JOIN";
+                sql += "                dbo.ContractRef AS cnt_ref ON cnt.cntID = cnt_ref.cntID AND cnt_ref.refNo = " + Guarantor_no + " LEFT OUTER JOIN";
                 sql += "                dbo.Contractor AS cntr ON cnt_ref.personID = cntr.personID LEFT OUTER JOIN";
                 sql += "                dbo.Car AS car ON cnt.cntID = car.cntID AND car.personID = cntr.personID LEFT OUTER JOIN";
                 sql += "                dbo.Address AS add_c ON cntr.personID = add_c.personID AND add_c.addressType = 'C' LEFT OUTER JOIN";
@@ -1075,7 +1110,7 @@ namespace JKLWebBase_v2.Form_Account
 
                     Car_Leasings cls = new Car_Leasings();
 
-                    cls = cls_mng.getCarLeasingByDepsNo(reader.GetString(4),"");
+                    cls = cls_mng.getCarLeasingByDepsNo(reader.GetString(4), "");
 
                     cls.Leasing_date = string.IsNullOrEmpty(cls.Leasing_date) ? null : DateTimeUtility.convertDateToMYSQLRealServer(cls.Leasing_date);
                     cls.First_payment_date = string.IsNullOrEmpty(cls.First_payment_date) ? null : DateTimeUtility.convertDateToMYSQLRealServer(cls.First_payment_date);
@@ -1125,7 +1160,7 @@ namespace JKLWebBase_v2.Form_Account
                 error = "Exception ==> Form_Account --> Load_Data_From_MSSQL --> _loadGuarantor_" + Guarantor_no + "() ";
                 Log_Error._writeErrorFile(error, ex);
 
-                Messages_TBx.Text += "Transfer Data Guarantor "+ Guarantor_no + " Failed Exception : " + row_index + " : " + ex + Environment.NewLine;
+                Messages_TBx.Text += "Transfer Data Guarantor " + Guarantor_no + " Failed Exception : " + row_index + " : " + ex + Environment.NewLine;
             }
             finally
             {
@@ -1206,7 +1241,7 @@ namespace JKLWebBase_v2.Form_Account
                     {
                         con.Open();
 
-                        string sql = " SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' AND cntNo = '"+ cls.Leasing_no + "' ORDER BY scheduleno ";
+                        string sql = " SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' AND cntNo = '" + cls.Leasing_no + "' ORDER BY scheduleno ";
 
                         SqlCommand cmd = new SqlCommand(sql, con);
                         cmd.CommandTimeout = 0;
