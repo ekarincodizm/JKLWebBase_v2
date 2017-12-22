@@ -233,7 +233,7 @@
                                     }
                                     else if (cls.bs_ls_stt.Contract_Status_id == 9)
                                     {
-                                        Response.Write("<label class='label label-success' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
+                                        Response.Write("<label class='label label-info' >  " + cls.bs_ls_stt.Contract_Status_name + "  </label>");
                                     }
                                 %>
                             </td>
