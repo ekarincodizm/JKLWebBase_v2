@@ -1274,13 +1274,11 @@ namespace JKLWebBase_v2.Form_Account
 
                             if (string.IsNullOrEmpty(chk_cls_pay.Bill_no))
                             {
-                                if (cls_pay.Discount <= 0)
+                                if (cls_pay.Discount <= 0 )
                                 {
-                                    Messages_Logs._writeSQLCodeInsertCarLeasingsPaymentToMYSQL(cls_pay, 1, part);
-
                                     if (cls_pay_mng.addPayment_Mod_I(cls_pay, 1))
                                     {
-                                        //Messages_TBx.Text += "Transfer Data Payment 1 Passed : " + row_index + Environment.NewLine;
+                                        Messages_Logs._writeSQLCodeInsertCarLeasingsPaymentToMYSQL(cls_pay, 1, part);
                                     }
                                     else
                                     {
@@ -1289,15 +1287,30 @@ namespace JKLWebBase_v2.Form_Account
                                 }
                                 else
                                 {
-                                    Messages_Logs._writeSQLCodeInsertCarLeasingsPaymentToMYSQL(cls_pay, 2, part);
-
-                                    if (cls_pay_mng.addPayment_Mod_I(cls_pay, 2))
+                                    if (cls.Deps_no == "58100031")
                                     {
-                                        //Messages_TBx.Text += "Transfer Data Payment 2 Passed : " + row_index + Environment.NewLine;
+                                        cls_pay.Discount = 0.00;
+                                        cls_pay.Total_payment_fine = reader.IsDBNull(9) ? defaultNum : Convert.ToDouble(reader.GetDecimal(9));
+
+                                        if (cls_pay_mng.addPayment_Mod_I(cls_pay, 1))
+                                        {
+                                            Messages_Logs._writeSQLCodeInsertCarLeasingsPaymentToMYSQL(cls_pay, 1, part);
+                                        }
+                                        else
+                                        {
+                                            Messages_TBx.Text += "Transfer Data Payment 1 Failed : " + row_index + Environment.NewLine;
+                                        }
                                     }
                                     else
                                     {
-                                        Messages_TBx.Text += "Transfer Data Payment 2 Failed : " + row_index + Environment.NewLine;
+                                        if (cls_pay_mng.addPayment_Mod_I(cls_pay, 2))
+                                        {
+                                            Messages_Logs._writeSQLCodeInsertCarLeasingsPaymentToMYSQL(cls_pay, 2, part);
+                                        }
+                                        else
+                                        {
+                                            Messages_TBx.Text += "Transfer Data Payment 2 Failed : " + row_index + Environment.NewLine;
+                                        }
                                     }
                                 }
                             }
