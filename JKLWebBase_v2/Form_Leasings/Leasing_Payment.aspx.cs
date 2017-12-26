@@ -411,7 +411,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
                 Total_period_left_TBx.Text = string.IsNullOrEmpty(cls.Total_period_length) ? "0.00" : (total_lost - real_payment).ToString("#,###.00");
 
-                Period_fine_TBx.Text = total_payment_fine.ToString("#,###.00");
+                Period_fine_TBx.Text = total_payment_fine < 0? "0.00" : total_payment_fine.ToString("#,###.00");
 
                 Cal_Period_Payment_TBx.Text = (total_lost - real_payment).ToString("#,###.00");
 
@@ -515,7 +515,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
             Total_period_left_TBx.Text = (total_lost - real_payment) <= 0 ? "0.00" : (total_lost - real_payment).ToString("#,###.00");
 
-            Period_fine_TBx.Text = total_payment_fine.ToString("#,###.00");
+            Period_fine_TBx.Text = total_payment_fine < 0 ? "0.00" : total_payment_fine.ToString("#,###.00");
 
             interest_per_day = interest / 30;
             day_of_cal = (Convert.ToDateTime(date_last_payemnt) - DateTime.Now).TotalDays;
