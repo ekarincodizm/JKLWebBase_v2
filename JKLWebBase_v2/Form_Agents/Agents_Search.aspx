@@ -66,7 +66,7 @@
                                 Address += string.IsNullOrEmpty(cag.Agent_Road) ? "" : cag.Agent_Road.IndexOf('.') >= 1 ? cag.Agent_Road.Split('.')[1] == "-" ? "" : " " + cag.Agent_Road : "";
                                 Address += string.IsNullOrEmpty(cag.Agent_Subdistrict) ? "" : cag.Agent_Subdistrict.IndexOf('.') >= 1 ? cag.Agent_Subdistrict.Split('.')[1] == "-" ? "" : " " + cag.Agent_Subdistrict : "";
                                 Address += string.IsNullOrEmpty(cag.Agent_District) ? "" : cag.Agent_District.IndexOf('.') >= 1 ? cag.Agent_District.Split('.')[1] == "-" ? "" : " " + cag.Agent_District : "";
-                                Address += string.IsNullOrEmpty(cag.cag_pv.Province_name) ? "" : " จ." + cag.cag_pv.Province_name;
+                                Address += string.IsNullOrEmpty(cag.Agent_Province) ? "" : " " + cag.Agent_Province;
 
                                 string ogn_code = CryptographyCode.GenerateSHA512String(cag.Agent_Idcard);
                         %>
