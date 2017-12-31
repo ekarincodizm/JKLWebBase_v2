@@ -77,7 +77,7 @@ namespace JKLWebBase_v2.Form_Account
             try
             {
                 con.Open();
-                string sql = "  SELECT  cntr.personID AS idcard_00, cntr.fName AS Fname_01, cntr.lName AS Lname_02, cntr.age AS age_03, cntr.race AS Origin_04, cntr.nationality AS nationality_05, cntr.cardForm AS cardForm_06,";
+                string sql = "  SELECT  cntr.personID AS idcard_00, cntr.title + cntr.fName AS Fname_01, cntr.lName AS Lname_02, cntr.age AS age_03, cntr.race AS Origin_04, cntr.nationality AS nationality_05, cntr.cardForm AS cardForm_06,";
                 sql += "                cntr.cardDate AS idcard_start_07, cntr.cardExpire AS idcard_expire_08, cntr.marryStatus AS Cust_Status_id_09, cntr.marrierFN AS marrierFN_10, cntr.marrierLN AS marrierLN_11, ";
                 sql += "                cntr.occupation_M AS job_marry_12, cntr.occPosition_M AS job_position_marry_13, cntr.income_M AS job_salary_marry_14, cntr.occupation AS job_15, cntr.occPosition AS job_position_16, ";
                 sql += "                cntr.income AS job_salary_17, add_marry.addressID AS m_addressID_18, add_marry.addressType AS m_addressType_19, add_marry.addressName AS m_addressName_20, ";
@@ -298,7 +298,7 @@ namespace JKLWebBase_v2.Form_Account
             try
             {
                 con.Open();
-                string sql = "  SELECT  cntr.personID AS idcard_00, cntr.fName AS Fname_01, cntr.lName AS Lname_02, cnt.cntID AS cntID_03, cnt.cntNoTemp AS Deps_No_04, cnt.cntNo AS Leasing_no_05, cnt.cntDate AS Leasing_date_06,  ";
+                string sql = "  SELECT  cntr.personID AS idcard_00, cntr.title + cntr.fName AS Fname_01, cntr.lName AS Lname_02, cnt.cntID AS cntID_03, cnt.cntNoTemp AS Deps_No_04, cnt.cntNo AS Leasing_no_05, cnt.cntDate AS Leasing_date_06,  ";
                 sql += "                cnt.totalTime AS Total_period_07, cnt.fixDate AS Payment_schedule_08, cnt.firstPayDate AS First_payment_date_09, cnt.branchNo AS Company_10, cnt.court AS Court_11, cnt.receiver AS PeReT_12,  ";
                 sql += "                cnt.areaZone AS Zone_13, cnt.company AS Leasing_code_14, cnt.cntPrice AS Total_require_15, cnt.financePrice AS Total_Net_leasing_16, cnt.tax AS Interest_rate_17, cnt.vat AS Total_Tax_18,  ";
                 sql += "                cnt.interest AS Total_Interest_19, cnt.payPerTime AS Period_cal_20, cnt.vatPerTime AS Period_tax_21, cnt.interestPerTime AS Period_interst_22, cnt.period AS Period_pure_23,  ";
@@ -540,7 +540,7 @@ namespace JKLWebBase_v2.Form_Account
             try
             {
                 con.Open();
-                string sql = "  SELECT  cntr.personID AS idcard_00, cntr.fName AS Fname_01, cntr.lName AS Lname_02, cnt.cntID AS cntID_03, cnt.cntNoTemp AS Deps_No_04, cnt.cntNo AS Leasing_no_05, cnt.cntDate AS Leasing_date_06,  ";
+                string sql = "  SELECT  cntr.personID AS idcard_00, cntr.title + cntr.fName AS Fname_01, cntr.lName AS Lname_02, cnt.cntID AS cntID_03, cnt.cntNoTemp AS Deps_No_04, cnt.cntNo AS Leasing_no_05, cnt.cntDate AS Leasing_date_06,  ";
                 sql += "                cnt.totalTime AS Total_period_07, cnt.fixDate AS Payment_schedule_08, cnt.firstPayDate AS First_payment_date_09, cnt.branchNo AS Company_10, cnt.court AS Court_11, cnt.receiver AS PeReT_12,  ";
                 sql += "                cnt.areaZone AS Zone_13, cnt.company AS Leasing_code_14, cnt.cntPrice AS Total_require_15, cnt.financePrice AS Total_Net_leasing_16, cnt.tax AS Interest_rate_17, cnt.vat AS Total_Tax_18,  ";
                 sql += "                cnt.interest AS Total_Interest_19, cnt.payPerTime AS Period_cal_20, cnt.vatPerTime AS Period_tax_21, cnt.interestPerTime AS Period_interst_22, cnt.period AS Period_pure_23,  ";
@@ -1073,7 +1073,7 @@ namespace JKLWebBase_v2.Form_Account
             try
             {
                 con.Open();
-                string sql = "  SELECT  cntr.personID AS idcard_00, cntr.fName AS Fname_01, cntr.lName AS Lname_02, cnt.cntID AS cntID_03, cnt.cntNoTemp AS Deps_No_04, cnt.cntNo AS Leasing_no_05";
+                string sql = "  SELECT  cntr.personID AS idcard_00, cntr.title + cntr.fName AS Fname_01, cntr.lName AS Lname_02, cnt.cntID AS cntID_03, cnt.cntNoTemp AS Deps_No_04, cnt.cntNo AS Leasing_no_05";
                 sql += "        FROM    dbo.Contract AS cnt INNER JOIN";
                 sql += "                dbo.ContractRef AS cnt_ref ON cnt.cntID = cnt_ref.cntID AND cnt_ref.refNo = " + Guarantor_no + " LEFT OUTER JOIN";
                 sql += "                dbo.Contractor AS cntr ON cnt_ref.personID = cntr.personID LEFT OUTER JOIN";
