@@ -379,7 +379,7 @@ namespace JKLWebBase_v2.Managers_Leasings
             try
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("d_car_leasing_real_payment", con);
+                MySqlCommand cmd = new MySqlCommand("d_car_leasings_real_payment", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@i_Leasing_id", Leasing_id);
