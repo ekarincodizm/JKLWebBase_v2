@@ -76,6 +76,15 @@ namespace JKLWebBase_v2.Form_Account {
         protected global::System.Web.UI.WebControls.LinkButton link_load_paymnet;
         
         /// <summary>
+        /// link_fix_fine control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton link_fix_fine;
+        
+        /// <summary>
         /// Recond_Amount_Lbl control.
         /// </summary>
         /// <remarks>

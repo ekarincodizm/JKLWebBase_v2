@@ -1354,5 +1354,38 @@ namespace JKLWebBase_v2.Global_Class
                 writer.Close();
             }
         }
+
+        public static void _writeSQLCodeFixFinePaymentToMYSQL(Car_Leasings_Payment cls_pay, int part)
+        {
+            string mainDirectoryPath = "C:/SQL_Command/";
+
+            if (!Directory.Exists(mainDirectoryPath))
+            {
+                Directory.CreateDirectory(mainDirectoryPath);
+            }
+
+            string subDirectoryPath = mainDirectoryPath + "Fix_Fine_In_Car_Leasings_Payment_Info/";
+
+            if (!Directory.Exists(subDirectoryPath))
+            {
+                Directory.CreateDirectory(subDirectoryPath);
+            }
+
+            string message = "CALL s_fix_fine_amount(";
+            message += "'" + cls_pay.Leasing_id + "'";
+            message += "," + cls_pay.Total_payment_fine + "";
+            message += ",'" + cls_pay.Bill_no + "'";
+            message += string.IsNullOrEmpty(cls_pay.Real_payment_date) ? "," + null : ",'" + cls_pay.Real_payment_date + "'";
+            message += ");";
+            message += Environment.NewLine;
+
+            string path = subDirectoryPath + "Code_Fix_Fine_In_Car_Leasings_Payment_Info_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
+
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine(message);
+                writer.Close();
+            }
+        }
     }
 }

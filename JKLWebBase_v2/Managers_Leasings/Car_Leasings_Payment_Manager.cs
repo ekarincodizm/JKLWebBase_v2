@@ -470,5 +470,41 @@ namespace JKLWebBase_v2.Managers_Leasings
                 con.Close();
             }
         }
+
+        public bool fixUpdtaeFine(Car_Leasings_Payment cls_pay)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("s_fix_fine_amount", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Leasing_id", cls_pay.Leasing_id);
+                cmd.Parameters.AddWithValue("@i_Total_payment_fine", cls_pay.Total_payment_fine);
+                cmd.Parameters.AddWithValue("@i_Bill_no", cls_pay.Bill_no);
+                cmd.Parameters.AddWithValue("@i_Real_payment_date", cls_pay.Real_payment_date);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasing_Payment_Manager --> fixUpdtaeFine() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Payment_Manager --> fixUpdtaeFine() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
     }
 }

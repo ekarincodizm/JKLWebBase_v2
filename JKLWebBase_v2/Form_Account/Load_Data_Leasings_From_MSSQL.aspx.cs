@@ -67,6 +67,12 @@ namespace JKLWebBase_v2.Form_Account
             _loadGuarantor(3);
         }
 
+        protected void link_fix_fine_Click(object sender, EventArgs e)
+        {
+            Messages_TBx.Text = "";
+
+        }
+
         private void _loadcustomers()
         {
             SqlConnection con = MSSQLConnection.connectionMSSQL();
@@ -1274,7 +1280,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             if (string.IsNullOrEmpty(chk_cls_pay.Bill_no))
                             {
-                                if (cls_pay.Discount <= 0 )
+                                if (cls_pay.Discount <= 0)
                                 {
                                     if (cls_pay_mng.addPayment_Mod_I(cls_pay, 1))
                                     {
@@ -1359,6 +1365,122 @@ namespace JKLWebBase_v2.Form_Account
 
             Messages_TBx.Text = "END LOOP PAYMENTS : " + str + " - " + end + Environment.NewLine;
         }
+
+        private void _loadFixFinePayment()
+        {
+            Car_Leasings_Manager cls_mng = new Car_Leasings_Manager();
+            Car_Leasings_Payment_Manager cls_pay_mng = new Car_Leasings_Payment_Manager();
+
+            List<Car_Leasings> list_cls_all = cls_mng.getCarLeasing("", "", "", "", "", "", "", "", "", "", "", 0, 0);
+
+            int part = Convert.ToInt32(Part_TBx.Text);
+            int str = Convert.ToInt32(Str_Row_TBx.Text);
+            int end = Convert.ToInt32(End_Row_TBx.Text);
+
+            for (int i = str; i < end; i++)
+            {
+                Car_Leasings cls = new Car_Leasings();
+
+                cls = list_cls_all[i];
+
+                int row_index = 1;
+
+                SqlConnection con = MSSQLConnection.connectionMSSQL();
+
+                if ((i + 1) % 1000 == 0) { part++; }
+
+                List<Car_Leasings_Payment> list_cls_pay_shd = cls_pay_mng.getPaymentSchedule(cls.Leasing_id);
+
+                Car_Leasings_Payment cls_pay_shd = list_cls_pay_shd[0];
+
+                if (cls_pay_shd.Period_payment_status == 0)
+                {
+
+                    try
+                    {
+                        con.Open();
+
+                        string sql = " SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' AND cntNo = '" + cls.Leasing_no + "' ORDER BY scheduleno ";
+
+                        SqlCommand cmd = new SqlCommand(sql, con);
+                        cmd.CommandTimeout = 0;
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            int defaultNum = 0;
+                            string defaultString = "";
+
+                            Car_Leasings_Payment cls_pay = new Car_Leasings_Payment();
+
+                            cls_pay.Leasing_id = cls.Leasing_id;
+                            cls_pay.Bill_no = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
+                            cls_pay.Total_payment_fine = reader.IsDBNull(5) ? defaultNum : Convert.ToDouble(reader.GetDecimal(5));
+
+                            cls_pay.Real_payment_date = reader.IsDBNull(3) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(3).ToString());
+
+                            if (cls.Deps_no == "58100031")
+                            {
+                                cls_pay.Discount = 0.00;
+                                cls_pay.Total_payment_fine = reader.IsDBNull(9) ? defaultNum : Convert.ToDouble(reader.GetDecimal(9));
+
+                                if (cls_pay_mng.fixUpdtaeFine(cls_pay))
+                                {
+                                    Messages_Logs._writeSQLCodeFixFinePaymentToMYSQL(cls_pay, part);
+                                }
+                                else
+                                {
+                                    Messages_TBx.Text += "Fix Transfer Data Payment Failed : " + row_index + Environment.NewLine;
+                                }
+                            }
+                            else
+                            {
+                                if (cls_pay_mng.fixUpdtaeFine(cls_pay))
+                                {
+                                    Messages_Logs._writeSQLCodeFixFinePaymentToMYSQL(cls_pay, part);
+                                }
+                                else
+                                {
+                                    Messages_TBx.Text += "Fix Transfer Data Payment Failed : " + row_index + Environment.NewLine;
+                                }
+                            }
+
+                            row_index++;
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        error = "SqlException ==> Form_Account --> Load_Data_From_MSSQL --> _loadFixFinePayment() ";
+                        Log_Error._writeErrorFile(error, ex);
+
+                        Messages_TBx.Text += "Fix Transfer Data Payment Failed SqlException : " + i + " / " + row_index + " / " + list_cls_all.Count + " : " + ex + Environment.NewLine;
+
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        error = "Exception ==> Form_Account --> Load_Data_From_MSSQL --> _loadFixFinePayment() ";
+                        Log_Error._writeErrorFile(error, ex);
+
+                        Messages_TBx.Text += "Fix Transfer Data Payment Failed Exception : " + i + " / " + row_index + " / " + list_cls_all.Count + " : " + ex + Environment.NewLine;
+
+                        break;
+                    }
+                    finally
+                    {
+                        con.Close();
+                        con.Dispose();
+                    }
+                }
+
+                GC.Collect();
+            }
+
+            Messages_TBx.Text = "END LOOP FIX FINE PAYMENTS : " + str + " - " + end + Environment.NewLine;
+        }
+
+
 
         /*******************************************************************************************************************************************************************************
         ****************************************************                   Load Default Data to Form                        ********************************************************
@@ -1553,6 +1675,7 @@ namespace JKLWebBase_v2.Form_Account
 
             return result;
         }
+
 
     }
 }

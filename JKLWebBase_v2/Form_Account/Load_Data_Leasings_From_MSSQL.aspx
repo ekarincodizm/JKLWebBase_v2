@@ -38,6 +38,9 @@
                             <div class="form-grou col-md-3">
                                 <asp:LinkButton ID="link_load_paymnet" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="link_load_paymnet_Click"> <i class="fa fa-download fa-fw"></i> โหลดข้อมูลการชำระเงิน </asp:LinkButton>
                             </div>
+                            <div class="form-grou col-md-3">
+                                <asp:LinkButton ID="link_fix_fine" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="link_fix_fine_Click"> <i class="fa fa-download fa-fw"></i> Fix ข้อมูลค่าปรับ </asp:LinkButton>
+                            </div>
                         </div>
                     </div>
 
