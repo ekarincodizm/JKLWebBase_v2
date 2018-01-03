@@ -1364,7 +1364,7 @@ namespace JKLWebBase_v2.Global_Class
                 Directory.CreateDirectory(mainDirectoryPath);
             }
 
-            string subDirectoryPath = mainDirectoryPath + "Fix_Fine_In_Car_Leasings_Payment_Info/";
+            string subDirectoryPath = mainDirectoryPath + "Fix_Fine_Payment_Info/";
 
             if (!Directory.Exists(subDirectoryPath))
             {
@@ -1379,7 +1379,7 @@ namespace JKLWebBase_v2.Global_Class
             message += ");";
             message += Environment.NewLine;
 
-            string path = subDirectoryPath + "Code_Fix_Fine_In_Car_Leasings_Payment_Info_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
+            string path = subDirectoryPath + "Code_Fix_Fine_Payment_Info_" + DateTimeUtility._dateNOWForServer() + "_part_" + part + ".txt";
 
             using (StreamWriter writer = new StreamWriter(path, true))
             {

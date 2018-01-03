@@ -1393,7 +1393,7 @@ namespace JKLWebBase_v2.Form_Account
 
                 Car_Leasings_Payment cls_pay_shd = list_cls_pay_shd[0];
 
-                if (cls_pay_shd.Period_payment_status == 0)
+                if (cls_pay_shd.Period_payment_status != 0)
                 {
 
                     try
