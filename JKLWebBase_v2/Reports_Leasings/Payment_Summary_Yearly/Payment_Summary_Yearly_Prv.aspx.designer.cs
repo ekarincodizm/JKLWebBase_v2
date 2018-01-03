@@ -31,13 +31,13 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly {
         protected global::System.Web.UI.WebControls.DropDownList Year_DDL;
         
         /// <summary>
-        /// Comapnys_Panel control.
+        /// Leasing_Code_Panel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Comapnys_Panel;
+        protected global::System.Web.UI.WebControls.Panel Leasing_Code_Panel;
         
         /// <summary>
         /// Leasing_Code_Lbl control.
@@ -65,6 +65,15 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList Leasing_Code_ChkBxL;
+        
+        /// <summary>
+        /// Comapnys_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Comapnys_Panel;
         
         /// <summary>
         /// Company_Lbl control.

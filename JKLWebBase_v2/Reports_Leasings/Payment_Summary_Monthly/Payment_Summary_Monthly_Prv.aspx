@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <asp:Panel ID="Comapnys_Panel" runat="server" Visible="false">
+            <asp:Panel ID="Leasing_Code_Panel" runat="server" Visible="false">
             <div class="row">
                 <div class="form-group col-xs-12">
                     <asp:Label ID="Leasing_Code_Lbl" runat="server" CssClass="checkbox">รหัสสัญญา
@@ -28,6 +28,8 @@
                     </asp:CheckBoxList>
                 </div>
             </div>
+            </asp:Panel>
+            <asp:Panel ID="Comapnys_Panel" runat="server" Visible="false">
             <div class="row">
                 <div class="form-group col-xs-12">
                     <asp:Label ID="Company_Lbl" runat="server" CssClass="checkbox">สาขา

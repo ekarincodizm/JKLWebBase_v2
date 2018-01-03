@@ -24,12 +24,19 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
             acc_lgn = (Account_Login)Session["Login"];
 
             /// แสดงสาขาทุกสาขา เฉพาะผู้เกี่ยวข้อง
-            if (acc_lgn.acc_lv.level_access >= 7)
+            if (acc_lgn.acc_lv.level_access >= 5)
             {
-                Comapnys_Panel.Visible = true;
+                Leasing_Code_Panel.Visible = true;
+                Comapnys_Panel.Visible = true; ;
+            }
+            else if (acc_lgn.acc_lv.level_access == 4)
+            {
+                Leasing_Code_Panel.Visible = true;
+                Comapnys_Panel.Visible = false;
             }
             else
             {
+                Leasing_Code_Panel.Visible = false;
                 Comapnys_Panel.Visible = false;
             }
 
