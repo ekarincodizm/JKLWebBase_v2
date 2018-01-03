@@ -158,6 +158,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
             new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
             /// Acticity Logs System
+
+            GC.Collect();
         }
 
         public void ExportReport_Mod_I(Total_Balance_Payment rpt)
@@ -196,6 +198,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
         }
 
         public void ExportReport_Mod_II(Total_Balance_Payment_All rpt)
@@ -234,6 +238,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
         }
     }
 }

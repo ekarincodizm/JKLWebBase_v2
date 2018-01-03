@@ -149,6 +149,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Leasing_KH1
                 con_grt_5.Dispose();
                 con_cpn.Dispose();
             }
+
+            GC.Collect();
         }
 
         public void ExportReport(Car_Leasing_KH1 rpt)
@@ -189,6 +191,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Leasing_KH1
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
         }
     }
 }

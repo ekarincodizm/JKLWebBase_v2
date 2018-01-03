@@ -62,6 +62,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Confirm_Payment
                 error = "Exception ==> Confirm_Payment : Page --> printReport() ";
                 Log_Error._writeErrorFile(error, ex);
             }
+
+            GC.Collect();
         }
 
         public void ExportReport(Confirm_Payment_Outline rpt)
@@ -102,6 +104,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Confirm_Payment
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
         }
     }
 }

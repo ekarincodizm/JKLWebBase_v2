@@ -66,6 +66,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                     Log_Error._writeErrorFile(error, ex);
                 }
             }
+
+            GC.Collect();
         }
 
         public void ExportReportOutline(Certified_Leasing_Outline rpt, string file_name)
@@ -112,6 +114,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                 error = "Exception ==> Certified_Leasing : Page --> ExportReportOutline() ";
                 Log_Error._writeErrorFile(error, ex);
             }
+
+            GC.Collect();
         }
 
         public void printReport()
@@ -164,6 +168,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                     Log_Error._writeErrorFile(error, ex);
                 }
             }
+
+            GC.Collect();
         }
 
         public void ExportReport(Certified_Leasing_Result rpt)
@@ -212,6 +218,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                 error = "Exception ==> Certified_Leasing : Page --> ExportReport() ";
                 Log_Error._writeErrorFile(error, ex);
             }
+
+            GC.Collect();
         }
     }
 }

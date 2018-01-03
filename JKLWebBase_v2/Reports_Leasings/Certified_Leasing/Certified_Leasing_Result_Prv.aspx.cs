@@ -144,6 +144,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
 
                 con_cls.Dispose();
             }
+
+            GC.Collect();
         }
 
         private void _loadCustomer(Car_Leasings cls)
@@ -192,6 +194,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                 con_ctm.Close();
                 con_ctm.Dispose();
             }
+
+            GC.Collect();
         }
 
     }

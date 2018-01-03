@@ -151,6 +151,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Front_Card
                 con_grt_5.Dispose();
                 con_cpn.Dispose();
             }
+
+            GC.Collect();
         }
 
         public void ExportReport(Front_Card_001 rpt)
@@ -191,6 +193,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Front_Card
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
         }
     }
 }

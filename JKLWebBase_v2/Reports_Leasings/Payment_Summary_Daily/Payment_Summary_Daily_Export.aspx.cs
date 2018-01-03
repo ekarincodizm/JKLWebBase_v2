@@ -121,6 +121,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
             new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
             /// Acticity Logs System
+
+            GC.Collect();
         }
 
         public void ExportReport_Mod_I(Payment_Summary_Daily_mod_I_001 rpt)
@@ -159,6 +161,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
         }
 
         private void _loadReport_mod_II()
@@ -244,6 +248,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
             new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
             /// Acticity Logs System
+
+            GC.Collect();
         }
 
         public void ExportReport_Mod_II(Payment_Summary_Daily_mod_II rpt)
@@ -282,6 +288,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Daily
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
         }
     }
 }

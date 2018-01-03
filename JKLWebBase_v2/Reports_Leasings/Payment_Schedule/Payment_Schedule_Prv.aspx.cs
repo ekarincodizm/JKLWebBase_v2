@@ -86,6 +86,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
                 con.Close();
                 con.Dispose();
             }
+
+            GC.Collect();
         }
 
         private void _loadReportFull()
@@ -140,6 +142,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
                 con.Close();
                 con.Dispose();
             }
+
+            GC.Collect();
         }
 
         public void ExportReport(Payment_Schedule_001 rpt)
@@ -180,7 +184,10 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
         }
+
         public void ExportReportFull(Payment_Schedule_Full rpt)
         {
             cls = (Car_Leasings)Session["Leasings"];
@@ -219,7 +226,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
-        }
 
+            GC.Collect();
+        }
     }
 }

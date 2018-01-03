@@ -79,6 +79,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
                 con.Close();
                 con.Dispose();
             }
+
+            GC.Collect();
         }
 
         public void ExportReport(Bill_Payment_Slip rpt, string leasing_id, string bill_no)
@@ -117,6 +119,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
         }
     }
 }

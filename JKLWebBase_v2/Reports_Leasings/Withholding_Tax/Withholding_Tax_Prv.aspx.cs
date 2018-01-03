@@ -93,6 +93,10 @@ namespace JKLWebBase_v2.Reports_Leasings.Withholding_Tax
             new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
             /// Acticity Logs System
+
+
+            GC.Collect();
+
         }
 
         public void ExportReport(Withholding_Tax rpt)
@@ -133,6 +137,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Withholding_Tax
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
+
         }
     }
 }

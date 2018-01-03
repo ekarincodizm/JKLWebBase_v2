@@ -141,6 +141,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
             new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
             /// Acticity Logs System
+
+            GC.Collect();
         }
 
         private void _loadReport(string deposit_no)
@@ -207,6 +209,17 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
                 con.Close();
                 con.Dispose();
             }
+
+            /// Acticity Logs System
+            ///  
+
+            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " ออกรายงานแจ้งเตือนค้างวดลูกค้า ", acc_lgn.resu, package_login.Company_N_name);
+
+            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+            /// Acticity Logs System
+
+            GC.Collect();
         }
 
         public void ExportReport_Mod_I(Notification_Payment rpt)
@@ -245,6 +258,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            GC.Collect();
         }
     }
 }
