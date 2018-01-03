@@ -1440,8 +1440,6 @@ namespace JKLWebBase_v2.Form_Account
                                 }
                                 else
                                 {
-                                    Messages_Logs._writeSQLCodeFixFinePaymentToMYSQL(cls_pay, part);
-
                                     if (cls_pay_mng.fixUpdtaeFine(cls_pay))
                                     {
                                         Messages_Logs._writeSQLCodeFixFinePaymentToMYSQL(cls_pay, part);
