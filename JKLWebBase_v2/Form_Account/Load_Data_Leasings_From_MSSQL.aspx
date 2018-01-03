@@ -38,9 +38,6 @@
                             <div class="form-grou col-md-3">
                                 <asp:LinkButton ID="link_load_paymnet" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="link_load_paymnet_Click"> <i class="fa fa-download fa-fw"></i> โหลดข้อมูลการชำระเงิน </asp:LinkButton>
                             </div>
-                            <div class="form-grou col-md-3">
-                                <asp:LinkButton ID="link_fix_fine" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="link_fix_fine_Click"> <i class="fa fa-download fa-fw"></i> Fix ข้อมูลค่าปรับ </asp:LinkButton>
-                            </div>
                         </div>
                     </div>
 
@@ -90,6 +87,9 @@
                         <div class="col-lg-12">
                             <div class="form-group col-md-3">
                                 <asp:LinkButton ID="Start_Transfer_data_Btn" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="Start_Transfer_data_Btn_Click"> <i class="fa fa-download fa-fw"></i> เริ่มย้ายข้อมูล </asp:LinkButton>
+                            </div>
+                            <div class="form-grou col-md-3">
+                                <asp:LinkButton ID="link_fix_fine" runat="server" Target="_blank" CssClass="btn btn-sm btn-primary btn-block" OnClick="link_fix_fine_Click"> <i class="fa fa-download fa-fw"></i> Fix ข้อมูลค่าปรับ </asp:LinkButton>
                             </div>
                         </div>
                     </div>
