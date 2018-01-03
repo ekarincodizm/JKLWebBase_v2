@@ -30,7 +30,7 @@ namespace JKLWebBase_v2.Form_Main
             if(acc_lgn.acc_lv.level_access < 7)
             {
                 Account_Panel.Visible = false;
-                link_Menu_Pyament_Leasing.Visible = false;
+                link_Menu_Pyament_Leasing.Visible = true;
                 link_Menu_Add_Customer.Visible = false;
                 link_Menu_Add_Agent.Visible = false;
                 link_Menu_Leasing_Add.Visible = false;
@@ -38,7 +38,6 @@ namespace JKLWebBase_v2.Form_Main
 
             if (acc_lgn.acc_lv.level_access == 4)
             {
-                link_Menu_Pyament_Leasing.Visible = true;
                 link_report_leainsg_lost_payment.Visible = false;
                 link_report_leainsg_intensive.Visible = false;
                 link_report_leainsg_alert_payment.Visible = false;

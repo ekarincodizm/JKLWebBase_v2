@@ -20,13 +20,8 @@ namespace JKLWebBase_v2.Form_Main
 
             if (acc_lgn.acc_lv.level_access < 7)
             {
-                link_Payment_Leasings_panel.Visible = false;
-                link_Report_Form_Certified_Leasing_Outline_panel.Visible = false;
-            }
-
-            if (acc_lgn.acc_lv.level_access == 4)
-            {
                 link_Payment_Leasings_panel.Visible = true;
+                link_Report_Form_Certified_Leasing_Outline_panel.Visible = false;
             }
 
             if (acc_lgn.acc_lv.level_access < 4)

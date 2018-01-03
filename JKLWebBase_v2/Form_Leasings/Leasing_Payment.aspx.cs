@@ -42,6 +42,12 @@ namespace JKLWebBase_v2.Form_Leasings
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];
 
+            if (acc_lgn.acc_lv.level_access < 4)
+            {
+                Payment_Btn.Visible = false;
+                Calculate_Close_Leasing_Btn.Visible = false;
+            }
+
             if (!IsPostBack)
             {
                 if (Request.Params["code"] != null)
