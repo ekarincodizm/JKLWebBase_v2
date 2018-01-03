@@ -1420,29 +1420,36 @@ namespace JKLWebBase_v2.Form_Account
 
                             cls_pay.Real_payment_date = reader.IsDBNull(3) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(3).ToString());
 
-                            if (cls.Deps_no == "58100031")
-                            {
-                                cls_pay.Discount = 0.00;
-                                cls_pay.Total_payment_fine = reader.IsDBNull(9) ? defaultNum : Convert.ToDouble(reader.GetDecimal(9));
+                            Car_Leasings_Payment chk_cls_pay = cls_pay_mng.getRealPaymentInfofromBill(cls_pay.Leasing_id, cls_pay.Bill_no, cls_pay.Real_payment_date);
 
-                                if (cls_pay_mng.fixUpdtaeFine(cls_pay))
-                                {
-                                    Messages_Logs._writeSQLCodeFixFinePaymentToMYSQL(cls_pay, part);
-                                }
-                                else
-                                {
-                                    Messages_TBx.Text += "Fix Transfer Data Payment Failed : " + row_index + Environment.NewLine;
-                                }
-                            }
-                            else
+                            if (!string.IsNullOrEmpty(chk_cls_pay.Bill_no))
                             {
-                                if (cls_pay_mng.fixUpdtaeFine(cls_pay))
+                                if (cls.Deps_no == "58100031")
                                 {
-                                    Messages_Logs._writeSQLCodeFixFinePaymentToMYSQL(cls_pay, part);
+                                    cls_pay.Discount = 0.00;
+                                    cls_pay.Total_payment_fine = reader.IsDBNull(9) ? defaultNum : Convert.ToDouble(reader.GetDecimal(9));
+
+                                    if (cls_pay_mng.fixUpdtaeFine(cls_pay))
+                                    {
+                                        Messages_Logs._writeSQLCodeFixFinePaymentToMYSQL(cls_pay, part);
+                                    }
+                                    else
+                                    {
+                                        Messages_TBx.Text += "Fix Transfer Data Payment Failed : " + row_index + Environment.NewLine;
+                                    }
                                 }
                                 else
                                 {
-                                    Messages_TBx.Text += "Fix Transfer Data Payment Failed : " + row_index + Environment.NewLine;
+                                    Messages_Logs._writeSQLCodeFixFinePaymentToMYSQL(cls_pay, part);
+
+                                    if (cls_pay_mng.fixUpdtaeFine(cls_pay))
+                                    {
+                                        Messages_Logs._writeSQLCodeFixFinePaymentToMYSQL(cls_pay, part);
+                                    }
+                                    else
+                                    {
+                                        Messages_TBx.Text += "Fix Transfer Data Payment Failed : " + row_index + Environment.NewLine;
+                                    }
                                 }
                             }
 
@@ -1473,8 +1480,6 @@ namespace JKLWebBase_v2.Form_Account
                         con.Dispose();
                     }
                 }
-
-                GC.Collect();
             }
 
             Messages_TBx.Text = "END LOOP FIX FINE PAYMENTS : " + str + " - " + end + Environment.NewLine;
