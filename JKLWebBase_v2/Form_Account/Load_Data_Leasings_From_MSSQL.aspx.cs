@@ -70,7 +70,7 @@ namespace JKLWebBase_v2.Form_Account
         protected void link_fix_fine_Click(object sender, EventArgs e)
         {
             Messages_TBx.Text = "";
-
+            _loadFixFinePayment();
         }
 
         private void _loadcustomers()
