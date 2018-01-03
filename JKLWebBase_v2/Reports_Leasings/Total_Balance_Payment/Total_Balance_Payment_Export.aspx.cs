@@ -199,6 +199,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 Response.BinaryWrite(FileBuffer);
             }
 
+            User.Dispose();
+            rpt.Dispose();
+
             GC.Collect();
         }
 
@@ -238,6 +241,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            User.Dispose();
+            rpt.Dispose();
 
             GC.Collect();
         }

@@ -120,6 +120,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
                 Response.BinaryWrite(FileBuffer);
             }
 
+            User.Dispose();
+            rpt.Dispose();
+
             GC.Collect();
         }
     }

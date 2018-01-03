@@ -259,6 +259,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment_Guarantor
                 Response.BinaryWrite(FileBuffer);
             }
 
+            User.Dispose();
+            rpt.Dispose();
+
             GC.Collect();
         }
     }

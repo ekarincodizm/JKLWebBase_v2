@@ -192,6 +192,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Leasing_KH2
                 Response.BinaryWrite(FileBuffer);
             }
 
+            User.Dispose();
+            rpt.Dispose();
+
             GC.Collect();
         }
     }

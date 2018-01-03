@@ -185,6 +185,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
                 Response.BinaryWrite(FileBuffer);
             }
 
+            User.Dispose();
+            rpt.Dispose();
+
             GC.Collect();
         }
 
@@ -226,6 +229,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
             }
+
+            User.Dispose();
+            rpt.Dispose();
 
             GC.Collect();
         }

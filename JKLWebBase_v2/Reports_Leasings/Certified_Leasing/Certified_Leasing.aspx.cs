@@ -108,12 +108,16 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                     Response.AddHeader("content-length", FileBuffer.Length.ToString());
                     Response.BinaryWrite(FileBuffer);
                 }
+
+                User.Dispose();
             }
             catch (Exception ex)
             {
                 error = "Exception ==> Certified_Leasing : Page --> ExportReportOutline() ";
                 Log_Error._writeErrorFile(error, ex);
             }
+
+            rpt.Dispose();
 
             GC.Collect();
         }
@@ -212,12 +216,16 @@ namespace JKLWebBase_v2.Reports_Leasings.Certified_Leasing
                     Response.AddHeader("content-length", FileBuffer.Length.ToString());
                     Response.BinaryWrite(FileBuffer);
                 }
+
+                User.Dispose();
             }
             catch (Exception ex)
             {
                 error = "Exception ==> Certified_Leasing : Page --> ExportReport() ";
                 Log_Error._writeErrorFile(error, ex);
             }
+
+            rpt.Dispose();
 
             GC.Collect();
         }

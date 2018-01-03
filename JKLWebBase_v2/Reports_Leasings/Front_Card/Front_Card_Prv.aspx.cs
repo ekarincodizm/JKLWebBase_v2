@@ -194,6 +194,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Front_Card
                 Response.BinaryWrite(FileBuffer);
             }
 
+            User.Dispose();
+            rpt.Dispose();
+
             GC.Collect();
         }
     }

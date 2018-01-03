@@ -138,8 +138,10 @@ namespace JKLWebBase_v2.Reports_Leasings.Withholding_Tax
                 Response.BinaryWrite(FileBuffer);
             }
 
-            GC.Collect();
+            User.Dispose();
+            rpt.Dispose();
 
+            GC.Collect();
         }
     }
 }

@@ -219,6 +219,9 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
                 Response.BinaryWrite(FileBuffer);
             }
 
+            User.Dispose();
+            rpt.Dispose();
+
             GC.Collect();
         }
     }
