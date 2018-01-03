@@ -1400,7 +1400,7 @@ namespace JKLWebBase_v2.Form_Account
                     {
                         con.Open();
 
-                        string sql = " SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' AND cntNo = '" + cls.Leasing_no + "' ORDER BY scheduleno ";
+                        string sql = " SELECT * FROM  view_payment_byday WHERE cntNoTemp = '" + cls.Deps_no + "' AND cntNo = '" + cls.Leasing_no + "' AND fee1 > 0.00 ORDER BY scheduleno ";
 
                         SqlCommand cmd = new SqlCommand(sql, con);
                         cmd.CommandTimeout = 0;
