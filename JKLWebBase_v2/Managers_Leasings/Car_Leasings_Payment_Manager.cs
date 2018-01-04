@@ -358,13 +358,13 @@ namespace JKLWebBase_v2.Managers_Leasings
             }
             catch (MySqlException ex)
             {
-                error = "MysqlException ==> Managers_Leasings --> Car_Leasing_Payment_Manager --> addPayment_Mod_I() ";
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasing_Payment_Manager --> addPayment_Mod_III() ";
                 Log_Error._writeErrorFile(error, ex);
                 return false;
             }
             catch (Exception ex)
             {
-                error = "Exception ==> Managers_Leasings --> Car_Leasings_Payment_Manager --> addPayment_Mod_I() ";
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Payment_Manager --> addPayment_Mod_III() ";
                 Log_Error._writeErrorFile(error, ex);
                 return false;
             }
