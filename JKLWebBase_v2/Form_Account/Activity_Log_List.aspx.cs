@@ -20,9 +20,9 @@ namespace JKLWebBase_v2.Form_Account
             if (!IsPostBack)
             {
                 _loadCompanys();
-
-                _getData();
             }
+
+            _getData();
         }
 
         protected void Company_ChkBxL_All_CheckedChanged(object sender, EventArgs e)
