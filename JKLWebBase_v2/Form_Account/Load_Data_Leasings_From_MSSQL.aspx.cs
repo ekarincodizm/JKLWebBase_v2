@@ -1417,14 +1417,13 @@ namespace JKLWebBase_v2.Form_Account
                             cls_pay.Leasing_id = cls.Leasing_id;
                             cls_pay.Bill_no = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
                             cls_pay.Total_payment_fine = reader.IsDBNull(17) ? defaultNum : Convert.ToDouble(reader.GetDecimal(17));
-
                             cls_pay.Real_payment_date = reader.IsDBNull(3) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(3).ToString());
 
                             Car_Leasings_Payment chk_cls_pay = cls_pay_mng.getRealPaymentInfofromBill(cls_pay.Leasing_id, cls_pay.Bill_no, cls_pay.Real_payment_date);
 
                             if (!string.IsNullOrEmpty(chk_cls_pay.Bill_no))
                             {
-                                if (cls.Deps_no == "58100031")
+                                if (cls.Deps_no == "58100031" && cls_pay.Bill_no == "444/22190CM")
                                 {
                                     cls_pay.Discount = 0.00;
                                     cls_pay.Total_payment_fine = reader.IsDBNull(9) ? defaultNum : Convert.ToDouble(reader.GetDecimal(9));

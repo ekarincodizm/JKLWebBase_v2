@@ -121,7 +121,14 @@ namespace JKLWebBase_v2.Global_Class
             {
                 string[] dt = datetime.Split(' ');
                 string[] date = dt[0].Split('/');
-
+                if (int.Parse(date[0]) < 10)
+                {
+                    date[0] = "0" + int.Parse(date[0]);
+                }
+                if (int.Parse(date[1]) < 10)
+                {
+                    date[1] = "0" + int.Parse(date[1]);
+                }
                 return (int.Parse(date[2]) - 543) + "-" + date[1] + "-" + date[0];
             }
             else
@@ -136,7 +143,14 @@ namespace JKLWebBase_v2.Global_Class
             {
                 string[] dt = datetime.Split(' ');
                 string[] date = dt[0].Split('/');
-
+                if (int.Parse(date[0]) < 10)
+                {
+                    date[0] = "0" + int.Parse(date[0]);
+                }
+                if (int.Parse(date[1]) < 10)
+                {
+                    date[1] = "0" + int.Parse(date[1]);
+                }
                 return (int.Parse(date[2])) + "-" + date[0] + "-" + date[1];
             }
             else
