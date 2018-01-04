@@ -175,7 +175,7 @@
                             <th style="width: 5%;">สถานะ </th>
                             <th style="width: 10%;">เลขที่ฝาก </th>
                             <th style="width: 12%;">เลขที่สัญญา </th>
-                            <th style="width: 16%;">ชื่อ - นามสกุล </th>
+                            <th style="width: 16%;">ชื่อ - นามสกุล [ทะเบียนรถ] หมายเหตุ </th>
                             <th style="width: 8%;">วันที่ทำสัญญา </th>
                             <th style="width: 8%;">ยอดเช่า - ซื้อ </th>
                             <th style="width: 5%;">งวดทั้งหมด </th>
@@ -239,7 +239,7 @@
                             </td>
                             <td><%= cls.Deps_no %></td>
                             <td><%= cls.Leasing_no %></td>
-                            <td><%= cls.ctm.Cust_Fname + " " + cls.ctm.Cust_LName + " " + cls.Car_license_plate + " " + cls.Car_license_plate_province + " " + cls.Leasing_Comment %></td>
+                            <td><%= cls.ctm.Cust_Fname + " " + cls.ctm.Cust_LName + " [ " + cls.Car_license_plate + " " + cls.Car_license_plate_province + " ] " + cls.Leasing_Comment  %></td>
                             <td><%= DateTimeUtility.convertDateToPageRealServer(cls.Leasing_date) %></td>
                             <td style="color: #2fba00;"><%= cls.Total_Net_leasing.ToString("#,###.00") %></td>
                             <td><%= cls.Total_period %></td>
