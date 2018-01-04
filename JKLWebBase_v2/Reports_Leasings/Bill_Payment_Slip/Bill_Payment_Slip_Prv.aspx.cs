@@ -85,8 +85,6 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
 
         public void ExportReport(Bill_Payment_Slip rpt, string leasing_id, string bill_no)
         {
-            if(bill_no.IndexOf('ฝ') > 0) { bill_no.Replace('ฝ', 'D'); }
-            
             /* Create Main Folder for Detected Images of Contact Leasing  */
             string mainDirectory = DateTime.Now.ToString("yyyy-MM-dd");
 
@@ -97,7 +95,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
                 Directory.CreateDirectory(mainDirectoryPath);
             }
 
-            string FilePath = "C:/ReportExport/Bill_Payment_Slip/" + mainDirectory + "/" + bill_no.Replace('/','-') + ".pdf";
+            string FilePath = "C:/ReportExport/Bill_Payment_Slip/" + mainDirectory + "/" + bill_no.Replace('ฝ', 'D').Replace('/','-') + ".pdf";
 
             if (File.Exists(FilePath))
             {
@@ -105,7 +103,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
             }
 
             /// Export Report to PDF File with Save As Mode
-            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/Bill_Payment_Slip/" + mainDirectory + "/" + bill_no.Replace('/', '-') + ".pdf");
+            rpt.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:/ReportExport/Bill_Payment_Slip/" + mainDirectory + "/" + bill_no.Replace('ฝ', 'D').Replace('/', '-') + ".pdf");
 
             /// Display PDF File to PDF Program
             /// Process process = new Process();
