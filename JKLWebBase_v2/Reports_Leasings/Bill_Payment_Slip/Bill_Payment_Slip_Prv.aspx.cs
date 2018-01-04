@@ -85,6 +85,8 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
 
         public void ExportReport(Bill_Payment_Slip rpt, string leasing_id, string bill_no)
         {
+            if(bill_no.IndexOf('ฝ') > 0) { bill_no.Replace('ฝ', 'D'); }
+            
             /* Create Main Folder for Detected Images of Contact Leasing  */
             string mainDirectory = DateTime.Now.ToString("yyyy-MM-dd");
 
