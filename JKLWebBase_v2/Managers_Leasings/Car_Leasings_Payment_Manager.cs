@@ -330,6 +330,50 @@ namespace JKLWebBase_v2.Managers_Leasings
             }
         }
 
+        public bool addPayment_Mod_III(Car_Leasings_Payment cls_pay, int type)
+        {
+            MySqlConnection con = MySQLConnection.connectionMySQL();
+            try
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("i_car_leasings_real_payment_mod_III", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@i_Leasing_id", cls_pay.Leasing_id);
+                cmd.Parameters.AddWithValue("@i_Period_free", cls_pay.Period_fee);
+                cmd.Parameters.AddWithValue("@i_Period_track", cls_pay.Period_track);
+                cmd.Parameters.AddWithValue("@i_Total_payment_fine", cls_pay.Total_payment_fine);
+                cmd.Parameters.AddWithValue("@i_Discount", cls_pay.Discount);
+                cmd.Parameters.AddWithValue("@i_Real_payment", cls_pay.Real_payment);
+                cmd.Parameters.AddWithValue("@i_Bill_no", cls_pay.Bill_no);
+                cmd.Parameters.AddWithValue("@i_Real_payment_date", cls_pay.Real_payment_date);
+                cmd.Parameters.AddWithValue("@i_Account_id", cls_pay.acc_lgn.Account_id);
+                cmd.Parameters.AddWithValue("@i_Company_Id", cls_pay.bs_cpn.Company_id);
+                cmd.Parameters.AddWithValue("@i_Bill_no_manual_ref", cls_pay.Bill_no_manual_ref);
+                cmd.Parameters.AddWithValue("@i_Type_Payment", type);
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                error = "MysqlException ==> Managers_Leasings --> Car_Leasing_Payment_Manager --> addPayment_Mod_I() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                error = "Exception ==> Managers_Leasings --> Car_Leasings_Payment_Manager --> addPayment_Mod_I() ";
+                Log_Error._writeErrorFile(error, ex);
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public bool editPayment(Car_Leasings_Payment cls_pay, string Bill_no)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();

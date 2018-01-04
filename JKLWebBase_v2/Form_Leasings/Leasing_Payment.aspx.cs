@@ -417,7 +417,7 @@ namespace JKLWebBase_v2.Form_Leasings
 
                 Total_period_left_TBx.Text = string.IsNullOrEmpty(cls.Total_period_length) ? "0.00" : (total_lost - real_payment).ToString("#,###.00");
 
-                Period_fine_TBx.Text = total_payment_fine < 0? "0.00" : total_payment_fine.ToString("#,###.00");
+                Period_fine_TBx.Text = total_payment_fine < 0 ? "0.00" : total_payment_fine.ToString("#,###.00");
 
                 Cal_Period_Payment_TBx.Text = (total_lost - real_payment).ToString("#,###.00");
 
@@ -637,7 +637,23 @@ namespace JKLWebBase_v2.Form_Leasings
                     {
                         Note_Lbl.Text = "";
 
-                        cls_pay_mng.addPayment(cls_pay, 1);
+                        if (!string.IsNullOrEmpty(Bill_No_Manual_Ref_TBx.Text))
+                        {
+                            cls_pay_mng.addPayment_Mod_III(cls_pay, 1);
+                        }
+                        else
+                        {
+                            cls_pay_mng.addPayment(cls_pay, 1);
+                        }
+
+                        /// Acticity Logs System
+                        ///  
+
+                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
+
+                        new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                        /// Acticity Logs System
 
                         _clearRealPayment();
                     }
@@ -672,7 +688,14 @@ namespace JKLWebBase_v2.Form_Leasings
                     {
                         Note_Lbl.Text = "";
 
-                        cls_pay_mng.addPayment(cls_pay, 1);
+                        if (!string.IsNullOrEmpty(Bill_No_Manual_Ref_TBx.Text))
+                        {
+                            cls_pay_mng.addPayment_Mod_III(cls_pay, 1);
+                        }
+                        else
+                        {
+                            cls_pay_mng.addPayment(cls_pay, 1);
+                        }
 
                         /// Acticity Logs System
                         ///  
@@ -723,7 +746,14 @@ namespace JKLWebBase_v2.Form_Leasings
                 {
                     Note_Lbl.Text = "";
 
-                    cls_pay_mng.addPayment(cls_pay, 2);
+                    if (!string.IsNullOrEmpty(Bill_No_Manual_Ref_TBx.Text))
+                    {
+                        cls_pay_mng.addPayment_Mod_III(cls_pay, 2);
+                    }
+                    else
+                    {
+                        cls_pay_mng.addPayment(cls_pay, 2);
+                    }
 
                     /// Acticity Logs System
                     ///  
