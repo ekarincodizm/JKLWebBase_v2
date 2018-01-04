@@ -628,6 +628,8 @@ namespace JKLWebBase_v2.Managers_Leasings
 
                     cls.ctm.Cust_save_date = reader.IsDBNull(217) ? defaultString : reader.GetString(217);
 
+                    cls.last_payment_date = reader.IsDBNull(218) ? defaultString : reader.GetString(218);
+
                     list_cls.Add(cls);
                 }
 

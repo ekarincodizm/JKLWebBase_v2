@@ -175,13 +175,14 @@
                             <th style="width: 5%;">สถานะ </th>
                             <th style="width: 10%;">เลขที่ฝาก </th>
                             <th style="width: 12%;">เลขที่สัญญา </th>
-                            <th style="width: 16%;">ชื่อ - นามสกุล [ทะเบียนรถ] หมายเหตุ </th>
+                            <th style="width: 16%;">ชื่อ - นามสกุล [ ทะเบียนรถ ] </th>
                             <th style="width: 8%;">วันที่ทำสัญญา </th>
                             <th style="width: 8%;">ยอดเช่า - ซื้อ </th>
                             <th style="width: 5%;">งวดทั้งหมด </th>
                             <th style="width: 5%;">งวดคงเหลือ </th>
                             <th style="width: 5%;">ค่างวด</th>
                             <th style="width: 8%;">ยอดคงค้าง</th>
+                            <th style="width: 8%;">ชำระล่าสุด</th>
                             <th style="width: 8%;">ขาดชำระ (งวด)</th>
                             <th style="width: 10%;"></th>
                         </tr>
@@ -246,6 +247,7 @@
                             <td><%= cls.Total_period_left %></td>
                             <td><%= cls.Period_payment.ToString("#,###.00") %></td>
                             <td <%= cls.Total_payment_left == 0 ? "style='color: #2fba00;'" : "style='color: #ff0000;'" %>><%= cls.Total_payment_left.ToString("#,###.00") %></td>
+                            <td><%= cls.last_payment_date %></td>
                             <td style="color: #ff0000;"><%= cls.Total_period_lose %></td>
                             <td>
                                 <a class="btn btn-xs btn-success" href="Leasing_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls.Leasing_id, cls.ctm.Cust_Idcard) %>" data-toggle="tooltip" data-placement="top" title="ชำระค่างวด"><i class="fa fa-money fa-fw"></i> ชำระค่างวด </a>
