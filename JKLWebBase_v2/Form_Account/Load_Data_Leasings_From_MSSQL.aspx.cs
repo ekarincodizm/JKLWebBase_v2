@@ -1264,7 +1264,7 @@ namespace JKLWebBase_v2.Form_Account
                             cls_pay.Leasing_id = cls.Leasing_id;
                             cls_pay.Bill_no = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
                             cls_pay.Period_fee = defaultNum;
-                            cls_pay.Total_payment_fine = reader.IsDBNull(5) ? defaultNum : Convert.ToDouble(reader.GetDecimal(5));
+                            cls_pay.Total_payment_fine = reader.IsDBNull(17) ? defaultNum : Convert.ToDouble(reader.GetDecimal(17));
                             cls_pay.Period_track = reader.IsDBNull(7) ? defaultNum : Convert.ToDouble(reader.GetDecimal(7));
                             cls_pay.Discount = reader.IsDBNull(9) ? defaultNum : Convert.ToDouble(reader.GetDecimal(9));
                             cls_pay.Real_payment = reader.IsDBNull(4) ? defaultNum : Convert.ToDouble(reader.GetDecimal(4));
@@ -1416,7 +1416,7 @@ namespace JKLWebBase_v2.Form_Account
 
                             cls_pay.Leasing_id = cls.Leasing_id;
                             cls_pay.Bill_no = reader.IsDBNull(2) ? defaultString : reader.GetString(2);
-                            cls_pay.Total_payment_fine = reader.IsDBNull(5) ? defaultNum : Convert.ToDouble(reader.GetDecimal(5));
+                            cls_pay.Total_payment_fine = reader.IsDBNull(17) ? defaultNum : Convert.ToDouble(reader.GetDecimal(17));
 
                             cls_pay.Real_payment_date = reader.IsDBNull(3) ? null : DateTimeUtility.convertDateToMYSQLRealServer(reader.GetDateTime(3).ToString());
 
