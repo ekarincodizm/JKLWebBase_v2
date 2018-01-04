@@ -136,7 +136,7 @@ namespace JKLWebBase_v2.Form_Account
 
         private void _getData()
         {
-            string date_str = string.IsNullOrEmpty(Log_Date_str_TBx.Text)? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Log_Date_str_TBx.Text);
+            string date_str = string.IsNullOrEmpty(Log_Date_str_TBx.Text)? "" : DateTimeUtility.convertDateToMYSQL(Log_Date_str_TBx.Text);
             string date_end = string.IsNullOrEmpty(Log_Date_end_TBx.Text)? "" : DateTimeUtility.convertDateToMYSQL(Log_Date_end_TBx.Text);
             string Company_id_inline = _getCheckedCompany();
 
