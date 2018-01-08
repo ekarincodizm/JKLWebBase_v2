@@ -25,13 +25,9 @@ namespace JKLWebBase_v2.Form_Main
             if (acc_lgn.acc_lv.level_access != 9)
             {
                 link_list_logs.Visible = false;
-            }
-
-            if (acc_lgn.acc_lv.level_access == 7)
-            {
                 link_load_leasing.Visible = false;
             }
-
+    
             if(acc_lgn.acc_lv.level_access < 7)
             {
                 Account_Panel.Visible = false;
