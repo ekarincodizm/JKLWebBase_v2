@@ -38,6 +38,11 @@ namespace JKLWebBase_v2.Form_Leasings
                 Save_Btn.Visible = false;
             }
 
+            if (acc_lgn.acc_lv.level_access == 2)
+            {
+                Save_Btn.Visible = true;
+            }
+
             if (!IsPostBack)
             {
                 _loadHomeStatus();

@@ -35,6 +35,11 @@ namespace JKLWebBase_v2.Form_Leasings
                 Agent_Add_Save_Btn.Visible = false;
             }
 
+            if (acc_lgn.acc_lv.level_access == 2)
+            {
+                Agent_Add_Save_Btn.Visible = true;
+            }
+
             if (!IsPostBack)
             {
                 _loadThaiProvinces();
