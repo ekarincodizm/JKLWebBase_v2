@@ -22,6 +22,11 @@ namespace JKLWebBase_v2.Form_Base
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             if (!IsPostBack)
             {
                 _loadThaiProvinces();

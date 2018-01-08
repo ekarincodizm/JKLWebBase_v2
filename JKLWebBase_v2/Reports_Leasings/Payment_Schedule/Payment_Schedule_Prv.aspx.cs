@@ -18,6 +18,11 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Schedule
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             if (Request.Params["mod"] != null)
             {
                 if (Request.Params["mod"] == "1")

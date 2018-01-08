@@ -24,6 +24,11 @@ namespace JKLWebBase_v2.Reports_Leasings.Leasing_SH1
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             _loadReport();
         }
         private void _loadReport()

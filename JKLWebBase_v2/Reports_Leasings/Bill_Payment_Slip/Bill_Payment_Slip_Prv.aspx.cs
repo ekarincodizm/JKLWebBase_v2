@@ -23,6 +23,11 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             if (!IsPostBack)
             {
                 if (Request.Params["code"] != null)

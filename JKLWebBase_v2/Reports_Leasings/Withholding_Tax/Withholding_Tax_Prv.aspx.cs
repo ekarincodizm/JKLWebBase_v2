@@ -24,8 +24,14 @@ namespace JKLWebBase_v2.Reports_Leasings.Withholding_Tax
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             _loadReport();
         }
+
         private void _loadReport()
         {
             cls = (Car_Leasings)Session["Leasings"];

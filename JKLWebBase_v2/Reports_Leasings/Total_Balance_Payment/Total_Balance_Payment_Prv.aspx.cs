@@ -17,6 +17,11 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];
 

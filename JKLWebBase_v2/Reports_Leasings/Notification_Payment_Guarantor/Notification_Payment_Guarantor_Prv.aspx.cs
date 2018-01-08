@@ -22,6 +22,11 @@ namespace JKLWebBase_v2.Reports_Leasings.Notification_Payment_Guarantor
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             if (!IsPostBack)
             {
                 _loadCompanys();

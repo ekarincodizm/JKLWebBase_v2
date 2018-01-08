@@ -19,7 +19,10 @@ namespace JKLWebBase_v2.Form_Agents
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
         }
 
         protected void Search_Btn_Click(object sender, EventArgs e)

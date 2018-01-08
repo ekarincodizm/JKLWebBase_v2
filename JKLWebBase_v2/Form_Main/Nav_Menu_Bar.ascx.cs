@@ -17,6 +17,11 @@ namespace JKLWebBase_v2.Form_Main
             package_login = (Base_Companys)Session["Package"];
             acc_lgn = (Account_Login)Session["Login"];
 
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             if (acc_lgn.acc_lv.level_access != 9)
             {
                 link_list_logs.Visible = false;

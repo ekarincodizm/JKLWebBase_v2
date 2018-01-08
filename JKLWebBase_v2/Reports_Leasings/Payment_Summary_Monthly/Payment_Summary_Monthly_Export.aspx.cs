@@ -21,6 +21,11 @@ namespace JKLWebBase_v2.Reports_Leasings.Payment_Summary_Monthly
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             int mode = (int)Session["mode"];
 
             if(mode == 1)

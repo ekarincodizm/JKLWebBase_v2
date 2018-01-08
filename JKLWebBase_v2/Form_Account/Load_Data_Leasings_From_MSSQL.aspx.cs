@@ -22,7 +22,10 @@ namespace JKLWebBase_v2.Form_Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
         }
 
         protected void link_load_customers_Click(object sender, EventArgs e)

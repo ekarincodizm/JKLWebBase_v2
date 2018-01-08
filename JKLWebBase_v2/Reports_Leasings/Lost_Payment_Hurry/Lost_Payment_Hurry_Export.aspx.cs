@@ -23,6 +23,11 @@ namespace JKLWebBase_v2.Reports_Leasings.Lost_Payment_Hurry
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             _loadReport();
 
             Session.Remove("deposit_no_rpt");

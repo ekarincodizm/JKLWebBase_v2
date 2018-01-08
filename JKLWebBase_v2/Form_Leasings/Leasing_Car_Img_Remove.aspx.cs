@@ -21,6 +21,11 @@ namespace JKLWebBase_v2.Form_Leasings
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Login"] == null || Session["Package"] == null)
+            {
+                Response.Redirect("/Authorization/Login");
+            }
+
             if (!IsPostBack)
             {
                 if (Session["Uploaded"] != null)
