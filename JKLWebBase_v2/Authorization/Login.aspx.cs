@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Collections.Generic;
 
 using JKLWebBase_v2.Class_Account;
 using JKLWebBase_v2.Manager_Account;
