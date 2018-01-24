@@ -29,6 +29,15 @@ namespace JKLWebBase_v2
 
             if (!IsPostBack)
             {
+                Session.Remove("Customer_Leasing");
+                Session.Remove("Leasings");
+                Session.Remove("Agent_Leasing");
+                Session.Remove("Guarantor_1");
+                Session.Remove("Guarantor_2");
+                Session.Remove("Guarantor_3");
+                Session.Remove("Guarantor_4");
+                Session.Remove("Guarantor_5");
+
                 _loadBrands();
                 _loadLeasingCode();
                 _loadZoneService();
