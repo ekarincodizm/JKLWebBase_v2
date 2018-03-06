@@ -77,7 +77,7 @@ namespace JKLWebBase_v2.Form_Leasings
         {
             cls = cls_mng.getCarLeasingById(leasing_id);
 
-            string error = string.Empty;
+            /*string error = string.Empty;
 
             SqlConnection con = MSSQLConnection.connectionMSSQL();
 
@@ -149,7 +149,7 @@ namespace JKLWebBase_v2.Form_Leasings
                     con.Close();
                     con.Dispose();
                 }
-            }
+            }*/
 
             cls_pay_mng.calculateFine(cls.Leasing_id);
 
