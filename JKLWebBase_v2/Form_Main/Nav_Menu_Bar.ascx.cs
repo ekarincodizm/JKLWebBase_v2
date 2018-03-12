@@ -316,6 +316,12 @@ namespace JKLWebBase_v2.Form_Main
             Session.Remove("Leasings");
             Session.Remove("Agent_Leasing");
             Session.Remove("List_Account");
+            Session.Remove("Agent_Leasing");
+            Session.Remove("Guarantor_1");
+            Session.Remove("Guarantor_2");
+            Session.Remove("Guarantor_3");
+            Session.Remove("Guarantor_4");
+            Session.Remove("Guarantor_5");
         }
     }
 }
