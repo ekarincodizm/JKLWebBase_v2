@@ -46,11 +46,13 @@
                         <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
                     </button>
                     <div class="modal-header">
-                        <h6 class="modal-title"><i class="fa fa-ban fa-fw"></i>!! เพิ่มข้อมูลไม่สำเร็จ !! </h6>
+                        <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>
+                            <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label>
+                        </h6>
                     </div>
                     <div class="modal-body">
                         <p>
-                            <asp:Label ID="alert_danger_Lbl" runat="server"> ระบบไม่สามารถทำการแก้ไขข้อมูลได้ในหน้านี้ </asp:Label>
+                            <asp:Label ID="alert_danger_Lbl" runat="server"> </asp:Label>
                         </p>
                     </div>
                 </div>

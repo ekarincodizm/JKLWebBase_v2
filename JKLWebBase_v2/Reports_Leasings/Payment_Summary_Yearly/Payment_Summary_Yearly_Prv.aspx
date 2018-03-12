@@ -1,9 +1,9 @@
-﻿<%@ Page title="รายงานสรุปชำระเงินประจำเดือน" language="C#" masterpagefile="~/Site.Master" autoeventwireup="true" codebehind="Payment_Summary_Yearly_Prv.aspx.cs" inherits="JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly.Payment_Summary_Yearly_Prv" %>
+﻿<%@ Page title="รายงานสรุปชำระเงินประจำปี" language="C#" masterpagefile="~/Site.Master" autoeventwireup="true" codebehind="Payment_Summary_Yearly_Prv.aspx.cs" inherits="JKLWebBase_v2.Reports_Leasings.Payment_Summary_Yearly.Payment_Summary_Yearly_Prv" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h6>รายงานสรุปชำระเงินประจำเดือน </h6>
+            <h6>รายงานสรุปชำระเงินประจำปี </h6>
         </div>
 
         <div class="panel-body">

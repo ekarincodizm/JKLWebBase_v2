@@ -40,6 +40,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Bill_Payment_Slip
                 }
             }
         }
+
         private void _loadReport(string leasing_id, string bill_no)
         {
             MySqlConnection con = MySQLConnection.connectionMySQL();

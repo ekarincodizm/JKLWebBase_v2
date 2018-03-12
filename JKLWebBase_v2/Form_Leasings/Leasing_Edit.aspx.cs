@@ -96,16 +96,6 @@ namespace JKLWebBase_v2.Form_Leasings
         {
             _EditLeasings();
 
-            Session["Class_Active"] = 3;
-
-            if (Session["Agents_Leasing"] == null)
-            {
-                Response.Redirect("/Form_Leasings/Leasing_Add_Agent");
-            }
-            else
-            {
-                Response.Redirect("/Form_Leasings/Leasing_Edit_Agent");
-            }
         }
 
 
@@ -592,21 +582,42 @@ namespace JKLWebBase_v2.Form_Leasings
 
             cls.Leasing_Comment = string.IsNullOrEmpty(Leasing_Comment_TBx.Text) ? "" : Leasing_Comment_TBx.Text;
 
-            cls_mng.editCarLeasings(cls);
-
             Session["Leasings"] = cls;
 
-            /// Acticity Logs System
-            ///  
+            if (cls_mng.editCarLeasings(cls))
+            {
+                /// Acticity Logs System
+                ///  
 
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
 
-            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลสัญญาเช่า-ซื้อ ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no, acc_lgn.resu, package_login.Company_N_name);
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลสัญญาเช่า-ซื้อ ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no, acc_lgn.resu, package_login.Company_N_name);
 
-            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-            /// Acticity Logs System
+                /// Acticity Logs System
+                /// 
+
+                Session["Class_Active"] = 3;
+
+                if (Session["Agents_Leasing"] == null)
+                {
+                    Response.Redirect("/Form_Leasings/Leasing_Add_Agent");
+                }
+                else
+                {
+                    Response.Redirect("/Form_Leasings/Leasing_Edit_Agent");
+                }
+            }
+            else
+            {
+                Alert_Danger_Panel.Visible = true;
+                alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                Alert_Danger_Panel.Focus();
+            }
         }
     }
 }

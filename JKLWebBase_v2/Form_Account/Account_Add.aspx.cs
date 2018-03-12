@@ -82,21 +82,31 @@ namespace JKLWebBase_v2.Form_Account
 
             Account_Manager acc_mng = new Account_Manager();
 
-            acc_mng.addAccount(acc_lgn_add);
+            if (acc_mng.addAccount(acc_lgn_add))
+            {
 
-            /// Acticity Logs System
-            ///  
+                /// Acticity Logs System
+                ///  
 
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
 
-            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เพิ่มข้อมูลผู้ใช้งาน : " + acc_lgn_add.Account_F_name, acc_lgn.resu, package_login.Company_N_name);
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เพิ่มข้อมูลผู้ใช้งาน : " + acc_lgn_add.Account_F_name, acc_lgn.resu, package_login.Company_N_name);
 
-            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-            /// Acticity Logs System
+                /// Acticity Logs System
 
-            Response.Redirect("/Form_Account/Account_Search");
+                Response.Redirect("/Form_Account/Account_Search");
+            }
+            else
+            {
+                Alert_Danger_Panel.Visible = true;
+                alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                Alert_Danger_Panel.Focus();
+            }
         }
     }
 }

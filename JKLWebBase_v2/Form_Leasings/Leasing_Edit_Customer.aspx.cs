@@ -135,19 +135,6 @@ namespace JKLWebBase_v2.Form_Leasings
         protected void Save_Btn_Click(object sender, EventArgs e)
         {
             _EditCustomer();
-
-            Session.Remove("chk_customer_leasing");
-
-            Session["Class_Active"] = 2;
-
-            if (Session["Leasings"] == null)
-            {
-                Response.Redirect("/Form_Leasings/Leasing_Add");
-            }
-            else
-            {
-                Response.Redirect("/Form_Leasings/Leasing_Edit");
-            }
         }
 
         protected void Cust_status_DDL_SelectedIndexChanged(object sender, EventArgs e)
@@ -343,7 +330,7 @@ namespace JKLWebBase_v2.Form_Leasings
         private void _GetCustomer(Customers ctm)
         {
             if (ctm != null)
-            { 
+            {
                 Cust_idcard_TBx.Text = ctm.Cust_Idcard;
                 Cust_Fname_TBx.Text = ctm.Cust_Fname;
                 Cust_LName_TBx.Text = ctm.Cust_LName;
@@ -532,7 +519,7 @@ namespace JKLWebBase_v2.Form_Leasings
             Customers ctm_tmp = (Customers)Session["Customer_Leasing"];
             Car_Leasings cls = (Car_Leasings)Session["Leasings"];
 
-            ctm.Cust_id = ctm_tmp == null? ctm_mng.generateCustomerID() : ctm_tmp.Cust_id;
+            ctm.Cust_id = ctm_tmp == null ? ctm_mng.generateCustomerID() : ctm_tmp.Cust_id;
             ctm.Cust_Idcard = string.IsNullOrEmpty(Cust_idcard_TBx.Text) ? "" : Cust_idcard_TBx.Text;
             ctm.Cust_Fname = string.IsNullOrEmpty(Cust_Fname_TBx.Text) ? "" : Cust_Fname_TBx.Text;
             ctm.Cust_LName = string.IsNullOrEmpty(Cust_LName_TBx.Text) ? "" : Cust_LName_TBx.Text;
@@ -659,24 +646,55 @@ namespace JKLWebBase_v2.Form_Leasings
             ctm.ctm_current_stt = new Base_Home_Status();
             ctm.ctm_current_stt.Home_status_id = Current_Cust_Home_status_id_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Current_Cust_Home_status_id_DDL.SelectedValue);
 
-            if (ctm_tmp == null) { ctm_mng.addCustomers(ctm); } else { ctm_mng.editCustomers(ctm); }
+            bool past_page = false;
 
-            if (ctm_tmp == null) { cls_ctm_mng.addCustomersLeasing(cls, ctm); } else { cls_ctm_mng.editCustomersLeasing(cls, ctm); }
-            
+            if (ctm_tmp == null)
+            {
+                past_page = ctm_mng.addCustomers(ctm);
+            }
+            else
+            {
+                past_page = ctm_mng.editCustomers(ctm);
+            }
 
             Session["Customer_Leasing"] = ctm;
 
-            /// Acticity Logs System
-            ///  
+            if (cls_ctm_mng.editCustomersLeasing(cls, ctm) && past_page)
+            {
+                /// Acticity Logs System
+                ///  
 
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
 
-            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลผู้ทำสัญญาเช่า-ซื้อ ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no, acc_lgn.resu, package_login.Company_N_name);
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลผู้ทำสัญญาเช่า-ซื้อ ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no, acc_lgn.resu, package_login.Company_N_name);
 
-            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-            /// Acticity Logs System
+                /// Acticity Logs System
+                /// 
+
+                Session.Remove("chk_customer_leasing");
+
+                Session["Class_Active"] = 2;
+
+                if (Session["Leasings"] == null)
+                {
+                    Response.Redirect("/Form_Leasings/Leasing_Add");
+                }
+                else
+                {
+                    Response.Redirect("/Form_Leasings/Leasing_Edit");
+                }
+            }
+            else
+            {
+                Alert_Danger_Panel.Visible = true;
+                alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                Alert_Danger_Panel.Focus();
+            }
         }
     }
 }

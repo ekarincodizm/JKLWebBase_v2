@@ -77,26 +77,7 @@ namespace JKLWebBase_v2.Form_Leasings
         }
         protected void Save_Btn_Click(object sender, EventArgs e)
         {
-            no_grt = Convert.ToInt32(Session["Number_Of_Guarantor"].ToString());
-
             _EditGuarantor();
-
-            Session.Remove("chk_grt_leasing");
-
-            /* แสดงหน้าผู้ค้ำประกันคนถัดไป */
-            if (no_grt > 5)
-            {
-                Session["Class_Active"] = 8;
-                Session["Number_Of_Guarantor"] = "5";
-            }
-            else
-            {
-                Session["Class_Active"] = 4 + (no_grt - 1);
-                Session["Number_Of_Guarantor"] = no_grt.ToString();
-            }
-            /* .แสดงหน้าผู้ค้ำประกันคนถัดไป */
-
-            Response.Redirect("/Form_Leasings/Leasing_Edit_Guarantor");
         }
 
         protected void Cust_Search_Btn_Click(object sender, EventArgs e)
@@ -635,6 +616,8 @@ namespace JKLWebBase_v2.Form_Leasings
             Customers ctm = new Customers();
             Car_Leasings_Guarator cls_grt = new Car_Leasings_Guarator();
 
+            bool past_page = false;
+
             if (Session["chk_grt_leasing"] != null)
             {
                 Customers ctm_tmp = (Customers)Session["chk_grt_leasing"];
@@ -766,7 +749,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 ctm.ctm_current_stt = new Base_Home_Status();
                 ctm.ctm_current_stt.Home_status_id = Current_Cust_Home_status_id_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Current_Cust_Home_status_id_DDL.SelectedValue);
 
-                ctm_mng.editCustomers(ctm);
+                past_page = ctm_mng.editCustomers(ctm);
             }
             else
             {
@@ -897,7 +880,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 ctm.ctm_current_stt = new Base_Home_Status();
                 ctm.ctm_current_stt.Home_status_id = Current_Cust_Home_status_id_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Current_Cust_Home_status_id_DDL.SelectedValue);
 
-                ctm_mng.addCustomers(ctm);
+                past_page = ctm_mng.addCustomers(ctm);
             }
 
             Car_Leasings cls = (Car_Leasings)Session["Leasings"];
@@ -912,21 +895,48 @@ namespace JKLWebBase_v2.Form_Leasings
 
             cls_grt.Guarantor_no = no_grt;
 
-            cls_grt_mng.editGuarantorsLeasing(cls_grt);
-
             Session["Guarantor_" + no_grt] = ctm;
 
-            /// Acticity Logs System
-            ///  
+            if (cls_grt_mng.editGuarantorsLeasing(cls_grt))
+            {
+                /// Acticity Logs System
+                ///  
 
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
 
-            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลผู้ค้ำประกันคนที่ : " + no_grt + " ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no, acc_lgn.resu, package_login.Company_N_name);
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลผู้ค้ำประกันคนที่ : " + no_grt + " ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no, acc_lgn.resu, package_login.Company_N_name);
 
-            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-            /// Acticity Logs System
+                /// Acticity Logs System
+                /// 
+
+                Session.Remove("chk_grt_leasing");
+
+                /* แสดงหน้าผู้ค้ำประกันคนถัดไป */
+                if (no_grt > 5)
+                {
+                    Session["Class_Active"] = 8;
+                    Session["Number_Of_Guarantor"] = "5";
+                }
+                else
+                {
+                    Session["Class_Active"] = 4 + no_grt;
+                    Session["Number_Of_Guarantor"] = (no_grt + 1).ToString();
+                }
+                /* .แสดงหน้าผู้ค้ำประกันคนถัดไป */
+
+                Response.Redirect("/Form_Leasings/Leasing_Edit_Guarantor");
+            }
+            else
+            {
+                Alert_Danger_Panel.Visible = true;
+                alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                Alert_Danger_Panel.Focus();
+            }
         }
     }
 }

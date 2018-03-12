@@ -7,6 +7,48 @@
 <%@ Import Namespace="JKLWebBase_v2.Class_Base" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- Alert MessagesBox -->
+    <div class="row">
+        <asp:Panel ID="Alert_Warning_Panel" runat="server" Visible="false">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="alert alert-warning" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                    </button>
+                    <div class="modal-header">
+                        <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>!! แจ้งเตือน !! </h6>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Label ID="Alert_Id_Card_Lbl" runat="server"> ไม่พบเลขบัตรประชาชน . . . นี้ในระบบ </asp:Label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+
+        <asp:Panel ID="Alert_Danger_Panel" runat="server" Visible="false">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                    </button>
+                    <div class="modal-header">
+                        <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>
+                            <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label>
+                        </h6>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Label ID="alert_danger_Lbl" runat="server"> </asp:Label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+    </div>
+    <!-- Alert MessagesBox -->
+
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-primary">
@@ -197,7 +239,7 @@
                                                 {
                                                     Car_Leasings_Payment cls_pay = list_cls_pay[i];
 
-                                                    if (!string.IsNullOrEmpty(cls_pay.Bill_no))
+                                                    if (cls_pay.Count_payment != 0)
                                                     {
                                                         max_row = i;
                                                     }
@@ -256,7 +298,7 @@
                                             </td>
                                             <td>
                                                 <% 
-                                                    if (!string.IsNullOrEmpty(cls_pay.Bill_no) && max_row == i)
+                                                    if (max_row == i)
                                                     {
                                                 %>
                                                 <a class="btn btn-xs btn-danger" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>&mode=r" target="_parent" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>

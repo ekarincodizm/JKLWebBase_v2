@@ -120,23 +120,6 @@ namespace JKLWebBase_v2.Form_Customer
         protected void Customer_Add_Save_Btn_Click(object sender, EventArgs e)
         {
             _AddCustomer();
-
-            /// Acticity Logs System
-            ///  
-
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
-
-            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เพิ่มข้อมูลผู้ติดต่อ", acc_lgn.resu, package_login.Company_N_name);
-
-            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
-
-            /// Acticity Logs System
-
-            Session.Remove("chk_customer");
-
-            Session["Class_Active_Customer"] = 2;
-            Response.Redirect("/Form_Customer/Customer_Home_Photo");
         }
 
         /*******************************************************************************************************************************************************************************
@@ -571,6 +554,8 @@ namespace JKLWebBase_v2.Form_Customer
             Customers_Manager ctm_mng = new Customers_Manager();
             Customers ctm = new Customers();
 
+            bool past_page = false;
+
             if (Session["chk_customer"] != null)
             {
                 Customers ctm_tmp = (Customers)Session["chk_customer"];
@@ -704,7 +689,7 @@ namespace JKLWebBase_v2.Form_Customer
                 ctm.ctm_current_stt = new Base_Home_Status();
                 ctm.ctm_current_stt.Home_status_id = Current_Cust_Home_status_id_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Current_Cust_Home_status_id_DDL.SelectedValue);
 
-                ctm_mng.editCustomers(ctm);
+                past_page = ctm_mng.editCustomers(ctm);
             }
             else
             {
@@ -835,10 +820,39 @@ namespace JKLWebBase_v2.Form_Customer
                 ctm.ctm_current_stt = new Base_Home_Status();
                 ctm.ctm_current_stt.Home_status_id = Current_Cust_Home_status_id_DDL.SelectedIndex <= 0 ? 1 : Convert.ToInt32(Current_Cust_Home_status_id_DDL.SelectedValue);
 
-                ctm_mng.addCustomers(ctm);
+                past_page = ctm_mng.addCustomers(ctm);
             }
 
             Session["Customer"] = ctm;
+
+            if (past_page)
+            {
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เพิ่มข้อมูลผู้ติดต่อ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
+
+                Session.Remove("chk_customer");
+
+                Session["Class_Active_Customer"] = 2;
+                Response.Redirect("/Form_Customer/Customer_Home_Photo");
+            }
+            else
+            {
+                Alert_Danger_Panel.Visible = true;
+                alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                Alert_Danger_Panel.Focus();
+            }
         }
     }
 }

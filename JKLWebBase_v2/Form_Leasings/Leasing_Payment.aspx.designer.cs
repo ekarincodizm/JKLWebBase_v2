@@ -13,6 +13,51 @@ namespace JKLWebBase_v2.Form_Leasings {
     public partial class Leasing_Payment {
         
         /// <summary>
+        /// Alert_Warning_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Alert_Warning_Panel;
+        
+        /// <summary>
+        /// Alert_Id_Card_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Alert_Id_Card_Lbl;
+        
+        /// <summary>
+        /// Alert_Danger_Panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Alert_Danger_Panel;
+        
+        /// <summary>
+        /// alert_header_danger_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label alert_header_danger_Lbl;
+        
+        /// <summary>
+        /// alert_danger_Lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label alert_danger_Lbl;
+        
+        /// <summary>
         /// Company_N_Name_Lbl control.
         /// </summary>
         /// <remarks>

@@ -71,22 +71,6 @@ namespace JKLWebBase_v2.Form_Agents
         protected void Agent_Add_Save_Btn_Click(object sender, EventArgs e)
         {
             _EditAgent();
-
-            Session.Remove("chk_agent");
-
-            Alert_Success_Panel.Visible = true;
-
-            /// Acticity Logs System
-            ///  
-
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
-
-            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลนายหน้า ", acc_lgn.resu, package_login.Company_N_name);
-
-            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
-
-            /// Acticity Logs System
         }
 
         /*******************************************************************************************************************************************************************************
@@ -200,6 +184,8 @@ namespace JKLWebBase_v2.Form_Agents
             Agents_Manager cag_mng = new Agents_Manager();
             Agents cag = new Agents();
 
+            bool past_page = false;
+
             if (Session["chk_agent"] != null)
             {
                 Agents cag_tmp = (Agents)Session["chk_agent"];
@@ -219,7 +205,7 @@ namespace JKLWebBase_v2.Form_Agents
                 cag.Agent_Country = string.IsNullOrEmpty(Agent_country_TBx.Text) ? "" : Agent_country_TBx.Text;
                 cag.Agent_Zipcode = string.IsNullOrEmpty(Agent_zipcode_TBx.Text) ? "" : Agent_zipcode_TBx.Text;
 
-                cag_mng.editAgent(cag);
+                past_page = cag_mng.editAgent(cag);
             }
             else
             {
@@ -238,9 +224,35 @@ namespace JKLWebBase_v2.Form_Agents
                 cag.Agent_Country = string.IsNullOrEmpty(Agent_country_TBx.Text) ? "" : Agent_country_TBx.Text;
                 cag.Agent_Zipcode = string.IsNullOrEmpty(Agent_zipcode_TBx.Text) ? "" : Agent_zipcode_TBx.Text;
 
-                cag_mng.addAgent(cag);
+                past_page = cag_mng.addAgent(cag);
+            }
+
+            if (past_page)
+            {
+                Session.Remove("chk_agent");
+
+                Alert_Success_Panel.Visible = true;
+
+                /// Acticity Logs System
+                ///  
+
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
+
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลนายหน้า ", acc_lgn.resu, package_login.Company_N_name);
+
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+
+                /// Acticity Logs System
+            }
+            else
+            {
+                Alert_Danger_Panel.Visible = true;
+                alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                Alert_Danger_Panel.Focus();
             }
         }
-
     }
 }

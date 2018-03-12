@@ -1,6 +1,48 @@
 ﻿<%@ Page Title="เพิ่มข้อมูลผู้ใช้งาน" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Account_Add.aspx.cs" Inherits="JKLWebBase_v2.Form_Account.Account_Add" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- Alert MessagesBox -->
+    <div class="row">
+        <asp:Panel ID="Alert_Warning_Panel" runat="server" Visible="false">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="alert alert-warning" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                    </button>
+                    <div class="modal-header">
+                        <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>!! แจ้งเตือน !! </h6>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Label ID="Alert_Id_Card_Lbl" runat="server"> ไม่พบเลขบัตรประชาชน . . . นี้ในระบบ </asp:Label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+
+        <asp:Panel ID="Alert_Danger_Panel" runat="server" Visible="false">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                    </button>
+                    <div class="modal-header">
+                        <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>
+                            <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label>
+                        </h6>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Label ID="alert_danger_Lbl" runat="server"> </asp:Label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+    </div>
+    <!-- Alert MessagesBox -->
+
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-primary">

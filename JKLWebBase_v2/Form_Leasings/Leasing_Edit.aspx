@@ -1,8 +1,8 @@
-﻿<%@ page title="แก้ไขสัญญาเช่า-ซื้อ" language="C#" masterpagefile="~/Site.Master" autoeventwireup="true" codebehind="Leasing_Edit.aspx.cs" inherits="JKLWebBase_v2.Form_Leasings.Leasing_Edit" %>
+﻿<%@ Page Title="แก้ไขสัญญาเช่า-ซื้อ" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Leasing_Edit.aspx.cs" Inherits="JKLWebBase_v2.Form_Leasings.Leasing_Edit" %>
 
-<%@ register tagprefix="nav_menu" tagname="Tab_Menu" src="Tabs_Menu_Leasings.ascx" %>
+<%@ Register TagPrefix="nav_menu" TagName="Tab_Menu" Src="Tabs_Menu_Leasings.ascx" %>
 
-<%@ register tagprefix="print_menu_leasing" tagname="Print_Menu" src="Print_Menu_Leasing.ascx" %>
+<%@ Register TagPrefix="print_menu_leasing" TagName="Print_Menu" Src="Print_Menu_Leasing.ascx" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -10,6 +10,48 @@
     <print_menu_leasing:Print_Menu ID="Print_Menu1" runat="server" />
 
     <!-- ./Print Menu Button -->
+
+    <!-- Alert MessagesBox -->
+    <div class="row">
+        <asp:Panel ID="Alert_Warning_Panel" runat="server" Visible="false">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="alert alert-warning" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                    </button>
+                    <div class="modal-header">
+                        <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>!! แจ้งเตือน !! </h6>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Label ID="Alert_Id_Card_Lbl" runat="server"> ไม่พบเลขบัตรประชาชน . . . นี้ในระบบ </asp:Label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+
+        <asp:Panel ID="Alert_Danger_Panel" runat="server" Visible="false">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="glyphicon glyphicon-remove fa-fw"></i></span>
+                    </button>
+                    <div class="modal-header">
+                        <h6 class="modal-title"><i class="fa fa-warning fa-fw"></i>
+                            <asp:Label ID="alert_header_danger_Lbl" runat="server"> </asp:Label>
+                        </h6>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <asp:Label ID="alert_danger_Lbl" runat="server"> </asp:Label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+    </div>
+    <!-- Alert MessagesBox -->
 
     <div class="col-lg-12">
         <h4 class="page-header">แก้ไขข้อมูลสัญญาเช่า-ซื้อ </h4>

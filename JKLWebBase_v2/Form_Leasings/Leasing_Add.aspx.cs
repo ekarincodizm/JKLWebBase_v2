@@ -85,23 +85,6 @@ namespace JKLWebBase_v2.Form_Leasings
         protected void Leasing_Add_Save_Btn_Click(object sender, EventArgs e)
         {
             _AddLeasings();
-
-            /// Acticity Logs System
-            ///  
-
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
-
-            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เพิ่มข้อมูลสัญญาเช่า-ซื้อ", acc_lgn.resu, package_login.Company_N_name);
-
-            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
-
-            /// Acticity Logs System
-
-            Session["Class_Active"] = 3;
-
-            Response.Redirect("/Form_Leasings/Leasing_Add_Agent");
-
         }
 
         /*******************************************************************************************************************************************************************************
@@ -456,26 +439,36 @@ namespace JKLWebBase_v2.Form_Leasings
 
             cls.Leasing_Comment = string.IsNullOrEmpty(Leasing_Comment_TBx.Text) ? "" : Leasing_Comment_TBx.Text;
 
-            cls_mng.addCarLeasings(cls);
-
-            cls_ctm_mng.addCustomersLeasing(cls, ctm);
-
             Session["Leasings"] = cls;
 
-            /// Acticity Logs System
-            ///  
+            if (cls_ctm_mng.addCustomersLeasing(cls, ctm) && cls_mng.addCarLeasings(cls))
+            {
+                /// Acticity Logs System
+                ///  
 
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
 
-            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เพิ่มข้อมูลผู้ทำสัญญาเช่า-ซื้อ ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no, acc_lgn.resu, package_login.Company_N_name);
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เพิ่มข้อมูลผู้ทำสัญญาเช่า-ซื้อ ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no, acc_lgn.resu, package_login.Company_N_name);
 
-            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-            /// Acticity Logs System
+                /// Acticity Logs System
+                /// 
 
+                Session["Class_Active"] = 3;
+
+                Response.Redirect("/Form_Leasings/Leasing_Add_Agent");
+            }
+            else
+            {
+                Alert_Danger_Panel.Visible = true;
+                alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                Alert_Danger_Panel.Focus();
+            }
         }
-
     }
 }
 

@@ -606,6 +606,8 @@ namespace JKLWebBase_v2.Form_Leasings
             cls_pay.bs_cpn = new Base_Companys();
             cls_pay.bs_cpn.Company_id = package_login.Company_id;
 
+            bool past_page = false;
+
             if (Cal_Status_Lbl.Visible == false) /* กรณีจ่าค่างวดแบบธรรมดา */
             {
                 if (real_payment >= sum_payment_left)
@@ -644,23 +646,34 @@ namespace JKLWebBase_v2.Form_Leasings
 
                         if (!string.IsNullOrEmpty(Bill_No_Manual_Ref_TBx.Text))
                         {
-                            cls_pay_mng.addPayment_Mod_III(cls_pay, 1);
+                            past_page = cls_pay_mng.addPayment_Mod_III(cls_pay, 1);
                         }
                         else
                         {
-                            cls_pay_mng.addPayment(cls_pay, 1);
+                            past_page = cls_pay_mng.addPayment(cls_pay, 1);
                         }
 
-                        /// Acticity Logs System
-                        ///  
+                        if (past_page)
+                        {
+                            /// Acticity Logs System
+                            ///  
 
-                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
+                            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
 
-                        new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-                        /// Acticity Logs System
+                            /// Acticity Logs System
 
-                        _clearRealPayment();
+                            _clearRealPayment();
+                        }
+                        else
+                        {
+                            Alert_Danger_Panel.Visible = true;
+                            alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                            alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                            Alert_Danger_Panel.Focus();
+                        }
                     }
                 }
                 else
@@ -695,23 +708,34 @@ namespace JKLWebBase_v2.Form_Leasings
 
                         if (!string.IsNullOrEmpty(Bill_No_Manual_Ref_TBx.Text))
                         {
-                            cls_pay_mng.addPayment_Mod_III(cls_pay, 1);
+                            past_page = cls_pay_mng.addPayment_Mod_III(cls_pay, 1);
                         }
                         else
                         {
-                            cls_pay_mng.addPayment(cls_pay, 1);
+                            past_page = cls_pay_mng.addPayment(cls_pay, 1);
                         }
 
-                        /// Acticity Logs System
-                        ///  
+                        if (past_page)
+                        {
+                            /// Acticity Logs System
+                            ///  
 
-                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
+                            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
 
-                        new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-                        /// Acticity Logs System
+                            /// Acticity Logs System
 
-                        _clearRealPayment();
+                            _clearRealPayment();
+                        }
+                        else
+                        {
+                            Alert_Danger_Panel.Visible = true;
+                            alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                            alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                            Alert_Danger_Panel.Focus();
+                        }
                     }
                 }
 
@@ -753,25 +777,37 @@ namespace JKLWebBase_v2.Form_Leasings
 
                     if (!string.IsNullOrEmpty(Bill_No_Manual_Ref_TBx.Text))
                     {
-                        cls_pay_mng.addPayment_Mod_III(cls_pay, 2);
+                        past_page = cls_pay_mng.addPayment_Mod_III(cls_pay, 2);
                     }
                     else
                     {
-                        cls_pay_mng.addPayment(cls_pay, 2);
+                        past_page = cls_pay_mng.addPayment(cls_pay, 2);
                     }
 
-                    /// Acticity Logs System
-                    ///  
+                    if (past_page)
+                    {
 
-                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงินแบบคำนวนการปิดบัญชี ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
+                        /// Acticity Logs System
+                        ///  
 
-                    new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " บันทึกข้อมูลการจ่ายเงินแบบคำนวนการปิดบัญชี ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
 
-                    /// Acticity Logs System
+                        new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-                    _clearRealPayment();
+                        /// Acticity Logs System
 
-                    _loadLeasingDetails(leasing_id, idcard);
+                        _clearRealPayment();
+
+                        _loadLeasingDetails(leasing_id, idcard);
+                    }
+                    else
+                    {
+                        Alert_Danger_Panel.Visible = true;
+                        alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                        alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                        Alert_Danger_Panel.Focus();
+                    }
                 }
             }
         }

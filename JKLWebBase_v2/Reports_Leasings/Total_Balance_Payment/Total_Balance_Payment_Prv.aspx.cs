@@ -34,7 +34,7 @@ namespace JKLWebBase_v2.Reports_Leasings.Total_Balance_Payment
                 /// Acticity Logs System
                 ///  
 
-                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เข้าหน้าออกรายงานประจำปี ", acc_lgn.resu, package_login.Company_N_name);
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " เข้าหน้าออกรายงานลูกหนี้คงเหลือ ", acc_lgn.resu, package_login.Company_N_name);
 
                 new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 

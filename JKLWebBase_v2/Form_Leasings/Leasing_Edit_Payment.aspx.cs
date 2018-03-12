@@ -311,22 +311,32 @@ namespace JKLWebBase_v2.Form_Leasings
                 {
                     Note_Lbl.Text = "";
 
-                    cls_pay_mng.editPayment(cls_pay, bill_no);
+                    if (cls_pay_mng.editPayment(cls_pay, bill_no))
+                    {
 
-                    /// Acticity Logs System
-                    ///  
+                        /// Acticity Logs System
+                        ///  
 
-                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " เลขที่ใบเสร็จ : " + bill_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment +"] ["+ period_fine+"] ["+ real_discount+"] ", acc_lgn.resu, package_login.Company_N_name);
+                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " เลขที่ใบเสร็จ : " + bill_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
 
-                    new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                        new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-                    /// Acticity Logs System
+                        /// Acticity Logs System
 
-                    string ogn_code = CryptographyCode.GenerateSHA512String(leasing_id);
+                        string ogn_code = CryptographyCode.GenerateSHA512String(leasing_id);
 
-                    Session.Remove("old_company");
+                        Session.Remove("old_company");
 
-                    Response.Redirect("/Form_Leasings/Leasing_Payment?code=" + CryptographyCode.EncodeTOAddressBar(ogn_code, leasing_id, idcard));
+                        Response.Redirect("/Form_Leasings/Leasing_Payment?code=" + CryptographyCode.EncodeTOAddressBar(ogn_code, leasing_id, idcard));
+                    }
+                    else
+                    {
+                        Alert_Danger_Panel.Visible = true;
+                        alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                        alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                        Alert_Danger_Panel.Focus();
+                    }
                 }
             }
             else
@@ -353,22 +363,31 @@ namespace JKLWebBase_v2.Form_Leasings
                 {
                     Note_Lbl.Text = "";
 
-                    cls_pay_mng.editPayment(cls_pay, bill_no);
+                    if (cls_pay_mng.editPayment(cls_pay, bill_no))
+                    {
+                        /// Acticity Logs System
+                        ///  
 
-                    /// Acticity Logs System
-                    ///  
+                        string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " เลขที่ใบเสร็จ : " + bill_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
 
-                    string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลการจ่ายเงิน ในสัญญา : " + cls.Leasing_no + " เลขที่ฝาก : " + cls.Deps_no + " เลขที่ใบเสร็จ : " + bill_no + " จำนวนเงิน [ค่างวด] [ค่าปรับ] [ส่วนลด] : [" + real_payment + "] [" + period_fine + "] [" + real_discount + "] ", acc_lgn.resu, package_login.Company_N_name);
+                        new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-                    new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                        /// Acticity Logs System
 
-                    /// Acticity Logs System
+                        string ogn_code = CryptographyCode.GenerateSHA512String(leasing_id);
 
-                    string ogn_code = CryptographyCode.GenerateSHA512String(leasing_id);
+                        Session.Remove("old_company");
 
-                    Session.Remove("old_company");
+                        Response.Redirect("/Form_Leasings/Leasing_Payment?code=" + CryptographyCode.EncodeTOAddressBar(ogn_code, leasing_id, idcard));
+                    }
+                    else
+                    {
+                        Alert_Danger_Panel.Visible = true;
+                        alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                        alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
 
-                    Response.Redirect("/Form_Leasings/Leasing_Payment?code=" + CryptographyCode.EncodeTOAddressBar(ogn_code, leasing_id, idcard));
+                        Alert_Danger_Panel.Focus();
+                    }
                 }
             }
         }

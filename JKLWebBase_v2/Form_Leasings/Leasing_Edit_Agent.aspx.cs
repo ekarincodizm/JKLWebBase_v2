@@ -73,21 +73,6 @@ namespace JKLWebBase_v2.Form_Leasings
         protected void Agent_Add_Save_Btn_Click(object sender, EventArgs e)
         {
             _EditAgent();
-
-            Session.Remove("chk_agent_leasing");
-
-            Session["Class_Active"] = 4;
-
-            Session["Number_Of_Guarantor"] = "1";
-
-            if (Session["Guarantor_1"] == null)
-            {
-                Response.Redirect("/Form_Leasings/Leasing_Add_Guarantor");
-            }
-            else
-            {
-                Response.Redirect("/Form_Leasings/Leasing_Edit_Guarantor");
-            }
         }
 
         /*******************************************************************************************************************************************************************************
@@ -254,6 +239,8 @@ namespace JKLWebBase_v2.Form_Leasings
             Agents_Manager cag_mng = new Agents_Manager();
             Agents cag = new Agents();
 
+            bool past_page = false;
+
             if (Session["chk_agent_leasing"] != null)
             {
                 Agents cag_tmp = (Agents)Session["chk_agent_leasing"];
@@ -273,8 +260,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 cag.Agent_Country = string.IsNullOrEmpty(Agent_country_TBx.Text) ? "" : Agent_country_TBx.Text;
                 cag.Agent_Zipcode = string.IsNullOrEmpty(Agent_zipcode_TBx.Text) ? "" : Agent_zipcode_TBx.Text;
 
-                cag_mng.editAgent(cag);
-
+                past_page = cag_mng.editAgent(cag);
             }
             else
             {
@@ -293,7 +279,7 @@ namespace JKLWebBase_v2.Form_Leasings
                 cag.Agent_Country = string.IsNullOrEmpty(Agent_country_TBx.Text) ? "" : Agent_country_TBx.Text;
                 cag.Agent_Zipcode = string.IsNullOrEmpty(Agent_zipcode_TBx.Text) ? "" : Agent_zipcode_TBx.Text;
 
-                cag_mng.addAgent(cag);
+                past_page = cag_mng.addAgent(cag);
             }
 
             Car_Leasings cls_tmp = (Car_Leasings)Session["Leasings"];
@@ -313,23 +299,48 @@ namespace JKLWebBase_v2.Form_Leasings
             cag_com.Agent_book_code = string.IsNullOrEmpty(Agent_bookcode_TBx.Text) ? "" : Agent_bookcode_TBx.Text;
             cag_com.Agent_date_print = string.IsNullOrEmpty(Agent_date_print_TBx.Text) ? DateTimeUtility._dateNOWForServer() : DateTimeUtility.convertDateToMYSQL(Agent_date_print_TBx.Text);
 
-            cag_mng.editAgentCommission(cag_com);
+            if (cag_mng.editAgentCommission(cag_com) && past_page)
+            {
+                cag_com = cag_mng.getAgentCommission(cag_com.cag.Agent_id, cls_tmp.Leasing_id);
 
-            cag_com = cag_mng.getAgentCommission(cag_com.cag.Agent_id, cls_tmp.Leasing_id);
+                Session["Agents_Leasing"] = string.IsNullOrEmpty(cag_com.cag.Agent_id) ? null : cag_com;
 
-            Session["Agents_Leasing"] = string.IsNullOrEmpty(cag_com.cag.Agent_id) ? null : cag_com;
+                /// Acticity Logs System
+                ///  
 
-            /// Acticity Logs System
-            ///  
+                package_login = (Base_Companys)Session["Package"];
+                acc_lgn = (Account_Login)Session["Login"];
 
-            package_login = (Base_Companys)Session["Package"];
-            acc_lgn = (Account_Login)Session["Login"];
+                string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลนายหน้า ในสัญญา : " + cls_tmp.Leasing_no + " เลขที่ฝาก : " + cls_tmp.Deps_no, acc_lgn.resu, package_login.Company_N_name);
 
-            string message = Messages_Logs._messageLogsNormal(acc_lgn.Account_F_name, " แก้ไขข้อมูลนายหน้า ในสัญญา : " + cls_tmp.Leasing_no + " เลขที่ฝาก : " + cls_tmp.Deps_no, acc_lgn.resu, package_login.Company_N_name);
+                new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
 
-            new Activity_Log_Manager().addActivityLogs(message, acc_lgn.Account_id, package_login.Company_id);
+                /// Acticity Logs System
+                /// 
 
-            /// Acticity Logs System
+                Session.Remove("chk_agent_leasing");
+
+                Session["Class_Active"] = 4;
+
+                Session["Number_Of_Guarantor"] = "1";
+
+                if (Session["Guarantor_1"] == null)
+                {
+                    Response.Redirect("/Form_Leasings/Leasing_Add_Guarantor");
+                }
+                else
+                {
+                    Response.Redirect("/Form_Leasings/Leasing_Edit_Guarantor");
+                }
+            }
+            else
+            {
+                Alert_Danger_Panel.Visible = true;
+                alert_header_danger_Lbl.Text = "แจ้งเตือน!!";
+                alert_danger_Lbl.Text = "กรุณาตรวจสอบ ข้อมูลอีกครั้ง";
+
+                Alert_Danger_Panel.Focus();
+            }
         }
     }
 }
