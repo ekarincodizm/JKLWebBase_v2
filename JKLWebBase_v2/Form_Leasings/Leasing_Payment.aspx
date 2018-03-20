@@ -298,7 +298,7 @@
                                             </td>
                                             <td>
                                                 <% 
-                                                    if (max_row == i)
+                                                    if (!string.IsNullOrEmpty(cls_pay.Real_payment_date) && max_row == i)
                                                     {
                                                 %>
                                                 <a class="btn btn-xs btn-danger" href="/Form_Leasings/Leasing_Edit_Payment?code=<%= CryptographyCode.EncodeTOAddressBar(ogn_code, cls_pay.Leasing_id, cls_pay.Bill_no) %>&mode=r" target="_parent" data-toggle="tooltip" data-placement="top" title="ลบ"><i class="fa fa-trash-o fa-fw"></i></a>
