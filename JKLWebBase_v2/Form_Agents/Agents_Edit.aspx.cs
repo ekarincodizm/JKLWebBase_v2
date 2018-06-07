@@ -172,6 +172,7 @@ namespace JKLWebBase_v2.Form_Agents
             Agent_province_DDL.SelectedValue = "39";
             Agent_country_TBx.Text = "ประเทศไทย";
             Agent_zipcode_TBx.Text = "";
+            Agent_status_DDL.SelectedValue = "1";
         }
 
         /*******************************************************************************************************************************************************************************
