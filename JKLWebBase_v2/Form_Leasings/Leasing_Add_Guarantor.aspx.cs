@@ -54,11 +54,6 @@ namespace JKLWebBase_v2.Form_Leasings
             Page.Title = "ผู้ค้ำประกันคนที่ " + Session["Number_Of_Guarantor"].ToString();
         }
 
-        protected void Cust_idcard_TBx_TextChanged(object sender, EventArgs e)
-        {
-            _CheckCustomer();
-        }
-
         protected void Cust_Search_Btn_Click(object sender, EventArgs e)
         {
             _CheckCustomer();

@@ -48,11 +48,6 @@ namespace JKLWebBase_v2.Form_Leasings
             }
         }
 
-        protected void Agent_idcard_TBx_TextChanged(object sender, EventArgs e)
-        {
-            _CheckAgent();
-        }
-
         protected void Agent_search_Btn_Click(object sender, EventArgs e)
         {
             _CheckAgent();

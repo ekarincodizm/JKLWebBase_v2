@@ -80,7 +80,7 @@
                                 <asp:RequiredFieldValidator ID="RFV_Agent_idcard_TBx" runat="server" ErrorMessage=" กรุณากรอกข้อมูล " CssClass="text-danger" ControlToValidate="Agent_idcard_TBx" SetFocusOnError="true" ValidationGroup="Save_Validation"></asp:RequiredFieldValidator>
                             </asp:Label>
                             <div class="form-group input-group">
-                                <asp:TextBox ID="Agent_idcard_TBx" runat="server" CssClass="form-control" OnTextChanged="Agent_idcard_TBx_TextChanged" AutoPostBack="true"></asp:TextBox>
+                                <asp:TextBox ID="Agent_idcard_TBx" runat="server" CssClass="form-control" ></asp:TextBox>
                                 <asp:LinkButton ID="Agent_search_Btn" runat="server" CssClass="input-group-addon search" OnClick="Agent_search_Btn_Click"><i class="fa fa-search fa-fw"></i> ค้นหา </asp:LinkButton>
                             </div>
                         </div>

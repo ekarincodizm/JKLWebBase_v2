@@ -39,11 +39,6 @@ namespace JKLWebBase_v2.Form_Customer
             Alert_Warning_Panel.Visible = false;
         }
 
-        protected void Cust_idcard_TBx_TextChanged(object sender, EventArgs e)
-        {
-            _CheckCustomer();
-        }
-
         protected void Cust_Search_Btn_Click(object sender, EventArgs e)
         {
             _CheckCustomer();
