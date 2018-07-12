@@ -30,7 +30,7 @@ namespace JKLWebBase_v2.Form_Leasings
             {
                 Session.Remove("Customer_Leasing");
                 Session.Remove("Leasings");
-                Session.Remove("Agent_Leasing");
+                Session.Remove("Agents_Leasing");
                 Session.Remove("Guarantor_1");
                 Session.Remove("Guarantor_2");
                 Session.Remove("Guarantor_3");
